@@ -1,4 +1,4 @@
-Collecting functions for baseballR package
+Collecting functions for baseballr package
 
 # package dependencies
 
