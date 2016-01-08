@@ -9,46 +9,49 @@
 require(pacman)
 p_load(XML, rvest, dplyr)
 
+##### Scraping data from FanGraphs.com
+
 ### with XML
 # scrape historical park factors from FanGraphs.com, single year
 # yr = Year
 
-fg_park <- function(yr) {
-  factor_table <- readHTMLTable(paste0("http://www.fangraphs.com/guts.aspx?type=pf&teamid=0&season=", yr))
-  park_factors <- as.data.frame(factor_table[18])
-  names(park_factors) <- c("season", "home_team", "basic", "single", "double", "triple", "hr", "so", "UIBB", "GB", "FB", "LD", "IFFB", "FIP")
-  for(i in c(3:14)) {
-    park_factors[,i] <- as.numeric(as.character(park_factors[,i]))
-  }
-  park_factors
-}
+# fg_park <- function(yr) {
+#   factor_table <- readHTMLTable(paste0("http://www.fangraphs.com/guts.aspx?type=pf&teamid=0&season=", yr))
+#   park_factors <- as.data.frame(factor_table[18])
+#   names(park_factors) <- c("season", "home_team", "basic", "single", "double", "triple", "hr", "so", "UIBB", "GB", "FB", "LD", "IFFB", "FIP")
+#   for(i in c(3:14)) {
+#     park_factors[,i] <- as.numeric(as.character(park_factors[,i]))
+#   }
+#   park_factors
+# }
 
 # scrape park factors by handedness from FanGraphs.com
 # yr = Year
 
-fg_park_hand <- function(yr) {
-  factor_table <- readHTMLTable(paste0("http://www.fangraphs.com/guts.aspx?type=pfh&teamid=0&season=", yr))
-  park_factors <- as.data.frame(factor_table[18])
-  names(park_factors) <- c("season", "home_team", "single_as_LHH", "single_as_RHH", "double_as_LHH", "double_as_RHH", "triple_as_LHH", "triple_as_RHH", "hr_as_LHH", "hr_as_RHH")
-  for(i in c(3:10)) {
-    park_factors[,i] <- as.numeric(as.character(park_factors[,i]))
-  }
-  park_factors
-}
+# fg_park_hand <- function(yr) {
+#   factor_table <- readHTMLTable(paste0("http://www.fangraphs.com/guts.aspx?type=pfh&teamid=0&season=", yr))
+#   park_factors <- as.data.frame(factor_table[18])
+#   names(park_factors) <- c("season", "home_team", "single_as_LHH", "single_as_RHH", "double_as_LHH", "double_as_RHH", "triple_as_LHH", "triple_as_RHH", "hr_as_LHH", "hr_as_RHH")
+#   for(i in c(3:10)) {
+#     park_factors[,i] <- as.numeric(as.character(park_factors[,i]))
+#   }
+#   park_factors
+# }
 
 # scrape FanGraphs Guts! table
 
-fg_guts <- function() {
-fg_guts <- readHTMLTable("http://www.fangraphs.com/guts.aspx?type=cn")
-guts_table <- as.data.frame(fg_guts[16])
-names(guts_table) <- c("season", "lg_woba", "woba_scale", "wBB", "wHBP", "w1B", "w2B", "w3B", "wHR", "runSB", "runCS", "lg_r_pa", "lg_r_w", "cFIP")
-for(i in c(2:ncol(guts_table))) {
-  guts_table[,i] <- as.numeric(as.character(guts_table[,i]))
-}
-guts_table
-}
+# fg_guts <- function() {
+# fg_guts <- readHTMLTable("http://www.fangraphs.com/guts.aspx?type=cn")
+# guts_table <- as.data.frame(fg_guts[16])
+# names(guts_table) <- c("season", "lg_woba", "woba_scale", "wBB", "wHBP", "w1B", "w2B", "w3B", "wHR", "runSB", "runCS", "lg_r_pa", "lg_r_w", "cFIP")
+# for(i in c(2:ncol(guts_table))) {
+#   guts_table[,i] <- as.numeric(as.character(guts_table[,i]))
+# }
+# guts_table
+# }
 
 ### with rvest
+
 # scrape historical park factors from FanGraphs.com, single year
 # yr = Year
 
@@ -115,6 +118,38 @@ fg_bat_leaders <- function(x, y, qual) {
 }
 
 
+#### Scraping data from Baseball-Reference.com
 
+# Scrape schedule and results for a major league team
 
+# team_abrv <- function(tm, year) {
+#   teams <- html("http://www.baseball-reference.com/leagues/MLB/2015.shtml", stringsAsFactors=FALSE) %>% html_nodes("table") %>% .[[]]
+#   teams<-select(teams, Tm)
+#   teams<-filter(teams, Tm!="LgAvg")
+# }
 
+team_results <-function(tm, year) {
+  data <- html(paste0("http://www.baseball-reference.com/teams/", tm, "/", year, "-schedule-scores.shtml")) %>% html_nodes("table") %>% .[[7]] %>% html_table(fill = TRUE) %>% .[,-4]
+  colnames(data)[5] <- "H_A" 
+  data <- filter(data, Rk != "Rk")
+  data
+}
+
+#create function for scraping all records for all teams in 2015
+
+# scrape_results<-function(Tm) {
+#   url <- paste0("http://www.baseball-reference.com/teams/", Tm, "/2015-schedule-scores.shtml")
+#   data <- readHTMLTable(url, stringsAsFactors = FALSE)
+#   data <- data[[6]]
+#   data
+# }
+# 
+# #apply the scrape_results function to every team in 2015
+# 
+# results_2015<-teams %>% group_by(Tm) %>% do(scrape_results(.))
+# 
+# 
+# 
+# 
+# 
+# 
