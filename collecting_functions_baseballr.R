@@ -131,8 +131,32 @@ fg_bat_leaders <- function(x, y, qual) {
 team_results <-function(tm, year) {
   data <- html(paste0("http://www.baseball-reference.com/teams/", tm, "/", year, "-schedule-scores.shtml")) %>% html_nodes("table") %>% .[[7]] %>% html_table(fill = TRUE) %>% .[,-4]
   colnames(data)[5] <- "H_A" 
+  colnames(data)[7] <- "Result" 
+  colnames(data)[11] <- "Record" 
+  data$H_A <- ifelse(grepl("@", data$H_A, fixed = TRUE), "A", "H")
   data <- filter(data, Rk != "Rk")
+  data$Attendance <- gsub(",", "", test$Attendance)
+  data$Streak <- ifelse(grepl("-", data$Streak, fixed = TRUE), nchar(data$Streak) * -1, nchar(data$Streak) * 1)
+  for(i in c(1,2,8,9,10,12,19)) {
+    data[,i] <- as.numeric(data[,i])
+  }
   data
+}
+
+# 2 AL EAST
+# 3 AL CENTRAL
+# 4 AL WEST
+# 5 NL EAST
+# 6 NL CENTRAL
+# 7 NL WEST
+# 8 AL Division
+# 9 NL Division
+
+standings_on_date <- function(y, m, d, division) {
+  standings_lu <- data.frame(Div = c("AL EAST", "AL CENTRAL", "AL WEST", "NL EAST", "NL CENTRAL", "NL WEST", "AL DIVISION", "NL DIVISION"), num = c(2,3,4,5,6,7,8,9))
+  div <- standings_lu %>% filter(Div == division) %>% .$num
+  standings <- html(paste0("http://www.baseball-reference.com/games/standings.cgi?year=",y,"&month=",m, "&day=",d,"&submit=Submit+Date", stringsAsFactors = FALSE)) %>% html_nodes("table") %>% .[[div]] %>% html_table(fill = TRUE)
+  standings
 }
 
 #create function for scraping all records for all teams in 2015
@@ -147,9 +171,3 @@ team_results <-function(tm, year) {
 # #apply the scrape_results function to every team in 2015
 # 
 # results_2015<-teams %>% group_by(Tm) %>% do(scrape_results(.))
-# 
-# 
-# 
-# 
-# 
-# 
