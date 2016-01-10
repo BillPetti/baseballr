@@ -7,7 +7,7 @@
 # package dependencies
 
 require(pacman)
-p_load(XML, rvest, dplyr)
+p_load(XML, rvest, dplyr, reldist)
 
 ##### Scraping data from FanGraphs.com
 
@@ -128,14 +128,14 @@ fg_bat_leaders <- function(x, y, qual) {
 #   teams<-filter(teams, Tm!="LgAvg")
 # }
 
-team_results <-function(tm, year) {
-  data <- html(paste0("http://www.baseball-reference.com/teams/", tm, "/", year, "-schedule-scores.shtml")) %>% html_nodes("table") %>% .[[7]] %>% html_table(fill = TRUE) %>% .[,-4]
+team_results <-function(Tm, year) {
+  data <- html(paste0("http://www.baseball-reference.com/teams/", Tm, "/", year, "-schedule-scores.shtml")) %>% html_nodes("table") %>% .[[length(.)]] %>% html_table() %>% .[,-4]
   colnames(data)[5] <- "H_A" 
   colnames(data)[7] <- "Result" 
   colnames(data)[11] <- "Record" 
   data$H_A <- ifelse(grepl("@", data$H_A, fixed = TRUE), "A", "H")
   data <- filter(data, Rk != "Rk")
-  data$Attendance <- gsub(",", "", test$Attendance)
+  data$Attendance <- gsub(",", "", data$Attendance)
   data$Streak <- ifelse(grepl("-", data$Streak, fixed = TRUE), nchar(data$Streak) * -1, nchar(data$Streak) * 1)
   for(i in c(1,2,8,9,10,12,19)) {
     data[,i] <- as.numeric(data[,i])
@@ -159,15 +159,52 @@ standings_on_date <- function(y, m, d, division) {
   standings
 }
 
-#create function for scraping all records for all teams in 2015
 
-# scrape_results<-function(Tm) {
-#   url <- paste0("http://www.baseball-reference.com/teams/", Tm, "/2015-schedule-scores.shtml")
-#   data <- readHTMLTable(url, stringsAsFactors = FALSE)
-#   data <- data[[6]]
-#   data
-# }
-# 
+team_consistency <- function(year) {
+  teams <- html(paste0("http://www.baseball-reference.com/leagues/MLB/", year, ".shtml"), stringsAsFactors=FALSE) %>% html_nodes("table") %>% .[[2]] %>% html_table()
+  teams <- teams %>% select(Tm) %>% filter(Tm != "LgAvg") %>% filter(Tm != "Tm") %>% filter(!is.na(Tm))
+  teams$year <- year
+  teams <- teams %>% group_by(Tm, year) %>% do(team_results(.$Tm, .$year))
+  teams
+}
+  
+
 # #apply the scrape_results function to every team in 2015
 # 
-# results_2015<-teams %>% group_by(Tm) %>% do(scrape_results(.))
+# 
+# 
+# #tidy up the data.frame using dplyr
+# 
+# cols<-c(3:5, 9:10)
+# results_2015<-results_2015[,cols]
+# names(results_2015)<-c("Date", "box", "Team", "R", "RA")
+# #clean up some attributes left over from scraping the data from B-REF
+# attr(results_2015, "vars")<-NULL
+# results_2015<-filter(results_2015, box=="boxscore")
+# 
+# #convert R and RA columns to numeric
+# 
+# results_2015$R<-as.numeric(results_2015$R)
+# results_2015$RA<-as.numeric(results_2015$RA)
+# 
+# #calculate volatility scores for each team using Gini coefficients and the reldist package
+# 
+# RGini<-aggregate(R ~ Team, data = results_2015, FUN = "gini")
+# 
+# RAGini<-aggregate(RA ~ Team, data = results_2015, FUN = "gini")
+#   
+# }
+#   
+#   
+# #create function for scraping all records for all teams in 2015
+# 
+# # scrape_results<-function(Tm) {
+# #   url <- paste0("http://www.baseball-reference.com/teams/", Tm, "/2015-schedule-scores.shtml")
+# #   data <- readHTMLTable(url, stringsAsFactors = FALSE)
+# #   data <- data[[6]]
+# #   data
+# # }
+# # 
+# # #apply the scrape_results function to every team in 2015
+# # 
+# # results_2015<-teams %>% group_by(Tm) %>% do(scrape_results(.))
