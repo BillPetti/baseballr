@@ -14,8 +14,7 @@ woba_plus <- function(df) {
     guts_table[,i] <- as.numeric(as.character(guts_table[,i]))
   }
   df_join <- left_join(df, guts_table, by = "season")
-  df_join$wOBA <- round((((df_join$wBB * df_join$uBB) + (df_join$wHBP * df_join$HBP) + (df_join$w1B * df_join$x1B) + (df_join$w2B * df_join$x2B) + 	(df_join$w3B * df_join$x3B) + (df_join$wHR * df_join$HR))/(df_join$AB + df_join$uBB + df_join$HBP - df_join$SH)),3)
-  df_join <- df_join[,-c(22:34)]
+  df_join$wOBA <- round((((df_join$wBB * df_join$uBB) + (df_join$wHBP * df_join$HBP) + (df_join$w1B * df_join$X1B) + (df_join$w2B * df_join$X2B) + 	(df_join$w3B * df_join$X3B) + (df_join$wHR * df_join$HR))/(df_join$AB + df_join$uBB + df_join$HBP - df_join$SH)),3)
   df_join <- arrange(df_join, desc(wOBA))
   	df_join
 }
