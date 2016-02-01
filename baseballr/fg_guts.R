@@ -2,7 +2,7 @@
 # wOBA and FIP coefficients and constants
 
 fg_guts <- function() {
-  guts_table <- html("http://www.fangraphs.com/guts.aspx?type=cn")
+  guts_table <- read_html("http://www.fangraphs.com/guts.aspx?type=cn")
   guts_table <- guts_table %>% html_nodes(xpath = '//*[@id="content"]/table') %>% html_table(fill = TRUE)
   guts_table<- as.data.frame(guts_table) %>% .[-(1:2), (1:14)]
   names(guts_table) <- c("season", "lg_woba", "woba_scale", "wBB", "wHBP", "w1B", "w2B", "w3B", "wHR", "runSB", "runCS", "lg_r_pa", "lg_r_w", "cFIP")
