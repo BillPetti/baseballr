@@ -1,4 +1,4 @@
-# scrape batter performance data over a custom time frame
+# scrape batter performance data over a custom time frame. Data pulled from Baseball-Reference.com (http://www.baseball-reference.com/leagues/daily.cgi?user_team=&bust_cache=&type=b&lastndays=7&dates=fromandto=2015-07-23.2015-07-23&level=mlb&franch=&stat=b%3AHR&stat_value=1)
 # t1 = first game date, t2 = last game date
 
 daily_batter_bref <- function(t1, t2) {
