@@ -7,7 +7,7 @@
 # }
 
 team_results_bref <-function(Tm, year) {
-  data <- html(paste0("http://www.baseball-reference.com/teams/", Tm, "/", year, "-schedule-scores.shtml")) %>% html_nodes("table") %>% .[[length(.)]] %>% html_table() %>% .[,-4]
+  data <- read_html(paste0("http://www.baseball-reference.com/teams/", Tm, "/", year, "-schedule-scores.shtml")) %>% html_nodes("table") %>% .[[length(.)]] %>% html_table() %>% .[,-4]
   colnames(data)[5] <- "H_A" 
   colnames(data)[7] <- "Result" 
   colnames(data)[11] <- "Record" 
