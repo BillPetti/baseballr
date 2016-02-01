@@ -12,6 +12,6 @@
 standings_on_date_bref <- function(y, m, d, division) {
   standings_lu <- data.frame(Div = c("AL EAST", "AL CENTRAL", "AL WEST", "NL EAST", "NL CENTRAL", "NL WEST", "AL DIVISION", "NL DIVISION"), num = c(2,3,4,5,6,7,8,9))
   div <- standings_lu %>% filter(Div == division) %>% .$num
-  standings <- html(paste0("http://www.baseball-reference.com/games/standings.cgi?year=",y,"&month=",m, "&day=",d,"&submit=Submit+Date", stringsAsFactors = FALSE)) %>% html_nodes("table") %>% .[[div]] %>% html_table(fill = TRUE)
+  standings <- read_html(paste0("http://www.baseball-reference.com/games/standings.cgi?year=",y,"&month=",m, "&day=",d,"&submit=Submit+Date", stringsAsFactors = FALSE)) %>% html_nodes("table") %>% .[[div]] %>% html_table(fill = TRUE)
   standings
 }
