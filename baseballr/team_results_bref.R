@@ -18,5 +18,7 @@ team_results_bref <-function(Tm, year) {
   for(i in c(1,2,8,9,10,12,19)) {
     data[,i] <- as.numeric(data[,i])
   }
+  data$Year <- year
+  data <- data[,c(21, 1:20)]
   data
 }
