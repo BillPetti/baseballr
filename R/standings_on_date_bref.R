@@ -1,7 +1,10 @@
 #' Scrape MLB Standings on a Given Date
 #'
 #' This function allows you to scrape the standings from MLB for any date you choose.
-#' @param 
+#' @param y Year
+#' @param m Month
+#' @param d Day
+#' @param division Division for which you want to scrape standings. Must be in all capitals, such as AL EAST or NL WEST
 #' @keywords MLB, standings
 #' @export
 #' @examples 

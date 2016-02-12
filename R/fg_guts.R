@@ -1,3 +1,11 @@
+#' Scrape FanGraphs.com Guts!
+#'
+#' This function allows you to scrape the historical, season-by-season wOBA and FIP constants and coefficients at FanGraphs.com.
+#' @keywords MLB, sabermetrics
+#' @export
+#' @examples
+#' fg_guts()
+
 # scrape historical FanGraphs Guts! table
 # wOBA and FIP coefficients and constants
 

@@ -1,3 +1,11 @@
+#' Calculate Team-level Consistency
+#'
+#' This function allows you to calculate team-level consistency in run scoring and run prevention over the course of an entire season.
+#' @param year Season consistency should be run for.
+#' @keywords MLB, sabermetrics
+#' @export
+#' @examples
+
 #load packages: currently requires XML to scrape, dplyr to tidy, reldist for Gini calculations. Will be switching to rvest 
 
 team_consistency <- function(year) {

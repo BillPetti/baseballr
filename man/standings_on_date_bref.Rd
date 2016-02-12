@@ -6,6 +6,15 @@
 \usage{
 standings_on_date_bref(y, m, d, division)
 }
+\arguments{
+\item{y}{Year}
+
+\item{m}{Month}
+
+\item{d}{Day}
+
+\item{division}{Division for which you want to scrape standings. Must be in all capitals, such as AL EAST or NL WEST}
+}
 \description{
 This function allows you to scrape the standings from MLB for any date you choose.
 }

@@ -1,5 +1,11 @@
-# scrape historical park factors from FanGraphs.com, single year
-# yr = Year
+#' Scrape Park Factors from FanGraphs.com
+#'
+#' This function allows you to scrape park factors for a given season from FanGraphs.com.
+#' @param yr Season for which you want to scrape the park factors.
+#' @keywords MLB, sabermetrics
+#' @export
+#' @examples
+#' fg_park(2013)
 
 fg_park <- function(yr) {
   factor_table <- read_html(paste0("http://www.fangraphs.com/guts.aspx?type=pf&teamid=0&season=", yr))

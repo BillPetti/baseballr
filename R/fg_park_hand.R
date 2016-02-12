@@ -1,5 +1,11 @@
-# scrape park factors by handedness from FanGraphs.com, single year
-# yr = Year
+#' Scrape Park Factors by Handedness from FanGraphs.com
+#'
+#' This function allows you to scrape park factors by handedness from FanGraphs.com for a given single year.
+#' @param yr Season for which you want to scrape the park factors.
+#' @keywords MLB, sabermetrics
+#' @export
+#' @examples
+#' fg_park_hand(2013)
 
 fg_park_hand <- function(yr) {
   factor_table <- read_html(paste0("http://www.fangraphs.com/guts.aspx?type=pfh&teamid=0&season=", yr))

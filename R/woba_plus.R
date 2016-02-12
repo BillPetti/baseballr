@@ -2,16 +2,10 @@
 #'
 #' This function allows you to calculate wOBA for any given set of data, provided the right variables are in the data set. 
 #' 
-#' @param 
+#' @param df A data frame of statistics that includes, at a minimum, the following columns: uBB (unintentional walks), HBP (Hit By Pitch), x1B (singles), x2B (doubles), x3B (triples), HR (home runs), AB (at-bats), SH (sacrafice hits)
 #' @keywords MLB, woba, sabermetrics
 #' @export
 #' @examples 
-#' woba_plus()
-
-# calculate wOBA, wRC, and wRC+, all with one function call
-
-# wRC = (((wOBA-League wOBA)/wOBA Scale)+(League R/PA))*PA
-# wRC+ = (((wRAA/PA + League R/PA) + (League R/PA – Park Factor* League R/PA))/ (AL or NL wRC/PA excluding pitchers))*100
 
 woba_plus <- function(df) {
   df$season <- as.character(df$season)

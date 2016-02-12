@@ -6,11 +6,11 @@
 \usage{
 woba_plus(df)
 }
+\arguments{
+\item{df}{A data frame of statistics that includes, at a minimum, the following columns: uBB (unintentional walks), HBP (Hit By Pitch), x1B (singles), x2B (doubles), x3B (triples), HR (home runs), AB (at-bats), SH (sacrafice hits)}
+}
 \description{
 This function allows you to calculate wOBA for any given set of data, provided the right variables are in the data set.
-}
-\examples{
-woba_plus()
 }
 \keyword{MLB,}
 \keyword{sabermetrics}
