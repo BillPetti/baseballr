@@ -2,13 +2,16 @@ Package: baseballr
 Title: Functions for acquiring and analyzing baseball data.
 Version: 0.0.0.9000
 Authors@R: person("Bill", "Petti", email = "billpetti@gmail.com", role = c("aut", "cre"))
-Description: Provdes numerous functions for acquiring and analyzing baseball data.
-    Data can be acquired from FanGraphs and Baseball-Reference from within R. Custom metrics
-        can be calculated, such as wOBA and team consistency.
-Depends: R (>= 3.2.0)
+Description: Provdes numerous functions for acquiring and analyzing baseball
+    data. Data can be acquired from FanGraphs and Baseball-Reference from within R.
+    Custom metrics can be calculated, such as wOBA and team consistency.
+Depends:
+    R (>= 3.2.0)
 License: What license is it under?
 LazyData: true
-Imports: dplyr,
+Imports:
+    dplyr,
     rvest,
     XML,
     reldist
+RoxygenNote: 5.0.1.9000

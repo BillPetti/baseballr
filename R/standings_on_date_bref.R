@@ -1,3 +1,12 @@
+#' Scrape MLB Standings on a Given Date
+#'
+#' This function allows you to scrape the standings from MLB for any date you choose.
+#' @param 
+#' @keywords MLB, standings
+#' @export
+#' @examples 
+#' standings_on_date_bref()
+
 # Divisional standings on a given date from Baseball-Reference.com
 
 # 2 AL EAST
