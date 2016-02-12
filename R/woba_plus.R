@@ -2,10 +2,8 @@
 #'
 #' This function allows you to calculate wOBA for any given set of data, provided the right variables are in the data set. 
 #' 
-#' wOBA = (wBB×uBB + wHBP×HBP + w1B*x1B + w2B×x2B + w3B×x3B + wHR×HR) / PA
-#' 
 #' @param 
-#' @keywords MLB, standings
+#' @keywords MLB, woba, sabermetrics
 #' @export
 #' @examples 
 #' woba_plus()
