@@ -1,6 +1,17 @@
+#' Calcuate wOBA for any set of data
+#'
+#' This function allows you to calculate wOBA for any given set of data, provided the right variables are in the data set. 
+#' 
+#' wOBA = (wBB×uBB + wHBP×HBP + w1B*x1B + w2B×x2B + w3B×x3B + wHR×HR) / PA
+#' 
+#' @param 
+#' @keywords MLB, standings
+#' @export
+#' @examples 
+#' woba_plus()
+
 # calculate wOBA, wRC, and wRC+, all with one function call
 
-# wOBA = (wBB×uBB + wHBP×HBP + w1B*x1B + w2B×x2B + w3B×x3B + wHR×HR) / PA
 # wRC = (((wOBA-League wOBA)/wOBA Scale)+(League R/PA))*PA
 # wRC+ = (((wRAA/PA + League R/PA) + (League R/PA – Park Factor* League R/PA))/ (AL or NL wRC/PA excluding pitchers))*100
 
