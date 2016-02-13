@@ -16,7 +16,6 @@ This function allows you to scrape basic pitcher statistics over a custom time f
 }
 \examples{
 daily_pitcher_bref("2015-05-10", "2015-06-20")
-returns pitcher data between May 10th and June 20th, 2015
 }
 \keyword{MLB,}
 \keyword{sabermetrics}

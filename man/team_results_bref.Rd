@@ -16,9 +16,7 @@ This function allows you to scrape schedule and results for a major league team 
 }
 \examples{
 team_results_bref("NYM", 2015)
-returns the schedule and results for the New York Mets from the 2015 season
 team_results_bref("TBR", 2008)
-returns the schedule and results for the Tampa Bay Rays from the 2008 season
 }
 \keyword{MLB,}
 \keyword{sabermetrics}

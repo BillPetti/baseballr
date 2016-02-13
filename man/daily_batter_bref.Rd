@@ -16,7 +16,6 @@ This function allows you to scrape basic batter statistics over a custom time fr
 }
 \examples{
 daily_batter_bref("2015-05-10", "2015-06-20")
-returns batter data between May 10th and June 20th, 2015
 }
 \keyword{MLB,}
 \keyword{sabermetrics}

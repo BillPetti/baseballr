@@ -17,11 +17,7 @@ fg_bat_leaders(x, y, qual)
 This function allows you to scrape all leaderboard statistics (basic and advanced) from FanGraphs.com.
 }
 \examples{
-fg_bat_leaders(2013, 2015, "qual")
-returns leaderboards for all qualified hitters and their performance from 2013 through 2015.
-
-fg_bat_leaders(2015, 2015, 400)
-returns leaderboards for all hitters with at least 400 plate appearances in 2015.
+\dontrun{fg_bat_leaders(2015, 2015, 400)}
 }
 \keyword{MLB,}
 \keyword{sabermetrics}

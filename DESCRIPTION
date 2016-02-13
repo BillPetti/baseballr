@@ -1,5 +1,5 @@
 Package: baseballr
-Title: Functions for acquiring and analyzing baseball data.
+Title: Functions for acquiring and analyzing baseball data
 Version: 0.0.0.9000
 Authors@R: person("Bill", "Petti", email = "billpetti@gmail.com", role = c("aut", "cre"))
 Description: Provdes numerous functions for acquiring and analyzing baseball
@@ -13,5 +13,6 @@ Imports:
     dplyr,
     rvest,
     XML,
+    xml2,
     reldist
-RoxygenNote: 5.0.1.9000
+RoxygenNote: 5.0.1
