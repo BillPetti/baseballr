@@ -3,7 +3,7 @@
 #' This function allows you to calculate team-level consistency in run scoring and run prevention over the course of an entire season.
 #' @param year Season consistency should be run for.
 #' @keywords MLB, sabermetrics
-#' @importFrom dplyr do_ group_by_ left_join mutate_ select_
+#' @importFrom dplyr do_ group_by_ left_join mutate_ select_ last
 #' @importFrom reldist gini
 #' @importFrom XML readHTMLTable
 #' @export
