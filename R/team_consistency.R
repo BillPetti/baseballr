@@ -20,11 +20,12 @@ team_consistency <- function(year) {
   scrape_results <- function(Tm, year) {
     url <- paste0("http://www.baseball-reference.com/teams/", Tm, "/", year, "-schedule-scores.shtml")
     data <- readHTMLTable(url, stringsAsFactors = FALSE)
-    data <- data[[6]]
+    data <- as.data.frame(last(data))
+    data$year <- year
+    data <- data[,c(22,1:21)]
     data
   }
-  results <- teams %>% group_by_(~Tm, ~year) %>% do_(~scrape_results(Tm, year))
-  # results
+  results <- teams %>% group_by_(~Tm, ~year) %>% do_(~scrape_results(.$Tm, .$year))
   cols <- c(1, 4:6, 10:11)
   results <- results[,cols]
   names(results) <- c("Year", "Date", "box", "Team", "R", "RA")
