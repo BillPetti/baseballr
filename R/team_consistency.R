@@ -3,7 +3,7 @@
 #' This function allows you to calculate team-level consistency in run scoring and run prevention over the course of an entire season.
 #' @param year Season consistency should be run for.
 #' @keywords MLB, sabermetrics
-#' @importFrom dplyr do_ group_by_ left_join mutate_ select_ last
+#' @importFrom dplyr do_ group_by_ left_join mutate_ select_ last summarize_
 #' @importFrom reldist gini
 #' @importFrom XML readHTMLTable
 #' @export
@@ -33,8 +33,8 @@ team_consistency <- function(year) {
   results <- filter_(results, ~box=="boxscore")
   results$R <- as.numeric(results$R)
   results$RA <- as.numeric(results$RA)
-  RGini <- aggregate(R ~ Team, data = results, FUN = "gini")
-  RAGini <- aggregate(RA ~ Team, data = results, FUN = "gini")
+  RGini <- results %>% group_by_(~Team) %>% summarize_(R = ~gini(R))
+  RAGini <- results %>% group_by_(~Team) %>% summarize_(RA = ~gini(RA))
   VOL <- left_join(RGini, RAGini, by = "Team")
   VOL$R <- round(VOL$R, 2)
   VOL$RA <- round(VOL$RA, 2)
