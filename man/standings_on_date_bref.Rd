@@ -19,7 +19,7 @@ standings_on_date_bref(y, m, d, division)
 This function allows you to scrape the standings from MLB for any date you choose.
 }
 \examples{
-standings_on_date_bref()
+standings_on_date_bref("2015", "08", "04", "AL EAST")
 }
 \keyword{MLB,}
 \keyword{standings}
