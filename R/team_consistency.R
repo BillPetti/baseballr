@@ -9,7 +9,7 @@
 #' @export
 #' @examples \dontrun{team_consistency(2015)}
 
-#load packages: currently requires XML to scrape, dplyr to tidy, reldist for Gini calculations. Will be switching to rvest
+#load packages: currently requires XML to scrape, dplyr to tidy, reldist for Gini calculations. Will be switching to rvest for scraping
 
 team_consistency <- function(year) {
   teams <- readHTMLTable(paste0("http://www.baseball-reference.com/leagues/MLB/", year, ".shtml"), stringsAsFactors=FALSE)

@@ -16,5 +16,4 @@ Imports:
 License: What license is it under?
 LazyData: true
 BugReports: https://github.com/BillPetti/baseballr/issues
-RoxygenNote: 5.0.1
-
+RoxygenNote: 5.0.1.9000
