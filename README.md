@@ -67,4 +67,19 @@ Source: local data frame [30 x 5]
 ..   ...   ...    ...         ...          ...
 ```
 
+You can also calculate wOBA per plate appearance and wOBA on contact for any set of data over any date range, provided you have the data available.
+
+Simply pass the proper data frame to `woba_plus`:
+
+```R
+> x <- woba_plus(df)
+> head(x)[,c(1,2,24,26,27)]
+              Name         Team season  wOBA wOBA_CON
+1     Bryce Harper    Nationals   2015 0.464    0.554
+2       Joey Votto         Reds   2015 0.428    0.485
+3 Paul Goldschmidt Diamondbacks   2015 0.422    0.517
+4       Mike Trout       Angels   2015 0.418    0.519
+5   Miguel Cabrera       Tigers   2015 0.415    0.462
+6   Josh Donaldson    Blue Jays   2015 0.404    0.467
+```
 More functionality will be added soon.
