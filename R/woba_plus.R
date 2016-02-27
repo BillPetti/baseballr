@@ -1,4 +1,4 @@
-#' Calcuate wOBA for any set of data
+#' Calcuate wOBA and related metrics for any set of data
 #'
 #' This function allows you to calculate wOBA for any given set of data, provided the right variables are in the data set. The function currently returns both wOBA per plate appearance on wOBA per instance of fair contact.
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/woba_plus.R
 \name{woba_plus}
 \alias{woba_plus}
-\title{Calcuate wOBA for any set of data}
+\title{Calcuate wOBA and related metrics for any set of data}
 \usage{
 woba_plus(df)
 }
