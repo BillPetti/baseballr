@@ -3,7 +3,7 @@
 #' This function allows you to calculate the percent of pitches thrown to different edges of the strike zone over any custom time frame. Data is acquired by scraping the GameDay application from MLBAM using Carson Sievert's pitchRx package. The data can take a while to query, particular for large date ranges.
 #' @param start First date in your date range. Must be a character string in the format "yyyy-mm-dd".
 #' @param end Last date in your date range. Must be a character string in the format "yyyy-mm-dd".
-#' @param group Paramter indicating whether to group the output by pitchers or batters. Options are pitcher or batter.
+#' @param group Character string indicating whether to group the output by pitchers or batters. Options are "pitcher" or "batter".
 #' @keywords MLB, sabermetrics, PITCHf/x
 #' @importFrom pitchRx scrape
 #' @export
