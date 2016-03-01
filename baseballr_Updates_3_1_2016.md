@@ -27,7 +27,7 @@ Example:
 Example (pitchers):
 
 ```r
-> edge_scrape(start = "2015-04-06", end = "2015-04-07", "pitcher") %>% .[, c(1:3,7:12)] %>% head(10)
+> edge_scrape("2015-04-06", "2015-04-07", "pitcher") %>% .[, c(1:3,7:12)] %>% head(10)
      pitcher_name pitcher All_pitches Upper_Edge Lower_Edge Inside_Edge Outside_Edge Heart Out_of_Zone
             (chr)   (dbl)       (int)      (dbl)      (dbl)       (dbl)        (dbl) (dbl)       (dbl)
 1   Bartolo Colon  112526          86      0.035      0.081       0.058        0.151 0.209       0.465
@@ -45,7 +45,7 @@ Example (pitchers):
 Example (batters):
 
 ```r
-> edge_scrape(start = "2015-04-06", end = "2015-04-07", "batter") %>% .[, c(1:3,7:12)] %>% head(10)
+> edge_scrape("2015-04-06", "2015-04-07", "batter") %>% .[, c(1:3,7:12)] %>% head(10)
        batter_name batter All_pitches Upper_Edge Lower_Edge Inside_Edge Outside_Edge Heart Out_of_Zone
              (chr)  (dbl)       (int)      (dbl)      (dbl)       (dbl)        (dbl) (dbl)       (dbl)
 1    Bartolo Colon 112526           7      0.000      0.000       0.429        0.000 0.143       0.429
