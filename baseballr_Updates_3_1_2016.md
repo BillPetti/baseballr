@@ -22,7 +22,7 @@ Example:
 10   2015    Zack Greinke 32.2 1.93 27   7   1  2 3.01        0.240            0.274
 ```
 
-`edge_scrape()`: This function allows the user to scrape PITCHf/x data from the GameDay application using Carson Sievert's pitchRx package and to calculate metrics associated with [Edge%](https://billpetti.shinyapps.io/edge_shiny/). The function returns a data.frame grouped by either pitchers or batters and the percentge of pitches in each of the various Edge zones.
+`edge_scrape()`: This function allows the user to scrape PITCHf/x data from the GameDay application using Carson Sievert's [pitchRx](https://github.com/cpsievert/pitchRx) package and to calculate metrics associated with [Edge%](https://billpetti.shinyapps.io/edge_shiny/). The function returns a data.frame grouped by either pitchers or batters and the percentge of pitches in each of the various Edge zones.
 
 Example (pitchers):
 
