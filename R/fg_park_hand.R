@@ -8,7 +8,7 @@
 #' fg_park_hand(2013)
 
 fg_park_hand <- function(yr) {
-  read_html(paste0("http://www.fangraphs.com/guts.aspx?type=pfh&teamid=0&season=", 2013)) %>%
+  read_html(paste0("http://www.fangraphs.com/guts.aspx?type=pfh&teamid=0&season=", yr)) %>%
     html_node(xpath = '//*[(@id = "GutsBoard1_dg1_ctl00")]') %>% 
     html_table %>% 
     setNames(c("season", "home_team", "single_as_LHH", "single_as_RHH", 
