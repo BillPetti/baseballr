@@ -1,15 +1,15 @@
-#' Edge Percentage Scrape
+#' Scrape Edge Percentage for Splits
 #'
-#' This function allows you to calculate the percent of pitches thrown to different edges of the strike zone over any custom time frame. Data is acquired by scraping the GameDay application from MLBAM using Carson Sievert's pitchRx package. The data can take a while to query, particular for large date ranges.
+#' This function allows you to calculate the percent of pitches thrown to different edges of the strike zone over any custom time frame, and to split the data by batter and pitcher handedness. Data is acquired by scraping the GameDay application from MLBAM using Carson Sievert's pitchRx package. The data can take a while to query, particular for large date ranges.
 #' @param start First date in your date range. Must be a character string in the format "yyyy-mm-dd".
 #' @param end Last date in your date range. Must be a character string in the format "yyyy-mm-dd".
 #' @param group Character string indicating whether to group the output by pitchers or batters. Options are "pitcher" or "batter".
 #' @keywords MLB, sabermetrics, PITCHf/x
-#' @importFrom pitchRx scrape dplyr select dplyr filter dplry summarise
+#' @importFrom pitchRx scrape
 #' @export
-#' @examples \dontrun{edge_scrape("2015-04-05", "2015-04-05", pitcher)}
+#' @examples \dontrun{edge_scrape_split("2015-04-05", "2015-04-05", pitcher)}
 
-edge_scrape <- function(start, end, group) {
+edge_scrape_split <- function(start, end, group) {
   pfx <- scrape(start, end)
   df <- left_join(pfx$pitch, pfx$atbat, by = c("gameday_link", "num"))
   f <- as.numeric(lapply(strsplit(df$b_height, "-"), function(x) x[1])) * 12
@@ -32,7 +32,7 @@ edge_scrape <- function(start, end, group) {
   df_combined$Outside_Edge <- with(df_combined, ifelse(location == "Outside Edge", 1, 0))
   df_combined$Heart <- with(df_combined, ifelse(location == "Heart", 1, 0))
   df_combined$OutOfZone <- with(df_combined, ifelse(location == "Out of Zone", 1, 0))
-  grouped <- filter(df_combined, !is.na(px), !is.na(pz)) %>% group_by_(group) %>% summarise(All_pitches = n(), All_calls = sum(called_pitch), Called_Strike = sum(called_strike), Called_strike_rate = round(sum(called_strike)/sum(called_pitch),3), Upper_Edge = sum(Upper_Edge)/All_pitches, Lower_Edge = sum(Lower_Edge)/All_pitches, Inside_Edge = sum(Inside_Edge)/All_pitches, Outside_Edge = sum(Outside_Edge)/All_pitches, Heart = sum(Heart)/All_pitches, Out_of_Zone = sum(OutOfZone)/All_pitches)
+  grouped <- filter(df_combined, !is.na(px), !is.na(pz)) %>% group_by_(group, 'p_throws', 'stand') %>% summarise(All_pitches = n(), All_calls = sum(called_pitch), Called_Strike = sum(called_strike), Called_strike_rate = round(sum(called_strike)/sum(called_pitch),3), Upper_Edge = sum(Upper_Edge)/All_pitches, Lower_Edge = sum(Lower_Edge)/All_pitches, Inside_Edge = sum(Inside_Edge)/All_pitches, Outside_Edge = sum(Outside_Edge)/All_pitches, Heart = sum(Heart)/All_pitches, Out_of_Zone = sum(OutOfZone)/All_pitches)
   grouped[,c(6:11)] <- round(grouped[,c(6:11)], 3)
   grouped <- if (group == "pitcher") {left_join(grouped, pitcher_match, by = "pitcher") %>% select(pitcher_name, everything())} else {left_join(grouped, batter_match, by = "batter") %>% select(batter_name, everything())}
   grouped
