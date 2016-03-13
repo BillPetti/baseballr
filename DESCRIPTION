@@ -3,16 +3,17 @@ Title: Functions for acquiring and analyzing baseball data
 Version: 0.1.2
 Authors@R: 'Bill Petti <billpetti@gmail.com> [aut, cre]'
 Description: Provdes numerous functions for acquiring and analyzing baseball
-    data. Data can be acquired from FanGraphs and Baseball-Reference from within R.
-    Custom metrics can be calculated, such as wOBA, FIP, and team consistency.
+    data. Data can be acquired from various online sources from within R.
+    Custom metrics can also be calculated, such as wOBA, FIP, and Edge%.
 Depends:
     R (>= 3.2.0)
 Imports:
     dplyr,
+    pitchRx,
+    reldist,
     rvest,
     XML,
-    xml2,
-    reldist
+    xml2
 License: What license is it under?
 LazyData: true
 BugReports: https://github.com/BillPetti/baseballr/issues
