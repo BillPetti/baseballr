@@ -1,7 +1,8 @@
 Package: baseballr
 Title: Functions for acquiring and analyzing baseball data
 Version: 0.1.2
-Authors@R: 'Bill Petti <billpetti@gmail.com> [aut, cre]'
+Authors: Bill Petti <billpetti@gmail.com>
+Maintainer: Bill Petti <billpetti@gmail.com>
 Description: Provdes numerous functions for acquiring and analyzing baseball
     data. Data can be acquired from various online sources from within R.
     Custom metrics can also be calculated, such as wOBA, FIP, and Edge%.
@@ -14,7 +15,7 @@ Imports:
     rvest,
     XML,
     xml2
-License: What license is it under?
+License: MIT
 LazyData: true
 BugReports: https://github.com/BillPetti/baseballr/issues
 RoxygenNote: 5.0.1.9000
