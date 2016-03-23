@@ -1,29 +1,42 @@
 #' Scrape MLB Standings on a Given Date
 #'
 #' This function allows you to scrape the standings from MLB for any date you choose.
-#' @param y Year
-#' @param m Month
-#' @param d Day
-#' @param division Division for which you want to scrape standings. Must be in all capitals, such as AL EAST or NL WEST
+#' @param date a date object
+#' @param division One or more of AL East, AL Central, AL West, 
+#' AL Overall, NL East, NL Central, NL West, and NL Overall
+#' @param from a logical indicating whether you want standings up to and 
+#' including the date (FALSE, default) or rather standings for games played 
+#' after the date
 #' @keywords MLB, standings
+#' @importFrom lubridate day month year
 #' @export
 #' @examples
-#' standings_on_date_bref("2015", "08", "04", "AL EAST")
+#' standings_on_date_bref("2015-08-04", "AL East")
 
-# Divisional standings on a given date from Baseball-Reference.com
-
-# 2 AL EAST
-# 3 AL CENTRAL
-# 4 AL WEST
-# 5 NL EAST
-# 6 NL CENTRAL
-# 7 NL WEST
-# 8 AL Division
-# 9 NL Division
-
-standings_on_date_bref <- function(y, m, d, division) {
-  standings_lu <- data.frame(Div = c("AL EAST", "AL CENTRAL", "AL WEST", "NL EAST", "NL CENTRAL", "NL WEST", "AL DIVISION", "NL DIVISION"), num = c(2,3,4,5,6,7,8,9))
-  div <- standings_lu %>% filter_(~Div == division) %>% `[[`("num")
-  standings <- read_html(paste0("http://www.baseball-reference.com/games/standings.cgi?year=",y,"&month=",m, "&day=",d,"&submit=Submit+Date", stringsAsFactors = FALSE)) %>% html_nodes("table") %>% `[[`(div) %>% html_table(fill = TRUE)
-  standings
+standings_on_date_bref <- function(date, division, from = FALSE) {
+  
+  stopifnot(intersect(
+    grepl("AL|NL", division), grepl("East|Central|West|Overall", division)
+  ))
+  
+  url <- paste0 (
+    "http://www.baseball-reference.com/games/standings.cgi",
+    "?year=", sprintf("%04i", year(date)),
+    "&month=", sprintf("%02i", month(date)), 
+    "&day=", sprintf("%02i", day(date)),
+    "&submit=Submit+Date"
+  )
+  
+  html_doc <- url %>% read_html
+  
+  table_names <- html_doc %>% html_nodes("h3") %>% html_text %>% 
+    gsub(pattern = "\\s+", replacement = " ") %>% 
+    gsub(pattern = " Division", replacement = "")
+  
+  tables <- html_doc %>% 
+    html_nodes(xpath = "//*[(@class = 'sortable  stats_table')]")
+  
+  ind <- match(division, table_names) + from * length(table_names) / 2
+  
+  tables %>% `[`(ind) %>% html_table %>% setNames(table_names[ind])
 }
