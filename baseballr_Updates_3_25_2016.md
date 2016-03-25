@@ -24,7 +24,7 @@ Example (based on data from "2015-04-05"):
 
 Functions updated for this release:
 
-`standings_on_date_bref`: Jonathan Bob updated this funtion to allow for records to be returned for the given date or from that date forward. Also, users can input a full date string instead of three separate arguments for the day, month, and year. Users can also choose to pull records for the AL and NL overall, not just for a given division.
+`standings_on_date_bref`: [JonathanBob](https://github.com/JonathanBob) updated this funtion to allow for records to be returned for the given date or from that date forward. Also, users can input a full date string instead of three separate arguments for the day, month, and year. Users can also choose to pull records for the AL and NL overall, not just for a given division.
 
 Example:
 
