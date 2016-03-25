@@ -7,7 +7,7 @@
 edge_code(df)
 }
 \arguments{
-\item{df}{A dataframe that, at a minimum, includes the following columns: batter height (b_height), vertical location of the pitch (pz), and then horizontal location of the pitch (pz)}
+\item{df}{A dataframe that, at a minimum, includes the following columns: batter height (b_height), the batter's handedness (stand), vertical location of the pitch (pz), and then horizontal location of the pitch (pz)}
 }
 \description{
 This function allows you to classify individual pitches based on the various categories from the Edge% metric. The dataframe passed to the function must include the batter's handedness, the px and pz coordinates from the PITCHf/x system, and the batter's height.
