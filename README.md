@@ -1,4 +1,4 @@
-# baseballr 0.1.2
+# baseballr 0.1.3
 
 `baseballr` is a package written for R focused on baseball analysis. It includes functions for scraping various data from websites, such as FanGraphs.com and Baseball-Reference.com. It also includes functions for calculating metrics, such as wOBA, FIP, and team-level consistency over custom time frames.
 
@@ -16,13 +16,14 @@ The package consists of two main sets of functions: data acquisition and metric 
 For example, if you want to see the standings for a specific MLB division on a given date, you can use the `standings_on_date_bref()` function. Just pass the year, month, day, and division you want:
 
 ```R
-> standings_on_date_bref(2015, 10, 1, "NL EAST")
+> standings_on_date_bref("2015-08-01", "NL East", from = FALSE)
+$`NL East`
    Tm  W  L  W-L%   GB  RS  RA pythW-L%
-1 NYM 89 70 0.560   -- 681 608    0.552
-2 WSN 81 78 0.509  8.0 698 633    0.545
-3 MIA 69 90 0.434 20.0 599 663    0.454
-4 ATL 64 95 0.403 25.0 561 760    0.365
-5 PHI 62 97 0.390 27.0 611 795    0.382
+1 WSN 54 48 0.529   -- 422 391    0.535
+2 NYM 54 50 0.519  1.0 368 373    0.494
+3 ATL 46 58 0.442  9.0 379 449    0.423
+4 MIA 42 62 0.404 13.0 370 408    0.455
+5 PHI 41 64 0.390 14.5 386 511    0.374
 ```
 Right now the function works as far as back as 1994, which is when both leagues split into three divisions.
 
