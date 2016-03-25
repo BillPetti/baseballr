@@ -2,6 +2,7 @@
 
 export(daily_batter_bref)
 export(daily_pitcher_bref)
+export(edge_code)
 export(edge_scrape)
 export(edge_scrape_split)
 export(fg_bat_leaders)
