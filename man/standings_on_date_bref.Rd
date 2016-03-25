@@ -4,22 +4,23 @@
 \alias{standings_on_date_bref}
 \title{Scrape MLB Standings on a Given Date}
 \usage{
-standings_on_date_bref(y, m, d, division)
+standings_on_date_bref(date, division, from = FALSE)
 }
 \arguments{
-\item{y}{Year}
+\item{date}{a date object}
 
-\item{m}{Month}
+\item{division}{One or more of AL East, AL Central, AL West, 
+AL Overall, NL East, NL Central, NL West, and NL Overall}
 
-\item{d}{Day}
-
-\item{division}{Division for which you want to scrape standings. Must be in all capitals, such as AL EAST or NL WEST}
+\item{from}{a logical indicating whether you want standings up to and 
+including the date (FALSE, default) or rather standings for games played 
+after the date}
 }
 \description{
 This function allows you to scrape the standings from MLB for any date you choose.
 }
 \examples{
-standings_on_date_bref("2015", "08", "04", "AL EAST")
+standings_on_date_bref("2015-08-04", "AL East")
 }
 \keyword{MLB,}
 \keyword{standings}

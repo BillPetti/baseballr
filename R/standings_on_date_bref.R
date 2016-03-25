@@ -33,8 +33,7 @@ standings_on_date_bref <- function(date, division, from = FALSE) {
     gsub(pattern = "\\s+", replacement = " ") %>% 
     gsub(pattern = " Division", replacement = "")
   
-  tables <- html_doc %>% 
-    html_nodes(xpath = "//*[(@class = 'sortable  stats_table')]")
+  tables <- html_doc %>% html_nodes(xpath = "//*[(@class = 'sortable  stats_table')]")
   
   ind <- match(division, table_names) + from * length(table_names) / 2
   

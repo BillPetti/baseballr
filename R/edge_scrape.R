@@ -13,7 +13,7 @@ edge_scrape <- function(start, end, group) {
   pfx <- scrape(start, end)
   df <- left_join(pfx$pitch, pfx$atbat, by = c("gameday_link", "num"))
   f <- as.numeric(lapply(strsplit(df$b_height, "-"), function(x) x[1])) * 12
-  i <- as.numeric(lapply(strsplit(df$b_height, "-"), function(x) x[1]))
+  i <- as.numeric(lapply(strsplit(df$b_height, "-"), function(x) x[2]))
   df$b_height_inch <- f+i
   df$called_pitch <- ifelse(grepl("Called|Ball", df$des), 1, 0)
   df$called_strike <- ifelse(grepl("Called", df$des), 1, 0)
