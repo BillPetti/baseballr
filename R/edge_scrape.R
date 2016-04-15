@@ -6,6 +6,7 @@
 #' @param group Character string indicating whether to group the output by pitchers or batters. Options are "pitcher" or "batter".
 #' @keywords MLB, sabermetrics, PITCHf/x
 #' @importFrom pitchRx scrape
+#' @importFrom dplyr summarise
 #' @export
 #' @examples \dontrun{edge_scrape("2015-04-05", "2015-04-05", pitcher)}
 
