@@ -9,11 +9,11 @@ standings_on_date_bref(date, division, from = FALSE)
 \arguments{
 \item{date}{a date object}
 
-\item{division}{One or more of AL East, AL Central, AL West, 
+\item{division}{One or more of AL East, AL Central, AL West,
 AL Overall, NL East, NL Central, NL West, and NL Overall}
 
-\item{from}{a logical indicating whether you want standings up to and 
-including the date (FALSE, default) or rather standings for games played 
+\item{from}{a logical indicating whether you want standings up to and
+including the date (FALSE, default) or rather standings for games played
 after the date}
 }
 \description{
