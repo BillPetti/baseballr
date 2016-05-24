@@ -1,6 +1,6 @@
 Package: baseballr
 Title: Functions for acquiring and analyzing baseball data
-Version: 0.1.3
+Version: 0.1.4
 Authors: Bill Petti <billpetti@gmail.com>
 Maintainer: Bill Petti <billpetti@gmail.com>
 Description: Provdes numerous functions for acquiring and analyzing baseball
