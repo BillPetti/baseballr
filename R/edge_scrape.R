@@ -7,6 +7,7 @@
 #' @keywords MLB, sabermetrics, PITCHf/x
 #' @importFrom pitchRx scrape
 #' @importFrom dplyr summarise
+#' @importFrom dplyr mutate
 #' @export
 #' @examples \dontrun{edge_scrape("2015-04-05", "2015-04-05", pitcher)}
 
@@ -33,8 +34,9 @@ edge_scrape <- function(start, end, group) {
   df_combined$Outside_Edge <- with(df_combined, ifelse(location == "Outside Edge", 1, 0))
   df_combined$Heart <- with(df_combined, ifelse(location == "Heart", 1, 0))
   df_combined$OutOfZone <- with(df_combined, ifelse(location == "Out of Zone", 1, 0))
-  grouped <- filter(df_combined, !is.na(px), !is.na(pz)) %>% group_by_(group) %>% summarise(All_pitches = n(), All_calls = sum(called_pitch), Called_Strike = sum(called_strike), Called_strike_rate = round(sum(called_strike)/sum(called_pitch),3), Upper_Edge = sum(Upper_Edge)/All_pitches, Lower_Edge = sum(Lower_Edge)/All_pitches, Inside_Edge = sum(Inside_Edge)/All_pitches, Outside_Edge = sum(Outside_Edge)/All_pitches, Heart = sum(Heart)/All_pitches, Out_of_Zone = sum(OutOfZone)/All_pitches)
-  grouped[,c(6:11)] <- round(grouped[,c(6:11)], 3)
+  grouped <- filter(df_combined, !is.na(px), !is.na(pz)) %>% group_by_(group) %>% summarise(All_pitches = n(), All_calls = sum(called_pitch), Called_Strike = sum(called_strike), Called_strike_rate = round(sum(called_strike)/sum(called_pitch),3), Upper_Edge = sum(Upper_Edge)/All_pitches, Lower_Edge = sum(Lower_Edge)/All_pitches, Inside_Edge = sum(Inside_Edge)/All_pitches, Outside_Edge = sum(Outside_Edge)/All_pitches, Heart = sum(Heart)/All_pitches, Out_of_Zone = sum(OutOfZone)/All_pitches) %>%
+    mutate(Total_Edge = Upper_Edge + Lower_Edge + Inside_Edge + Outside_Edge)
+  grouped[,c(6:12)] <- round(grouped[,c(6:12)], 3)
   grouped <- if (group == "pitcher") {left_join(grouped, pitcher_match, by = "pitcher") %>% select(pitcher_name, everything())} else {left_join(grouped, batter_match, by = "batter") %>% select(batter_name, everything())}
   grouped
   }
