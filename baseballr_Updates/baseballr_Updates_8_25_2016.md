@@ -1,10 +1,10 @@
-## Update Notes for baseballr package: Version 0.1.4 
+## Update Notes for baseballr package: Version 0.2.0
 ### August 25, 2016
 
 Functions added to this release:
 
-`scrape_statcast_savant_batter`
-`scrape_statcast_savant_pitcher`
+`scrape_statcast_savant_batter`<br>
+`scrape_statcast_savant_pitcher`<br>
 `playerid_lookup`
 
 The two savant functions allow a user to retrieve PITCHf/x and Statcast data for either a specific batter or pitcher from [Baseball Savants' Statcast Search] (https://baseballsavant.mlb.com/statcast_search). The user needs to provide a start date, end date, and the batter or pitcher's MLBAMID.
