@@ -29,7 +29,7 @@ Example:
 
 Since the savant functions require users to pass a valid MLBAMID, a lookup function is included that leverages the Chadwich public register. Users provide a text string and only those players with that string present in their last name will be returned.
 
-Here is an example where the user is looking players with the last name "Seager":
+Here is an example where the user is looking for players with the last name "Seager":
 
 ```r
 > playerid_lookup("Seager")
