@@ -52,7 +52,7 @@ betts_grpd %>%
   stat_smooth(aes(group = Year, color = Year)) +
   facet_wrap(~variable, scales = "free_y") + 
   ggtitle("\nThe Evolution of Mookie Betts\n") + 
-  labs(subtitle = paste0("Betts has lowered his launch angle in 2016. In addition, he has not only hit the ball harder on average (", betts_avg_speed_yr[1,1], "mph vs. ", betts_avg_speed_yr[1,1], "mph), but he's doing it with far more consistency\n\n"), 
+  labs(subtitle = paste0("Betts has lowered his launch angle in 2016. In addition, he has not only hit the ball harder on average (", betts_avg_speed_yr[1,2], " mph vs. ", betts_avg_speed_yr[2,2], " mph), but he's doing it with far more consistency\n\n"), 
        caption = "@BillPetti\nData from baseballsavant.mlb.com\nData acquired with the baseballr package") +
   ylab("Angle = Degrees, Speed = MPH\n") +
   xlab("\nDate") +
