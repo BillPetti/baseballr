@@ -23,11 +23,12 @@ betts_id <- playerid_lookup("Betts") %>%
   filter(first_name == "Mookie") %>%
   select(mlbam_id, first_name, last_name)
 
-# scrape Betts' Statcast data, by pitch
+# scrape Betts' Statcast data, by pitch removing those with a batted ball speed of 0
 
 betts <- scrape_statcast_savant_batter("2015-03-31", "2016-08-26", betts_id[1,1]) %>%
   mutate(Year = as.factor(substr(game_date,1,4))) %>%
-  filter(type == "X")
+  filter(type == "X") %>%
+  filter(hit_speed != 0)
 
 # calculate average launch angles and batted ball speeds by game
 
@@ -42,7 +43,7 @@ betts_grpd <- betts %>%
 
 betts_avg_speed_yr <- betts %>%
   group_by(Year) %>%
-  summarise(speed = round(mean(hit_speed, na.rm = TRUE),1))
+  summarise(speed = round(mean(hit_speed, na.rm = TRUE),1), angle = round(mean(hit_angle, na.rm = TRUE),1))
 
 # plot the data
 
@@ -51,13 +52,13 @@ betts_grpd %>%
   geom_point() +
   stat_smooth(aes(group = Year, color = Year)) +
   facet_wrap(~variable, scales = "free_y") + 
-  ggtitle("\nThe Evolution of Mookie Betts\n") + 
-  labs(subtitle = paste0("Betts has lowered his launch angle in 2016. In addition, he has not only hit the ball harder on average (", betts_avg_speed_yr[1,2], " mph vs. ", betts_avg_speed_yr[2,2], " mph), but he's doing it with far more consistency\n\n"), 
+  ggtitle("\nMookie Betts: 2015 vs. 2016\n") + 
+  labs(subtitle = paste0("Betts has lowered his launch angle in 2016, from ", betts_avg_speed_yr[1,3], " degrees in 2015 to ", betts_avg_speed_yr[2,3], " degrees this year.\n\n"), 
        caption = "@BillPetti\nData from baseballsavant.mlb.com\nData acquired with the baseballr package") +
   ylab("Angle = Degrees, Speed = MPH\n") +
   xlab("\nDate") +
   theme_bp_grey() + 
-  theme(legend.position = "bottom", strip.text.x = element_text(face = "bold", size = 14)) +
+  theme(legend.position = "bottom", strip.text.x = element_text(face = "bold", size = 14), plot.subtitle = element_text(hjust=-.12)) +
   scale_color_manual(values = c("#5F9ED1", "#FF800E"))
 
 # export plot to your working directory
