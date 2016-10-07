@@ -27,5 +27,6 @@ scrape_statcast_savant_batter <- function(start_date, end_date, batterid) {
   x$effective_speed <- as.character(x$effective_speed) %>% as.numeric()
   x$release_spin_rate <- as.character(x$release_spin_rate) %>% as.numeric()
   x$release_extension <- as.character(x$release_extension) %>% as.numeric()
+  x$barrel <- with(x, ifelse(hit_angle <= 50 & hit_speed >= 98 & hit_speed * 1.5 - hit_angle >= 11 & hit_speed + hit_angle >= 124, 1, 0))
   x
 }
