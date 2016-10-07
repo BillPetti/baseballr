@@ -21,6 +21,8 @@ scrape_statcast_savant_batter <- function(start_date, end_date, batterid) {
   x$on_1b <- as.character(x$on_1b) %>% as.numeric()
   x$on_2b <- as.character(x$on_2b) %>% as.numeric()
   x$on_3b <- as.character(x$on_3b) %>% as.numeric()
+  x$px <- as.character(x$px) %>% as.numeric()
+  x$pz <- as.character(x$pz) %>% as.numeric()
   x$hit_distance_sc <- as.character(x$hit_distance_sc) %>% as.numeric()
   x$hit_speed <- as.character(x$hit_speed) %>% as.numeric()
   x$hit_angle <- as.character(x$hit_angle) %>% as.numeric()
