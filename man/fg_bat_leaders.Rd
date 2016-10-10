@@ -13,7 +13,7 @@ fg_bat_leaders(x, y, qual = "y", ind = 0)
 
 \item{qual}{Whether you want only batters that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimumm number of plate appearaces, use the number desired. Defaults to "y".}
 
-\item{ind}{Whether or not to break the}
+\item{ind}{Whether or not to break the seasons out individual, or roll them up together.}
 }
 \description{
 This function allows you to scrape all leaderboard statistics (basic and advanced) from FanGraphs.com.
