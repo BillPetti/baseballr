@@ -4,12 +4,14 @@
 \alias{fg_bat_leaders}
 \title{Scrape Batter Leaderboards from FanGraphs.com}
 \usage{
-fg_bat_leaders(x, y, qual = "y", ind = 0)
+fg_bat_leaders(x, y, league = "all", qual = "y", ind = 0)
 }
 \arguments{
 \item{x}{First season for which you want data.}
 
 \item{y}{Last season for which you want data. If multiple years selected, data returned will be aggregate data for the date range. If y = x, function will return single-season data.}
+
+\item{league}{Option for limiting results to different leagues or overall results. Options are "al", "nl", or "all".}
 
 \item{qual}{Whether you want only batters that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimumm number of plate appearaces, use the number desired. Defaults to "y".}
 
