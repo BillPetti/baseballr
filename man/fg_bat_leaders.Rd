@@ -2,7 +2,7 @@
 % Please edit documentation in R/fg_bat_leaders.R
 \name{fg_bat_leaders}
 \alias{fg_bat_leaders}
-\title{Scrape Batter Leaderboards from FanGraphs.com}
+\title{Scrape Batter Leaderboards from FanGraphs}
 \usage{
 fg_bat_leaders(x, y, league = "all", qual = "y", ind = 0)
 }

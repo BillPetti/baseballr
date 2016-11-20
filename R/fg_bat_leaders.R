@@ -1,4 +1,4 @@
-#' Scrape Batter Leaderboards from FanGraphs.com
+#' Scrape Batter Leaderboards from FanGraphs
 #'
 #' This function allows you to scrape all leaderboard statistics (basic and advanced) from FanGraphs.com.
 #' @param x First season for which you want data.
