@@ -17,6 +17,7 @@ Imports:
     XML,
     xml2
 License: MIT
+URL: https://billpetti.github.io/baseballr/ 
 BugReports: https://github.com/BillPetti/baseballr/issues
 LazyData: true
 RoxygenNote: 5.0.1
