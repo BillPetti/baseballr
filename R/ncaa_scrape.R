@@ -18,7 +18,7 @@ ncaa_scrape <- function(teamid, year, type) {
 
     else
   if (type == "batting") {
-  id <- subset(ncaa_season_id_lu, season == year, select = id)
+  id <- subset(master_ncaa_team_lu, season == year, select = id)
   url <- paste0("http://stats.ncaa.org/team/",teamid,"/stats?game_sport_year_ctl_id=", id, "&id=", id)
   data <- read_html(url) %>% html_nodes("table") %>%
     .[[3]] %>%
@@ -38,8 +38,8 @@ ncaa_scrape <- function(teamid, year, type) {
   }
 
   else {
-    year_id <- subset(ncaa_season_id_lu, season == year, select = id)
-    type_id <- subset(ncaa_season_id_lu, season == year, select = pitching_id)
+    year_id <- subset(master_ncaa_team_lu, season == year, select = id)
+    type_id <- subset(master_ncaa_team_lu, season == year, select = pitching_id)
     url <- paste0("http://stats.ncaa.org/team/", teamid, "/stats?id=", year_id,"&year_stat_category_id=", type_id)
     data <- read_html(url) %>% html_nodes("table") %>%
       .[[3]] %>%
