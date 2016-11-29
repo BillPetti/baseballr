@@ -40,7 +40,7 @@ ncaa_scrape <- function(teamid, year, type) {
   else {
     year_id <- subset(ncaa_season_id_lu, season == year, select = id)
     type_id <- subset(ncaa_season_id_lu, season == year, select = pitching_id)
-    url <- paste0("http://stats.ncaa.org/team/", teamid, "/stats?game_sport_year_ctl_id=", year_id,"&id=", type_id)
+    url <- paste0("http://stats.ncaa.org/team/", teamid, "/stats?id=", year_id, "&year_stat_category_id=", type_id)
     data <- read_html(url) %>% html_nodes("table") %>%
       .[[3]] %>%
       html_table(fill = TRUE)
