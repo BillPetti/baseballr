@@ -18,7 +18,7 @@ ncaa_scrape <- function(teamid, year, type) {
 
     else
   if (type == "batting") {
-  id <- subset(ncaa_season_id_lu, season = year, select = id)
+  id <- subset(ncaa_season_id_lu, season == year, select = id)
   url <- paste0("http://stats.ncaa.org/team/",teamid,"/stats?game_sport_year_ctl_id=", id, "&id=", id)
   data <- read_html(url) %>% html_nodes("table") %>%
     .[[3]] %>%
@@ -27,7 +27,7 @@ ncaa_scrape <- function(teamid, year, type) {
   df$year <- year
   df$teamid <- teamid
   df <- df %>%
-    left_join(ncaa_season_id_lu, by = c("teamid" = "school_id", "year" = "year"))
+    left_join(master_ncaa_team_lu, by = c("teamid" = "school_id", "year" = "year"))
   df <- select(df, year, school, conference, division, everything())
   df$Player <- gsub("x ", "", df$Player)
   if (!"RBI2out" %in% names(df)) {
@@ -38,9 +38,9 @@ ncaa_scrape <- function(teamid, year, type) {
   }
 
   else {
-    year_id <- subset(ncaa_season_id_lu, season = year, select = id)
-    type_id <- subset(ncaa_season_id_lu, season = year, select = pitching_id)
-    url <- paste0("http://stats.ncaa.org/team/", teamid, "/stats?id=", year_id,"&year_stat_category_id=", type_id)
+    year_id <- subset(ncaa_season_id_lu, season == year, select = id)
+    type_id <- subset(ncaa_season_id_lu, season == year, select = pitching_id)
+    url <- paste0("http://stats.ncaa.org/team/", teamid, "/stats?game_sport_year_ctl_id=", year_id,"&id=", type_id)
     data <- read_html(url) %>% html_nodes("table") %>%
       .[[3]] %>%
       html_table(fill = TRUE)
@@ -49,7 +49,7 @@ ncaa_scrape <- function(teamid, year, type) {
     df$year <- year
     df$teamid <- teamid
     df <- df %>%
-      left_join(ncaa_season_id_lu, by = c("teamid" = "school_id", "year" = "year"))
+      left_join(master_ncaa_team_lu, by = c("teamid" = "school_id", "year" = "year"))
     df <- select(df, year, school, conference, division, everything())
     df$Player <- gsub("x ", "", df$Player)
     df <- select(df, year,school,conference,division,Jersey,Player,Yr,Pos,GP,App,GS,ERA,IP,H,R,ER,BB,SO,SHO,BF,`P-OAB`,`2B-A`,`3B-A`,Bk,`HR-A`,WP,HB,IBB,`Inh Run`,`Inh Run Score`,SHA,SFA,Pitches,GO,FO,W,L,SV,KL,teamid,conference_id)
