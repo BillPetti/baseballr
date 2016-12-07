@@ -15,7 +15,7 @@
 scrape_statcast_savant_batter <- function(start_date, end_date, batterid) {
     # Check to make sure args are in the correct format.
     if(!is.character(start_date) | !is.character(end_date)) {
-        warning("Please wrape your dates in quotations in 'yyyy-mm-dd' format.")
+        warning("Please wrap your dates in quotations in 'yyyy-mm-dd' format.")
         return(NULL)
     }
     # Check for other user errors.
@@ -23,7 +23,7 @@ scrape_statcast_savant_batter <- function(start_date, end_date, batterid) {
         message("Some metrics such as Exit Velocity and Batted Ball Events have only been compiled since 2015.")
     }
     if(as.Date(start_date)<="2008-03-25") { # March 25, 2008 was the first dat of Spring Training.
-        stop("The data are limited ot the 2008 MLB season and after.")
+        stop("The data are limited to the 2008 MLB season and after.")
         return(NULL)
     }
     if(as.Date(start_date)==Sys.Date()) {
