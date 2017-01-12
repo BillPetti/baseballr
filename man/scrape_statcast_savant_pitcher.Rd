@@ -17,7 +17,10 @@ scrape_statcast_savant_pitcher(start_date, end_date, pitcherid)
 This function allows you to query Statcast and PITCHf/x data as provided on baseballsavant.mlb.com and have that data returned as a dataframe.
 }
 \examples{
-\dontrun{scrape_statcast_savant_pitcher(start_date = "2016-04-06", end_date = "2016-04-15", pitcherid = 592789)}
+\dontrun{
+scrape_statcast_savant_pitcher(start_date = "2016-04-06", 
+end_date = "2016-04-15", pitcherid = 592789)
+}
 }
 \keyword{MLB,}
 \keyword{Statcast}
