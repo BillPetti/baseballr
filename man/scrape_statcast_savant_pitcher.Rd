@@ -18,7 +18,7 @@ This function allows you to query Statcast and PITCHf/x data as provided on base
 }
 \examples{
 \dontrun{
-scrape_statcast_savant_pitcher(start_date = "2016-04-06", 
+scrape_statcast_savant_pitcher(start_date = "2016-04-06",
 end_date = "2016-04-15", pitcherid = 592789)
 }
 }

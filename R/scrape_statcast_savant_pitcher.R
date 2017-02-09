@@ -9,7 +9,7 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' scrape_statcast_savant_pitcher(start_date = "2016-04-06", 
+#' scrape_statcast_savant_pitcher(start_date = "2016-04-06",
 #' end_date = "2016-04-15", pitcherid = 592789)
 #' }
 
@@ -31,20 +31,20 @@ scrape_statcast_savant_pitcher <- function(start_date, end_date, pitcherid) {
         message("The data are collected daily at 3 a.m. Some of today's games may not be included.")
     }
     if(as.Date(start_date)>as.Date(end_date)) {
-        stop("The start date is later than the end date.")        
+        stop("The start date is later than the end date.")
         return(NULL)
     }
-    
+
     # Base URL.
-    url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfZ=&hfGT=R%7C&hfPR=&hfAB=&stadium=&hfBBT=&hfBBL=&player_lookup%5B%5D=",pitcherid,"&hfC=&season=all&player_type=batter&hfOuts=&pitcher_throws=&batter_stands=&start_speed_gt=&start_speed_lt=&perceived_speed_gt=&perceived_speed_lt=&spin_rate_gt=&spin_rate_lt=&exit_velocity_gt=&exit_velocity_lt=&launch_angle_gt=&launch_angle_lt=&distance_gt=&distance_lt=&batted_ball_angle_gt=&batted_ball_angle_lt=&game_date_gt=",start_date,"&game_date_lt=",end_date,"&team=&position=&hfRO=&home_road=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=start_speed&sort_order=desc&min_abs=0&xba_gt=&xba_lt=&px1=&px2=&pz1=&pz2=&ss_gt=&ss_lt=&type=details&")
-    
+    url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfZ=&hfGT=R%7C&hfPR=&hfAB=&stadium=&hfBBT=&hfBBL=&player_lookup%5B%5D=",pitcherid,"&hfC=&season=all&player_type=pitcher&hfOuts=&pitcher_throws=&batter_stands=&start_speed_gt=&start_speed_lt=&perceived_speed_gt=&perceived_speed_lt=&spin_rate_gt=&spin_rate_lt=&exit_velocity_gt=&exit_velocity_lt=&launch_angle_gt=&launch_angle_lt=&distance_gt=&distance_lt=&batted_ball_angle_gt=&batted_ball_angle_lt=&game_date_gt=",start_date,"&game_date_lt=",end_date,"&team=&position=&hfRO=&home_road=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=start_speed&sort_order=desc&min_abs=0&xba_gt=&xba_lt=&px1=&px2=&pz1=&pz2=&ss_gt=&ss_lt=&type=details&")
+
     # Do a try/catch to show errors that the user may encounter while downloading.
     tryCatch(
         {
             print("These data are from BaseballSevant and are property of MLB Advanced Media, L.P. All rights reserved.")
-            print("Grabbing data, this may take a minute...")            
+            print("Grabbing data, this may take a minute...")
             payload <- utils::read.csv(url)
-            
+
         },
         error=function(cond) {
             message(paste("URL does not seem to exist, please check your Internet connection:"))
@@ -58,7 +58,7 @@ scrape_statcast_savant_pitcher <- function(start_date, end_date, pitcherid) {
             message(cond)
             return(NULL)
         }
-    )   
+    )
     # Clean up formatting.
     payload[payload=="null"] <- NA
     payload$game_date <- as.Date(payload$game_date, "%Y-%m-%d")
@@ -77,8 +77,8 @@ scrape_statcast_savant_pitcher <- function(start_date, end_date, pitcherid) {
     payload$release_extension <- as.character(payload$release_extension) %>% as.numeric()
     payload$barrel <- with(payload, ifelse(hit_angle <= 50 & hit_speed >= 98 & hit_speed * 1.5 - hit_angle >= 11 & hit_speed + hit_angle >= 124, 1, 0))
     message("URL read read and payload aquired successfully.")
-    
+
     return(payload)
-    
+
 }
 
