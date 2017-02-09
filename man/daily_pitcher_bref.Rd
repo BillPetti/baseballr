@@ -7,9 +7,9 @@
 daily_pitcher_bref(t1, t2)
 }
 \arguments{
-\item{t1}{First date data should be scraped from. Should take the form "YEAR-DAY-MONTH"}
+\item{t1}{First date data should be scraped from. Should take the form "YEAR-MONTH-DAY"}
 
-\item{t2}{Last date data should be scraped from. Should take the form "YEAR-DAY-MONTH"}
+\item{t2}{Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"}
 }
 \description{
 This function allows you to scrape basic pitcher statistics over a custom time frame. Data is sourced from Baseball-Reference.com.
