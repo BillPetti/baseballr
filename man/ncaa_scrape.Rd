@@ -9,7 +9,7 @@ ncaa_scrape(teamid, year, type)
 \arguments{
 \item{teamid}{The numerical ID that the NCAA website uses to identify a team}
 
-\item{year}{The season for which data should be returned, in the form of "YYYY"}
+\item{year}{The season for which data should be returned, in the form of "YYYY". Years currently available: 2013-2017.}
 
 \item{type}{A string indicating whether to return "batting" or "pitching" statistics}
 }
