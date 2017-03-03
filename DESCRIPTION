@@ -15,7 +15,8 @@ Imports:
     reldist,
     rvest,
     XML,
-    xml2
+    xml2,
+    magrittr
 License: MIT
 URL: https://billpetti.github.io/baseballr/ 
 BugReports: https://github.com/BillPetti/baseballr/issues

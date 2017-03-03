@@ -9,7 +9,9 @@
 #' @import dplyr
 #' @export ncaa_scrape
 #' @examples
-#' \dontrun{ncaa_scrape(255, 2013, "batting")}
+#' \dontrun{
+#' ncaa_scrape(255, 2013, "batting")
+#' }
 
 ncaa_scrape <- function(teamid, year, type) {
 
