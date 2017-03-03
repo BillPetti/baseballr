@@ -16,4 +16,3 @@ This function allows you to calculate FIP and related metricsfor any given set o
 \keyword{MLB,}
 \keyword{sabermetrics}
 \keyword{wOBA,}
-

@@ -20,7 +20,7 @@ License: MIT
 URL: https://billpetti.github.io/baseballr/ 
 BugReports: https://github.com/BillPetti/baseballr/issues
 LazyData: true
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr

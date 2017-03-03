@@ -22,4 +22,3 @@ This function allows the user to obtain batting or pitching statistics for any s
 \keyword{NCAA,}
 \keyword{baseball,}
 \keyword{college}
-

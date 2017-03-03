@@ -22,4 +22,3 @@ This function allows you to calculate the percent of pitches thrown to different
 \keyword{MLB,}
 \keyword{PITCHf/x}
 \keyword{sabermetrics,}
-

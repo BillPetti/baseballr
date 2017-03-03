@@ -19,4 +19,3 @@ daily_batter_bref("2015-05-10", "2015-06-20")
 }
 \keyword{MLB,}
 \keyword{sabermetrics}
-
