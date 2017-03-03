@@ -18,4 +18,3 @@ This function allows the user to lookup the school_id needed for the ncaa_scrape
 \keyword{NCAA,}
 \keyword{baseball,}
 \keyword{college}
-

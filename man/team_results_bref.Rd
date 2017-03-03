@@ -20,4 +20,3 @@ team_results_bref("TBR", 2008)
 }
 \keyword{MLB,}
 \keyword{sabermetrics}
-

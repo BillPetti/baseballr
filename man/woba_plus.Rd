@@ -15,4 +15,3 @@ This function allows you to calculate wOBA for any given set of data, provided t
 \keyword{MLB,}
 \keyword{sabermetrics}
 \keyword{woba,}
-

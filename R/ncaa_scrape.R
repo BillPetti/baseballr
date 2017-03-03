@@ -6,10 +6,12 @@
 #' @param year The season for which data should be returned, in the form of "YYYY". Years currently available: 2013-2017.
 #' @param type A string indicating whether to return "batting" or "pitching" statistics
 #' @keywords baseball, NCAA, college
-#' @importFrom dplyr everything
+#' @import dplyr
 #' @export ncaa_scrape
 #' @examples
-#' \dontrun{ncaa_scrape(255, 2013, "batting")}
+#' \dontrun{
+#' ncaa_scrape(255, 2013, "batting")
+#' }
 
 ncaa_scrape <- function(teamid, year, type) {
 

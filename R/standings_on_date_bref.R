@@ -9,10 +9,13 @@
 #' after the date
 #' @keywords MLB, standings
 #' @importFrom lubridate day month year
-#' @importFrom rvest html_text
-#' @export
+#' @importFrom rvest html_text html_nodes
+#' @importFrom xml2 read_html
+#' @export standings_on_date_bref
 #' @examples
+#' \dontrun{
 #' standings_on_date_bref("2015-08-04", "AL East")
+#' }
 
 standings_on_date_bref <- function(date, division, from = FALSE) {
 
@@ -22,19 +25,19 @@ standings_on_date_bref <- function(date, division, from = FALSE) {
 
   url <- paste0 (
     "http://www.baseball-reference.com/games/standings.cgi",
-    "?year=", sprintf("%04i", year(date)),
-    "&month=", sprintf("%02i", month(date)),
-    "&day=", sprintf("%02i", day(date)),
+    "?year=", sprintf("%04i", lubridate::year(date)),
+    "&month=", sprintf("%02i", lubridate::month(date)),
+    "&day=", sprintf("%02i", lubridate::day(date)),
     "&submit=Submit+Date"
   )
 
-  html_doc <- url %>% read_html
+  html_doc <- url %>% xml2::read_html()
 
-  table_names <- html_doc %>% html_nodes("h3") %>% html_text %>%
+  table_names <- html_doc %>% rvest::html_nodes("h3") %>% rvest::html_text() %>%
     gsub(pattern = "\\s+", replacement = " ") %>%
     gsub(pattern = " Division", replacement = "")
 
-  tables <- html_doc %>% html_nodes(xpath = "//*[(@class = 'sortable  stats_table')]")
+  tables <- html_doc %>% rvest::html_nodes(xpath = "//*[(@class = 'sortable  stats_table')]")
 
   ind <- match(division, table_names) + from * length(table_names) / 2
 

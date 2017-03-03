@@ -24,4 +24,3 @@ scrape_statcast_savant_batter(start_date = "2016-04-06", end_date = "2016-04-15"
 \keyword{MLB,}
 \keyword{Statcast}
 \keyword{sabermetrics,}
-
