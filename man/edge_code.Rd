@@ -2,7 +2,7 @@
 % Please edit documentation in R/edge_code.R
 \name{edge_code}
 \alias{edge_code}
-\title{Edge Percentage Scrape}
+\title{Edge Code}
 \usage{
 edge_code(df, height_var_name = "b_height")
 }
