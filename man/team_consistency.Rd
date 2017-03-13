@@ -17,3 +17,4 @@ This function allows you to calculate team-level consistency in run scoring and 
 }
 \keyword{MLB,}
 \keyword{sabermetrics}
+

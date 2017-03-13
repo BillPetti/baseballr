@@ -10,3 +10,4 @@ lhs \%<>\% rhs
 Compound_pipe
 }
 \keyword{internal}
+

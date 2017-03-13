@@ -21,3 +21,4 @@ batter_boxscore("http://gd2.mlb.com/components/game/mlb/year_2016/month_05/day_2
 \keyword{PITCHf/x,}
 \keyword{boxscore,}
 \keyword{sabermetrics}
+
