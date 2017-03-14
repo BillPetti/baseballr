@@ -18,10 +18,11 @@ Imports:
     xml2,
     magrittr
 License: MIT
-URL: https://billpetti.github.io/baseballr/ 
+URL: https://billpetti.github.io/baseballr/
 BugReports: https://github.com/BillPetti/baseballr/issues
 LazyData: true
-RoxygenNote: 6.0.1
-Suggests: knitr,
+RoxygenNote: 5.0.1
+Suggests:
+    knitr,
     rmarkdown
 VignetteBuilder: knitr

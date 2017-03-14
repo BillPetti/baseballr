@@ -17,3 +17,4 @@ This function allows you to query the Chadwick Bureau's public register of baseb
 }
 \keyword{MLB,}
 \keyword{sabermetrics}
+

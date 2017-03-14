@@ -42,6 +42,12 @@ batter_boxscore <- function(x) {
   if(!("note" %in% colnames(away_batters)))
   {away_batters$note <- NA}
 
+  if(!("go" %in% colnames(home_batters)))
+  {home_batters$go <- NA}
+
+  if(!("go" %in% colnames(away_batters)))
+  {away_batters$go <- NA}
+
   batter_col_names <- c("id", "name", "name_display_first_last", "pos", "bo", "ab", "po", "r", "a", "bb", "sac", "t", "sf", "h", "e", "d", "hbp", "so", "hr", "rbi", "lob", "fldg", "sb", "cs", "s_hr", "s_rbi", "s_h", "s_bb", "s_r", "s_so", "avg", "obp", "slg", "ops", "go", "ao", "gidp", "note", "team")
 
   home_batters <- select_(home_batters, .dots = batter_col_names)
