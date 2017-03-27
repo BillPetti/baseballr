@@ -3,7 +3,7 @@ Title: Functions for acquiring and analyzing baseball data
 Version: 0.3.1
 Author: Bill Petti <billpetti@gmail.com>
 Maintainer: Bill Petti <billpetti@gmail.com>
-Description: Provdes numerous functions for acquiring and analyzing baseball
+Description: Provides numerous functions for acquiring and analyzing baseball
     data. Data can be acquired from various online sources from within R.
     Custom metrics can also be calculated, such as wOBA, FIP, and Edge%.
 Depends:
@@ -18,7 +18,7 @@ Imports:
     xml2,
     magrittr
 License: MIT
-URL: https://billpetti.github.io/baseballr/ 
+URL: https://billpetti.github.io/baseballr/
 BugReports: https://github.com/BillPetti/baseballr/issues
 LazyData: true
 RoxygenNote: 6.0.1

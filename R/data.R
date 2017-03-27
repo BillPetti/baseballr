@@ -1,8 +1,8 @@
 #' Dataset
 #'
 #' @title A data set of college baseball seasons
-#' @description A data set college baseball 
-#' 
+#' @description A data set college baseball
+#'
 #' \itemize{
 #'   \item \code{season}: Year date
 #'   \item \code{id}: Season id
@@ -12,7 +12,7 @@
 #'
 #' @docType data
 #' @keywords datasets
-#' 
+#'
 #' @name ncaa_season_id_lu
 #' @usage data(ncaa_season_id_lu)
 #' @format A data frame with 6 rows and 4 variables
@@ -22,8 +22,8 @@
 
 #' Dataset
 #'
-#' @title A data set colleges and their althletic conferences and divisions
-#' @description A data set colleges and their althletic conferences and divisions keyed by school and year.
+#' @title A data set colleges and their athletic conferences and divisions
+#' @description A data set colleges and their athletic conferences and divisions keyed by school and year.
 #'
 #' \itemize{
 #'   \item \code{school}: School name
@@ -36,7 +36,7 @@
 #'
 #' @docType data
 #' @keywords datasets
-#' 
+#'
 #' @name master_ncaa_team_lu
 #' @usage data(master_ncaa_team_lu)
 #' @format A data frame with 4,774 rows and 6 variables
