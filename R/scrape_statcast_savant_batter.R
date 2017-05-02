@@ -19,10 +19,10 @@ scrape_statcast_savant_batter <- function(start_date, end_date, batterid) {
         return(NULL)
     }
     # Check for other user errors.
-    if(as.Date(start_date)<="2015-03-01") { # March 1, 2015 was the first dat of Spring Training.
+    if(as.Date(start_date)<="2015-03-01") { # March 1, 2015 was the first date of Spring Training.
         message("Some metrics such as Exit Velocity and Batted Ball Events have only been compiled since 2015.")
     }
-    if(as.Date(start_date)<="2008-03-25") { # March 25, 2008 was the first dat of Spring Training.
+    if(as.Date(start_date)<="2008-03-25") { # March 25, 2008 was the first date of Spring Training.
         stop("The data are limited to the 2008 MLB season and after.")
         return(NULL)
     }
@@ -30,20 +30,20 @@ scrape_statcast_savant_batter <- function(start_date, end_date, batterid) {
         message("The data are collected daily at 3 a.m. Some of today's games may not be included.")
     }
     if(as.Date(start_date)>as.Date(end_date)) {
-        stop("The start date is later than the end date.")        
+        stop("The start date is later than the end date.")
         return(NULL)
     }
-    
+
     # Base URL.
-    url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfZ=&hfGT=R%7C&hfPR=&hfAB=&stadium=&hfBBT=&hfBBL=&player_lookup%5B%5D=",batterid,"&hfC=&season=all&player_type=batter&hfOuts=&pitcher_throws=&batter_stands=&start_speed_gt=&start_speed_lt=&perceived_speed_gt=&perceived_speed_lt=&spin_rate_gt=&spin_rate_lt=&exit_velocity_gt=&exit_velocity_lt=&launch_angle_gt=&launch_angle_lt=&distance_gt=&distance_lt=&batted_ball_angle_gt=&batted_ball_angle_lt=&game_date_gt=",start_date,"&game_date_lt=",end_date,"&team=&position=&hfRO=&home_road=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=start_speed&sort_order=desc&min_abs=0&xba_gt=&xba_lt=&px1=&px2=&pz1=&pz2=&ss_gt=&ss_lt=&type=details&")
-    
+    url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfAB=&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfGT=R%7C&hfC=&hfSea=&hfSit=&player_type=batter&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=",start_date,"&game_date_lt=",end_date,"&player_lookup%5B%5D=",batterid,"&team=&position=&hfRO=&home_road=&hfFlag=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_abs=0&type=details&")
+
     # Do a try/catch to show errors that the user may encounter while downloading.
     tryCatch(
         {
             print("These data are from BaseballSevant and are property of MLB Advanced Media, L.P. All rights reserved.")
-            print("Grabbing data, this may take a minute...")            
+            print("Grabbing data, this may take a minute...")
             payload <- utils::read.csv(url)
-            
+
         },
         error=function(cond) {
             message(paste("URL does not seem to exist, please check your Internet connection:"))
@@ -57,7 +57,7 @@ scrape_statcast_savant_batter <- function(start_date, end_date, batterid) {
             message(cond)
             return(NULL)
         }
-    )   
+    )
     # Clean up formatting.
     payload[payload=="null"] <- NA
     payload$game_date <- as.Date(payload$game_date, "%Y-%m-%d")
@@ -66,17 +66,17 @@ scrape_statcast_savant_batter <- function(start_date, end_date, batterid) {
     payload$on_1b <- as.character(payload$on_1b) %>% as.numeric()
     payload$on_2b <- as.character(payload$on_2b) %>% as.numeric()
     payload$on_3b <- as.character(payload$on_3b) %>% as.numeric()
-    payload$px <- as.character(payload$px) %>% as.numeric()
-    payload$pz <- as.character(payload$pz) %>% as.numeric()
+    payload$release_pos_x <- as.character(payload$release_pos_x) %>% as.numeric()
+    payload$release_pos_x <- as.character(payload$release_pos_x) %>% as.numeric()
     payload$hit_distance_sc <- as.character(payload$hit_distance_sc) %>% as.numeric()
-    payload$hit_speed <- as.character(payload$hit_speed) %>% as.numeric()
-    payload$hit_angle <- as.character(payload$hit_angle) %>% as.numeric()
+    payload$launch_speed <- as.character(payload$launch_speed) %>% as.numeric()
+    payload$launch_angle <- as.character(payload$launch_angle) %>% as.numeric()
     payload$effective_speed <- as.character(payload$effective_speed) %>% as.numeric()
     payload$release_spin_rate <- as.character(payload$release_spin_rate) %>% as.numeric()
     payload$release_extension <- as.character(payload$release_extension) %>% as.numeric()
-    payload$barrel <- with(payload, ifelse(hit_angle <= 50 & hit_speed >= 98 & hit_speed * 1.5 - hit_angle >= 11 & hit_speed + hit_angle >= 124, 1, 0))
+    payload$barrel <- with(payload, ifelse(launch_angle <= 50 & launch_speed >= 98 & launch_speed * 1.5 - launch_angle >= 11 & launch_speed + launch_angle >= 124, 1, 0))
     message("URL read read and payload aquired successfully.")
-    
+
     return(payload)
-    
+
 }
