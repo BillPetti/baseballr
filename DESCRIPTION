@@ -9,6 +9,7 @@ Description: Provides numerous functions for acquiring and analyzing baseball
 Depends:
     R (>= 3.2.0)
 Imports:
+    dplyr,
     lubridate,
     pitchRx,
     reldist,
