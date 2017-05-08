@@ -3,7 +3,7 @@
 
 `baseballr` is a package written for R focused on baseball analysis. It includes functions for scraping various data from websites, such as FanGraphs.com, Baseball-Reference.com, and baseballsavant.com. It also includes functions for calculating metrics, such as wOBA, FIP, and team-level consistency over custom time frames.
 
-You can read more about some of the functions and how to use them at its official site [here](http://billpetti.github.io/baseballr/) as well as this [Hardball Times artile(http://www.hardballtimes.com/developing-the-baseballr-package-for-r/).
+You can read more about some of the functions and how to use them at its [official site](http://billpetti.github.io/baseballr/) as well as this [Hardball Times article](http://www.hardballtimes.com/developing-the-baseballr-package-for-r/).
 
 It can be installed by using [`devtools`](https://github.com/hadley/devtools):
 
