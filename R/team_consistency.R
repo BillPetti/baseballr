@@ -5,28 +5,28 @@
 #' @keywords MLB, sabermetrics
 #' @importFrom dplyr do_ group_by_ left_join mutate_ select_ last summarize_
 #' @importFrom reldist gini
-#' @importFrom XML readHTMLTable
+#' @importFrom xml2 read_html
 #' @export
 #' @examples \dontrun{team_consistency(2015)}
 
 #load packages: currently requires XML to scrape, dplyr to tidy, reldist for Gini calculations. Will be switching to rvest for scraping
 
 team_consistency <- function(year) {
-  teams <- readHTMLTable(paste0("http://www.baseball-reference.com/leagues/MLB/", year, ".shtml"), stringsAsFactors=FALSE)
-  teams <- teams[[2]]
-  teams <- select_(teams, ~Tm)
-  teams <- filter_(teams, ~Tm!="LgAvg")
+
+  url <- paste0("http://www.baseball-reference.com/leagues/MLB/",year,".shtml")
+  teams <- xml2::read_html(url)
+  teams <- teams %>% rvest::html_nodes("table") %>%
+    .[1] %>%
+    html_table() %>%
+    as.data.frame()
+  teams <- dplyr::select_(teams, ~Tm)
+  teams <- dplyr::filter_(teams, ~Tm!="LgAvg", ~Tm!="Tm")
+  teams <- teams[c(1:30),] %>% as.data.frame()
   teams$year <- year
-  scrape_results <- function(Tm, year) {
-    url <- paste0("http://www.baseball-reference.com/teams/", Tm, "/", year, "-schedule-scores.shtml")
-    data <- readHTMLTable(url, stringsAsFactors = FALSE)
-    data <- as.data.frame(last(data))
-    data$year <- year
-    data <- data[,c(22,1:21)]
-    data
-  }
-  results <- teams %>% group_by_(~Tm, ~year) %>% do_(~scrape_results(.$Tm, .$year))
-  cols <- c(1, 4:6, 10:11)
+  names(teams) <- c("Tm", "year")
+
+  results <- teams %>% group_by_(~Tm, ~year) %>% do_(~team_results_bref(.$Tm, .$year))
+  cols <- c(2,4,5,1,9,10)
   results <- results[,cols]
   names(results) <- c("Year", "Date", "box", "Team", "R", "RA")
   attr(results, "vars") <- NULL
@@ -46,5 +46,6 @@ team_consistency <- function(year) {
   VOL$R_Ptile <- round(VOL$R_Ptile, 2)*100
   VOL$RA_Ptile <- round(VOL$RA_Ptile, 2)*100
   names(VOL) <- c("Team", "Con_R", "Con_RA", "Con_R_Ptile", "Con_RA_Ptile")
+
   VOL
 }
