@@ -17,29 +17,37 @@
 #' standings_on_date_bref("2015-08-04", "AL East")
 #' }
 
-standings_on_date_bref <- function(date, division, from = FALSE) {
+standings_on_date_bref <- function (date, division, from = FALSE) {
 
-  stopifnot(intersect(
-    grepl("AL|NL", division), grepl("East|Central|West|Overall", division)
-  ))
+  stopifnot(intersect(grepl("AL|NL", division), grepl("East|Central|West|Overall",
+                                                      division)))
 
-  url <- paste0 (
-    "http://www.baseball-reference.com/games/standings.cgi",
-    "?year=", sprintf("%04i", lubridate::year(date)),
-    "&month=", sprintf("%02i", lubridate::month(date)),
-    "&day=", sprintf("%02i", lubridate::day(date)),
-    "&submit=Submit+Date"
-  )
+  url <- paste0("http://www.baseball-reference.com/boxes",
+                "?year=", sprintf("%04i", lubridate::year(date)), "&month=",
+                sprintf("%02i", lubridate::month(date)), "&day=", sprintf("%02i",
+                                                                          lubridate::day(date)))
 
   html_doc <- url %>% xml2::read_html()
 
-  table_names <- html_doc %>% rvest::html_nodes("h3") %>% rvest::html_text() %>%
-    gsub(pattern = "\\s+", replacement = " ") %>%
-    gsub(pattern = " Division", replacement = "")
+  tables <- html_doc %>% rvest::html_nodes("table")
+  min <- length(tables)
+  max <- length(tables) - 15
+  tables <- tables %>% .[min:max] %>% html_table
+  #table_names <- html_doc %>% rvest::html_nodes(".section_heading") %>% rvest::html_text() %>% gsub(pattern = "\\s+", replacement = " ") %>% gsub(pattern = " Division", replacement = "") %>% trimws(which = c("left")) %>% trimws(which = c("right")) %>% .[1:16]
 
-  tables <- html_doc %>% rvest::html_nodes(xpath = "//*[(@class = 'sortable  stats_table')]")
+  table_names <- c("NL Overall", "AL Overall", "NL West" , "NL Central", "NL East", "AL West", "AL Central", "AL East", "NL Overall", "AL Overall", "NL West" , "NL Central", "NL East", "AL West", "AL Central", "AL East")
 
-  ind <- match(division, table_names) + from * length(table_names) / 2
+  names(tables) <- table_names
 
-  tables %>% `[`(ind) %>% html_table %>% setNames(table_names[ind])
+  after <- tables[1:8]
+
+  current <- tables[9:16]
+
+  if (from == FALSE)
+    x <- current[division]
+
+  if (from != FALSE)
+    x <- after[division]
+
+  x
 }
