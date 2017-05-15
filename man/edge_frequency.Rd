@@ -9,7 +9,7 @@ edge_frequency(df, group = NULL)
 \arguments{
 \item{df}{A data frame of pitch by pitch data that has been coded using the edge_code() function.}
 
-\item{group}{Character string indicating what column to group the frequency by. For exammple, "pitcher" or "batter". Defaults to NULL, which calculates the frequencies across the entire data set.}
+\item{group}{Character string indicating what column to group the frequency by. For example, "pitcher" or "batter". Defaults to NULL, which calculates the frequencies across the entire data set.}
 }
 \description{
 This function allows you to calculate the percent of pitches thrown to different edges of the strike zone for a pitch by pitch data set that has been coded using the edge_code() function.
@@ -20,4 +20,3 @@ This function allows you to calculate the percent of pitches thrown to different
 \keyword{MLB,}
 \keyword{PITCHf/x}
 \keyword{sabermetrics,}
-

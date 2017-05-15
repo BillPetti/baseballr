@@ -24,4 +24,3 @@ ncaa_scrape(255, 2013, "batting")
 \keyword{NCAA,}
 \keyword{baseball,}
 \keyword{college}
-

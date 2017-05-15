@@ -26,4 +26,3 @@ standings_on_date_bref("2015-08-04", "AL East")
 }
 \keyword{MLB,}
 \keyword{standings}
-

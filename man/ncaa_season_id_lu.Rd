@@ -9,7 +9,7 @@
 data(ncaa_season_id_lu)
 }
 \description{
-A data set college baseball 
+A data set college baseball
 
 \itemize{
   \item \code{season}: Year date
@@ -22,4 +22,3 @@ A data set college baseball
 Dataset
 }
 \keyword{datasets}
-

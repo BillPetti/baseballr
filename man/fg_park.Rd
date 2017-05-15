@@ -17,4 +17,3 @@ fg_park(2013)
 }
 \keyword{MLB,}
 \keyword{sabermetrics}
-
