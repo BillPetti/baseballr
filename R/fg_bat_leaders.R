@@ -31,6 +31,8 @@ fg_bat_leaders <- function(x, y, league = "all", qual = "y", ind = 0) {
     leaders <- cbind(Seasons, leaders)
     leaders <- as.data.frame(sapply(leaders, function(x) (gsub("\\ %", "", x))))
     leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))))
+    leaders$Dol <- gsub("\\(", "-", leaders$Dol)
+    leaders$Dol <- gsub("\\)", "", leaders$Dol)
     for(i in c(5:ncol(leaders))) {
       leaders[,i] <- as.numeric(as.character(leaders[,i]))
     }
@@ -52,6 +54,8 @@ fg_bat_leaders <- function(x, y, league = "all", qual = "y", ind = 0) {
     names(leaders) <- c
     leaders <- as.data.frame(sapply(leaders, function(x) (gsub("\\ %", "", x))))
     leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))))
+    leaders$Dol <- gsub("\\(", "-", leaders$Dol)
+    leaders$Dol <- gsub("\\)", "", leaders$Dol)
     for(i in c(5:ncol(leaders))) {
       leaders[,i] <- as.numeric(as.character(leaders[,i]))
     }
