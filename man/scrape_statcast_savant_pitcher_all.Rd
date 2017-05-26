@@ -4,7 +4,7 @@
 \alias{scrape_statcast_savant_pitcher_all}
 \title{Query Statcast and PITCHf/x Data for Pitchers from baseballsavant.mlb.com}
 \usage{
-scrape_statcast_savant_pitcher_all(start_date, end_date, pitcherid)
+scrape_statcast_savant_pitcher_all(start_date, end_date)
 }
 \arguments{
 \item{start_date}{Date of first game for which you want data. Format must be in Y-d-m format.}

@@ -12,7 +12,7 @@
 #' end_date = "2016-04-15", pitcherid = 592789)
 #' }
 
-scrape_statcast_savant_pitcher_all <- function(start_date, end_date, pitcherid) {
+scrape_statcast_savant_pitcher_all <- function(start_date, end_date) {
   # Check to make sure args are in the correct format.
   if(!is.character(start_date) | !is.character(end_date)) {
     warning("Please wrap your dates in quotations in 'yyyy-mm-dd' format.")
