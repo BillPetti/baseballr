@@ -6,6 +6,7 @@
 #' @importFrom dplyr do_ group_by_ left_join mutate_ select_ last summarize_
 #' @importFrom reldist gini
 #' @importFrom xml2 read_html
+#' @importFrom rvest html_table
 #' @export
 #' @examples \dontrun{team_consistency(2015)}
 

@@ -17,6 +17,8 @@ team_results_bref <-function(Tm, year) {
   data <- data[[length(data)]] %>% html_table() %>% `[`(-3) %>%
     rename(Record = `W-L`, Result = `W/L`, Gm = `Gm#`)
 
+  col_names <- c('Gm','Date','Tm','H_A','Opp','Result','R','RA','Inn','Record','Rank','GB','Win','Loss','Save','Time','D/N','Attendance','Streak')
+
   names(data) <- col_names
 
   data$H_A <- ifelse(grepl("@", data$H_A, fixed = TRUE), "A", "H")
