@@ -23,17 +23,16 @@ team_consistency <- function(year) {
   teams <- dplyr::select_(teams, ~Tm)
   teams <- dplyr::filter_(teams, ~Tm!="LgAvg", ~Tm!="Tm")
   teams <- teams[c(1:30),] %>% as.data.frame()
-  teams$year <- year
+  teams$year <- 2017
   names(teams) <- c("Tm", "year")
 
   results <- teams %>% group_by_(~Tm, ~year) %>% do_(~team_results_bref(.$Tm, .$year))
-  cols <- c(2,4,5,1,9,10)
-  results <- results[,cols]
-  names(results) <- c("Year", "Date", "box", "Team", "R", "RA")
+  results <- dplyr::select_(results, ~year, ~Date, ~Tm, ~R, ~RA)
+  names(results) <- c("Year", "Date", "Team", "R", "RA")
   attr(results, "vars") <- NULL
-  results <- filter_(results, ~box=="boxscore")
   results$R <- as.numeric(results$R)
   results$RA <- as.numeric(results$RA)
+  results <- dplyr::filter_(results, ~!is.na(R))
   RGini <- results %>% group_by_(~Team) %>% summarize_(R = ~gini(R))
   RAGini <- results %>% group_by_(~Team) %>% summarize_(RA = ~gini(RA))
   VOL <- left_join(RGini, RAGini, by = "Team")
