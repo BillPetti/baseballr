@@ -4,16 +4,18 @@
 \alias{playerid_lookup}
 \title{Look up Baseball Player IDs}
 \usage{
-playerid_lookup(string = NULL)
+playerid_lookup(last_name = NULL, first_name = NULL)
 }
 \arguments{
-\item{string}{A text string used to return results for players with that string in their last name.}
+\item{last_name}{A text string used to return results for players with that string in their last name.}
+
+\item{first_name}{A text string used to return results for players with that string in their first name.}
 }
 \description{
 This function allows you to query the Chadwick Bureau's public register of baseball players and the various IDs associated with them in different systems of record.
 }
 \examples{
-\dontrun{playerid_lookup("Synder")}
+\dontrun{playerid_lookup("Garcia", "Karim")}
 }
 \keyword{MLB,}
 \keyword{sabermetrics}
