@@ -13,6 +13,22 @@ The function only has two arguments:
 * `df`: a dataframe that includes pitch-by-pitch information. The function assumes the following columns are present: `events`, `description`, `game_date`, and `type`.
 * `base`: base indicates what the denomincator should be for the rate stats that are calculated. The function defaults to "swings", but you can also choose to use "contact"
 
+Here is an example using all data from the week of 2017-09-04. Here, we want to see a statlien for all hitters based on swings:
+
+```r
+test <- scrape_statcast_savant_batter_all("2017-09-04", "2017-09-10")
+
+statline_from_statcast(test)
+
+year swings batted_balls  X1B X2B X3B  HR swing_and_miss swinging_strike_percent    ba
+1 2017  13790        10663 1129 352  37 259           3127                   0.227 0.129
+
+obp   slg   ops  woba
+1 0.129 0.216 0.345 0.144
+```
+
+You can also combine the `statline_from_statcast` function with a loop to create statlines for multiple players at once.
+
 Example: calculate statlines for batters on contact for all games played 2017-09-04 through 2017-09-10:
 
 ```r
