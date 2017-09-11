@@ -34,9 +34,6 @@ Example: calculate statlines for batters on contact for all games played 2017-09
 ```r
 test <- scrape_statcast_savant_batter_all("2017-09-04", "2017-09-10")
 
-rm(output, x)
-output <- data.frame()
-
 for (i in c("Jose Ramirez", "J.D. Martinez", "Francisco Lindor", "Gary Sanchez", "Rhys Hoskins")) {
   reduced_test <- test %>%
     filter(player_name == i)
