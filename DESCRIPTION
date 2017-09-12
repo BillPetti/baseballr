@@ -1,6 +1,6 @@
 Package: baseballr
 Title: Functions for acquiring and analyzing baseball data
-Version: 0.3.2
+Version: 0.3.3
 Author: Bill Petti <billpetti@gmail.com>
 Maintainer: Bill Petti <billpetti@gmail.com>
 Description: Provides numerous functions for acquiring and analyzing baseball
@@ -10,6 +10,7 @@ Depends:
     R (>= 3.2.0)
 Imports:
     dplyr,
+    tidyr,
     lubridate,
     pitchRx,
     reldist,
