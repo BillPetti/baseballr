@@ -37,7 +37,7 @@ team_results_bref <-function(Tm, year) {
   data$Year <- year
   data <- data[, 1:ncol(data)]
   data <- data %>%
-    filter(!grepl("Gm#", Gm))
+    dplyr::filter_(~!grepl("Gm#", Gm))
 
   return(data)
 }
