@@ -79,7 +79,7 @@ scrape_statcast_savant_pitcher_all <- function(start_date, end_date) {
   payload$release_spin_rate <- as.character(payload$release_spin_rate) %>% as.numeric()
   payload$release_extension <- as.character(payload$release_extension) %>% as.numeric()
   payload$barrel <- with(payload, ifelse(launch_angle <= 50 & launch_speed >= 98 & launch_speed * 1.5 - launch_angle >= 11 & launch_speed + launch_angle >= 124, 1, 0))
-  message("URL read and payload aquired successfully.")
+  message("URL read and payload acquired successfully.")
 
   return(payload)
 
