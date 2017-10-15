@@ -17,7 +17,7 @@
 #' standings_on_date_bref("2015-08-04", "AL East")
 #' }
 
-standings_on_date_bref <- function (date, division, from = FALSE) {
+standings_on_date_bref <- function(date, division, from = FALSE) {
 
   stopifnot(intersect(grepl("AL|NL", division), grepl("East|Central|West|Overall",
                                                       division)))
@@ -36,18 +36,21 @@ standings_on_date_bref <- function (date, division, from = FALSE) {
   #table_names <- html_doc %>% rvest::html_nodes(".section_heading") %>% rvest::html_text() %>% gsub(pattern = "\\s+", replacement = " ") %>% gsub(pattern = " Division", replacement = "") %>% trimws(which = c("left")) %>% trimws(which = c("right")) %>% .[1:16]
 
   table_names <- c("NL Overall", "AL Overall", "NL West" , "NL Central", "NL East", "AL West", "AL Central", "AL East", "NL Overall", "AL Overall", "NL West" , "NL Central", "NL East", "AL West", "AL Central", "AL East")
-
+  table_names[1:8] <- paste0(table_names[1:8], "_after_", date)     # Customizing list names for "After this Date" case
+  table_names[9:16] <- paste0(table_names[9:16], "_up to_", date)   # Customizing list names for "From this Date" case
+  
   names(tables) <- table_names
 
   after <- tables[1:8]
 
   current <- tables[9:16]
 
-  if (from == FALSE)
-    x <- current[division]
-
-  if (from != FALSE)
-    x <- after[division]
-
+  if (from == FALSE) {
+    div_date <- paste0(division, "_up to_", date)
+    x <- current[div_date]
+  } else if (from != FALSE) {
+    div_date <- paste0(division, "_after_", date)
+    x <- after[div_date]
+  }
   x
 }
