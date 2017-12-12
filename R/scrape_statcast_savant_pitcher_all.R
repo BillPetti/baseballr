@@ -1,8 +1,8 @@
 #' Query Statcast and PITCHf/x Data for Pitchers from baseballsavant.mlb.com
 #'
 #' This function allows you to query Statcast and PITCHf/x data as provided on baseballsavant.mlb.com and have that data returned as a dataframe. Query returns data for all pitchers over a given time frame.
-#' @param start_date Date of first game for which you want data. Format must be in Y-d-m format.
-#' @param end_date Date of last game for which you want data. Format must be in Y-d-m format.
+#' @param start_date Date of first game for which you want data. Format must be in YYYY-MM-DD format.
+#' @param end_date Date of last game for which you want data. Format must be in YYYY-MM-DD format.
 #' @keywords MLB, sabermetrics, Statcast
 #' @importFrom utils read.csv
 #' @export
