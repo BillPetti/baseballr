@@ -17,7 +17,9 @@ Imports:
     rvest,
     XML,
     xml2,
-    magrittr
+    magrittr,
+    pbapply,
+    highcharter
 License: MIT
 URL: https://billpetti.github.io/baseballr/
 BugReports: https://github.com/BillPetti/baseballr/issues
