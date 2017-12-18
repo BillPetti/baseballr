@@ -14,7 +14,7 @@
 #' viz_gb_on_period("2017-04-02","2017-04-10", "AL East")
 #' }
 
-viz_GB_on_period <- function(start_date, end_date, lg_div) {
+viz_gb_on_period <- function(start_date, end_date, lg_div) {
   
   dates <- seq(as.Date(start_date), as.Date(end_date), by = "days")   # Crate a vector of dates for the period
   standings <- pbsapply(dates, standings_on_date_bref, division = lg_div)   # 
