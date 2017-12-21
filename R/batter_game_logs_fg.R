@@ -7,7 +7,6 @@
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_nodes html_table
 #' @importFrom dplyr filter rename
-#' @importFrom base sapply
 #' @export
 #' @examples
 #' \dontrun{batter_game_logs_fg(playerid = 6184, year = 2017)}
@@ -29,7 +28,7 @@ batter_game_logs_fg <- function(playerid, year = 2017) {
     dplyr::rename(BB_perc = BB., K_perc = K.,
            wRC_plus = wRC.)
 
-  payload <- as.data.frame(base::sapply(payload, function(x) (gsub("\\ %", "", x))),
+  payload <- as.data.frame(sapply(payload, function(x) (gsub("\\ %", "", x))),
                               stringsAsFactors=F)
 
   payload$BB_perc <- as.numeric(payload$BB_perc)/100
