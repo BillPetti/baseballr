@@ -8,6 +8,6 @@
 #' \dontrun{code_barrel(df)}
 
 code_barrel <- function(df) {
-  df$barrel <- with(df, ifelse(hit_angle <= 50 & hit_speed >= 98 & hit_speed * 1.5 - hit_angle >= 11 & hit_speed + hit_angle >= 124, 1, 0))
+  df$barrel <- with(df, ifelse(hit_angle <= 50 & hit_speed >= 98 & hit_speed * 1.5 - hit_angle >= 117 & hit_speed + hit_angle >= 124, 1, 0))
   df
 }
