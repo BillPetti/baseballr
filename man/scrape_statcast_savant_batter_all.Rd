@@ -7,9 +7,9 @@
 scrape_statcast_savant_batter_all(start_date, end_date)
 }
 \arguments{
-\item{start_date}{Date of first game for which you want data. Format must be in Y-d-m format.}
+\item{start_date}{Date of first game for which you want data. Format must be in YYYY-MM-DD format.}
 
-\item{end_date}{Date of last game for which you want data. Format must be in Y-d-m format.}
+\item{end_date}{Date of last game for which you want data. Format must be in YYYY-MM-DD format.}
 }
 \description{
 This function allows you to query Statcast and PITCHf/x data as provided on baseballsavant.mlb.com and have that data returned as a dataframe. Query returns data for all batters over a given time frame.

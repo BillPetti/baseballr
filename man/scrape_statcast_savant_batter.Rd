@@ -7,9 +7,9 @@
 scrape_statcast_savant_batter(start_date, end_date, batterid)
 }
 \arguments{
-\item{start_date}{Date of first game for which you want data. Format must be in Y-d-m format.}
+\item{start_date}{Date of first game for which you want data. Format must be in YYYY-MM-DD format.}
 
-\item{end_date}{Date of last game for which you want data. Format must be in Y-d-m format.}
+\item{end_date}{Date of last game for which you want data. Format must be in YYYY-MM-DD format.}
 
 \item{batterid}{The MLBAM ID for the batter who's data you want to query.}
 }
