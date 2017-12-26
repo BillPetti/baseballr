@@ -12,7 +12,7 @@ batter_game_logs_fg(playerid, year = 2017)
 \item{year}{The season for which game logs should be returned (use the YYYY format)}
 }
 \description{
-This function allows you to scrape game logs by year for a batter from from FanGraphs.com.
+This function allows you to scrape game logs by year for a batter from FanGraphs.com.
 }
 \examples{
 \dontrun{batter_game_logs_fg(playerid = 6184, year = 2017)}

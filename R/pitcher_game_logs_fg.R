@@ -1,6 +1,6 @@
-#' Scrape Batter Game Logs from FanGraphs
+#' Scrape Pitcher Game Logs from FanGraphs
 #'
-#' This function allows you to scrape game logs by year for a batter from FanGraphs.com.
+#' This function allows you to scrape game logs by year for a pitcher from FanGraphs.com.
 #' @param playerid This is the playerid used by FanGraphs for a given player
 #' @param year The season for which game logs should be returned (use the YYYY format)
 #' @keywords MLB, sabermetrics
@@ -9,14 +9,13 @@
 #' @importFrom dplyr filter rename
 #' @export
 #' @examples
-#' \dontrun{batter_game_logs_fg(playerid = 6184, year = 2017)}
+#' \dontrun{pitcher_game_logs_fg(playerid = 104, year = 2006)}
 
-batter_game_logs_fg <- function(playerid, year = 2017) {
+pitcher_game_logs_fg <- function(playerid, year = 2017) {
   url <- paste0("http://www.fangraphs.com/statsd.aspx?playerid=",
                 playerid,
                 "&season=",
-                year,
-                "&position=PB")
+                year, "&position=P")
 
   payload <- xml2::read_html(url) %>%
     rvest::html_nodes("table") %>%
@@ -26,14 +25,19 @@ batter_game_logs_fg <- function(playerid, year = 2017) {
 
   payload <- payload %>%
     dplyr::filter(!grepl("Date|Total", Date)) %>%
-    dplyr::rename(BB_perc = BB., K_perc = K.,
-           wRC_plus = wRC.)
+    dplyr::rename(K_9 = K.9, BB_9 = BB.9, HR_9 = HR.9,
+                  LOB_perc = LOB., GB_perc = GB.,
+                  HR_FB = HR.FB)
 
   payload <- as.data.frame(sapply(payload, function(x) (gsub("\\ %", "", x))),
-                              stringsAsFactors=F)
+                           stringsAsFactors=F)
 
-  payload$BB_perc <- as.numeric(payload$BB_perc)/100
-  payload$K_perc <- as.numeric(payload$K_perc)/100
+  payload$K_9 <- as.numeric(payload$K_9)
+  payload$BB_9 <- as.numeric(payload$BB_9)
+  payload$HR_9 <- as.numeric(payload$HR_9)
+  payload$LOB_perc <- as.numeric(payload$LOB_perc)/100
+  payload$GB_perc <- as.numeric(payload$GB_perc)/100
+  payload$HR_FB <- as.numeric(payload$HR_FB)
 
   payload
 }
