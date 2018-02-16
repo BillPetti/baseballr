@@ -8,6 +8,7 @@
 #' @keywords MLB, standings
 #' @importFrom highcharter hchart hc_title hc_subtitle hc_credits hc_yAxis hc_xAxis hc_add_theme
 #' @importFrom pbapply pbsapply
+#' @importFrom tidyr separate
 #' @export viz_gb_on_period
 #' @examples
 #' \dontrun{
@@ -23,7 +24,8 @@ viz_gb_on_period <- function(start_date, end_date, lg_div) {
   all$id <- rep(names(standings), sapply(standings, nrow))
   rownames(all) <- NULL
   names(all) <- c("Team", "W", "L", "WLpct", "GB", "RS", "RA", "pythWLpct", "id")
-  all <- all %>% separate(id, c("League", "From", "Date"), "_")
+  all <- all %>% 
+            tidyr::separate(id, c("League", "From", "Date"), "_")
   all <- tbl_df(all)
   all$GB[all$GB == "--"] <- 0
   all$GB <- as.numeric(all$GB, digits = 2)
