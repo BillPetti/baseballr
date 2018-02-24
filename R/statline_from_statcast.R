@@ -96,7 +96,7 @@ statline_from_statcast <- function(df, base = "swings") {
 
     swing_miss <- df %>%
       dplyr::filter(swing == 1) %>%
-      dplyr::summarise(swings = n(), swing_and_miss = sum(swinging_strike),
+      dplyr::summarise(swings = n(), swing_and_miss = sum(.$swinging_strike) + sum(.$swinging_strike_blocked) + sum(.$foul_tip),
                 swinging_strike_percent = round(swing_and_miss/n(), 3))
 
     statline <- cbind(batted_balls, swing_miss) %>%
