@@ -9,7 +9,7 @@ statline_from_statcast(df, base = "swings")
 \arguments{
 \item{df}{A data frame of statistics that includes, at a minimum, the following columns: events, description, game_date, and type.}
 
-\item{base}{Tells the function what to use as the population of pitches to use for the statline. Either swings or contact. Defaults to swings.}
+\item{base}{Tells the function what to use as the population of pitches to use for the statline. Either "swings" or "contact". Defaults to swings.}
 }
 \description{
 This function allows you to create statlines of statistics for players or groups of players from raw Statcast or PITCHf/x dat.

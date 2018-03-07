@@ -3,7 +3,7 @@
 #' This function allows you to create statlines of statistics for players or groups of players from raw Statcast or PITCHf/x dat.
 #'
 #' @param df A data frame of statistics that includes, at a minimum, the following columns: events, description, game_date, and type.
-#' @param base Tells the function what to use as the population of pitches to use for the statline. Either swings or contact. Defaults to swings.
+#' @param base Tells the function what to use as the population of pitches to use for the statline. Either "swings" or "contact". Defaults to swings.
 #' @keywords MLB, woba, Statcast, PITCHf/x, sabermetrics
 #' @importFrom dplyr ungroup select everything filter mutate group_by summarise
 #' @importFrom tidyr gather
@@ -66,7 +66,7 @@ statline_from_statcast <- function(df, base = "swings") {
                              ifelse(type == "X" & events== "double", 2,
                                     ifelse(type == "X" & events == "triple", 3, ifelse(type == "X" & events == "home_run", 4, NA)))),
            swing = ifelse(grepl("swinging|into_play|foul", description) & !grepl("bunt", description), 1, 0),
-           swinging_strike = ifelse(swing == 1 & grepl("swinging_strike", description), 1, 0))
+           swinging_strike = ifelse(swing == 1 & grepl("swinging_strike|foul", description) & !grepl("bunt", description), 1, 0))
 
   year <- substr(max(df$game_date), 1,4)
 
@@ -96,7 +96,7 @@ statline_from_statcast <- function(df, base = "swings") {
 
     swing_miss <- df %>%
       dplyr::filter(swing == 1) %>%
-      dplyr::summarise(swings = n(), swing_and_miss = sum(.$swinging_strike) + sum(.$swinging_strike_blocked) + sum(.$foul_tip),
+      dplyr::summarise(swings = n(), swing_and_miss = sum(.$swinging_strike),
                 swinging_strike_percent = round(swing_and_miss/n(), 3))
 
     statline <- cbind(batted_balls, swing_miss) %>%
