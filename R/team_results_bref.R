@@ -17,7 +17,7 @@ team_results_bref <-function(Tm, year) {
   data <- data[[length(data)]] %>% html_table() %>% `[`(-3) %>%
     rename(Record = `W-L`, Result = `W/L`, Gm = `Gm#`)
 
-  col_names <- c('Gm','Date','Tm','H_A','Opp','Result','R','RA','Inn','Record','Rank','GB','Win','Loss','Save','Time','D/N','Attendance','Streak')
+  col_names <- c('Gm','Date','Tm','H_A','Opp','Result','R','RA','Inn','Record','Rank','GB','Win','Loss','Save','Time','D/N','Attendance','Streak', 'Orig_Scheduled')
 
   names(data) <- col_names
 
