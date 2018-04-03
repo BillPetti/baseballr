@@ -78,7 +78,7 @@ scrape_statcast_savant_batter <- function(start_date, end_date, batterid) {
     payload$effective_speed <- as.character(payload$effective_speed) %>% as.numeric()
     payload$release_spin_rate <- as.character(payload$release_spin_rate) %>% as.numeric()
     payload$release_extension <- as.character(payload$release_extension) %>% as.numeric()
-    payload$pitch_name <- as.character(payload$pitch_name) %>% as.numeric()
+    payload$pitch_name <- as.character(payload$pitch_name)
     payload$home_score <- as.character(payload$home_score) %>% as.numeric()
     payload$away_score <- as.character(payload$away_score) %>% as.numeric()
     payload$bat_score	<- as.character(payload$bat_score) %>% as.numeric()
