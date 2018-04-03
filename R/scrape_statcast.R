@@ -4,16 +4,16 @@
 #' @param start_date Date of first game for which you want data. Format must be in YYYY-MM-DD format.
 #' @param end_date Date of last game for which you want data. Format must be in YYYY-MM-DD format.
 #' @param playerid The MLBAM ID for the player who's data you want to query.
-#' @param player_type The player type. Can be 'batter' or 'pitcher' 
+#' @param player_type The player type. Can be 'batter' or 'pitcher'
 #' @keywords MLB, sabermetrics, Statcast
 #' @importFrom utils read.csv
 #' @export
 #' @examples
 #' \dontrun{
 #' scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-15", playerid = 621043, player_type='batter')
-#' 
+#'
 #' scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-15", playerid = 592789, player_type='pitcher')
-#' 
+#'
 #' scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-06")
 #' }
 
@@ -38,9 +38,9 @@ scrape_statcast_savant <- function(start_date, end_date, playerid=NULL, player_t
     stop("The start date is later than the end date.")
     return(NULL)
   }
-  
+
   # extract season from start_date
-  
+
   year <- substr(start_date, 1,4)
 
   # Base URL.
@@ -57,15 +57,15 @@ scrape_statcast_savant <- function(start_date, end_date, playerid=NULL, player_t
   if (!is.null(playerid)) {
     url <- paste0(url, "&player_lookup%5B%5D=", playerid)
   }
-  
+
   if(!is.null(player_type)) {
     url <- paste0(url, "&player_type=", player_type)
-  } 
+  }
 
   if (!is.null(playerid) && is.null(player_type)) {
     warning("playerid id given without player_type. player_type will default to batter")
-  }  
-  
+  }
+
   # Do a try/catch to show errors that the user may encounter while downloading.
   tryCatch(
     {
@@ -86,16 +86,16 @@ scrape_statcast_savant <- function(start_date, end_date, playerid=NULL, player_t
       message(cond)
       return(NULL)
     }
-  ) 
+  )
 }
 
 #' Process Baseball Savant CSV payload
 #'
-#' @param payload payload from a Baseball Savant request, e.g. from utils::read.csv 
+#' @param payload payload from a Baseball Savant request, e.g. from utils::read.csv
 #' @keywords MLB, sabermetrics, Statcast
 
 process_statcast_payload <- function(payload) {
-  
+
   # Clean up formatting.
   payload[payload=="null"] <- NA
   payload$game_date <- as.Date(payload$game_date, "%Y-%m-%d")
@@ -112,9 +112,18 @@ process_statcast_payload <- function(payload) {
   payload$effective_speed <- as.character(payload$effective_speed) %>% as.numeric()
   payload$release_spin_rate <- as.character(payload$release_spin_rate) %>% as.numeric()
   payload$release_extension <- as.character(payload$release_extension) %>% as.numeric()
+  payload$pitch_name <- as.character(payload$pitch_name) %>% as.numeric()
+  payload$home_score <- as.character(payload$home_score) %>% as.numeric()
+  payload$away_score <- as.character(payload$away_score) %>% as.numeric()
+  payload$bat_score	<- as.character(payload$bat_score) %>% as.numeric()
+  payload$fld_score <- as.character(payload$fld_score) %>% as.numeric()
+  payload$post_away_score <- as.character(payload$post_away_score) %>% as.numeric()
+  payload$post_home_score	<- as.character(payload$post_home_score) %>% as.numeric()
+  payload$post_bat_score <- as.character(payload$post_bat_score) %>% as.numeric()
+  payload$post_fld_score <- as.character(payload$post_fld_score) %>% as.numeric()
   payload$barrel <- with(payload, ifelse(launch_angle <= 50 & launch_speed >= 98 & launch_speed * 1.5 - launch_angle >= 11 & launch_speed + launch_angle >= 124, 1, 0))
   message("URL read and payload acquired successfully.")
-  
+
   return(payload)
-  
+
 }
