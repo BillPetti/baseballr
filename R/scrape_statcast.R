@@ -43,28 +43,29 @@ scrape_statcast_savant <- function(start_date, end_date, playerid=NULL, player_t
 
   year <- substr(start_date, 1,4)
 
-  # Base URL.
-  url <- paste0(
-    "https://baseballsavant.mlb.com/statcast_search/csv?all=true",
-    "&hfPT=&hfAB=&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfGT=R%7CPO%7CS%7C&hfC=",
-    "&hfSea=", year, "%7C&hfSit=&hfOuts=&opponent=&pitcher_throws=",
-    "&batter_stands=&hfSA=&",
-    "game_date_gt=",start_date,"&game_date_lt=",end_date,
-    "&team=",
-    "&position=&hfRO=&home_road=&hfFlag=&metric_1=&hfInn=&min_pitches=0&min_results=0&",
-    "group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_abs=0&type=details")
+  if(is.null(playerid) & is.null(player_type)) {
+    warning("No player_type specified. Player_type will default to 'batter'.")
+    warning("No playerid specified. Collecting data for all batters.")
+    url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfAB=&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfGT=R%7C&hfC=&hfSea=", year, "%7C&hfSit=&player_type=batter&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=", start_date, "&game_date_lt=", end_date, "&team=&position=&hfRO=&home_road=&hfFlag=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_abs=0&type=details&")
 
-  if (!is.null(playerid)) {
-    url <- paste0(url, "&player_lookup%5B%5D=", playerid)
-  }
+} else if (!is.null(playerid) & is.null(player_type)) {
+  warning("No player_type specified. Player_type will default to 'batter'.")
+  url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfAB=&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfGT=R%7C&hfC=&hfSea=", year, "%7C&hfSit=&player_type=batter&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=", start_date, "&game_date_lt=", end_date, "&team=&position=&hfRO=&home_road=&batters_lookup%5B%5D=", playerid, "&hfFlag=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_abs=0&type=details&")
 
-  if(!is.null(player_type)) {
-    url <- paste0(url, "&player_type=", player_type)
-  }
+} else if (!is.null(playerid) & player_type=='batter') {
+  url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfAB=&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfGT=R%7C&hfC=&hfSea=", year, "%7C&hfSit=&player_type=", player_type, "&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=", start_date, "&game_date_lt=", end_date, "&team=&position=&hfRO=&home_road=&batters_lookup%5B%5D=", playerid, "&hfFlag=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_abs=0&type=details&")
 
-  if (!is.null(playerid) && is.null(player_type)) {
-    warning("playerid id given without player_type. player_type will default to batter")
-  }
+} else if (!is.null(playerid) & player_type=='pitcher') {
+  url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfAB=&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfGT=R%7C&hfC=&hfSea=", year, "%7C&hfSit=&player_type=", player_type, "&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=", start_date, "&game_date_lt=", end_date, "&team=&position=&hfRO=&home_road=&pitchers_lookup%5B%5D=", playerid, "&hfFlag=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_abs=0&type=details&")
+
+} else if (is.null(playerid) & player_type=='pitcher'){
+  warning("Collecting data for all pitchers for dates specified.")
+  url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfAB=&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfGT=R%7C&hfC=&hfSea=", year, "%7C&hfSit=&player_type=pitcher&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=", start_date, "&game_date_lt=", end_date, "&team=&position=&hfRO=&home_road=&&hfFlag=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_abs=0&type=details&")
+
+} else {
+  warning("Collecting data for all batters for dates specified.")
+  url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfAB=&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfGT=R%7C&hfC=&hfSea=", year, "%7C&hfSit=&player_type=batter&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=", start_date, "&game_date_lt=", end_date, "&team=&position=&hfRO=&home_road=&&hfFlag=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_abs=0&type=details&")
+}
 
   # Do a try/catch to show errors that the user may encounter while downloading.
   tryCatch(
@@ -83,7 +84,7 @@ scrape_statcast_savant <- function(start_date, end_date, playerid=NULL, player_t
       return(NA)
     },
     warning=function(cond) {
-      message(paste("URL caused a warning. Make sure your playerid and date range are correct:"))
+      message(paste("URL caused a warning. Make sure your playerid, player_type, and date range are correct:"))
       message("Original warning message:")
       message(cond)
       return(NULL)
