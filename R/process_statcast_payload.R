@@ -23,6 +23,7 @@ process_statcast_payload <- function(payload) {
   payload$launch_speed <- as.character(payload$launch_speed) %>% as.numeric()
   payload$launch_angle <- as.character(payload$launch_angle) %>% as.numeric()
   payload$effective_speed <- as.character(payload$effective_speed) %>% as.numeric()
+  payload$release_speed <- as.character(payload$release_speed) %>% as.numeric()
   payload$release_spin_rate <- as.character(payload$release_spin_rate) %>% as.numeric()
   payload$release_extension <- as.character(payload$release_extension) %>% as.numeric()
   payload$pitch_name <- as.character(payload$pitch_name)
