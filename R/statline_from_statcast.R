@@ -1,6 +1,6 @@
-#' Create statlines that includecount and rate metrics for players based on Statcast or PITCHf/x pitch-by-pitch data
+#' Create statlines that include count and rate metrics for players based on Statcast or PITCHf/x pitch-by-pitch data
 #'
-#' This function allows you to create statlines of statistics for players or groups of players from raw Statcast or PITCHf/x dat.
+#' This function allows you to create statlines of statistics for players or groups of players from raw Statcast or PITCHf/x data.
 #'
 #' @param df A data frame of statistics that includes, at a minimum, the following columns: events, description, game_date, and type.
 #' @param base Tells the function what to use as the population of pitches to use for the statline. Either "swings" or "contact". Defaults to swings.
@@ -108,7 +108,7 @@ statline_from_statcast <- function(df, base = "swings") {
 
     statline <- woba_swings(statline)
 
-    statline
+    return(statline)
   }
 
   else {
@@ -143,7 +143,7 @@ statline_from_statcast <- function(df, base = "swings") {
 
   batted_balls <- woba_contact(batted_balls)
 
-  batted_balls
+  return(batted_balls)
 
   }
 }
