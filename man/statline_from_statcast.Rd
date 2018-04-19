@@ -12,7 +12,7 @@ statline_from_statcast(df, base = "swings")
 \item{base}{Tells the function what to use as the population of pitches to use for the statline. Either "swings" or "contact". Defaults to swings.}
 }
 \description{
-This function allows you to create statlines of statistics for players or groups of players from raw Statcast or PITCHf/x data.
+This function allows you to create statlines of statistics for players or groups of players from raw Statcast or PITCHf/x data. When calculating wOBA, the most recent year in the data frame is used for weighting.
 }
 \examples{
 \dontrun{

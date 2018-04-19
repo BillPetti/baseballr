@@ -1,6 +1,6 @@
 #' Create statlines that include count and rate metrics for players based on Statcast or PITCHf/x pitch-by-pitch data
 #'
-#' This function allows you to create statlines of statistics for players or groups of players from raw Statcast or PITCHf/x data.
+#' This function allows you to create statlines of statistics for players or groups of players from raw Statcast or PITCHf/x data. When calculating wOBA, the most recent year in the data frame is used for weighting.
 #'
 #' @param df A data frame of statistics that includes, at a minimum, the following columns: events, description, game_date, and type.
 #' @param base Tells the function what to use as the population of pitches to use for the statline. Either "swings" or "contact". Defaults to swings.
@@ -63,12 +63,10 @@ statline_from_statcast <- function(df, base = "swings") {
 
   df <- df %>%
     dplyr::mutate(hit_type = ifelse(type == "X" & events == "single", 1,
-                             ifelse(type == "X" & events== "double", 2,
-                                    ifelse(type == "X" & events == "triple", 3, ifelse(type == "X" & events == "home_run", 4, NA)))),
-           swing = ifelse(grepl("swinging|into_play|foul", description) & !grepl("bunt", description), 1, 0),
-           swinging_strike = ifelse(swing == 1 & grepl("swinging_strike|foul", description) & !grepl("bunt", description), 1, 0))
-
-  year <- substr(max(df$game_date), 1,4)
+                                    ifelse(type == "X" & events== "double", 2,
+                                           ifelse(type == "X" & events == "triple", 3, ifelse(type == "X" & events == "home_run", 4, NA)))),
+                  swing = ifelse(grepl("swinging|into_play|foul", description) & !grepl("bunt", description), 1, 0),
+                  swinging_strike = ifelse(swing == 1 & grepl("swinging_strike|foul", description) & !grepl("bunt", description), 1, 0))
 
   if (base == "swings") {
     batted_balls <- df %>%
@@ -96,15 +94,19 @@ statline_from_statcast <- function(df, base = "swings") {
 
     swing_miss <- df %>%
       dplyr::filter(swing == 1) %>%
-      dplyr::summarise(swings = n(), swing_and_miss = sum(.$swinging_strike),
-                swinging_strike_percent = round(swing_and_miss/n(), 3))
+      dplyr::summarise(swings = n(), swing_and_miss_or_foul = sum(.$swinging_strike),
+                       swinging_strike_percent = round(swing_and_miss_or_foul/n(), 3))
 
     statline <- cbind(batted_balls, swing_miss) %>%
-      dplyr::mutate(batted_balls = swings - swing_and_miss, year = year) %>%
-      dplyr::select(year, swings, batted_balls, dplyr::everything())
+      dplyr::mutate(batted_balls = swings - swing_and_miss_or_foul) %>%
+      dplyr::select(swings, batted_balls, dplyr::everything())
 
     statline <- statline %>%
       dplyr::mutate(ba = round(sum(X1B, X2B, X3B, HR)/swings, 3), obp = ba, slg = round((X1B + (2*X2B) + (3*X3B) + (4*HR))/swings, 3), ops = obp + slg)
+
+    statline$year <- substr(max(df$game_date),1,4)
+
+    statline <- select(statline, year, everything())
 
     statline <- woba_swings(statline)
 
@@ -114,36 +116,39 @@ statline_from_statcast <- function(df, base = "swings") {
   else {
 
     batted_balls <- df %>%
-        dplyr::filter(type == "X") %>%
-        dplyr::group_by(hit_type) %>%
-        dplyr::count() %>%
-        dplyr::ungroup() %>%
-        dplyr::mutate(hit_type = ifelse(is.na(hit_type), "Outs", hit_type)) %>%
-        tidyr::spread(key = hit_type, value = n)
+      dplyr::filter(type == "X") %>%
+      dplyr::group_by(hit_type) %>%
+      dplyr::count() %>%
+      dplyr::ungroup() %>%
+      dplyr::mutate(hit_type = ifelse(is.na(hit_type), "Outs", hit_type)) %>%
+      tidyr::spread(key = hit_type, value = n)
 
-      batted_balls <- batted_balls %>%
-        mutate('1' = ifelse(1 %in% colnames(batted_balls), `1`, 0),
-               '2' = ifelse(2 %in% colnames(batted_balls), `2`, 0),
-               '3' = ifelse(3 %in% colnames(batted_balls), `3`, 0),
-               '4' = ifelse(4 %in% colnames(batted_balls), `4`, 0),
-               Outs = ifelse("Outs" %in% colnames(batted_balls), Outs, 0))
+    batted_balls <- batted_balls %>%
+      mutate('1' = ifelse(1 %in% colnames(batted_balls), `1`, 0),
+             '2' = ifelse(2 %in% colnames(batted_balls), `2`, 0),
+             '3' = ifelse(3 %in% colnames(batted_balls), `3`, 0),
+             '4' = ifelse(4 %in% colnames(batted_balls), `4`, 0),
+             Outs = ifelse("Outs" %in% colnames(batted_balls), Outs, 0))
 
-      batted_balls <- batted_balls %>%
-        dplyr::select(`1`, `2`, `3`, `4`, Outs)
+    batted_balls <- batted_balls %>%
+      dplyr::select(`1`, `2`, `3`, `4`, Outs)
 
-      names(batted_balls) <- c("X1B", "X2B", "X3B", "HR", "Outs")
+    names(batted_balls) <- c("X1B", "X2B", "X3B", "HR", "Outs")
 
-  batted_balls <- batted_balls %>%
-    dplyr::mutate(batted_balls = sum(X1B, X2B, X3B, HR, Outs), year = year) %>%
-    dplyr::select(-Outs) %>%
-    dplyr::select(year, batted_balls, dplyr::everything())
+    batted_balls <- batted_balls %>%
+      dplyr::mutate(batted_balls = sum(X1B, X2B, X3B, HR, Outs)) %>%
+      dplyr::select(-Outs) %>%
+      dplyr::select(batted_balls, dplyr::everything())
 
-  batted_balls <- batted_balls %>%
-    dplyr::mutate(ba = round(sum(X1B, X2B, X3B, HR)/batted_balls, 3), obp = ba, slg = round((X1B + (2*X2B) + (3*X3B) + (4*HR))/batted_balls, 3), ops = obp + slg)
+    batted_balls <- batted_balls %>%
+      dplyr::mutate(ba = round(sum(X1B, X2B, X3B, HR)/batted_balls, 3), obp = ba, slg = round((X1B + (2*X2B) + (3*X3B) + (4*HR))/batted_balls, 3), ops = obp + slg)
 
-  batted_balls <- woba_contact(batted_balls)
+    batted_balls$year <- substr(max(df$game_date),1,4)
 
-  return(batted_balls)
+    batted_balls <- select(batted_balls, year, everything())
 
+    batted_balls <- woba_contact(batted_balls)
+
+    return(batted_balls)
   }
 }
