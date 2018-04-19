@@ -11,7 +11,7 @@ viz_gb_on_period(start_date, end_date, lg_div)
 
 \item{end_date}{a date object representing the last date of the period}
 
-\item{div_viz}{One or more of AL East, AL Central, AL West,
+\item{lg_div}{One or more of AL East, AL Central, AL West,
 AL Overall, NL East, NL Central, NL West, and NL Overall}
 }
 \description{

@@ -3,10 +3,10 @@
 #' This function allows you to scrape the standings from MLB for a period you choose, and visualize the GB of teams along that period.
 #' @param start_date a date object representing the first date of the period
 #' @param end_date a date object representing the last date of the period
-#' @param div_viz One or more of AL East, AL Central, AL West,
+#' @param lg_div One or more of AL East, AL Central, AL West,
 #' AL Overall, NL East, NL Central, NL West, and NL Overall
 #' @keywords MLB, standings
-#' @importFrom highcharter hchart hc_title hc_subtitle hc_credits hc_yAxis hc_xAxis hc_add_theme hcaes
+#' @importFrom highcharter hchart hc_title hc_subtitle hc_credits hc_yAxis hc_xAxis hc_add_theme hcaes hc_theme_smpl
 #' @importFrom pbapply pbsapply
 #' @importFrom tidyr separate
 #' @export viz_gb_on_period
@@ -38,15 +38,15 @@ viz_gb_on_period <- function(start_date, end_date, lg_div) {
     arrange(Date, GB)
   print(first_end)
 
-  hchart(all, "line", hcaes(x = Date, y = GB, group = Team)) %>%
-    hc_title(text = paste(all$League[1], "Standings (GB - Games behind)")) %>%
-    hc_subtitle(text = paste("from", start_date, "to", end_date)) %>%
-    hc_credits(enabled = TRUE, # add credits
+  highcharter::hchart(all, "line", highcharter::hcaes(x = Date, y = GB, group = Team)) %>%
+    highcharter::hc_title(text = paste(all$League[1], "Standings (GB - Games behind)")) %>%
+    highcharter::hc_subtitle(text = paste("from", start_date, "to", end_date)) %>%
+    highcharter::hc_credits(enabled = TRUE, # add credits
                text = "Source: Baseball Reference. Using 'baseballr' R package") %>%
-    hc_yAxis(title = list(text = "GB"),
+    highcharter::hc_yAxis(title = list(text = "GB"),
              reversed = TRUE) %>%
-    hc_xAxis(title = list(text = "Date")) %>%
-    hc_add_theme(hc_theme_smpl()) %>%
-    hc_tooltip(valueDecimals = 1) %>% # round the value to the decimals
-    hc_exporting(enabled = TRUE) # enable exporting option
+    highcharter::hc_xAxis(title = list(text = "Date")) %>%
+    highcharter::hc_add_theme(hc_theme_smpl::hc_theme_smpl()) %>%
+    highcharter::hc_tooltip(valueDecimals = 1) %>% # round the value to the decimals
+    highcharter::hc_exporting(enabled = TRUE) # enable exporting option
 }
