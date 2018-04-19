@@ -18,7 +18,7 @@
 viz_gb_on_period <- function(start_date, end_date, lg_div) {
 
   dates <- seq(as.Date(start_date), as.Date(end_date), by = "days")   # Crate a vector of dates for the period
-  standings <- pbsapply(dates, standings_on_date_bref, division = lg_div)   #
+  standings <- pbapply::pbsapply(dates, standings_on_date_bref, division = lg_div)   #
 
   all <- do.call("rbind", standings)
   all$id <- rep(names(standings), sapply(standings, nrow))
@@ -46,7 +46,7 @@ viz_gb_on_period <- function(start_date, end_date, lg_div) {
     highcharter::hc_yAxis(title = list(text = "GB"),
              reversed = TRUE) %>%
     highcharter::hc_xAxis(title = list(text = "Date")) %>%
-    highcharter::hc_add_theme(hc_theme_smpl::hc_theme_smpl()) %>%
+    highcharter::hc_add_theme(highcharter::hc_theme_smpl()) %>%
     highcharter::hc_tooltip(valueDecimals = 1) %>% # round the value to the decimals
     highcharter::hc_exporting(enabled = TRUE) # enable exporting option
 }
