@@ -8,6 +8,7 @@
 #' @keywords MLB, standings
 #' @importFrom highcharter hchart hc_title hc_subtitle hc_credits hc_yAxis hc_xAxis hc_add_theme hcaes hc_theme_smpl highchart hc_add_series
 #' @importFrom pbapply pbsapply
+#' @importFrom dplyr tbl_df left_join
 #' @importFrom tidyr separate
 #' @importFrom lubridate year
 #' @importFrom teamcolors teamcolors
@@ -21,32 +22,64 @@
 viz_wlpct_on_period <- function(start_date, end_date, lg_div) {
   
   dates <- seq(as.Date(start_date), as.Date(end_date), by = "days")   # Crate a vector of dates for the period
-  standings <- pbapply::pbsapply(dates, standings_on_date_bref, division = lg_div)   # Get all the standings for each date in the period
   
-  all <- do.call("rbind", standings)
-  all$id <- rep(names(standings), sapply(standings, nrow))
-  rownames(all) <- NULL
-  names(all) <- c("Team", "W", "L", "WLpct", "GB", "RS", "RA", "pythWLpct", "id")
+  print("Getting Standings between dates")
+  standings <- pbapply::pbsapply(dates, standings_on_date_bref, division = lg_div)   # Get all the standings for each date in the period
+  all <- do.call("rbind", standings)  # binds all the dates standings into one 
+  all$id <- rep(names(standings), sapply(standings, nrow))  # creates a new variable with the corresponding date of each row
+  rownames(all) <- NULL    # resets rowname
+  names(all) <- c("Team", "W", "L", "WLpct", "GB", "RS", "RA", "pythWLpct", "id")   # rename variables of the data frame
+  
   all <- all %>%
-    tidyr::separate(id, c("League", "From", "Date"), "_")
-  all <- tbl_df(all)
+    tidyr::separate(id, c("League", "From", "Date"), "_") %>% # separates the "id" column into several ones
+    dplyr::tbl_df()
+  
+  # cleans up the data frame
   all$GB[all$GB == "--"] <- 0
   all$GB <- as.numeric(all$GB, digits = 2)
   all$pythWLpct[is.na(all$pythWLpct)] <- 0
   all$Date <- as.Date(all$Date)
-  all <- all %>% select(League, Date, Team, W, L, WLpct, GB)
+  all <- all %>%
+    select(League, Date, Team, W, L, WLpct, GB)
+  
+  # Determine which teams are leading each Division when getting Overall data per league
+  if (lg_div == "AL Overall" | lg_div == "NL Overall") {
+    
+    if (lg_div == "AL Overall") {
+    
+      al_divisions <- c("AL East", "AL Central", "AL West")
+      print(paste("Getting AL Leaders by", end_date))
+      print("Lines of AL Leaders by division will be thicker")
+      leaders <- pbapply::pbsapply(al_divisions, standings_on_date_bref, date = end_date)
+      
+    } else if (lg_div == "NL Overall") {
+      
+      nl_divisions <- c("NL East", "NL Central", "NL West")
+      print(paste("Getting NL Leaders by", end_date))
+      print("Lines of NL Leaders by division will be thicker")
+      leaders <- pbapply::pbsapply(nl_divisions, standings_on_date_bref, date = end_date)
+      
+    }
+    
+    # Create a vector with division leaders
+    leaders <- do.call("rbind", leaders)
+    leaders$GB[leaders$GB == "--"] <- 0
+    leaders$GB <- as.numeric(leaders$GB, digits = 2)
+    leaders <- leaders[leaders$GB == 0, 1]
+    
+  } 
   
   # Print standings table for "start_date" and "end_date"
   first_end <- all %>%
     filter(Date == min(Date) | Date == max(Date)) %>%
-    arrange(Date, desc(WLpct))
-  print(first_end)
+    arrange(Date, desc(WLpct)) %>% 
+    print()
   
   # Create a table of colors by team
   team_palette <- Lahman::Teams %>% 
     filter(yearID == 2016) %>% 
     select(name, teamIDBR) %>% 
-    left_join(teamcolors::teamcolors, by = "name") %>% 
+    dplyr::left_join(teamcolors::teamcolors, by = "name") %>% 
     rename(Team = teamIDBR) %>% 
     select(Team, primary, secondary)
   
@@ -59,22 +92,47 @@ viz_wlpct_on_period <- function(start_date, end_date, lg_div) {
   all <- all %>%
     dplyr::left_join(team_palette, "Team")
   
-  ov <- c("AL Overall", "NL Overall")
-  div <- c("AL East", "AL Central", "AL West", "NL East", "NL Central", "NL West")
-  
-  # Plot Game Behind timeline
+  # Plot Win-Loss% timeline
   
   wl <- highcharter::highchart()
   
   # Add series for each team in the data frame
   for (i in 1:length(unique(all$Team))) {
-    wl <- wl %>% 
-      highcharter::hc_add_series(data = all[all$Team == all$Team[i],],
-                                 highcharter::hcaes(x = Date, y = WLpct),
-                                 name = all$Team[i],
-                                 color = all$primary[i],
-                                 type = "line",
-                                 lineWidth = 4)
+    
+    if (lg_div == "AL Overall" | lg_div == "NL Overall") {
+      
+      if (all$Team[i] %in% leaders) {
+        
+        wl <- wl %>%  # Creates series for teams leading their divisions (When requesting Overall)
+          highcharter::hc_add_series(data = all[all$Team == all$Team[i],],
+                                     highcharter::hcaes(x = Date, y = WLpct),
+                                     name = all$Team[i],
+                                     color = all$primary[i],
+                                     type = "line",
+                                     lineWidth = 4)
+      
+        } else {
+        
+        wl <- wl %>%  # Creates series for remaining teams  (When requesting Overall)
+          highcharter::hc_add_series(data = all[all$Team == all$Team[i],],
+                                     highcharter::hcaes(x = Date, y = WLpct),
+                                     name = all$Team[i],
+                                     color = all$primary[i],
+                                     type = "line",
+                                     lineWidth = 2)
+       }
+      
+    } else {
+      
+      wl <- wl %>% # Creates plot for requested division
+        highcharter::hc_add_series(data = all[all$Team == all$Team[i],],
+                                   highcharter::hcaes(x = Date, y = WLpct),
+                                   name = all$Team[i],
+                                   color = all$primary[i],
+                                   type = "line",
+                                   lineWidth = 3)
+    }
+    
   }
   
   # Customize the plot
