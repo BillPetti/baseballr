@@ -14,6 +14,8 @@ process_statcast_payload <- function(payload) {
   payload$game_date <- as.Date(payload$game_date, "%Y-%m-%d")
   payload$des <- as.character(payload$des)
   payload$game_pk <- as.character(payload$game_pk) %>% as.numeric()
+  payload$hc_x <- as.character(payload$hc_x) %>% as.numeric()
+  payload$hc_y <- as.character(payload$hc_y) %>% as.numeric()
   payload$on_1b <- as.character(payload$on_1b) %>% as.numeric()
   payload$on_2b <- as.character(payload$on_2b) %>% as.numeric()
   payload$on_3b <- as.character(payload$on_3b) %>% as.numeric()
@@ -35,6 +37,7 @@ process_statcast_payload <- function(payload) {
   payload$post_home_score	<- as.character(payload$post_home_score) %>% as.numeric()
   payload$post_bat_score <- as.character(payload$post_bat_score) %>% as.numeric()
   payload$post_fld_score <- as.character(payload$post_fld_score) %>% as.numeric()
+  payload$zone <- as.character(payload$zone) %>% as.numeric()
   payload$barrel <- with(payload, ifelse(launch_angle <= 50 & launch_speed >= 98 & launch_speed * 1.5 - launch_angle >= 11 & launch_speed + launch_angle >= 124, 1, 0))
 
   return(payload)
