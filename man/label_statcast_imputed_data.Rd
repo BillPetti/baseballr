@@ -8,13 +8,13 @@ label_statcast_imputed_data(statcast_df, impute_file = NULL,
   inverse_precision = 10000)
 }
 \arguments{
+\item{statcast_df}{A dataframe containing Statcast batted ball data}
+
 \item{impute_file}{A csv file giving the launch angle, launch speed, bb_type, events fields to label
 as imputed. if NULL then it's read from the `extdata` folder of the package.}
 
 \item{inverse_precision}{inverse of how many digits to truncate the launch angle 
 and speed to for comparison. default is 10000, i.e. keep 4 digits of precision.}
-
-\item{x}{A dataframe containing Statcast batted ball data}
 }
 \value{
 A copy of the input dataframe with a new column "imputed" appended. imputed
