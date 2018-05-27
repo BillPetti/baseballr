@@ -55,14 +55,13 @@ Both functions has two arguments:  `player_id` and `year`. Both will return deta
 10 NL East 2018-04-05 MIA       2     5 0.286 3.50 
 ```
 
-[Ben Dilday](https://github.com/bdilday) combined he various `scrape_statcast_savant` functions I previously released intro a single function. The single function can pull all data over a given date range for all pitchers or batters or just for specific pitchers or batters.
+![alt text](https://github.com/BillPetti/baseballr/blob/gh-pages/baseballr_Updates/vz_gb_chart_ex.png "vz_gb ex")
 
-``r 
-> head(scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-15", playerid = 592789, player_type='pitcher'))
-[1] "These data are from BaseballSevant and are property of MLB Advanced Media, L.P. All rights reserved."
-[1] "Grabbing data, this may take a minute..."
-URL read and payload acquired successfully.
-  pitch_type  game_date release_speed release_pos_x release_pos_z
+[Ben Dilday](https://github.com/bdilday) combined the various `scrape_statcast_savant` functions I previously released intro a single function. The single function can pull all data over a given date range for all pitchers or batters or just for specific pitchers or batters.
+
+```r
+>head(scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-15", playerid = 592789, player_type='pitcher'))
+ pitch_type  game_date release_speed release_pos_x release_pos_z
 1         FF 2016-04-12          97.3       -0.6733        6.4372
 2         FF 2016-04-12          97.8       -0.6366        6.4466
 3         FF 2016-04-12          97.6       -0.4936        6.4440
@@ -76,11 +75,8 @@ URL read and payload acquired successfully.
 4 Noah Syndergaard 425772  592789      <NA>        called_strike       NA
 5 Noah Syndergaard 588751  592789 field_out        hit_into_play       NA
 6 Noah Syndergaard 518618  592789    double hit_into_play_no_out       NA 
-
+```
 >head(scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-06"))
-[1] "These data are from BaseballSevant and are property of MLB Advanced Media, L.P. All rights reserved."
-[1] "Grabbing data, this may take a minute..."
-URL read and payload acquired successfully.
   pitch_type  game_date release_speed release_pos_x release_pos_z     player_name batter pitcher
 1         FT 2016-04-06          91.2       -1.9089        6.4077  Jake Marisnick 545350  467100
 2         CU 2016-04-06          77.7       -1.7753        6.7376   Carlos Correa 621043  467100
@@ -101,6 +97,8 @@ Finally, I've added a function for generating spray charts based on my [Interact
 
 `ggspraychart` can generate either a typical spray chart or a density chart for a given hitter. The function takes a data frame with hit coordinates and allows users to customize fill colors and values and the transparency of points. Users can also adjust the bin value when generating density plots.
 
+Keep in mind that the `hc_y` coordinate provided by baseballsavant needs to be inverted in order to properly plot the data. (I typically create a variable, `hc_y_rotated` by multiplying `hc_y` and use that for plotting.)
+
 Here's are point and density examples using data for Jose Altuve:
 
 ```r
@@ -111,8 +109,7 @@ ggspraychart(data, point_alpha = .6, fill_legend_title = "Hit Type", fill_value 
   ggtitle("\nJose Altuve") +
   labs(subtitle = "Spray Charts Since 2013\n")
 ```
-
-<plot>
+![alt text](https://github.com/BillPetti/baseballr/blob/gh-pages/baseballr_Updates/altuve_facet_ex.png "facet ex")
 
 ```r
 ggspraychart(data, point_alpha = .2, density = TRUE, bin_size = 30) + 
@@ -120,14 +117,23 @@ ggspraychart(data, point_alpha = .2, density = TRUE, bin_size = 30) +
   ggtitle("\nJose Altuve") +
   labs(subtitle = "Spray Charts Since 2013\n")
 ```
-<plot>
+![alt text](https://github.com/BillPetti/baseballr/blob/gh-pages/baseballr_Updates/altuve_facet_density.png "density ex")
 	
-The function is also written in such a way where it can be combined with `gganimate` to create animated plots.
+The function is also written in such a way where it can be combined with `gganimate` to create animated plots:
 
+```r
+require(gganimate)
 
+years <- c(2013, 2014, 2015, 2016, 2017)
 
+p <- ggspraychart(data, density = TRUE, point_alpha = .2, bin_size = 30, frame = "game_year") + 
+  ggtitle("\n\n Jose Altuve's Evolution by Year:") +
+  labs(caption = "@BillPetti\nData source: baseballsavant.com\nBuilt with the baseballr package\n") +
+  theme(plot.caption = element_text(face = "bold", size = 14))
 
+gganimate(p, ani.width=800, ani.height=800)
+```
 
-
-
-
+![alt text](https://github.com/BillPetti/baseballr/blob/gh-pages/baseballr_Updates/Altuve_evolution.gif?raw=true "gif e example") 
+	
+Be sure whatever variable you assign to the `frame` argument is a factor and the levels are in the desired order for the animation.
