@@ -4,8 +4,10 @@
 #' @param payload payload from a Baseball Savant request, e.g. from utils::read.csv
 #' @keywords MLB, sabermetrics, Statcast
 #' @export
+#' @examples
 #' \dontrun{
 #' process_statcast_payload(payload)
+#' }
 
 process_statcast_payload <- function(payload) {
 

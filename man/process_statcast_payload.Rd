@@ -12,6 +12,11 @@ process_statcast_payload(payload)
 \description{
 This is a helper function for all scrape_statcast_savant functions. The function processes the initial csv payload acquired from baseballsavant to ensure consistency in formattting across downloads
 }
+\examples{
+\dontrun{
+process_statcast_payload(payload)
+}
+}
 \keyword{MLB,}
 \keyword{Statcast}
 \keyword{sabermetrics,}
