@@ -1,0 +1,107 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE,
+  fig.path = "README-"
+)
+```
+
+# baseballr
+
+# `baseballr` 0.5
+**(latest version released 2018-05-29)**
+
+`baseballr` is a package written for R focused on baseball analysis. It includes functions for scraping various data from websites, such as FanGraphs.com, Baseball-Reference.com, and baseballsavant.com. It also includes functions for calculating metrics, such as wOBA, FIP, and team-level consistency over custom time frames.
+
+You can read more about some of the functions and how to use them at its [official site](http://billpetti.github.io/baseballr/) as well as this [Hardball Times article](http://www.hardballtimes.com/developing-the-baseballr-package-for-r/).
+
+
+## Installation
+
+You can install `baseballr` from github with:
+
+```{r gh-installation, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("BillPetti/baseballr")
+```
+
+## Functionality
+
+The package consists of two main sets of functions: data acquisition and metric calculation.
+
+For example, if you want to see the standings for a specific MLB division on a given date, you can use the `standings_on_date_bref()` function. Just pass the year, month, day, and division you want:
+
+```{r}
+library(baseballr)
+standings_on_date_bref("2015-08-01", "NL East", from = FALSE)
+```
+
+Right now the function works as far as back as 1994, which is when both leagues split into three divisions.
+
+You can also pull data for all hitters over a specific date range. Here are the results for all hitters from August 1st through October 3rd during the 2015 season:
+
+```{r}
+library(tidyverse)
+data <- daily_batter_bref("2015-08-01", "2015-10-03") %>%
+  head()
+```
+
+In terms of metric calculation, the package allows the user to calculate the consistency of team scoring and run prevention for any year using `team_consistency()`:
+
+```{r}
+team_consistency(2015)
+```
+
+You can also calculate wOBA per plate appearance and wOBA on contact for any set of data over any date range, provided you have the data available.
+
+Simply pass the proper data frame to `woba_plus`:
+
+```{r}
+data %>%
+  filter(PA > 200) %>%
+  woba_plus %>%
+  arrange(desc(wOBA)) %>%
+  select(Name, Team, season, PA, wOBA, wOBA_CON) %>%
+  head()
+```
+
+
+You can also generate these wOBA-based stats, as well as FIP, for pitchers using the `fip_plus()` function:
+
+
+
+```{r}
+daily_pitcher_bref("2015-04-05", "2015-04-30") %>% 
+  fip_plus() %>% 
+  select(season, Name, IP, ERA, SO, uBB, HBP, HR, FIP, wOBA_against, wOBA_CON_against) %>%
+  arrange(desc(IP)) %>% 
+  head(10)
+```
+
+The `edge_scrape()` function allows the user to scrape PITCHf/x data from the GameDay application using Carson Sievert's [pitchRx](https://github.com/cpsievert/pitchRx) package and to calculate metrics associated with [Edge%](https://billpetti.shinyapps.io/edge_shiny/). The function returns a dataframe grouped by either pitchers or batters and the percentge of pitches in each of the various Edge zones.
+
+Example (pitchers):
+
+```{r, message=FALSE}
+edge_scrape("2015-04-06", "2015-04-07", "pitcher") %>% 
+  .[, c(1:3,7:12)] %>% 
+  head(10)
+```
+
+Example (batters):
+
+```{r}
+edge_scrape("2015-04-06", "2015-04-07", "batter") %>% 
+  .[, c(1:3,7:12)] %>% 
+  head(10)
+```
+
+More functionality will be added soon. Please leave any suggestions or bugs in the [Issues section](https://github.com/BillPetti/baseballr/issues).

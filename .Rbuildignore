@@ -1,3 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^_posts$
+^README\.Rmd$
+^README-.*\.png$
