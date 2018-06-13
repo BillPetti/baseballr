@@ -72,8 +72,8 @@ scrape_statcast_savant <- function(start_date, end_date, playerid=NULL, player_t
   # Do a try/catch to show errors that the user may encounter while downloading.
   tryCatch(
     {
-      print("These data are from BaseballSevant and are property of MLB Advanced Media, L.P. All rights reserved.")
-      print("Grabbing data, this may take a minute...")
+      message("These data are from BaseballSevant and are property of MLB Advanced Media, L.P. All rights reserved.")
+      message("Grabbing data, this may take a minute...")
       payload <- utils::read.csv(url)
       processed_payload <- process_statcast_payload(payload)
       message("URL read and payload acquired successfully.")
