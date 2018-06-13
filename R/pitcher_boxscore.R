@@ -1,14 +1,11 @@
-#' Retrieve pitcher boxscore data for a single game played
-#'
-#' This function allows a user to retrieve a boxscore of pitcher statistics for any game played in the PITCHf/x era (2008-current). The function takes a boxscore.xml url as it's only argument and returns boxscore data for both the home and away pitchers.
-#'
-#' @param x A boxscore.xml url for a given game from the MLBAM GameDay app data.
-#' @keywords MLB, PITCHf/x, Game Day, boxscore, sabermetrics
-#' @importFrom XML xmlToList
-#' @importFrom XML xmlParse
+#' @rdname batter_boxscore
 #' @export
 #' @examples
-#' pitcher_boxscore("http://gd2.mlb.com/components/game/mlb/year_2016/month_05/day_21/gid_2016_05_21_milmlb_nynmlb_1/boxscore.xml")
+#' # pitchers
+#' url_base <- "http://gd2.mlb.com/components/game/mlb/"
+#' url <- paste0(url_base, 
+#'   "year_2016/month_05/day_21/gid_2016_05_21_milmlb_nynmlb_1/boxscore.xml")
+#' pitcher_boxscore(url)
 
 pitcher_boxscore <- function(x) {
   url <- x
