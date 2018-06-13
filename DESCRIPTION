@@ -10,6 +10,8 @@ Depends:
     R (>= 3.2.0)
 Imports:
     dplyr,
+    ggplot2,
+    stringr,
     tidyr,
     lubridate,
     pitchRx,
