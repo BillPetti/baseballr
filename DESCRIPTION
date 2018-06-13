@@ -27,7 +27,7 @@ Imports:
     magrittr,
     pbapply,
     highcharter
-License: MIT
+License: MIT + file LICENSE
 URL: https://billpetti.github.io/baseballr/
 BugReports: https://github.com/BillPetti/baseballr/issues
 LazyData: true
