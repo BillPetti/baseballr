@@ -21,9 +21,11 @@ This function allows you to query Statcast and PITCHf/x data as provided on base
 }
 \examples{
 \dontrun{
-scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-15", playerid = 621043, player_type='batter')
+scrape_statcast_savant(start_date = "2016-04-06", 
+  end_date = "2016-04-15", playerid = 621043, player_type='batter')
 
-scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-15", playerid = 592789, player_type='pitcher')
+scrape_statcast_savant(start_date = "2016-04-06", 
+  end_date = "2016-04-15", playerid = 592789, player_type='pitcher')
 
 scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-06")
 }

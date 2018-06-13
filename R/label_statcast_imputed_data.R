@@ -17,7 +17,7 @@
 #' is 1 if launch angle and launch speed are likely imputed, 0 otherwise.
 #' @export
 #' @examples
-#' #' \dontrun{
+#' \dontrun{
 #' statcast_df = scrape_statcast_savant("2017-05-01", "2017-05-02")
 #' statcast_df = label_statcast_imputed_data(statcast_df)
 #' mean(statcast_df$imputed)
