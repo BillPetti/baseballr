@@ -22,5 +22,3 @@ playername_lookup <- function(id) {
     select(name_first, name_last, name_given, name_suffix, name_nick, birth_year, mlb_played_first, key_mlbam, key_retro, key_bbref, key_fangraphs)
   x
 }
-
-playername_lookup(4885)
