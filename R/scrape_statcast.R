@@ -1,10 +1,13 @@
-#' Query Statcast and PITCHf/x Data for data from baseballsavant.mlb.com
+#' Query Statcast and PITCHf/x Data for data from \url{http://baseballsavant.mlb.com}
 #'
-#' This function allows you to query Statcast and PITCHf/x data as provided on baseballsavant.mlb.com and have that data returned as a dataframe.
-#' @param start_date Date of first game for which you want data. Format must be in YYYY-MM-DD format.
-#' @param end_date Date of last game for which you want data. Format must be in YYYY-MM-DD format.
+#' This function allows you to query Statcast and PITCHf/x data as provided on \url{http://baseballsavant.mlb.com} and have that data returned as a \code{\link{data.frame}}.
+#' @param start_date Date of first game for which you want data. 
+#' Format must be in YYYY-MM-DD format.
+#' @param end_date Date of last game for which you want data. 
+#' Format must be in YYYY-MM-DD format.
 #' @param playerid The MLBAM ID for the player whose data you want to query.
-#' @param player_type The player type. Can be 'batter' or 'pitcher'. Default is 'batter'
+#' @param player_type The player type. Can be \code{batter} or \code{pitcher}. 
+#' Default is \code{batter}
 #' @param ... currently ignored
 #' @keywords MLB, sabermetrics, Statcast
 #' @importFrom utils read.csv
@@ -18,7 +21,7 @@
 #'   end_date = "2016-04-15", playerid = 621043)
 #'
 #' noah <- scrape_statcast_savant(start_date = "2016-04-06", 
-#'   end_date = "2016-04-15", playerid = 592789, player_type='pitcher')
+#'   end_date = "2016-04-15", playerid = 592789, player_type = 'pitcher')
 #'
 #' daily <- scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-06")
 #' }
@@ -141,4 +144,57 @@ scrape_statcast_savant.default <- function(start_date = Sys.Date() - 1, end_date
   scrape_statcast_savant(start_Date, end_Date, 
                          playerid, player_type, ...)
 
+}
+
+
+#' @rdname scrape_statcast_savant
+#' @param batterid The MLBAM ID for the batter whose data you want to query.
+#' @export
+#' @examples
+#' \dontrun{
+#' correa <- scrape_statcast_savant_batter(start_date = "2016-04-06", 
+#'   end_date = "2016-04-15", batterid = 621043)
+#' }
+
+scrape_statcast_savant_batter <- function(start_date, end_date, batterid, ...) {
+  scrape_statcast_savant(start_date, end_date, playerid = batterid, 
+                         player_type = "batter", ...)
+}
+
+#' @rdname scrape_statcast_savant
+#' @export
+#' @examples
+#' \dontrun{
+#' daily <- scrape_statcast_savant_batter_all(start_date = "2016-04-06", 
+#'   end_date = "2016-04-06")
+#' }
+
+scrape_statcast_savant_batter_all <- function(start_date, end_date, ...) {
+  scrape_statcast_savant(start_date, end_date, player_type = "batter", ...)
+}
+
+#' @rdname scrape_statcast_savant
+#' @param pitcherid The MLBAM ID for the pitcher whose data you want to query.
+#' @export
+#' @examples
+#' \dontrun{
+#' noah <- scrape_statcast_savant_pitcher(start_date = "2016-04-06", 
+#'   end_date = "2016-04-15", pitcherid = 592789)
+#' }
+
+scrape_statcast_savant_pitcher <- function(start_date, end_date, pitcherid, ...) {
+  scrape_statcast_savant(start_date, end_date, playerid = pitcherid, 
+                         player_type = "pitcher", ...)
+}
+
+#' @rdname scrape_statcast_savant
+#' @export
+#' @examples
+#' \dontrun{
+#' daily <- scrape_statcast_savant_pitcher_all(start_date = "2016-04-06", 
+#'   end_date = "2016-04-06")
+#' }
+
+scrape_statcast_savant_pitcher_all <- function(start_date, end_date, ...) {
+  scrape_statcast_savant(start_date, end_date, player_type = "pitcher", ...)
 }

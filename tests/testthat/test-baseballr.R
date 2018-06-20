@@ -7,6 +7,9 @@ test_that("scraper works", {
   expect_equal(nrow(correa), 18)
   expect_equal(ncol(correa), 90)
   
+  expect_identical(correa, scrape_statcast_savant_batter(start_date = "2016-04-15", 
+                                                  end_date = "2016-04-15", 
+                                                  batterid = 621043))
   
   noah <- scrape_statcast_savant(start_date = "2016-04-06",
                                  end_date = "2016-04-15", playerid = 592789, 
