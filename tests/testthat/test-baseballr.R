@@ -1,0 +1,22 @@
+context("baseballr")
+
+test_that("scraper works", {
+  correa <- scrape_statcast_savant(start_date = "2016-04-15", 
+                                   end_date = "2016-04-15", 
+                                   playerid = 621043)
+  expect_equal(nrow(correa), 18)
+  expect_equal(ncol(correa), 90)
+  
+  
+  noah <- scrape_statcast_savant(start_date = "2016-04-06",
+                                 end_date = "2016-04-15", playerid = 592789, 
+                                 player_type = 'pitcher')
+  expect_equal(nrow(noah), 99)
+  expect_equal(ncol(noah), 90)
+  
+  daily <- scrape_statcast_savant(start_date = "2016-04-06", 
+                                  end_date = "2016-04-06")
+  
+  expect_equal(nrow(daily), 3846)
+  expect_equal(ncol(daily), 90)
+})

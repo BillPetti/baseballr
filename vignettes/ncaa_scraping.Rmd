@@ -28,7 +28,7 @@ If you want to pull batting statistics for Vanderbilt for the 2013 season, you w
 
 ```{r}
 library(baseballr)
-library(tidyverse)
+library(dplyr)
 ncaa_scrape(736, 2013, "batting") %>%
   select(year:OBPct)
 ```

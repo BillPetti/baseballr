@@ -46,7 +46,7 @@ Right now the function works as far as back as 1994, which is when both leagues 
 You can also pull data for all hitters over a specific date range. Here are the results for all hitters from August 1st through October 3rd during the 2015 season:
 
 ``` r
-library(tidyverse)
+library(dplyr)
 data <- daily_batter_bref("2015-08-01", "2015-10-03") %>%
   head()
 ```
