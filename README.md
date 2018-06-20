@@ -129,7 +129,7 @@ Example (pitchers):
 
 ``` r
 edge_scrape("2015-04-06", "2015-04-07", "pitcher") %>% 
-  .[, c(1:3,7:12)] %>% 
+  select(-6:-4, -13) %>% 
   head(10)
 #> http://gd2.mlb.com/components/game/mlb/year_2015/month_04/day_06/gid_2015_04_06_tormlb_nyamlb_1/inning/inning_all.xml 
 #> http://gd2.mlb.com/components/game/mlb/year_2015/month_04/day_06/gid_2015_04_06_minmlb_detmlb_1/inning/inning_all.xml 
@@ -173,7 +173,7 @@ Example (batters):
 
 ``` r
 edge_scrape("2015-04-06", "2015-04-07", "batter") %>% 
-  .[, c(1:3,7:12)] %>% 
+  select(-6:-4, -13) %>% 
   head(10)
 #> http://gd2.mlb.com/components/game/mlb/year_2015/month_04/day_06/gid_2015_04_06_tormlb_nyamlb_1/inning/inning_all.xml 
 #> http://gd2.mlb.com/components/game/mlb/year_2015/month_04/day_06/gid_2015_04_06_minmlb_detmlb_1/inning/inning_all.xml 

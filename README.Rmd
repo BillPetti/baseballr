@@ -92,15 +92,15 @@ Example (pitchers):
 
 ```{r, message=FALSE}
 edge_scrape("2015-04-06", "2015-04-07", "pitcher") %>% 
-  .[, c(1:3,7:12)] %>% 
+  select(-6:-4, -13) %>% 
   head(10)
 ```
 
 Example (batters):
 
-```{r}
+```{r, message=FALSE}
 edge_scrape("2015-04-06", "2015-04-07", "batter") %>% 
-  .[, c(1:3,7:12)] %>% 
+  select(-6:-4, -13) %>% 
   head(10)
 ```
 
