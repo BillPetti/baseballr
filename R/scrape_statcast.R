@@ -78,33 +78,39 @@ scrape_statcast_savant.Date <- function(start_date = Sys.Date() - 1, end_date = 
   
   url_vars <- paste0(vars$pairs, collapse = "&")
   url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?", url_vars)
-  
-
+  message(url)
   
   # Do a try/catch to show errors that the user may encounter while downloading.
   tryCatch(
     {
       message("These data are from BaseballSevant and are property of MLB Advanced Media, L.P. All rights reserved.")
       message("Grabbing data, this may take a minute...")
-      payload <- utils::read.csv(url)
-      processed_payload <- process_statcast_payload(payload)
-      message("URL read and payload acquired successfully.")
-      return(processed_payload)
+      suppressMessages(
+        suppressWarnings(
+          payload <- readr::read_csv(url, na = "null")
+        )
+      )
     },
     error = function(cond) {
-      message(paste("URL does not seem to exist, please check your Internet connection:"))
+      message("URL does not seem to exist, please check your Internet connection")
       message("Original error message:")
       message(cond)
-      return(NA)
+      stop("No payload acquired")
     },
+    # this will never run??
     warning = function(cond) {
-      message(paste("URL caused a warning. Make sure your playerid, player_type, and date range are correct:"))
       message("Original warning message:")
       message(cond)
-      return(NULL)
     }
   )
-  
+  if (ncol(payload) > 1) {
+    message("URL read and payload acquired successfully.")
+    return(process_statcast_payload(payload))
+  } else {
+    warning("No valid data found")
+    message("Make sure your playerid, player_type, and date range are correct")
+    return(payload)
+  }
 }
 
 #' @rdname scrape_statcast_savant

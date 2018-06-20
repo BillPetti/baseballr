@@ -19,4 +19,7 @@ test_that("scraper works", {
   
   expect_equal(nrow(daily), 3846)
   expect_equal(ncol(daily), 90)
+  
+  expect_error(scrape_statcast_savant(start_date = "1970-01-01"), "limited to the 2008")
+  expect_warning(scrape_statcast_savant(playerid = "nonsense"), "No valid data found")
 })
