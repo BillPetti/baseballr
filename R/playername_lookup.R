@@ -13,12 +13,12 @@ playername_lookup <- function(id) {
     print("Be patient, this may take a few seconds...")
     print("Data courtesy of the Chadwick Bureau Register (https://github.com/chadwickbureau/register)")
     url <- "https://raw.githubusercontent.com/chadwickbureau/register/master/data/people.csv"
-    chadwick_player_lu_table <- read.csv(url)
+    chadwick_player_lu_table <- readr::read_csv(url)
     assign("chadwick_player_lu_table", chadwick_player_lu_table, envir = .GlobalEnv)
   }
   
   x <- chadwick_player_lu_table %>% 
-    filter(id == key_mlbam | id == key_retro | id == key_bbref | id == key_fangraphs) %>%
-    select(name_first, name_last, name_given, name_suffix, name_nick, birth_year, mlb_played_first, key_mlbam, key_retro, key_bbref, key_fangraphs)
+    dplyr::filter(id == key_mlbam | id == key_retro | id == key_bbref | id == key_fangraphs) %>%
+    dplyr::select(name_first, name_last, name_given, name_suffix, name_nick, birth_year, mlb_played_first, key_mlbam, key_retro, key_bbref, key_fangraphs)
   x
 }
