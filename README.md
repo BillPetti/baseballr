@@ -3,7 +3,7 @@
 baseballr
 =========
 
-`baseballr` 0.5
+`baseballr` 0.3.4
 ===============
 
 **(latest version released 2018-05-29)**
