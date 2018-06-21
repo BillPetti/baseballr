@@ -13,6 +13,7 @@
 #' @keywords MLB, Statcast, sabermetrics
 #' @importFrom dplyr bind_rows
 #' @importFrom dplyr left_join
+#' @importFrom utils read.csv
 #' @return A copy of the input dataframe with a new column "imputed" appended. imputed
 #' is 1 if launch angle and launch speed are likely imputed, 0 otherwise.
 #' @export
@@ -28,7 +29,7 @@ label_statcast_imputed_data <- function(statcast_df, impute_file=NULL, inverse_p
     impute_file = system.file("extdata/statcast_impute.csv", package = "baseballr")
   } 
   
-  imputed_df = read.csv(impute_file, stringsAsFactors = FALSE)
+  imputed_df = utils::read.csv(impute_file, stringsAsFactors = FALSE)
   
   imputed_df$imputed <- 1
   tmp <- dplyr::left_join(

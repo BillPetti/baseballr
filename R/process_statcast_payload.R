@@ -1,7 +1,10 @@
 #' Process Baseball Savant CSV payload
 #'
-#' This is a helper function for all scrape_statcast_savant functions. The function processes the initial csv payload acquired from baseballsavant to ensure consistency in formattting across downloads
-#' @param payload payload from a Baseball Savant request, e.g. from utils::read.csv
+#' This is a helper function for all scrape_statcast_savant functions. 
+#' The function processes the initial csv payload acquired from 
+#' baseballsavant to ensure consistency in formattting across downloads
+#' @param payload payload from a Baseball Savant request, e.g. 
+#' from \code{\link[readr]{read_csv}}
 #' @keywords MLB, sabermetrics, Statcast
 #' @importFrom dplyr mutate_
 #' @export

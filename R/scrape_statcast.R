@@ -10,7 +10,6 @@
 #' Default is \code{batter}
 #' @param ... currently ignored
 #' @keywords MLB, sabermetrics, Statcast
-#' @importFrom utils read.csv
 #' @importFrom tibble tribble
 #' @importFrom dplyr mutate_ filter_
 #' @importFrom lubridate year
