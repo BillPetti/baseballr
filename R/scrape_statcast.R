@@ -1,93 +1,223 @@
-#' Query Statcast and PITCHf/x Data for data from baseballsavant.mlb.com
+#' Query Statcast and PITCHf/x Data for data from \url{http://baseballsavant.mlb.com}
 #'
-#' This function allows you to query Statcast and PITCHf/x data as provided on baseballsavant.mlb.com and have that data returned as a dataframe.
-#' @param start_date Date of first game for which you want data. Format must be in YYYY-MM-DD format.
-#' @param end_date Date of last game for which you want data. Format must be in YYYY-MM-DD format.
-#' @param playerid The MLBAM ID for the player who's data you want to query.
-#' @param player_type The player type. Can be 'batter' or 'pitcher'
+#' This function allows you to query Statcast and PITCHf/x data as provided on \url{http://baseballsavant.mlb.com} and have that data returned as a \code{\link{data.frame}}.
+#' @param start_date Date of first game for which you want data. 
+#' Format must be in YYYY-MM-DD format.
+#' @param end_date Date of last game for which you want data. 
+#' Format must be in YYYY-MM-DD format.
+#' @param playerid The MLBAM ID for the player whose data you want to query.
+#' @param player_type The player type. Can be \code{batter} or \code{pitcher}. 
+#' Default is \code{batter}
+#' @param ... currently ignored
 #' @keywords MLB, sabermetrics, Statcast
-#' @importFrom utils read.csv
+#' @importFrom tibble tribble
+#' @importFrom dplyr mutate_ filter_
+#' @importFrom lubridate year
 #' @export
 #' @examples
 #' \dontrun{
-#' scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-15", playerid = 621043, player_type='batter')
+#' correa <- scrape_statcast_savant(start_date = "2016-04-06", 
+#'   end_date = "2016-04-15", playerid = 621043)
 #'
-#' scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-15", playerid = 592789, player_type='pitcher')
+#' noah <- scrape_statcast_savant(start_date = "2016-04-06", 
+#'   end_date = "2016-04-15", playerid = 592789, player_type = 'pitcher')
 #'
-#' scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-06")
+#' daily <- scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-06")
 #' }
 
-scrape_statcast_savant <- function(start_date, end_date, playerid=NULL, player_type=NULL) {
-  # Check to make sure args are in the correct format.
-  if(!is.character(start_date) | !is.character(end_date)) {
-    warning("Please wrap your dates in quotations in 'yyyy-mm-dd' format.")
-    return(NULL)
-  }
+scrape_statcast_savant <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(), 
+                                   playerid = NULL, 
+                                   player_type = "batter", ...) UseMethod("scrape_statcast_savant")
+
+#' @rdname scrape_statcast_savant
+#' @export
+
+scrape_statcast_savant.Date <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(), 
+                                        playerid = NULL, player_type = "batter", ...) {
   # Check for other user errors.
-  if(as.Date(start_date)<="2015-03-01") { # March 1, 2015 was the first date of Spring Training.
+  if (start_date <= "2015-03-01") { # March 1, 2015 was the first date of Spring Training.
     message("Some metrics such as Exit Velocity and Batted Ball Events have only been compiled since 2015.")
   }
-  if(as.Date(start_date)<="2008-03-25") { # March 25, 2008 was the first date of Spring Training.
+  if (start_date <= "2008-03-25") { # March 25, 2008 was the first date of Spring Training.
     stop("The data are limited to the 2008 MLB season and after.")
     return(NULL)
   }
-  if(as.Date(start_date)==Sys.Date()) {
+  if (start_date == Sys.Date()) {
     message("The data are collected daily at 3 a.m. Some of today's games may not be included.")
   }
-  if(as.Date(start_date)>as.Date(end_date)) {
+  if (start_date > as.Date(end_date)) {
     stop("The start date is later than the end date.")
     return(NULL)
   }
-
-  # extract season from start_date
-
-  year <- substr(start_date, 1,4)
-
-  if(is.null(playerid) & is.null(player_type)) {
-    warning("No player_type specified. Player_type will default to 'batter'.")
-    warning("No playerid specified. Collecting data for all batters.")
-    url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfAB=&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfGT=R%7C&hfC=&hfSea=", year, "%7C&hfSit=&player_type=batter&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=", start_date, "&game_date_lt=", end_date, "&team=&position=&hfRO=&home_road=&hfFlag=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_abs=0&type=details&")
-
-} else if (!is.null(playerid) & is.null(player_type)) {
-  warning("No player_type specified. Player_type will default to 'batter'.")
-  url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfAB=&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfGT=R%7C&hfC=&hfSea=", year, "%7C&hfSit=&player_type=batter&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=", start_date, "&game_date_lt=", end_date, "&team=&position=&hfRO=&home_road=&batters_lookup%5B%5D=", playerid, "&hfFlag=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_abs=0&type=details&")
-
-} else if (!is.null(playerid) & player_type=='batter') {
-  url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfAB=&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfGT=R%7C&hfC=&hfSea=", year, "%7C&hfSit=&player_type=", player_type, "&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=", start_date, "&game_date_lt=", end_date, "&team=&position=&hfRO=&home_road=&batters_lookup%5B%5D=", playerid, "&hfFlag=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_abs=0&type=details&")
-
-} else if (!is.null(playerid) & player_type=='pitcher') {
-  url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfAB=&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfGT=R%7C&hfC=&hfSea=", year, "%7C&hfSit=&player_type=", player_type, "&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=", start_date, "&game_date_lt=", end_date, "&team=&position=&hfRO=&home_road=&pitchers_lookup%5B%5D=", playerid, "&hfFlag=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_abs=0&type=details&")
-
-} else if (is.null(playerid) & player_type=='pitcher'){
-  warning("Collecting data for all pitchers for dates specified.")
-  url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfAB=&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfGT=R%7C&hfC=&hfSea=", year, "%7C&hfSit=&player_type=pitcher&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=", start_date, "&game_date_lt=", end_date, "&team=&position=&hfRO=&home_road=&&hfFlag=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_abs=0&type=details&")
-
-} else {
-  warning("Collecting data for all batters for dates specified.")
-  url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfAB=&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfGT=R%7C&hfC=&hfSea=", year, "%7C&hfSit=&player_type=batter&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=", start_date, "&game_date_lt=", end_date, "&team=&position=&hfRO=&home_road=&&hfFlag=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_abs=0&type=details&")
-}
-
+  
+  playerid_var <- ifelse(player_type == "pitcher", 
+                         "pitchers_lookup%5B%5D", "batters_lookup%5B%5D")
+  
+  vars <- tibble::tribble(
+    ~var, ~value,
+    "all", "true",
+    "hfPT", "", 
+    "hfAB", "", 
+    "hfBBT", "", 
+    "hfPR", "", 
+    "hfZ", "", 
+    "stadium", "", 
+    "hfBBL", "", 
+    "hfNewZones", "",
+    "hfGT", "R%7CPO%7CS%7C&hfC",
+    "hfSea", paste0(lubridate::year(start_date), "%7C"),
+    "hfSit", "", 
+    "hfOuts", "", 
+    "opponent", "", 
+    "pitcher_throws", "", 
+    "batter_stands", "", 
+    "hfSA", "", 
+    "player_type", player_type,
+    "hfInfield", "", 
+    "team", "", 
+    "position", "", 
+    "hfOutfield", "", 
+    "hfRO", "", 
+    "home_road", "",
+    playerid_var, ifelse(is.null(playerid), "", playerid),
+    "game_date_gt", as.character(start_date),
+    "game_date_lt", as.character(end_date),
+    "hfFlag", "", 
+    "hfPull", "", 
+    "metric_1", "", 
+    "hfInn", "", 
+    "min_pitches", 0,
+    "min_results", 0,
+    "group_by", "name",
+    "sort_col", "pitches",
+    "player_event_sort", "h_launch_speed",
+    "sort_order", "desc",
+    "min_abs", 0,
+    "type", "details"
+  ) %>%
+    dplyr::mutate_(pairs = ~paste(var, "=", value, sep = ""))
+  
+  if (is.null(playerid)) {
+    message("No playerid specified. Collecting data for all batters/pitchers.")
+    vars <- dplyr::filter_(vars, ~!grepl("lookup", var))
+  }
+  
+  url_vars <- paste0(vars$pairs, collapse = "&")
+  url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?", url_vars)
+  message(url)
+  
   # Do a try/catch to show errors that the user may encounter while downloading.
   tryCatch(
     {
-      print("These data are from BaseballSevant and are property of MLB Advanced Media, L.P. All rights reserved.")
-      print("Grabbing data, this may take a minute...")
-      payload <- utils::read.csv(url)
-      processed_payload <- process_statcast_payload(payload)
-      message("URL read and payload acquired successfully.")
-      return(processed_payload)
+      message("These data are from BaseballSevant and are property of MLB Advanced Media, L.P. All rights reserved.")
+      message("Grabbing data, this may take a minute...")
+      suppressMessages(
+        suppressWarnings(
+          payload <- readr::read_csv(url, na = "null")
+        )
+      )
     },
-    error=function(cond) {
-      message(paste("URL does not seem to exist, please check your Internet connection:"))
+    error = function(cond) {
+      message("URL does not seem to exist, please check your Internet connection")
       message("Original error message:")
       message(cond)
-      return(NA)
+      stop("No payload acquired")
     },
-    warning=function(cond) {
-      message(paste("URL caused a warning. Make sure your playerid, player_type, and date range are correct:"))
+    # this will never run??
+    warning = function(cond) {
       message("Original warning message:")
       message(cond)
-      return(NULL)
     }
   )
+  if (ncol(payload) > 1) {
+    message("URL read and payload acquired successfully.")
+    return(process_statcast_payload(payload))
+  } else {
+    warning("No valid data found")
+    message("Make sure your playerid, player_type, and date range are correct")
+    return(payload)
+  }
+}
+
+#' @rdname scrape_statcast_savant
+#' @export
+
+scrape_statcast_savant.default <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(), 
+                                             playerid = NULL, player_type = "batter", ...) {
+  # Check to make sure args are in the correct format.
+  # if(!is.character(start_date) | !is.character(end_date)) {
+  #   warning("Please wrap your dates in quotations in 'yyyy-mm-dd' format.")
+  #   return(NULL)
+  # }
+  message(paste0(start_date, " is not a date. Attempting to coerce..."))
+  start_Date <- as.Date(start_date)
+  
+  tryCatch(
+    {
+      end_Date <- as.Date(end_date)
+    },
+    warning = function(cond) {
+      message(paste0(end_date, " was not coercible into a date. Using today."))
+      end_Date <- Sys.Date()
+      message("Original warning message:")
+      message(cond)
+    }
+  )
+
+  scrape_statcast_savant(start_Date, end_Date, 
+                         playerid, player_type, ...)
+
+}
+
+
+#' @rdname scrape_statcast_savant
+#' @param batterid The MLBAM ID for the batter whose data you want to query.
+#' @export
+#' @examples
+#' \dontrun{
+#' correa <- scrape_statcast_savant_batter(start_date = "2016-04-06", 
+#'   end_date = "2016-04-15", batterid = 621043)
+#' }
+
+scrape_statcast_savant_batter <- function(start_date, end_date, batterid, ...) {
+  scrape_statcast_savant(start_date, end_date, playerid = batterid, 
+                         player_type = "batter", ...)
+}
+
+#' @rdname scrape_statcast_savant
+#' @export
+#' @examples
+#' \dontrun{
+#' daily <- scrape_statcast_savant_batter_all(start_date = "2016-04-06", 
+#'   end_date = "2016-04-06")
+#' }
+
+scrape_statcast_savant_batter_all <- function(start_date, end_date, ...) {
+  scrape_statcast_savant(start_date, end_date, player_type = "batter", ...)
+}
+
+#' @rdname scrape_statcast_savant
+#' @param pitcherid The MLBAM ID for the pitcher whose data you want to query.
+#' @export
+#' @examples
+#' \dontrun{
+#' noah <- scrape_statcast_savant_pitcher(start_date = "2016-04-06", 
+#'   end_date = "2016-04-15", pitcherid = 592789)
+#' }
+
+scrape_statcast_savant_pitcher <- function(start_date, end_date, pitcherid, ...) {
+  scrape_statcast_savant(start_date, end_date, playerid = pitcherid, 
+                         player_type = "pitcher", ...)
+}
+
+#' @rdname scrape_statcast_savant
+#' @export
+#' @examples
+#' \dontrun{
+#' daily <- scrape_statcast_savant_pitcher_all(start_date = "2016-04-06", 
+#'   end_date = "2016-04-06")
+#' }
+
+scrape_statcast_savant_pitcher_all <- function(start_date, end_date, ...) {
+  scrape_statcast_savant(start_date, end_date, player_type = "pitcher", ...)
 }

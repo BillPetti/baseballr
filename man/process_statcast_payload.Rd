@@ -7,10 +7,18 @@
 process_statcast_payload(payload)
 }
 \arguments{
-\item{payload}{payload from a Baseball Savant request, e.g. from utils::read.csv}
+\item{payload}{payload from a Baseball Savant request, e.g. 
+from \code{\link[readr]{read_csv}}}
 }
 \description{
-This is a helper function for all scrape_statcast_savant functions. The function processes the initial csv payload acquired from baseballsavant to ensure consistency in formattting across downloads
+This is a helper function for all scrape_statcast_savant functions. 
+The function processes the initial csv payload acquired from 
+baseballsavant to ensure consistency in formattting across downloads
+}
+\examples{
+\dontrun{
+process_statcast_payload(payload)
+}
 }
 \keyword{MLB,}
 \keyword{Statcast}

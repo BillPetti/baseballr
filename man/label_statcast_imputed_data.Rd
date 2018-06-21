@@ -10,14 +10,15 @@ label_statcast_imputed_data(statcast_df, impute_file = NULL,
 \arguments{
 \item{statcast_df}{A dataframe containing Statcast batted ball data}
 
-\item{impute_file}{A csv file giving the launch angle, launch speed, bb_type, events fields to label
-as imputed. if NULL then it's read from the `extdata` folder of the package.}
+\item{impute_file}{A CSV file giving the launch angle, launch speed, 
+\code{bb_type}, events fields to label
+as imputed. if NULL then it's read from the \code{extdata} folder of the package.}
 
 \item{inverse_precision}{inverse of how many digits to truncate the launch angle 
-and speed to for comparison. default is 10000, i.e. keep 4 digits of precision.}
+and speed to for comparison. Default is \code{10000}, i.e. keep 4 digits of precision.}
 }
 \value{
-A copy of the input dataframe with a new column "imputed" appended. imputed
+A copy of the input dataframe with a new column \code{imputed} appended. imputed
 is 1 if launch angle and launch speed are likely imputed, 0 otherwise.
 }
 \description{
@@ -26,10 +27,10 @@ label Statcast data for which the launch angle and speed
 have been imputed.
 }
 \examples{
-#' \dontrun{
-statcast_df = scrape_statcast_savant("2017-05-01", "2017-05-02")
-statcast_df = label_statcast_imputed_data(statcast_df)
-mean(statcast_df$imputed)
+\dontrun{
+statcast_df <- scrape_statcast_savant("2017-05-01", "2017-05-02")
+sc_df <- label_statcast_imputed_data(statcast_df)
+mean(sc_df$imputed)
 }
 }
 \keyword{MLB,}

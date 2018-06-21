@@ -2,30 +2,77 @@
 % Please edit documentation in R/scrape_statcast.R
 \name{scrape_statcast_savant}
 \alias{scrape_statcast_savant}
-\title{Query Statcast and PITCHf/x Data for data from baseballsavant.mlb.com}
+\alias{scrape_statcast_savant.Date}
+\alias{scrape_statcast_savant.default}
+\alias{scrape_statcast_savant_batter}
+\alias{scrape_statcast_savant_batter_all}
+\alias{scrape_statcast_savant_pitcher}
+\alias{scrape_statcast_savant_pitcher_all}
+\title{Query Statcast and PITCHf/x Data for data from \url{http://baseballsavant.mlb.com}}
 \usage{
-scrape_statcast_savant(start_date, end_date, playerid = NULL,
-  player_type = NULL)
+scrape_statcast_savant(start_date = Sys.Date() - 1, end_date = Sys.Date(),
+  playerid = NULL, player_type = "batter", ...)
+
+\method{scrape_statcast_savant}{Date}(start_date = Sys.Date() - 1,
+  end_date = Sys.Date(), playerid = NULL, player_type = "batter", ...)
+
+\method{scrape_statcast_savant}{default}(start_date = Sys.Date() - 1,
+  end_date = Sys.Date(), playerid = NULL, player_type = "batter", ...)
+
+scrape_statcast_savant_batter(start_date, end_date, batterid, ...)
+
+scrape_statcast_savant_batter_all(start_date, end_date, ...)
+
+scrape_statcast_savant_pitcher(start_date, end_date, pitcherid, ...)
+
+scrape_statcast_savant_pitcher_all(start_date, end_date, ...)
 }
 \arguments{
-\item{start_date}{Date of first game for which you want data. Format must be in YYYY-MM-DD format.}
+\item{start_date}{Date of first game for which you want data. 
+Format must be in YYYY-MM-DD format.}
 
-\item{end_date}{Date of last game for which you want data. Format must be in YYYY-MM-DD format.}
+\item{end_date}{Date of last game for which you want data. 
+Format must be in YYYY-MM-DD format.}
 
-\item{playerid}{The MLBAM ID for the player who's data you want to query.}
+\item{playerid}{The MLBAM ID for the player whose data you want to query.}
 
-\item{player_type}{The player type. Can be 'batter' or 'pitcher'}
+\item{player_type}{The player type. Can be \code{batter} or \code{pitcher}. 
+Default is \code{batter}}
+
+\item{...}{currently ignored}
+
+\item{batterid}{The MLBAM ID for the batter whose data you want to query.}
+
+\item{pitcherid}{The MLBAM ID for the pitcher whose data you want to query.}
 }
 \description{
-This function allows you to query Statcast and PITCHf/x data as provided on baseballsavant.mlb.com and have that data returned as a dataframe.
+This function allows you to query Statcast and PITCHf/x data as provided on \url{http://baseballsavant.mlb.com} and have that data returned as a \code{\link{data.frame}}.
 }
 \examples{
 \dontrun{
-scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-15", playerid = 621043, player_type='batter')
+correa <- scrape_statcast_savant(start_date = "2016-04-06", 
+  end_date = "2016-04-15", playerid = 621043)
 
-scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-15", playerid = 592789, player_type='pitcher')
+noah <- scrape_statcast_savant(start_date = "2016-04-06", 
+  end_date = "2016-04-15", playerid = 592789, player_type = 'pitcher')
 
-scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-06")
+daily <- scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-06")
+}
+\dontrun{
+correa <- scrape_statcast_savant_batter(start_date = "2016-04-06", 
+  end_date = "2016-04-15", batterid = 621043)
+}
+\dontrun{
+daily <- scrape_statcast_savant_batter_all(start_date = "2016-04-06", 
+  end_date = "2016-04-06")
+}
+\dontrun{
+noah <- scrape_statcast_savant_pitcher(start_date = "2016-04-06", 
+  end_date = "2016-04-15", pitcherid = 592789)
+}
+\dontrun{
+daily <- scrape_statcast_savant_pitcher_all(start_date = "2016-04-06", 
+  end_date = "2016-04-06")
 }
 }
 \keyword{MLB,}
