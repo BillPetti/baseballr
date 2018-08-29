@@ -4,11 +4,11 @@
 #' @param start_date a date object representing the first date of the period
 #' @param end_date a date object representing the last date of the period
 #' @param lg_div One or more of AL East, AL Central, AL West,
-#' AL Overall, NL East, NL Central, NL West, and NL Overall
+#' AL Overall, NL East, NL Central, NL West and NL Overall
 #' @keywords MLB, standings
 #' @importFrom highcharter hchart hc_title hc_subtitle hc_credits hc_yAxis hc_xAxis hc_add_theme hcaes hc_theme_smpl highchart hc_add_series
 #' @importFrom pbapply pbsapply
-#' @importFrom dplyr tbl_df left_join
+#' @importFrom dplyr tbl_df left_join select filter rename arrange
 #' @importFrom tidyr separate
 #' @importFrom lubridate year
 #' @importFrom teamcolors teamcolors
@@ -16,15 +16,31 @@
 #' @export viz_wlpct_on_period
 #' @examples
 #' \dontrun{
-#' viz_wlpct_on_period("2018-03-29","2018-04-25", "AL Overall")
+#' viz_wlpct_on_period("2018-03-29","2018-04-29", "AL Overall")
 #' }
 
 viz_wlpct_on_period <- function(start_date, end_date, lg_div) {
   
   dates <- seq(as.Date(start_date), as.Date(end_date), by = "days")   # Crate a vector of dates for the period
   
-  print("Getting Standings between dates")
-  standings <- pbapply::pbsapply(dates, standings_on_date_bref, division = lg_div)   # Get all the standings for each date in the period
+  if (lg_div == "MLB") {
+    
+    print("Getting AL Overall Standings between dates")
+    standings_al <- pbapply::pbsapply(dates, standings_on_date_bref, division = "AL Overall")
+    #al <- do.call("rbind", standings_al)  # binds all the dates standings into one 
+    
+    print("Getting NL Overall Standings between dates")
+    standings_nl <- pbapply::pbsapply(dates, standings_on_date_bref, division = "NL Overall")
+    #nl <- do.call("rbind", standings_nl)  # binds all the dates standings into one 
+    
+    standings <- append(standings_al, standings_nl)
+    
+  } else {
+    
+    standings <- pbapply::pbsapply(dates, standings_on_date_bref, division = lg_div)
+    
+  }
+  
   all <- do.call("rbind", standings)  # binds all the dates standings into one 
   all$id <- rep(names(standings), sapply(standings, nrow))  # creates a new variable with the corresponding date of each row
   rownames(all) <- NULL    # resets rowname
@@ -34,54 +50,63 @@ viz_wlpct_on_period <- function(start_date, end_date, lg_div) {
     tidyr::separate(id, c("League", "From", "Date"), "_") %>% # separates the "id" column into several ones
     dplyr::tbl_df()
   
+  if (lg_div == "MLB") { all$League = "Overall"}
+  
   # cleans up the data frame
   all$GB[all$GB == "--"] <- 0
   all$GB <- as.numeric(all$GB, digits = 2)
   all$pythWLpct[is.na(all$pythWLpct)] <- 0
   all$Date <- as.Date(all$Date)
   all <- all %>%
-    select(League, Date, Team, W, L, WLpct, GB)
+    dplyr::select(League, Date, Team, W, L, WLpct, GB) %>% 
+    dplyr::arrange(Date, desc(WLpct))
   
   # Determine which teams are leading each Division when getting Overall data per league
-  if (lg_div == "AL Overall" | lg_div == "NL Overall") {
+  if (lg_div == "AL Overall" | lg_div == "NL Overall" | lg_div == "MLB") {
     
     if (lg_div == "AL Overall") {
     
-      al_divisions <- c("AL East", "AL Central", "AL West")
+      divisions <- c("AL East", "AL Central", "AL West")
       print(paste("Getting AL Leaders by", end_date))
-      print("Lines of AL Leaders by division will be thicker")
-      leaders <- pbapply::pbsapply(al_divisions, standings_on_date_bref, date = end_date)
-      
+      print(paste("Lines of AL Division Leaders by", end_date, "will be thicker in the plot"))
+
     } else if (lg_div == "NL Overall") {
       
-      nl_divisions <- c("NL East", "NL Central", "NL West")
+      divisions <- c("NL East", "NL Central", "NL West")
       print(paste("Getting NL Leaders by", end_date))
-      print("Lines of NL Leaders by division will be thicker")
-      leaders <- pbapply::pbsapply(nl_divisions, standings_on_date_bref, date = end_date)
+      print(paste("Lines of NL Division Leaders by", end_date, "will be thicker in the plot"))
+    
+    } else if (lg_div == "MLB") {
+      
+      divisions <- c("AL East", "AL Central", "AL West",
+                     "NL East", "NL Central", "NL West")
+      print(paste("Getting MLB Division Leaders by", end_date))
+      print(paste("Lines of MLB Division Leaders by", end_date, "will be thicker in the plot"))
       
     }
     
     # Create a vector with division leaders
+    leaders <- pbapply::pbsapply(divisions, standings_on_date_bref, date = end_date)
     leaders <- do.call("rbind", leaders)
     leaders$GB[leaders$GB == "--"] <- 0
     leaders$GB <- as.numeric(leaders$GB, digits = 2)
     leaders <- leaders[leaders$GB == 0, 1]
-    
-  } 
+
+  }
   
   # Print standings table for "start_date" and "end_date"
   first_end <- all %>%
-    filter(Date == min(Date) | Date == max(Date)) %>%
-    arrange(Date, desc(WLpct)) %>% 
+    dplyr::filter(Date == min(Date) | Date == max(Date)) %>%
+    dplyr::arrange(Date, desc(WLpct)) %>% 
     print()
   
   # Create a table of colors by team
   team_palette <- Lahman::Teams %>% 
-    filter(yearID == 2016) %>% 
-    select(name, teamIDBR) %>% 
+    dplyr::filter(yearID == 2016) %>% 
+    dplyr::select(name, teamIDBR) %>% 
     dplyr::left_join(teamcolors::teamcolors, by = "name") %>% 
-    rename(Team = teamIDBR) %>% 
-    select(Team, primary, secondary)
+    dplyr::rename(Team = teamIDBR) %>% 
+    dplyr::select(Team, primary, secondary)
   
   # Replace "primary" color of some teams by its "secondary" color
   team_palette[c(1, 2, 6, 11, 16, 17, 21, 24, 27, 28), 2] <- team_palette[c(1, 2, 6, 11, 16, 17, 21, 24, 27, 28), 3]
@@ -99,7 +124,7 @@ viz_wlpct_on_period <- function(start_date, end_date, lg_div) {
   # Add series for each team in the data frame
   for (i in 1:length(unique(all$Team))) {
     
-    if (lg_div == "AL Overall" | lg_div == "NL Overall") {
+    if (lg_div == "AL Overall" | lg_div == "NL Overall" | lg_div == "MLB") {
       
       if (all$Team[i] %in% leaders) {
         
@@ -113,12 +138,13 @@ viz_wlpct_on_period <- function(start_date, end_date, lg_div) {
       
         } else {
         
-        wl <- wl %>%  # Creates series for remaining teams  (When requesting Overall)
+        wl <- wl %>%  # Creates series for remaining teams (When requesting Overall)
           highcharter::hc_add_series(data = all[all$Team == all$Team[i],],
                                      highcharter::hcaes(x = Date, y = WLpct),
                                      name = all$Team[i],
                                      color = all$primary[i],
                                      type = "line",
+                                     dashStyle = "ShortDashDotDot",
                                      lineWidth = 2)
        }
       
@@ -159,5 +185,5 @@ viz_wlpct_on_period <- function(start_date, end_date, lg_div) {
   
   
   # print viz of Games Behind
-  print(wl) 
+  print(wl)
 }
