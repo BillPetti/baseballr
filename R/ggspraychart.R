@@ -20,10 +20,14 @@
 #' }
 
 ggspraychart <- function(data, x_value = "hc_x",
-                         y_value = "-hc_y", fill_value = NULL,
-                         fill_palette = NULL, fill_legend_title = NULL,
-                         density = FALSE, bin_size = 15,
-                         point_alpha = .75, frame = NULL) {
+                         y_value = "-hc_y",
+                         fill_value = NULL,
+                         fill_palette = NULL,
+                         fill_legend_title = NULL,
+                         density = FALSE,
+                         bin_size = 15,
+                         point_alpha = .75,
+                         frame = NULL) {
 
   if(density == FALSE) {
 
