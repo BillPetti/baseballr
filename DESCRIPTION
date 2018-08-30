@@ -34,9 +34,10 @@ Encoding: UTF-8
 URL: https://billpetti.github.io/baseballr/
 BugReports: https://github.com/BillPetti/baseballr/issues
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
 Suggests:
     knitr,
     rmarkdown,
     testthat
 VignetteBuilder: knitr
+Encoding: UTF-8
