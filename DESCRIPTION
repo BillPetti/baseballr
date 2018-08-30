@@ -30,7 +30,6 @@ Imports:
     tibble,
     highcharter
 License: MIT + file LICENSE
-Encoding: UTF-8
 URL: https://billpetti.github.io/baseballr/
 BugReports: https://github.com/BillPetti/baseballr/issues
 LazyData: true
