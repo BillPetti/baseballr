@@ -4,9 +4,10 @@
 \alias{ggspraychart}
 \title{Generate spray charts with ggplot2}
 \usage{
-ggspraychart(data, x_value = "hc_x", y_value = "-hc_y", fill_value = NULL,
-  fill_palette = NULL, fill_legend_title = NULL, density = FALSE,
-  bin_size = 15, point_alpha = 0.75, frame = NULL)
+ggspraychart(data, x_value = "hc_x", y_value = "-hc_y",
+  fill_value = NULL, fill_palette = NULL, fill_legend_title = NULL,
+  density = FALSE, bin_size = 15, point_alpha = 0.75,
+  point_size = 2, frame = NULL)
 }
 \arguments{
 \item{data}{A data frame that includes batted ball coordinates. Typically, this coordinates will come from the GameDay xml feed or downloads from baseballsavant.com}
@@ -26,6 +27,8 @@ ggspraychart(data, x_value = "hc_x", y_value = "-hc_y", fill_value = NULL,
 \item{bin_size}{Size of bins used when building a density plot. Defaults to 15.}
 
 \item{point_alpha}{Alpha value whenever geom_point is used. Deaults to .75. Recommend .3 for density plots. To remove points on density points set use point_alpha = 0.}
+
+\item{point_size}{Set the size of geom_point if used.}
 
 \item{frame}{Variable to use as the frame argument if using gganimate to create animated plots. For density plots be sure your variable is a factor.}
 }

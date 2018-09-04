@@ -10,14 +10,17 @@
 \alias{scrape_statcast_savant_pitcher_all}
 \title{Query Statcast and PITCHf/x Data for data from \url{http://baseballsavant.mlb.com}}
 \usage{
-scrape_statcast_savant(start_date = Sys.Date() - 1, end_date = Sys.Date(),
-  playerid = NULL, player_type = "batter", ...)
+scrape_statcast_savant(start_date = Sys.Date() - 1,
+  end_date = Sys.Date(), playerid = NULL, player_type = "batter",
+  ...)
 
 \method{scrape_statcast_savant}{Date}(start_date = Sys.Date() - 1,
-  end_date = Sys.Date(), playerid = NULL, player_type = "batter", ...)
+  end_date = Sys.Date(), playerid = NULL, player_type = "batter",
+  ...)
 
 \method{scrape_statcast_savant}{default}(start_date = Sys.Date() - 1,
-  end_date = Sys.Date(), playerid = NULL, player_type = "batter", ...)
+  end_date = Sys.Date(), playerid = NULL, player_type = "batter",
+  ...)
 
 scrape_statcast_savant_batter(start_date, end_date, batterid, ...)
 
