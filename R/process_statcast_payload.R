@@ -17,7 +17,6 @@ process_statcast_payload <- function(payload) {
 
   # Clean up formatting of Baseball Savant download
 
-  payload[payload=="null"] <- NA
   payload$game_date <- as.Date(payload$game_date, "%Y-%m-%d")
   payload$des <- as.character(payload$des)
   payload$game_pk <- as.character(payload$game_pk) %>% as.numeric()
