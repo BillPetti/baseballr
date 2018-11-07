@@ -109,7 +109,7 @@ scrape_statcast_savant.Date <- function(start_date = Sys.Date() - 1, end_date = 
   # Do a try/catch to show errors that the user may encounter while downloading.
   tryCatch(
     {
-      message("These data are from BaseballSevant and are property of MLB Advanced Media, L.P. All rights reserved.")
+      message("These data are from BaseballSavant and are property of MLB Advanced Media, L.P. All rights reserved.")
       message("Grabbing data, this may take a minute...")
       suppressMessages(
         suppressWarnings(
