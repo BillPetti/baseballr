@@ -336,5 +336,14 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
     payload <- read_csv(url)
   }
 
+  if(!"year" %in% colnames(payload)) {
+
+    payload <- payload %>%
+      mutate(year = year)
+  }
+
+  payload <- payload %>%
+    select(year, everything())
+
   return(payload)
 }
