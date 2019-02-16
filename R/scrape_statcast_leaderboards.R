@@ -146,7 +146,7 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
   if (leaderboard == "outs_above_average") {
 
-    if (!year %in% c(seq(2017,substr(Sys.time(), 1, 4),1))) {
+    if (!year %in% c(seq(2016,substr(Sys.time(), 1, 4),1))) {
 
       message("Outs Above Average leaderboards are only available starting in 2016. Please choose an appropriate year.")
 
