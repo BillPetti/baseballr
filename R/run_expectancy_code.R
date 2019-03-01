@@ -96,7 +96,7 @@ run_expectancy_code <- function(df, level = "plate appearance") {
       left_join(re_table, by = "count_base_out_state")
 
     df <- df %>%
-      dplyr::filter(final_pitch_at_bat == 1) %>%
+      #dplyr::filter(final_pitch_at_bat == 1) %>%
       dplyr::arrange(game_pk, inning, inning_topbot) %>%
       dplyr::group_by(game_pk, inning, inning_topbot) %>%
       dplyr::mutate(next_count_base_out_state =
