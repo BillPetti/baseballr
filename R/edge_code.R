@@ -38,10 +38,15 @@ edge_code <- function(df, height_var_name = "b_height") {
     if (class(df$px) == "factor") {df$px <- as.numeric(levels(df$px))[df$px]}
     if (class(df$pz) == "factor") {df$pz <- as.numeric(levels(df$pz))[df$pz]}
     df$b_height_inch <- df$Height
-    df$called_pitch <- ifelse(grepl("Called|Ball", df$description), 1, 0)
-    df$called_strike <- ifelse(grepl("Called", df$description), 1, 0)
-    df$swing <- ifelse(grepl("Swinging|Foul|In play", df$description), 1, 0)
-    df$whiff <- ifelse(grepl("Swinging", df$description), 1, 0)
+    df$called_pitch <- ifelse(grepl("Called|Ball",
+                                    df$des2,
+                                    ignore.case = TRUE), 1, 0)
+    df$called_strike <- ifelse(grepl("Called", df$des2,
+                                     ignore.case = TRUE), 1, 0)
+    df$swing <- ifelse(grepl("Swinging|Foul|In play", df$des2,
+                             ignore.case = TRUE), 1, 0)
+    df$whiff <- ifelse(grepl("Swinging", df$des2,
+                             ignore.case = TRUE), 1, 0)
     LHH <- filter(df, stand == "L")
     RHH <- filter(df, stand == "R")
     LHH$location <- with(LHH, ifelse(!is.na(px) & !is.na(pz) & px > .21 & px < .81 & pz > (.35 + b_height_inch/12 *.229) & pz < (2.0 + b_height_inch/12 *.229), "Inside Edge", ifelse(!is.na(px) & !is.na(pz) & px > -1.20 & px < -0.9 & pz > (.35 + b_height_inch/12 *.229) & pz < (2.0 + b_height_inch/12 *.229), "Outside Edge", ifelse(!is.na(px) & !is.na(pz) & px >= -0.9 & px <= .21 & pz > (1.7 + b_height_inch/12 *.229) & pz < (2.0 + b_height_inch/12 *.229), "Upper Edge", ifelse(!is.na(px) & !is.na(pz) & px >= -0.9 & px <= .21 & pz > (.35 + b_height_inch/12 *.229) & pz < (.65 + b_height_inch/12 *.229), "Lower Edge", ifelse(!is.na(px) & !is.na(pz) & px >= -0.9 & px <= .21 & pz >= (.65 + b_height_inch/12 *.229) & pz <= (1.7 + b_height_inch/12 *.229), "Heart", ifelse(is.na(px) | is.na(pz), NA, "Out of Zone")))))))
