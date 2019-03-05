@@ -39,13 +39,13 @@ edge_code <- function(df, height_var_name = "b_height") {
     if (class(df$pz) == "factor") {df$pz <- as.numeric(levels(df$pz))[df$pz]}
     df$b_height_inch <- df$Height
     df$called_pitch <- ifelse(grepl("Called|Ball",
-                                    df$des2,
+                                    df$description,
                                     ignore.case = TRUE), 1, 0)
-    df$called_strike <- ifelse(grepl("Called", df$des2,
+    df$called_strike <- ifelse(grepl("Called", df$description,
                                      ignore.case = TRUE), 1, 0)
-    df$swing <- ifelse(grepl("Swinging|Foul|In play", df$des2,
+    df$swing <- ifelse(grepl("Swinging|Foul|In play", df$description,
                              ignore.case = TRUE), 1, 0)
-    df$whiff <- ifelse(grepl("Swinging", df$des2,
+    df$whiff <- ifelse(grepl("Swinging", df$description,
                              ignore.case = TRUE), 1, 0)
     LHH <- filter(df, stand == "L")
     RHH <- filter(df, stand == "R")
