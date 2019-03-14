@@ -21,7 +21,7 @@ fg_bat_leaders(x, y, league = "all", qual = "y", ind = 0)
 This function allows you to scrape all leaderboard statistics (basic and advanced) from FanGraphs.com.
 }
 \examples{
-\dontrun{fg_bat_leaders(2015, 2015, 400)}
+\dontrun{fg_bat_leaders(x = 2015, y = 2015, qual = 400)}
 }
 \keyword{MLB,}
 \keyword{sabermetrics}
