@@ -5,7 +5,7 @@
 \title{Scrape Pitcher Leaderboards from FanGraphs}
 \usage{
 fg_pitch_leaders(x, y, league = "all", qual = "y",
-  pitcher_type = "all", ind = 0)
+  pitcher_type = "pit", ind = 0)
 }
 \arguments{
 \item{x}{First season for which you want data.}
@@ -16,7 +16,7 @@ fg_pitch_leaders(x, y, league = "all", qual = "y",
 
 \item{qual}{Whether you want only pitchers that qualified in a given season, or the minimum number of innings pitched for inclusion. If you only want qualified pitchers, use qual. If a minimumm number of innings pitches, use the number desired. Defaults to "y".}
 
-\item{pitcher_type}{Whether you want only starting pitchers, relievers, or all pitchers that meet the criteria specified in the qual argument. Options include "all", "sta", "rel".}
+\item{pitcher_type}{Whether you want only starting pitchers, relievers, or all pitchers that meet the criteria specified in the qual argument. Options include "pit", "sta", "rel".}
 
 \item{ind}{Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.}
 }
