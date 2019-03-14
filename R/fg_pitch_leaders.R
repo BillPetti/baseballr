@@ -9,7 +9,8 @@
 #' @param ind Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.
 #' @keywords MLB, sabermetrics
 #' @importFrom xml2 read_html
-#' @importFrom rvest html_nodes html_table
+#' @importFrom rvest html_nodes html_table html_attr
+#' @importFrom dplyr rename filter mutate
 #' @export
 #' @examples
 #' \dontrun{fg_pitch_leaders(x = 2015, y = 2015, qual = 150)}
@@ -87,7 +88,7 @@ fg_pitch_leaders <- function(x, y, league = "all", qual = "y",
     c <- ifelse(substr(c, nchar(c)-1+1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
     r <- c("Start_IP", "Relief_IP", "WPA_minus",
            "WPA_plus", "FBall_pct", "AgeRng")
-    c[c(56,58,65,66,76,217),] <- r
+    c[c(57,59,66,67,77,218),] <- r
     names(leaders) <- c
     leaders <- as.data.frame(sapply(leaders, function(x) (gsub("\\ %", "", x))))
     leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))))

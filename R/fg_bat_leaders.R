@@ -8,7 +8,8 @@
 #' @param ind Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.
 #' @keywords MLB, sabermetrics
 #' @importFrom xml2 read_html
-#' @importFrom rvest html_nodes html_table
+#' @importFrom rvest html_nodes html_table html_attr
+#' @importFrom dplyr rename filter mutate
 #' @export
 #' @examples
 #' \dontrun{fg_bat_leaders(x = 2015, y = 2015, qual = 400)}
