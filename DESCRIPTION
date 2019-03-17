@@ -1,6 +1,6 @@
 Package: baseballr
 Title: Functions for acquiring and analyzing baseball data
-Version: 0.3.4.9002
+Version: 0.4
 Author: Bill Petti <billpetti@gmail.com>
 Authors@R: c(
     person("Bill", "Petti", email = "billpetti@gmail.com",

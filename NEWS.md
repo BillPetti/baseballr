@@ -1,8 +1,126 @@
+# baseballr 0.4 (2019-03-18)
+
+The latest release of the [`baseballr`](https://billpetti.github.io/baseballr/) package for `R` includes a number of enhancements and bug fixes.
+
+## New Functions
+
+`fg_pitch_leaders()`
+
+This function is the compliment to the `fg_bat_leaders()` function, returning leaderboard information for pitchers from FanGraphs.com.
+
+In addition to noting the start and end years, along with qualified/IP requirements, etc., you can note whether you want all pitchers, starters, or just relievers using the `pitcher_type` argument. 
+
+- `pit` wil give you all pitchers that meet your requirements
+- `sta` gives you starters only 
+- `rel` gives you relievers only
+
+```
+fg_pitch_leaders(2018,2018, pitcher_type = "sta") %>% slice (1:10) %>% .[,1:10]
+
+   playerid Seasons  #             Name      Team Age  W  L  ERA  G
+1     10954    2018  1     Jacob deGrom      Mets  30 10  9 1.70 32
+2     13543    2018  2      Blake Snell      Rays  25 21  5 1.89 31
+3     12703    2018  3     Trevor Bauer   Indians  27 12  6 2.26 27
+4     16149    2018  4       Aaron Nola  Phillies  25 17  6 2.37 33
+5      8700    2018  5 Justin Verlander    Astros  35 16  9 2.52 34
+6      3137    2018  6     Max Scherzer Nationals  33 18  7 2.53 33
+7      9803    2018  7    Miles Mikolas Cardinals  29 18  4 2.83 32
+8     16256    2018  8    Kyle Freeland   Rockies  25 17  7 2.85 33
+9     10811    2018  9 Mike Foltynewicz    Braves  26 13 10 2.85 31
+10    13125    2018 10      Gerrit Cole    Astros  27 15  5 2.88 32
+```
+
+`scrape_statcast_leaderboards()`
+
+The `scrape_statcast_leaderboards()` function can be used to access all of the leaderboards available from [BaseballSavant](https://baseballsavant.mlb.com) as csv downloads. The function isn't doing anything too sophisticated; it simply builds the appropriate url for the csv download based on a series of parameters and then reads the csv into `R`.
+
+Users specificy which leaderboard they want to download using the `leaderboard` argument. The following are currently available:
+
+- `exit_velocity_barrels`
+- `expected_statistics`
+- `pitch_arsenal`
+- `outs_above_average`
+- `directional_oaa`
+- `catch_probability`
+- `pop_time`
+- `sprint_speed`
+- `running_splits_90_ft`
+
+Each leaderboard has different parameters that can be specific to alter the content of the downloads, but not all parameters work for every leaderboard. (I would check the leaderboard interface on BaseballSavant directly if you are not sure which ones to use.) Some of the leaderboards do not include a variable for the `year` selected, so the function will check if it exists and, if not, it will add a column based on your parameter setting.
+
+Here is an example of the `expected_statistics` leaderboard for pitchers who faced at least 250 batters in 2018:
+
+```
+payload <- scrape_savant_leaderboards(leaderboard = "expected_statistics", 
+					year = 2018, 
+					player_type = "pitcher", 
+					min_pa = 250)
+
+payload %>%
+	arrange(est_woba) %>% 
+	select(year:last_name, pa, woba:est_woba_minus_woba_diff)
+
+    year last_name    pa  woba est_woba est_woba_minus_woba_diff
+   <int> <chr>     <int> <dbl>    <dbl>                    <dbl>
+ 1  2018 Diaz        280 0.214    0.212                    0.002
+ 2  2018 Hader       306 0.219    0.229                   -0.01 
+ 3  2018 Treinen     315 0.187    0.23                    -0.043
+ 4  2018 Ottavino    309 0.231    0.23                     0.001
+ 5  2018 Sale        617 0.237    0.232                    0.005
+ 6  2018 Verlander   833 0.26     0.236                    0.024
+ 7  2018 Betances    272 0.259    0.236                    0.023
+ 8  2018 Pressly     292 0.267    0.241                    0.026
+ 9  2018 deGrom      835 0.23     0.243                   -0.013
+10  2018 Scherzer    866 0.252    0.246                    0.006
+# ... with 264 more rows
+```
+
+`milb_batter_game_logs_fg()`
+`milb_pitcher_game_logs_fg()`
+
+These functions were contributed by [Mat Adams](https://github.com/matawith1t), and they are similar to the game log functions included in an earlier release except that they will return minor league game logs for the player specified. The functions take only two arguments: `playerid` and `year`. The `playerid` is the minor league ID assigned by FanGrapsh. This can be found in the url slug for a minor league player's page. 
+
+For example, here is the url for Vladimir Guerrero Jr.'s minor league game logs: https://www.fangraphs.com/statsd.aspx?playerid=sa920245&position=3B&gds=&gde=
+
+You will see the `playerid=` portion of the url, and the actual ID follows (i.e. sa920245).
+
+```
+milb_batter_game_logs_fg(playerid = "sa920245", year = 2017) %>% slice(1:10)
+
+                    name minor_playerid       Date Team Level  Opp  AVG G AB PA H
+1  Vladimir Guerrero Jr.       sa920245 2017-04-07  TOR   (A) @LAD .000 1  1  3 0
+2  Vladimir Guerrero Jr.       sa920245 2017-04-07  TOR   (A) @LAD .500 1  4  4 2
+3  Vladimir Guerrero Jr.       sa920245 2017-04-08  TOR   (A)  LAD .500 1  4  5 2
+4  Vladimir Guerrero Jr.       sa920245 2017-04-09  TOR   (A)  LAD .333 1  3  5 1
+5  Vladimir Guerrero Jr.       sa920245 2017-04-10  TOR   (A) @TBR .250 1  4  4 1
+6  Vladimir Guerrero Jr.       sa920245 2017-04-12  TOR   (A) @TBR .000 1  3  4 0
+7  Vladimir Guerrero Jr.       sa920245 2017-04-12  TOR   (A) @TBR .667 1  3  3 2
+8  Vladimir Guerrero Jr.       sa920245 2017-04-13  TOR   (A)  CLE .000 1  3  4 0
+9  Vladimir Guerrero Jr.       sa920245 2017-04-14  TOR   (A)  CLE .000 1  3  4 0
+10 Vladimir Guerrero Jr.       sa920245 2017-04-15  TOR   (A)  CLE .333 1  3  4 1
+```
+
+## Updgrades
+
+`ncaa_scrape()`
+- Updated to allow scraping of data for the 2019 season.
+
+`edge_code()`
+- Changes made to make function more compatible with [BaseballSavant](https://baseballsavant.mlb.com) data.
+## Bug Fixes
+
+`fg_bat_leaders()`
+- `playerid` now returned as part of the data returned.  
+
+`run_expectancy_code()`
+- Removed filter for `final pitch==1` when not grouping by plate appearances.
+
+
 # baseballr 0.3.4 (2018-05-29)
 
 * Added a `NEWS.md` file to track changes to the package.
 
-The latest release of the [`baseballr`](https://billpetti.github.io/baseballr/) package for `R` (0.5) includes a number of enhancements and bug fixes.
+The latest release of the [`baseballr`](https://billpetti.github.io/baseballr/) package for `R` (0.3.4) includes a number of enhancements and bug fixes.
 
 ## New Functions
 
