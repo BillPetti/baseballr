@@ -10,7 +10,8 @@ get_game_pks_mlb(date)
 \item{date}{The date for which you want to find game_pk values for MLB games}
 }
 \value{
-Returns a data frame that includes game_pk values for the date
+Returns a data frame that includes game_pk values and additional
+information for games scheduled or played
 requested
 }
 \description{
