@@ -6,8 +6,8 @@
 #' @importFrom tidyr spread
 #' @importFrom tibble tibble
 #' @importFrom stringr str_sub
-#' @return Returns a data frame that includes game_pk values for the date
-#' requested
+#' @return Returns a data frame that includes supplemental information, such as
+#' weather, official scorer, attendance, etc., for the game_pk provided
 #' @keywords MLB, sabermetrics
 #' @export
 #'

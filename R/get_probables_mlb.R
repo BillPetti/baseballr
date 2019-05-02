@@ -6,7 +6,8 @@
 #' @importFrom purrr map_df
 #' @importFrom tibble tibble
 #' @importFrom stringr str_sub
-#' @return Returns a data frame that includes game_pk values for the date
+#' @return Returns a data frame that includes probable starting pitchers for
+#' the game_pk provided
 #' requested
 #' @keywords MLB, sabermetrics
 #' @export
