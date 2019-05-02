@@ -17,7 +17,8 @@ get_game_pks_mlb <- function(date) {
   payload <- jsonlite::fromJSON(api_call)
 
   payload <- payload$dates$games %>%
-    as.data.frame()
+    as.data.frame() %>%
+    rename(game_pk = gamePk)
 
   return(payload)
 
