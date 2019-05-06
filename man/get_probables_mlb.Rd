@@ -10,8 +10,8 @@ get_probables_mlb(game_pk)
 \item{game_pk}{The unique game_pk identifier for the game}
 }
 \value{
-Returns a data frame that includes probable starting pitchers for
-the game_pk provided
+Returns a data frame that includes probable starting pitchers and
+the home plate umpire for the game_pk provided
 requested
 }
 \description{
