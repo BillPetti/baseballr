@@ -14,7 +14,7 @@ get_game_pks_mlb <- function(date) {
 
   api_call <- paste0("http://statsapi.mlb.com/api/v1/schedule?sportId=1&date=", date)
 
-  payload <- jsonlite::fromJSON(api_call)
+  payload <- jsonlite::fromJSON(api_call, flatten = TRUE)
 
   payload <- payload$dates$games %>%
     as.data.frame() %>%
