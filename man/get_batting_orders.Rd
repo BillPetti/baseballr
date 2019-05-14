@@ -4,10 +4,13 @@
 \alias{get_batting_orders}
 \title{Retrieve batting orders for a given MLB game via the MLB api \url{http://statsapi.mlb.com/api/}}
 \usage{
-get_batting_orders(game_pk)
+get_batting_orders(game_pk, type = "starting")
 }
 \arguments{
 \item{game_pk}{The unique game_pk identifier for the game}
+
+\item{type}{Whether to just return the starting lineup ('starting') or all
+batters that appeared ('all')}
 }
 \value{
 Returns a data frame that includes probable starting pitchers and
