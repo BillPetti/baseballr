@@ -12,7 +12,7 @@
 #' @importFrom xml2 read_html
 #'
 #' @return A data frame containing player and school information
-#' and game statistics
+#' as well as game by game statistics
 #' @export
 #'
 #' @examples

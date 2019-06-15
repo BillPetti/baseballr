@@ -4,13 +4,13 @@
 #' @param year The year of interest
 #'
 #' @importFrom dplyr mutate mutate_at select slice bind_cols bind_rows
-#' distinct
-#' @importFrom rvest html_nodes html_attr html_table html_text
+#' distinct rename
+#' @importFrom rvest html_nodes html_node html_attr html_table html_text
 #' @importFrom tibble tibble
 #' @importFrom xml2 read_html
 #'
 #' @return A data frame containing roster information, including
-#' player_ids and urls
+#' IDs and urls for each player (if available)
 #' @export
 #'
 #' @examples
@@ -66,7 +66,7 @@ get_ncaa_baseball_roster <- function(teamid,
 
     url_slug <- ifelse(url_slug %>%
                          as.data.frame() %>%
-                         rename(var = '.') %>%
+                         dplyr::rename(var = '.') %>%
                          nrow() == 0, NA, url_slug)
 
     player_id <- gsub(".*stats_player_seq=\\s*", "", url_slug)

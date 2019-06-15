@@ -13,7 +13,7 @@ get_ncaa_baseball_roster(teamid, year)
 }
 \value{
 A data frame containing roster information, including
-player_ids and urls
+IDs and urls for each player (if available)
 }
 \description{
 Get NCAA Baseball Rosters

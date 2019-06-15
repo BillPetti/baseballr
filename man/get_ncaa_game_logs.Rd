@@ -17,7 +17,7 @@ are 'batting' or 'pitching'.}
 }
 \value{
 A data frame containing player and school information
-and game statistics
+as well as game by game statistics
 }
 \description{
 Get NCAA Baseball Game Logs
