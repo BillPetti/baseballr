@@ -3,14 +3,20 @@
 #' This function allows you to scrape basic pitcher statistics over a custom time frame. Data is sourced from Baseball-Reference.com.
 #' @param t1 First date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @param t2 Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
+#' @importFrom dplyr select rename filter mutate
+#' @importFrom xml2 read_html
+#' @importFrom rvest html_nodes html_table html_attr
 #' @keywords MLB, sabermetrics
 #' @export
 #' @examples
 #' daily_pitcher_bref("2015-05-10", "2015-06-20")
 
 daily_pitcher_bref <- function(t1, t2) {
-  df <- read_html(paste0("http://www.baseball-reference.com/leagues/daily.cgi?user_team=&bust_cache=&type=p&lastndays=7&dates=fromandto&fromandto=", t1, ".", t2, "&level=mlb&franch=&stat=&stat_value=0"))
-  df <- df %>% html_nodes(xpath = '//*[@id="daily"]') %>% html_table(fill = TRUE)
+  payload <- read_html(paste0("http://www.baseball-reference.com/leagues/daily.cgi?user_team=&bust_cache=&type=p&lastndays=7&dates=fromandto&fromandto=", t1, ".", t2, "&level=mlb&franch=&stat=&stat_value=0"))
+  df <- payload %>%
+    html_nodes(xpath = '//*[@id="daily"]') %>%
+    html_table(fill = TRUE)
+
   df <- as.data.frame(df)[-c(1,3,5)]
   names(df)[1:4] <- c("Name", "Age", "Level", "Team")
   df[,c(2,5:29, 36:39)] <- lapply(df[,c(2,5:29, 36:39)], as.numeric)
@@ -32,5 +38,20 @@ daily_pitcher_bref <- function(t1, t2) {
   df$Team <- gsub(" $", "", df$Team, perl=T)
   df <- filter_(df, ~Name != "Name")
   df <- arrange_(df, ~desc(IP), ~desc(WHIP))
+
+  playerids <- payload %>%
+    html_nodes("table") %>%
+    html_nodes("a") %>%
+    html_attr("href") %>%
+    as.data.frame() %>%
+    rename(slug = ".") %>%
+    filter(grepl("redirect", slug)) %>%
+    mutate(playerid = gsub("/redirect.fcgi\\?player=1&mlb_ID=", "", slug))
+
+  df <- df %>%
+    mutate(bbref_id = playerids$playerid) %>%
+    select(bbref_id, everything())
+
   df
+
 }

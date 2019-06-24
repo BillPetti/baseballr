@@ -33,7 +33,7 @@ License: MIT + file LICENSE
 URL: https://billpetti.github.io/baseballr/
 BugReports: https://github.com/BillPetti/baseballr/issues
 LazyData: true
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 Suggests:
     knitr,
     rmarkdown,
