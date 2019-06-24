@@ -15,12 +15,23 @@ You can read more about some of the functions and how to use them at its [offici
 Installation
 ------------
 
-You can install `baseballr` from github with:
+You can install `baseballr` from GitHub.
+
+Master branch:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("BillPetti/baseballr")
 ```
+
+Development branch:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("BillPetti/baseballr", ref = "development_branch))
+```
+
+
 
 Functionality
 -------------
