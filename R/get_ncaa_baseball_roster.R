@@ -18,7 +18,7 @@
 #' get_ncaa_baseball_roster(104, 2019)
 #' }
 
-get_ncaa_baseball_roster_x <- function(teamid = NA,
+get_ncaa_baseball_roster <- function(teamid = NA,
                                      year = 2019) {
 
   id <- subset(ncaa_season_id_lu, season == year, select = id)
