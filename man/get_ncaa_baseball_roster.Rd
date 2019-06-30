@@ -4,7 +4,7 @@
 \alias{get_ncaa_baseball_roster}
 \title{Get NCAA Baseball Rosters}
 \usage{
-get_ncaa_baseball_roster(teamid, year)
+get_ncaa_baseball_roster(teamid = NA, year = 2019)
 }
 \arguments{
 \item{teamid}{NCAA id for a school}

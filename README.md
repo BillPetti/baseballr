@@ -3,10 +3,10 @@
 baseballr
 =========
 
-`baseballr` 0.4
+`baseballr` 0.5.0
 ===============
 
-**(latest version released 2019-03-18)**
+**(latest version released 2019-06-24)**
 
 `baseballr` is a package written for R focused on baseball analysis. It includes functions for scraping various data from websites, such as FanGraphs.com, Baseball-Reference.com, and baseballsavant.com. It also includes functions for calculating metrics, such as wOBA, FIP, and team-level consistency over custom time frames.
 
@@ -15,12 +15,23 @@ You can read more about some of the functions and how to use them at its [offici
 Installation
 ------------
 
-You can install `baseballr` from github with:
+You can install `baseballr` from GitHub.
+
+Master branch:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("BillPetti/baseballr")
 ```
+
+Development branch:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("BillPetti/baseballr", ref = "development_branch))
+```
+
+
 
 Functionality
 -------------
