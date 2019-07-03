@@ -41,3 +41,9 @@
 #' @usage data(master_ncaa_team_lu)
 #' @format A data frame with 4,774 rows and 6 variables
 "master_ncaa_team_lu"
+
+#' Column Structure of MLB Draft data
+#' @description A tibble
+#' @docType data
+#' @keywords datasets
+"column_structure_draft_mlb"

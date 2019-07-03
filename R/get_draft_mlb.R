@@ -22,8 +22,6 @@ get_draft_mlb <- function(year) {
   draft_table <- draft_table %>%
     dplyr::bind_rows()
 
-  columns_to_fill <- column_structure_draft_mlb
-
   draft_table_filled <- dplyr::bind_rows(column_structure_draft_mlb,
                                          draft_table) %>%
     janitor::clean_names()

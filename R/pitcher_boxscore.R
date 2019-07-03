@@ -9,8 +9,8 @@
 
 pitcher_boxscore <- function(x) {
   url <- x
-  box <- xmlParse(url)
-  xml_data <- xmlToList(box)
+  box <- XML::xmlParse(url)
+  xml_data <- XML::xmlToList(box)
   end <- length(xml_data[[2]]) - 1
   x <- seq(1:end)
   away_pitchers <- lapply(xml_data[[2]][x], function(x)
