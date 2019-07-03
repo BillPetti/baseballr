@@ -14,6 +14,10 @@ knitr::opts_chunk$set(
 )
 ```
 
+<!-- badges: start -->
+[![Travis build status](https://travis-ci.org/beanumber/baseballr.svg?branch=master)](https://travis-ci.org/beanumber/baseballr)
+<!-- badges: end -->
+
 # baseballr
 
 # `baseballr` 0.3.4
