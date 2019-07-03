@@ -18,7 +18,7 @@ requested
 Find game_pk values for MLB games via the MLB api \url{http://statsapi.mlb.com/api/}
 }
 \examples{
-get_game_pks("2019-04-29")
+get_game_pks_mlb("2019-04-29")
 }
 \keyword{MLB,}
 \keyword{sabermetrics}
