@@ -4,7 +4,6 @@
 #'
 #' @param x A boxscore.xml url for a given game from the MLBAM GameDay app data.
 #' @keywords MLB, PITCHf/x, Game Day, boxscore, sabermetrics
-#' @importFrom dplyr bind_rows
 #' @export
 #' @examples
 #' # batters

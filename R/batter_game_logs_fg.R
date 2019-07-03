@@ -6,7 +6,6 @@
 #' @keywords MLB, sabermetrics
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_nodes html_table
-#' @importFrom dplyr filter rename
 #' @export
 #' @examples
 #' \dontrun{batter_game_logs_fg(playerid = 6184, year = 2017)}

@@ -4,7 +4,6 @@
 #' @param type Whether to just return the starting lineup ('starting') or all
 #' batters that appeared ('all')
 #' @importFrom jsonlite fromJSON
-#' @importFrom dplyr bind_rows bind_cols mutate select left_join
 #' @importFrom purrr map_df
 #' @importFrom tibble tibble
 #' @return Returns a data frame that includes probable starting pitchers and

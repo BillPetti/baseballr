@@ -10,7 +10,6 @@
 #' @keywords MLB, sabermetrics
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_nodes html_table html_attr
-#' @importFrom dplyr rename filter mutate
 #' @export
 #' @examples
 #' \dontrun{fg_pitch_leaders(x = 2015, y = 2015, qual = 150)}

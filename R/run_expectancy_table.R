@@ -4,7 +4,6 @@
 #' @param df A data frame generated from Baseball Savant that has been formatted using the run_expectancy_code() function.
 #' @param level Whether you want run expectancy calculated at the plate appearance or pitch level. Defaults to plate appearance.
 #' @keywords MLB, sabermetrics
-#' @importFrom dplyr filter group_by summarise arrange mutate
 #' @export
 #' @examples
 #' \dontrun{run_expectancy_table(df, level = "plate appearances")}

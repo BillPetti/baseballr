@@ -12,8 +12,6 @@
 #' @param inverse_precision inverse of how many digits to truncate the launch angle 
 #' and speed to for comparison. Default is \code{10000}, i.e. keep 4 digits of precision.
 #' @keywords MLB, Statcast, sabermetrics
-#' @importFrom dplyr bind_rows
-#' @importFrom dplyr left_join
 #' @importFrom readr read_csv
 #' @return A copy of the input dataframe with a new column \code{imputed} appended. imputed
 #' is 1 if launch angle and launch speed are likely imputed, 0 otherwise.

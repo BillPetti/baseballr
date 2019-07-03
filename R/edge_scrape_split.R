@@ -6,12 +6,14 @@
 #' @param group Character string indicating whether to group the output by pitchers or batters. Options are "pitcher" or "batter".
 #' @keywords MLB, sabermetrics, PITCHf/x
 #' @importFrom pitchRx scrape
-#' @importFrom dplyr select filter left_join group_by_ summarise
 #' @export
-#' @examples \dontrun{edge_scrape_split("2015-04-05", "2015-04-05", pitcher)}
+#' @examples 
+#' \dontrun{
+#' edge_scrape_split("2015-04-05", "2015-04-05", pitcher)
+#' }
 
 edge_scrape_split <- function(start, end, group) {
-  pfx <- scrape(start, end)
+  pfx <- suppressMessages(pitchRx::scrape(start, end))
   df <- left_join(pfx$pitch, pfx$atbat, by = c("gameday_link", "num"))
   f <- as.numeric(lapply(strsplit(df$b_height, "-"), function(x) x[1])) * 12
   i <- as.numeric(lapply(strsplit(df$b_height, "-"), function(x) x[1]))
