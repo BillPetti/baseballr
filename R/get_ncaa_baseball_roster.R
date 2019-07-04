@@ -3,8 +3,6 @@
 #' @param teamid NCAA id for a school
 #' @param year The year of interest
 #'
-#' @importFrom dplyr mutate mutate_at select slice bind_cols bind_rows
-#' distinct rename
 #' @importFrom rvest html_nodes html_node html_attr html_table html_text
 #' @importFrom tibble tibble
 #' @importFrom xml2 read_html

@@ -16,19 +16,21 @@ Depends:
 Imports:
     dplyr,
     ggplot2,
-    stringr,
-    tidyr,
+    highcharter,
+    janitor,
+    jsonlite,
     lubridate,
     pitchRx,
+    purrr,
     readr,
     reldist,
     rvest,
+    stringr,
+    tidyr,
     XML,
     xml2,
-    magrittr,
     pbapply,
-    tibble,
-    highcharter
+    tibble
 License: MIT + file LICENSE
 URL: https://billpetti.github.io/baseballr/
 BugReports: https://github.com/BillPetti/baseballr/issues

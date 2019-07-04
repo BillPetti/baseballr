@@ -11,7 +11,6 @@
 #' @param ... currently ignored
 #' @keywords MLB, sabermetrics, Statcast
 #' @importFrom tibble tribble
-#' @importFrom dplyr mutate_ filter_
 #' @importFrom lubridate year
 #' @export
 #' @examples

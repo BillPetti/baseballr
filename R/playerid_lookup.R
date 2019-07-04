@@ -38,7 +38,6 @@ playerid_lookup <- function(last_name = NULL, first_name = NULL) {
   }
 }
 
-#' @importFrom dplyr filter select
 
 process_player_name <- function(last_name = NULL, first_name = NULL) {
   if (is.null(first_name)) {

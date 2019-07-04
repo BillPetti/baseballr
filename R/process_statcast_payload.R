@@ -6,7 +6,6 @@
 #' @param payload payload from a Baseball Savant request, e.g.
 #' from \code{\link[readr]{read_csv}}
 #' @keywords MLB, sabermetrics, Statcast
-#' @importFrom dplyr mutate_
 #' @export
 #' @examples
 #' \dontrun{

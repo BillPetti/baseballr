@@ -4,8 +4,6 @@
 #'
 #' @param x A boxscore.xml url for a given game from the MLBAM GameDay app data.
 #' @keywords MLB, PITCHf/x, Game Day, boxscore, sabermetrics
-#' @importFrom XML xmlToList xmlParse
-#' @importFrom dplyr bind_rows
 #' @export
 #' @examples
 #' # batters
@@ -17,8 +15,8 @@
 
 batter_boxscore <- function(x) {
   url <- x
-  box <- xmlParse(url)
-  xml_data <- xmlToList(box)
+  box <- XML::xmlParse(url)
+  xml_data <- XML::xmlToList(box)
   end <- length(xml_data[[3]]) - 5
   x <- seq(1:end)
   home_batters <- lapply(xml_data[[3]][x], function(x)
