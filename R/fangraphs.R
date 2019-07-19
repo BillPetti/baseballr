@@ -21,7 +21,7 @@ fg_bat_leaders <- function(x, y, league = "all", qual = "y", ind = 0) {
 
     leaders <- payload %>%
       html_nodes("table") %>%
-      `[[`(12) %>% html_table(fill=TRUE)
+      `[[`(length(.)-1) %>% html_table(fill=TRUE)
 
     leaders <- leaders[-c(1,3),]
     names(leaders) <- leaders[1,]
@@ -50,7 +50,7 @@ fg_bat_leaders <- function(x, y, league = "all", qual = "y", ind = 0) {
 
     playerids <- payload %>%
       html_nodes("table") %>%
-      .[[12]] %>%
+      .[[length(.)-1]] %>%
       html_nodes("a") %>%
       html_attr("href") %>%
       as.data.frame() %>%
@@ -70,7 +70,7 @@ fg_bat_leaders <- function(x, y, league = "all", qual = "y", ind = 0) {
 
     leaders <- payload %>%
       html_nodes("table") %>%
-      `[[`(12) %>% html_table(fill=TRUE)
+      `[[`(length(.)-1) %>% html_table(fill=TRUE)
 
     leaders <- leaders[-c(1,3),]
     names(leaders) <- leaders[1,]
@@ -94,7 +94,7 @@ fg_bat_leaders <- function(x, y, league = "all", qual = "y", ind = 0) {
 
     playerids <- payload %>%
       html_nodes("table") %>%
-      .[[12]] %>%
+      .[[length(.)-1]] %>%
       html_nodes("a") %>%
       html_attr("href") %>%
       as.data.frame() %>%
@@ -128,7 +128,7 @@ fg_pitch_leaders <- function(x, y, league = "all", qual = "y",
     
     leaders <- payload %>%
       html_nodes("table") %>%
-      `[[`(12) %>% html_table(fill=TRUE)
+      `[[`(length(.)-1) %>% html_table(fill=TRUE)
     
     leaders <- leaders[-c(1,3),]
     names(leaders) <- leaders[1,]
@@ -158,7 +158,7 @@ fg_pitch_leaders <- function(x, y, league = "all", qual = "y",
     
     playerids <- payload %>%
       html_nodes("table") %>%
-      .[[12]] %>%
+      .[[length(.)-1]] %>%
       html_nodes("a") %>%
       html_attr("href") %>%
       as.data.frame() %>%
@@ -178,7 +178,7 @@ fg_pitch_leaders <- function(x, y, league = "all", qual = "y",
     
     leaders <- payload %>%
       html_nodes("table") %>%
-      `[[`(12) %>% html_table(fill=TRUE)
+      `[[`(length(.)-1) %>% html_table(fill=TRUE)
     
     leaders <- leaders[-c(1,3),]
     names(leaders) <- leaders[1,]
@@ -203,7 +203,7 @@ fg_pitch_leaders <- function(x, y, league = "all", qual = "y",
     
     playerids <- payload %>%
       html_nodes("table") %>%
-      .[[12]] %>%
+      .[[length(.)-1]] %>%
       html_nodes("a") %>%
       html_attr("href") %>%
       as.data.frame() %>%
