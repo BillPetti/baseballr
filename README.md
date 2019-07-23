@@ -4,7 +4,7 @@
 <!-- badges: start -->
 
 [![Travis build
-status](https://travis-ci.org/beanumber/baseballr.svg?branch=master)](https://travis-ci.org/beanumber/baseballr)
+status](https://travis-ci.org/BillPetti/baseballr.svg?branch=master)](https://travis-ci.org/BillPetti/baseballr)
 <!-- badges: end -->
 
 # baseballr
