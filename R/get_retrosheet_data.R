@@ -135,7 +135,7 @@ get_retrosheet_data <- function(path_to_directory,
                                    paste("> all", year, ".csv", sep="")))
                      }
 
-      fields <- readr::read_csv("/Users/williampetti/seasonal_baseball_db/retrosheet/fields.csv")
+      fields <- readr::read_csv(paste0(path_to_directory, "/fields.csv"))
 
       payload <- readr::read_csv(paste0("all", year, ".csv"), col_names = FALSE)
 
