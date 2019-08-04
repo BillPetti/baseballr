@@ -21,7 +21,8 @@ get_ncaa_baseball_roster <- function(teamid = NA,
 
   id <- subset(ncaa_season_id_lu, season == year, select = id)
 
-  school_info <- subset(master_ncaa_team_lu, school_id == teamid) %>%
+  school_info <- subset(master_ncaa_team_lu, school_id == teamid &
+                          year == year) %>%
     dplyr::select(-year) %>%
     dplyr::distinct()
 
