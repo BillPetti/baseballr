@@ -81,11 +81,9 @@ importFrom(dplyr,slice)
 importFrom(dplyr,summarise)
 importFrom(dplyr,summarize_)
 importFrom(dplyr,ungroup)
-=======
 importFrom(ggplot2,"%+replace%")
 importFrom(ggplot2,aes)
 importFrom(ggplot2,aes_string)
->>>>>>> master
 importFrom(ggplot2,coord_fixed)
 importFrom(ggplot2,element_blank)
 importFrom(ggplot2,element_text)
