@@ -28,8 +28,17 @@ batter_game_logs_fg <- function(playerid, year = 2017) {
     dplyr::rename(BB_perc = BB., K_perc = K.,
            wRC_plus = wRC.)
 
-  payload <- as.data.frame(sapply(payload, function(x) (gsub("\\ %", "", x))),
-                              stringsAsFactors=F)
+  if (nrow(payload) > 1) {
+
+    payload <- as.data.frame(sapply(payload, function(x) (gsub("\\ %", "", x))),
+                             stringsAsFactors=F)
+  } else {
+
+    payload <- lapply(payload, function(x) (gsub("\\ %",
+                                                 "", x))) %>%
+      bind_rows()
+
+  }
 
   payload$BB_perc <- as.numeric(payload$BB_perc)/100
   payload$K_perc <- as.numeric(payload$K_perc)/100
