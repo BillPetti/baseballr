@@ -52,7 +52,6 @@ export(team_results_bref)
 export(viz_gb_on_period)
 export(woba_plus)
 import(dplyr)
-<<<<<<< HEAD
 importFrom(XML,xmlParse)
 importFrom(XML,xmlToList)
 importFrom(dplyr,"%>%")
