@@ -13,7 +13,7 @@
 #' @param point_size Set the size of geom_point if used.
 #' @param frame Variable to use as the frame argument if using gganimate to create animated plots. For density plots be sure your variable is a factor.
 #' @keywords MLB, sabermetrics, Statcast, ggplot2
-#' @importFrom ggplot2 ggplot geom_point geom_curve geom_segment coord_fixed theme stat_density2d xlim ylim scale_fill_continuous
+#' @importFrom ggplot2 ggplot geom_point geom_curve geom_segment coord_fixed theme stat_density2d xlim ylim scale_fill_continuous aes_string element_text scale_fill_manual aes
 #' @export
 #' @examples
 #' \dontrun{
@@ -102,6 +102,8 @@ ggspraychart <- function(data, x_value = "hc_x",
 
   return(plot)
 }
+
+#' @importFrom ggplot2 %+replace% theme_minimal element_blank element_text
 
 theme_battedball_grey <- function(base_size = 12, base_family = "Helvetica") {
   theme_minimal(base_size = base_size, base_family = base_family) %+replace%

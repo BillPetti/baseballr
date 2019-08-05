@@ -3,8 +3,6 @@
 #' @param teamid NCAA id for a school
 #' @param year The year of interest
 #'
-#' @importFrom dplyr mutate mutate_at select slice bind_cols bind_rows
-#' distinct rename
 #' @importFrom rvest html_nodes html_node html_attr html_table html_text
 #' @importFrom tibble tibble
 #' @importFrom xml2 read_html
@@ -23,7 +21,8 @@ get_ncaa_baseball_roster <- function(teamid = NA,
 
   id <- subset(ncaa_season_id_lu, season == year, select = id)
 
-  school_info <- subset(master_ncaa_team_lu, school_id == teamid) %>%
+  school_info <- subset(master_ncaa_team_lu, school_id == teamid &
+                          year == year) %>%
     dplyr::select(-year) %>%
     dplyr::distinct()
 

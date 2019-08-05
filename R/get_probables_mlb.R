@@ -2,7 +2,6 @@
 #'
 #' @param game_pk The unique game_pk identifier for the game
 #' @importFrom jsonlite fromJSON
-#' @importFrom dplyr bind_rows bind_cols mutate select
 #' @importFrom purrr map_df
 #' @importFrom tibble tibble
 #' @importFrom stringr str_sub

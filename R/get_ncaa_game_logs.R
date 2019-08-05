@@ -6,7 +6,6 @@
 #' @param type The kind of statistics you want to return. Current options
 #' are 'batting' or 'pitching'.
 #'
-#' @importFrom dplyr mutate mutate_at select slice bind_cols bind_rows
 #' @importFrom rvest html_nodes html_attr html_table html_text
 #' @importFrom tibble tibble
 #' @importFrom xml2 read_html

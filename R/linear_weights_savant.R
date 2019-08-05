@@ -3,7 +3,6 @@
 #' This function allows a user to generate linear weight values for events using Baseball Savant data. Output includes both linear weights above average and linear weights above outs for home runs, triples, doubles, singles, walks, hit by pitches, and outs.
 #' @param df A data frame generated from Baseball Savant that has been run through the \code{\link{run_expectancy_code}} function.
 #' @keywords MLB, sabermetrics
-#' @importFrom dplyr filter group_by summarise arrange mutate add_row
 #' @export
 #' @examples
 #' \dontrun{linear_weights_savant(df)}

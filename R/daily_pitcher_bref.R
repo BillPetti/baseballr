@@ -3,7 +3,6 @@
 #' This function allows you to scrape basic pitcher statistics over a custom time frame. Data is sourced from Baseball-Reference.com.
 #' @param t1 First date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @param t2 Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
-#' @importFrom dplyr select rename filter mutate
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_nodes html_table html_attr
 #' @keywords MLB, sabermetrics

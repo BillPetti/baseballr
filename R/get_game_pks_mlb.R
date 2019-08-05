@@ -8,7 +8,7 @@
 #' @keywords MLB, sabermetrics
 #' @export
 #'
-#' @examples get_game_pks("2019-04-29")
+#' @examples get_game_pks_mlb("2019-04-29")
 
 get_game_pks_mlb <- function(date) {
 

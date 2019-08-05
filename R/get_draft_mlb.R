@@ -1,9 +1,6 @@
 #' Retrieve draft pick information by year via the MLB api \url{http://statsapi.mlb.com/api/}
 #'
 #' @param year The year for which to return data
-#' @importFrom jsonlite fromJSON
-#' @importFrom dplyr bind_rows
-#' @importFrom janitor clean_names
 #' @return Returns a data frame with information for every draft pick in every
 #' round for that year
 #' requested
@@ -23,8 +20,6 @@ get_draft_mlb <- function(year) {
 
   draft_table <- draft_table %>%
     dplyr::bind_rows()
-
-  columns_to_fill <- column_structure_draft_mlb
 
   draft_table_filled <- dplyr::bind_rows(column_structure_draft_mlb,
                                          draft_table) %>%

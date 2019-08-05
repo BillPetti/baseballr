@@ -4,7 +4,6 @@
 #' @param t1 First date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @param t2 Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @keywords MLB, sabermetrics
-#' @importFrom dplyr "%>%" arrange_ filter_ select rename filter mutate
 #' @importFrom rvest html_table html_nodes
 #' @importFrom xml2 read_html
 #' @export

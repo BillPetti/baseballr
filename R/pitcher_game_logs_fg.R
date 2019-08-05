@@ -6,7 +6,6 @@
 #' @keywords MLB, sabermetrics
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_nodes html_table
-#' @importFrom dplyr filter rename
 #' @export
 #' @examples
 #' \dontrun{pitcher_game_logs_fg(playerid = 104, year = 2006)}
@@ -29,8 +28,17 @@ pitcher_game_logs_fg <- function(playerid, year = 2017) {
                   LOB_perc = LOB., GB_perc = GB.,
                   HR_FB = HR.FB)
 
-  payload <- as.data.frame(sapply(payload, function(x) (gsub("\\ %", "", x))),
-                           stringsAsFactors=F)
+  if (nrow(payload) > 1) {
+
+    payload <- as.data.frame(sapply(payload, function(x) (gsub("\\ %", "", x))),
+                             stringsAsFactors=F)
+  } else {
+
+    payload <- lapply(payload, function(x) (gsub("\\ %",
+                                                 "", x))) %>%
+      bind_rows()
+
+  }
 
   payload$K_9 <- as.numeric(payload$K_9)
   payload$BB_9 <- as.numeric(payload$BB_9)

@@ -6,7 +6,6 @@
 #' @keywords MLB, sabermetrics
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_nodes html_table html_attr
-#' @importFrom dplyr rename filter mutate
 #' @importFrom tidyr separate
 #' @export
 #' @examples

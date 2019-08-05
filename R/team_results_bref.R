@@ -3,7 +3,6 @@
 #' This function allows you to scrape schedule and results for a major league team from Baseball-Reference.com
 #' @param Tm The abbreviation used by Baseball-Reference.com for the team whose results you want to scrape.
 #' @param year Season for which you want to scrape the park factors.
-#' @importFrom dplyr filter_ rename filter
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_table
 #' @keywords MLB, sabermetrics

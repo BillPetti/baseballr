@@ -1,44 +1,46 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-baseballr
-=========
 
-`baseballr` 0.5.0
-===============
+<!-- badges: start -->
 
-**(latest version released 2019-06-24)**
+[![Travis build
+status](https://travis-ci.org/BillPetti/baseballr.svg?branch=master)](https://travis-ci.org/BillPetti/baseballr)
+<!-- badges: end -->
 
-`baseballr` is a package written for R focused on baseball analysis. It includes functions for scraping various data from websites, such as FanGraphs.com, Baseball-Reference.com, and baseballsavant.com. It also includes functions for calculating metrics, such as wOBA, FIP, and team-level consistency over custom time frames.
+# baseballr
 
-You can read more about some of the functions and how to use them at its [official site](http://billpetti.github.io/baseballr/) as well as this [Hardball Times article](http://www.hardballtimes.com/developing-the-baseballr-package-for-r/).
+# `baseballr` 0.5.0
 
-Installation
-------------
+**(latest version released 2019-06-25)**
 
-You can install `baseballr` from GitHub.
+`baseballr` is a package written for R focused on baseball analysis. It
+includes functions for scraping various data from websites, such as
+FanGraphs.com, Baseball-Reference.com, and baseballsavant.com. It also
+includes functions for calculating metrics, such as wOBA, FIP, and
+team-level consistency over custom time frames.
 
-Master branch:
+You can read more about some of the functions and how to use them at its
+[official site](http://billpetti.github.io/baseballr/) as well as this
+[Hardball Times
+article](http://www.hardballtimes.com/developing-the-baseballr-package-for-r/).
+
+## Installation
+
+You can install `baseballr` from github with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("BillPetti/baseballr")
 ```
 
-Development branch:
+## Functionality
 
-``` r
-# install.packages("devtools")
-devtools::install_github("BillPetti/baseballr", ref = "development_branch))
-```
+The package consists of two main sets of functions: data acquisition and
+metric calculation.
 
-
-
-Functionality
--------------
-
-The package consists of two main sets of functions: data acquisition and metric calculation.
-
-For example, if you want to see the standings for a specific MLB division on a given date, you can use the `standings_on_date_bref()` function. Just pass the year, month, day, and division you want:
+For example, if you want to see the standings for a specific MLB
+division on a given date, you can use the `standings_on_date_bref()`
+function. Just pass the year, month, day, and division you want:
 
 ``` r
 library(baseballr)
@@ -52,9 +54,12 @@ standings_on_date_bref("2015-08-01", "NL East", from = FALSE)
 #> 5 PHI 41 64 0.390 14.5 386 511    0.374
 ```
 
-Right now the function works as far as back as 1994, which is when both leagues split into three divisions.
+Right now the function works as far as back as 1994, which is when both
+leagues split into three divisions.
 
-You can also pull data for all hitters over a specific date range. Here are the results for all hitters from August 1st through October 3rd during the 2015 season:
+You can also pull data for all hitters over a specific date range. Here
+are the results for all hitters from August 1st through October 3rd
+during the 2015 season:
 
 ``` r
 library(dplyr)
@@ -62,7 +67,9 @@ data <- daily_batter_bref("2015-08-01", "2015-10-03") %>%
   head()
 ```
 
-In terms of metric calculation, the package allows the user to calculate the consistency of team scoring and run prevention for any year using `team_consistency()`:
+In terms of metric calculation, the package allows the user to calculate
+the consistency of team scoring and run prevention for any year using
+`team_consistency()`:
 
 ``` r
 team_consistency(2015)
@@ -79,10 +86,12 @@ team_consistency(2015)
 #>  8 CLE    0.38   0.42          65          100
 #>  9 COL    0.38   0.38          65           63
 #> 10 DET    0.39   0.35          82            3
-#> # ... with 20 more rows
+#> # … with 20 more rows
 ```
 
-You can also calculate wOBA per plate appearance and wOBA on contact for any set of data over any date range, provided you have the data available.
+You can also calculate wOBA per plate appearance and wOBA on contact for
+any set of data over any date range, provided you have the data
+available.
 
 Simply pass the proper data frame to `woba_plus`:
 
@@ -102,7 +111,8 @@ data %>%
 #> 6       Matt Duffy San Francisco   2015 264 0.312    0.338
 ```
 
-You can also generate these wOBA-based stats, as well as FIP, for pitchers using the `fip_plus()` function:
+You can also generate these wOBA-based stats, as well as FIP, for
+pitchers using the `fip_plus()` function:
 
 ``` r
 daily_pitcher_bref("2015-04-05", "2015-04-30") %>% 
@@ -134,7 +144,13 @@ daily_pitcher_bref("2015-04-05", "2015-04-30") %>%
 #> 10            0.274
 ```
 
-The `edge_scrape()` function allows the user to scrape PITCHf/x data from the GameDay application using Carson Sievert's [pitchRx](https://github.com/cpsievert/pitchRx) package and to calculate metrics associated with [Edge%](https://billpetti.shinyapps.io/edge_shiny/). The function returns a dataframe grouped by either pitchers or batters and the percentge of pitches in each of the various Edge zones.
+The `edge_scrape()` function allows the user to scrape PITCHf/x data
+from the GameDay application using Carson Sievert’s
+[pitchRx](https://github.com/cpsievert/pitchRx) package and to calculate
+metrics associated with
+[Edge%](https://billpetti.shinyapps.io/edge_shiny/). The function
+returns a dataframe grouped by either pitchers or batters and the
+percentge of pitches in each of the various Edge zones.
 
 Example (pitchers):
 
@@ -164,19 +180,19 @@ edge_scrape("2015-04-06", "2015-04-07", "pitcher") %>%
 #> http://gd2.mlb.com/components/game/mlb/year_2015/month_04/day_07/gid_2015_04_07_anamlb_seamlb_1/inning/inning_all.xml 
 #> http://gd2.mlb.com/components/game/mlb/year_2015/month_04/day_07/gid_2015_04_07_sdnmlb_lanmlb_1/inning/inning_all.xml
 #> # A tibble: 10 x 9
-#>    pitcher_name   pitcher All_pitches Upper_Edge Lower_Edge Inside_Edge
-#>    <chr>            <dbl>       <int>      <dbl>      <dbl>       <dbl>
-#>  1 Bartolo Colon   112526          86      0.035      0.081       0.058
-#>  2 LaTroy Hawkins  115629          12      0.083      0.333       0    
-#>  3 Joe Nathan      150274           4      0          0           0    
-#>  4 Buddy Carlyle   234194           9      0          0.222       0    
-#>  5 Jason Grilli    276351          14      0          0           0.214
-#>  6 Kevin Gregg     276514          17      0          0.059       0.118
-#>  7 Joaquin Benoit  276542          19      0          0           0.158
-#>  8 Ryan Vogelsong  285064          99      0.01       0.071       0.141
-#>  9 Jeremy Affeldt  346793           5      0          0           0.4  
-#> 10 Grant Balfour   346797          21      0.095      0           0    
-#> # ... with 3 more variables: Outside_Edge <dbl>, Heart <dbl>,
+#>    pitcher_name pitcher All_pitches Upper_Edge Lower_Edge Inside_Edge
+#>    <chr>          <dbl>       <int>      <dbl>      <dbl>       <dbl>
+#>  1 Bartolo Col…  112526          86      0.035      0.07        0.058
+#>  2 LaTroy Hawk…  115629          12      0.083      0.333       0    
+#>  3 Joe Nathan    150274           4      0          0           0    
+#>  4 Buddy Carly…  234194           9      0          0.222       0    
+#>  5 Jason Grilli  276351          14      0          0           0.214
+#>  6 Kevin Gregg   276514          17      0          0.059       0.118
+#>  7 Joaquin Ben…  276542          19      0          0           0.158
+#>  8 Ryan Vogels…  285064          99      0.01       0.071       0.141
+#>  9 Jeremy Affe…  346793           5      0          0           0.4  
+#> 10 Grant Balfo…  346797          21      0.095      0           0    
+#> # … with 3 more variables: Outside_Edge <dbl>, Heart <dbl>,
 #> #   Out_of_Zone <dbl>
 ```
 
@@ -208,20 +224,22 @@ edge_scrape("2015-04-06", "2015-04-07", "batter") %>%
 #> http://gd2.mlb.com/components/game/mlb/year_2015/month_04/day_07/gid_2015_04_07_anamlb_seamlb_1/inning/inning_all.xml 
 #> http://gd2.mlb.com/components/game/mlb/year_2015/month_04/day_07/gid_2015_04_07_sdnmlb_lanmlb_1/inning/inning_all.xml
 #> # A tibble: 10 x 9
-#>    batter_name     batter All_pitches Upper_Edge Lower_Edge Inside_Edge
-#>    <chr>            <dbl>       <int>      <dbl>      <dbl>       <dbl>
-#>  1 Bartolo Colon   112526           7      0          0           0.429
-#>  2 Torii Hunter    116338          19      0          0.158       0.105
-#>  3 David Ortiz     120074          18      0          0           0.111
-#>  4 Alex Rodriguez  121347          17      0          0           0.353
-#>  5 Aramis Ramirez  133380          23      0          0.087       0.217
-#>  6 Adrian Beltre   134181          26      0          0.038       0.154
-#>  7 Carlos Beltran  136860          22      0.091      0           0.136
-#>  8 Michael Cuddyer 150212          14      0          0.143       0.143
-#>  9 Jimmy Rollins   276519          41      0.024      0.146       0.049
-#> 10 Ryan Vogelsong  285064          10      0          0.1         0.3  
-#> # ... with 3 more variables: Outside_Edge <dbl>, Heart <dbl>,
+#>    batter_name batter All_pitches Upper_Edge Lower_Edge Inside_Edge
+#>    <chr>        <dbl>       <int>      <dbl>      <dbl>       <dbl>
+#>  1 Bartolo Co… 112526           7      0          0           0.429
+#>  2 Torii Hunt… 116338          19      0          0.158       0.105
+#>  3 David Ortiz 120074          18      0          0           0.111
+#>  4 Alex Rodri… 121347          17      0          0           0.353
+#>  5 Aramis Ram… 133380          23      0          0.087       0.217
+#>  6 Adrian Bel… 134181          26      0          0.038       0.154
+#>  7 Carlos Bel… 136860          22      0.091      0           0.136
+#>  8 Michael Cu… 150212          14      0          0.143       0.143
+#>  9 Jimmy Roll… 276519          41      0.024      0.146       0.049
+#> 10 Ryan Vogel… 285064          10      0          0.1         0.3  
+#> # … with 3 more variables: Outside_Edge <dbl>, Heart <dbl>,
 #> #   Out_of_Zone <dbl>
 ```
 
-More functionality will be added soon. Please leave any suggestions or bugs in the [Issues section](https://github.com/BillPetti/baseballr/issues).
+More functionality will be added soon. Please leave any suggestions or
+bugs in the [Issues
+section](https://github.com/BillPetti/baseballr/issues).

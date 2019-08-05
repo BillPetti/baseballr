@@ -4,7 +4,6 @@
 #' @param df A data frame generated from Baseball Savant.
 #' @param level Whether you want run expectancy calculated at the plate appearance or pitch level. Defaults to plate appearance.
 #' @keywords MLB, sabermetrics
-#' @importFrom dplyr filter group_by summarise arrange lead mutate left_join
 #' @importFrom stringr str_count
 #' @export
 #' @examples
