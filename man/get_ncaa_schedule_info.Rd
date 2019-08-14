@@ -9,12 +9,12 @@ get_ncaa_schedule_info(teamid = NULL, year = NULL)
 \arguments{
 \item{teamid}{The team's unique NCAA id.}
 
-\item{year}{The season (i.e. use 2016 for the 2015-2016 season, 
+\item{year}{The season (i.e. use 2016 for the 2015-2016 season,
 etc.)}
 }
 \value{
 A dataframe with the following fields: date, opponent,
-result, score, innings (if more than regulation), and the url 
+result, score, innings (if more than regulation), and the url
 for the game itself.
 }
 \description{
