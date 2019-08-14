@@ -7,6 +7,7 @@
 #' @importFrom rvest html_nodes html_text
 #' @importFrom xml2 read_html
 #' @importFrom tibble tibble
+#' @importFrom tidyr separate
 #' @return A dataframe with the following fields: date, opponent,
 #' result, score, innings (if more than regulation), and the url
 #' for the game itself.
