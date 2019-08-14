@@ -3,7 +3,7 @@
 #' @param game_info_url The url for the game's play-by-play data.
 #' This can be found using the get_ncaa_schedule_info function.
 #'
-#' @importFrom rvest html_nodes html_text
+#' @importFrom rvest html_nodes html_text html_table
 #' @importFrom xml2 read_html
 #' @importFrom tibble tibble
 #' @importFrom tidyr gather spread
@@ -50,17 +50,19 @@ get_ncaa_baseball_pbp <- function(game_info_url) {
 
   condition <- table_list %>%
     lapply(function(x) nrow(as.data.frame(x %>%
-                                            html_table())) > 3)
+                                            rvest::html_table())) > 3)
 
-  table_list_innings <- table_list[which(unlist(condition))] %>%
+  table_list_innings <- table_list[which(unlist(condition))]
+
+  table_list_innings <- table_list_innings %>%
     setNames(seq(1,length(table_list_innings)))
 
   teams <- tibble::tibble(away = table_list_innings[[1]] %>%
-                            html_table() %>%
+                            rvest::html_table() %>%
                             as.data.frame() %>%
                             .[1,1],
                           home = table_list_innings[[1]] %>%
-                            html_table() %>%
+                            rvest::html_table() %>%
                             as.data.frame() %>%
                             .[1,3])
 
