@@ -17,7 +17,7 @@
 #' roster for each year
 #' @export
 #'
-#' @examples \dontrun {get_retrosheet_data(path_to_directory = "/Users/Documents/retrosheet/", years_to_acquire = c(1957,1959), sequence_years = F)}
+#' @examples \dontrun{get_retrosheet_data(path_to_directory = "/Users/Documents/retrosheet/", years_to_acquire = c(1957,1959), sequence_years = F)}
 
 get_retrosheet_data <- function(path_to_directory,
                                 years_to_acquire = 2018,
