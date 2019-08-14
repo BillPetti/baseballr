@@ -21,5 +21,5 @@ for the game itself.
 Get Schedule and Results for NCAA Baseball Teams
 }
 \examples{
-get_ncaa_schedule_info(736, 2019)
+\dontrun {get_ncaa_schedule_info(736, 2019)}
 }

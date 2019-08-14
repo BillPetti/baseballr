@@ -13,7 +13,7 @@
 #' for the game itself.
 #' @export
 #'
-#' @examples get_ncaa_schedule_info(736, 2019)
+#' @examples \dontrun {get_ncaa_schedule_info(736, 2019)}
 
 get_ncaa_schedule_info <- function(teamid = NULL,
                                    year = NULL) {
