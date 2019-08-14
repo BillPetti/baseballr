@@ -33,6 +33,17 @@ You can install `baseballr` from github with:
 devtools::install_github("BillPetti/baseballr")
 ```
 
+For experimental functions in development, you can install the [development branch](https://github.com/BillPetti/baseballr/tree/development_branch):
+
+``` r
+# install.packages("devtools")
+devtools::install_github("BillPetti/baseballr", ref = "development_branch")
+```
+
+## Pull Requests
+
+Pull request are welcome, but I cannot guarantee that they will be accepted or accepted quickly. Please make all pull requests to the [development branch](https://github.com/BillPetti/baseballr/tree/development_branch) for review.
+
 ## Functionality
 
 The package consists of two main sets of functions: data acquisition and
