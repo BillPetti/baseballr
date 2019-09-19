@@ -15,7 +15,7 @@
 #' @examples
 #' viz_rd("AL East", 2019)
 #' viz_rd("BOS", 2018)
-#' viz_rd("MLB", 2000)
+#' viz_rd("MLB", 2002)
 #' \dontrun{
 #' viz_rd("Boston Red Sox", 2019)
 #' }

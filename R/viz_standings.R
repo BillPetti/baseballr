@@ -6,7 +6,7 @@
 #' @param lg_div One or more of AL East, AL Central, AL West,
 #' AL Overall, NL East, NL Central, NL West, and NL Overall
 #' @keywords MLB, standings
-#' @importFrom highcharter hchart hc_title hc_subtitle hc_credits hc_yAxis hc_xAxis hc_add_theme hcaes hc_theme_smpl highchart hc_add_series
+#' @importFrom highcharter hchart hc_title hc_subtitle hc_credits hc_yAxis hc_xAxis hc_add_theme hcaes hc_theme_smpl highchart hc_add_series hw_grid
 #' @importFrom pbapply pbsapply
 #' @importFrom tidyr separate
 #' @importFrom lubridate year
@@ -20,22 +20,24 @@
 
 viz_standings <- function(start_date, end_date, lg_div) {
   
+  stopifnot(intersect(grepl("AL|NL", lg_div),
+                      grepl("East|Central|West|Overall",lg_div)))
+  
   # Create a vector of dates for the period
   dates <- seq(as.Date(start_date), as.Date(end_date), by = "days")
   
+  print("Getting the data to build the charts ...")
+  
   if (lg_div == "MLB") { # Get Standings for all MLB
     
-    print("Getting AL Overall Standings on given period ...")
     standings_al <- pbapply::pbsapply(dates, standings_on_date_bref, division = "AL Overall")
-    
-    print("Getting NL Overall Standings on given period ...")
     standings_nl <- pbapply::pbsapply(dates, standings_on_date_bref, division = "NL Overall")
     
     # Append both leagues lists into one
     standings <- append(standings_al, standings_nl)
     
-  } else {  # Get Standings for a defined division our league
-  
+  } else {  # Or Get Standings for a defined division our league
+    
     standings <- pbapply::pbsapply(dates, standings_on_date_bref, division = lg_div)
   
   }
@@ -51,7 +53,7 @@ viz_standings <- function(start_date, end_date, lg_div) {
   
   if (lg_div == "MLB") { all$League = "Overall"}
   
-  # cCeans up the data frame
+  # Clean up the data
   all$GB[all$GB == "--"] <- 0   # set 0 games behind when a team is a leader of the division/league
   all$GB <- as.numeric(all$GB, digits = 2)  # defines number of decimals for GB
   all$pythWLpct[is.na(all$pythWLpct)] <- 0  # set 0 for all pythagorean pctg not available in the table
@@ -94,6 +96,7 @@ viz_standings <- function(start_date, end_date, lg_div) {
   }
   
   # Print standings table for "start_date" and "end_date" in the console
+  print("Standings on start date and end date")
   first_end <- all %>%
     dplyr::filter(Date == min(Date) | Date == max(Date)) %>%
     dplyr::arrange(Date, GB) %>% 
@@ -119,9 +122,6 @@ viz_standings <- function(start_date, end_date, lg_div) {
   # Join "primary" color column to all data.frame
   all <- all %>%
     dplyr::left_join(team_palette, "Team")
-  
-  # Save the dataframe for new queries within the same period
-  #write_csv(all, "")
   
   # Plot GB timeline
   
@@ -259,8 +259,7 @@ viz_standings <- function(start_date, end_date, lg_div) {
     highcharter::hc_exporting(enabled = TRUE) # enable exporting option 
   
   # print viz of Games Behind
-  print(gb)
+  hw_grid(gb, wl, rowheight = 400, ncol = 1) %>% 
+    browsable()
   
-  # print viz of Winning percentage
-  print(wl)
 }
