@@ -7,8 +7,7 @@
 #' @keywords MLB, sabermetrics
 #' @export
 #'
-#' @examples
-#' \dontrun{get_draft_mlb(2009)}
+#' @examples \dontrun{get_draft_mlb(2009)}
 
 get_draft_mlb <- function(year) {
 

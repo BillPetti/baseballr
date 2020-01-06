@@ -17,8 +17,7 @@
 #' @keywords MLB, sabermetrics
 #' @export
 #'
-#' @examples
-#' #' \dontrun{get_pbp_mlb(575156)}
+#' @examples \dontrun{get_pbp_mlb(575156)}
 
 get_pbp_mlb <- function(game_pk) {
 

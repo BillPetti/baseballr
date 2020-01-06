@@ -14,8 +14,7 @@
 #' as well as game by game statistics
 #' @export
 #'
-#' @examples
-#' \dontrun{
+#' @examples \dontrun{
 #' get_ncaa_game_logs(player_id = 1879650, year = 2019), type = "batting")
 #' }
 
