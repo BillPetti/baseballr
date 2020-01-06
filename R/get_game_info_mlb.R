@@ -1,4 +1,4 @@
-#' Retrieve additional game information via the MLB api \url{http://statsapi.mlb.com/api/}
+#' Retrieve additional game information for major and minor league games via the MLB api \url{http://statsapi.mlb.com/api/}
 #'
 #' @param game_pk The unique game_pk identifier for the game
 #' @importFrom jsonlite fromJSON

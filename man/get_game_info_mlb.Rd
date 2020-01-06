@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_game_info_mlb.R
 \name{get_game_info_mlb}
 \alias{get_game_info_mlb}
-\title{Retrieve additional game information via the MLB api \url{http://statsapi.mlb.com/api/}}
+\title{Retrieve additional game information for major and minor league games via the MLB api \url{http://statsapi.mlb.com/api/}}
 \usage{
 get_game_info_mlb(game_pk)
 }
@@ -14,7 +14,7 @@ Returns a data frame that includes supplemental information, such as
 weather, official scorer, attendance, etc., for the game_pk provided
 }
 \description{
-Retrieve additional game information via the MLB api \url{http://statsapi.mlb.com/api/}
+Retrieve additional game information for major and minor league games via the MLB api \url{http://statsapi.mlb.com/api/}
 }
 \examples{
 get_probables_mlb(566001)

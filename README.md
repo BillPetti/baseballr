@@ -9,9 +9,9 @@ status](https://travis-ci.org/BillPetti/baseballr.svg?branch=master)](https://tr
 
 # baseballr
 
-# `baseballr` 0.5.0
+# `baseballr` 0.6.0
 
-**(latest version released 2019-06-25)**
+**(latest version released 2020-01-07)**
 
 `baseballr` is a package written for R focused on baseball analysis. It
 includes functions for scraping various data from websites, such as
@@ -33,7 +33,9 @@ You can install `baseballr` from github with:
 devtools::install_github("BillPetti/baseballr")
 ```
 
-For experimental functions in development, you can install the [development branch](https://github.com/BillPetti/baseballr/tree/development_branch):
+For experimental functions in development, you can install the
+[development
+branch](https://github.com/BillPetti/baseballr/tree/development_branch):
 
 ``` r
 # install.packages("devtools")
@@ -42,7 +44,11 @@ devtools::install_github("BillPetti/baseballr", ref = "development_branch")
 
 ## Pull Requests
 
-Pull request are welcome, but I cannot guarantee that they will be accepted or accepted quickly. Please make all pull requests to the [development branch](https://github.com/BillPetti/baseballr/tree/development_branch) for review.
+Pull request are welcome, but I cannot guarantee that they will be
+accepted or accepted quickly. Please make all pull requests to the
+[development
+branch](https://github.com/BillPetti/baseballr/tree/development_branch)
+for review.
 
 ## Functionality
 

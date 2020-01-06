@@ -20,22 +20,40 @@ knitr::opts_chunk$set(
 
 # baseballr
 
-# `baseballr` 0.3.4
-**(latest version released 2018-05-29)**
+# `baseballr` 0.6.0
 
-`baseballr` is a package written for R focused on baseball analysis. It includes functions for scraping various data from websites, such as FanGraphs.com, Baseball-Reference.com, and baseballsavant.com. It also includes functions for calculating metrics, such as wOBA, FIP, and team-level consistency over custom time frames.
+**(latest version released 2020-01-07)**
 
-You can read more about some of the functions and how to use them at its [official site](http://billpetti.github.io/baseballr/) as well as this [Hardball Times article](http://www.hardballtimes.com/developing-the-baseballr-package-for-r/).
+`baseballr` is a package written for R focused on baseball analysis. It
+includes functions for scraping various data from websites, such as
+FanGraphs.com, Baseball-Reference.com, and baseballsavant.com. It also
+includes functions for calculating metrics, such as wOBA, FIP, and
+team-level consistency over custom time frames.
 
+You can read more about some of the functions and how to use them at its
+[official site](http://billpetti.github.io/baseballr/) as well as this
+[Hardball Times
+article](http://www.hardballtimes.com/developing-the-baseballr-package-for-r/).
 
 ## Installation
 
 You can install `baseballr` from github with:
 
-```{r gh-installation, eval = FALSE}
+``` r
 # install.packages("devtools")
 devtools::install_github("BillPetti/baseballr")
 ```
+
+For experimental functions in development, you can install the [development branch](https://github.com/BillPetti/baseballr/tree/development_branch):
+
+``` r
+# install.packages("devtools")
+devtools::install_github("BillPetti/baseballr", ref = "development_branch")
+```
+
+## Pull Requests
+
+Pull request are welcome, but I cannot guarantee that they will be accepted or accepted quickly. Please make all pull requests to the [development branch](https://github.com/BillPetti/baseballr/tree/development_branch) for review.
 
 ## Functionality
 
@@ -77,10 +95,7 @@ data %>%
   head()
 ```
 
-
 You can also generate these wOBA-based stats, as well as FIP, for pitchers using the `fip_plus()` function:
-
-
 
 ```{r}
 daily_pitcher_bref("2015-04-05", "2015-04-30") %>% 
