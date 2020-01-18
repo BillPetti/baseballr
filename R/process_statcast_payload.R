@@ -25,7 +25,7 @@ process_statcast_payload <- function(payload) {
   payload$on_2b <- as.character(payload$on_2b) %>% as.numeric()
   payload$on_3b <- as.character(payload$on_3b) %>% as.numeric()
   payload$release_pos_x <- as.character(payload$release_pos_x) %>% as.numeric()
-  payload$release_pos_x <- as.character(payload$release_pos_x) %>% as.numeric()
+  payload$release_pos_z <- as.character(payload$release_pos_z) %>% as.numeric()
   payload$hit_distance_sc <- as.character(payload$hit_distance_sc) %>% as.numeric()
   payload$launch_speed <- as.character(payload$launch_speed) %>% as.numeric()
   payload$launch_angle <- as.character(payload$launch_angle) %>% as.numeric()
