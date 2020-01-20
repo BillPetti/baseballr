@@ -4,16 +4,20 @@
 \alias{linear_weights_savant}
 \title{Generate linear weight values for events using Baseball Savant data}
 \usage{
-linear_weights_savant(df)
+linear_weights_savant(df, level = "plate appearance")
 }
 \arguments{
-\item{df}{A data frame generated from Baseball Savant that has been run through the \code{\link{run_expectancy_code}} function.}
+\item{df}{A data frame generated from Baseball Savant that has been run through
+the \code{\link{run_expectancy_code}} function.}
+
+\item{level}{Whether to calculate linear weights the plate appearance or pitch
+level. Defaults to 'plate appearance'.}
 }
 \description{
 This function allows a user to generate linear weight values for events using Baseball Savant data. Output includes both linear weights above average and linear weights above outs for home runs, triples, doubles, singles, walks, hit by pitches, and outs.
 }
 \examples{
-\dontrun{linear_weights_savant(df)}
+\dontrun{linear_weights_savant(df, level = "plate appearance")}
 }
 \keyword{MLB,}
 \keyword{sabermetrics}
