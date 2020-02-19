@@ -7,8 +7,14 @@
 \usage{
 fg_bat_leaders(x, y, league = "all", qual = "y", ind = 0)
 
-fg_pitch_leaders(x, y, league = "all", qual = "y",
-  pitcher_type = "pit", ind = 0)
+fg_pitch_leaders(
+  x,
+  y,
+  league = "all",
+  qual = "y",
+  pitcher_type = "pit",
+  ind = 0
+)
 }
 \arguments{
 \item{x}{First season for which you want data.}

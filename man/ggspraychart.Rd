@@ -4,10 +4,19 @@
 \alias{ggspraychart}
 \title{Generate spray charts with ggplot2}
 \usage{
-ggspraychart(data, x_value = "hc_x", y_value = "-hc_y",
-  fill_value = NULL, fill_palette = NULL, fill_legend_title = NULL,
-  density = FALSE, bin_size = 15, point_alpha = 0.75,
-  point_size = 2, frame = NULL)
+ggspraychart(
+  data,
+  x_value = "hc_x",
+  y_value = "-hc_y",
+  fill_value = NULL,
+  fill_palette = NULL,
+  fill_legend_title = NULL,
+  density = FALSE,
+  bin_size = 15,
+  point_alpha = 0.75,
+  point_size = 2,
+  frame = NULL
+)
 }
 \arguments{
 \item{data}{A data frame that includes batted ball coordinates. Typically, this coordinates will come from the GameDay xml feed or downloads from baseballsavant.com}

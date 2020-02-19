@@ -1,6 +1,6 @@
 Package: baseballr
 Title: Functions for acquiring and analyzing baseball data
-Version: 0.6.0
+Version: 0.6.1
 Author: Bill Petti <billpetti@gmail.com>
 Authors@R: c(
     person("Bill", "Petti", email = "billpetti@gmail.com",
@@ -35,7 +35,7 @@ License: MIT + file LICENSE
 URL: https://billpetti.github.io/baseballr/
 BugReports: https://github.com/BillPetti/baseballr/issues
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Suggests:
     knitr,
     rmarkdown,

@@ -4,8 +4,11 @@
 \alias{label_statcast_imputed_data}
 \title{Label Statcast data as imputed}
 \usage{
-label_statcast_imputed_data(statcast_df, impute_file = NULL,
-  inverse_precision = 10000)
+label_statcast_imputed_data(
+  statcast_df,
+  impute_file = NULL,
+  inverse_precision = 10000
+)
 }
 \arguments{
 \item{statcast_df}{A dataframe containing Statcast batted ball data}

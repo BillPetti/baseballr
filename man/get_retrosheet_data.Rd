@@ -4,8 +4,11 @@
 \alias{get_retrosheet_data}
 \title{Get, Parse, and Format Retrosheet Event and Roster Files}
 \usage{
-get_retrosheet_data(path_to_directory, years_to_acquire = 2018,
-  sequence_years = FALSE)
+get_retrosheet_data(
+  path_to_directory,
+  years_to_acquire = 2018,
+  sequence_years = FALSE
+)
 }
 \arguments{
 \item{path_to_directory}{A file path that either 1) creates a new directory

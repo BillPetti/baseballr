@@ -4,12 +4,25 @@
 \alias{scrape_savant_leaderboards}
 \title{Query BaseballSavant Leaderboards from \url{http://baseballsavant.mlb.com}}
 \usage{
-scrape_savant_leaderboards(leaderboard = "exit_velocity_barrels",
-  year = 2018, abs = 50, min_pa = 250, min_pitches = 100,
-  min_field = "q", min_run = 0, player_type = "batter",
-  fielding_type = "player", team = "", arsenal_type = "n_",
-  run_type = "raw", min2b = 5, min3b = 0, position = "",
-  bats = "", hand = "")
+scrape_savant_leaderboards(
+  leaderboard = "exit_velocity_barrels",
+  year = 2018,
+  abs = 50,
+  min_pa = 250,
+  min_pitches = 100,
+  min_field = "q",
+  min_run = 0,
+  player_type = "batter",
+  fielding_type = "player",
+  team = "",
+  arsenal_type = "n_",
+  run_type = "raw",
+  min2b = 5,
+  min3b = 0,
+  position = "",
+  bats = "",
+  hand = ""
+)
 }
 \arguments{
 \item{leaderboard}{The type of leaderboard to retrieve, input as a string. Current
