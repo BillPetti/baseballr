@@ -6,7 +6,7 @@
 #'
 #' @importFrom rvest html_nodes html_text
 #' @importFrom xml2 read_html
-#' @importFrom tibble tibble
+#' @importFrom tibble tibble rownames_to_column
 #' @importFrom tidyr separate
 #' @return A dataframe with the following fields: date, opponent,
 #' result, score, innings (if more than regulation), and the url
@@ -35,7 +35,8 @@ get_ncaa_schedule_info <- function(teamid = NULL,
     as.data.frame() %>%
     dplyr::rename(date = '.') %>%
     dplyr::filter(!date == "") %>%
-    dplyr::mutate(date = gsub("\\s*\\([^\\)]+\\)", "", date))
+    dplyr::mutate(date = gsub("\\s*\\([^\\)]+\\)", "", date)) %>%
+    tibble::rownames_to_column('row')
 
   game_opponents <- payload %>%
     rvest::html_nodes("fieldset td:nth-child(2)") %>%
@@ -43,14 +44,16 @@ get_ncaa_schedule_info <- function(teamid = NULL,
     as.data.frame() %>%
     dplyr::rename(opponent = '.') %>%
     dplyr::filter(!opponent == "") %>%
-    dplyr::mutate(opponent = str_trim(opponent))
+    dplyr::mutate(opponent = str_trim(opponent)) %>%
+    tibble::rownames_to_column('row')
 
   game_info_url <- payload %>%
     rvest::html_nodes("fieldset .skipMask") %>%
     rvest::html_attr("href") %>%
     as.data.frame() %>%
     dplyr::rename(slug = '.') %>%
-    dplyr::mutate(game_info_url = paste0("https://stats.ncaa.org", slug))
+    dplyr::mutate(game_info_url = paste0("https://stats.ncaa.org", slug)) %>%
+    tibble::rownames_to_column('row')
 
   game_result <- payload %>%
     rvest::html_nodes("fieldset .skipMask") %>%
@@ -60,14 +63,17 @@ get_ncaa_schedule_info <- function(teamid = NULL,
     dplyr::mutate(result = str_trim(result)) %>%
     tidyr::separate(result, into = c("result", "score", "innings"),
                     sep = " ") %>%
-    dplyr::mutate(innings = str_extract(innings, "[[0-9]]+"))
+    dplyr::mutate(innings = str_extract(innings, "[[0-9]]+"))  %>%
+    tibble::rownames_to_column('row')
 
-  game_info <- tibble::tibble(date = dates$date,
-                              opponent = game_opponents$opponent,
-                              result = game_result$result,
-                              score = game_result$score,
-                              innings = game_result$innings,
-                              game_info_url = game_info_url$game_info_url)
+  game_info <- dplyr::full_join(dates, game_opponents, by = 'row')
 
-  game_info
+  game_info <- dplyr::full_join(game_info, game_info, by = 'row')
+
+  game_info <- dplyr::full_join(game_info, game_info_url, by = 'row')
+
+  game_info <- game_info %>%
+    dplyr::select(-row)
+
+  return(game_info)
 }
