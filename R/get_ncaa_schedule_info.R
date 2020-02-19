@@ -68,7 +68,7 @@ get_ncaa_schedule_info <- function(teamid = NULL,
 
   game_info <- dplyr::full_join(dates, game_opponents, by = 'row')
 
-  game_info <- dplyr::full_join(game_info, game_info, by = 'row')
+  game_info <- dplyr::full_join(game_info, game_result, by = 'row')
 
   game_info <- dplyr::full_join(game_info, game_info_url, by = 'row')
 
