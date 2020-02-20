@@ -4,7 +4,7 @@
 \alias{ncaa_scrape}
 \title{Scrape NCAA baseball data (Division I, II, and III)}
 \usage{
-ncaa_scrape(teamid, year, type)
+ncaa_scrape(teamid, year, type = "batting")
 }
 \arguments{
 \item{teamid}{The numerical ID that the NCAA website uses to identify a team}
