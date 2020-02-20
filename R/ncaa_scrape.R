@@ -36,6 +36,13 @@ ncaa_scrape <- function(teamid, year, type) {
   if (!"RBI2out" %in% names(df)) {
     df$RBI2out <- NA
   }
+
+  if('OPP DP' %in% colnames(df) == TRUE) {
+
+    df <- df %>%
+      dplyr::rename(DP = `OPP DP`)
+  }
+
   df <- select(df,year,school,conference,division,Jersey,Player,Yr,Pos,GP,GS,BA,OBPct,SlgPct,R,AB,H,`2B`,`3B`,TB,HR,RBI,BB,HBP,SF,SH,K,DP,CS,Picked,SB,RBI2out,teamid,conference_id)
   return(df)
   }
