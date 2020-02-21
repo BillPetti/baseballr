@@ -103,5 +103,3 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
   return(df)
 
 }
-
-ncaa_scrape(721, 2019, type = 'batting')
