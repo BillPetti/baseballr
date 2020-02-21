@@ -4,7 +4,7 @@
 \alias{get_ncaa_game_logs}
 \title{Get NCAA Baseball Game Logs}
 \usage{
-get_ncaa_game_logs(player_id, year = 2019, type = "batting")
+get_ncaa_game_logs(player_id, year = 2019, type = "batting", span = "game")
 }
 \arguments{
 \item{player_id}{A player's unique id. Can be found using the
@@ -14,6 +14,9 @@ get_ncaa_baseball_roster function.}
 
 \item{type}{The kind of statistics you want to return. Current options
 are 'batting' or 'pitching'.}
+
+\item{span}{The span of time; can either be 'game' for game logs in a season, or 'career' which
+returns seasonal stats for a player's career.}
 }
 \value{
 A data frame containing player and school information
