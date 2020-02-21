@@ -82,7 +82,7 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
     html_attr('href') %>%
     as.data.frame() %>%
     rename(player_url = '.') %>%
-    mutate(player_url = paste0('stats.ncaa.org', player_url))
+    mutate(player_url = paste0('http://stats.ncaa.org', player_url))
 
   player_names_join <- data_read %>%
     html_nodes('#stat_grid a') %>%
