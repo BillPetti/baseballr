@@ -43,15 +43,15 @@ scrape_statcast_savant_pitcher(start_date, end_date, pitcherid, ...)
 scrape_statcast_savant_pitcher_all(start_date, end_date, ...)
 }
 \arguments{
-\item{start_date}{Date of first game for which you want data. 
+\item{start_date}{Date of first game for which you want data.
 Format must be in YYYY-MM-DD format.}
 
-\item{end_date}{Date of last game for which you want data. 
+\item{end_date}{Date of last game for which you want data.
 Format must be in YYYY-MM-DD format.}
 
 \item{playerid}{The MLBAM ID for the player whose data you want to query.}
 
-\item{player_type}{The player type. Can be \code{batter} or \code{pitcher}. 
+\item{player_type}{The player type. Can be \code{batter} or \code{pitcher}.
 Default is \code{batter}}
 
 \item{...}{currently ignored}
@@ -65,28 +65,28 @@ This function allows you to query Statcast and PITCHf/x data as provided on \url
 }
 \examples{
 \dontrun{
-correa <- scrape_statcast_savant(start_date = "2016-04-06", 
+correa <- scrape_statcast_savant(start_date = "2016-04-06",
   end_date = "2016-04-15", playerid = 621043)
 
-noah <- scrape_statcast_savant(start_date = "2016-04-06", 
+noah <- scrape_statcast_savant(start_date = "2016-04-06",
   end_date = "2016-04-15", playerid = 592789, player_type = 'pitcher')
 
 daily <- scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-06")
 }
 \dontrun{
-correa <- scrape_statcast_savant_batter(start_date = "2016-04-06", 
+correa <- scrape_statcast_savant_batter(start_date = "2016-04-06",
   end_date = "2016-04-15", batterid = 621043)
 }
 \dontrun{
-daily <- scrape_statcast_savant_batter_all(start_date = "2016-04-06", 
+daily <- scrape_statcast_savant_batter_all(start_date = "2016-04-06",
   end_date = "2016-04-06")
 }
 \dontrun{
-noah <- scrape_statcast_savant_pitcher(start_date = "2016-04-06", 
+noah <- scrape_statcast_savant_pitcher(start_date = "2016-04-06",
   end_date = "2016-04-15", pitcherid = 592789)
 }
 \dontrun{
-daily <- scrape_statcast_savant_pitcher_all(start_date = "2016-04-06", 
+daily <- scrape_statcast_savant_pitcher_all(start_date = "2016-04-06",
   end_date = "2016-04-06")
 }
 }
