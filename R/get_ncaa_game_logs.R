@@ -11,6 +11,7 @@
 #' @importFrom rvest html_nodes html_attr html_table html_text
 #' @importFrom tibble tibble
 #' @importFrom xml2 read_html
+#' @importFrom tidyr extract_numeric
 #'
 #' @return A data frame containing player and school information
 #' as well as game by game statistics
@@ -54,6 +55,9 @@ get_ncaa_game_logs <- function(player_id,
 
       payload_df <- payload_df[-c(1:3),]
 
+      payload_df <- payload_df %>%
+        mutate_at(vars(G:RBI2out), extract_numeric)
+
       if('OPP DP' %in% colnames(payload_df) == TRUE) {
 
         payload_df <- payload_df %>%
@@ -80,6 +84,12 @@ get_ncaa_game_logs <- function(player_id,
 
       payload_df <- payload_df[-c(1:3),]
 
+      if('OPP DP' %in% colnames(payload_df) == TRUE) {
+
+        payload_df <- payload_df %>%
+          dplyr::rename(DP = `OPP DP`)
+      }
+
       cols_to_num <- c("G", "App", "GS", "IP", "CG", "H", "R", "ER", "BB", "SO", "SHO", "BF", "P-OAB", "2B-A", "3B-A", "Bk", "HR-A", "WP", "HB", "IBB", "Inh Run", "Inh Run Score", "SHA", "SFA", "Pitches", "GO", "FO", "W", "L", "SV", "OrdAppeared", "KL")
 
       payload_df <- payload_df %>%
@@ -102,6 +112,12 @@ get_ncaa_game_logs <- function(player_id,
       names(payload_df) <- payload_df[1,]
 
       payload_df <- payload_df[-1,]
+
+      if('OPP DP' %in% colnames(payload_df) == TRUE) {
+
+        payload_df <- payload_df %>%
+          dplyr::rename(DP = `OPP DP`)
+      }
 
       payload_df <- payload_df %>%
         dplyr::select(Year,Team,GP,BA,G,OBPct,SlgPct,R,AB,H,`2B`,`3B`,TB,HR,RBI,BB,HBP,SF,SH,K,DP,CS,Picked,SB,RBI2out)
