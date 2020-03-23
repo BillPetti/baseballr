@@ -2,3 +2,6 @@
 
 language: R
 cache: packages
+
+install:
+  - ./run.sh install_aptget r-cran-ggplot2 r-cran-rvest r-cran-dplyr r-cran-tidyr r-cran-jsonlite r-cran-purrr r-cran-readr r-cran-stringr r-cran-xml2
