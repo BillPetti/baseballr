@@ -10,7 +10,7 @@
 #' @keywords MLB, sabermetrics
 #' @export
 #'
-#' @examples get_probables_mlb(566001)
+#' @examples \dontrun{get_probables_mlb(566001)}
 
 get_game_info_mlb <- function(game_pk) {
 

@@ -39,7 +39,7 @@ The following IDs can be passed to the level_ids argument:
 }
 
 \examples{
-get_game_pks_mlb("2019-04-29")
+\dontrun{get_game_pks_mlb("2019-04-29")}
 }
 \keyword{MLB,}
 \keyword{sabermetrics}
