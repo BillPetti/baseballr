@@ -4,16 +4,21 @@
 #' @param years The season or seasons (i.e. use 2016 for the 2015-2016 season,
 #' etc., limited to just 2013-2020 seasons)
 #'
-#'@importFrom stringr str_detect str_squish str_remove_all str_split_fixed
+#'@importFrom stringr str_detect str_squish str_remove_all str_split_fixed fixed str_detect
 #'@importFrom janitor adorn_totals
 #'
 #' @return A dataframe with the following fields: school, home_game,
 #' away_game, runs_scored_home, runs_allowed_home, run_scored_away,
-#' runs_allowed_away, base_pf (base park factor), final_pf (park factor after adjustments)
+#' runs_allowed_away, base_pf (base park factor), home_game_adj (an adjustment for the percentage of home games played) final_pf (park factor after adjustments)
 #' @export
 #'
 #'
 #'@examples \dontrun{get_ncaa_park_factor(736, c(2017:2019)}
+#'
+#'
+library(dplyr)
+library(baseballr)
+library(stringr)
 
 get_ncaa_park_factor <- function(teamid, years) {
   
@@ -45,8 +50,10 @@ else if (y == 1) {
                                                           runs_allowed_home,runs_scored_away,runs_allowed_away), where = "row", name = school_name) %>% tail(1)
   
   dfa = dfa %>% dplyr::mutate(base_pf = ((runs_scored_home+runs_allowed_home)/(home_game))/((runs_scored_away+runs_allowed_away)/(away_game)),
-                       final_pf = (1-(1-base_pf)*.6),
+                       home_game_adj = ifelse(base_pf > 1, base_pf-(abs(base_pf-1)*(home_game/(home_game+away_game))), base_pf+(abs(base_pf-1)*(home_game/(home_game+away_game)))),
+                       final_pf = (1-(1-home_game_adj)*.6),
                        base_pf = round(base_pf,3),
+                       home_game_adj = round(home_game_adj,3),
                        final_pf = round(final_pf,3)) %>% dplyr::rename(school = score)
   return(dfa)
 } else if (y == 2) {
@@ -70,8 +77,10 @@ else if (y == 1) {
                                                    runs_allowed_home,runs_scored_away,runs_allowed_away), where = "row", name = school_name) %>% tail(1)
   
   dfa = dfa %>% dplyr::mutate(base_pf = ((runs_scored_home+runs_allowed_home)/(home_game))/((runs_scored_away+runs_allowed_away)/(away_game)),
-                       final_pf = (1-(1-base_pf)*.7),
+                       home_game_adj = ifelse(base_pf > 1, base_pf-(abs(base_pf-1)*(home_game/(home_game+away_game))), base_pf+(abs(base_pf-1)*(home_game/(home_game+away_game)))),
+                       final_pf = (1-(1-home_game_adj)*.7),
                        base_pf = round(base_pf,3),
+                       home_game_adj = round(home_game_adj,3),
                        final_pf = round(final_pf,3)) %>% dplyr::rename(school = score)
   
   return(dfa)
@@ -97,8 +106,10 @@ else if (y == 1) {
                                                    runs_allowed_home,runs_scored_away,runs_allowed_away), where = "row", name = school_name) %>% tail(1)
   
   dfa = dfa %>% dplyr::mutate(base_pf = ((runs_scored_home+runs_allowed_home)/(home_game))/((runs_scored_away+runs_allowed_away)/(away_game)),
-                       final_pf = (1-(1-base_pf)*.8),
+                       home_game_adj = ifelse(base_pf > 1, base_pf-(abs(base_pf-1)*(home_game/(home_game+away_game))), base_pf+(abs(base_pf-1)*(home_game/(home_game+away_game)))),
+                       final_pf = (1-(1-home_game_adj)*.8),
                        base_pf = round(base_pf,3),
+                       home_game_adj = round(home_game_adj,3),
                        final_pf = round(final_pf,3)) %>% dplyr::rename(school = score)
   
   return(dfa)
@@ -124,8 +135,10 @@ else if (y == 1) {
                                                    runs_allowed_home,runs_scored_away,runs_allowed_away), where = "row", name = school_name) %>% tail(1)
   
   dfa = dfa %>% dplyr::mutate(base_pf = ((runs_scored_home+runs_allowed_home)/(home_game))/((runs_scored_away+runs_allowed_away)/(away_game)),
-                       final_pf = (1-(1-base_pf)*.9),
+                       home_game_adj = ifelse(base_pf > 1, base_pf-(abs(base_pf-1)*(home_game/(home_game+away_game))), base_pf+(abs(base_pf-1)*(home_game/(home_game+away_game)))),
+                       final_pf = (1-(1-home_game_adj)*.9),
                        base_pf = round(base_pf,3),
+                       home_game_adj = round(home_game_adj,3),
                        final_pf = round(final_pf,3)) %>% dplyr::rename(school = score)
   
   return(dfa)
@@ -151,8 +164,10 @@ else if (y == 1) {
                                                     runs_allowed_home,runs_scored_away,runs_allowed_away), where = "row", name = school_name) %>% tail(1)
    
    dfa = dfa %>% dplyr::mutate(base_pf = (((runs_scored_home+runs_allowed_home)/(home_game))*(home_game/(home_game+away_game)))/(((runs_scored_away+runs_allowed_away)/(away_game))*(away_game/(home_game+away_game))),
-                        final_pf = (1-(1-base_pf)*.95),
+                        home_game_adj = ifelse(base_pf > 1, base_pf-(abs(base_pf-1)*(home_game/(home_game+away_game))), base_pf+(abs(base_pf-1)*(home_game/(home_game+away_game)))),
+                        final_pf = (1-(1-home_game_adj)*.95),
                         base_pf = round(base_pf,3),
+                        home_game_adj = round(home_game_adj,3),
                         final_pf = round(final_pf,3)) %>% dplyr::rename(school = score)
    
    return(dfa)
