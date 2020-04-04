@@ -11,7 +11,7 @@
 #' \dontrun{pitcher_game_logs_fg(playerid = 104, year = 2006)}
 
 pitcher_game_logs_fg <- function(playerid, year = 2017) {
-  url <- paste0("http://www.fangraphs.com/statsd.aspx?playerid=",
+  url <- paste0("http://www.fangraphs.com/statsd-legacy.aspx?playerid=",
                 playerid,
                 "&season=",
                 year, "&position=P")
