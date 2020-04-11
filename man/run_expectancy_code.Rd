@@ -2,22 +2,20 @@
 % Please edit documentation in R/run_expectancy_code.R
 \name{run_expectancy_code}
 \alias{run_expectancy_code}
-\title{Generate linear weight values for events using Baseball Savant data}
+\title{Generate run expectancy and related measures and variables from Baseball Savant data}
 \usage{
 run_expectancy_code(df, level = "plate appearance")
 }
 \arguments{
-\item{df}{A data frame generated from Baseball Savant that has been run through
-the \code{\link{run_expectancy_code}} function.}
+\item{df}{A data frame generated from Baseball Savant.}
 
-\item{level}{Whether to calculate linear weights the plate appearance or pitch
-level. Defaults to 'plate appearance'.}
+\item{level}{Whether you want run expectancy calculated at the plate appearance or pitch level. Defaults to plate appearance.}
 }
 \description{
-This function allows a user to generate linear weight values for events using Baseball Savant data. Output includes both linear weights above average and linear weights above outs for home runs, triples, doubles, singles, walks, hit by pitches, and outs.
+These functions allow a user to generate run expectancy and related measures and variables from Baseball Savant data. Measures and variables will be added to the data frame and a run expectancy table will be assigned to the Global Environment.
 }
 \examples{
-\dontrun{linear_weights_savant(df, level = "plate appearance")}
+\dontrun{run_expectancy_code(df, level = "plate appearances")}
 }
 \keyword{MLB,}
 \keyword{sabermetrics}
