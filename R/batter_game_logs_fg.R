@@ -11,7 +11,7 @@
 #' \dontrun{batter_game_logs_fg(playerid = 6184, year = 2017)}
 
 batter_game_logs_fg <- function(playerid, year = 2017) {
-  url <- paste0("http://www.fangraphs.com/statsd.aspx?playerid=",
+  url <- paste0("http://www.fangraphs.com/statsd-legacy.aspx?playerid=",
                 playerid,
                 "&season=",
                 year,
@@ -27,6 +27,7 @@ batter_game_logs_fg <- function(playerid, year = 2017) {
     dplyr::filter(!grepl("Date|Total", Date)) %>%
     dplyr::rename(BB_perc = BB., K_perc = K.,
            wRC_plus = wRC.)
+
 
   if (nrow(payload) > 1) {
 
