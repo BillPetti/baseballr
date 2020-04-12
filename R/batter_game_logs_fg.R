@@ -20,7 +20,7 @@ batter_game_logs_fg <- function(playerid, year = 2017) {
   payload <- xml2::read_html(url) %>%
     rvest::html_nodes("table") %>%
     .[length(.)] %>%
-    rvest::html_table() %>%
+    rvest::html_table(fill = TRUE) %>%
     as.data.frame()
 
   payload <- payload %>%
@@ -46,3 +46,4 @@ batter_game_logs_fg <- function(playerid, year = 2017) {
 
   payload
 }
+
