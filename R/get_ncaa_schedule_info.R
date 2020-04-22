@@ -8,7 +8,7 @@
 #' @importFrom xml2 read_html
 #' @importFrom tibble tibble rownames_to_column
 #' @importFrom tidyr separate
-#' @importFrom stringr str_trim
+#' @importFrom stringr str_trim str_extract
 #' @return A dataframe with the following fields: date, opponent,
 #' result, score, innings (if more than regulation), and the url
 #' for the game itself.
