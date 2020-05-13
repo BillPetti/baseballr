@@ -4,7 +4,9 @@
 \name{ncaa_season_id_lu}
 \alias{ncaa_season_id_lu}
 \title{A data set of college baseball seasons}
-\format{A data frame with 6 rows and 4 variables}
+\format{
+A data frame with 6 rows and 4 variables
+}
 \usage{
 data(ncaa_season_id_lu)
 }
