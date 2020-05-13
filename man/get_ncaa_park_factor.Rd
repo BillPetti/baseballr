@@ -15,10 +15,10 @@ etc., limited to just 2013-2020 seasons)}
 \value{
 A dataframe with the following fields: school, home_games,
 away_games, runs_scored_home (the total runs scored in home games by the selected team over the selected period of time),
-runs_allowed_home (the total runs allowed in home games by the selected team over the selected period of time), 
+runs_allowed_home (the total runs allowed in home games by the selected team over the selected period of time),
 run_scored_away (the total runs scored in road games by the selected team over the selected period of time),
-runs_allowed_away (the total runs allowed in road games by the selected team over the selected period of time), 
-base_pf (base park factor, comparing the run scoring environment of home games v. non-home games), 
+runs_allowed_away (the total runs allowed in road games by the selected team over the selected period of time),
+base_pf (base park factor, comparing the run scoring environment of home games v. non-home games),
 final_pf (park factor after adjustments, like adjusting how regression should be applied for how many years are selected,
 ideology taken from this article: https://library.fangraphs.com/park-factors-5-year-regressed/)
 }

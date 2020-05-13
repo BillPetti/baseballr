@@ -4,7 +4,9 @@
 \name{master_ncaa_team_lu}
 \alias{master_ncaa_team_lu}
 \title{A data set colleges and their athletic conferences and divisions}
-\format{A data frame with 4,774 rows and 6 variables}
+\format{
+A data frame with 4,774 rows and 6 variables
+}
 \usage{
 data(master_ncaa_team_lu)
 }
