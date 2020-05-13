@@ -17,6 +17,7 @@ playerid_lookup <- function(last_name = NULL, first_name = NULL) {
     message("Data courtesy of the Chadwick Bureau Register (https://github.com/chadwickbureau/register)")
     url <- "https://raw.githubusercontent.com/chadwickbureau/register/master/data/people.csv"
     suppressMessages(
+
       chadwick_player_lu_table <- vroom::vroom(url,
                                                delim = ',')
     )
@@ -25,8 +26,9 @@ playerid_lookup <- function(last_name = NULL, first_name = NULL) {
     x <- process_player_name(last_name, first_name)
 
     names(x) <- c("first_name", "last_name", "given_name", "name_suffix", "nick_name", "birth_year", "mlb_played_first", "mlbam_id", "retrosheet_id", "bbref_id", "fangraphs_id")
-
+	
     return(x)
+	
   }
 
   else {
