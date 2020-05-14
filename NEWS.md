@@ -1,3 +1,120 @@
+# baseballr 0.8 (2020-05-15)
+
+## New Functions
+
+Thanks to [Robert Frey](https://github.com/robert-frey), we've added a new function that allows the user to calculate park factors at the NCAA level. 
+
+`get_ncaa_park_factors` takes two arguments; `teamid` and `years`. Users can submit a single year or multiple years (recommended) and uses a team's schedule with results to calculate their home park's factors. 
+
+The function will return two versions of the park factor: the `base_pf` and the `final_pf`, which simply takes the `base_pf` and applies an adjustment that is based on [FanGraphs' method](https://library.fangraphs.com/park-factors-5-year-regressed/):
+
+```
+get_ncaa_park_factor(736, c(2017:2019))
+
+      school home_game away_game runs_scored_home runs_allowed_home runs_scored_away
+1 Vanderbilt       104        91              782               416              591
+  runs_allowed_away base_pf final_pf
+1               426   1.031    1.025
+
+get_ncaa_park_factor(736, c(2015:2019))
+
+      school home_game away_game runs_scored_home runs_allowed_home runs_scored_away
+1 Vanderbilt       175       154             1314               658              951
+  runs_allowed_away base_pf final_pf
+1               680   1.209    1.199
+```
+
+## Fixes and Updates
+
+- [Shane Piesik](https://github.com/shanepiesik) made some changes to the `scrape_statcast_savant` function. The function should now be easier to use in a loop or map when combining payloads, and more importantly the data should read in faster thanks to swapping in `vroom`.
+
+- The `master_ncaa_team_lu` was updated by Robert Frey. For some reason, the NCAA website that had the 2019 Division 1 information has dissappeared, and when I rebuilt the table at the begining of 2020 it led to tons of `NA` values for those teams that year. Thanks to Robert for manually fixing.
+
+# baseballr 0.7 (2020-01-07)
+
+## New Functions
+
+This release of [`baseballr`](https://github.com/BillPetti/baseballr) includes functions   that allow a user to query data through MLB's stats api at the minor league level.
+
+You can view a look up table with `?get_game_pks_mlb` to get the appropriate IDs for each level, but I'll post them here as well (this is not comprehensive):
+
+| 1 | MLB |
+|------|----------------------|
+| 11 | Triple-A |
+| 12 | Double-A |
+| 13 | Class A Advanced |
+| 14 | Class A |
+| 15 | Class A Short Season |
+| 5442 | Rookie Advanced |
+| 16 | Rookie |
+| 17 | Winter League |
+
+Game information can be acquired using the `get_game_pks_mlb` function, along with the level for which you want games:
+
+```
+games <- get_game_pks_mlb(date = '2019-05-01',
+                          level_ids = c(11, 12))
+
+games %>%
+  select(game_pk, gameDate, teams.away.team.name, teams.home.team.name) %>%
+  slice(1:10)
+  
+   game_pk             gameDate      teams.away.team.name  teams.home.team.name
+1   579921 2019-05-01T16:05:00Z        Round Rock Express Oklahoma City Dodgers
+2   579919 2019-05-01T03:33:00Z        Round Rock Express Oklahoma City Dodgers
+3   584340 2019-05-01T21:30:00Z        Midland RockHounds        Tulsa Drillers
+4   584269 2019-05-01T03:33:00Z        Midland RockHounds        Tulsa Drillers
+5   579571 2019-05-01T21:38:00Z      San Antonio Missions             Iowa Cubs
+6   579570 2019-05-01T03:33:00Z      San Antonio Missions             Iowa Cubs
+7   571587 2019-05-01T14:30:00Z            Erie SeaWolves         Altoona Curve
+8   572288 2019-05-01T14:30:00Z New Hampshire Fisher Cats       Trenton Thunder
+9   575163 2019-05-01T14:35:00Z             Norfolk Tides          Durham Bulls
+10  575655 2019-05-01T14:35:00Z           Louisville Bats       Toledo Mud Hens
+```																	
+
+You can also use the `get_game_info_mlb` function to grab additional info on each game, such as weather and (in some cases) attendance:
+
+```
+map_df(.x = games$game_pk[1:10], 
+       ~get_game_info_mlb(.x)) %>%
+  select(game_date, venue_name, temperature, other_weather, wind)
+
+# A tibble: 10 x 5
+   game_date  venue_name                 temperature other_weather wind           
+   <chr>      <chr>                      <chr>       <chr>         <chr>          
+ 1 2019-05-01 Chickasaw Bricktown Ballp… 63          Cloudy        4 mph, R To L  
+ 2 2019-05-01 Chickasaw Bricktown Ballp… 72          Cloudy        13 mph, R To L 
+ 3 2019-05-01 ONEOK Field                77          Overcast      14 mph, In Fro…
+ 4 2019-05-01 ONEOK Field                74          clear         14 mph, In Fro…
+ 5 2019-05-01 Principal Park             54          Overcast      3 mph, In From…
+ 6 2019-05-01 Principal Park             53          Overcast      1 mph, Calm    
+ 7 2019-05-01 Peoples Natural Gas Field  58          Overcast      7 mph, In From…
+ 8 2019-05-01 ARM & HAMMER Park          55          Overcast      5 mph, L To R  
+ 9 2019-05-01 Durham Bulls Athletic Park 70          Partly Cloudy 7 mph, In From…
+10 2019-05-01 Fifth Third Field          59          Cloudy        7 mph, R To L  
+```
+
+Once you have the `game_pk` IDs grabbing the pbp data is very simple. All you need to do is pass the `game_pk` of interest to the `get_pbp_mlb` function. 
+
+Let's say you interested in the Gwinnett Stripers versus the Charlotte Knights:
+
+```
+payload <- get_pbp_mlb(575589)
+```
+
+The function will return a data frame with 131 columns. Data availability will vary depending on the park and the league level, as most sensor data is not availble in minor league parks via this API. Also note that the column names have mostly been left as-is and there are likely duplicate columns in terms of the information they provide. I plan to clean the output up down the road, but for now I am leaving the majority as-is.
+
+Some of the colums of interest at the minor league level are:
+
+- `pitchNumber` and `atBatIndex`: the pitch number within a given plate appearance and the plate appearance within a given game.
+- `pitchData.coordinates.x` and `pitchData.coordinates.y`: the x,z coordinates of the pitch as it crosses the plate. As far as I can tell, these are the pixel coordinates for a location that a stringer manually plots and likely need to be transformed and rotated to get a view of the pitch as it crosses the plate. I am working on figuring out an easy transformation to get them on the same scale as the MLB coordinates, but they appear different by park. I do believe you can multiple both by -1 and that will at least allow you to orient the coordinates correctly (i.e. catcher's view)
+- `details.call.code`, `details.call.description`, `result.event`, `result.eventType`, and `result.description`: these are similar to what we find with Statcast data--codes and detailed desriptions for what happened on a pitch or at the end of a plate appearance.
+- `count.` variables that tell you how many balls, strikes, and outs before and after the pitch.
+- `batter.id` and `pitcher.id`
+- `matchup.batSide.code ` and `matchup.pitchHand.code`: handedness of the batter and pitcher.
+- A series of columns that tell you what the league and level is of both the home and away teams and includes their parent organizations.
+- `batted.ball.result`, `hitData.coordinates.coordX`, `hitData.coordinates.coordY`, `hitData.trajectory`: various information about the batted ball. Of most interest will be the coordinate columns.
+
 # baseballr 0.4 (2019-03-18)
 
 The latest release of the [`baseballr`](https://billpetti.github.io/baseballr/) package for `R` includes a number of enhancements and bug fixes.
