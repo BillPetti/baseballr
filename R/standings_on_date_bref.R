@@ -22,6 +22,8 @@ standings_on_date_bref <- function(date, division, from = FALSE) {
   stopifnot(intersect(grepl("AL|NL", division), grepl("East|Central|West|Overall",
                                                       division)))
 
+  message('Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com')
+
   url <- paste0("http://www.baseball-reference.com/boxes",
                 "?year=", sprintf("%04i", lubridate::year(date)), "&month=",
                 sprintf("%02i", lubridate::month(date)), "&day=", sprintf("%02i",
@@ -38,7 +40,7 @@ standings_on_date_bref <- function(date, division, from = FALSE) {
   table_names <- c("NL Overall", "AL Overall", "NL West" , "NL Central", "NL East", "AL West", "AL Central", "AL East", "NL Overall", "AL Overall", "NL West" , "NL Central", "NL East", "AL West", "AL Central", "AL East")
   table_names[1:8] <- paste0(table_names[1:8], "_after_", date)     # Customizing list names for "After this Date" case
   table_names[9:16] <- paste0(table_names[9:16], "_up to_", date)   # Customizing list names for "From this Date" case
-  
+
   names(tables) <- table_names
 
   after <- tables[1:8]

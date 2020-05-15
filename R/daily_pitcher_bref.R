@@ -11,6 +11,9 @@
 #' daily_pitcher_bref("2015-05-10", "2015-06-20")
 
 daily_pitcher_bref <- function(t1, t2) {
+
+  message('Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com')
+
   payload <- read_html(paste0("http://www.baseball-reference.com/leagues/daily.cgi?user_team=&bust_cache=&type=p&lastndays=7&dates=fromandto&fromandto=", t1, ".", t2, "&level=mlb&franch=&stat=&stat_value=0"))
   df <- payload %>%
     html_nodes(xpath = '//*[@id="daily"]') %>%
