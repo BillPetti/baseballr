@@ -13,6 +13,8 @@
 
 team_consistency <- function(year) {
 
+  message('Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com')
+
   url <- paste0("http://www.baseball-reference.com/leagues/MLB/",year,".shtml")
   teams <- xml2::read_html(url)
   teams <- teams %>% rvest::html_nodes("table") %>%
