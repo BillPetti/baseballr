@@ -4,27 +4,29 @@
 \alias{get_ncaa_park_factor}
 \title{Get Park Effects for NCAA Baseball Teams}
 \usage{
-get_ncaa_park_factor(teamid, years)
+get_ncaa_park_factor(teamid, years, type = "conference")
 }
 \arguments{
 \item{teamid}{The team's unique NCAA id.}
 
 \item{years}{The season or seasons (i.e. use 2016 for the 2015-2016 season,
-etc., limited to just 2013-2020 seasons)}
+etc., limited to just 2013-2020 seasons).}
+
+\item{type}{default is conference. the conference parameter adjusts for the conference
+the school plays in, the division parameter calculates based on the division the school plays in 1,2,or 3.
+Defaults to 'conference'.}
 }
 \value{
-A dataframe with the following fields: school, home_games,
-away_games, runs_scored_home (the total runs scored in home games by the selected team over the selected period of time),
-runs_allowed_home (the total runs allowed in home games by the selected team over the selected period of time),
-run_scored_away (the total runs scored in road games by the selected team over the selected period of time),
-runs_allowed_away (the total runs allowed in road games by the selected team over the selected period of time),
-base_pf (base park factor, comparing the run scoring environment of home games v. non-home games),
-final_pf (park factor after adjustments, like adjusting how regression should be applied for how many years are selected,
-ideology taken from this article: https://library.fangraphs.com/park-factors-5-year-regressed/)
+A dataframe with the following fields: school, home_game,
+away_game, runs_scored_home, runs_allowed_home, run_scored_away,
+runs_allowed_away, base_pf (base park factor), home_game_adj (an adjustment for the percentage of home games played) final_pf (park factor after adjustments)
 }
 \description{
 Get Park Effects for NCAA Baseball Teams
 }
 \examples{
-\dontrun{get_ncaa_park_factor(736, c(2017:2019)}
+\dontrun{get_ncaa_park_factor(736, c(2017:2019),type = "conference")}
+
+
+
 }

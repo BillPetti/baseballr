@@ -4,24 +4,28 @@
 
 Thanks to [Robert Frey](https://github.com/robert-frey), we've added a new function that allows the user to calculate park factors at the NCAA level. 
 
-`get_ncaa_park_factors` takes two arguments; `teamid` and `years`. Users can submit a single year or multiple years (recommended) and uses a team's schedule with results to calculate their home park's factors. 
+`get_ncaa_park_factors` takes two arguments; `teamid`, `years`, and `type`. Users can submit a single year or multiple years (recommended) and uses a team's schedule with results to calculate their home park's factors. Also, if a user selects `conference` as the type, the park factor will be adjusted based on the number of teams in a conference. This has the practical effect of suggesting more regression should be applied to players who play against fewer teams in fewer parks. 
 
 The function will return two versions of the park factor: the `base_pf` and the `final_pf`, which simply takes the `base_pf` and applies an adjustment that is based on [FanGraphs' method](https://library.fangraphs.com/park-factors-5-year-regressed/):
 
 ```
-get_ncaa_park_factor(736, c(2017:2019))
-
+get_ncaa_park_factor(736, c(2017:2019),type = "conference")
       school home_game away_game runs_scored_home runs_allowed_home runs_scored_away
 1 Vanderbilt       104        91              782               416              591
-  runs_allowed_away base_pf final_pf
-1               426   1.031    1.025
+  runs_allowed_away base_pf home_game_adj final_pf
+1               426   1.028         1.013    1.011
 
-get_ncaa_park_factor(736, c(2015:2019))
+get_ncaa_park_factor(736, c(2017:2019),type = "division")
+      school home_game away_game runs_scored_home runs_allowed_home runs_scored_away
+1 Vanderbilt       104        91              782               416              591
+  runs_allowed_away base_pf home_game_adj final_pf
+1               426   1.031         1.014    1.011
 
+get_ncaa_park_factor(736, c(2015:2019),type = "division")
       school home_game away_game runs_scored_home runs_allowed_home runs_scored_away
 1 Vanderbilt       175       154             1314               658              951
-  runs_allowed_away base_pf final_pf
-1               680   1.209    1.199
+  runs_allowed_away base_pf home_game_adj final_pf
+1               680   1.209         1.098    1.093
 ```
 
 ## Fixes and Updates
@@ -29,6 +33,10 @@ get_ncaa_park_factor(736, c(2015:2019))
 - [Shane Piesik](https://github.com/shanepiesik) made some changes to the `scrape_statcast_savant` function. The function should now be easier to use in a loop or map when combining payloads, and more importantly the data should read in faster thanks to swapping in `vroom`.
 
 - The `master_ncaa_team_lu` was updated by Robert Frey. For some reason, the NCAA website that had the 2019 Division 1 information has dissappeared, and when I rebuilt the table at the begining of 2020 it led to tons of `NA` values for those teams that year. Thanks to Robert for manually fixing.
+
+## Other
+
+Messages have been added to all functions that pull data from [FanGraphs.com](https://plus.fangraphs.com/product/fangraphs-membership/?switch-subscription=254671&item=85029&_wcsnonce=62a468b8ba&auto-switch=true) and [Baseball-Reference.com](https://stathead.com). The messages ask users to support both sites through their paid subscription services. Please consider supporting both, especially if you are using `baseballr` to pull data from their sites.
 
 # baseballr 0.7 (2020-01-07)
 
