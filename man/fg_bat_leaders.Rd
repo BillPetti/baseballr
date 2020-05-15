@@ -2,19 +2,9 @@
 % Please edit documentation in R/fangraphs.R
 \name{fg_bat_leaders}
 \alias{fg_bat_leaders}
-\alias{fg_pitch_leaders}
 \title{Scrape Batter Leaderboards from FanGraphs}
 \usage{
 fg_bat_leaders(x, y, league = "all", qual = "y", ind = 0)
-
-fg_pitch_leaders(
-  x,
-  y,
-  league = "all",
-  qual = "y",
-  pitcher_type = "pit",
-  ind = 0
-)
 }
 \arguments{
 \item{x}{First season for which you want data.}
@@ -26,15 +16,12 @@ fg_pitch_leaders(
 \item{qual}{Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimumm number of plate appearaces/innings pitched, use the number desired. Defaults to "y".}
 
 \item{ind}{Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.}
-
-\item{pitcher_type}{Whether you want only starting pitchers, relievers, or all pitchers that meet the criteria specified in the qual argument. Options include "pit", "sta", "rel".}
 }
 \description{
 This function allows you to scrape all leaderboard statistics (basic and advanced) from FanGraphs.com.
 }
 \examples{
 \dontrun{fg_bat_leaders(x = 2015, y = 2015, qual = 400)}
-\dontrun{fg_pitch_leaders(x = 2015, y = 2015, qual = 150)}
 }
 \keyword{MLB,}
 \keyword{sabermetrics}

@@ -2,3 +2,8 @@
 
 language: R
 cache: packages
+
+before_install:
+  - tlmgr install index
+  
+warnings_are_errors: false

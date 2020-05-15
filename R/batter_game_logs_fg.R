@@ -11,7 +11,10 @@
 #' \dontrun{batter_game_logs_fg(playerid = 6184, year = 2017)}
 
 batter_game_logs_fg <- function(playerid, year = 2017) {
-  url <- paste0("http://www.fangraphs.com/statsd.aspx?playerid=",
+
+  message('Data courtey of FanGraphs. Please consider supporting FanGraphs by purchasing a membership: https://plus.fangraphs.com/product/fangraphs-membership/?switch-subscription=254671&item=85029&_wcsnonce=3e893e9b53&auto-switch=true')
+
+  url <- paste0("http://www.fangraphs.com/statsd-legacy.aspx?playerid=",
                 playerid,
                 "&season=",
                 year,
@@ -20,13 +23,14 @@ batter_game_logs_fg <- function(playerid, year = 2017) {
   payload <- xml2::read_html(url) %>%
     rvest::html_nodes("table") %>%
     .[length(.)] %>%
-    rvest::html_table() %>%
+    rvest::html_table(fill = TRUE) %>%
     as.data.frame()
 
   payload <- payload %>%
     dplyr::filter(!grepl("Date|Total", Date)) %>%
     dplyr::rename(BB_perc = BB., K_perc = K.,
            wRC_plus = wRC.)
+
 
   if (nrow(payload) > 1) {
 
@@ -45,3 +49,4 @@ batter_game_logs_fg <- function(playerid, year = 2017) {
 
   payload
 }
+

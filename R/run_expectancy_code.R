@@ -99,4 +99,3 @@ run_expectancy_code <- function (df, level = "plate appearance")
 
   return(df)
 }
-

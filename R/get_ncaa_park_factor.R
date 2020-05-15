@@ -1,3 +1,4 @@
+
 #' Get Park Effects for NCAA Baseball Teams
 #'
 #' @param teamid The team's unique NCAA id.
@@ -238,4 +239,4 @@
      }
    return(dfa)
   }  
-  }
+ }

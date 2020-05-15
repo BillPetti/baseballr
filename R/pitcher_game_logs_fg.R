@@ -11,7 +11,10 @@
 #' \dontrun{pitcher_game_logs_fg(playerid = 104, year = 2006)}
 
 pitcher_game_logs_fg <- function(playerid, year = 2017) {
-  url <- paste0("http://www.fangraphs.com/statsd.aspx?playerid=",
+
+  message('Data courtey of FanGraphs.com. Please consider supporting FanGraphs by purchasing a membership: https://plus.fangraphs.com/product/fangraphs-membership/?switch-subscription=254671&item=85029&_wcsnonce=3e893e9b53&auto-switch=true')
+
+  url <- paste0("http://www.fangraphs.com/statsd-legacy.aspx?playerid=",
                 playerid,
                 "&season=",
                 year, "&position=P")
@@ -19,7 +22,7 @@ pitcher_game_logs_fg <- function(playerid, year = 2017) {
   payload <- xml2::read_html(url) %>%
     rvest::html_nodes("table") %>%
     .[length(.)] %>%
-    rvest::html_table() %>%
+    rvest::html_table(fill = TRUE) %>%
     as.data.frame()
 
   payload <- payload %>%
