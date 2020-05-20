@@ -5,8 +5,8 @@ Author: Bill Petti <billpetti@gmail.com>
 Authors@R: c(
     person("Bill", "Petti", email = "billpetti@gmail.com",
       role = c("aut", "cre")),
-    person("Ben", "Baumer", email = "ben.baumer@gmail.com", role = c("ctb")),
-    person("Ben", "Dilday", email = "ben.dilday.phd@gmail.com", role = "ctb")),
+    person("Ben", "Baumer", email = "ben.baumer@gmail.com", role = "ctb"),
+    person("Ben", "Dilday", email = "ben.dilday.phd@gmail.com", role = "ctb"),
     person("Robert", "Frey", email = "rfrey22@gmail.com", role = "ctb"))
 Maintainer: Bill Petti <billpetti@gmail.com>
 Description: Provides numerous functions for acquiring and analyzing baseball
