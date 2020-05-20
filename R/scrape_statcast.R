@@ -152,8 +152,7 @@ scrape_statcast_savant.Date <- function(start_date = Sys.Date() - 1, end_date = 
                         "babip_value", "iso_value", "launch_speed_angle", "at_bat_number",
                         "pitch_number", "pitch_name", "home_score", "away_score", "bat_score",
                         "fld_score", "post_away_score", "post_home_score", "post_bat_score",
-                        "post_fld_score", "if_fielding_alignment", "of_fielding_alignment",
-                        "barrel")
+                        "post_fld_score", "if_fielding_alignment", "of_fielding_alignment")
 
     return(process_statcast_payload(payload))
   } else {
@@ -178,8 +177,7 @@ scrape_statcast_savant.Date <- function(start_date = Sys.Date() - 1, end_date = 
                         "babip_value", "iso_value", "launch_speed_angle", "at_bat_number",
                         "pitch_number", "pitch_name", "home_score", "away_score", "bat_score",
                         "fld_score", "post_away_score", "post_home_score", "post_bat_score",
-                        "post_fld_score", "if_fielding_alignment", "of_fielding_alignment",
-                        "barrel")
+                        "post_fld_score", "if_fielding_alignment", "of_fielding_alignment")
     return(payload)
   }
 }
