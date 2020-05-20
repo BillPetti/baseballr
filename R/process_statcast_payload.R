@@ -6,6 +6,7 @@
 #' @param payload payload from a Baseball Savant request, e.g.
 #' from \code{\link[readr]{read_csv}}
 #' @keywords MLB, sabermetrics, Statcast
+#' @importFrom dplyr mutate_at mutate_
 #' @export
 #' @examples
 #' \dontrun{
@@ -25,6 +26,7 @@ process_statcast_payload <- function(payload) {
   payload$on_2b <- as.character(payload$on_2b) %>% as.numeric()
   payload$on_3b <- as.character(payload$on_3b) %>% as.numeric()
   payload$release_pos_x <- as.character(payload$release_pos_x) %>% as.numeric()
+  payload$release_pos_y <- as.character(payload$release_pos_x) %>% as.numeric()
   payload$release_pos_z <- as.character(payload$release_pos_z) %>% as.numeric()
   payload$hit_distance_sc <- as.character(payload$hit_distance_sc) %>% as.numeric()
   payload$launch_speed <- as.character(payload$launch_speed) %>% as.numeric()
@@ -55,6 +57,20 @@ process_statcast_payload <- function(payload) {
   payload$post_bat_score <- as.character(payload$post_bat_score) %>% as.numeric()
   payload$post_fld_score <- as.character(payload$post_fld_score) %>% as.numeric()
   payload$zone <- as.character(payload$zone) %>% as.numeric()
+
+  # Format player IDs as character
+
+  cols_to_transform <- c("batter", "pitcher", "fielder_2", "pitcher_1", "fielder_2_1",
+                         "fielder_3", "fielder_4", "fielder_5", "fielder_6", "fielder_7",
+                         "fielder_8", "fielder_9")
+
+  payload <- payload %>%
+    ungroup() %>%
+    dplyr::mutate_at(vars(one_of(cols_to_transform)), as.character) %>%
+    dplyr::mutate_at(vars(one_of(cols_to_transform)), as.numeric) %>%
+    dplyr::mutate_at(vars(one_of(cols_to_transform)), function(x) {
+      ifelse(is.na(x), 999999999, x)
+    })
 
   # Create a specific variable for barrels
 
