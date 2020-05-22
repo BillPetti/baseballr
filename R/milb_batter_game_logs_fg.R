@@ -9,21 +9,21 @@
 #' @importFrom tidyr separate
 #' @export
 #' @examples
-#' \dontrun{milb_batter_game_logs_fg(playerid = "sa873981", 2018)}
+#' \dontrun{milb_batter_game_logs_fg(playerid = "sa917940", 2018)}
 
 milb_batter_game_logs_fg <- function(playerid, year = 2017) {
 
   message('Data courtey of FanGraphs.com. Please consider supporting FanGraphs by purchasing a membership: https://plus.fangraphs.com/product/fangraphs-membership/?switch-subscription=254671&item=85029&_wcsnonce=3e893e9b53&auto-switch=true')
 
   # url for standard game log table
-  url_basic <- paste0("http://www.fangraphs.com/statsd.aspx?playerid=",
+  url_basic <- paste0("http://www.fangraphs.com/statsd-legacy.aspx?playerid=",
                       playerid,
                       "&season=",
                       year,
                       "&position=PB","&type=-1")
 
   # url for advanced game log table
-  url_adv <- paste0("http://www.fangraphs.com/statsd.aspx?playerid=",
+  url_adv <- paste0("http://www.fangraphs.com/statsd-legacy.aspx?playerid=",
                     playerid,
                     "&season=",
                     year,
