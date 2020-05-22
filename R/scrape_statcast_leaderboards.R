@@ -76,7 +76,7 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
       return(NULL)
     }
 
-    url <- paste0("https://baseballsavant.mlb.com/statcast_leaderboard?year=", year, "&abs=", abs, "&player_type=", player_type, "&min=", min_pa, "&csv=true")
+    url <- paste0("https://baseballsavant.mlb.com/statcast_leaderboard?year=", year, "&abs=", abs, "&type=", player_type, "&min=", min_pa, "&csv=true")
 
     payload <- read_csv(url)
   }
