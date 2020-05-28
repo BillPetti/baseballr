@@ -22,7 +22,7 @@ standings_on_date_bref <- function(date, division, from = FALSE) {
   stopifnot(intersect(grepl("AL|NL", division), grepl("East|Central|West|Overall",
                                                       division)))
 
-  message('Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com')
+  message('Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Stathead account: https://stathead.com')
 
   url <- paste0("http://www.baseball-reference.com/boxes",
                 "?year=", sprintf("%04i", lubridate::year(date)), "&month=",
