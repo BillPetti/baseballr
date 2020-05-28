@@ -13,40 +13,54 @@
 
 team_consistency <- function(year) {
 
-  message('Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com')
+  message('Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Stathead account: https://stathead.com')
 
   url <- paste0("http://www.baseball-reference.com/leagues/MLB/",year,".shtml")
+
   teams <- xml2::read_html(url)
-  teams <- teams %>% rvest::html_nodes("table") %>%
+
+  teams <- teams %>%
+    rvest::html_nodes("table") %>%
     .[1] %>%
     html_table() %>%
     as.data.frame()
   teams <- dplyr::select_(teams, ~Tm)
   teams <- dplyr::filter_(teams, ~Tm!="LgAvg", ~Tm!="Tm")
-  teams <- teams[c(1:30),] %>% as.data.frame()
-  teams$year <- 2017
+  teams <- teams[c(1:30),] %>%
+    as.data.frame()
+  teams$year <- year
   names(teams) <- c("Tm", "year")
 
-  results <- teams %>% group_by_(~Tm, ~year) %>% do_(~team_results_bref(.$Tm, .$year))
+  results <- teams %>%
+    group_by_(~Tm, ~year) %>%
+    do_(~team_results_bref(.$Tm, .$year))
+
   results <- dplyr::select_(results, ~year, ~Date, ~Tm, ~R, ~RA)
   names(results) <- c("Year", "Date", "Team", "R", "RA")
   attr(results, "vars") <- NULL
   results$R <- as.numeric(results$R)
   results$RA <- as.numeric(results$RA)
   results <- dplyr::filter_(results, ~!is.na(R))
-  RGini <- results %>% group_by_(~Team) %>% summarize_(R = ~gini(R))
-  RAGini <- results %>% group_by_(~Team) %>% summarize_(RA = ~gini(RA))
+  RGini <- results %>%
+    group_by_(~Team) %>%
+    summarize_(R = ~gini(R))
+  RAGini <- results %>%
+    group_by_(~Team) %>%
+    summarize_(RA = ~gini(RA))
   VOL <- left_join(RGini, RAGini, by = "Team")
   VOL$R <- round(VOL$R, 2)
   VOL$RA <- round(VOL$RA, 2)
   colnames(VOL)[1] <- "bref_t"
-  VOL <- VOL %>% mutate_(percrank = ~rank(R)/length(R))
+  VOL <- VOL %>%
+    mutate_(percrank = ~rank(R)/length(R))
   colnames(VOL)[4] <- "R_Ptile"
-  VOL <- VOL %>% mutate_(percrank = ~rank(RA)/length(RA))
+  VOL <- VOL %>%
+    mutate_(percrank = ~rank(RA)/length(RA))
   colnames(VOL)[5] <- "RA_Ptile"
   VOL$R_Ptile <- round(VOL$R_Ptile, 2)*100
   VOL$RA_Ptile <- round(VOL$RA_Ptile, 2)*100
   names(VOL) <- c("Team", "Con_R", "Con_RA", "Con_R_Ptile", "Con_RA_Ptile")
 
-  VOL
+  return(VOL)
 }
+
