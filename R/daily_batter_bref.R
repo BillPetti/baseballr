@@ -8,7 +8,7 @@
 #' @importFrom xml2 read_html
 #' @export
 #' @examples
-#' daily_batter_bref("2015-05-10", "2015-06-20")
+#' \dontrun{daily_batter_bref("2015-05-10", "2015-06-20")}
 
 daily_batter_bref <- function(t1, t2) {
 

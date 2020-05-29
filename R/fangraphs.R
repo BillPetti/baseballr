@@ -116,6 +116,11 @@ fg_bat_leaders <- function(x, y, league = "all", qual = "y", ind = 0) {
 #'
 #' @rdname fg_pitch_leaders
 #' @param pitcher_type Whether you want only starting pitchers, relievers, or all pitchers that meet the criteria specified in the qual argument. Options include "pit", "sta", "rel".
+#' @param x First season for which you want data.
+#' @param y Last season for which you want data. If multiple years selected, data returned will be aggregate data for the date range. If y = x, function will return single-season data.
+#' @param league Option for limiting results to different leagues or overall results. Options are "al", "nl", or "all".
+#' @param qual Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimumm number of plate appearaces/innings pitched, use the number desired. Defaults to "y".
+#' @param ind Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_nodes html_table html_attr
 #' @export
@@ -275,6 +280,7 @@ fg_park <- function(yr) {
 #'
 #' @rdname fg_park
 #' @description This function allows you to scrape park factors by handedness from FanGraphs.com for a given single year.
+#' @param yr Season for which you want to scrape the park factors.
 #' @importFrom stats setNames
 #' @export
 #' @examples

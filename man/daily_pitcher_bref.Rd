@@ -15,7 +15,7 @@ daily_pitcher_bref(t1, t2)
 This function allows you to scrape basic pitcher statistics over a custom time frame. Data is sourced from Baseball-Reference.com.
 }
 \examples{
-daily_pitcher_bref("2015-05-10", "2015-06-20")
+\dontrun{daily_pitcher_bref("2015-05-10", "2015-06-20")}
 }
 \keyword{MLB,}
 \keyword{sabermetrics}
