@@ -8,7 +8,7 @@
 #' @keywords MLB, sabermetrics
 #' @export
 #' @examples
-#' daily_pitcher_bref("2015-05-10", "2015-06-20")
+#' \dontrun{daily_pitcher_bref("2015-05-10", "2015-06-20")}
 
 daily_pitcher_bref <- function(t1, t2) {
 
