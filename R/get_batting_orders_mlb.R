@@ -12,7 +12,7 @@
 #' @keywords MLB, sabermetrics
 #' @export
 #'
-#' @examples get_batting_orders(566001)
+#' @examples \dontrun{get_batting_orders(566001)}
 
 get_batting_orders <- function(game_pk, type = "starting") {
 
