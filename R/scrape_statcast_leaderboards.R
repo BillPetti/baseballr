@@ -61,6 +61,13 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
       message("Exit Velocity and Barrel leaderboards are only available starting in 2015. Please choose an appropriate year.")
     }
+    
+    if (!min_pa %in% c(1,25,50,100,200,250,350,450,500,600)) {
+
+      message("Please choose one of the following for the minimum number of plate appearances:1,25,50,100,200,250,350,450,500,600")
+
+      return(NULL)
+    }
 
     if (!abs %in% c(0,5,10,20,25,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,250,300,400,500)) {
 
@@ -69,7 +76,7 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
       return(NULL)
     }
 
-    url <- paste0("https://baseballsavant.mlb.com/statcast_leaderboard?year=", year, "&abs=", abs, "&player_type=", player_type, "&csv=true")
+    url <- paste0("https://baseballsavant.mlb.com/statcast_leaderboard?year=", year, "&abs=", abs, "&type=", player_type, "&min=", min_pa, "&csv=true")
 
     payload <- read_csv(url)
   }
