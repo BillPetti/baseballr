@@ -9,7 +9,7 @@
 #'
 #' @examples \dontrun{get_draft_mlb(2009)}
 
-get_draft_mlb <- function(year) {
+get_draft_mlb<- function(year) {
 
   api_call <- paste0("http://statsapi.mlb.com/api/v1/draft/", year)
 
@@ -20,8 +20,11 @@ get_draft_mlb <- function(year) {
   draft_table <- draft_table %>%
     dplyr::bind_rows()
 
+  column_structure_draft_mlb[1,] <- NA
+
   draft_table_filled <- dplyr::bind_rows(column_structure_draft_mlb,
                                          draft_table) %>%
+    filter(!is.na(bisPlayerId)) %>%
     janitor::clean_names()
 
   return(draft_table_filled)
