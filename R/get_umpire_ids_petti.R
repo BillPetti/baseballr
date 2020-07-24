@@ -10,7 +10,7 @@
 
 get_umpire_ids_petti <- function() {
 
-  df <- cvroom::vroom("https://app.box.com/shared/static/x20ahfe5e3a3y9sknz3g5y2ojbef3fzx.csv",
+  df <- vroom::vroom("https://app.box.com/shared/static/x20ahfe5e3a3y9sknz3g5y2ojbef3fzx.csv",
                       delim = ',')
 
   return(df)
