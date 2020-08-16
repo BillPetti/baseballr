@@ -9,7 +9,7 @@ status](https://travis-ci.org/BillPetti/baseballr.svg?branch=master)](https://tr
 
 # baseballr
 
-# `baseballr` 0.8.0
+# `baseballr` 0.8.3
 
 **(latest version released 2020-05-13)**
 

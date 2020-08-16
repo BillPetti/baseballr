@@ -46,7 +46,7 @@ get_pbp_mlb <- function(game_pk) {
 
   list_columns <- lapply(at_bats, function(x) class(x)) %>%
     dplyr::bind_rows(.id = "variable") %>%
-    tidyr::gather(key, value, -variable) %>%
+    tidyr::gather(key, value) %>%
     dplyr::filter(value == "list") %>%
     dplyr::pull(key)
 

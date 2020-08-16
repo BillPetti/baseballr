@@ -39,7 +39,7 @@ fg_bat_leaders <- function(x, y, league = "all", qual = "y", ind = 0) {
     Seasons <- ifelse(x==y, paste0(x), paste0(x, "-", y))
     names(leaders) <- c
     leaders <- cbind(Seasons, leaders)
-    leaders <- as.data.frame(sapply(leaders, function(x) (gsub("\\ %", "", x))), stringsAsFactors=F)
+    leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))), stringsAsFactors=F)
     leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))), stringsAsFactors=F)
     leaders$Dol <- gsub("\\(", "-", leaders$Dol)
     leaders$Dol <- gsub("\\)", "", leaders$Dol)
@@ -86,7 +86,7 @@ fg_bat_leaders <- function(x, y, league = "all", qual = "y", ind = 0) {
     r <- c("wRC_plus", "WPA_minus", "WPA_plus", "FBall_pct", "AgeRng")
     c[c(63, 65, 66, 74, 204),] <- r
     names(leaders) <- c
-    leaders <- as.data.frame(sapply(leaders, function(x) (gsub("\\ %", "", x))))
+    leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))))
     leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))))
     leaders$Dol <- gsub("\\(", "-", leaders$Dol)
     leaders$Dol <- gsub("\\)", "", leaders$Dol)
@@ -156,7 +156,7 @@ fg_pitch_leaders <- function(x, y, league = "all", qual = "y",
     Seasons <- ifelse(x==y, paste0(x), paste0(x, "-", y))
     names(leaders) <- c
     leaders <- cbind(Seasons, leaders)
-    leaders <- as.data.frame(sapply(leaders, function(x) (gsub("\\ %", "", x))), stringsAsFactors=F)
+    leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))), stringsAsFactors=F)
     leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))), stringsAsFactors=F)
     leaders$Dol <- gsub("\\(", "-", leaders$Dol)
     leaders$Dol <- gsub("\\)", "", leaders$Dol)
@@ -204,7 +204,7 @@ fg_pitch_leaders <- function(x, y, league = "all", qual = "y",
            "WPA_plus", "FBall_pct", "AgeRng")
     c[c(57,59,66,67,77,218),] <- r
     names(leaders) <- c
-    leaders <- as.data.frame(sapply(leaders, function(x) (gsub("\\ %", "", x))))
+    leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))))
     leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))))
     leaders$Dol <- gsub("\\(", "-", leaders$Dol)
     leaders$Dol <- gsub("\\)", "", leaders$Dol)
