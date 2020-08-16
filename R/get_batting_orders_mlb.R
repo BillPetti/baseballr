@@ -20,15 +20,15 @@ get_batting_orders <- function (game_pk,
   api_call <- paste0("http://statsapi.mlb.com/api/v1.1/game/",
                      game_pk, "/feed/live")
   list <- jsonlite::fromJSON(api_call, flatten = TRUE)
-  home_team <- tibble(homeTeam = list$gameData$teams$home$name,
+  home_team <- tibble::tibble(homeTeam = list$gameData$teams$home$name,
                       homeTeamId = list$gameData$teams$home$id)
 
-  away_team <- tibble(awayTeam = list$gameData$teams$away$name,
+  away_team <- tibble::tibble(awayTeam = list$gameData$teams$away$name,
                       awayTeamId = list$gameData$teams$away$id)
 
-  home_players <- tibble(playerid = names(list[["liveData"]][["boxscore"]][["teams"]][["home"]][["players"]]))
+  home_players <- tibble::tibble(playerid = names(list[["liveData"]][["boxscore"]][["teams"]][["home"]][["players"]]))
 
-  away_players <- tibble(playerid = names(list[["liveData"]][["boxscore"]][["teams"]][["away"]][["players"]]))
+  away_players <- tibble::tibble(playerid = names(list[["liveData"]][["boxscore"]][["teams"]][["away"]][["players"]]))
 
   players <- function(list, team = "home", playerid) {
     person <- list[["liveData"]][["boxscore"]][["teams"]][[team]][["players"]][[playerid]][["person"]] %>%
@@ -79,9 +79,10 @@ get_batting_orders <- function (game_pk,
     filter(!is.na(batting_order))
 
   if (type == "starting") {
-    final_table <- final_table %>%
+    final_batting_order_table <- final_batting_order_table %>%
       filter(batting_position_num == 0)
   }
 
   return(final_batting_order_table)
 }
+
