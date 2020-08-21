@@ -32,5 +32,3 @@ get_ncaa_lineups <- function(game_info_url,year) {
   
   return(lineup_table)
 }
-
-get_ncaa_lineups("https://stats.ncaa.org/contests/1725172/box_score",2019)
