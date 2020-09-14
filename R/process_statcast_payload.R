@@ -76,7 +76,9 @@ process_statcast_payload <- function(payload) {
 
   payload <- payload %>%
     dplyr::mutate_(
-      barrel = ~ifelse(launch_angle <= 50 & launch_speed >= 98 & launch_speed * 1.5 - launch_angle >= 11 & launch_speed + launch_angle >= 124, 1, 0)
+      barrel = ~ifelse(launch_speed_angle == 6, 1, 0)
+      # dplyr::mutate_(
+      # barrel = ~ifelse(launch_angle <= 50 & launch_speed >= 98 & launch_speed * 1.5 - launch_angle >= 117 & launch_speed + launch_angle >= 124, 1, 0)
   )
 
   return(payload)
