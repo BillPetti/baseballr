@@ -15,6 +15,8 @@
 #' @param player_type One of either 'batter' or pitcher. For the expected_statistics
 #' leaderboard, 'batter-team' and 'pitcher-team' are also available.
 #' @param fielding_type One of either 'player' or 'team'.
+#' @param ooa_position Can be either the number position of a player or 'if' or 'of' for
+#' position categories.
 #' @param team An abbreviation for a team. Can be left blank.
 #' @param arsenal_type One of either 'n_', 'avg_spin', or 'avg_speed'.
 #' @param run_type One of either 'percent' or 'raw'.
@@ -23,18 +25,44 @@
 #' @param position The numeric position of the player. For DH use 10. Can be left blank.
 #' @param bats The handedness of the batter. One of 'R' or 'L'. Can be left blank.
 #' @param hand The handedness of the pitcher. One of 'R' or 'L'. Can be left blank.
+#' @section oaa_roles argument:
+#'
+#' 30 = 1B - Straight Up  \cr
+#' 31 = 1B - Towards 1B/2B Hole \cr
+#' 32 = 1B - Close to Line \cr
+#' 40 = 2B - Straight Up \cr
+#' 41 = 2B - Shaded Towards 2B Bag \cr
+#' 42 = 2B - Towards 1B/2B Hole \cr
+#' 43 = 2B - Behind First Basemen \cr
+#' 46 = 2B - Up the Middle \cr
+#' 60 = SS - Straight Up \cr
+#' 61 = SS - Towards 3B/SS Hole \cr
+#' 62 = SS - Shaded Towards 2B Bag \cr
+#' 64 = SS - Up the Middle \cr
+#' 50 = 3B - Straight Up \cr
+#' 51 = 3B - Close to Line \cr
+#' 52 = 3B - Towards 3B/SS Hole \cr
+#' 77 = LF - Close to Line \cr
+#' 71 = LF - Leaning Left \cr
+#' 70 = LF - Straight Up \cr
+#' 72 = LF - Leaning Right \cr
+#' 78 = LF - LF Gap \cr
+#' 87 = CF - LF Gap \cr
+#' 81 = CF - Leaning Left \cr
+#' 82 = CF - Leaning Right \cr
+#' 89 = CF - RF Gap \cr
+#' 98 = RF - RF Gap \cr
+#' 91 = RF - Leaning Left \cr
+#' 90 = RF - Straight Up \cr
+#' 92 = RF - Leaning Right \cr
+#' 99 = RF - Close to Line \cr
+#'
 #' @keywords MLB, sabermetrics, Statcast
 #' @importFrom readr read_csv
 #' @export
 #' @examples
 #' \dontrun{
-#' correa <- scrape_statcast_savant(start_date = "2016-04-06",
-#'   end_date = "2016-04-15", playerid = 621043)
-#'
-#' noah <- scrape_statcast_savant(start_date = "2016-04-06",
-#'   end_date = "2016-04-15", playerid = 592789, player_type = 'pitcher')
-#'
-#' daily <- scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-06")
+#' scrape_savant_leaderboards(leaderboard = "exit_velocity_barrels", year = 2018)
 #' }
 
 scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
@@ -46,6 +74,8 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
                                        min_run = 0,
                                        player_type = "batter",
                                        fielding_type = "player",
+                                       oaa_position = "",
+                                       oaa_roles = "",
                                        team = "",
                                        arsenal_type = "n_",
                                        run_type = "raw",
@@ -61,7 +91,7 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
       message("Exit Velocity and Barrel leaderboards are only available starting in 2015. Please choose an appropriate year.")
     }
-    
+
     if (!min_pa %in% c(1,25,50,100,200,250,350,450,500,600)) {
 
       message("Please choose one of the following for the minimum number of plate appearances:1,25,50,100,200,250,350,450,500,600")
@@ -167,7 +197,7 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
       return(NULL)
     }
 
-    url <- paste0("https://baseballsavant.mlb.com/outs_above_average?type=", fielding_type, "&year=", year, "&min=", min_field, "&csv=true")
+    url <- paste0("https://baseballsavant.mlb.com/leaderboard/outs_above_average?type=Fielder&year=", year, "&team=&range=year&min=", min_field, "&pos=", oaa_position, "&roles=", oaa_roles, "&viz=show&csv=true")
 
     payload <- read_csv(url)
   }
