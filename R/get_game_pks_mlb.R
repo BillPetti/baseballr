@@ -12,15 +12,15 @@
 #'
 #' The following IDs can be passed to the level_ids argument:
 #'
-#' 1 = MLB
-#' 11 = Triple-A
-#' 12 = Doubl-A
-#' 13 = Class A Advanced
-#' 14 = Class A
-#' 15 = Class A Short Season
-#' 5442 = Rookie Advanced
-#' 16 = Rookie
-#' 17 = Winter League
+#' 1 = MLB \cr
+#' 11 = Triple-A \cr
+#' 12 = Doubl-A \cr
+#' 13 = Class A Advanced \cr
+#' 14 = Class A \cr
+#' 15 = Class A Short Season \cr
+#' 5442 = Rookie Advanced \cr
+#' 16 = Rookie \cr
+#' 17 = Winter League \cr
 #' @keywords MLB, sabermetrics
 #' @export
 #'
