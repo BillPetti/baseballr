@@ -3,6 +3,7 @@
 #' This function allows you to scrape schedule and results for a major league team from Baseball-Reference.com
 #' @param Tm The abbreviation used by Baseball-Reference.com for the team whose results you want to scrape.
 #' @param year Season for which you want to scrape the park factors.
+#' @import dplyr
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_table
 #' @keywords MLB, sabermetrics
@@ -25,7 +26,7 @@ team_results_bref <-function(Tm, year) {
     .[-3]
 
   col_names <- c('Gm','Date','Tm','H_A','Opp','Result','R','RA','Inn','Record','Rank',
-                 'GB','Win','Loss','Save','Time','D/N','Attendance','Streak', 'Orig_Scheduled')
+                 'GB','Win','Loss','Save','Time','D/N','Attendance', 'cLI', 'Streak', 'Orig_Scheduled')
 
   names(data) <- col_names
 
