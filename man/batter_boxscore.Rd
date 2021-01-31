@@ -14,10 +14,8 @@ This function allows a user to retrieve a boxscore of batter statistics for any 
 }
 \examples{
 \dontrun{
-# batters
 url_base <- "http://gd2.mlb.com/components/game/mlb/"
-url <- paste0(url_base,
-  "year_2016/month_05/day_21/gid_2016_05_21_milmlb_nynmlb_1/boxscore.xml")
+url <- paste0(url_base, "year_2016/month_05/day_21/gid_2016_05_21_milmlb_nynmlb_1/boxscore.xml")
 batter_boxscore(url)}
 }
 \keyword{Day,}
