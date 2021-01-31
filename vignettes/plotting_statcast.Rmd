@@ -29,14 +29,7 @@ library(reshape2)
 library(zoo)
 ```
 
-# load custom ggplot2 theme
-
-```{r}
-source("https://raw.githubusercontent.com/BillPetti/R-Plotting-Resources/master/theme_bp_grey")
-```
-
-
-# find Mookie Betts' MLBAMID
+## find Mookie Betts' MLBAMID
 
 ```{r}
 betts_id <- playerid_lookup("Betts") %>%
@@ -44,35 +37,38 @@ betts_id <- playerid_lookup("Betts") %>%
   select(mlbam_id, first_name, last_name)
 ```
 
-# scrape Betts' Statcast data, by pitch removing those with a batted ball speed of 0
+## scrape Betts' Statcast data, by pitch removing those with a batted ball speed of 0
 
 ```{r}
-betts <- scrape_statcast_savant_batter("2015-03-31", "2016-08-26", betts_id[1,1]) %>%
+betts_15 <- scrape_statcast_savant("2015-03-31", "2015-10-31", playerid = betts_id[1,1], player_type = 'batter')
+betts_16 <- scrape_statcast_savant("2016-03-31", "2016-10-31", playerid = betts_id[1,1], player_type = 'batter')   
+betts <- bind_rows(betts_15, betts_16) 3%>%
   mutate(Year = as.factor(substr(game_date,1,4))) %>%
   filter(type == "X") %>%
-  filter(hit_speed != 0)
+  filter(launch_speed != 0)
 ```
 
-# calculate average launch angles and batted ball speeds by game
+## calculate average launch angles and batted ball speeds by game
 
 ```{r}
 betts_grpd <- betts %>%
   group_by(game_date) %>%
-  summarise(`Average Launch Angle` = mean(hit_angle, na.rm = TRUE), 
-            `Average Batted Ball Speed` = mean(hit_speed, na.rm = TRUE)) %>%
+  summarise(`Average Launch Angle` = mean(launch_angle, na.rm = TRUE), 
+            `Average Batted Ball Speed` = mean(launch_speed, na.rm = TRUE)) %>%
   ungroup() %>%
   melt(id=c("game_date")) %>%
   mutate(Year = as.factor(substr(game_date,1,4)))
 ```
-# calculate Betts' average launch angle and batted ball speed by year
+
+## calculate Betts' average launch angle and batted ball speed by year
 
 ```{r}
 betts_avg_speed_yr <- betts %>%
   group_by(Year) %>%
-  summarise(speed = round(mean(hit_speed, na.rm = TRUE),1), angle = round(mean(hit_angle, na.rm = TRUE),1))
+  summarise(speed = round(mean(launch_speed, na.rm = TRUE),1), angle = round(mean(launch_angle, na.rm = TRUE),1))
 ```
 
-# plot the data
+## plot the data
 
 ```{r}
 betts_grpd %>%
@@ -85,12 +81,12 @@ betts_grpd %>%
        caption = "@BillPetti\nData from baseballsavant.mlb.com\nData acquired with the baseballr package") +
   ylab("Angle = Degrees, Speed = MPH\n") +
   xlab("\nDate") +
-  theme_bp_grey() + 
+  #theme_bp_grey() + 
   theme(legend.position = "bottom", strip.text.x = element_text(face = "bold", size = 14), plot.subtitle = element_text(hjust=-.12)) +
   scale_color_manual(values = c("#5F9ED1", "#FF800E"))
 ```
 
-# export plot to your working directory
+## export plot to your working directory
 
 ```{r, eval=FALSE}
 ggsave("betts_angle_speed_year.png", scale = 1.2, width = 14, height = 8.5, units = "in")
