@@ -77,7 +77,9 @@ get_ncaa_baseball_roster <- function(teamid = NA,
                               position = position,
                               url_slug = url_slug)
 
-    payload
+    payload$url_slug <- as.character(payload$url_slug)
+
+    return(payload)
   }
 
   roster <- lapply(payload, function(x) parse_roster_table(x)) %>%
@@ -85,7 +87,7 @@ get_ncaa_baseball_roster <- function(teamid = NA,
 
   roster <- roster %>%
     dplyr::mutate(season = year,
-           player_url = ifelse(is.na(player_id), NA, paste0("https://stats.ncaa.org", url_slug))) %>%
+                  player_url = ifelse(is.na(player_id), NA, paste0("https://stats.ncaa.org", url_slug))) %>%
     dplyr::select(name, class, player_id, season, number, position, player_url)
 
   school_info <- school_info %>%
