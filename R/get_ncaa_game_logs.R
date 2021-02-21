@@ -46,7 +46,7 @@ get_ncaa_game_logs <- function(player_id,
 
       payload_df <- batting_payload %>%
         rvest::html_nodes("table") %>%
-        .[4] %>%
+        .[5] %>%
         rvest::html_table(fill = TRUE) %>%
         as.data.frame() %>%
         .[,c(1:23)]
@@ -75,7 +75,7 @@ get_ncaa_game_logs <- function(player_id,
 
       payload_df <- pitching_payload %>%
         rvest::html_nodes("table") %>%
-        .[4] %>%
+        .[5] %>%
         rvest::html_table(fill = TRUE) %>%
         as.data.frame() %>%
         .[,c(1:35)]
