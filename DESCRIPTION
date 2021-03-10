@@ -32,7 +32,8 @@ Imports:
     xml2,
     pbapply,
     tibble,
-    vroom
+    vroom,
+    crayon
 License: MIT + file LICENSE
 URL: https://billpetti.github.io/baseballr/
 BugReports: https://github.com/BillPetti/baseballr/issues
