@@ -47,7 +47,7 @@ scrape_statcast_savant.default <- function(start_date = Sys.Date() - 1, end_date
 
   if (!lubridate::is.Date(start_date)) {
     if (!is.character(start_date)) {
-      stop("start_end must be a date or a character.")
+      stop("start_date must be a date or a character.")
     }
   }
 
