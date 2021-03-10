@@ -17,11 +17,11 @@ process_statcast_payload <- function(payload) {
 
   # Clean up formatting of Baseball Savant download
 
-  as_numeric_na = function(x) {
+  as_numeric_na <- function(x) {
     suppressWarnings(as.numeric(x))
   }
 
-  na_to_999999999 = function(x) {
+  na_to_999999999 <- function(x) {
     ifelse(is.na(x), 999999999, x)
   }
 
