@@ -138,13 +138,14 @@ scrape_statcast_savant.default <- function(start_date = Sys.Date() - 1, end_date
 
   url_vars <- paste0(vars$pairs, collapse = "&")
   url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?", url_vars)
-  message(url)
+  message("\nThe payload requested can also be downloaded as a .csv file at the following URL: \n")
+  message(crayon::blue(url), "\n")
 
   # Do a try/catch to show errors that the user may encounter while downloading.
   tryCatch(
     {
-      message("These data are from BaseballSavant and are property of MLB Advanced Media, L.P. All rights reserved.")
-      message("Grabbing data, this may take a minute...")
+      message("This data is from BaseballSavant and are property of MLB Advanced Media, L.P. All rights reserved. \n")
+      message("Grabbing data, this may take a minute... \n")
       suppressMessages(
         suppressWarnings(
           # use vroom::vroom for significant speed improvment
@@ -167,7 +168,8 @@ scrape_statcast_savant.default <- function(start_date = Sys.Date() - 1, end_date
   # adjust to handle that vroom::vroom
   # returns 0 rows on failure but > 1 columns
   if (nrow(payload) > 1) {
-    message("URL read and payload acquired successfully.")
+    message(crayon::bold(crayon::green("URL read and payload acquired successfully. ")),
+            "Processing... \n")
 
     names(payload) <- c("pitch_type", "game_date", "release_speed", "release_pos_x",
                         "release_pos_z", "player_name", "batter", "pitcher", "events",
