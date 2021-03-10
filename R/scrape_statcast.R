@@ -32,22 +32,57 @@ scrape_statcast_savant <- function(start_date = Sys.Date() - 1, end_date = Sys.D
 #' @rdname scrape_statcast_savant
 #' @export
 
-scrape_statcast_savant.Date <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
+scrape_statcast_savant.default <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
                                         playerid = NULL, player_type = "batter", ...) {
-  # Check for other user errors.
-  if (start_date <= "2015-03-01") { # March 1, 2015 was the first date of Spring Training.
+
+  if (length(start_date) > 1) {
+    warning("Multiple start dates supplied. Only the first will be used.")
+    start_date <- start_date[1]
+  }
+
+  if (length(end_date) > 1) {
+    warning("Mulitple end dates supplied. Only the first will be used.")
+    end_date <- end_date[1]
+  }
+
+  if (!lubridate::is.Date(start_date)) {
+    if (!is.character(start_date)) {
+      stop("start_end must be a date or a character.")
+    }
+  }
+
+  if (!lubridate::is.Date(end_date)) {
+    if (!is.character(end_date)) {
+      stop("end_date must be a date or a character.")
+    }
+  }
+
+  if (is.na(as.Date(end_date, format = "%Y-%m-%d"))) {
+    stop("Supplied end_date does not have correct format or cannot be coerced. Please use yyy-mm-dd.")
+  } else {
+    end_date <- as.Date(end_date, format = "%Y-%m-%d")
+  }
+
+  if (is.na(as.Date(start_date, format = "%Y-%m-%d"))) {
+    stop("Supplied start_date does not have correct format or cannot be coerced. Please use yyy-mm-dd.")
+  } else {
+    start_date <- as.Date(start_date, format = "%Y-%m-%d")
+  }
+
+  if (start_date <= as.Date("2015-03-01")) { # March 1, 2015 was the first date of Spring Training.
     message("Some metrics such as Exit Velocity and Batted Ball Events have only been compiled since 2015.")
   }
-  if (start_date < "2008-03-25") { # March 25, 2008 was the first date of the 2008 season.
+
+  if (start_date < as.Date("2008-03-25")) { # March 25, 2008 was the first date of the 2008 season.
     stop("The data are limited to the 2008 MLB season and after.")
-    return(NULL)
   }
+
   if (start_date == Sys.Date()) {
     message("The data are collected daily at 3 a.m. Some of today's games may not be included.")
   }
-  if (start_date > as.Date(end_date)) {
+
+  if (start_date > end_date) {
     stop("The start date is later than the end date.")
-    return(NULL)
   }
 
   playerid_var <- ifelse(player_type == "pitcher",
@@ -181,37 +216,6 @@ scrape_statcast_savant.Date <- function(start_date = Sys.Date() - 1, end_date = 
     return(payload)
   }
 }
-
-#' @rdname scrape_statcast_savant
-#' @export
-
-scrape_statcast_savant.default <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
-                                             playerid = NULL, player_type = "batter", ...) {
-  # Check to make sure args are in the correct format.
-  # if(!is.character(start_date) | !is.character(end_date)) {
-  #   warning("Please wrap your dates in quotations in 'yyyy-mm-dd' format.")
-  #   return(NULL)
-  # }
-  message(paste0(start_date, " is not a date. Attempting to coerce..."))
-  start_Date <- as.Date(start_date)
-
-  tryCatch(
-    {
-      end_Date <- as.Date(end_date)
-    },
-    warning = function(cond) {
-      message(paste0(end_date, " was not coercible into a date. Using today."))
-      end_Date <- Sys.Date()
-      message("Original warning message:")
-      message(cond)
-    }
-  )
-
-  scrape_statcast_savant(start_Date, end_Date,
-                         playerid, player_type, ...)
-
-}
-
 
 #' @rdname scrape_statcast_savant
 #' @param batterid The MLBAM ID for the batter whose data you want to query.

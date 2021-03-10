@@ -2,7 +2,6 @@
 % Please edit documentation in R/scrape_statcast.R
 \name{scrape_statcast_savant}
 \alias{scrape_statcast_savant}
-\alias{scrape_statcast_savant.Date}
 \alias{scrape_statcast_savant.default}
 \alias{scrape_statcast_savant_batter}
 \alias{scrape_statcast_savant_batter_all}
@@ -11,14 +10,6 @@
 \title{Query Statcast and PITCHf/x Data for data from \url{http://baseballsavant.mlb.com}}
 \usage{
 scrape_statcast_savant(
-  start_date = Sys.Date() - 1,
-  end_date = Sys.Date(),
-  playerid = NULL,
-  player_type = "batter",
-  ...
-)
-
-\method{scrape_statcast_savant}{Date}(
   start_date = Sys.Date() - 1,
   end_date = Sys.Date(),
   playerid = NULL,
