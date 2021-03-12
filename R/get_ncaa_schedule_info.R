@@ -30,7 +30,7 @@ get_ncaa_schedule_info <- function(teamid = NULL,
 
   payload <- xml2::read_html(url)
 
-  if (year %in% c(2019,2020)) {
+  if (year %in% c(2019,2020, 2021)) {
 
     dates <- payload %>%
       rvest::html_nodes("fieldset td:nth-child(1)") %>%
