@@ -58,7 +58,7 @@
 #' 99 = RF - Close to Line \cr
 #'
 #' @keywords MLB, sabermetrics, Statcast
-#' @importFrom readr readr::read_csv
+#' @importFrom readr read_csv
 #' @export
 #' @examples
 #' \dontrun{
