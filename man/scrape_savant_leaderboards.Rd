@@ -8,7 +8,7 @@ scrape_savant_leaderboards(
   leaderboard = "exit_velocity_barrels",
   year = 2018,
   abs = 50,
-  min_pa = 250,
+  min_pa = "q",
   min_pitches = 100,
   min_field = "q",
   min_run = 0,
@@ -37,7 +37,7 @@ running_splits_90_ft.}
 \item{abs}{The minimum number of batted balls. Applies only to exit_velocity_barrels
 leaderboards.}
 
-\item{min_pa}{Minimum number of plate appearances.}
+\item{min_pa}{Minimum number of plate appearances. Can be a number or 'q' for qualified batters.}
 
 \item{min_pitches}{Minimum number of pitches thrown.}
 

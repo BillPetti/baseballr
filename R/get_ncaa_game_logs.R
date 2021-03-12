@@ -51,9 +51,9 @@ get_ncaa_game_logs <- function(player_id,
         as.data.frame() %>%
         .[,c(1:23)]
 
-      names(payload_df) <- payload_df[3,]
+      names(payload_df) <- payload_df[2,]
 
-      payload_df <- payload_df[-c(1:3),]
+      payload_df <- payload_df[-c(1:2),]
 
       payload_df <- payload_df %>%
         mutate_at(vars(G:RBI2out), extract_numeric)
@@ -80,9 +80,9 @@ get_ncaa_game_logs <- function(player_id,
         as.data.frame() %>%
         .[,c(1:35)]
 
-      names(payload_df) <- payload_df[3,]
+      names(payload_df) <- payload_df[2,]
 
-      payload_df <- payload_df[-c(1:3),]
+      payload_df <- payload_df[-c(1:2),]
 
       if('OPP DP' %in% colnames(payload_df) == TRUE) {
 
