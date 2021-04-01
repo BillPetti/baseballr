@@ -19,6 +19,9 @@ process_statcast_payload <- function(payload) {
 
   payload$game_date <- as.Date(payload$game_date, "%Y-%m-%d")
   payload$des <- as.character(payload$des)
+  payload$inning <- as.character(payload$inning) %>% as.numeric()
+  payload$at_bat_number <- as.character(payload$at_bat_number) %>% as.numeric()
+  payload$pitch_number <- as.character(payload$pitch_number) %>% as.numeric()
   payload$game_pk <- as.character(payload$game_pk) %>% as.numeric()
   payload$hc_x <- as.character(payload$hc_x) %>% as.numeric()
   payload$hc_y <- as.character(payload$hc_y) %>% as.numeric()
@@ -57,6 +60,9 @@ process_statcast_payload <- function(payload) {
   payload$post_bat_score <- as.character(payload$post_bat_score) %>% as.numeric()
   payload$post_fld_score <- as.character(payload$post_fld_score) %>% as.numeric()
   payload$zone <- as.character(payload$zone) %>% as.numeric()
+  payload$spin_axis <- as.character(payload$spin_axis) %>% as.numeric()
+  payload$if_fielding_alignment <- as.character(payload$if_fielding_alignment) %>% as.numeric()
+  payload$of_fielding_alignment <- as.character(payload$of_fielding_alignment) %>% as.numeric()
 
   # Format player IDs as character
 
