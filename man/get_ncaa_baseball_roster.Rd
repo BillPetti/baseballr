@@ -4,12 +4,12 @@
 \alias{get_ncaa_baseball_roster}
 \title{Get NCAA Baseball Rosters}
 \usage{
-get_ncaa_baseball_roster(teamid = NA, year = 2019)
+get_ncaa_baseball_roster(teamid = NA, team_year = 2019)
 }
 \arguments{
 \item{teamid}{NCAA id for a school}
 
-\item{year}{The year of interest}
+\item{team_year}{The year of interest}
 }
 \value{
 A data frame containing roster information, including
