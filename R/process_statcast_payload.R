@@ -61,8 +61,8 @@ process_statcast_payload <- function(payload) {
   payload$post_fld_score <- as.character(payload$post_fld_score) %>% as.numeric()
   payload$zone <- as.character(payload$zone) %>% as.numeric()
   payload$spin_axis <- as.character(payload$spin_axis) %>% as.numeric()
-  payload$if_fielding_alignment <- as.character(payload$if_fielding_alignment) %>% as.numeric()
-  payload$of_fielding_alignment <- as.character(payload$of_fielding_alignment) %>% as.numeric()
+  payload$if_fielding_alignment <- as.character(payload$if_fielding_alignment)
+  payload$of_fielding_alignment <- as.character(payload$of_fielding_alignment)
 
   # Format player IDs as character
 
