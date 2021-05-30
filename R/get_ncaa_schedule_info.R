@@ -30,7 +30,7 @@ get_ncaa_schedule_info <- function(teamid = NULL,
 
   payload <- xml2::read_html(url)
 
-  if (year %in% c(2019,2020, 2021)) {
+  if (year %in% c(2019,2020,2021)) {
 
     dates <- payload %>%
       rvest::html_nodes("fieldset td:nth-child(1)") %>%
@@ -51,7 +51,7 @@ get_ncaa_schedule_info <- function(teamid = NULL,
       tibble::rownames_to_column('row')
 
     game_info_url <- payload %>%
-      rvest::html_nodes("fieldset .skipMask") %>%
+      rvest::html_nodes("fieldset td .skipMask") %>%
       rvest::html_attr("href") %>%
       as.data.frame() %>%
       dplyr::rename(slug = '.') %>%
@@ -59,7 +59,7 @@ get_ncaa_schedule_info <- function(teamid = NULL,
       tibble::rownames_to_column('row')
 
     game_result <- payload %>%
-      rvest::html_nodes("fieldset .skipMask") %>%
+      rvest::html_nodes("fieldset td:nth-child(3)") %>%
       rvest::html_text() %>%
       as.data.frame() %>%
       dplyr::rename(result = '.') %>%
@@ -68,6 +68,18 @@ get_ncaa_schedule_info <- function(teamid = NULL,
                       sep = " ") %>%
       dplyr::mutate(innings = str_extract(innings, "[[0-9]]+"))  %>%
       tibble::rownames_to_column('row')
+
+    postponed_rows <- game_result %>%
+      filter(result == 'Ppd') %>%
+      pull(row)
+
+    if(length(postponed_rows) > 0) {
+
+      game_info_url <- game_result %>%
+        filter(result != 'Ppd') %>%
+        bind_cols(game_info_url[,c(2,3)]) %>%
+        select(row, slug, game_info_url)
+    }
 
     game_info <- dplyr::full_join(dates, game_opponents, by = 'row')
 
@@ -119,6 +131,18 @@ get_ncaa_schedule_info <- function(teamid = NULL,
       dplyr::select(-c(div, opp_score)) %>%
       dplyr::mutate(innings = str_extract(innings, "[[0-9]]+"))  %>%
       tibble::rownames_to_column('row')
+
+    postponed_rows <- game_result %>%
+      filter(result == 'Ppd') %>%
+      pull(row)
+
+    if(length(postponed_rows) > 0) {
+
+      game_info_url <- game_result %>%
+        filter(result != 'Ppd') %>%
+        bind_cols(game_info_url[,c(2,3)]) %>%
+        select(row, slug, game_info_url)
+    }
 
     game_info <- dplyr::full_join(dates, game_opponents, by = 'row')
 
