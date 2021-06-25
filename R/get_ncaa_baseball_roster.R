@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' get_ncaa_baseball_roster(104, 2019)
+#' get_ncaa_baseball_roster(teamid = 104, year =2019)
 #' }
 
 get_ncaa_baseball_roster <- function(teamid = NA,
@@ -32,60 +32,39 @@ get_ncaa_baseball_roster <- function(teamid = NA,
 
   payload <- xml2::read_html(url)
 
-  payload <- (payload %>%
-    rvest::html_nodes("table"))[1] %>%
+  payload1 <- (payload %>%
+    rvest::html_nodes("table"))[[1]] %>%
     rvest::html_nodes("tr")
-
-  parse_roster_table <- function(trs) {
-
-    (number <- trs %>%
-      rvest::html_nodes("td"))[1] %>%
-      rvest::html_text()
-
-    (name <- trs %>%
-      rvest::html_nodes("td"))[2] %>%
-      rvest::html_text()
-
-    (position <- trs %>%
-      rvest::html_nodes("td"))[3] %>%
-      rvest::html_text()
-
-    (class <- trs %>%
-      rvest::html_nodes("td"))[4] %>%
-      rvest::html_text()
-
-    (url_slug <- trs %>%
-        rvest::html_nodes("td"))[2] %>%
+  payload_table <- (payload %>%
+                 rvest::html_nodes("table"))[[1]] %>%
+    rvest::html_table()
+  colnames(payload_table) <- payload_table[1,]
+  payload_table <- payload_table[-1,]
+  url_slug <- lapply(payload1, function(x){
+    (url_slug <- x %>%
+       rvest::html_nodes("td"))[2] %>%
       rvest::html_nodes("a") %>%
-      rvest::html_attr("href")
-
-    url_slug <- ifelse(url_slug %>%
-                         as.data.frame() %>%
-                         dplyr::rename(var = .data$`.`) %>%
-                         nrow() == 0, NA, url_slug)
-
-    player_id <- gsub(".*stats_player_seq=\\s*", "", url_slug)
-
-    payload <- tibble::tibble(name = name,
-                              class = class,
-                              player_id = player_id,
-                              number = number,
-                              position = position,
-                              url_slug = url_slug)
-
-    payload$url_slug <- as.character(payload$url_slug)
-
-    return(payload)
-  }
-
-  roster <- lapply(payload, function(x) parse_roster_table(x)) %>%
-    dplyr::bind_rows()
-
+      rvest::html_attr("href") %>% 
+      as.data.frame() }) %>% 
+    dplyr::bind_rows() %>% 
+    dplyr::rename(url_slug = .data$`.`)
+  
+  roster <- dplyr::bind_cols(payload_table, url_slug) %>% 
+    dplyr::rename(
+      name = .data$Player,
+      class = .data$Yr,
+      position = .data$Pos,
+      games_played = .data$GP,
+      games_started = .data$GS,
+      number = .data$Jersey)
   roster <- roster %>%
-    dplyr::mutate(season = -.data$year,
-                  player_url = ifelse(is.na(-.data$player_id), NA, paste0("https://stats.ncaa.org", -.data$url_slug))) %>%
-    dplyr::select(-.data$name, -.data$class, -.data$player_id, -.data$season, 
-                  -.data$number, -.data$position, -.data$player_url)
+    dplyr::mutate(
+      season = year,
+     player_id = gsub(".*stats_player_seq=\\s*", "", .data$url_slug),
+     player_url = ifelse(is.na(.data$player_id), NA, paste0("https://stats.ncaa.org", .data$url_slug)),
+    ) %>%
+    dplyr::select(.data$name, .data$class, .data$player_id, .data$season, 
+                  .data$number, .data$position, .data$player_url)
 
   school_info <- school_info %>%
     dplyr::slice(rep(1:n(), each = nrow(roster)))
