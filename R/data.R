@@ -42,8 +42,29 @@
 #' @format A data frame with 4,774 rows and 6 variables
 "master_ncaa_team_lu"
 
-#' Column Structure of MLB Draft data
-#' @description A tibble
+#' Dataset
+#'
+#' @title  Column structure of the MLB Draft data
+#' @name column_structure_draft_mlb
+#' @description A tibble giving column structure of MLB Draft data
 #' @docType data
 #' @keywords datasets
 "column_structure_draft_mlb"
+
+#' Dataset
+#'
+#' @title providing the column structure of stats_api_live_empty_df
+#' @name stats_api_live_empty_df
+#' @description An empty tibble 
+#' @docType data
+#' @keywords datasets
+"stats_api_live_empty_df"
+
+#' Dataset
+#'
+#' @title  A Team Lookup Table
+#' @name teams_lu_table
+#' @description A Team Lookup Table
+#' @docType data
+#' @keywords datasets
+"teams_lu_table"
