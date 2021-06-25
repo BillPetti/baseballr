@@ -4,7 +4,7 @@
 \alias{fg_bat_leaders}
 \title{Scrape Batter Leaderboards from FanGraphs}
 \usage{
-fg_bat_leaders(x, y, league = "all", qual = "y", ind = 0)
+fg_bat_leaders(x, y, league = "all", qual = "y", ind = 1)
 }
 \arguments{
 \item{x}{First season for which you want data.}
