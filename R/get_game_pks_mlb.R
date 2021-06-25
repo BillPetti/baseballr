@@ -35,7 +35,7 @@ get_game_pks_mlb <- function(date,
 
   payload <- payload$dates$games %>%
     as.data.frame() %>%
-    rename(game_pk = gamePk)
+    rename(game_pk = .data$gamePk)
 
   return(payload)
 

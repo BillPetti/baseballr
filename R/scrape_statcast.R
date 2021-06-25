@@ -94,11 +94,11 @@ scrape_statcast_savant.Date <- function(start_date = Sys.Date() - 1, end_date = 
     "sort_order", "desc",
     "min_abs", "0",
     "type", "details") %>%
-    dplyr::mutate(pairs = paste0(var, "=", value))
+    dplyr::mutate(pairs = paste0(.data$var, "=", .data$value))
 
   if (is.null(playerid)) {
     message("No playerid specified. Collecting data for all batters/pitchers.")
-    vars <- vars %>% dplyr::filter(!grepl("lookup", var))
+    vars <- vars %>% dplyr::filter(!grepl("lookup", .data$var))
   }
 
   url_vars <- paste0(vars$pairs, collapse = "&")

@@ -77,7 +77,7 @@ ggspraychart <- function(data, x_value = "hc_x",
   }
   } else {
     plot <- ggplot(data = data, aes_string(x = x_value, y = y_value, frame = frame)) +
-      stat_density2d(aes(fill = ..level..), contour = TRUE,
+      stat_density2d(aes(fill = .data$..level..), contour = TRUE,
                      geom = "polygon", alpha = .3, bins = bin_size) +
       stat_density2d(color = "grey20", alpha = .6, bins = bin_size) +
       geom_point(alpha = point_alpha,

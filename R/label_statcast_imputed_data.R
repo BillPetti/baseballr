@@ -32,10 +32,11 @@ label_statcast_imputed_data <- function(statcast_df, impute_file = NULL,
   imputed_df <- suppressMessages(readr::read_csv(impute_file))
   
   imputed_df$imputed <- 1
-  tmp <- dplyr::left_join(
-    statcast_df %>% mutate(ila = as.integer(launch_angle * inverse_precision), 
-                           ils = as.integer(launch_speed * inverse_precision)), 
-    imputed_df, by = c("ils", "ila", "bb_type", "events"))
+  tmp <- statcast_df %>% 
+    dplyr::mutate(
+      ila = as.integer(.data$launch_angle * inverse_precision), 
+      ils = as.integer(.data$launch_speed * inverse_precision)) %>% 
+    dplyr::left_join(imputed_df, by = c("ils", "ila", "bb_type", "events"))
   tmp$imputed <- ifelse(is.na(tmp$imputed), 0, 1)
-  tmp
+  return(tmp)
 }

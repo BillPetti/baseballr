@@ -1,0 +1,82 @@
+url: https://billpetti.github.io/baseballR
+title: baseballR
+template:
+  params:
+    bootswatch: flatly
+  opengraph:
+    # image:
+    #   src: "https://raw.githubusercontent.com/saiemgilani/baseballR-data/master/themes/baseballR_gh.png"
+    twitter:
+      creator: "@BillPetti"
+      card: summary_large_image
+
+toc:
+  depth: 3
+
+authors:
+  Bill Petti:
+   href: https://twitter.com/BillPetti
+home:
+  title: An R package to quickly obtain clean and tidy men's baseball play by play data
+  description: Functions to Access Men's Baseball Play by Play Data
+  icon: fa-home
+  href: index.html
+  links:
+    - text: "Plotting Statcast"
+      href: articles/plotting_statcast.html
+    - text: "NCAA Scraping"
+      href: articles/ncaa_scraping.html
+navbar:
+  structure:
+    left:  [home, intro, reference, articles, news, games, network, data, repo]
+    right: [twitter, github]
+  # icon: https://raw.githubusercontent.com/BillPetti/baseballR/master/man/figures/logo.ico
+  title: "baseballR"
+  components:
+    twitter:
+      icon: "fab fa-twitter fa-lg"
+      href: http://twitter.com/BillPetti
+    news:
+      icon: "fas fa-newspaper"
+      text: " News"
+      href: news/index.html
+    reference:
+      icon: "fas fa-code"
+      text: " Funcs"
+      href: reference/index.html
+      menu:
+      - text: "Function Index"
+        href: reference/index.html
+    articles:
+      icon: "fas fa-book-reader"
+      text: " Articles"
+      menu:
+      - text: Vignettes
+        href: articles/index.html
+      - text: "Plotting Statcast"
+        href: articles/plotting_statcast.html
+      - text: "NCAA Scraping"
+        href: articles/ncaa_scraping.html
+    network:
+      icon: "fas fa-project-diagram"
+      text: " SDV"
+      menu:
+      - text: SportsDataverse
+        href: https://sportsdataverse.org/
+      - text: cfbfastR
+        href: https://saiemgilani.github.io/cfbfastR/
+      - text: hoopR
+        href: https://saiemgilani.github.io/hoopR/
+      - text: wehoop
+        href: https://saiemgilani.github.io/wehoop/
+      - text: cfbrecruitR
+        href: https://saiemgilani.github.io/cfbrecruitR/
+    github:
+      icon: "fab fa-github fa-lg"
+      href: https://github.com/billpetti/baseballR/
+    repo:
+      url:
+      home: https://github.com//billpetti/baseballR/
+      source: https://github.com/billpetti/baseballR/blob/master/
+      issue: https://github.com/billpetti/baseballR/issues/issues/
+      user: https://github.com/billpetti/

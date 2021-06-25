@@ -9,7 +9,7 @@
 #' \dontrun{school_id_lu("Van")}
 
 school_id_lu <- function(school_name = NULL) {
-  x <- master_ncaa_team_lu %>%
-    filter(grepl(school_name, school))
-  x
+  x <- baseballr::master_ncaa_team_lu %>%
+    dplyr::filter(grepl(school_name, .data$school))
+  return(x)
 }

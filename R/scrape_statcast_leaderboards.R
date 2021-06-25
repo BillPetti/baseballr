@@ -15,7 +15,9 @@
 #' @param player_type One of either 'batter' or pitcher. For the expected_statistics
 #' leaderboard, 'batter-team' and 'pitcher-team' are also available.
 #' @param fielding_type One of either 'player' or 'team'.
-#' @param ooa_position Can be either the number position of a player or 'if' or 'of' for
+#' @param oaa_position Can be either the number position of a player or 'if' or 'of' for
+#' position categories.
+#' @param oaa_roles Can be either the number position of a player or 'if' or 'of' for
 #' position categories.
 #' @param team An abbreviation for a team. Can be left blank.
 #' @param arsenal_type One of either 'n_', 'avg_spin', or 'avg_speed'.
@@ -376,11 +378,11 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
   if(!"year" %in% colnames(payload)) {
 
     payload <- payload %>%
-      mutate(year = year)
+      dplyr::mutate(year = year)
   }
 
   payload <- payload %>%
-    select(year, everything())
+    dplyr::select(.data$year, tidyr::everything())
 
   return(payload)
 }

@@ -21,21 +21,27 @@ pitcher_boxscore <- function(x) {
   x <- seq(1:end)
   away_pitchers <- lapply(xml_data[[2]][x], function(x)
     as.data.frame.list(x, stringsAsFactors=FALSE)) %>%
-    bind_rows()
-  away_pitchers$team <- xml_data[[8]]['away_id']
+
+    dplyr::bind_rows()
+  away_pitchers$team <- xml_data[[8]][6]
+
 
   h_end <- length(xml_data[[4]]) - 1
   h_x <- seq(1:h_end)
   home_pitchers <- lapply(xml_data[[4]][h_x], function(x)
     as.data.frame.list(x, stringsAsFactors=FALSE)) %>%
+    dplyr::bind_rows()
+  home_pitchers$team <- xml_data[[8]][7]
     bind_rows()
   home_pitchers$team <- xml_data[[8]]['home_id']
 
   pitcher_col_names <- c("id", "name", "name_display_first_last", "pos", "out", "bf", "er", "r", "h", "so", "hr", "bb", "np", "s", "w", "l", "sv", "bs", "hld", "s_ip", "s_h", "s_r", "s_er", "s_bb", "s_so", "era", "note", "team")
 
-  home_pitchers <- select_(home_pitchers, .dots = pitcher_col_names)
-  away_pitchers <- select_(away_pitchers, .dots = pitcher_col_names)
+  home_pitchers <- home_pitchers %>% 
+    dplyr::select(dplyr::all_of(pitcher_col_names))
+  away_pitchers <- away_pitchers %>% 
+    dplyr::select(dplyr::all_of(pitcher_col_names))
 
-  pitchers <- rbind(away_pitchers, home_pitchers)
-  pitchers
+  pitchers <- dplyr::bind_rows(away_pitchers, home_pitchers)
+  return(pitchers)
 }

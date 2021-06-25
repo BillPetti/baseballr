@@ -18,7 +18,7 @@ This function allows you to calculate the percent of pitches thrown to different
 }
 \examples{
 \dontrun{
-edge_scrape_split("2015-04-05", "2015-04-05", pitcher)
+edge_scrape_split(start = "2015-04-05", end = "2015-04-05", group = "pitcher")
 }
 }
 \keyword{MLB,}

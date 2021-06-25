@@ -13,7 +13,7 @@ team_consistency(year)
 This function allows you to calculate team-level consistency in run scoring and run prevention over the course of an entire season.
 }
 \examples{
-\dontrun{team_consistency(2015)}
+\dontrun{team_consistency(year=2015)}
 }
 \keyword{MLB,}
 \keyword{sabermetrics}
