@@ -22,5 +22,3 @@ This function allows you to scrape the standings from MLB for a period you choos
 viz_gb_on_period("2017-04-02","2017-04-10", "AL East")
 }
 }
-\keyword{MLB,}
-\keyword{standings}

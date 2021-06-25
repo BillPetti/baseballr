@@ -5,7 +5,6 @@
 #' @param end_date a date object representing the last date of the period
 #' @param lg_div One or more of AL East, AL Central, AL West,
 #' AL Overall, NL East, NL Central, NL West, and NL Overall
-#' @keywords MLB, standings
 #' @importFrom highcharter hchart hc_title hc_subtitle hc_credits hc_yAxis hc_xAxis hc_add_theme hcaes hc_theme_smpl
 #' @importFrom pbapply pbsapply
 #' @importFrom tidyr separate

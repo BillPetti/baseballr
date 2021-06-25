@@ -4,7 +4,6 @@
 #' @return Returns a data frame with information for every draft pick in every
 #' round for that year
 #' requested
-#' @keywords MLB, sabermetrics
 #' @export
 #'
 #' @examples \dontrun{get_draft_mlb(2009)}

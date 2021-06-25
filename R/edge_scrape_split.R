@@ -4,7 +4,6 @@
 #' @param start First date in your date range. Must be a character string in the format "yyyy-mm-dd".
 #' @param end Last date in your date range. Must be a character string in the format "yyyy-mm-dd".
 #' @param group Character string indicating whether to group the output by pitchers or batters. Options are "pitcher" or "batter".
-#' @keywords MLB, sabermetrics, PITCHf/x
 #' @importFrom pitchRx scrape
 #' @export
 #' @examples 

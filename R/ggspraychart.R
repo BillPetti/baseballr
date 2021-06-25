@@ -12,7 +12,6 @@
 #' @param point_alpha Alpha value whenever geom_point is used. Deaults to .75. Recommend .3 for density plots. To remove points on density points set use point_alpha = 0.
 #' @param point_size Set the size of geom_point if used.
 #' @param frame Variable to use as the frame argument if using gganimate to create animated plots. For density plots be sure your variable is a factor.
-#' @keywords MLB, sabermetrics, Statcast, ggplot2
 #' @importFrom ggplot2 ggplot geom_point geom_curve geom_segment coord_fixed theme stat_density2d xlim ylim scale_fill_continuous aes_string element_text scale_fill_manual aes
 #' @export
 #' @examples

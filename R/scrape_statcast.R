@@ -9,7 +9,6 @@
 #' @param player_type The player type. Can be \code{batter} or \code{pitcher}.
 #' Default is \code{batter}
 #' @param ... currently ignored
-#' @keywords MLB, sabermetrics, Statcast
 #' @importFrom tibble tribble
 #' @importFrom lubridate year
 #' @importFrom vroom vroom

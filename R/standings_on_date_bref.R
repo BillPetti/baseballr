@@ -7,7 +7,6 @@
 #' @param from a logical indicating whether you want standings up to and
 #' including the date (FALSE, default) or rather standings for games played
 #' after the date
-#' @keywords MLB, standings
 #' @importFrom lubridate day month year
 #' @importFrom rvest html_text html_nodes
 #' @importFrom xml2 read_html

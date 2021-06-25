@@ -5,7 +5,7 @@
 #' the \code{\link{run_expectancy_code}} function.
 #' @param level Whether to calculate linear weights the plate appearance or pitch
 #' level. Defaults to 'plate appearance'.
-#' @keywords MLB, sabermetrics
+#' 
 #' @export
 #' @examples
 #' \dontrun{linear_weights_savant(df, level = "plate appearance")}

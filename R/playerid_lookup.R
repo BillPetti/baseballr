@@ -3,7 +3,6 @@
 #' This function allows you to query the Chadwick Bureau's public register of baseball players and the various IDs associated with them in different systems of record.
 #' @param last_name A text string used to return results for players with that string in their last name.
 #' @param first_name A text string used to return results for players with that string in their first name.
-#' @keywords MLB, sabermetrics
 #' @importFrom vroom vroom
 #' @export
 #' @examples

@@ -29,5 +29,3 @@ Acquire pitch-by-pitch data for Major and Minor League games via the MLB api \ur
 \examples{
 \dontrun{get_pbp_mlb(575156)}
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

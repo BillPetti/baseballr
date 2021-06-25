@@ -6,7 +6,6 @@
 #' @import dplyr
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_table
-#' @keywords MLB, sabermetrics
 #' @export
 #' @examples
 #' team_results_bref("NYM", 2015)

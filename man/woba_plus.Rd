@@ -17,6 +17,3 @@ This function allows you to calculate wOBA for any given set of data, provided t
 woba_plus(df)
 }
 }
-\keyword{MLB,}
-\keyword{sabermetrics}
-\keyword{woba,}

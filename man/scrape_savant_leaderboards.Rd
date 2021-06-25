@@ -114,6 +114,3 @@ This function allows you to read leaderboard data from BaseballSavant dirctly in
 scrape_savant_leaderboards(leaderboard = "exit_velocity_barrels", year = 2018)
 }
 }
-\keyword{MLB,}
-\keyword{Statcast}
-\keyword{sabermetrics,}

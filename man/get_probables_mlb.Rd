@@ -20,5 +20,3 @@ Retrieve probable starters for a given MLB game via the MLB api \url{http://stat
 \examples{
 get_probables_mlb(game_pk = 566001)
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

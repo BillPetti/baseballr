@@ -21,6 +21,3 @@ This function allows you to calculate the percent of pitches thrown to different
 edge_scrape_split(start = "2015-04-05", end = "2015-04-05", group = "pitcher")
 }
 }
-\keyword{MLB,}
-\keyword{PITCHf/x}
-\keyword{sabermetrics,}

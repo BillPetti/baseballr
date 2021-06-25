@@ -5,7 +5,6 @@
 #' @param t2 Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_nodes html_table html_attr
-#' @keywords MLB, sabermetrics
 #' @export
 #' @examples
 #' \dontrun{daily_pitcher_bref("2015-05-10", "2015-06-20")}

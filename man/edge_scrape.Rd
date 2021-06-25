@@ -19,6 +19,3 @@ This function allows you to calculate the percent of pitches thrown to different
 \examples{
 \dontrun{edge_scrape(start="2015-04-05",end = "2015-04-05", group="pitcher")}
 }
-\keyword{MLB,}
-\keyword{PITCHf/x}
-\keyword{sabermetrics,}

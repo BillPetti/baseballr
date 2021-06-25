@@ -3,7 +3,6 @@
 #' This function allows you to scrape game logs by year for a batter from FanGraphs.com.
 #' @param playerid This is the playerid used by FanGraphs for a given player
 #' @param year The season for which game logs should be returned (use the YYYY format)
-#' @keywords MLB, sabermetrics
 #' @importFrom rlang .data
 #' @importFrom rvest html_nodes html_table
 #' @export

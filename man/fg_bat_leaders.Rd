@@ -23,5 +23,3 @@ This function allows you to scrape all leaderboard statistics (basic and advance
 \examples{
 \dontrun{fg_bat_leaders(x = 2015, y = 2015, qual = 400)}
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

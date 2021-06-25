@@ -21,7 +21,6 @@
 #' 5442 = Rookie Advanced \cr
 #' 16 = Rookie \cr
 #' 17 = Winter League \cr
-#' @keywords MLB, sabermetrics
 #' @export
 #'
 #' @examples \dontrun{get_game_pks_mlb("2019-04-29")}

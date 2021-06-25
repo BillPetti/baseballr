@@ -4,7 +4,6 @@
 #'
 #' @param df A data frame of statistics that includes, at a minimum, the following columns: events, description, game_date, and type.
 #' @param base Tells the function what to use as the population of pitches to use for the statline. Options include "swings", "contact", or "pa". Defaults to "pa".
-#' @keywords MLB, woba, Statcast, PITCHf/x, sabermetrics
 #' @importFrom tidyr gather replace_na
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_nodes html_table

@@ -3,7 +3,6 @@
 #' This function allows you to scrape basic batter statistics over a custom time frame. Data is sourced from Baseball-Reference.com.
 #' @param t1 First date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @param t2 Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
-#' @keywords MLB, sabermetrics
 #' @importFrom rlang .data
 #' @importFrom rvest html_table html_nodes
 #' @importFrom xml2 read_html

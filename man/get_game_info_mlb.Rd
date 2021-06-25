@@ -19,5 +19,3 @@ Retrieve additional game information for major and minor league games via the ML
 \examples{
 \dontrun{get_probables_mlb(566001)}
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

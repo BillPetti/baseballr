@@ -23,5 +23,3 @@ Retrieve batting orders for a given MLB game via the MLB api \url{http://statsap
 \examples{
 \dontrun{get_batting_orders(game_pk=566001)}
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

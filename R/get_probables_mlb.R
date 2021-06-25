@@ -8,7 +8,7 @@
 #' @return Returns a data frame that includes probable starting pitchers and
 #' the home plate umpire for the game_pk provided
 #' requested
-#' @keywords MLB, sabermetrics
+#' 
 #' @export
 #'
 #' @examples get_probables_mlb(game_pk = 566001)

@@ -1,6 +1,6 @@
 #' Download a data frame of all umpires and their mlbamids for games since 2008
 #'
-#' @keywords MLB, sabermetrics
+#'
 #' @importFrom vroom vroom
 #' @return Function returns a data frame with the following columns: id, position,
 #' name, game_pk, game_date

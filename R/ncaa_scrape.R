@@ -5,7 +5,6 @@
 #' @param teamid The numerical ID that the NCAA website uses to identify a team
 #' @param year The season for which data should be returned, in the form of "YYYY". Years currently available: 2013-2017.
 #' @param type A string indicating whether to return "batting" or "pitching" statistics
-#' @keywords baseball, NCAA, college
 #' @import dplyr
 #' @import rvest
 #' @importFrom stringr str_split

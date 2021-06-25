@@ -14,7 +14,7 @@
 #'
 #' Both major and minor league pitch-by-pitch data can be pulled with this
 #'  function.
-#' @keywords MLB, sabermetrics
+#'  
 #' @export
 #'
 #' @examples \dontrun{get_pbp_mlb(575156)}

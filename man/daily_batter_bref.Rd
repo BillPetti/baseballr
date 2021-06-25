@@ -17,5 +17,3 @@ This function allows you to scrape basic batter statistics over a custom time fr
 \examples{
 \dontrun{daily_batter_bref("2015-05-10", "2015-06-20")}
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

@@ -17,5 +17,3 @@ This function allows you to scrape MILB game logs for individual batters from Fa
 \examples{
 \dontrun{milb_pitcher_game_logs_fg(playerid = "sa829043", year=2021)}
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

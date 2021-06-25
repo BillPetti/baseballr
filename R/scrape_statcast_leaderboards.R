@@ -59,7 +59,6 @@
 #' 92 = RF - Leaning Right \cr
 #' 99 = RF - Close to Line \cr
 #'
-#' @keywords MLB, sabermetrics, Statcast
 #' @importFrom readr read_csv
 #' @export
 #' @examples

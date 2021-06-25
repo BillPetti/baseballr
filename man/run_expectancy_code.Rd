@@ -17,5 +17,3 @@ These functions allow a user to generate run expectancy and related measures and
 \examples{
 \dontrun{run_expectancy_code(df, level = "plate appearances")}
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

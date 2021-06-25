@@ -21,6 +21,3 @@ This function allows the user to obtain batting or pitching statistics for any s
 ncaa_scrape(teamid=255, year=2013, type = "batting")
 }
 }
-\keyword{NCAA,}
-\keyword{baseball,}
-\keyword{college}

@@ -18,5 +18,3 @@ This function allows you to scrape schedule and results for a major league team 
 team_results_bref("NYM", 2015)
 team_results_bref(Tm="TBR", year=2008)
 }
-\keyword{MLB,}
-\keyword{sabermetrics}
