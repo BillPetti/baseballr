@@ -46,9 +46,9 @@ get_pbp_mlb <- function(game_pk) {
 
   list_columns <- lapply(at_bats, function(x) class(x)) %>%
     dplyr::bind_rows(.id = "variable") %>%
-    tidyr::gather(key, value) %>%
-    dplyr::filter(value == "list") %>%
-    dplyr::pull(key)
+    tidyr::gather(.data$key, .data$value) %>%
+    dplyr::filter(.data$value == "list") %>%
+    dplyr::pull(.data$key)
 
   at_bats <- at_bats %>%
     dplyr::select(-c(one_of(list_columns)))
@@ -57,17 +57,17 @@ get_pbp_mlb <- function(game_pk) {
     dplyr::left_join(at_bats, by = c("endTime" = "playEndTime"))
 
   pbp <- pbp %>%
-    tidyr::fill(atBatIndex:matchup.splits.menOnBase, .direction = "up") %>%
-    dplyr::mutate(game_pk = game_pk,
+    tidyr::fill(.data$atBatIndex:.data$matchup.splits.menOnBase, .direction = "up") %>%
+    dplyr::mutate(game_pk = .data$game_pk,
                   game_date = substr(payload$gameData$datetime$dateTime, 1, 10)) %>%
-    dplyr::select(game_pk, game_date, everything())
+    dplyr::select(.data$game_pk, .data$game_date, everything())
 
   pbp <- pbp %>%
     dplyr::mutate(matchup.batter.fullName =
-                    factor(matchup.batter.fullName),
+                    factor(.data$matchup.batter.fullName),
                   matchup.pitcher.fullName =
-                    factor(matchup.pitcher.fullName),
-                  atBatIndex = factor(atBatIndex)
+                    factor(.data$matchup.pitcher.fullName),
+                  atBatIndex = factor(.data$atBatIndex)
                   # batted.ball.result = case_when(!result.event %in% c(
                   #   "Single", "Double", "Triple", "Home Run") ~ "Out/Other",
                   #   TRUE ~ result.event),
@@ -88,26 +88,26 @@ get_pbp_mlb <- function(game_pk) {
                   away_parentOrg_name = payload$gameData$teams$away$parentOrgName,
                   away_league_id = away_league$id,
                   away_league_name = away_league$name,
-                  batting_team = factor(ifelse(about.halfInning == "bottom",
-                                               home_team,
-                                               away_team)),
-                  fielding_team = factor(ifelse(about.halfInning == "bottom",
-                                                away_team,
-                                                home_team)))
+                  batting_team = factor(ifelse(.data$about.halfInning == "bottom",
+                                               .data$home_team,
+                                               .data$away_team)),
+                  fielding_team = factor(ifelse(.data$about.halfInning == "bottom",
+                                                .data$away_team,
+                                                .data$home_team)))
   pbp <- pbp %>%
-    dplyr::arrange(desc(atBatIndex), desc(pitchNumber))
+    dplyr::arrange(desc(.data$atBatIndex), desc(.data$pitchNumber))
 
   pbp <- pbp %>%
-    dplyr::group_by(atBatIndex) %>%
+    dplyr::group_by(.data$atBatIndex) %>%
     dplyr::mutate(last.pitch.of.ab =
-                    ifelse(pitchNumber == max(pitchNumber), "true", "false"),
-                  last.pitch.of.ab = factor(last.pitch.of.ab)) %>%
+                    ifelse(.data$pitchNumber == max(.data$pitchNumber), "true", "false"),
+                  last.pitch.of.ab = factor(.data$last.pitch.of.ab)) %>%
     ungroup()
 
-  pbp <- dplyr::bind_rows(stats_api_live_empty_df, pbp)
+  # pbp <- dplyr::bind_rows(stats_api_live_empty_df, pbp)
 
   check_home_level <- pbp %>%
-    dplyr::distinct(home_level_id) %>%
+    dplyr::distinct(.data$home_level_id) %>%
     dplyr::pull()
 
   # this will need to be updated in the future to properly estimate X,Z coordinates at the minor league level
@@ -128,12 +128,12 @@ get_pbp_mlb <- function(game_pk) {
   # }
 
   pbp <- pbp %>%
-    dplyr::rename(count.balls.start = count.balls.x,
-                  count.strikes.start = count.strikes.x,
-                  count.outs.start = count.outs.x,
-                  count.balls.end = count.balls.y,
-                  count.strikes.end = count.strikes.y,
-                  count.outs.end = count.outs.y)
+    dplyr::rename(count.balls.start = .data$count.balls.x,
+                  count.strikes.start = .data$count.strikes.x,
+                  count.outs.start = .data$count.outs.x,
+                  count.balls.end = .data$count.balls.y,
+                  count.strikes.end = .data$count.strikes.y,
+                  count.outs.end = .data$count.outs.y)
 
   return(pbp)
 }

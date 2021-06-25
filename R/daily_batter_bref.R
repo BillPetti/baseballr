@@ -4,6 +4,7 @@
 #' @param t1 First date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @param t2 Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @keywords MLB, sabermetrics
+#' @importFrom rlang .data
 #' @importFrom rvest html_table html_nodes
 #' @importFrom xml2 read_html
 #' @export
@@ -36,13 +37,13 @@ daily_batter_bref <- function(t1, t2) {
     html_nodes("a") %>%
     html_attr("href") %>%
     as.data.frame() %>%
-    rename(slug = ".") %>%
-    filter(grepl("redirect", slug)) %>%
-    mutate(playerid = gsub("/redirect.fcgi\\?player=1&mlb_ID=", "", slug))
+    dplyr::rename(slug = ".") %>%
+    dplyr::filter(grepl("redirect", .data$slug)) %>%
+    dplyr::mutate(playerid = gsub("/redirect.fcgi\\?player=1&mlb_ID=", "", .data$slug))
 
   df <- df %>%
-    mutate(bbref_id = playerids$playerid) %>%
-    select(bbref_id, everything())
+    dplyr::mutate(bbref_id = playerids$playerid) %>%
+    dplyr::select(.data$bbref_id, everything())
 
   df
 }

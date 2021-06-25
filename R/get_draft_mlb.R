@@ -24,7 +24,7 @@ get_draft_mlb<- function(year) {
 
   draft_table_filled <- dplyr::bind_rows(column_structure_draft_mlb,
                                          draft_table) %>%
-    filter(!is.na(bisPlayerId)) %>%
+    filter(!is.na(.data$bisPlayerId)) %>%
     janitor::clean_names()
 
   return(draft_table_filled)

@@ -38,22 +38,23 @@ daily_pitcher_bref <- function(t1, t2) {
   df$uBB_perc <- with(df, round(uBB/BF,3))
   df$SO_uBB <- with(df, round(SO_perc - uBB_perc))
   df$Team <- gsub(" $", "", df$Team, perl=T)
-  df <- filter_(df, ~Name != "Name")
-  df <- arrange_(df, ~desc(IP), ~desc(WHIP))
+  df <- df %>% 
+    dplyr::filter(.data$Name != "Name") %>% 
+    dplyr::arrange(desc(.data$IP), desc(.data$WHIP))
 
   playerids <- payload %>%
     html_nodes("table") %>%
     html_nodes("a") %>%
     html_attr("href") %>%
     as.data.frame() %>%
-    rename(slug = ".") %>%
-    filter(grepl("redirect", slug)) %>%
-    mutate(playerid = gsub("/redirect.fcgi\\?player=1&mlb_ID=", "", slug))
+    dplyr::rename(slug = .data$`.`) %>%
+    dplyr::filter(grepl("redirect", .data$slug)) %>%
+    dplyr::mutate(playerid = gsub("/redirect.fcgi\\?player=1&mlb_ID=", "", .data$slug))
 
   df <- df %>%
-    mutate(bbref_id = playerids$playerid) %>%
-    select(bbref_id, everything())
+    dplyr::mutate(bbref_id = playerids$playerid) %>%
+    dplyr::select(.data$bbref_id, tidyr::everything())
 
-  df
+  return(df)
 
 }

@@ -8,7 +8,7 @@
 #' @examples \dontrun{edge_code(df)}
 
 edge_code <- function(df, height_var_name = "b_height") {
-
+  
   if (height_var_name == "b_height") {
     if (class(df$px) == "factor") {df$px <- as.numeric(levels(df$px))[df$px]}
     if (class(df$pz) == "factor") {df$pz <- as.numeric(levels(df$pz))[df$pz]}
@@ -20,21 +20,21 @@ edge_code <- function(df, height_var_name = "b_height") {
     df$called_strike <- ifelse(grepl("Called", df$des2), 1, 0)
     df$swing <- ifelse(grepl("Swinging|Foul|In play", df$des2), 1, 0)
     df$whiff <- ifelse(grepl("Swinging", df$des2), 1, 0)
-    LHH <- filter(df, stand == "L")
-    RHH <- filter(df, stand == "R")
+    LHH <- df %>% dplyr::filter(.data$stand == "L")
+    RHH <- df %>% dplyr::filter(.data$stand == "R")
     LHH$location <- with(LHH, ifelse(!is.na(px) & !is.na(pz) & px > .21 & px < .81 & pz > (.35 + b_height_inch/12 *.229) & pz < (2.0 + b_height_inch/12 *.229), "Inside Edge", ifelse(!is.na(px) & !is.na(pz) & px > -1.20 & px < -0.9 & pz > (.35 + b_height_inch/12 *.229) & pz < (2.0 + b_height_inch/12 *.229), "Outside Edge", ifelse(!is.na(px) & !is.na(pz) & px >= -0.9 & px <= .21 & pz > (1.7 + b_height_inch/12 *.229) & pz < (2.0 + b_height_inch/12 *.229), "Upper Edge", ifelse(!is.na(px) & !is.na(pz) & px >= -0.9 & px <= .21 & pz > (.35 + b_height_inch/12 *.229) & pz < (.65 + b_height_inch/12 *.229), "Lower Edge", ifelse(!is.na(px) & !is.na(pz) & px >= -0.9 & px <= .21 & pz >= (.65 + b_height_inch/12 *.229) & pz <= (1.7 + b_height_inch/12 *.229), "Heart", ifelse(is.na(px) | is.na(pz), NA, "Out of Zone")))))))
     RHH$location <- with(RHH, ifelse(!is.na(px) & !is.na(pz) & px > -1.03 & px < -.43 & pz > (.92 + b_height_inch/12 *.136) & pz < (2.6 + b_height_inch/12 *.136), "Inside Edge", ifelse(!is.na(px) & !is.na(pz) & px > .7 & px < 1.00 & pz > (.92 + b_height_inch/12 *.136) & pz < (2.6 + b_height_inch/12 *.136), "Outside Edge", ifelse(!is.na(px) & !is.na(pz) & px >= -.43 & px <= .70 & pz > (2.3 + b_height_inch/12 *.136) & pz < (2.6 + b_height_inch/12 *.136), "Upper Edge", ifelse(!is.na(px) & !is.na(pz) & px >= -.43 & px <= .70 & pz > (.92 + b_height_inch/12 *.136) & pz < (1.22 + b_height_inch/12 *.136), "Lower Edge", ifelse(!is.na(px) & !is.na(pz) & px >= -.43 & px <= .70 & pz >= (1.22 + b_height_inch/12 *.136) & pz <= (2.30 + b_height_inch/12 *.136), "Heart", ifelse(is.na(px) | is.na(pz), NA, "Out of Zone")))))))
-    df_combined <- rbind(LHH, RHH)
+    df_combined <- dplyr::bind_rows(LHH, RHH)
     df_combined$Upper_Edge <- with(df_combined, ifelse(location == "Upper Edge", 1, 0))
     df_combined$Lower_Edge <- with(df_combined, ifelse(location == "Lower Edge", 1, 0))
     df_combined$Inside_Edge <- with(df_combined, ifelse(location == "Inside Edge", 1, 0))
     df_combined$Outside_Edge <- with(df_combined, ifelse(location == "Outside Edge", 1, 0))
     df_combined$Heart <- with(df_combined, ifelse(location == "Heart", 1, 0))
     df_combined$OutOfZone <- with(df_combined, ifelse(location == "Out of Zone", 1, 0))
-    df_combined
-  }
-
-  else {
+    return(df_combined)
+    
+  } else {
+    
     if (class(df$px) == "factor") {df$px <- as.numeric(levels(df$px))[df$px]}
     if (class(df$pz) == "factor") {df$pz <- as.numeric(levels(df$pz))[df$pz]}
     df$b_height_inch <- df$Height
@@ -47,17 +47,19 @@ edge_code <- function(df, height_var_name = "b_height") {
                              ignore.case = TRUE), 1, 0)
     df$whiff <- ifelse(grepl("Swinging", df$description,
                              ignore.case = TRUE), 1, 0)
-    LHH <- filter(df, stand == "L")
-    RHH <- filter(df, stand == "R")
+    LHH <- df %>% 
+      dplyr::filter(.data$stand == "L")
+    RHH <- df %>% 
+      dplyr::filter(.data$stand == "R")
     LHH$location <- with(LHH, ifelse(!is.na(px) & !is.na(pz) & px > .21 & px < .81 & pz > (.35 + b_height_inch/12 *.229) & pz < (2.0 + b_height_inch/12 *.229), "Inside Edge", ifelse(!is.na(px) & !is.na(pz) & px > -1.20 & px < -0.9 & pz > (.35 + b_height_inch/12 *.229) & pz < (2.0 + b_height_inch/12 *.229), "Outside Edge", ifelse(!is.na(px) & !is.na(pz) & px >= -0.9 & px <= .21 & pz > (1.7 + b_height_inch/12 *.229) & pz < (2.0 + b_height_inch/12 *.229), "Upper Edge", ifelse(!is.na(px) & !is.na(pz) & px >= -0.9 & px <= .21 & pz > (.35 + b_height_inch/12 *.229) & pz < (.65 + b_height_inch/12 *.229), "Lower Edge", ifelse(!is.na(px) & !is.na(pz) & px >= -0.9 & px <= .21 & pz >= (.65 + b_height_inch/12 *.229) & pz <= (1.7 + b_height_inch/12 *.229), "Heart", ifelse(is.na(px) | is.na(pz), NA, "Out of Zone")))))))
     RHH$location <- with(RHH, ifelse(!is.na(px) & !is.na(pz) & px > -1.03 & px < -.43 & pz > (.92 + b_height_inch/12 *.136) & pz < (2.6 + b_height_inch/12 *.136), "Inside Edge", ifelse(!is.na(px) & !is.na(pz) & px > .7 & px < 1.00 & pz > (.92 + b_height_inch/12 *.136) & pz < (2.6 + b_height_inch/12 *.136), "Outside Edge", ifelse(!is.na(px) & !is.na(pz) & px >= -.43 & px <= .70 & pz > (2.3 + b_height_inch/12 *.136) & pz < (2.6 + b_height_inch/12 *.136), "Upper Edge", ifelse(!is.na(px) & !is.na(pz) & px >= -.43 & px <= .70 & pz > (.92 + b_height_inch/12 *.136) & pz < (1.22 + b_height_inch/12 *.136), "Lower Edge", ifelse(!is.na(px) & !is.na(pz) & px >= -.43 & px <= .70 & pz >= (1.22 + b_height_inch/12 *.136) & pz <= (2.30 + b_height_inch/12 *.136), "Heart", ifelse(is.na(px) | is.na(pz), NA, "Out of Zone")))))))
-    df_combined <- rbind(LHH, RHH)
+    df_combined <- dplyr::bind_rows(LHH, RHH)
     df_combined$Upper_Edge <- with(df_combined, ifelse(location == "Upper Edge", 1, 0))
     df_combined$Lower_Edge <- with(df_combined, ifelse(location == "Lower Edge", 1, 0))
     df_combined$Inside_Edge <- with(df_combined, ifelse(location == "Inside Edge", 1, 0))
     df_combined$Outside_Edge <- with(df_combined, ifelse(location == "Outside Edge", 1, 0))
     df_combined$Heart <- with(df_combined, ifelse(location == "Heart", 1, 0))
     df_combined$OutOfZone <- with(df_combined, ifelse(location == "Out of Zone", 1, 0))
-    df_combined
-    }
+    return(df_combined)
+  }
 }

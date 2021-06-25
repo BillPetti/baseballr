@@ -22,11 +22,12 @@ woba_plus <- function(df) {
       guts_table[,i] <- as.numeric(as.character(guts_table[,i]))
     }
 
-    assign("guts_table", guts_table, envir = .GlobalEnv)
+    # assign("guts_table", guts_table, envir = .GlobalEnv)
 
   }
 
-  df_join <- left_join(df, guts_table, by = "season")
+  df_join <- df %>% 
+    dplyr::left_join(guts_table, by = "season")
 
   df_join$wOBA <- round((((df_join$wBB * df_join$uBB) +
                             (df_join$wHBP * df_join$HBP) +
@@ -42,7 +43,7 @@ woba_plus <- function(df) {
                                 (df_join$wHR * df_join$HR))/
                                (df_join$AB - df_join$SO)),3)
 
-  df_join <- arrange_(df_join, ~desc(wOBA))
+  df_join <- df_join %>% dplyr::arrange(desc(.data$wOBA))
   x <- names(df_join) %in% c("lg_woba", "woba_scale", "wBB", "wHBP", "w1B", "w2B", "w3B", "wHR", "runSB", "runCS", "lg_r_pa", "lg_r_w", "cFIP")
   df_join <- df_join[!x]
 
