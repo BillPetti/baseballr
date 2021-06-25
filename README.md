@@ -160,7 +160,7 @@ team_consistency(2015)
 #>  8 CLE    0.41   0.4           88           63
 #>  9 COL    0.35   0.34           7            3
 #> 10 DET    0.39   0.38          52           42
-#> # ... with 20 more rows
+#> # … with 20 more rows
 ```
 
 You can also calculate wOBA per plate appearance and wOBA on contact for
@@ -195,112 +195,6 @@ daily_pitcher_bref("2015-04-05", "2015-04-30") %>%
   arrange(desc(IP)) %>% 
   head(10)
 #> Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-
-#> Warning in lapply(df[, c(2, 5:29, 36:39)], as.numeric): NAs introduced by
-#> coercion
-#> Warning in daily_pitcher_bref("2015-04-05", "2015-04-30"): NAs introduced by
-#> coercion
-
-#> Warning in daily_pitcher_bref("2015-04-05", "2015-04-30"): NAs introduced by
-#> coercion
-
-#> Warning in daily_pitcher_bref("2015-04-05", "2015-04-30"): NAs introduced by
-#> coercion
-
-#> Warning in daily_pitcher_bref("2015-04-05", "2015-04-30"): NAs introduced by
-#> coercion
-
-#> Warning in daily_pitcher_bref("2015-04-05", "2015-04-30"): NAs introduced by
-#> coercion
-
-#> Warning in daily_pitcher_bref("2015-04-05", "2015-04-30"): NAs introduced by
-#> coercion
 #>    season            Name   IP  ERA SO uBB HBP HR  FIP wOBA_against
 #> 1    2015    Johnny Cueto 37.0 1.95 38   4   2  3 2.62        0.210
 #> 2    2015  Dallas Keuchel 37.0 0.73 22  11   0  0 2.84        0.169
