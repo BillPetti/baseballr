@@ -19,53 +19,49 @@
 get_ncaa_baseball_roster <- function(teamid = NA,
                                      year = 2019) {
 
-  id <- subset(ncaa_season_id_lu, season == year, select = id)
+  id <- baseballr::ncaa_season_id_lu %>% 
+    dplyr::filter(.data$season == year) %>% 
+    dplyr::select(.data$id)
 
-  school_info <- subset(master_ncaa_team_lu, school_id == teamid &
-                          year == year) %>%
-    dplyr::select(-year) %>%
+  school_info <- baseballr::master_ncaa_team_lu %>% 
+    dplyr::filter(.data$school_id == teamid & .data$year == year) %>%
+    dplyr::select(-.data$year) %>%
     dplyr::distinct()
 
   url <- paste0("https://stats.ncaa.org/team/", teamid, "/roster/", id)
 
   payload <- xml2::read_html(url)
 
-  payload <- payload %>%
-    rvest::html_nodes("table") %>%
-    .[1] %>%
+  payload <- (payload %>%
+    rvest::html_nodes("table"))[1] %>%
     rvest::html_nodes("tr")
 
   parse_roster_table <- function(trs) {
 
-    number <- trs %>%
-      rvest::html_nodes("td") %>%
-      .[1] %>%
+    (number <- trs %>%
+      rvest::html_nodes("td"))[1] %>%
       rvest::html_text()
 
-    name <- trs %>%
-      rvest::html_nodes("td") %>%
-      .[2] %>%
+    (name <- trs %>%
+      rvest::html_nodes("td"))[2] %>%
       rvest::html_text()
 
-    position <- trs %>%
-      rvest::html_nodes("td") %>%
-      .[3] %>%
+    (position <- trs %>%
+      rvest::html_nodes("td"))[3] %>%
       rvest::html_text()
 
-    class <- trs %>%
-      rvest::html_nodes("td") %>%
-      .[4] %>%
+    (class <- trs %>%
+      rvest::html_nodes("td"))[4] %>%
       rvest::html_text()
 
-    url_slug <- trs %>%
-      rvest::html_nodes("td") %>%
-      .[2] %>%
+    (url_slug <- trs %>%
+        rvest::html_nodes("td"))[2] %>%
       rvest::html_nodes("a") %>%
       rvest::html_attr("href")
 
     url_slug <- ifelse(url_slug %>%
                          as.data.frame() %>%
-                         dplyr::rename(var = '.') %>%
+                         dplyr::rename(var = .data$`.`) %>%
                          nrow() == 0, NA, url_slug)
 
     player_id <- gsub(".*stats_player_seq=\\s*", "", url_slug)
@@ -86,9 +82,10 @@ get_ncaa_baseball_roster <- function(teamid = NA,
     dplyr::bind_rows()
 
   roster <- roster %>%
-    dplyr::mutate(season = year,
-                  player_url = ifelse(is.na(player_id), NA, paste0("https://stats.ncaa.org", url_slug))) %>%
-    dplyr::select(name, class, player_id, season, number, position, player_url)
+    dplyr::mutate(season = -.data$year,
+                  player_url = ifelse(is.na(-.data$player_id), NA, paste0("https://stats.ncaa.org", -.data$url_slug))) %>%
+    dplyr::select(-.data$name, -.data$class, -.data$player_id, -.data$season, 
+                  -.data$number, -.data$position, -.data$player_url)
 
   school_info <- school_info %>%
     dplyr::slice(rep(1:n(), each = nrow(roster)))

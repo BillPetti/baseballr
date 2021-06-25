@@ -11,7 +11,7 @@
 #' @keywords MLB, sabermetrics
 #' @export
 #'
-#' @examples get_probables_mlb(566001)
+#' @examples get_probables_mlb(game_pk = 566001)
 
 get_probables_mlb <- function(game_pk) {
   oldw <- getOption("warn")
@@ -49,15 +49,18 @@ get_probables_mlb <- function(game_pk) {
   if(length(payload$liveData$boxscore$officials) > 0) {
 
     umpires <- payload$liveData$boxscore$officials %>%
-      dplyr::filter(officialType == "Home Plate") %>%
-      dplyr::rename_at(vars(contains("official")),
-                funs(sub("official", "home_plate", .))) %>%
-      dplyr::select(home_plate.id, home_plate.fullName)
+      dplyr::filter(.data$officialType == "Home Plate") %>%
+      dplyr::rename(
+        home_plate_type = .data$officialType,
+        home_plate_id = .data$official.id,
+        home_plate_full_name = .data$official.fullName,
+        home_plate_link = .data$official.link) %>%
+      dplyr::select(.data$home_plate_id, .data$home_plate_full_name)
 
   } else {
 
-    umpires <- tibble(home_plate.id  = NA,
-                      home_plate.fullName = NA)
+    umpires <- tibble(home_plate_id  = NA,
+                      home_plate_full_name = NA)
   }
 
   probs <- dplyr::bind_rows(away_probable,
@@ -67,16 +70,16 @@ get_probables_mlb <- function(game_pk) {
                             teams)
 
   table <- table %>%
-    mutate(home_plate.id = umpires$home_plate.id,
-           home_plate.fullName = umpires$home_plate.fullName)
+    dplyr::mutate(
+      home_plate_id = umpires$home_plate_id,
+      home_plate_full_name = umpires$home_plate_full_name)
 
   table <- table %>%
-    mutate(game_pk = payload$gamePk,
-           game_date = stringr::str_sub(payload$gameData$game$calendarEventID,
-                                        -10,
-                                        -1)) %>%
-    select(game_pk, game_date, fullName, id, team, team_id,
-           home_plate.fullName, home_plate.id)
+    dplyr::mutate(
+      game_pk = payload$gamePk,
+      game_date = stringr::str_sub(payload$gameData$game$calendarEventID, -10, -1)) %>%
+    dplyr::select(.data$game_pk, .data$game_date, .data$fullName, .data$id, .data$team, .data$team_id,
+           .data$home_plate_full_name, .data$home_plate_id)
 
   options(warn = oldw)
 
