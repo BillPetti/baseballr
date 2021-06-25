@@ -40,7 +40,7 @@ get_ncaa_baseball_pbp <- function(game_info_url) {
     janitor::clean_names() %>%
     dplyr::mutate(game_date = substr(.data$game_date, 1, 10))
   att <- any(!grepl("attendance", colnames(game_info)))
-  if (!att) {
+  if (att) {
 
     game_info$attendance <- NA
   } else {
