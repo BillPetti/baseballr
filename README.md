@@ -6,18 +6,16 @@
 ![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)
 ![R-CMD-check](https://img.shields.io/github/workflow/status/SaiemGilani/baseballr/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=blue&style=for-the-badge)
 ![Contributors](https://img.shields.io/github/contributors/BillPetti/baseballr?style=for-the-badge)
-![Version-Number](https://img.shields.io/github/r-package/v/BillPetti/baseballr?label=baseballr&logo=R&style=for-the-badge)
+![Version-Number](https://img.shields.io/github/r-package/v/SaiemGilani/baseballr?label=baseballr&logo=R&style=for-the-badge)
 [![Twitter
-Follow](https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40baseballr&logo=twitter&style=for-the-badge)](https://twitter.com/BillPetti)
-[![Travis build
-status](https://travis-ci.org/BillPetti/baseballr.svg?branch=master)](https://travis-ci.org/BillPetti/baseballr)
+Follow](https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge)](https://twitter.com/BillPetti)
 <!-- badges: end -->
 
 # baseballr
 
-# `baseballr` 0.6.0
+# `baseballr` 0.9.9
 
-**(latest version released 2020-01-07)**
+**(latest version released 2021-06-25)**
 
 `baseballr` is a package written for R focused on baseball analysis. It
 includes functions for scraping various data from websites, such as
@@ -160,7 +158,7 @@ team_consistency(2015)
 #>  8 CLE    0.41   0.4           88           63
 #>  9 COL    0.35   0.34           7            3
 #> 10 DET    0.39   0.38          52           42
-#> # … with 20 more rows
+#> # ... with 20 more rows
 ```
 
 You can also calculate wOBA per plate appearance and wOBA on contact for
