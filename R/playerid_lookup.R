@@ -15,10 +15,10 @@ playerid_lookup <- function(last_name = NULL, first_name = NULL) {
     message("Be patient, this may take a few seconds...")
     message("Data courtesy of the Chadwick Bureau Register (https://github.com/chadwickbureau/register)")
     url <- "https://raw.githubusercontent.com/chadwickbureau/register/master/data/people.csv"
-    suppressMessages(
+    suppressWarnings(
 
       chadwick_player_lu_table <- vroom::vroom(url,
-                                               delim = ',')
+                                               delim = ',',)
     )
     # assign("chadwick_player_lu_table", chadwick_player_lu_table, envir = .GlobalEnv)
 
@@ -32,11 +32,15 @@ playerid_lookup <- function(last_name = NULL, first_name = NULL) {
 
   else {
     x <- process_player_name(last_name, first_name)
-
+    
     names(x) <- c("first_name", "last_name", "given_name", "name_suffix", "nick_name", "birth_year", "mlb_played_first", "mlbam_id", "retrosheet_id", "bbref_id", "fangraphs_id")
-    x$fangraphs_id <- as.character(x$fangraphs_id) %>% as.numeric()
-    x$birth_year <- as.character(x$birth_year) %>% as.numeric()
-    x
+    suppressWarnings(
+      x$fangraphs_id <- as.character(x$fangraphs_id) %>% as.numeric()
+    )
+    suppressWarnings(
+      x$birth_year <- as.character(x$birth_year) %>% as.numeric()
+    )
+    return(x)
   }
 }
 
@@ -46,7 +50,9 @@ process_player_name <- function(last_name = NULL, first_name = NULL) {
     print("Be patient, this may take a few seconds...")
     print("Data courtesy of the Chadwick Bureau Register (https://github.com/chadwickbureau/register)")
     url <- "https://raw.githubusercontent.com/chadwickbureau/register/master/data/people.csv"
-    chadwick_player_lu_table <- readr::read_csv(url)
+    suppressWarnings(
+      chadwick_player_lu_table <- readr::read_csv(url, col_types = readr::cols())
+    )
     # assign("chadwick_player_lu_table", chadwick_player_lu_table, envir = .GlobalEnv)
   }
   if (is.null(first_name)) {

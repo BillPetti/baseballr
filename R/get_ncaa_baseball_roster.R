@@ -13,18 +13,18 @@
 #'
 #' @examples
 #' \dontrun{
-#' get_ncaa_baseball_roster(teamid = 104, year =2019)
+#' get_ncaa_baseball_roster(teamid = 104, team_year =2019)
 #' }
 
 get_ncaa_baseball_roster <- function(teamid = NA,
                                      team_year = 2019) {
 
   id <- baseballr::ncaa_season_id_lu %>% 
-    dplyr::filter(.data$season == year) %>% 
+    dplyr::filter(.data$season == team_year) %>% 
     dplyr::select(.data$id)
 
   school_info <- baseballr::master_ncaa_team_lu %>% 
-    dplyr::filter(.data$school_id == teamid & .data$year == year) %>%
+    dplyr::filter(.data$school_id == teamid & .data$year == team_year) %>%
     dplyr::select(-.data$year) %>%
 
     dplyr::distinct()
@@ -60,9 +60,9 @@ get_ncaa_baseball_roster <- function(teamid = NA,
       number = .data$Jersey)
   roster <- roster %>%
     dplyr::mutate(
-      season = year,
-     player_id = gsub(".*stats_player_seq=\\s*", "", .data$url_slug),
-     player_url = ifelse(is.na(.data$player_id), NA, paste0("https://stats.ncaa.org", .data$url_slug)),
+      season = team_year,
+      player_id = gsub(".*stats_player_seq=\\s*", "", .data$url_slug),
+      player_url = ifelse(is.na(.data$player_id), NA, paste0("https://stats.ncaa.org", .data$url_slug)),
     ) %>%
     dplyr::select(.data$name, .data$class, .data$player_id, .data$season, 
                   .data$number, .data$position, .data$player_url)

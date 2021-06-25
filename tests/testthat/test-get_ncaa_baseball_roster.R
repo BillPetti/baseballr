@@ -8,7 +8,7 @@ cols <- c(
 
 test_that("NCAA Get Roster", {
   skip_on_cran()
-  x <- get_ncaa_baseball_roster(104, 2019)
+  x <- get_ncaa_baseball_roster(teamid = 104, team_year = 2019)
   
   expect_equal(colnames(x), cols)
   expect_s3_class(x, "data.frame")
