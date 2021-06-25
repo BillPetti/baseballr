@@ -1,5 +1,5 @@
 Package: baseballr
-Title: Functions for acquiring and analyzing baseball data
+Title: Functions for Acquiring and Analyzing Baseball Data
 Version: 0.9.9
 Authors@R: c(
     person("Bill", "Petti", email = "billpetti@gmail.com", role = c("aut", "cre")),
