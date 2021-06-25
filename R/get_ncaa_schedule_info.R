@@ -142,8 +142,8 @@ get_ncaa_schedule_info <- function(teamid = NULL,
       tibble::rownames_to_column('row')
 
     postponed_rows <- game_result %>%
-      filter(result == 'Ppd') %>%
-      pull(row)
+      filter(.data$result == 'Ppd') %>%
+      pull(.data$row)
 
     if(length(postponed_rows) > 0) {
 
