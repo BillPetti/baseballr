@@ -158,7 +158,7 @@ team_consistency(2015)
 #>  8 CLE    0.41   0.4           88           63
 #>  9 COL    0.35   0.34           7            3
 #> 10 DET    0.39   0.38          52           42
-#> # ... with 20 more rows
+#> # … with 20 more rows
 ```
 
 You can also calculate wOBA per plate appearance and wOBA on contact for
