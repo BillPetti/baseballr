@@ -13,7 +13,10 @@
 #' game.
 #' @export
 #'
-#' @examples \dontrun{get_ncaa_schedule_info(736, 2019)}
+#' @examples \dontrun{
+#' x <- get_ncaa_schedule_info(736, 2019)$game_info_url[2]
+#' get_ncaa_baseball_pbp(game_info_url = x)
+#' }
 
 get_ncaa_baseball_pbp <- function(game_info_url) {
 

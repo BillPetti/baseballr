@@ -7,10 +7,10 @@
 #' @keywords MLB, sabermetrics, PITCHf/x
 #' @importFrom pitchRx scrape
 #' @export
-#' @examples \dontrun{edge_scrape("2015-04-05", "2015-04-05", pitcher)}
+#' @examples \dontrun{edge_scrape(start="2015-04-05",end = "2015-04-05", group="pitcher")}
 
 edge_scrape <- function(start, end, group) {
-  pfx <- scrape(start, end)
+  pfx <- pitchRx::scrape(start, end)
   df <- left_join(pfx$pitch, pfx$atbat, by = c("gameday_link", "num"))
   f <- as.numeric(lapply(strsplit(df$b_height, "-"), function(x) x[1])) * 12
   i <- as.numeric(lapply(strsplit(df$b_height, "-"), function(x) x[2]))

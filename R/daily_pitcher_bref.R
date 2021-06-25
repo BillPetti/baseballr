@@ -21,17 +21,32 @@ daily_pitcher_bref <- function(t1, t2) {
 
   df <- as.data.frame(df)[-c(1,3,5)]
   names(df)[1:4] <- c("Name", "Age", "Level", "Team")
-  df[,c(2,5:29, 36:39)] <- lapply(df[,c(2,5:29, 36:39)], as.numeric)
+  suppressWarnings(
+    df[,c(2,5:29, 36:39)] <- lapply(df[,c(2,5:29, 36:39)], as.numeric)
+  )
   df$X1B <- with(df, H-(X2B+X3B+HR))
   season <- substr(t1, 1, 4)
   df$season <- season
   df$uBB <- with(df, BB-IBB)
-  df[,30] <- as.numeric(sub("%", "", df[, 30]))
-  df[,31] <- as.numeric(sub("%", "", df[, 31]))
-  df[,32] <- as.numeric(sub("%", "", df[, 32]))
-  df[,33] <- as.numeric(sub("%", "", df[, 33]))
-  df[,34] <- as.numeric(sub("%", "", df[, 34]))
-  df[,35] <- as.numeric(sub("%", "", df[, 35]))
+  
+  suppressWarnings(
+    df[,30] <- as.numeric(sub("%", "", df[, 30]))
+  )
+  suppressWarnings(
+    df[,31] <- as.numeric(sub("%", "", df[, 31]))
+  )
+  suppressWarnings(
+    df[,32] <- as.numeric(sub("%", "", df[, 32]))
+  )
+  suppressWarnings(
+    df[,33] <- as.numeric(sub("%", "", df[, 33]))
+  )
+  suppressWarnings(
+    df[,34] <- as.numeric(sub("%", "", df[, 34]))
+  )
+  suppressWarnings(
+    df[,35] <- as.numeric(sub("%", "", df[, 35]))
+  )
   df[,c(30:35)] <- df[,c(30:35)]/100
   df <- df[,c(41,1:13,42,14:19,40,20:39)]
   df$SO_perc <- with(df, round(SO/BF,3))

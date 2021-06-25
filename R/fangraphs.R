@@ -245,7 +245,6 @@ fg_pitch_leaders <- function(x, y, league = "all", qual = "y",
 #' @export
 #' @examples
 #' fg_guts()
-
 # scrape historical FanGraphs Guts! table
 # wOBA and FIP coefficients and constants
 

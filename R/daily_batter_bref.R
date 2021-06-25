@@ -22,15 +22,19 @@ daily_batter_bref <- function(t1, t2) {
 
   df <- as.data.frame(df)[-c(1,3,5)]
   names(df)[1:4] <- c("Name", "Age", "Level", "Team")
-  df[,c(2,5:26)] <- lapply(df[,c(2,5:26)],as.numeric)
+  suppressWarnings(
+    df[,c(2,5:26)] <- lapply(df[,c(2,5:26)],as.numeric)
+  )
   df$X1B <- with(df, H-(X2B+X3B+HR))
   season <- substr(t1, 1, 4)
   df$season <- season
   df$uBB <- with(df, BB-IBB)
   df <- df[,c(28,1:9, 27, 10:15, 29, 16:26)]
   df$Team <- gsub(" $", "", df$Team, perl=T)
-  df <- filter_(df, ~Name != "Name")
-  df <- arrange_(df, ~desc(PA), ~desc(OPS))
+  df <- df %>% 
+    dplyr::filter(.data$Name != "Name")
+  df <- df %>% 
+    dplyr::arrange(desc(.data$PA), desc(.data$OPS))
 
   playerids <- payload %>%
     html_nodes("table") %>%
