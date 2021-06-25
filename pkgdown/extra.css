@@ -37,7 +37,7 @@ pre, code {
    margin-bottom: 10px;
 }
 .navbar-default {
-    border-color: #6C0300;
+    border-color: #0d1b2a;
 }
 .label-default {
   background-color: #454444;
@@ -82,17 +82,17 @@ pre, code {
 
 @-webkit-keyframes glow {
   from {
-    text-shadow: 0 0 8px #F4FE85, 0 0 10px #F4FE85;
+    text-shadow: 0 0 8px #f26419, 0 0 10px #f26419;
   }
   
   to {
-    text-shadow: 0 0 10px #F4FE85, 0 0 11px #F4FE85;
+    text-shadow: 0 0 10px #f26419, 0 0 11px #f26419;
   }
 }
 
 @keyframes glow {
     to {
-     text-shadow: 0 0 10px #F4FE85, 0 0 11px #F4FE85;
+     text-shadow: 0 0 10px #f26419, 0 0 11px #f26419;
     }
   }
   
@@ -100,7 +100,7 @@ pre, code {
   font-family: "Chivo";
   letter-spacing: 0.1px;
   line-height: 1.3rem;
-  color: #F2EC84;
+  color: #f6ae2d;
   font-weight: 700;
   font-size: 14px;
   animation: glow 2.5s ease-in-out infinite alternate;
@@ -108,6 +108,6 @@ pre, code {
 .navbar-default .navbar-link {
     font-family: "Bungee";
     font-size: 16px;
-    color: #F2EC84;
+    color: #f6ae2d;
     animation: glow 3s ease-in-out infinite alternate;
 }
