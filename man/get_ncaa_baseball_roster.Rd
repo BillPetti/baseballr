@@ -20,6 +20,6 @@ Get NCAA Baseball Rosters
 }
 \examples{
 \dontrun{
-get_ncaa_baseball_roster(104, 2019)
+get_ncaa_baseball_roster(teamid = 104, year =2019)
 }
 }

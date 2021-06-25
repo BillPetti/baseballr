@@ -1,8 +1,11 @@
-pandoc: 2.11.2
+pandoc: 2.9.2.1
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   ncaa_scraping: ncaa_scraping.html
   plotting_statcast: plotting_statcast.html
-last_built: 2021-02-18T13:35Z
+last_built: 2021-06-25T21:29Z
+urls:
+  reference: https://billpetti.github.io/baseballR/reference
+  article: https://billpetti.github.io/baseballR/articles
 
