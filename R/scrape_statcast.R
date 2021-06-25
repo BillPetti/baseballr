@@ -113,7 +113,7 @@ scrape_statcast_savant.Date <- function(start_date = Sys.Date() - 1, end_date = 
       suppressMessages(
         suppressWarnings(
           # use vroom::vroom for significant speed improvment
-          payload <- vroom::vroom(url, delim = ",")
+          payload <- readr::read_csv(url)
         )
       )
     },
