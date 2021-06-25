@@ -9,3 +9,4 @@
 ^pkgdown$
 ^data-raw$
 ^.github$
+^\.github$

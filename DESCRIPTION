@@ -34,7 +34,7 @@ Imports:
     tibble,
     vroom
 License: MIT + file LICENSE
-URL: https://billpetti.github.io/baseballr/
+URL: https://saiemgilani.github.io/baseballr, https://billpetti.github.io/baseballr/
 BugReports: https://github.com/BillPetti/baseballr/issues
 LazyData: true
 RoxygenNote: 7.1.1

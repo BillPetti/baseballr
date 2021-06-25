@@ -3,7 +3,8 @@ on:
     branches:
       - main
       - master
-  workflow_dispatch:
+    tags:
+      -'*'
 
 name: pkgdown
 
@@ -12,7 +13,6 @@ jobs:
     runs-on: macOS-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
     steps:
       - uses: actions/checkout@v2
 
@@ -27,7 +27,7 @@ jobs:
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
         shell: Rscript {0}
 
-      - name: Cache R packages
+      - name: Restore R package cache
         uses: actions/cache@v2
         with:
           path: ${{ env.R_LIBS_USER }}
@@ -36,19 +36,13 @@ jobs:
 
       - name: Install dependencies
         run: |
-          options(install.packages.check.source = "no")
-          remotes::install_deps(dependencies = TRUE, type = "binary")
-          install.packages(c("pkgdown", "tidyverse", "ggrepel", "ggimage", "knitr", "tictoc", "ragg","animation","zoo"), type = "binary")
+          remotes::install_deps(dependencies = TRUE)
+          install.packages("pkgdown", type = "binary")
         shell: Rscript {0}
 
       - name: Install package
         run: R CMD INSTALL .
-      - name: Render README
-        run: Rscript -e 'rmarkdown::render("README.Rmd")'
-      - name: Commit results of README
-        run: |
-          git commit README.md -m 'Re-build README.Rmd' || echo "No changes to commit"
-          git push origin || echo "No changes to commit"
+
       - name: Deploy package
         run: |
           git config --local user.email "actions@github.com"
