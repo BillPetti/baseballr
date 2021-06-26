@@ -45,11 +45,15 @@ get_pbp_mlb <- function(game_pk) {
   
   away_league <- payload$gameData$teams$away$league
   
-  list_columns <- lapply(at_bats, function(x) class(x)) %>%
-    dplyr::bind_rows(.id = "variable") %>%
-    tidyr::gather(key, value) %>%
-    dplyr::filter(.data$value == "list") %>%
-    dplyr::pull(.data$key)
+  columns <- lapply(at_bats, function(x) class(x)) %>%
+    dplyr::bind_rows(.id = "variable")
+  cols <- c(colnames(columns))
+  classes <- c(t(unname(columns[1,])))
+  
+  df <- data.frame(cols, classes)
+  list_columns <- df %>%
+    dplyr::filter(.data$classes == "list") %>%
+    dplyr::pull(.data$cols)
   
   at_bats <- at_bats %>%
     dplyr::select(-c(one_of(list_columns)))
