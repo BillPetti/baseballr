@@ -47,10 +47,10 @@ milb_batter_game_logs_fg <- function(playerid, year = 2017) {
   payload2 <- payload2 %>%
     dplyr::filter(!grepl("Total|Postseason", .data$Season),
                   !grepl("Average", .data$Team)) 
-
-  payload2 <- as.data.frame(sapply(payload2, function(x) (as.numeric(gsub("[\\%,]", "", x)))),
-                           stringsAsFactors=F)
-  
+  suppressWarnings(
+    payload2 <- as.data.frame(sapply(payload2, function(x) (as.numeric(gsub("[\\%,]", "", x)))),
+                              stringsAsFactors=F)
+  )
   payload2 <- payload2 %>% 
     dplyr::rename(
       BB_perc = .data$BB., 

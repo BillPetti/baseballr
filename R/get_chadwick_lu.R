@@ -6,10 +6,10 @@
 #' \dontrun{get_chadwick_lu()}
 
 get_chadwick_lu <- function() {
-
-  df <- vroom::vroom("https://raw.githubusercontent.com/chadwickbureau/register/master/data/people.csv",
-                     delim = ',')
-
+  suppressWarnings(
+    df <- vroom::vroom("https://raw.githubusercontent.com/chadwickbureau/register/master/data/people.csv",
+                       delim = ',')
+  )
   return(df)
 
 }
