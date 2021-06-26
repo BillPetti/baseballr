@@ -68,3 +68,11 @@
 #' @docType data
 #' @keywords datasets
 "teams_lu_table"
+#' Dataset
+#'
+#' @title  Statcast Label Imputation
+#' @name statcast_impute
+#' @description Statcast Label Imputation
+#' @docType data
+#' @keywords datasets
+"statcast_impute"

@@ -47,7 +47,6 @@ team_consistency <- function(year) {
   # names(teams) <- c("Tm", "year")
   tms <- unique(teams$bref_abbreviation)
   results <- purrr::map_df(tms, function(x){
-      print(x)
       df <- team_results_bref(Tm=x, year)
       return(df)
     })

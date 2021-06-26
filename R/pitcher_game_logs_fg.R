@@ -26,24 +26,31 @@ pitcher_game_logs_fg <- function(playerid, year = 2017) {
   payload <- payload %>%
     dplyr::filter(!grepl("Date|Total", .data$Date)) 
   if (nrow(payload) > 1) {
-    payload <- as.data.frame(sapply(payload, function(x) (as.numeric(gsub("[\\%,]", "", x)))),
-                             stringsAsFactors=F)
+    suppressWarnings(
+      payload <- payload %>% 
+        dplyr::mutate(
+          K.9 = as.numeric(.data$K.9),
+          BB.9 = as.numeric(.data$BB.9),
+          HR.9 = as.numeric(.data$HR.9),
+          LOB. = as.numeric(gsub("[\\%,]", "", .data$LOB.)),
+          GB. = as.numeric(gsub("[\\%,]", "", .data$GB.)),
+          HR.FB = as.numeric(gsub("[\\%,]", "", .data$HR.FB))) %>% 
+        dplyr::rename(
+          K_9 = .data$K.9,
+          BB_9 = .data$BB.9,
+          HR_9 = .data$HR.9,
+          LOB_perc = .data$LOB., 
+          GB_perc = .data$GB.,
+          HR_FB = .data$HR.FB)
+    )
   } else {
-    payload <- lapply(payload, function(x) (as.numeric(gsub("[\\%,]", "", x)))) %>%
-      dplyr::bind_rows()
+    suppressWarnings(
+      payload <- lapply(payload, function(x) (as.numeric(gsub("[\\%,]", "", x)))) %>%
+        dplyr::bind_rows()
+    )
   }
-  suppressWarnings(
-    payload <- payload %>% 
-      dplyr::mutate_at(c("K_9","BB_9","HR_9","LOB_perc","GB_perc","HR_FB"),as.numeric)
-  )
-  payload <- payload %>% 
-    dplyr::rename(
-      K_9 = .data$K.9, 
-      BB_9 = .data$BB.9, 
-      HR_9 = .data$HR.9,
-      LOB_perc = .data$LOB., 
-      GB_perc = .data$GB.,
-      HR_FB = .data$HR.FB)
+  
+ 
   payload$LOB_perc <- as.numeric(payload$LOB_perc)/100
   payload$GB_perc <- as.numeric(payload$GB_perc)/100
 

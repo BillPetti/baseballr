@@ -11,7 +11,7 @@
 #' @export viz_gb_on_period
 #' @examples
 #' \dontrun{
-#' viz_gb_on_period("2017-04-02","2017-04-10", "AL East")
+#' viz_gb_on_period(start_date = "2017-04-02", end_date = "2017-04-10", lg_div = "AL East")
 #' }
 
 viz_gb_on_period <- function(start_date, end_date, lg_div) {

@@ -12,7 +12,9 @@ playername_lookup <- function(id) {
     print("Be patient, this may take a few seconds...")
     print("Data courtesy of the Chadwick Bureau Register (https://github.com/chadwickbureau/register)")
     url <- "https://raw.githubusercontent.com/chadwickbureau/register/master/data/people.csv"
-    chadwick_player_lu_table <- readr::read_csv(url)
+    suppressWarnings(
+      chadwick_player_lu_table <- readr::read_csv(url)
+    )
     # assign("chadwick_player_lu_table", chadwick_player_lu_table, envir = .GlobalEnv)
   }
   

@@ -25,10 +25,10 @@ label_statcast_imputed_data <- function(statcast_df, impute_file = NULL,
                                         inverse_precision = 10000) {
 
   if (is.null(impute_file)) {
-    impute_file <- system.file("extdata/statcast_impute.csv", package = "baseballr")
-  } 
-  
-  imputed_df <- suppressMessages(readr::read_csv(impute_file))
+    imputed_df <- baseballr::statcast_impute
+  } else {
+    imputed_df <- suppressMessages(readr::read_csv(impute_file))
+  }
   
   imputed_df$imputed <- 1
   tmp <- statcast_df %>% 

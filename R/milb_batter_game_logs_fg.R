@@ -31,7 +31,7 @@ milb_batter_game_logs_fg <- function(playerid, year = 2017) {
 
   # standard table
   payload1 <- (xml2::read_html(url_basic) %>%
-    rvest::html_nodes("table"))[16] %>%
+    rvest::html_nodes("table"))[15] %>%
     rvest::html_table() %>%
     as.data.frame()
 
@@ -40,7 +40,7 @@ milb_batter_game_logs_fg <- function(playerid, year = 2017) {
   
   # advanced table
   payload2 <- (xml2::read_html(url_adv) %>%
-    rvest::html_elements("table"))[17] %>%
+    rvest::html_elements("table"))[16] %>%
     rvest::html_table() %>%
     as.data.frame()
 
@@ -58,7 +58,8 @@ milb_batter_game_logs_fg <- function(playerid, year = 2017) {
       BB_minus_K = .data$BB.K)
 
   # combine standard & advanced game log tabs
-  payload <- dplyr::bind_cols(payload1,payload2 %>% dplyr::select(-.data$Season,-.data$Team,-.data$AVG))
+  payload <- dplyr::bind_cols(payload1,payload2 %>% 
+                                dplyr::select(-.data$Season,-.data$Team,-.data$AVG))
   
   # separate Team column into Team & MiLB level
   suppressWarnings(
