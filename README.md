@@ -115,36 +115,6 @@ the consistency of team scoring and run prevention for any year using
 ``` r
 team_consistency(2015)
 #> Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Stathead account: https://stathead.com
-#> [1] "ARI"
-#> [1] "ATL"
-#> [1] "BAL"
-#> [1] "BOS"
-#> [1] "CHC"
-#> [1] "CHW"
-#> [1] "CIN"
-#> [1] "CLE"
-#> [1] "COL"
-#> [1] "DET"
-#> [1] "HOU"
-#> [1] "KCR"
-#> [1] "LAA"
-#> [1] "LAD"
-#> [1] "MIA"
-#> [1] "MIL"
-#> [1] "MIN"
-#> [1] "NYM"
-#> [1] "NYY"
-#> [1] "OAK"
-#> [1] "PHI"
-#> [1] "PIT"
-#> [1] "SDP"
-#> [1] "SEA"
-#> [1] "SFG"
-#> [1] "STL"
-#> [1] "TBR"
-#> [1] "TEX"
-#> [1] "TOR"
-#> [1] "WSN"
 #> # A tibble: 30 x 5
 #>    Team  Con_R Con_RA Con_R_Ptile Con_RA_Ptile
 #>    <chr> <dbl>  <dbl>       <dbl>        <dbl>
