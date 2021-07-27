@@ -70,13 +70,13 @@ get_ncaa_schedule_info <- function(teamid = NULL,
       tibble::rownames_to_column('row')
 
     postponed_rows <- game_result %>%
-      filter(result == 'Ppd') %>%
+      filter(result == 'Ppd' | result == 'Canceled')
       pull(row)
 
     if(length(postponed_rows) > 0) {
 
       game_info_url <- game_result %>%
-        filter(result != 'Ppd') %>%
+        filter(result != 'Ppd' & result != 'Canceled')
         bind_cols(game_info_url[,c(2,3)]) %>%
         select(row, slug, game_info_url)
     }
