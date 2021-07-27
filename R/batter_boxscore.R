@@ -20,14 +20,14 @@ batter_boxscore <- function(x) {
   home_batters <- lapply(xml_data[[3]][x], function(x)
     as.data.frame.list(x, stringsAsFactors=FALSE)) %>%
     bind_rows()
-  home_batters$team <- xml_data[[8]][7]
+  home_batters$team <- xml_data[[8]]['home_id']
 
   a_end <- length(xml_data[[5]]) - 5
   a_x <- seq(1:a_end)
   away_batters <- lapply(xml_data[[5]][a_x], function(x)
     as.data.frame.list(x, stringsAsFactors=FALSE)) %>%
     bind_rows()
-  away_batters$team <- xml_data[[8]][6]
+  away_batters$team <- xml_data[[8]]['away_id']
 
   if(!("gidp" %in% colnames(home_batters)))
   {home_batters$gidp <- NA}

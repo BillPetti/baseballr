@@ -22,16 +22,16 @@ pitcher_boxscore <- function(x) {
   away_pitchers <- lapply(xml_data[[2]][x], function(x)
     as.data.frame.list(x, stringsAsFactors=FALSE)) %>%
     bind_rows()
-  away_pitchers$team <- xml_data[[8]][6]
+  away_pitchers$team <- xml_data[[8]]['away_id']
 
   h_end <- length(xml_data[[4]]) - 1
   h_x <- seq(1:h_end)
   home_pitchers <- lapply(xml_data[[4]][h_x], function(x)
     as.data.frame.list(x, stringsAsFactors=FALSE)) %>%
     bind_rows()
-  home_pitchers$team <- xml_data[[8]][7]
+  home_pitchers$team <- xml_data[[8]]['home_id']
 
-  pitcher_col_names <- c("id", "name", "name_display_first_last", "pos", "out", "bf", "er", "r", "h", "so", "hr", "bb", "np", "s", "w", "l", "sv", "bs", "hld", "s_ip", "s_h", "s_r", "s_er", "s_bb", "s_so", "game_score", "era", "note", "team")
+  pitcher_col_names <- c("id", "name", "name_display_first_last", "pos", "out", "bf", "er", "r", "h", "so", "hr", "bb", "np", "s", "w", "l", "sv", "bs", "hld", "s_ip", "s_h", "s_r", "s_er", "s_bb", "s_so", "era", "note", "team")
 
   home_pitchers <- select_(home_pitchers, .dots = pitcher_col_names)
   away_pitchers <- select_(away_pitchers, .dots = pitcher_col_names)

@@ -1,7 +1,7 @@
 #' Get NCAA Baseball Rosters
 #'
 #' @param teamid NCAA id for a school
-#' @param year The year of interest
+#' @param team_year The year of interest
 #'
 #' @importFrom rvest html_nodes html_node html_attr html_table html_text
 #' @importFrom tibble tibble
@@ -17,12 +17,12 @@
 #' }
 
 get_ncaa_baseball_roster <- function(teamid = NA,
-                                     year = 2019) {
+                                     team_year = 2019) {
 
-  id <- subset(ncaa_season_id_lu, season == year, select = id)
+  id <- subset(ncaa_season_id_lu, season == team_year, select = id)
 
   school_info <- subset(master_ncaa_team_lu, school_id == teamid &
-                          year == year) %>%
+                          year == team_year) %>%
     dplyr::select(-year) %>%
     dplyr::distinct()
 
@@ -86,7 +86,7 @@ get_ncaa_baseball_roster <- function(teamid = NA,
     dplyr::bind_rows()
 
   roster <- roster %>%
-    dplyr::mutate(season = year,
+    dplyr::mutate(season = team_year,
                   player_url = ifelse(is.na(player_id), NA, paste0("https://stats.ncaa.org", url_slug))) %>%
     dplyr::select(name, class, player_id, season, number, position, player_url)
 
