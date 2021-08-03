@@ -31,7 +31,7 @@ milb_batter_game_logs_fg <- function(playerid, year = 2017) {
 
   # standard table
   payload1 <- (xml2::read_html(url_basic) %>%
-    rvest::html_nodes("table"))[15] %>%
+    rvest::html_nodes("table#SeasonStats1_dgSeason1_ctl00")) %>%
     rvest::html_table() %>%
     as.data.frame()
 
@@ -40,7 +40,7 @@ milb_batter_game_logs_fg <- function(playerid, year = 2017) {
   
   # advanced table
   payload2 <- (xml2::read_html(url_adv) %>%
-    rvest::html_elements("table"))[16] %>%
+    rvest::html_elements("table#SeasonStats1_dgSeason2_ctl00")) %>%
     rvest::html_table() %>%
     as.data.frame()
 
@@ -57,22 +57,17 @@ milb_batter_game_logs_fg <- function(playerid, year = 2017) {
                               stringsAsFactors=F)
   )
   payload1 <- dplyr::bind_cols(payload_1[1:2], payload1) 
-  payload1 <- payload1 %>% 
-    dplyr::mutate(BB.K = .data$BB. - .data$K.) %>% 
+  payload2 <- payload2 %>% 
+    dplyr::mutate(BB.K = .data$`BB.` - .data$`K.`) %>% 
     dplyr::rename(
-      BB_perc = .data$BB., 
-      K_perc = .data$K.,
-      BB_minus_K = .data$BB.K)
+      BB_perc = .data$`BB.`, 
+      K_perc = .data$`K.`,
+      BB_minus_K = .data$`BB.K`,
+      wRC_plus=.data$`wRC.`)
 
   # combine standard & advanced game log tabs
   payload <- dplyr::bind_cols(payload1,payload2 %>% 
-                                dplyr::select(-.data$Season,
-                                              -.data$G,
-                                              -.data$PA,
-                                              -.data$HR,
-                                              -.data$R,
-                                              -.data$RBI,
-                                              -.data$SB,-.data$Team,-.data$AVG))
+                                dplyr::select(-.data$Season,-.data$Team,-.data$AVG))
   
   # separate Team column into Team & MiLB level
   suppressWarnings(

@@ -7,7 +7,7 @@ cols <- c(
   "HBP", "SF", "SH", "GDP", "SB", "CS", "AVG", 
   "BB_perc", "K_perc", "BB_minus_K", "OBP", 
   "SLG", "OPS", "ISO", "Spd", 
-  "BABIP", "UBR", "wGDP", "wSB", "wRC", "wRAA", "wOBA", "wRC."
+  "BABIP", "UBR", "wGDP", "wSB", "wRC", "wRAA", "wOBA", "wRC_plus"
 )
 
 test_that("FanGraphs MiLB Batter Game Logs", {
