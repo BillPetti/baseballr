@@ -35,7 +35,7 @@ milb_batter_game_logs_fg <- function(playerid, year = 2017) {
     rvest::html_table() %>%
     as.data.frame()
 
-  payload1 <- payload1 %>%
+  payload_1 <- payload1 %>%
     dplyr::filter(!grepl("Total|Postseason", .data$Season)) 
   
   # advanced table
@@ -44,14 +44,21 @@ milb_batter_game_logs_fg <- function(playerid, year = 2017) {
     rvest::html_table() %>%
     as.data.frame()
 
-  payload2 <- payload2 %>%
+  payload_2 <- payload2 %>%
     dplyr::filter(!grepl("Total|Postseason", .data$Season),
                   !grepl("Average", .data$Team)) 
   suppressWarnings(
-    payload2 <- as.data.frame(sapply(payload2, function(x) (as.numeric(gsub("[\\%,]", "", x)))),
+    payload2 <- as.data.frame(sapply(payload_2[,3:ncol(payload_2)], function(x) (as.numeric(gsub("[\\%,]", "", x)))),
                               stringsAsFactors=F)
   )
-  payload2 <- payload2 %>% 
+  payload2 <- dplyr::bind_cols(payload_2[1:2], payload2) 
+  suppressWarnings(
+    payload1 <- as.data.frame(sapply(payload_1[,3:ncol(payload_1)], function(x) (as.numeric(gsub("[\\%,]", "", x)))),
+                              stringsAsFactors=F)
+  )
+  payload1 <- dplyr::bind_cols(payload_1[1:2], payload1) 
+  payload1 <- payload1 %>% 
+    dplyr::mutate(BB.K = .data$BB. - .data$K.) %>% 
     dplyr::rename(
       BB_perc = .data$BB., 
       K_perc = .data$K.,
@@ -59,7 +66,13 @@ milb_batter_game_logs_fg <- function(playerid, year = 2017) {
 
   # combine standard & advanced game log tabs
   payload <- dplyr::bind_cols(payload1,payload2 %>% 
-                                dplyr::select(-.data$Season,-.data$Team,-.data$AVG))
+                                dplyr::select(-.data$Season,
+                                              -.data$G,
+                                              -.data$PA,
+                                              -.data$HR,
+                                              -.data$R,
+                                              -.data$RBI,
+                                              -.data$SB,-.data$Team,-.data$AVG))
   
   # separate Team column into Team & MiLB level
   suppressWarnings(
