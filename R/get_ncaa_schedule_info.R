@@ -75,13 +75,13 @@ get_ncaa_schedule_info <- function(teamid = NULL,
       tibble::rownames_to_column('row')
 
     postponed_rows <- game_result %>%
-      dplyr::filter(.data$result == 'Ppd') %>%
+      dplyr::filter(.data$result == 'Ppd' | .data$result == 'Canceled') %>%
       dplyr::pull(.data$row)
 
     if(length(postponed_rows) > 0) {
 
       game_info_url <- game_result %>%
-        dplyr::filter(.data$result != 'Ppd') %>%
+        dplyr::filter(.data$result != 'Ppd' | .data$result != 'Canceled') %>%
         dplyr::bind_cols(game_info_url[,c(2,3)]) %>%
         dplyr::select(.data$row, .data$slug, .data$game_info_url)
     }
