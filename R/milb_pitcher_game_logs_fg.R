@@ -82,6 +82,3 @@ milb_pitcher_game_logs_fg <- function(playerid, year = 2017) {
 
   payload
 }
-
-milb_pitcher_game_logs_fg_beta("sa830370", 2021
-)

@@ -9,9 +9,9 @@ status](https://travis-ci.org/BillPetti/baseballr.svg?branch=master)](https://tr
 
 # baseballr
 
-# `baseballr` 0.8.4
+# `baseballr` 0.8.6
 
-**(latest version released 2021-02-19)**
+**(latest version released 2021-08-29)**
 
 `baseballr` is a package written for R focused on baseball analysis. It
 includes functions for scraping various data from websites, such as
