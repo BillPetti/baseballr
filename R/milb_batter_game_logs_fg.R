@@ -7,6 +7,7 @@
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_nodes html_table html_attr
 #' @importFrom tidyr separate
+#' @importFrom readr parse_number
 #' @export
 #' @examples
 #' \dontrun{milb_batter_game_logs_fg(playerid = "sa917940", 2018)}
@@ -54,8 +55,8 @@ milb_batter_game_logs_fg <- function(playerid, year = 2017) {
   payload2 <- as.data.frame(sapply(payload2, function(x) (gsub("\\ %", "", x))),
                            stringsAsFactors=F)
 
-  payload2$BB_perc <- as.numeric(payload2$BB_perc)/100
-  payload2$K_perc <- as.numeric(payload2$K_perc)/100
+  payload2$BB_perc <- readr::parse_number(payload2$BB_perc)/100
+  payload2$K_perc <- readr::parse_number(payload2$K_perc)/100
 
   # combine standard & advanced game log tabs
   payload <- merge(payload1,payload2)
