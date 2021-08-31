@@ -19,5 +19,3 @@ This function allows a user to generate linear weight values for events using Ba
 \examples{
 \dontrun{linear_weights_savant(df, level = "plate appearance")}
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

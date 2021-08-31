@@ -4,25 +4,63 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, echo = FALSE}
+```{r, include = FALSE}
+require(knitr)
+if (!requireNamespace('issue') & !requireNamespace('pacman')){
+  install.packages('pacman')
+}
+pacman::p_load(magick, grid, dplyr, lubridate)
+pacman::p_load_gh("yonicd/issue")
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  warning = FALSE,
-  message = FALSE,
-  fig.path = "README-"
+  fig.path = "man/figures/README-",
+  out.width = "95%"
 )
+opts_template$set(stripfigure = list(fig.height = 8, out.width = "95%"))
+token <- tryCatch(
+  gitcreds::gitcreds_get(),
+  error = function(e) NULL
+)
+raw_data <- issue::get_issues(
+  repo = 'BillPetti/baseballr',
+  last = 20,
+  PAT  = token$password
+)
+
+tbl <- raw_data%>%
+  issue::issue_tibble()
+open_tbl <- tbl[tbl$pull_request==FALSE & tbl$state=="open",]
+closed_tbl <- tbl[tbl$state=="closed",]
+x <- open_tbl %>%
+  issue::md_table() %>% 
+  dplyr::mutate(
+    date = lubridate::as_date(.data$created)
+  ) %>% 
+  dplyr::select(.data$issue, .data$icon, .data$title, .data$labels, .data$opened_by, .data$date, .data$closed)
+x2 <- closed_tbl %>% 
+  issue::md_table()%>% 
+  dplyr::mutate(
+    date = lubridate::as_date(.data$created)
+  ) %>% 
+  dplyr::select(.data$issue, .data$icon, .data$title, .data$labels, .data$opened_by, .data$date, .data$closed)
 ```
 
-<!-- badges: start -->
-[![Travis build status](https://travis-ci.org/BillPetti/baseballr.svg?branch=master)](https://travis-ci.org/BillPetti/baseballr)
+
+<!-- badges: start --> 
+
+![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)
+![R-CMD-check](https://img.shields.io/github/workflow/status/SaiemGilani/baseballr/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=blue&style=for-the-badge)
+![Contributors](https://img.shields.io/github/contributors/BillPetti/baseballr?style=for-the-badge)
+![Version-Number](https://img.shields.io/github/r-package/v/SaiemGilani/baseballr?label=baseballr&logo=R&style=for-the-badge)
+[![Twitter Follow](https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge)](https://twitter.com/BillPetti) 
 <!-- badges: end -->
 
 # baseballr
 
-# `baseballr` 0.6.0
+# `baseballr` 0.9.9
 
-**(latest version released 2020-01-07)**
+**(latest version released 2021-06-25)**
 
 `baseballr` is a package written for R focused on baseball analysis. It
 includes functions for scraping various data from websites, such as
@@ -35,13 +73,25 @@ You can read more about some of the functions and how to use them at its
 [Hardball Times
 article](http://www.hardballtimes.com/developing-the-baseballr-package-for-r/).
 
-## Installation
+## **Installation**
 
-You can install `baseballr` from github with:
+You can install the released version of [**```baseballr```**](https://github.com/BillPetti/baseballr/) from [GitHub](https://github.com/BillPetti/baseballr) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("BillPetti/baseballr")
+# You can install using the pacman package using the following code:
+if (!requireNamespace('pacman', quietly = TRUE)){
+  install.packages('pacman')
+}
+pacman::p_load_current_gh("saiemgilani/baseballr")
+```
+
+``` r
+# if you would prefer devtools installation
+if (!requireNamespace('devtools', quietly = TRUE)){
+  install.packages('devtools')
+}
+# Alternatively, using the devtools package:
+devtools::install_github(repo = "BillPetti/baseballr")
 ```
 
 For experimental functions in development, you can install the [development branch](https://github.com/BillPetti/baseballr/tree/development_branch):
@@ -109,7 +159,8 @@ The `edge_scrape()` function allows the user to scrape PITCHf/x data from the Ga
 
 Example (pitchers):
 
-```{r, message=FALSE}
+```{r, eval = FALSE,message=FALSE}
+library(dplyr)
 edge_scrape("2015-04-06", "2015-04-07", "pitcher") %>% 
   select(-6:-4, -13) %>% 
   head(10)
@@ -117,10 +168,53 @@ edge_scrape("2015-04-06", "2015-04-07", "pitcher") %>%
 
 Example (batters):
 
-```{r, message=FALSE}
+```{r, eval=FALSE, message=FALSE}
 edge_scrape("2015-04-06", "2015-04-07", "batter") %>% 
   select(-6:-4, -13) %>% 
   head(10)
 ```
 
 More functionality will be added soon. Please leave any suggestions or bugs in the [Issues section](https://github.com/BillPetti/baseballr/issues).
+
+
+# Current Issues
+
+```{r,results='asis',echo=FALSE}
+x[c(1:(min(nrow(x),5))),] %>%
+  knitr::kable()
+```
+
+<details><summary>View More</summary>
+
+```{r,results='asis',echo=FALSE}
+x2[c(1:(min(nrow(x),5))),] %>%
+  knitr::kable()
+```
+
+</details>
+<br>
+
+
+# **Our Authors**
+
+-   [Bill Petti](https://twitter.com/BillPetti)       
+<a href="https://twitter.com/BillPetti" target="blank"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge" alt="@BillPetti" /></a>
+<a href="https://github.com/BillPetti" target="blank"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&logo=Github&style=for-the-badge" alt="@BillPetti" /></a>
+
+# **Our Contributors (they're awesome)**
+
+-   [Ben Baumer](https://twitter.com/BaumerBen)       
+<a href="https://twitter.com/BaumerBen" target="blank"><img src="https://img.shields.io/twitter/follow/BaumerBen?color=blue&label=%40BaumerBen&logo=twitter&style=for-the-badge" alt="@BaumerBen" /></a>
+<a href="https://github.com/beanumber" target="blank"><img src="https://img.shields.io/github/followers/beanumber?color=eee&logo=Github&style=for-the-badge" alt="@beanumber" /></a>
+
+-   [Ben Dilday](https://twitter.com/BenDilday)      
+<a href="https://twitter.com/BenDilday" target="blank"><img src="https://img.shields.io/twitter/follow/BenDilday?color=blue&label=%40BenDilday&logo=twitter&style=for-the-badge" alt="@BenDilday" /></a> 
+<a href="https://github.com/bdilday" target="blank"><img src="https://img.shields.io/github/followers/bdilday?color=eee&logo=Github&style=for-the-badge" alt="@bdilday" /></a>
+
+-   [Robert Frey](https://twitter.com/RobertFrey40)      
+<a href="https://twitter.com/RobertFrey40" target="blank"><img src="https://img.shields.io/twitter/follow/RobertFrey40?color=blue&label=%40RobertFrey40&logo=twitter&style=for-the-badge" alt="@RobertFrey40" /></a> 
+<a href="https://github.com/robert-frey" target="blank"><img src="https://img.shields.io/github/followers/robert-frey?color=eee&logo=Github&style=for-the-badge" alt="@robert-frey" /></a>
+
+-   [Saiem Gilani](https://twitter.com/saiemgilani)       
+<a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
+<a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>

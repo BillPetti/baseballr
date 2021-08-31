@@ -17,5 +17,3 @@ This function allows you to scrape game logs by year for a batter from FanGraphs
 \examples{
 \dontrun{batter_game_logs_fg(playerid = 6184, year = 2017)}
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

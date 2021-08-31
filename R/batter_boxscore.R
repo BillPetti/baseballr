@@ -3,7 +3,6 @@
 #' This function allows a user to retrieve a boxscore of batter statistics for any game played in the PITCHf/x era (2008-current). The function takes a boxscore.xml url as it's only argument and returns boxscore data for both the home and away batters.
 #'
 #' @param x A boxscore.xml url for a given game from the MLBAM GameDay app data.
-#' @keywords MLB, PITCHf/x, Game Day, boxscore, sabermetrics
 #' @importFrom XML xmlParse xmlToList
 #' @export
 #' @examples \dontrun{
@@ -49,9 +48,9 @@ batter_boxscore <- function(x) {
 
   batter_col_names <- c("id", "name", "name_display_first_last", "pos", "bo", "ab", "po", "r", "a", "bb", "sac", "t", "sf", "h", "e", "d", "hbp", "so", "hr", "rbi", "lob", "fldg", "sb", "cs", "s_hr", "s_rbi", "s_h", "s_bb", "s_r", "s_so", "avg", "obp", "slg", "ops", "go", "ao", "gidp", "note", "team")
 
-  home_batters <- select_(home_batters, .dots = batter_col_names)
-  away_batters <- select_(away_batters, .dots = batter_col_names)
+  home_batters <- home_batters %>% dplyr::select(batter_col_names)
+  away_batters <- away_batters %>% dplyr::select(batter_col_names)
 
-  batters <- rbind(away_batters, home_batters)
-  batters
+  batters <- dplyr::bind_rows(away_batters, home_batters)
+  return(batters)
 }

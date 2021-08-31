@@ -5,7 +5,7 @@
 #' the \code{\link{run_expectancy_code}} function.
 #' @param level Whether to calculate linear weights the plate appearance or pitch
 #' level. Defaults to 'plate appearance'.
-#' @keywords MLB, sabermetrics
+#' 
 #' @export
 #' @examples
 #' \dontrun{linear_weights_savant(df, level = "plate appearance")}
@@ -24,30 +24,31 @@ linear_weights_savant <- function (df,
                   "batter_interference")
 
     df <- df %>%
-      dplyr::filter(final_pitch_at_bat == 1)
+      dplyr::filter(.data$final_pitch_at_bat == 1)
 
     linear_wght_outs <- df %>%
-      dplyr::filter(!events %in% non_outs) %>%
-      dplyr::summarise(outs = round(mean(re24, na.rm = TRUE),
-                                    2))
+      dplyr::filter(!.data$events %in% non_outs) %>%
+      dplyr::summarise(
+        outs = round(mean(.data$re24, na.rm = TRUE),2))
     linear_above_outs <- df %>%
-      dplyr::filter(events %in% c("home_run", "triple", "double", "single", "walk", "hit_by_pitch")) %>%
-      dplyr::group_by(events) %>%
+      dplyr::filter(.data$events %in% c("home_run", "triple", "double", "single", "walk", "hit_by_pitch")) %>%
+      dplyr::group_by(.data$events) %>%
       dplyr::summarise(linear_weights_above_average =
-                         round(mean(re24,na.rm = TRUE), 2)) %>%
-      dplyr::add_row(events = "outs",
-                     linear_weights_above_average = linear_wght_outs$outs) %>%
-      dplyr::arrange(desc(linear_weights_above_average)) %>%
-      dplyr::mutate(linear_weights_above_outs = linear_weights_above_average +
-                      abs(linear_wght_outs$outs))
-    linear_above_outs
+                         round(mean(.data$re24,na.rm = TRUE), 2)) %>%
+      dplyr::add_row(
+        events = "outs",
+        linear_weights_above_average = linear_wght_outs$outs) %>%
+      dplyr::arrange(desc(.data$linear_weights_above_average)) %>%
+      dplyr::mutate(
+        linear_weights_above_outs = .data$linear_weights_above_average +abs(linear_wght_outs$outs))
+    return(linear_above_outs)
   }
   else {
 
     df <- df %>%
-      mutate(events = ifelse(is.na(events), type, events)) %>%
-      mutate(events = ifelse(events == "B", "ball",
-                             ifelse(events == "S", "strikes", events)))
+      mutate(events = ifelse(is.na(.data$events), .data$type, .data$events)) %>%
+      mutate(events = ifelse(.data$events == "B", "ball",
+                             ifelse(.data$events == "S", "strikes", .data$events)))
 
     non_outs <- c("ball", "strikes", "home_run", "triple", "double", "single",
                   "walk", "hit_by_pitch", "pickoff_2B", "caught_stealing_2b",
@@ -57,20 +58,20 @@ linear_weights_savant <- function (df,
                   "batter_interference")
 
     linear_wght_outs <- df %>%
-      dplyr::filter(!events %in% non_outs) %>%
-      dplyr::summarise(outs = round(mean(re24, na.rm = TRUE),
+      dplyr::filter(!.data$events %in% non_outs) %>%
+      dplyr::summarise(outs = round(mean(.data$re24, na.rm = TRUE),
                                     2))
     linear_above_outs <- df %>%
-      dplyr::filter(events %in% c("home_run", "triple", "double", "single", "walk", "hit_by_pitch", "ball", "strikes")) %>%
-      dplyr::group_by(events) %>%
+      dplyr::filter(.data$events %in% c("home_run", "triple", "double", "single", "walk", "hit_by_pitch", "ball", "strikes")) %>%
+      dplyr::group_by(.data$events) %>%
       dplyr::summarise(linear_weights_above_average =
-                         round(mean(re24,na.rm = TRUE), 2)) %>%
+                         round(mean(.data$re24,na.rm = TRUE), 2)) %>%
       dplyr::add_row(events = "outs",
                      linear_weights_above_average = linear_wght_outs$outs) %>%
-      dplyr::arrange(desc(linear_weights_above_average)) %>%
-      dplyr::mutate(linear_weights_above_outs = linear_weights_above_average +
+      dplyr::arrange(desc(.data$linear_weights_above_average)) %>%
+      dplyr::mutate(linear_weights_above_outs = .data$linear_weights_above_average +
                       abs(linear_wght_outs$outs))
-    linear_above_outs
+    return(linear_above_outs)
 
   }
 }

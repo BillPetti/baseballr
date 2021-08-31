@@ -90,6 +90,3 @@ daily <- scrape_statcast_savant_pitcher_all(start_date = "2016-04-06",
   end_date = "2016-04-06")
 }
 }
-\keyword{MLB,}
-\keyword{Statcast}
-\keyword{sabermetrics,}

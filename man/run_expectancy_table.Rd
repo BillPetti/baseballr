@@ -17,5 +17,3 @@ These functions allow a user to generate run expectancy tables from Baseball Sav
 \examples{
 \dontrun{run_expectancy_table(df, level = "plate appearances")}
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

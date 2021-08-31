@@ -16,5 +16,3 @@ Download a data frame of all umpires and their mlbamids for games since 2008
 \examples{
 \dontrun{get_umpire_ids_petti()}
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

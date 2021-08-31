@@ -10,7 +10,7 @@ fg_pitch_leaders(
   league = "all",
   qual = "y",
   pitcher_type = "pit",
-  ind = 0
+  ind = 1
 )
 }
 \arguments{

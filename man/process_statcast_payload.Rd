@@ -20,6 +20,3 @@ baseballsavant to ensure consistency in formattting across downloads
 process_statcast_payload(payload)
 }
 }
-\keyword{MLB,}
-\keyword{Statcast}
-\keyword{sabermetrics,}

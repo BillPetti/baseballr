@@ -12,7 +12,6 @@
 #' @param point_alpha Alpha value whenever geom_point is used. Deaults to .75. Recommend .3 for density plots. To remove points on density points set use point_alpha = 0.
 #' @param point_size Set the size of geom_point if used.
 #' @param frame Variable to use as the frame argument if using gganimate to create animated plots. For density plots be sure your variable is a factor.
-#' @keywords MLB, sabermetrics, Statcast, ggplot2
 #' @importFrom ggplot2 ggplot geom_point geom_curve geom_segment coord_fixed theme stat_density2d xlim ylim scale_fill_continuous aes_string element_text scale_fill_manual aes
 #' @export
 #' @examples
@@ -77,7 +76,7 @@ ggspraychart <- function(data, x_value = "hc_x",
   }
   } else {
     plot <- ggplot(data = data, aes_string(x = x_value, y = y_value, frame = frame)) +
-      stat_density2d(aes(fill = ..level..), contour = TRUE,
+      stat_density2d(aes(fill = .data$..level..), contour = TRUE,
                      geom = "polygon", alpha = .3, bins = bin_size) +
       stat_density2d(color = "grey20", alpha = .6, bins = bin_size) +
       geom_point(alpha = point_alpha,

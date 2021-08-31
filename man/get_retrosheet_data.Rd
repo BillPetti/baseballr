@@ -31,5 +31,9 @@ roster for each year
 Get, Parse, and Format Retrosheet Event and Roster Files
 }
 \examples{
-\dontrun{get_retrosheet_data(path_to_directory = "/Users/Documents/retrosheet/", years_to_acquire = c(1957,1959), sequence_years = F)}
+\dontrun{
+  get_retrosheet_data(path_to_directory = "/Users/Documents/retrosheet/", 
+    years_to_acquire = c(1957,1959), 
+    sequence_years = F)
+}
 }

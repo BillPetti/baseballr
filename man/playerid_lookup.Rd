@@ -19,5 +19,3 @@ This function allows you to query the Chadwick Bureau's public register of baseb
 playerid_lookup("Garcia", "Karim")
 }
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

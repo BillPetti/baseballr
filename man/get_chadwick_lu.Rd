@@ -12,5 +12,3 @@ Directly download the Chadwick Bureau's public register of baseball players and 
 \examples{
 \dontrun{get_chadwick_lu()}
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

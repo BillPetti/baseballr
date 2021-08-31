@@ -3,13 +3,13 @@
 #' This function allows you to scrape MILB game logs for individual batters from FanGraphs.com.
 #' @param playerid The batter's minor leauge ID from FanGraphs.com.
 #' @param year The season for which game logs should be returned.
-#' @keywords MLB, sabermetrics
+#' 
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_nodes html_table html_attr
 #' @importFrom tidyr separate
 #' @export
 #' @examples
-#' \dontrun{milb_batter_game_logs_fg(playerid = "sa917940", 2018)}
+#' \dontrun{milb_batter_game_logs_fg(playerid = "sa917940", year=2018)}
 
 milb_batter_game_logs_fg <- function(playerid, year = 2017) {
 
@@ -30,40 +30,50 @@ milb_batter_game_logs_fg <- function(playerid, year = 2017) {
                     "&position=PB","&type=-2")
 
   # standard table
-  payload1 <- xml2::read_html(url_basic) %>%
-    rvest::html_nodes("table") %>%
-    .[length(.)] %>%
+  payload1 <- (xml2::read_html(url_basic) %>%
+    rvest::html_nodes("table#SeasonStats1_dgSeason1_ctl00")) %>%
     rvest::html_table() %>%
     as.data.frame()
 
-  payload1 <- payload1 %>%
-    dplyr::filter(!grepl("Date|Total", Date))
-
+  payload_1 <- payload1 %>%
+    dplyr::filter(!grepl("Total|Postseason", .data$Season)) 
+  
   # advanced table
-  payload2 <- xml2::read_html(url_adv) %>%
-    rvest::html_nodes("table") %>%
-    .[length(.)] %>%
+  payload2 <- (xml2::read_html(url_adv) %>%
+    rvest::html_elements("table#SeasonStats1_dgSeason2_ctl00")) %>%
     rvest::html_table() %>%
     as.data.frame()
 
-  payload2 <- payload2 %>%
-    dplyr::filter(!grepl("Date|Total", Date)) %>%
-    dplyr::rename(BB_perc = BB., K_perc = K.,
-                wRC_plus = wRC., BB_per_K = BB.K)
-
-  payload2 <- as.data.frame(sapply(payload2, function(x) (gsub("\\ %", "", x))),
-                           stringsAsFactors=F)
-
-  payload2$BB_perc <- as.numeric(payload2$BB_perc)/100
-  payload2$K_perc <- as.numeric(payload2$K_perc)/100
+  payload_2 <- payload2 %>%
+    dplyr::filter(!grepl("Total|Postseason", .data$Season),
+                  !grepl("Average", .data$Team)) 
+  suppressWarnings(
+    payload2 <- as.data.frame(sapply(payload_2[,3:ncol(payload_2)], function(x) (as.numeric(gsub("[\\%,]", "", x)))),
+                              stringsAsFactors=F)
+  )
+  payload2 <- dplyr::bind_cols(payload_2[1:2], payload2) 
+  suppressWarnings(
+    payload1 <- as.data.frame(sapply(payload_1[,3:ncol(payload_1)], function(x) (as.numeric(gsub("[\\%,]", "", x)))),
+                              stringsAsFactors=F)
+  )
+  payload1 <- dplyr::bind_cols(payload_1[1:2], payload1) 
+  payload2 <- payload2 %>% 
+    dplyr::mutate(BB.K = .data$`BB.` - .data$`K.`) %>% 
+    dplyr::rename(
+      BB_perc = .data$`BB.`, 
+      K_perc = .data$`K.`,
+      BB_minus_K = .data$`BB.K`,
+      wRC_plus=.data$`wRC.`)
 
   # combine standard & advanced game log tabs
-  payload <- merge(payload1,payload2)
-
+  payload <- dplyr::bind_cols(payload1,payload2 %>% 
+                                dplyr::select(-.data$Season,-.data$Team,-.data$AVG))
+  
   # separate Team column into Team & MiLB level
-  payload <- payload %>%
-    separate(Team, into = c("Team","Level"),sep=" ")
-
+  suppressWarnings(
+    payload <- payload %>%
+      separate(.data$Team, into = c("Team","Level"),sep=" ")
+  )
   # extract player name
 
   player_name <- xml2::read_html(url_basic) %>%
@@ -73,9 +83,10 @@ milb_batter_game_logs_fg <- function(playerid, year = 2017) {
   # add playerid to payload
 
   payload <- payload %>%
-    mutate(name = player_name,
-           minor_playerid = playerid) %>%
-    select(name, minor_playerid, everything())
+    dplyr::mutate(
+      name = player_name,
+      minor_playerid = playerid) %>%
+    dplyr::select(.data$name, .data$minor_playerid, tidyr::everything())
 
-  payload
+  return(payload)
 }

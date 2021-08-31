@@ -5,14 +5,13 @@
 #' @param end_date a date object representing the last date of the period
 #' @param lg_div One or more of AL East, AL Central, AL West,
 #' AL Overall, NL East, NL Central, NL West, and NL Overall
-#' @keywords MLB, standings
 #' @importFrom highcharter hchart hc_title hc_subtitle hc_credits hc_yAxis hc_xAxis hc_add_theme hcaes hc_theme_smpl
 #' @importFrom pbapply pbsapply
 #' @importFrom tidyr separate
 #' @export viz_gb_on_period
 #' @examples
 #' \dontrun{
-#' viz_gb_on_period("2017-04-02","2017-04-10", "AL East")
+#' viz_gb_on_period(start_date = "2017-04-02", end_date = "2017-04-10", lg_div = "AL East")
 #' }
 
 viz_gb_on_period <- function(start_date, end_date, lg_div) {
@@ -31,14 +30,15 @@ viz_gb_on_period <- function(start_date, end_date, lg_div) {
   all$GB <- as.numeric(all$GB, digits = 2)
   all$pythWLpct[is.na(all$pythWLpct)] <- 0
   all$Date <- as.Date(all$Date)
-  all <- all %>% select(League, Date, Team, W, L, WLpct, GB)
+  all <- all %>% 
+    dplyr::select(.data$League, .data$Date, .data$Team, .data$W, .data$L, .data$WLpct, .data$GB)
 
   first_end <- all %>%
-    filter(Date == min(Date) | Date == max(Date)) %>%
-    arrange(Date, GB)
+    dplyr::filter(.data$Date == min(.data$Date) | .data$Date == max(.data$Date)) %>%
+    dplyr::arrange(.data$Date, .data$GB)
   print(first_end)
 
-  highcharter::hchart(all, "line", highcharter::hcaes(x = Date, y = GB, group = Team)) %>%
+  highcharter::hchart(all, "line", highcharter::hcaes(x = .data$Date, y = .data$GB, group = .data$Team)) %>%
     highcharter::hc_title(text = paste(all$League[1], "Standings (GB - Games behind)")) %>%
     highcharter::hc_subtitle(text = paste("from", start_date, "to", end_date)) %>%
     highcharter::hc_credits(enabled = TRUE, # add credits

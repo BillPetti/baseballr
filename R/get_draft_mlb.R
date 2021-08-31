@@ -4,7 +4,6 @@
 #' @return Returns a data frame with information for every draft pick in every
 #' round for that year
 #' requested
-#' @keywords MLB, sabermetrics
 #' @export
 #'
 #' @examples \dontrun{get_draft_mlb(2009)}
@@ -24,7 +23,7 @@ get_draft_mlb<- function(year) {
 
   draft_table_filled <- dplyr::bind_rows(column_structure_draft_mlb,
                                          draft_table) %>%
-    filter(!is.na(bisPlayerId)) %>%
+    filter(!is.na(.data$bisPlayerId)) %>%
     janitor::clean_names()
 
   return(draft_table_filled)
