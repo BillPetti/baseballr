@@ -39,7 +39,7 @@ get_ncaa_lineups <- function(game_info_url,year) {
     dplyr::rename(
       playerName = .data$X1, 
       position = .data$X2) %>% 
-    dplyr::mutate(school = playerName[1]) %>% 
+    dplyr::mutate(school = .data$playerName[1]) %>% 
     dplyr::select(.data$playerName, .data$position, .data$school)
   dfb <- dfb[c(-1:-2,-nrow(dfb)),]
   dfb <-  dfb %>% 
