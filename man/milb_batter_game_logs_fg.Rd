@@ -15,7 +15,7 @@ milb_batter_game_logs_fg(playerid, year = 2017)
 This function allows you to scrape MiLB game logs for individual batters from FanGraphs.com.
 }
 \examples{
-\dontrun{milb_batter_game_logs_fg(playerid = "sa917940", 2018)}
+\dontrun{milb_batter_game_logs_fg(playerid = "sa917940", year=2018)}
 }
 \keyword{MLB,}
 \keyword{sabermetrics}
