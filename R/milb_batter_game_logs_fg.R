@@ -3,7 +3,6 @@
 #' This function allows you to scrape MiLB game logs for individual batters from FanGraphs.com.
 #' @param playerid The batter's minor leauge ID from FanGraphs.com.
 #' @param year The season for which game logs should be returned.
-#' @keywords MLB, sabermetrics
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_nodes html_table html_elements
 #' @importFrom tidyr separate
