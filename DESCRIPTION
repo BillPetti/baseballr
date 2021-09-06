@@ -11,7 +11,7 @@ Description: Provides numerous functions for acquiring and analyzing baseball
     data. Data can be acquired from various online sources from within R.
     Custom metrics can also be calculated, such as wOBA, FIP, and Edge%.
 Depends:
-    R (>= 3.2.0)
+    R (>= 3.6.0)
 Imports:
     dplyr,
     magrittr,
@@ -25,7 +25,7 @@ Imports:
     readr,
     reldist,
     rlang,
-    rvest,
+    rvest (>= 1.0.0),
     stringr,
     tidyr,
     XML,
