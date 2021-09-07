@@ -4,9 +4,9 @@
 <!-- badges: start -->
 
 ![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)
-![R-CMD-check](https://img.shields.io/github/workflow/status/SaiemGilani/baseballr/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=blue&style=for-the-badge)
+![R-CMD-check](https://img.shields.io/github/workflow/status/BillPetti/baseballr/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=blue&style=for-the-badge)
 ![Contributors](https://img.shields.io/github/contributors/BillPetti/baseballr?style=for-the-badge)
-![Version-Number](https://img.shields.io/github/r-package/v/SaiemGilani/baseballr?label=baseballr&logo=R&style=for-the-badge)
+![Version-Number](https://img.shields.io/github/r-package/v/BillPetti/baseballr?label=baseballr&logo=R&style=for-the-badge)
 [![Twitter
 Follow](https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge)](https://twitter.com/BillPetti)
 <!-- badges: end -->
@@ -39,7 +39,7 @@ You can install the released version of
 if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
 }
-pacman::p_load_current_gh("saiemgilani/baseballr")
+pacman::p_load_current_gh("BillPetti/baseballr")
 ```
 
 ``` r
