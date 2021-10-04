@@ -15,6 +15,3 @@ This function allows you to code a batted ball as a barrel as defined by the Sta
 \examples{
 \dontrun{code_barrel(df)}
 }
-\keyword{MLB,}
-\keyword{Statcast}
-\keyword{sabermetrics,}

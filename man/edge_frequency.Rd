@@ -17,6 +17,3 @@ This function allows you to calculate the percent of pitches thrown to different
 \examples{
 \dontrun{edge_code(df, group = "pitcher")}
 }
-\keyword{MLB,}
-\keyword{PITCHf/x}
-\keyword{sabermetrics,}

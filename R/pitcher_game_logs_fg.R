@@ -3,7 +3,6 @@
 #' This function allows you to scrape game logs by year for a pitcher from FanGraphs.com.
 #' @param playerid This is the playerid used by FanGraphs for a given player
 #' @param year The season for which game logs should be returned (use the YYYY format)
-#' @keywords MLB, sabermetrics
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_nodes html_table
 #' @export
@@ -19,36 +18,41 @@ pitcher_game_logs_fg <- function(playerid, year = 2017) {
                 "&season=",
                 year, "&position=P")
 
-  payload <- xml2::read_html(url) %>%
-    rvest::html_nodes("table") %>%
-    .[length(.)] %>%
+  payload <- (xml2::read_html(url) %>%
+    rvest::html_nodes("table"))[16] %>%
     rvest::html_table(fill = TRUE) %>%
     as.data.frame()
 
   payload <- payload %>%
-    dplyr::filter(!grepl("Date|Total", Date)) %>%
-    dplyr::rename(K_9 = K.9, BB_9 = BB.9, HR_9 = HR.9,
-                  LOB_perc = LOB., GB_perc = GB.,
-                  HR_FB = HR.FB)
-
+    dplyr::filter(!grepl("Date|Total", .data$Date)) 
   if (nrow(payload) > 1) {
-
-    payload <- as.data.frame(sapply(payload, function(x) (gsub("\\ %", "", x))),
-                             stringsAsFactors=F)
+    suppressWarnings(
+      payload <- payload %>% 
+        dplyr::mutate(
+          K.9 = as.numeric(.data$K.9),
+          BB.9 = as.numeric(.data$BB.9),
+          HR.9 = as.numeric(.data$HR.9),
+          LOB. = as.numeric(gsub("[\\%,]", "", .data$LOB.)),
+          GB. = as.numeric(gsub("[\\%,]", "", .data$GB.)),
+          HR.FB = as.numeric(gsub("[\\%,]", "", .data$HR.FB))) %>% 
+        dplyr::rename(
+          K_9 = .data$K.9,
+          BB_9 = .data$BB.9,
+          HR_9 = .data$HR.9,
+          LOB_perc = .data$LOB., 
+          GB_perc = .data$GB.,
+          HR_FB = .data$HR.FB)
+    )
   } else {
-
-    payload <- lapply(payload, function(x) (gsub("\\ %",
-                                                 "", x))) %>%
-      bind_rows()
-
+    suppressWarnings(
+      payload <- lapply(payload, function(x) (as.numeric(gsub("[\\%,]", "", x)))) %>%
+        dplyr::bind_rows()
+    )
   }
-
-  payload$K_9 <- as.numeric(payload$K_9)
-  payload$BB_9 <- as.numeric(payload$BB_9)
-  payload$HR_9 <- as.numeric(payload$HR_9)
+  
+ 
   payload$LOB_perc <- as.numeric(payload$LOB_perc)/100
   payload$GB_perc <- as.numeric(payload$GB_perc)/100
-  payload$HR_FB <- as.numeric(payload$HR_FB)
 
-  payload
+  return(payload)
 }

@@ -16,5 +16,3 @@ This function allows you to query the Chadwick Bureau's public register of baseb
 \dontrun{playername_lookup(4885)}
 \dontrun{playername_lookup("kaaihki01")}
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

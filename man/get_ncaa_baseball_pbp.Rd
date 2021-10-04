@@ -18,5 +18,8 @@ game.
 Get Play-By-Play Data for NCAA Baseball Games
 }
 \examples{
-\dontrun{get_ncaa_schedule_info(736, 2019)}
+\dontrun{
+x <- get_ncaa_schedule_info(736, 2019)$game_info_url[2]
+get_ncaa_baseball_pbp(game_info_url = x)
+}
 }

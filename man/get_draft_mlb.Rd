@@ -20,5 +20,3 @@ Retrieve draft pick information by year via the MLB api \url{http://statsapi.mlb
 \examples{
 \dontrun{get_draft_mlb(2009)}
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

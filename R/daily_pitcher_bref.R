@@ -5,7 +5,6 @@
 #' @param t2 Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_nodes html_table html_attr
-#' @keywords MLB, sabermetrics
 #' @export
 #' @examples
 #' \dontrun{daily_pitcher_bref("2015-05-10", "2015-06-20")}
@@ -21,39 +20,55 @@ daily_pitcher_bref <- function(t1, t2) {
 
   df <- as.data.frame(df)[-c(1,3,5)]
   names(df)[1:4] <- c("Name", "Age", "Level", "Team")
-  df[,c(2,5:29, 36:39)] <- lapply(df[,c(2,5:29, 36:39)], as.numeric)
+  suppressWarnings(
+    df[,c(2,5:29, 36:39)] <- lapply(df[,c(2,5:29, 36:39)], as.numeric)
+  )
   df$X1B <- with(df, H-(X2B+X3B+HR))
   season <- substr(t1, 1, 4)
   df$season <- season
   df$uBB <- with(df, BB-IBB)
-  df[,30] <- as.numeric(sub("%", "", df[, 30]))
-  df[,31] <- as.numeric(sub("%", "", df[, 31]))
-  df[,32] <- as.numeric(sub("%", "", df[, 32]))
-  df[,33] <- as.numeric(sub("%", "", df[, 33]))
-  df[,34] <- as.numeric(sub("%", "", df[, 34]))
-  df[,35] <- as.numeric(sub("%", "", df[, 35]))
+  
+  suppressWarnings(
+    df[,30] <- as.numeric(sub("%", "", df[, 30]))
+  )
+  suppressWarnings(
+    df[,31] <- as.numeric(sub("%", "", df[, 31]))
+  )
+  suppressWarnings(
+    df[,32] <- as.numeric(sub("%", "", df[, 32]))
+  )
+  suppressWarnings(
+    df[,33] <- as.numeric(sub("%", "", df[, 33]))
+  )
+  suppressWarnings(
+    df[,34] <- as.numeric(sub("%", "", df[, 34]))
+  )
+  suppressWarnings(
+    df[,35] <- as.numeric(sub("%", "", df[, 35]))
+  )
   df[,c(30:35)] <- df[,c(30:35)]/100
   df <- df[,c(41,1:13,42,14:19,40,20:39)]
   df$SO_perc <- with(df, round(SO/BF,3))
   df$uBB_perc <- with(df, round(uBB/BF,3))
   df$SO_uBB <- with(df, round(SO_perc - uBB_perc))
   df$Team <- gsub(" $", "", df$Team, perl=T)
-  df <- filter_(df, ~Name != "Name")
-  df <- arrange_(df, ~desc(IP), ~desc(WHIP))
+  df <- df %>% 
+    dplyr::filter(.data$Name != "Name") %>% 
+    dplyr::arrange(desc(.data$IP), desc(.data$WHIP))
 
   playerids <- payload %>%
     html_nodes("table") %>%
     html_nodes("a") %>%
     html_attr("href") %>%
     as.data.frame() %>%
-    rename(slug = ".") %>%
-    filter(grepl("redirect", slug)) %>%
-    mutate(playerid = gsub("/redirect.fcgi\\?player=1&mlb_ID=", "", slug))
+    dplyr::rename(slug = .data$`.`) %>%
+    dplyr::filter(grepl("redirect", .data$slug)) %>%
+    dplyr::mutate(playerid = gsub("/redirect.fcgi\\?player=1&mlb_ID=", "", .data$slug))
 
   df <- df %>%
-    mutate(bbref_id = playerids$playerid) %>%
-    select(bbref_id, everything())
+    dplyr::mutate(bbref_id = playerids$playerid) %>%
+    dplyr::select(.data$bbref_id, tidyr::everything())
 
-  df
+  return(df)
 
 }

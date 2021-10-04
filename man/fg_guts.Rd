@@ -12,5 +12,3 @@ This function allows you to scrape the historical, season-by-season wOBA and FIP
 \examples{
 fg_guts()
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

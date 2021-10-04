@@ -1,19 +1,17 @@
 Package: baseballr
-Title: Functions for acquiring and analyzing baseball data
-Version: 0.8.6
-Author: Bill Petti <billpetti@gmail.com>
+Title: Functions for Acquiring and Analyzing Baseball Data
+Version: 0.9.9
 Authors@R: c(
-    person("Bill", "Petti", email = "billpetti@gmail.com",
-      role = c("aut", "cre")),
+    person("Bill", "Petti", email = "billpetti@gmail.com", role = c("aut", "cre")),
     person("Ben", "Baumer", email = "ben.baumer@gmail.com", role = "ctb"),
     person("Ben", "Dilday", email = "ben.dilday.phd@gmail.com", role = "ctb"),
-    person("Robert", "Frey", email = "rfrey22@gmail.com", role = "ctb"))
-Maintainer: Bill Petti <billpetti@gmail.com>
+    person("Robert", "Frey", email = "rfrey22@gmail.com", role = "ctb"),
+    person("Saiem", "Gilani", email = "saiem.gilani@gmail.com", role = "ctb"))
 Description: Provides numerous functions for acquiring and analyzing baseball
     data. Data can be acquired from various online sources from within R.
     Custom metrics can also be calculated, such as wOBA, FIP, and Edge%.
 Depends:
-    R (>= 3.2.0)
+    R (>= 3.6.0)
 Imports:
     dplyr,
     magrittr,
@@ -26,7 +24,8 @@ Imports:
     purrr,
     readr,
     reldist,
-    rvest,
+    rlang,
+    rvest (>= 1.0.0),
     stringr,
     tidyr,
     XML,
@@ -35,7 +34,7 @@ Imports:
     tibble,
     vroom
 License: MIT + file LICENSE
-URL: https://billpetti.github.io/baseballr/
+URL: https://saiemgilani.github.io/baseballr, https://billpetti.github.io/baseballr/
 BugReports: https://github.com/BillPetti/baseballr/issues
 LazyData: true
 RoxygenNote: 7.1.1

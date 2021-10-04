@@ -3,20 +3,45 @@
 #' This function allows you to calculate the percent of pitches thrown to different edges of the strike zone for a pitch by pitch data set that has been coded using the edge_code() function.
 #' @param df A data frame of pitch by pitch data that has been coded using the edge_code() function.
 #' @param group Character string indicating what column to group the frequency by. For example, "pitcher" or "batter". Defaults to NULL, which calculates the frequencies across the entire data set.
-#' @keywords MLB, sabermetrics, PITCHf/x
 #' @export
 #' @examples \dontrun{edge_code(df, group = "pitcher")}
 
 edge_frequency <- function(df, group = NULL) {
   if (is.null(group)) {
-    grouped <- filter(df, !is.na(px), !is.na(pz)) %>%
-      summarise(All_pitches = n(), All_calls = sum(called_pitch), Called_Strike = sum(called_strike), Called_strike_rate = round(sum(called_strike)/sum(called_pitch),3), Upper_Edge = sum(Upper_Edge)/All_pitches, Lower_Edge = sum(Lower_Edge)/All_pitches, Inside_Edge = sum(Inside_Edge)/All_pitches, Outside_Edge = sum(Outside_Edge)/All_pitches, Heart = sum(Heart)/All_pitches, Out_of_Zone = sum(OutOfZone)/All_pitches) %>%
-      mutate(Total_Edge = Upper_Edge + Lower_Edge + Inside_Edge + Outside_Edge)
-    grouped
+    grouped <- df %>% 
+      dplyr::filter(!is.na(.data$px), !is.na(.data$pz)) %>%
+      dplyr::summarise(
+        All_pitches = n(), 
+        All_calls = sum(.data$called_pitch), 
+        Called_Strike = sum(.data$called_strike), 
+        Called_strike_rate = round(sum(.data$called_strike)/sum(.data$called_pitch),3), 
+        Upper_Edge = sum(.data$Upper_Edge)/.data$All_pitches, 
+        Lower_Edge = sum(.data$Lower_Edge)/.data$All_pitches, 
+        Inside_Edge = sum(.data$Inside_Edge)/.data$All_pitches, 
+        Outside_Edge = sum(.data$Outside_Edge)/.data$All_pitches, 
+        Heart = sum(.data$Heart)/.data$All_pitches, 
+        Out_of_Zone = sum(.data$OutOfZone)/.data$All_pitches) %>%
+      dplyr::mutate(
+        Total_Edge = .data$Upper_Edge + .data$Lower_Edge + .data$Inside_Edge + .data$Outside_Edge)
+    return(grouped)
   }
   else {
-    grouped <- filter(df, !is.na(px), !is.na(pz)) %>% group_by_(group) %>% summarise(All_pitches = n(), All_calls = sum(called_pitch), Called_Strike = sum(called_strike), Called_strike_rate = round(sum(called_strike)/sum(called_pitch),3), Upper_Edge = sum(Upper_Edge)/All_pitches, Lower_Edge = sum(Lower_Edge)/All_pitches, Inside_Edge = sum(Inside_Edge)/All_pitches, Outside_Edge = sum(Outside_Edge)/All_pitches, Heart = sum(Heart)/All_pitches, Out_of_Zone = sum(OutOfZone)/All_pitches) %>%
-    mutate(Total_Edge = Upper_Edge + Lower_Edge + Inside_Edge + Outside_Edge)
-    grouped
+    grouped <- df %>% 
+      dplyr::filter(!is.na(.data$px), !is.na(.data$pz)) %>% 
+      dplyr::group_by(.data$group) %>% 
+      dplyr::summarise(
+        All_pitches = n(), 
+        All_calls = sum(.data$called_pitch), 
+        Called_Strike = sum(.data$called_strike), 
+        Called_strike_rate = round(sum(.data$called_strike)/sum(.data$called_pitch),3), 
+        Upper_Edge = sum(.data$Upper_Edge)/.data$All_pitches, 
+        Lower_Edge = sum(.data$Lower_Edge)/.data$All_pitches, 
+        Inside_Edge = sum(.data$Inside_Edge)/.data$All_pitches, 
+        Outside_Edge = sum(.data$Outside_Edge)/.data$All_pitches, 
+        Heart = sum(.data$Heart)/.data$All_pitches, 
+        Out_of_Zone = sum(.data$OutOfZone)/.data$All_pitches) %>%
+      dplyr::mutate(
+        Total_Edge = .data$Upper_Edge + .data$Lower_Edge + .data$Inside_Edge + .data$Outside_Edge)
+    return(grouped)
   }
 }

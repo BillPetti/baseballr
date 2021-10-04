@@ -15,6 +15,3 @@ This function allows the user to lookup the school_id needed for the ncaa_scrape
 \examples{
 \dontrun{school_id_lu("Van")}
 }
-\keyword{NCAA,}
-\keyword{baseball,}
-\keyword{college}

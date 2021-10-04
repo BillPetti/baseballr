@@ -21,8 +21,6 @@ This function allows you to scrape the standings from MLB for any date you choos
 }
 \examples{
 \dontrun{
-standings_on_date_bref("2015-08-04", "AL East")
+standings_on_date_bref(date = "2015-08-04", division = "AL East")
 }
 }
-\keyword{MLB,}
-\keyword{standings}

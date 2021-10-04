@@ -17,8 +17,5 @@ edge_scrape(start, end, group)
 This function allows you to calculate the percent of pitches thrown to different edges of the strike zone over any custom time frame. Data is acquired by scraping the GameDay application from MLBAM using Carson Sievert's pitchRx package. The data can take a while to query, particular for large date ranges.
 }
 \examples{
-\dontrun{edge_scrape("2015-04-05", "2015-04-05", pitcher)}
+\dontrun{edge_scrape(start="2015-04-05",end = "2015-04-05", group="pitcher")}
 }
-\keyword{MLB,}
-\keyword{PITCHf/x}
-\keyword{sabermetrics,}

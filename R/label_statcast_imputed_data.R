@@ -11,7 +11,6 @@
 #' as imputed. if NULL then it's read from the \code{extdata} folder of the package.
 #' @param inverse_precision inverse of how many digits to truncate the launch angle 
 #' and speed to for comparison. Default is \code{10000}, i.e. keep 4 digits of precision.
-#' @keywords MLB, Statcast, sabermetrics
 #' @importFrom readr read_csv
 #' @return A copy of the input dataframe with a new column \code{imputed} appended. imputed
 #' is 1 if launch angle and launch speed are likely imputed, 0 otherwise.
@@ -26,16 +25,17 @@ label_statcast_imputed_data <- function(statcast_df, impute_file = NULL,
                                         inverse_precision = 10000) {
 
   if (is.null(impute_file)) {
-    impute_file <- system.file("extdata/statcast_impute.csv", package = "baseballr")
-  } 
-  
-  imputed_df <- suppressMessages(readr::read_csv(impute_file))
+    imputed_df <- baseballr::statcast_impute
+  } else {
+    imputed_df <- suppressMessages(readr::read_csv(impute_file))
+  }
   
   imputed_df$imputed <- 1
-  tmp <- dplyr::left_join(
-    statcast_df %>% mutate(ila = as.integer(launch_angle * inverse_precision), 
-                           ils = as.integer(launch_speed * inverse_precision)), 
-    imputed_df, by = c("ils", "ila", "bb_type", "events"))
+  tmp <- statcast_df %>% 
+    dplyr::mutate(
+      ila = as.integer(.data$launch_angle * inverse_precision), 
+      ils = as.integer(.data$launch_speed * inverse_precision)) %>% 
+    dplyr::left_join(imputed_df, by = c("ils", "ila", "bb_type", "events"))
   tmp$imputed <- ifelse(is.na(tmp$imputed), 0, 1)
-  tmp
+  return(tmp)
 }

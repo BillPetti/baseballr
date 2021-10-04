@@ -19,8 +19,3 @@ This function allows you to create statlines of statistics for players or groups
 statline_from_statcast(df, base = "contact")
 }
 }
-\keyword{MLB,}
-\keyword{PITCHf/x,}
-\keyword{Statcast,}
-\keyword{sabermetrics}
-\keyword{woba,}

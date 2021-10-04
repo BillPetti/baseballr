@@ -5,7 +5,6 @@
 #' baseballsavant to ensure consistency in formattting across downloads
 #' @param payload payload from a Baseball Savant request, e.g.
 #' from \code{\link[readr]{read_csv}}
-#' @keywords MLB, sabermetrics, Statcast
 #' @importFrom dplyr mutate_at mutate_
 #' @export
 #' @examples
@@ -72,20 +71,20 @@ process_statcast_payload <- function(payload) {
 
   payload <- payload %>%
     ungroup() %>%
-    dplyr::mutate_at(vars(one_of(cols_to_transform)), as.character) %>%
-    dplyr::mutate_at(vars(one_of(cols_to_transform)), as.numeric) %>%
-    dplyr::mutate_at(vars(one_of(cols_to_transform)), function(x) {
+    dplyr::mutate_at(vars(dplyr::one_of(cols_to_transform)), as.character) %>%
+    dplyr::mutate_at(vars(dplyr::one_of(cols_to_transform)), as.numeric) %>%
+    dplyr::mutate_at(vars(dplyr::one_of(cols_to_transform)), function(x) {
       ifelse(is.na(x), 999999999, x)
     })
 
   # Create a specific variable for barrels
 
-  payload <- payload %>%
-    dplyr::mutate_(
-      barrel = ~ifelse(launch_speed_angle == 6, 1, 0)
-      # dplyr::mutate_(
-      # barrel = ~ifelse(launch_angle <= 50 & launch_speed >= 98 & launch_speed * 1.5 - launch_angle >= 117 & launch_speed + launch_angle >= 124, 1, 0)
-  )
+  # payload <- payload %>%
+  #   dplyr::mutate(
+  #     barrel = ifelse(.data$launch_speed_angle == 6, 1, 0)
+  #     # dplyr::mutate_(
+  #     # barrel = ~ifelse(launch_angle <= 50 & launch_speed >= 98 & launch_speed * 1.5 - launch_angle >= 117 & launch_speed + launch_angle >= 124, 1, 0)
+  # )
 
   return(payload)
 

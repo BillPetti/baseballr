@@ -19,8 +19,6 @@ This function allows you to scrape the standings from MLB for a period you choos
 }
 \examples{
 \dontrun{
-viz_gb_on_period("2017-04-02","2017-04-10", "AL East")
+viz_gb_on_period(start_date = "2017-04-02", end_date = "2017-04-10", lg_div = "AL East")
 }
 }
-\keyword{MLB,}
-\keyword{standings}

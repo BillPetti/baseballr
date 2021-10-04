@@ -50,6 +50,12 @@ leaderboard, 'batter-team' and 'pitcher-team' are also available.}
 
 \item{fielding_type}{One of either 'player' or 'team'.}
 
+\item{oaa_position}{Can be either the number position of a player or 'if' or 'of' for
+position categories.}
+
+\item{oaa_roles}{Can be either the number position of a player or 'if' or 'of' for
+position categories.}
+
 \item{team}{An abbreviation for a team. Can be left blank.}
 
 \item{arsenal_type}{One of either 'n_', 'avg_spin', or 'avg_speed'.}
@@ -65,9 +71,6 @@ leaderboard, 'batter-team' and 'pitcher-team' are also available.}
 \item{bats}{The handedness of the batter. One of 'R' or 'L'. Can be left blank.}
 
 \item{hand}{The handedness of the pitcher. One of 'R' or 'L'. Can be left blank.}
-
-\item{ooa_position}{Can be either the number position of a player or 'if' or 'of' for
-position categories.}
 }
 \description{
 This function allows you to read leaderboard data from BaseballSavant dirctly into R as #` a \code{\link{data.frame}}.
@@ -111,6 +114,3 @@ This function allows you to read leaderboard data from BaseballSavant dirctly in
 scrape_savant_leaderboards(leaderboard = "exit_velocity_barrels", year = 2018)
 }
 }
-\keyword{MLB,}
-\keyword{Statcast}
-\keyword{sabermetrics,}

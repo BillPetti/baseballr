@@ -21,5 +21,3 @@ This function allows you to scrape park factors by handedness from FanGraphs.com
 fg_park(2013)
 fg_park_hand(2013)
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

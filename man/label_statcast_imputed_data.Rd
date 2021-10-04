@@ -36,6 +36,3 @@ sc_df <- label_statcast_imputed_data(statcast_df)
 mean(sc_df$imputed)
 }
 }
-\keyword{MLB,}
-\keyword{Statcast,}
-\keyword{sabermetrics}

@@ -7,7 +7,6 @@
 #' @importFrom stringr str_sub
 #' @return Returns a data frame that includes supplemental information, such as
 #' weather, official scorer, attendance, etc., for the game_pk provided
-#' @keywords MLB, sabermetrics
 #' @export
 #'
 #' @examples \dontrun{get_probables_mlb(566001)}
@@ -20,11 +19,9 @@ get_game_info_mlb <- function(game_pk) {
 
   lookup_table <- payload$liveData$boxscore$info %>%
     as.data.frame() %>%
-    tidyr::spread(label, value)
+    tidyr::spread(.data$label, .data$value)
 
-  year <- stringr::str_sub(payload$gameData$game$calendarEventID,
-                           -10,
-                           -7)
+  year <- stringr::str_sub(payload$gameData$game$calendarEventID, -10, -7)
 
 
   game_table <- tibble(game_date = stringr::str_sub(payload$gameData$game$calendarEventID,
@@ -36,14 +33,19 @@ get_game_info_mlb <- function(game_pk) {
                        other_weather = payload$gameData$weather$condition,
                        wind = payload$gameData$weather$wind,
                        attendance = ifelse("Att" %in% names(lookup_table) == TRUE,
-                                           select(lookup_table, Att) %>%
+                                           lookup_table %>% 
+                                             dplyr::select(.data$Att) %>%
                                              pull %>%
-                                             gsub("\\.", "", .),
+                                             gsub("\\.", "", .data$`.`),
                                            NA),
-                       start_time = select(lookup_table,
-                                           `First pitch`) %>% pull %>% gsub("\\.", "", .),
-                       elapsed_time = select(lookup_table, T) %>% pull() %>%
-                         gsub("\\.", "", .),
+                       start_time = lookup_table %>% 
+                         dplyr::select(.data$`First pitch`) %>% 
+                         pull %>% 
+                         gsub("\\.", "", .data$`.`),
+                       elapsed_time = lookup_table %>% 
+                         dplyr::select(.data$T) %>% 
+                         pull() %>%
+                         gsub("\\.", "", .data$`.`),
                        game_id = payload$gameData$game$id,
                        game_type = payload$gameData$game$type,
                        home_sport_code = "mlb",

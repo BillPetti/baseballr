@@ -17,6 +17,3 @@ This function allows you to classify individual pitches based on the various cat
 \examples{
 \dontrun{edge_code(df)}
 }
-\keyword{MLB,}
-\keyword{PITCHf/x}
-\keyword{sabermetrics,}
