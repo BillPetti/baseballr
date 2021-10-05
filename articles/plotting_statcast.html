@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plotting Statcast data • baseballR</title>
+<title>Plotting Statcast data • baseballr</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
@@ -34,7 +34,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">baseballR</a>
+        <a class="navbar-link" href="../index.html">baseballr</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.9</span>
       </span>
     </div>
@@ -92,7 +92,7 @@
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     <span class="fas fa-project-diagram"></span>
      
-     SDV
+    SDV
      
     <span class="caret"></span>
   </a>
@@ -100,17 +100,50 @@
 <li>
       <a href="https://sportsdataverse.org/">SportsDataverse</a>
     </li>
+    <li class="divider">
+    <li class="dropdown-header">R Packages</li>
     <li>
-      <a href="https://saiemgilani.github.io/cfbfastR/">cfbfastR</a>
+      <a href="https://hoopR.sportsdataverse.org/">hoopR</a>
     </li>
     <li>
-      <a href="https://saiemgilani.github.io/hoopR/">hoopR</a>
+      <a href="https://wehoop.sportsdataverse.org/">wehoop</a>
     </li>
     <li>
-      <a href="https://saiemgilani.github.io/wehoop/">wehoop</a>
+      <a href="https://saiemgilani.github.io/recruitR/">recruitR</a>
     </li>
     <li>
-      <a href="https://saiemgilani.github.io/cfbrecruitR/">cfbrecruitR</a>
+      <a href="https://puntalytics.github.io/puntr">puntr</a>
+    </li>
+    <li>
+      <a href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a>
+    </li>
+    <li>
+      <a href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
+    </li>
+    <li>
+      <a href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    </li>
+    <li>
+      <a href="https://hockeyr.netlify.app/">hockeyR</a>
+    </li>
+    <li class="divider">
+    <li class="dropdown-header">Python Packages</li>
+    <li>
+      <a href="https://cfbfastR-py.sportsdataverse.org/">cfbfastR-py</a>
+    </li>
+    <li>
+      <a href="https://hoopR-py.sportsdataverse.org/">hoopR-py</a>
+    </li>
+    <li>
+      <a href="https://wehoop-py.sportsdataverse.org/">wehoop-py</a>
+    </li>
+    <li class="divider">
+    <li class="dropdown-header">Node.js Packages</li>
+    <li>
+      <a href="https://saiemgilani.github.io/sportsdataverse/">sportsdataverse.js</a>
+    </li>
+    <li>
+      <a href="https://github.com/nntrn/nfl-nerd/">nfl-nerd</a>
     </li>
   </ul>
 </li>
@@ -149,7 +182,7 @@
             
             <h4 class="date">2021-10-05</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/BillPetti/baseballr/blob/master/vignettes/plotting_statcast.Rmd"><code>vignettes/plotting_statcast.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="http://github.com/BillPetti/baseballr/blob/master/vignettes/plotting_statcast.Rmd"><code>vignettes/plotting_statcast.Rmd</code></a></small>
       <div class="hidden name"><code>plotting_statcast.Rmd</code></div>
 
     </div>
@@ -159,7 +192,7 @@
 <p>In this example, the <code>baseballr</code> package is used to acquire Statcast data for Mookie Betts from 2015-2016.</p>
 <p>The data is then processed and plotted to show how his launch angle and batted ball speed have changed from year to year</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://saiemgilani.github.io/baseballr">baseballr</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://billpetti.github.io/baseballr">baseballr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">reshape2</span><span class="op">)</span>

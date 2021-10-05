@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>An R package to quickly obtain clean and tidy men's baseball play by play data • baseballR</title>
+<title>An R package to quickly obtain clean and tidy men's baseball play by play data • baseballr</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
@@ -34,7 +34,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">baseballR</a>
+        <a class="navbar-link" href="index.html">baseballr</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.9</span>
       </span>
     </div>
@@ -92,7 +92,7 @@
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     <span class="fas fa-project-diagram"></span>
      
-     SDV
+    SDV
      
     <span class="caret"></span>
   </a>
@@ -100,17 +100,50 @@
 <li>
       <a href="https://sportsdataverse.org/">SportsDataverse</a>
     </li>
+    <li class="divider">
+    <li class="dropdown-header">R Packages</li>
     <li>
-      <a href="https://saiemgilani.github.io/cfbfastR/">cfbfastR</a>
+      <a href="https://hoopR.sportsdataverse.org/">hoopR</a>
     </li>
     <li>
-      <a href="https://saiemgilani.github.io/hoopR/">hoopR</a>
+      <a href="https://wehoop.sportsdataverse.org/">wehoop</a>
     </li>
     <li>
-      <a href="https://saiemgilani.github.io/wehoop/">wehoop</a>
+      <a href="https://saiemgilani.github.io/recruitR/">recruitR</a>
     </li>
     <li>
-      <a href="https://saiemgilani.github.io/cfbrecruitR/">cfbrecruitR</a>
+      <a href="https://puntalytics.github.io/puntr">puntr</a>
+    </li>
+    <li>
+      <a href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a>
+    </li>
+    <li>
+      <a href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
+    </li>
+    <li>
+      <a href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    </li>
+    <li>
+      <a href="https://hockeyr.netlify.app/">hockeyR</a>
+    </li>
+    <li class="divider">
+    <li class="dropdown-header">Python Packages</li>
+    <li>
+      <a href="https://cfbfastR-py.sportsdataverse.org/">cfbfastR-py</a>
+    </li>
+    <li>
+      <a href="https://hoopR-py.sportsdataverse.org/">hoopR-py</a>
+    </li>
+    <li>
+      <a href="https://wehoop-py.sportsdataverse.org/">wehoop-py</a>
+    </li>
+    <li class="divider">
+    <li class="dropdown-header">Node.js Packages</li>
+    <li>
+      <a href="https://saiemgilani.github.io/sportsdataverse/">sportsdataverse.js</a>
+    </li>
+    <li>
+      <a href="https://github.com/nntrn/nfl-nerd/">nfl-nerd</a>
     </li>
   </ul>
 </li>
@@ -189,244 +222,116 @@
 <p>The package consists of two main sets of functions: data acquisition and metric calculation.</p>
 <p>For example, if you want to see the standings for a specific MLB division on a given date, you can use the <code><a href="reference/standings_on_date_bref.html">standings_on_date_bref()</a></code> function. Just pass the year, month, day, and division you want:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://saiemgilani.github.io/baseballr">baseballr</a></span><span class="op">)</span>
-<span class="co">#&gt; Registered S3 method overwritten by 'quantmod':</span>
-<span class="co">#&gt;   method            from</span>
-<span class="co">#&gt;   as.zoo.data.frame zoo</span>
-<span class="fu"><a href="reference/standings_on_date_bref.html">standings_on_date_bref</a></span><span class="op">(</span><span class="st">"2015-08-01"</span>, <span class="st">"NL East"</span>, from <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="co">#&gt; Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Stathead account: https://stathead.com</span>
-<span class="co">#&gt; # A tibble: 5 × 8</span>
-<span class="co">#&gt;   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`</span>
-<span class="co">#&gt;   &lt;chr&gt; &lt;int&gt; &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt;      &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 WSN      54    48  0.529 --      422   391      0.535</span>
-<span class="co">#&gt; 2 NYM      54    50  0.519 1.0     368   373      0.494</span>
-<span class="co">#&gt; 3 ATL      46    58  0.442 9.0     379   449      0.423</span>
-<span class="co">#&gt; 4 MIA      42    62  0.404 13.0    370   408      0.455</span>
-<span class="co">#&gt; 5 PHI      41    64  0.39  14.5    386   511      0.374</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://billpetti.github.io/baseballr">baseballr</a></span><span class="op">)</span>
+<span class="fu"><a href="reference/standings_on_date_bref.html">standings_on_date_bref</a></span><span class="op">(</span><span class="st">"2015-08-01"</span>, <span class="st">"NL East"</span>, from <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">## Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Stathead account: https://stathead.com</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">## # A tibble: 5 x 8</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">##   &lt;chr&gt; &lt;int&gt; &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt;      &lt;dbl&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">## 1 WSN      54    48  0.529 --      422   391      0.535</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">## 2 NYM      54    50  0.519 1.0     368   373      0.494</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">## 3 ATL      46    58  0.442 9.0     379   449      0.423</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="co">## 4 MIA      42    62  0.404 13.0    370   408      0.455</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">## 5 PHI      41    64  0.39  14.5    386   511      0.374</span></span></code></pre></div>
 <p>Right now the function works as far as back as 1994, which is when both leagues split into three divisions.</p>
 <p>You can also pull data for all hitters over a specific date range. Here are the results for all hitters from August 1st through October 3rd during the 2015 season:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
-<span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/daily_batter_bref.html">daily_batter_bref</a></span><span class="op">(</span><span class="st">"2015-08-01"</span>, <span class="st">"2015-10-03"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com</span></code></pre></div>
-<p>In terms of metric calculation, the package allows the user to calculate the consistency of team scoring and run prevention for any year using <code><a href="reference/team_consistency.html">team_consistency()</a></code>:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/team_consistency.html">team_consistency</a></span><span class="op">(</span><span class="fl">2015</span><span class="op">)</span>
-<span class="co">#&gt; Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Stathead account: https://stathead.com</span>
-<span class="co">#&gt; # A tibble: 30 × 5</span>
-<span class="co">#&gt;    Team  Con_R Con_RA Con_R_Ptile Con_RA_Ptile</span>
-<span class="co">#&gt;    &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 ARI    0.37   0.36          17           15</span>
-<span class="co">#&gt;  2 ATL    0.41   0.4           88           63</span>
-<span class="co">#&gt;  3 BAL    0.4    0.38          70           42</span>
-<span class="co">#&gt;  4 BOS    0.39   0.4           52           63</span>
-<span class="co">#&gt;  5 CHC    0.38   0.41          30           85</span>
-<span class="co">#&gt;  6 CHW    0.39   0.4           52           63</span>
-<span class="co">#&gt;  7 CIN    0.41   0.36          88           15</span>
-<span class="co">#&gt;  8 CLE    0.41   0.4           88           63</span>
-<span class="co">#&gt;  9 COL    0.35   0.34           7            3</span>
-<span class="co">#&gt; 10 DET    0.39   0.38          52           42</span>
-<span class="co">#&gt; # … with 20 more rows</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">## </span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co">## Attaching package: 'dplyr'</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">## The following objects are masked from 'package:stats':</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">## </span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">##     filter, lag</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">## The following objects are masked from 'package:base':</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co">## </span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co">##     intersect, setdiff, setequal, union</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/daily_batter_bref.html">daily_batter_bref</a></span><span class="op">(</span><span class="st">"2015-08-01"</span>, <span class="st">"2015-10-03"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">## Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com</span></span></code></pre></div>
+<p>In terms of metric calculation, the package allows the user to calculate the consistency of team scoring and run prevention for any year using <code><a href="reference/team_consistency.html">team_consistency()</a></code>:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/team_consistency.html">team_consistency</a></span><span class="op">(</span><span class="fl">2015</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">## Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Stathead account: https://stathead.com</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="co">## # A tibble: 30 x 5</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co">##    Team  Con_R Con_RA Con_R_Ptile Con_RA_Ptile</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co">##    &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="co">##  1 ARI    0.37   0.36          17           15</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="co">##  2 ATL    0.41   0.4           88           63</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="co">##  3 BAL    0.4    0.38          70           42</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a><span class="co">##  4 BOS    0.39   0.4           52           63</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a><span class="co">##  5 CHC    0.38   0.41          30           85</span></span>
+<span id="cb11-11"><a href="#cb11-11"></a><span class="co">##  6 CHW    0.39   0.4           52           63</span></span>
+<span id="cb11-12"><a href="#cb11-12"></a><span class="co">##  7 CIN    0.41   0.36          88           15</span></span>
+<span id="cb11-13"><a href="#cb11-13"></a><span class="co">##  8 CLE    0.41   0.4           88           63</span></span>
+<span id="cb11-14"><a href="#cb11-14"></a><span class="co">##  9 COL    0.35   0.34           7            3</span></span>
+<span id="cb11-15"><a href="#cb11-15"></a><span class="co">## 10 DET    0.39   0.38          52           42</span></span>
+<span id="cb11-16"><a href="#cb11-16"></a><span class="co">## # ... with 20 more rows</span></span></code></pre></div>
 <p>You can also calculate wOBA per plate appearance and wOBA on contact for any set of data over any date range, provided you have the data available.</p>
 <p>Simply pass the proper data frame to <code>woba_plus</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">PA</span> <span class="op">&gt;</span> <span class="fl">200</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="va">woba_plus</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">wOBA</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">Team</span>, <span class="va">season</span>, <span class="va">PA</span>, <span class="va">wOBA</span>, <span class="va">wOBA_CON</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt;               Name          Team season  PA  wOBA wOBA_CON</span>
-<span class="co">#&gt; 1    Shin-Soo Choo         Texas   2015 260 0.430    0.495</span>
-<span class="co">#&gt; 2 Francisco Lindor     Cleveland   2015 259 0.404    0.468</span>
-<span class="co">#&gt; 3      Jose Altuve       Houston   2015 262 0.372    0.406</span>
-<span class="co">#&gt; 4       Adam Eaton       Chicago   2015 262 0.367    0.436</span>
-<span class="co">#&gt; 5    Manny Machado     Baltimore   2015 266 0.362    0.396</span>
-<span class="co">#&gt; 6       Matt Duffy San Francisco   2015 264 0.312    0.338</span></code></pre></div>
+  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">##               Name          Team season  PA  wOBA wOBA_CON</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="co">## 1    Shin-Soo Choo         Texas   2015 260 0.430    0.495</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="co">## 2 Francisco Lindor     Cleveland   2015 259 0.404    0.468</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="co">## 3      Jose Altuve       Houston   2015 262 0.372    0.406</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="co">## 4       Adam Eaton       Chicago   2015 262 0.367    0.436</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="co">## 5    Manny Machado     Baltimore   2015 266 0.362    0.396</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="co">## 6       Matt Duffy San Francisco   2015 264 0.312    0.338</span></span></code></pre></div>
 <p>You can also generate these wOBA-based stats, as well as FIP, for pitchers using the <code><a href="reference/fip_plus.html">fip_plus()</a></code> function:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/daily_pitcher_bref.html">daily_pitcher_bref</a></span><span class="op">(</span><span class="st">"2015-04-05"</span>, <span class="st">"2015-04-30"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="reference/fip_plus.html">fip_plus</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">season</span>, <span class="va">Name</span>, <span class="va">IP</span>, <span class="va">ERA</span>, <span class="va">SO</span>, <span class="va">uBB</span>, <span class="va">HBP</span>, <span class="va">HR</span>, <span class="va">FIP</span>, <span class="va">wOBA_against</span>, <span class="va">wOBA_CON_against</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">IP</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>
-<span class="co">#&gt; Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com</span>
-<span class="co">#&gt;    season            Name   IP  ERA SO uBB HBP HR  FIP wOBA_against</span>
-<span class="co">#&gt; 1    2015    Johnny Cueto 37.0 1.95 38   4   2  3 2.62        0.210</span>
-<span class="co">#&gt; 2    2015  Dallas Keuchel 37.0 0.73 22  11   0  0 2.84        0.169</span>
-<span class="co">#&gt; 3    2015      Sonny Gray 36.1 1.98 25   6   1  1 2.69        0.218</span>
-<span class="co">#&gt; 4    2015      Mike Leake 35.2 3.03 25   7   0  5 4.16        0.240</span>
-<span class="co">#&gt; 5    2015 Felix Hernandez 34.2 1.82 36   6   3  1 2.20        0.225</span>
-<span class="co">#&gt; 6    2015    Corey Kluber 34.0 4.24 36   5   2  2 2.40        0.295</span>
-<span class="co">#&gt; 7    2015   Jake Odorizzi 33.2 2.41 26   8   1  0 2.38        0.213</span>
-<span class="co">#&gt; 8    2015 Josh Collmenter 32.2 2.76 16   3   0  1 2.82        0.290</span>
-<span class="co">#&gt; 9    2015   Bartolo Colon 32.2 3.31 25   1   0  4 3.29        0.280</span>
-<span class="co">#&gt; 10   2015    Zack Greinke 32.2 1.93 27   7   1  2 3.01        0.240</span>
-<span class="co">#&gt;    wOBA_CON_against</span>
-<span class="co">#&gt; 1             0.276</span>
-<span class="co">#&gt; 2             0.151</span>
-<span class="co">#&gt; 3             0.239</span>
-<span class="co">#&gt; 4             0.281</span>
-<span class="co">#&gt; 5             0.272</span>
-<span class="co">#&gt; 6             0.391</span>
-<span class="co">#&gt; 7             0.228</span>
-<span class="co">#&gt; 8             0.330</span>
-<span class="co">#&gt; 9             0.357</span>
-<span class="co">#&gt; 10            0.274</span></code></pre></div>
+  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">## Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a></span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="co">##    season            Name   IP  ERA SO uBB HBP HR  FIP wOBA_against</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="co">## 1    2015    Johnny Cueto 37.0 1.95 38   4   2  3 2.62        0.210</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="co">## 2    2015  Dallas Keuchel 37.0 0.73 22  11   0  0 2.84        0.169</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a><span class="co">## 3    2015      Sonny Gray 36.1 1.98 25   6   1  1 2.69        0.218</span></span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="co">## 4    2015      Mike Leake 35.2 3.03 25   7   0  5 4.16        0.240</span></span>
+<span id="cb15-8"><a href="#cb15-8"></a><span class="co">## 5    2015 Felix Hernandez 34.2 1.82 36   6   3  1 2.20        0.225</span></span>
+<span id="cb15-9"><a href="#cb15-9"></a><span class="co">## 6    2015    Corey Kluber 34.0 4.24 36   5   2  2 2.40        0.295</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a><span class="co">## 7    2015   Jake Odorizzi 33.2 2.41 26   8   1  0 2.38        0.213</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a><span class="co">## 8    2015 Josh Collmenter 32.2 2.76 16   3   0  1 2.82        0.290</span></span>
+<span id="cb15-12"><a href="#cb15-12"></a><span class="co">## 9    2015   Bartolo Colon 32.2 3.31 25   1   0  4 3.29        0.280</span></span>
+<span id="cb15-13"><a href="#cb15-13"></a><span class="co">## 10   2015    Zack Greinke 32.2 1.93 27   7   1  2 3.01        0.240</span></span>
+<span id="cb15-14"><a href="#cb15-14"></a><span class="co">##    wOBA_CON_against</span></span>
+<span id="cb15-15"><a href="#cb15-15"></a><span class="co">## 1             0.276</span></span>
+<span id="cb15-16"><a href="#cb15-16"></a><span class="co">## 2             0.151</span></span>
+<span id="cb15-17"><a href="#cb15-17"></a><span class="co">## 3             0.239</span></span>
+<span id="cb15-18"><a href="#cb15-18"></a><span class="co">## 4             0.281</span></span>
+<span id="cb15-19"><a href="#cb15-19"></a><span class="co">## 5             0.272</span></span>
+<span id="cb15-20"><a href="#cb15-20"></a><span class="co">## 6             0.391</span></span>
+<span id="cb15-21"><a href="#cb15-21"></a><span class="co">## 7             0.228</span></span>
+<span id="cb15-22"><a href="#cb15-22"></a><span class="co">## 8             0.330</span></span>
+<span id="cb15-23"><a href="#cb15-23"></a><span class="co">## 9             0.357</span></span>
+<span id="cb15-24"><a href="#cb15-24"></a><span class="co">## 10            0.274</span></span></code></pre></div>
 <p>The <code><a href="reference/edge_scrape.html">edge_scrape()</a></code> function allows the user to scrape PITCHf/x data from the GameDay application using Carson Sievert’s <a href="https://github.com/cpsievert/pitchRx">pitchRx</a> package and to calculate metrics associated with <a href="https://billpetti.shinyapps.io/edge_shiny/">Edge%</a>. The function returns a dataframe grouped by either pitchers or batters and the percentge of pitches in each of the various Edge zones.</p>
 <p>Example (pitchers):</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
 <span class="fu"><a href="reference/edge_scrape.html">edge_scrape</a></span><span class="op">(</span><span class="st">"2015-04-06"</span>, <span class="st">"2015-04-07"</span>, <span class="st">"pitcher"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fl">6</span><span class="op">:</span><span class="op">-</span><span class="fl">4</span>, <span class="op">-</span><span class="fl">13</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
 <p>Example (batters):</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/edge_scrape.html">edge_scrape</a></span><span class="op">(</span><span class="st">"2015-04-06"</span>, <span class="st">"2015-04-07"</span>, <span class="st">"batter"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fl">6</span><span class="op">:</span><span class="op">-</span><span class="fl">4</span>, <span class="op">-</span><span class="fl">13</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
 <p>More functionality will be added soon. Please leave any suggestions or bugs in the <a href="https://github.com/BillPetti/baseballr/issues">Issues section</a>.</p>
 </div>
-</div>
-<div id="current-issues" class="section level1">
-<h1 class="hasAnchor">
-<a href="#current-issues" class="anchor"></a>Current Issues</h1>
-<table class="table">
-<colgroup>
-<col width="0%">
-<col width="19%">
-<col width="64%">
-<col width="0%">
-<col width="11%">
-<col width="1%">
-<col width="0%">
-</colgroup>
-<thead><tr class="header">
-<th align="left">issue</th>
-<th align="left">icon</th>
-<th align="left">title</th>
-<th align="left">labels</th>
-<th align="left">opened_by</th>
-<th align="left">date</th>
-<th align="left">closed</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">213</td>
-<td align="left"><span title="Open Issue"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/issue-opened.png?raw=true"></span></td>
-<td align="left"><span title="Hello,..."><a href="https://github.com/BillPetti/baseballr/issues/213">Installation Failing But Not Raising Error</a></span></td>
-<td align="left"></td>
-<td align="left"><a href="https://github.com/NerdyBaseballDude">NerdyBaseballDude</a></td>
-<td align="left">2021-07-25</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="left">212</td>
-<td align="left"><span title="Open Issue"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/issue-opened.png?raw=true"></span></td>
-<td align="left"><span title="Below is the code, along with the message returned. The package 'cli' is installed and loaded. I am using R version 4.0.3...."><a href="https://github.com/BillPetti/baseballr/issues/212">Error Installing BaseballR</a></span></td>
-<td align="left"></td>
-<td align="left"><a href="https://github.com/Daniel-Tucker">Daniel-Tucker</a></td>
-<td align="left">2021-07-18</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">211</td>
-<td align="left"><span title="Open Issue"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/issue-opened.png?raw=true"></span></td>
-<td align="left"><span title="Looks like Fangraphs may have changed the formats for BB and K such that BB_perc and K_perc are already expressed as percentages (in a character string with a % sign). As such, these are currently getting forced to NA when the function tries to coerce them to numeric and divide by 100...."><a href="https://github.com/BillPetti/baseballr/issues/211">batter_game_logs_fg (BB_perc &amp; K_Perc)</a></span></td>
-<td align="left"></td>
-<td align="left"><a href="https://github.com/joshbis">joshbis</a></td>
-<td align="left">2021-07-03</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="left">209</td>
-<td align="left"><span title="Open Issue"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/issue-opened.png?raw=true"></span></td>
-<td align="left"><span title="Attempting to join Savant queried data with get_game_info_sup_petti() (particularly interested in getting temperature and venue) and it seems that there are 23 game_pks misisng from get_game_info_sup_petti().  ..."><a href="https://github.com/BillPetti/baseballr/issues/209">get_game_info_sup_petti seems to be missing 23 game_pks from 2015-2021</a></span></td>
-<td align="left"></td>
-<td align="left"><a href="https://github.com/mjona99">mjona99</a></td>
-<td align="left">2021-06-20</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">206</td>
-<td align="left"><span title="Open Issue"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/issue-opened.png?raw=true"></span></td>
-<td align="left"><span title="I'm unable to successfully execute baseballr functions due to what may be a rookie error. The error reads:..."><a href="https://github.com/BillPetti/baseballr/issues/206">withCallingHandlers list object error</a></span></td>
-<td align="left"></td>
-<td align="left"><a href="https://github.com/Jeffrey-Roberts-Osborne">Jeffrey-Roberts-Osborne</a></td>
-<td align="left">2021-04-22</td>
-<td align="left">NA</td>
-</tr>
-</tbody>
-</table>
-<details><p><summary>View More</summary></p>
-<table class="table">
-<colgroup>
-<col width="0%">
-<col width="15%">
-<col width="73%">
-<col width="0%">
-<col width="5%">
-<col width="1%">
-<col width="2%">
-</colgroup>
-<thead><tr class="header">
-<th align="left">issue</th>
-<th align="left">icon</th>
-<th align="left">title</th>
-<th align="left">labels</th>
-<th align="left">opened_by</th>
-<th align="left">date</th>
-<th align="left">closed</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">214</td>
-<td align="left"><span title="Closed Issue"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/issue-closed.png?raw=true"></span></td>
-<td align="left"><span title="```r..."><a href="https://github.com/BillPetti/baseballr/issues/214">Mismatched rows for join on get_ncaa_schedule_info</a></span></td>
-<td align="left"></td>
-<td align="left"><a href="https://github.com/robert-frey">robert-frey</a></td>
-<td align="left">2021-07-26</td>
-<td align="left">2021-07-27 11:35:07</td>
-</tr>
-<tr class="even">
-<td align="left">198</td>
-<td align="left"><span title="Closed Issue"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/issue-closed.png?raw=true"></span></td>
-<td align="left"><span title="Recently, the scrape_statcast_savant function has not been working for me. When I try to pull play-by-play data with code such as the following:..."><a href="https://github.com/BillPetti/baseballr/issues/198">Issue with scrape_statcast_savant</a></span></td>
-<td align="left"></td>
-<td align="left"><a href="https://github.com/mcanmann20">mcanmann20</a></td>
-<td align="left">2021-04-03</td>
-<td align="left">2021-04-20 14:01:44</td>
-</tr>
-<tr class="odd">
-<td align="left">200</td>
-<td align="left"><span title="Closed Issue"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/issue-closed.png?raw=true"></span></td>
-<td align="left"><span title="Running any of the scrape_statcast_savant functions populates the fielding alignment columns with NA. This is something I only noticed recently. It was returning proper characters as recently as last month, but when running the same code today, the columns were NA. I reinstalled the most recent version of baseballr (and dependencies) and that didn't resolve the issue. I also tried with multiple player IDs. Thanks!"><a href="https://github.com/BillPetti/baseballr/issues/200">scrape_statcast_savant() populating of_fielding_alignment and if_fielding_alignment with NA</a></span></td>
-<td align="left"></td>
-<td align="left"><a href="https://github.com/maxbay">maxbay</a></td>
-<td align="left">2021-04-05</td>
-<td align="left">2021-04-20 14:01:33</td>
-</tr>
-<tr class="even">
-<td align="left">201</td>
-<td align="left"><span title="Closed Issue"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/issue-closed.png?raw=true"></span></td>
-<td align="left"><span title="Hi Bill,..."><a href="https://github.com/BillPetti/baseballr/issues/201">pitcher_boxscore</a></span></td>
-<td align="left"></td>
-<td align="left"><a href="https://github.com/timecsvk">timecsvk</a></td>
-<td align="left">2021-04-07</td>
-<td align="left">2021-04-20 14:01:21</td>
-</tr>
-<tr class="odd">
-<td align="left">199</td>
-<td align="left"><span title="Closed Issue"><img src="https://github.com/yonicd/issue/blob/master/inst/icons/issue-closed.png?raw=true"></span></td>
-<td align="left"><span title="Whenever I try to run the code to retrieve the pbp data for the mlb, i get this error:..."><a href="https://github.com/BillPetti/baseballr/issues/199">Error in get_pbp_mlb data</a></span></td>
-<td align="left"></td>
-<td align="left"><a href="https://github.com/joeytitus">joeytitus</a></td>
-<td align="left">2021-04-03</td>
-<td align="left">2021-04-03 18:27:43</td>
-</tr>
-</tbody>
-</table></details><p><br></p>
 </div>
 <div id="our-authors" class="section level1">
 <h1 class="hasAnchor">
@@ -456,9 +361,9 @@
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/BillPetti/baseballr/">https://​github.com/​BillPetti/​baseballr/​</a>
+<li>Browse source code at <br><a href="http://github.com/BillPetti/baseballr/">http://​github.com/​BillPetti/​baseballr/​</a>
 </li>
-<li>Report a bug at <br><a href="https://github.com/BillPetti/baseballr/issues">https://​github.com/​BillPetti/​baseballr/​issues</a>
+<li>Report a bug at <br><a href="http://github.com/BillPetti/baseballr/issues">http://​github.com/​BillPetti/​baseballr/​issues</a>
 </li>
 <li>Plotting Statcast at <br><a href="articles/plotting_statcast.html">articles/​plotting_statcast.html</a>
 </li>
