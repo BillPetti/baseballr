@@ -1,6 +1,6 @@
-url: https://saiemgilani.github.io/baseballr
+url: http://BillPetti.github.io/baseballr
 
-title: baseballR
+title: baseballr
 template:
   params:
     bootswatch: flatly
@@ -60,18 +60,42 @@ navbar:
         href: articles/ncaa_scraping.html
     network:
       icon: "fas fa-project-diagram"
-      text: " SDV"
+      text: SDV
       menu:
       - text: SportsDataverse
         href: https://sportsdataverse.org/
-      - text: cfbfastR
-        href: https://saiemgilani.github.io/cfbfastR/
+      - text: --------------------------------
+      - text: R Packages
       - text: hoopR
-        href: https://saiemgilani.github.io/hoopR/
+        href: https://hoopR.sportsdataverse.org/
       - text: wehoop
-        href: https://saiemgilani.github.io/wehoop/
-      - text: cfbrecruitR
-        href: https://saiemgilani.github.io/cfbrecruitR/
+        href: https://wehoop.sportsdataverse.org/
+      - text: recruitR
+        href: https://saiemgilani.github.io/recruitR/
+      - text: puntr
+        href: https://puntalytics.github.io/puntr
+      - text: gamezoneR
+        href: https://jacklich10.github.io/gamezoneR/
+      - text: cfbplotR
+        href: https://kazink36.github.io/cfbplotR/
+      - text: worldfootballR
+        href: https://jaseziv.github.io/worldfootballR/
+      - text: hockeyR
+        href: https://hockeyr.netlify.app/
+      - text: --------------------------------
+      - text: Python Packages
+      - text: cfbfastR-py
+        href: https://cfbfastR-py.sportsdataverse.org/
+      - text: hoopR-py
+        href: https://hoopR-py.sportsdataverse.org/
+      - text: wehoop-py
+        href: https://wehoop-py.sportsdataverse.org/
+      - text: --------------------------------
+      - text: Node.js Packages
+      - text: sportsdataverse.js
+        href: https://saiemgilani.github.io/sportsdataverse/ 
+      - text: nfl-nerd
+        href: https://github.com/nntrn/nfl-nerd/ 
     github:
       icon: "fab fa-github fa-lg"
       href: https://github.com/billpetti/baseballR/

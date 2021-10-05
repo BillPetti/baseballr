@@ -80,21 +80,7 @@ pre, code {
 }
 
 
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 8px #f26419, 0 0 10px #f26419;
-  }
-  
-  to {
-    text-shadow: 0 0 10px #f26419, 0 0 11px #f26419;
-  }
-}
 
-@keyframes glow {
-    to {
-     text-shadow: 0 0 10px #f26419, 0 0 11px #f26419;
-    }
-  }
   
 .dropdown-header {
   font-family: "Chivo";
@@ -103,11 +89,9 @@ pre, code {
   color: #f6ae2d;
   font-weight: 700;
   font-size: 14px;
-  animation: glow 2.5s ease-in-out infinite alternate;
 }
 .navbar-default .navbar-link {
     font-family: "Bungee";
     font-size: 16px;
     color: #f6ae2d;
-    animation: glow 3s ease-in-out infinite alternate;
 }

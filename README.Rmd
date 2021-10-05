@@ -5,45 +5,11 @@ output: github_document
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
-require(knitr)
-if (!requireNamespace('issue') & !requireNamespace('pacman')){
+# You can install using the pacman package using the following code:
+if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
 }
-pacman::p_load(magick, grid, dplyr, lubridate)
-pacman::p_load_gh("yonicd/issue")
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "95%"
-)
-opts_template$set(stripfigure = list(fig.height = 8, out.width = "95%"))
-token <- tryCatch(
-  gitcreds::gitcreds_get(),
-  error = function(e) NULL
-)
-raw_data <- issue::get_issues(
-  repo = 'BillPetti/baseballr',
-  last = 20,
-  PAT  = token$password
-)
-
-tbl <- raw_data%>%
-  issue::issue_tibble()
-open_tbl <- tbl[tbl$pull_request==FALSE & tbl$state=="open",]
-closed_tbl <- tbl[tbl$state=="closed",]
-x <- open_tbl %>%
-  issue::md_table() %>% 
-  dplyr::mutate(
-    date = lubridate::as_date(.data$created)
-  ) %>% 
-  dplyr::select(.data$issue, .data$icon, .data$title, .data$labels, .data$opened_by, .data$date, .data$closed)
-x2 <- closed_tbl %>% 
-  issue::md_table()%>% 
-  dplyr::mutate(
-    date = lubridate::as_date(.data$created)
-  ) %>% 
-  dplyr::select(.data$issue, .data$icon, .data$title, .data$labels, .data$opened_by, .data$date, .data$closed)
+pacman::p_load_current_gh("billpetti/baseballr")
 ```
 
 
@@ -82,7 +48,7 @@ You can install the released version of [**```baseballr```**](https://github.com
 if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
 }
-pacman::p_load_current_gh("saiemgilani/baseballr")
+pacman::p_load_current_gh("BillPetti/baseballr")
 ```
 
 ``` r
@@ -175,25 +141,6 @@ edge_scrape("2015-04-06", "2015-04-07", "batter") %>%
 ```
 
 More functionality will be added soon. Please leave any suggestions or bugs in the [Issues section](https://github.com/BillPetti/baseballr/issues).
-
-
-# Current Issues
-
-```{r,results='asis',echo=FALSE}
-x[c(1:(min(nrow(x),5))),] %>%
-  knitr::kable()
-```
-
-<details><summary>View More</summary>
-
-```{r,results='asis',echo=FALSE}
-x2[c(1:(min(nrow(x),5))),] %>%
-  knitr::kable()
-```
-
-</details>
-<br>
-
 
 # **Our Authors**
 
