@@ -5,11 +5,11 @@ template:
   params:
     bootswatch: flatly
   opengraph:
-    # image:
-    #   src: "https://raw.githubusercontent.com/saiemgilani/baseballR-data/master/themes/baseballR_gh.png"
+    image:
+      src: "https://raw.githubusercontent.com/BillPetti/baseballR/master/logo.png"
     twitter:
       creator: "@BillPetti"
-      card: summary_large_image
+      card: summary
 
 toc:
   depth: 3
