@@ -10,7 +10,7 @@
 Follow](https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge)](https://twitter.com/BillPetti)
 <!-- badges: end -->
 
-# baseballr
+# baseballr <a href='http://BillPetti.github.io/baseballr'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 # `baseballr` 0.9.9
 
