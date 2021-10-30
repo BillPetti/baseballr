@@ -16,13 +16,13 @@ pacman::p_load_current_gh("billpetti/baseballr")
 <!-- badges: start --> 
 
 ![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)
-![R-CMD-check](https://img.shields.io/github/workflow/status/SaiemGilani/baseballr/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=blue&style=for-the-badge)
+![R-CMD-check](https://img.shields.io/github/workflow/status/BillPetti/baseballr/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=blue&style=for-the-badge)
 ![Contributors](https://img.shields.io/github/contributors/BillPetti/baseballr?style=for-the-badge)
-![Version-Number](https://img.shields.io/github/r-package/v/SaiemGilani/baseballr?label=baseballr&logo=R&style=for-the-badge)
+![Version-Number](https://img.shields.io/github/r-package/v/BillPetti/baseballr?label=baseballr&logo=R&style=for-the-badge)
 [![Twitter Follow](https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge)](https://twitter.com/BillPetti) 
 <!-- badges: end -->
 
-# baseballr <a href='http://BillPetti.github.io/baseballr'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# baseballr <a href='https://BillPetti.github.io/baseballr/'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 # `baseballr` 0.9.9 
 
@@ -35,9 +35,9 @@ includes functions for calculating metrics, such as wOBA, FIP, and
 team-level consistency over custom time frames.
 
 You can read more about some of the functions and how to use them at its
-[official site](http://billpetti.github.io/baseballr/) as well as this
+[official site](https://billpetti.github.io/baseballr/) as well as this
 [Hardball Times
-article](http://www.hardballtimes.com/developing-the-baseballr-package-for-r/).
+article](https://www.hardballtimes.com/developing-the-baseballr-package-for-r/).
 
 ## **Installation**
 
@@ -77,7 +77,7 @@ The package consists of two main sets of functions: data acquisition and metric 
 
 For example, if you want to see the standings for a specific MLB division on a given date, you can use the `standings_on_date_bref()` function. Just pass the year, month, day, and division you want:
 
-```{r}
+```{r standings_date_bref}
 library(baseballr)
 standings_on_date_bref("2015-08-01", "NL East", from = FALSE)
 ```
@@ -86,7 +86,7 @@ Right now the function works as far as back as 1994, which is when both leagues 
 
 You can also pull data for all hitters over a specific date range. Here are the results for all hitters from August 1st through October 3rd during the 2015 season:
 
-```{r}
+```{r daily_batter_bref}
 library(dplyr)
 data <- daily_batter_bref("2015-08-01", "2015-10-03") %>%
   head()
@@ -94,7 +94,7 @@ data <- daily_batter_bref("2015-08-01", "2015-10-03") %>%
 
 In terms of metric calculation, the package allows the user to calculate the consistency of team scoring and run prevention for any year using `team_consistency()`:
 
-```{r}
+```{r team_consistency}
 team_consistency(2015)
 ```
 
@@ -102,7 +102,7 @@ You can also calculate wOBA per plate appearance and wOBA on contact for any set
 
 Simply pass the proper data frame to `woba_plus`:
 
-```{r}
+```{r woba}
 data %>%
   filter(PA > 200) %>%
   woba_plus %>%
@@ -113,7 +113,7 @@ data %>%
 
 You can also generate these wOBA-based stats, as well as FIP, for pitchers using the `fip_plus()` function:
 
-```{r}
+```{r daily_pitcher_bref}
 daily_pitcher_bref("2015-04-05", "2015-04-30") %>% 
   fip_plus() %>% 
   select(season, Name, IP, ERA, SO, uBB, HBP, HR, FIP, wOBA_against, wOBA_CON_against) %>%
@@ -125,7 +125,7 @@ The `edge_scrape()` function allows the user to scrape PITCHf/x data from the Ga
 
 Example (pitchers):
 
-```{r, eval = FALSE,message=FALSE}
+```{r edge_scrape_pitchers, eval = FALSE,message=FALSE}
 library(dplyr)
 edge_scrape("2015-04-06", "2015-04-07", "pitcher") %>% 
   select(-6:-4, -13) %>% 
@@ -134,7 +134,7 @@ edge_scrape("2015-04-06", "2015-04-07", "pitcher") %>%
 
 Example (batters):
 
-```{r, eval=FALSE, message=FALSE}
+```{r edge_scrape_batters, eval=FALSE, message=FALSE}
 edge_scrape("2015-04-06", "2015-04-07", "batter") %>% 
   select(-6:-4, -13) %>% 
   head(10)

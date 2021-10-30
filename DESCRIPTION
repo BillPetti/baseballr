@@ -1,6 +1,6 @@
 Package: baseballr
 Title: Functions for Acquiring and Analyzing Baseball Data
-Version: 0.9.9
+Version: 0.9.91
 Authors@R: c(
     person("Bill", "Petti", email = "billpetti@gmail.com", role = c("aut", "cre")),
     person("Ben", "Baumer", email = "ben.baumer@gmail.com", role = "ctb"),
@@ -34,8 +34,8 @@ Imports:
     tibble,
     vroom
 License: MIT + file LICENSE
-URL: http://billpetti.github.io/baseballr, http://github.com/BillPetti/baseballr/
-BugReports: http://github.com/BillPetti/baseballr/issues
+URL: https://billpetti.github.io/baseballr/, https://github.com/BillPetti/baseballr/
+BugReports: https://github.com/BillPetti/baseballr/issues
 LazyData: true
 RoxygenNote: 7.1.1
 Suggests:
