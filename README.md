@@ -3,14 +3,14 @@
 <!-- badges: start -->
 
 ![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)
-![R-CMD-check](https://img.shields.io/github/workflow/status/SaiemGilani/baseballr/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=blue&style=for-the-badge)
+![R-CMD-check](https://img.shields.io/github/workflow/status/BillPetti/baseballr/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=blue&style=for-the-badge)
 ![Contributors](https://img.shields.io/github/contributors/BillPetti/baseballr?style=for-the-badge)
-![Version-Number](https://img.shields.io/github/r-package/v/SaiemGilani/baseballr?label=baseballr&logo=R&style=for-the-badge)
+![Version-Number](https://img.shields.io/github/r-package/v/BillPetti/baseballr?label=baseballr&logo=R&style=for-the-badge)
 [![Twitter
 Follow](https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge)](https://twitter.com/BillPetti)
 <!-- badges: end -->
 
-# baseballr <a href='http://BillPetti.github.io/baseballr'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# baseballr <a href='https://BillPetti.github.io/baseballr/'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 # `baseballr` 0.9.9
 
@@ -23,9 +23,9 @@ includes functions for calculating metrics, such as wOBA, FIP, and
 team-level consistency over custom time frames.
 
 You can read more about some of the functions and how to use them at its
-[official site](http://billpetti.github.io/baseballr/) as well as this
+[official site](https://billpetti.github.io/baseballr/) as well as this
 [Hardball Times
-article](http://www.hardballtimes.com/developing-the-baseballr-package-for-r/).
+article](https://www.hardballtimes.com/developing-the-baseballr-package-for-r/).
 
 ## **Installation**
 
