@@ -21,5 +21,5 @@ for the game itself.
 Get Schedule and Results for NCAA Baseball Teams
 }
 \examples{
-\dontrun{get_ncaa_schedule_info(teamid =736, year = 2017)}
+\dontrun{get_ncaa_schedule_info(teamid =736, year = 2021)}
 }
