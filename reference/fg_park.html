@@ -86,7 +86,7 @@ This function allows you to scrape park factors by handedness from FanGraphs.com
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">baseballr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.91</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.92</span>
       </span>
     </div>
 
@@ -262,37 +262,41 @@ This function allows you to scrape park factors by handedness from FanGraphs.com
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>fg_park</span><span class='op'>(</span><span class='fl'>2013</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Data courtey of FanGraphs.com. Please consider supporting FanGraphs by purchasing a membership: https://plus.fangraphs.com/product/fangraphs-membership/?switch-subscription=254671&amp;item=85029&amp;_wcsnonce=3e893e9b53&amp;auto-switch=true</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 30 × 16</span>
-#&gt;    season home_team basic_5yr `3yr` `1yr` single double triple    hr    so  UIBB
-#&gt;     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span>   <span style='text-decoration: underline;'>2</span>013 Angels           95    95    98    100     96     91    93   102    97
-#&gt; <span style='color: #BCBCBC;'> 2</span>   <span style='text-decoration: underline;'>2</span>013 Orioles         103   102   103    101     99     86   108    99   100
-#&gt; <span style='color: #BCBCBC;'> 3</span>   <span style='text-decoration: underline;'>2</span>013 Red Sox         105   104    98    103    114    105    96   100   100
-#&gt; <span style='color: #BCBCBC;'> 4</span>   <span style='text-decoration: underline;'>2</span>013 White Sox       102   105   100     99     97     91   108   103   107
-#&gt; <span style='color: #BCBCBC;'> 5</span>   <span style='text-decoration: underline;'>2</span>013 Indians         100    97    97    100    103     81   101   101    99
-#&gt; <span style='color: #BCBCBC;'> 6</span>   <span style='text-decoration: underline;'>2</span>013 Tigers          101   103   106    101     98    126    98    95    99
-#&gt; <span style='color: #BCBCBC;'> 7</span>   <span style='text-decoration: underline;'>2</span>013 Royals          101   102   104    101    103    114    93    96    99
-#&gt; <span style='color: #BCBCBC;'> 8</span>   <span style='text-decoration: underline;'>2</span>013 Twins           101   103   101    102    101    106    98    98    99
-#&gt; <span style='color: #BCBCBC;'> 9</span>   <span style='text-decoration: underline;'>2</span>013 Yankees         101   100   104    100     97     84   110   101   101
-#&gt; <span style='color: #BCBCBC;'>10</span>   <span style='text-decoration: underline;'>2</span>013 Athletics        97    97    95     99    100    105    93    97   101
-#&gt; <span style='color: #949494;'># … with 20 more rows, and 5 more variables: GB &lt;int&gt;, FB &lt;int&gt;, LD &lt;int&gt;,</span>
-#&gt; <span style='color: #949494;'>#   IFFB &lt;int&gt;, FIP &lt;int&gt;</span></div><div class='input'><span class='fu'>fg_park_hand</span><span class='op'>(</span><span class='fl'>2013</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Data courtey of FanGraphs.com. Please consider supporting FanGraphs by purchasing a membership: https://plus.fangraphs.com/product/fangraphs-membership/?switch-subscription=254671&amp;item=85029&amp;_wcsnonce=3e893e9b53&amp;auto-switch=true</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 30 × 10</span>
-#&gt;    season home_team single_as_LHH single_as_RHH double_as_LHH double_as_RHH
-#&gt;     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span>   <span style='text-decoration: underline;'>2</span>013 Angels               98           100            95            96
-#&gt; <span style='color: #BCBCBC;'> 2</span>   <span style='text-decoration: underline;'>2</span>013 Orioles             102           102           101            99
-#&gt; <span style='color: #BCBCBC;'> 3</span>   <span style='text-decoration: underline;'>2</span>013 Red Sox             104           103           121           110
-#&gt; <span style='color: #BCBCBC;'> 4</span>   <span style='text-decoration: underline;'>2</span>013 White Sox            97           101            99            96
-#&gt; <span style='color: #BCBCBC;'> 5</span>   <span style='text-decoration: underline;'>2</span>013 Indians             102            99           104           104
-#&gt; <span style='color: #BCBCBC;'> 6</span>   <span style='text-decoration: underline;'>2</span>013 Tigers              102           101            93           102
-#&gt; <span style='color: #BCBCBC;'> 7</span>   <span style='text-decoration: underline;'>2</span>013 Royals              100           101           104           101
-#&gt; <span style='color: #BCBCBC;'> 8</span>   <span style='text-decoration: underline;'>2</span>013 Twins               101           103            97           104
-#&gt; <span style='color: #BCBCBC;'> 9</span>   <span style='text-decoration: underline;'>2</span>013 Yankees             100            99            98            95
-#&gt; <span style='color: #BCBCBC;'>10</span>   <span style='text-decoration: underline;'>2</span>013 Athletics            99           100            99           101
-#&gt; <span style='color: #949494;'># … with 20 more rows, and 4 more variables: triple_as_LHH &lt;int&gt;,</span>
-#&gt; <span style='color: #949494;'>#   triple_as_RHH &lt;int&gt;, hr_as_LHH &lt;int&gt;, hr_as_RHH &lt;int&gt;</span></div></pre>
+    <pre class="examples"><span class='r-in'><span class='fu'>fg_park</span><span class='op'>(</span><span class='fl'>2013</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Data courtey of FanGraphs.com. Please consider supporting FanGraphs by purchasing a membership: https://plus.fangraphs.com/product/fangraphs-membership/?switch-subscription=254671&amp;item=85029&amp;_wcsnonce=3e893e9b53&amp;auto-switch=true</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 30 × 16</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    season home_team basic_5yr `3yr` `1yr` single double triple    hr    so  UIBB</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span>   <span style='text-decoration: underline;'>2</span>013 Angels           95    95    98    100     96     91    93   102    97</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span>   <span style='text-decoration: underline;'>2</span>013 Orioles         103   102   103    101     99     86   108    99   100</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span>   <span style='text-decoration: underline;'>2</span>013 Red Sox         105   104    98    103    114    105    96   100   100</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span>   <span style='text-decoration: underline;'>2</span>013 White Sox       102   105   100     99     97     91   108   103   107</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span>   <span style='text-decoration: underline;'>2</span>013 Indians         100    97    97    100    103     81   101   101    99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span>   <span style='text-decoration: underline;'>2</span>013 Tigers          101   103   106    101     98    126    98    95    99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span>   <span style='text-decoration: underline;'>2</span>013 Royals          101   102   104    101    103    114    93    96    99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span>   <span style='text-decoration: underline;'>2</span>013 Twins           101   103   101    102    101    106    98    98    99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span>   <span style='text-decoration: underline;'>2</span>013 Yankees         101   100   104    100     97     84   110   101   101</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span>   <span style='text-decoration: underline;'>2</span>013 Athletics        97    97    95     99    100    105    93    97   101</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 20 more rows, and 5 more variables: GB &lt;int&gt;, FB &lt;int&gt;, LD &lt;int&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   IFFB &lt;int&gt;, FIP &lt;int&gt;</span></span>
+<span class='r-in'><span class='fu'>fg_park_hand</span><span class='op'>(</span><span class='fl'>2013</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Data courtey of FanGraphs.com. Please consider supporting FanGraphs by purchasing a membership: https://plus.fangraphs.com/product/fangraphs-membership/?switch-subscription=254671&amp;item=85029&amp;_wcsnonce=3e893e9b53&amp;auto-switch=true</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 30 × 10</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    season home_team single_as_LHH single_as_RHH double_as_LHH double_as_RHH</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span>   <span style='text-decoration: underline;'>2</span>013 Angels               98           100            95            96</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span>   <span style='text-decoration: underline;'>2</span>013 Orioles             102           102           101            99</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span>   <span style='text-decoration: underline;'>2</span>013 Red Sox             104           103           121           110</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span>   <span style='text-decoration: underline;'>2</span>013 White Sox            97           101            99            96</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span>   <span style='text-decoration: underline;'>2</span>013 Indians             102            99           104           104</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span>   <span style='text-decoration: underline;'>2</span>013 Tigers              102           101            93           102</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span>   <span style='text-decoration: underline;'>2</span>013 Royals              100           101           104           101</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span>   <span style='text-decoration: underline;'>2</span>013 Twins               101           103            97           104</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span>   <span style='text-decoration: underline;'>2</span>013 Yankees             100            99            98            95</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span>   <span style='text-decoration: underline;'>2</span>013 Athletics            99           100            99           101</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 20 more rows, and 4 more variables: triple_as_LHH &lt;int&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   triple_as_RHH &lt;int&gt;, hr_as_LHH &lt;int&gt;, hr_as_RHH &lt;int&gt;</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

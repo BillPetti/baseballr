@@ -42,7 +42,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">baseballr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.91</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.92</span>
       </span>
     </div>
 
@@ -223,7 +223,7 @@
 <span class="co">#&gt; The following objects are masked from 'package:base':</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;     intersect, setdiff, setequal, union</span>
-<span class="fu"><a href="../reference/ncaa_scrape.html">ncaa_scrape</a></span><span class="op">(</span><span class="fl">736</span>, <span class="fl">2013</span>, <span class="st">"batting"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<span class="fu"><a href="../reference/ncaa_scrape.html">ncaa_scrape</a></span><span class="op">(</span><span class="fl">736</span>, <span class="fl">2013</span>, <span class="st">"batting"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">year</span><span class="op">:</span><span class="va">OBPct</span><span class="op">)</span>
 <span class="co">#&gt;    year     school conference division Jersey            Player Yr Pos GP GS</span>
 <span class="co">#&gt; 1  2013 Vanderbilt        SEC        1     20   Harrell, Connor Sr  OF 66 66</span>
@@ -271,7 +271,7 @@
 <span class="co">#&gt; 21 0.220 0.320</span></code></pre></div>
 <p>The same can be done for pitching, just by changing the <code>type</code> parameter:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/ncaa_scrape.html">ncaa_scrape</a></span><span class="op">(</span><span class="fl">736</span>, <span class="fl">2013</span>, <span class="st">"pitching"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/ncaa_scrape.html">ncaa_scrape</a></span><span class="op">(</span><span class="fl">736</span>, <span class="fl">2013</span>, <span class="st">"pitching"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">year</span><span class="op">:</span><span class="va">ERA</span><span class="op">)</span>
 <span class="co">#&gt;    year     school conference division Jersey           Player Yr Pos GP App GS</span>
 <span class="co">#&gt; 1  2013 Vanderbilt        SEC        1     11     Beede, Tyler So   P 37  17 17</span>

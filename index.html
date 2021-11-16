@@ -42,7 +42,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">baseballr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.91</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.92</span>
       </span>
     </div>
 
@@ -199,10 +199,10 @@
 <a href="#baseballr-" class="anchor"></a>baseballr <a href="https://BillPetti.github.io/baseballr/"><img src="reference/figures/logo.png" align="right" height="139"></a>
 </h1></div>
 </div>
-<div id="baseballr-099" class="section level1">
+<div id="baseballr" class="section level1">
 <h1 class="hasAnchor">
-<a href="#baseballr-099" class="anchor"></a><code>baseballr</code> 0.9.9</h1>
-<p><strong>(latest version released 2021-06-25)</strong></p>
+<a href="#baseballr" class="anchor"></a><code>baseballr</code>
+</h1>
 <p><code>baseballr</code> is a package written for R focused on baseball analysis. It includes functions for scraping various data from websites, such as FanGraphs.com, Baseball-Reference.com, and baseballsavant.com. It also includes functions for calculating metrics, such as wOBA, FIP, and team-level consistency over custom time frames.</p>
 <p>You can read more about some of the functions and how to use them at its <a href="https://billpetti.github.io/baseballr/">official site</a> as well as this <a href="https://www.hardballtimes.com/developing-the-baseballr-package-for-r/">Hardball Times article</a>.</p>
 <div id="installation" class="section level2">
@@ -266,7 +266,7 @@
 <span id="cb7-9"><a href="#cb7-9"></a><span class="co">## </span></span>
 <span id="cb7-10"><a href="#cb7-10"></a><span class="co">##     intersect, setdiff, setequal, union</span></span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/daily_batter_bref.html">daily_batter_bref</a></span><span class="op">(</span><span class="st">"2015-08-01"</span>, <span class="st">"2015-10-03"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/daily_batter_bref.html">daily_batter_bref</a></span><span class="op">(</span><span class="st">"2015-08-01"</span>, <span class="st">"2015-10-03"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">## Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com</span></span></code></pre></div>
 <p>In terms of metric calculation, the package allows the user to calculate the consistency of team scoring and run prevention for any year using <code><a href="reference/team_consistency.html">team_consistency()</a></code>:</p>
@@ -291,11 +291,11 @@
 <p>You can also calculate wOBA per plate appearance and wOBA on contact for any set of data over any date range, provided you have the data available.</p>
 <p>Simply pass the proper data frame to <code>woba_plus</code>:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">data</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">PA</span> <span class="op">&gt;</span> <span class="fl">200</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="va">woba_plus</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">wOBA</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">Team</span>, <span class="va">season</span>, <span class="va">PA</span>, <span class="va">wOBA</span>, <span class="va">wOBA_CON</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R"><span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">PA</span> <span class="op">&gt;</span> <span class="fl">200</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="va">woba_plus</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">wOBA</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">Team</span>, <span class="va">season</span>, <span class="va">PA</span>, <span class="va">wOBA</span>, <span class="va">wOBA_CON</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">##               Name          Team season  PA  wOBA wOBA_CON</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="co">## 1    Shin-Soo Choo         Texas   2015 260 0.430    0.495</span></span>
@@ -306,10 +306,10 @@
 <span id="cb13-7"><a href="#cb13-7"></a><span class="co">## 6       Matt Duffy San Francisco   2015 264 0.312    0.338</span></span></code></pre></div>
 <p>You can also generate these wOBA-based stats, as well as FIP, for pitchers using the <code><a href="reference/fip_plus.html">fip_plus()</a></code> function:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/daily_pitcher_bref.html">daily_pitcher_bref</a></span><span class="op">(</span><span class="st">"2015-04-05"</span>, <span class="st">"2015-04-30"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="reference/fip_plus.html">fip_plus</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">season</span>, <span class="va">Name</span>, <span class="va">IP</span>, <span class="va">ERA</span>, <span class="va">SO</span>, <span class="va">uBB</span>, <span class="va">HBP</span>, <span class="va">HR</span>, <span class="va">FIP</span>, <span class="va">wOBA_against</span>, <span class="va">wOBA_CON_against</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">IP</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="fu"><a href="reference/daily_pitcher_bref.html">daily_pitcher_bref</a></span><span class="op">(</span><span class="st">"2015-04-05"</span>, <span class="st">"2015-04-30"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="reference/fip_plus.html">fip_plus</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">season</span>, <span class="va">Name</span>, <span class="va">IP</span>, <span class="va">ERA</span>, <span class="va">SO</span>, <span class="va">uBB</span>, <span class="va">HBP</span>, <span class="va">HR</span>, <span class="va">FIP</span>, <span class="va">wOBA_against</span>, <span class="va">wOBA_CON_against</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">IP</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">## Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a></span>
@@ -339,37 +339,43 @@
 <p>Example (pitchers):</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
-<span class="fu"><a href="reference/edge_scrape.html">edge_scrape</a></span><span class="op">(</span><span class="st">"2015-04-06"</span>, <span class="st">"2015-04-07"</span>, <span class="st">"pitcher"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fl">6</span><span class="op">:</span><span class="op">-</span><span class="fl">4</span>, <span class="op">-</span><span class="fl">13</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="fu"><a href="reference/edge_scrape.html">edge_scrape</a></span><span class="op">(</span><span class="st">"2015-04-06"</span>, <span class="st">"2015-04-07"</span>, <span class="st">"pitcher"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fl">6</span><span class="op">:</span><span class="op">-</span><span class="fl">4</span>, <span class="op">-</span><span class="fl">13</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
 <p>Example (batters):</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/edge_scrape.html">edge_scrape</a></span><span class="op">(</span><span class="st">"2015-04-06"</span>, <span class="st">"2015-04-07"</span>, <span class="st">"batter"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fl">6</span><span class="op">:</span><span class="op">-</span><span class="fl">4</span>, <span class="op">-</span><span class="fl">13</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="fu"><a href="reference/edge_scrape.html">edge_scrape</a></span><span class="op">(</span><span class="st">"2015-04-06"</span>, <span class="st">"2015-04-07"</span>, <span class="st">"batter"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fl">6</span><span class="op">:</span><span class="op">-</span><span class="fl">4</span>, <span class="op">-</span><span class="fl">13</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
 <p>More functionality will be added soon. Please leave any suggestions or bugs in the <a href="https://github.com/BillPetti/baseballr/issues">Issues section</a>.</p>
 </div>
+<div id="follow-the-sportsdataverse-on-twitter-and-star-this-repo" class="section level2">
+<h2 class="hasAnchor">
+<a href="#follow-the-sportsdataverse-on-twitter-and-star-this-repo" class="anchor"></a>Follow the <a href="https://twitter.com/SportsDataverse">SportsDataverse</a> on Twitter and star this repo</h2>
+<p><a href="https://twitter.com/SportsDataverse"><img src="https://img.shields.io/twitter/follow/SportsDataverse?color=blue&amp;label=%40SportsDataverse&amp;logo=twitter&amp;style=for-the-badge" alt="Twitter Follow"></a></p>
+<p><a href="https://github.com/billpetti/baseballr/stargazers/"><img src="https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&amp;logo=github&amp;style=for-the-badge&amp;label=Star%20baseballr&amp;maxAge=2592000" alt="GitHub stars"></a></p>
 </div>
-<div id="our-authors" class="section level1">
-<h1 class="hasAnchor">
+<div id="our-authors" class="section level2">
+<h2 class="hasAnchor">
 <a href="#our-authors" class="anchor"></a><strong>Our Authors</strong>
-</h1>
+</h2>
 <ul>
 <li>
 <a href="https://twitter.com/BillPetti">Bill Petti</a><br><a href="https://twitter.com/BillPetti" target="blank"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&amp;label=%40BillPetti&amp;logo=twitter&amp;style=for-the-badge" alt="@BillPetti"></a> <a href="https://github.com/BillPetti" target="blank"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@BillPetti"></a>
 </li>
 </ul>
 </div>
-<div id="our-contributors-theyre-awesome" class="section level1">
-<h1 class="hasAnchor">
+<div id="our-contributors-theyre-awesome" class="section level2">
+<h2 class="hasAnchor">
 <a href="#our-contributors-theyre-awesome" class="anchor"></a><strong>Our Contributors (they’re awesome)</strong>
-</h1>
+</h2>
 <ul>
 <li><p><a href="https://twitter.com/BaumerBen">Ben Baumer</a><br><a href="https://twitter.com/BaumerBen" target="blank"><img src="https://img.shields.io/twitter/follow/BaumerBen?color=blue&amp;label=%40BaumerBen&amp;logo=twitter&amp;style=for-the-badge" alt="@BaumerBen"></a> <a href="https://github.com/beanumber" target="blank"><img src="https://img.shields.io/github/followers/beanumber?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@beanumber"></a></p></li>
 <li><p><a href="https://twitter.com/BenDilday">Ben Dilday</a><br><a href="https://twitter.com/BenDilday" target="blank"><img src="https://img.shields.io/twitter/follow/BenDilday?color=blue&amp;label=%40BenDilday&amp;logo=twitter&amp;style=for-the-badge" alt="@BenDilday"></a> <a href="https://github.com/bdilday" target="blank"><img src="https://img.shields.io/github/followers/bdilday?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@bdilday"></a></p></li>
 <li><p><a href="https://twitter.com/RobertFrey40">Robert Frey</a><br><a href="https://twitter.com/RobertFrey40" target="blank"><img src="https://img.shields.io/twitter/follow/RobertFrey40?color=blue&amp;label=%40RobertFrey40&amp;logo=twitter&amp;style=for-the-badge" alt="@RobertFrey40"></a> <a href="https://github.com/robert-frey" target="blank"><img src="https://img.shields.io/github/followers/robert-frey?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@robert-frey"></a></p></li>
 <li><p><a href="https://twitter.com/saiemgilani">Saiem Gilani</a><br><a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge" alt="@saiemgilani"></a> <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a></p></li>
 </ul>
+</div>
 </div>
 
   </div>

@@ -42,7 +42,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">baseballr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.91</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.92</span>
       </span>
     </div>
 
@@ -196,7 +196,7 @@
       <h1 data-toc-skip>Plotting Statcast data</h1>
                         <h4 class="author">Bill Petti</h4>
             
-            <h4 class="date">2021-10-30</h4>
+            <h4 class="date">2021-11-16</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/BillPetti/baseballr/blob/master/vignettes/plotting_statcast.Rmd"><code>vignettes/plotting_statcast.Rmd</code></a></small>
       <div class="hidden name"><code>plotting_statcast.Rmd</code></div>
@@ -211,14 +211,14 @@
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://billpetti.github.io/baseballr/">baseballr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">reshape2</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/reshape">reshape2</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://zoo.R-Forge.R-project.org/">zoo</a></span><span class="op">)</span></code></pre></div>
 <div id="find-mookie-betts-mlbamid" class="section level2">
 <h2 class="hasAnchor">
 <a href="#find-mookie-betts-mlbamid" class="anchor"></a>find Mookie Betts’ MLBAMID</h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">betts_id</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/playerid_lookup.html">playerid_lookup</a></span><span class="op">(</span><span class="st">"Betts"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">first_name</span> <span class="op">==</span> <span class="st">"Mookie"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R"><span class="va">betts_id</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/playerid_lookup.html">playerid_lookup</a></span><span class="op">(</span><span class="st">"Betts"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">first_name</span> <span class="op">==</span> <span class="st">"Mookie"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">mlbam_id</span>, <span class="va">first_name</span>, <span class="va">last_name</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="scrape-betts-statcast-data-by-pitch-removing-those-with-a-batted-ball-speed-of-0" class="section level2">
@@ -235,27 +235,27 @@
 <h2 class="hasAnchor">
 <a href="#calculate-average-launch-angles-and-batted-ball-speeds-by-game" class="anchor"></a>calculate average launch angles and batted ball speeds by game</h2>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">betts_grpd</span> <span class="op">&lt;-</span> <span class="va">betts</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">game_date</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R"><span class="va">betts_grpd</span> <span class="op">&lt;-</span> <span class="va">betts</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">game_date</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>`Average Launch Angle` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">launch_angle</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, 
-            `Average Batted Ball Speed` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">launch_speed</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">melt</span><span class="op">(</span>id<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"game_date"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+            `Average Batted Ball Speed` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">launch_speed</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu">melt</span><span class="op">(</span>id<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"game_date"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">game_date</span>,<span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="calculate-betts-average-launch-angle-and-batted-ball-speed-by-year" class="section level2">
 <h2 class="hasAnchor">
 <a href="#calculate-betts-average-launch-angle-and-batted-ball-speed-by-year" class="anchor"></a>calculate Betts’ average launch angle and batted ball speed by year</h2>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">betts_avg_speed_yr</span> <span class="op">&lt;-</span> <span class="va">betts</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Year</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R"><span class="va">betts_avg_speed_yr</span> <span class="op">&lt;-</span> <span class="va">betts</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>speed <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">launch_speed</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,<span class="fl">1</span><span class="op">)</span>, angle <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">launch_angle</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="plot-the-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#plot-the-data" class="anchor"></a>plot the data</h2>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">betts_grpd</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R"><span class="va">betts_grpd</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">game_date</span>, <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">stat_smooth</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>group <span class="op">=</span> <span class="va">Year</span>, color <span class="op">=</span> <span class="va">Year</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>

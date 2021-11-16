@@ -85,7 +85,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">baseballr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.91</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.92</span>
       </span>
     </div>
 
@@ -250,22 +250,24 @@
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>fg_guts</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Data courtey of FanGraphs.com. Please consider supporting FanGraphs by purchasing a membership: https://plus.fangraphs.com/product/fangraphs-membership/?switch-subscription=254671&amp;item=85029&amp;_wcsnonce=3e893e9b53&amp;auto-switch=true</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 151 × 14</span>
-#&gt;    season lg_woba woba_scale   wBB  wHBP   w1B   w2B   w3B   wHR runSB  runCS
-#&gt;     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span>   <span style='text-decoration: underline;'>2</span>021   0.314       1.21 0.692 0.722 0.879  1.24  1.57  2.01   0.2 -<span style='color: #BB0000;'>0.419</span>
-#&gt; <span style='color: #BCBCBC;'> 2</span>   <span style='text-decoration: underline;'>2</span>020   0.32        1.18 0.699 0.728 0.883  1.24  1.56  1.98   0.2 -<span style='color: #BB0000;'>0.435</span>
-#&gt; <span style='color: #BCBCBC;'> 3</span>   <span style='text-decoration: underline;'>2</span>019   0.32        1.16 0.69  0.719 0.87   1.22  1.53  1.94   0.2 -<span style='color: #BB0000;'>0.435</span>
-#&gt; <span style='color: #BCBCBC;'> 4</span>   <span style='text-decoration: underline;'>2</span>018   0.315       1.23 0.69  0.72  0.88   1.25  1.58  2.03   0.2 -<span style='color: #BB0000;'>0.407</span>
-#&gt; <span style='color: #BCBCBC;'> 5</span>   <span style='text-decoration: underline;'>2</span>017   0.321       1.18 0.693 0.723 0.877  1.23  1.55  1.98   0.2 -<span style='color: #BB0000;'>0.423</span>
-#&gt; <span style='color: #BCBCBC;'> 6</span>   <span style='text-decoration: underline;'>2</span>016   0.318       1.21 0.691 0.721 0.878  1.24  1.57  2.02   0.2 -<span style='color: #BB0000;'>0.41</span> 
-#&gt; <span style='color: #BCBCBC;'> 7</span>   <span style='text-decoration: underline;'>2</span>015   0.313       1.25 0.687 0.718 0.881  1.26  1.59  2.06   0.2 -<span style='color: #BB0000;'>0.392</span>
-#&gt; <span style='color: #BCBCBC;'> 8</span>   <span style='text-decoration: underline;'>2</span>014   0.31        1.30 0.689 0.722 0.892  1.28  1.64  2.13   0.2 -<span style='color: #BB0000;'>0.377</span>
-#&gt; <span style='color: #BCBCBC;'> 9</span>   <span style='text-decoration: underline;'>2</span>013   0.314       1.28 0.69  0.722 0.888  1.27  1.62  2.10   0.2 -<span style='color: #BB0000;'>0.384</span>
-#&gt; <span style='color: #BCBCBC;'>10</span>   <span style='text-decoration: underline;'>2</span>012   0.315       1.25 0.691 0.722 0.884  1.26  1.59  2.06   0.2 -<span style='color: #BB0000;'>0.398</span>
-#&gt; <span style='color: #949494;'># … with 141 more rows, and 3 more variables: lg_r_pa &lt;dbl&gt;, lg_r_w &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   cFIP &lt;dbl&gt;</span></div></pre>
+    <pre class="examples"><span class='r-in'><span class='fu'>fg_guts</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Data courtey of FanGraphs.com. Please consider supporting FanGraphs by purchasing a membership: https://plus.fangraphs.com/product/fangraphs-membership/?switch-subscription=254671&amp;item=85029&amp;_wcsnonce=3e893e9b53&amp;auto-switch=true</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 151 × 14</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    season lg_woba woba_scale   wBB  wHBP   w1B   w2B   w3B   wHR runSB  runCS</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span>   <span style='text-decoration: underline;'>2</span>021   0.314       1.21 0.692 0.722 0.879  1.24  1.57  2.01   0.2 -<span style='color: #BB0000;'>0.419</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span>   <span style='text-decoration: underline;'>2</span>020   0.32        1.18 0.699 0.728 0.883  1.24  1.56  1.98   0.2 -<span style='color: #BB0000;'>0.435</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span>   <span style='text-decoration: underline;'>2</span>019   0.32        1.16 0.69  0.719 0.87   1.22  1.53  1.94   0.2 -<span style='color: #BB0000;'>0.435</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span>   <span style='text-decoration: underline;'>2</span>018   0.315       1.23 0.69  0.72  0.88   1.25  1.58  2.03   0.2 -<span style='color: #BB0000;'>0.407</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span>   <span style='text-decoration: underline;'>2</span>017   0.321       1.18 0.693 0.723 0.877  1.23  1.55  1.98   0.2 -<span style='color: #BB0000;'>0.423</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span>   <span style='text-decoration: underline;'>2</span>016   0.318       1.21 0.691 0.721 0.878  1.24  1.57  2.02   0.2 -<span style='color: #BB0000;'>0.41</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span>   <span style='text-decoration: underline;'>2</span>015   0.313       1.25 0.687 0.718 0.881  1.26  1.59  2.06   0.2 -<span style='color: #BB0000;'>0.392</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span>   <span style='text-decoration: underline;'>2</span>014   0.31        1.30 0.689 0.722 0.892  1.28  1.64  2.13   0.2 -<span style='color: #BB0000;'>0.377</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span>   <span style='text-decoration: underline;'>2</span>013   0.314       1.28 0.69  0.722 0.888  1.27  1.62  2.10   0.2 -<span style='color: #BB0000;'>0.384</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span>   <span style='text-decoration: underline;'>2</span>012   0.315       1.25 0.691 0.722 0.884  1.26  1.59  2.06   0.2 -<span style='color: #BB0000;'>0.398</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 141 more rows, and 3 more variables: lg_r_pa &lt;dbl&gt;, lg_r_w &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   cFIP &lt;dbl&gt;</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
