@@ -14,7 +14,7 @@
 #' @export
 #'
 #' @examples \donttest{
-#' x <- get_ncaa_schedule_info(736, 2019)$game_info_url[2]
+#' x <- get_ncaa_schedule_info(736, 2021)$game_info_url[2]
 #' get_ncaa_baseball_pbp(game_info_url = x)
 #' }
 

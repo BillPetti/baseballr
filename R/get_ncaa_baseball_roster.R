@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' \donttest{
-#' get_ncaa_baseball_roster(teamid = 104, team_year =2019)
+#' get_ncaa_baseball_roster(teamid = 104, team_year = 2021)
 #' }
 
 get_ncaa_baseball_roster <- function(teamid = NA,
