@@ -2,7 +2,8 @@ context("NCAA Get Schedule Info")
 
 cols <- c(
   "date", "opponent", "result", 
-  "score", "innings", "slug", "game_info_url"
+  "score", "innings", "opponent_slug", 
+  "slug", "game_info_url"
 )
 
 test_that("NCAA Get Schedule Info", {
