@@ -12,9 +12,7 @@ Follow](https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40Bill
 
 # baseballr <a href='https://BillPetti.github.io/baseballr/'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
-# `baseballr` 0.9.9
-
-**(latest version released 2021-06-25)**
+# `baseballr`
 
 `baseballr` is a package written for R focused on baseball analysis. It
 includes functions for scraping various data from websites, such as
@@ -234,13 +232,21 @@ More functionality will be added soon. Please leave any suggestions or
 bugs in the [Issues
 section](https://github.com/BillPetti/baseballr/issues).
 
-# **Our Authors**
+## Follow the [SportsDataverse](https://twitter.com/SportsDataverse) on Twitter and star this repo
+
+[![Twitter
+Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=twitter&style=for-the-badge)](https://twitter.com/SportsDataverse)
+
+[![GitHub
+stars](https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&logo=github&style=for-the-badge&label=Star%20baseballr&maxAge=2592000)](https://github.com/billpetti/baseballr/stargazers/)
+
+## **Our Authors**
 
 -   [Bill Petti](https://twitter.com/BillPetti)  
     <a href="https://twitter.com/BillPetti" target="blank"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge" alt="@BillPetti" /></a>
     <a href="https://github.com/BillPetti" target="blank"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&logo=Github&style=for-the-badge" alt="@BillPetti" /></a>
 
-# **Our Contributors (they’re awesome)**
+## **Our Contributors (they’re awesome)**
 
 -   [Ben Baumer](https://twitter.com/BaumerBen)  
     <a href="https://twitter.com/BaumerBen" target="blank"><img src="https://img.shields.io/twitter/follow/BaumerBen?color=blue&label=%40BaumerBen&logo=twitter&style=for-the-badge" alt="@BaumerBen" /></a>

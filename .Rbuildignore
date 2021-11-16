@@ -21,7 +21,7 @@
 ^.github$
 ^_pkgdown.yml$
 ^_pkgdown\.yml$
-^vignettes
+^vignettes/articles$
 ^\.github$
 ^data-raw$
 ^data-raw
@@ -30,5 +30,4 @@
 ^\.github$
 ^man/figures
 ^README\.Rmd$
-^md
 logo.png

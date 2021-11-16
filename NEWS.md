@@ -1,3 +1,9 @@
+# baseballr 0.9.92 (2021-11-16)
+* minor fix for `ncaa_game_info()` function
+
+# baseballr 0.9.9-0.9.91 (2021-06-25)
+* A great many under-the-hood fixes to bring more of the package in-line for submission to CRAN
+
 # baseballr 0.8 (2020-05-15)
 
 ## New Functions
