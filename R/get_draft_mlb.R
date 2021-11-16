@@ -5,8 +5,6 @@
 #' round for that year
 #' requested
 #' @export
-#'
-#' @examples \donttest{get_draft_mlb(2009)}
 
 get_draft_mlb<- function(year) {
 
