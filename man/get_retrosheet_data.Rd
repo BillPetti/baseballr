@@ -28,12 +28,9 @@ of the event data for a given year and 2) a combined csv of each team's
 roster for each year
 }
 \description{
-Get, Parse, and Format Retrosheet Event and Roster Files
-}
-\examples{
-\donttest{
-  get_retrosheet_data(path_to_directory = "/Users/Documents/retrosheet/", 
+```r
+get_retrosheet_data(path_to_directory = "/Users/Documents/retrosheet/", 
     years_to_acquire = c(1957,1959), 
     sequence_years = F)
-}
+```
 }
