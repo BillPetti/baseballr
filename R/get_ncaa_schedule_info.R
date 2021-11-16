@@ -29,7 +29,7 @@ get_ncaa_schedule_info <- function(teamid = NULL,
   url <- paste0("https://stats.ncaa.org/team/", teamid, "/", id)
   
   payload <- xml2::read_html(url)
-  if(year>2017){
+  if(year>2018){
     sched_html <- payload %>%
       rvest::html_elements("fieldset") %>%
       rvest::html_elements("table") 
@@ -56,7 +56,7 @@ get_ncaa_schedule_info <- function(teamid = NULL,
     rvest::html_attr("href")
   
   sched <- sched %>%
-    dplyr::filter(!(.data$Result %in% c("Canceled","Ppd")))
+    dplyr::filter(!(.data$Result %in% c("Canceled","Ppd", "")))
   
   sched$slug <- sched_html %>%
     rvest::html_elements("td .skipMask") %>%
