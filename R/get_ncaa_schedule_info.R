@@ -14,7 +14,7 @@
 #' for the game itself.
 #' @export
 #'
-#' @examples \dontrun{get_ncaa_schedule_info(teamid =736, year = 2021)}
+#' @examples \donttest{get_ncaa_schedule_info(teamid =736, year = 2021)}
 
 get_ncaa_schedule_info <- function(teamid = NULL,
                                    year = NULL) {

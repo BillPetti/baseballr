@@ -8,7 +8,7 @@
 #' 
 #' @export
 #' @examples
-#' \dontrun{linear_weights_savant(df, level = "plate appearance")}
+#' \donttest{linear_weights_savant(df, level = "plate appearance")}
 
 linear_weights_savant <- function (df,
                                    level = "plate appearance")

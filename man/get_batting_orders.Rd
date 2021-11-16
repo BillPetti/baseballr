@@ -21,5 +21,5 @@ requested
 Retrieve batting orders for a given MLB game via the MLB api \url{http://statsapi.mlb.com/api/}
 }
 \examples{
-\dontrun{get_batting_orders(game_pk=566001)}
+\donttest{get_batting_orders(game_pk=566001)}
 }

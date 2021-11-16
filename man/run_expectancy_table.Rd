@@ -15,5 +15,5 @@ run_expectancy_table(df, level = "plate appearance")
 These functions allow a user to generate run expectancy tables from Baseball Savant data. Tables are automatically assigned to the Global Environment.
 }
 \examples{
-\dontrun{run_expectancy_table(df, level = "plate appearances")}
+\donttest{run_expectancy_table(df, level = "plate appearances")}
 }

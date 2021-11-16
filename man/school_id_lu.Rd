@@ -13,5 +13,5 @@ school_id_lu(school_name = NULL)
 This function allows the user to lookup the school_id needed for the ncaa_scrape function.
 }
 \examples{
-\dontrun{school_id_lu("Van")}
+\donttest{school_id_lu("Van")}
 }

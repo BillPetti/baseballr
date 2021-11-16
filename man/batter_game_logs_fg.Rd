@@ -15,5 +15,5 @@ batter_game_logs_fg(playerid, year = 2017)
 This function allows you to scrape game logs by year for a batter from FanGraphs.com.
 }
 \examples{
-\dontrun{batter_game_logs_fg(playerid = 6184, year = 2017)}
+\donttest{batter_game_logs_fg(playerid = 6184, year = 2017)}
 }

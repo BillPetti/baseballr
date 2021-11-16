@@ -10,7 +10,7 @@
 #' @importFrom rvest html_nodes html_table html_attr
 #' @export
 #' @examples
-#' \dontrun{fg_bat_leaders(x = 2015, y = 2015, qual = 400)}
+#' \donttest{fg_bat_leaders(x = 2015, y = 2015, qual = 400)}
 
 fg_bat_leaders <- function(x, y, league = "all", qual = "y", ind = 1) {
 
@@ -126,7 +126,7 @@ fg_bat_leaders <- function(x, y, league = "all", qual = "y", ind = 1) {
 #' @importFrom rvest html_nodes html_table html_attr
 #' @export
 #' @examples
-#' \dontrun{fg_pitch_leaders(x = 2015, y = 2015, qual = 150)}
+#' \donttest{fg_pitch_leaders(x = 2015, y = 2015, qual = 150)}
 
 fg_pitch_leaders <- function(x, y, league = "all", qual = "y",
                              pitcher_type = "pit", ind = 1) {

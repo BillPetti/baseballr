@@ -30,5 +30,5 @@ fg_pitch_leaders(
 Scrape Pitcher Leaderboards from FanGraphs
 }
 \examples{
-\dontrun{fg_pitch_leaders(x = 2015, y = 2015, qual = 150)}
+\donttest{fg_pitch_leaders(x = 2015, y = 2015, qual = 150)}
 }

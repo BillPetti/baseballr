@@ -18,7 +18,7 @@ AL Overall, NL East, NL Central, NL West, and NL Overall}
 This function allows you to scrape the standings from MLB for a period you choose, and visualize the GB of teams along that period.
 }
 \examples{
-\dontrun{
+\donttest{
 viz_gb_on_period(start_date = "2017-04-02", end_date = "2017-04-10", lg_div = "AL East")
 }
 }

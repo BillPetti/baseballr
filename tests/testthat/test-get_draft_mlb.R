@@ -36,6 +36,7 @@ cols <- c(
 )
 
 test_that("MLB Draft", {
+  skip_on_ci()
   skip_on_cran()
   
   x <- get_draft_mlb(2009)

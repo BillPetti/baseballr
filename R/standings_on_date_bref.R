@@ -12,7 +12,7 @@
 #' @importFrom xml2 read_html
 #' @export standings_on_date_bref
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' standings_on_date_bref(date = "2015-08-04", division = "AL East")
 #' }
 

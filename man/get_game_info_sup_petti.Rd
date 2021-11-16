@@ -15,5 +15,5 @@ and start and end time,
 Download a data frame of supplemental data about MLB games since 2008.
 }
 \examples{
-\dontrun{get_game_info_sup_petti()}
+\donttest{get_game_info_sup_petti()}
 }

@@ -7,7 +7,7 @@
 #' @importFrom rvest html_nodes html_table
 #' @export
 #' @examples
-#' \dontrun{batter_game_logs_fg(playerid = 6184, year = 2017)}
+#' \donttest{batter_game_logs_fg(playerid = 6184, year = 2017)}
 
 batter_game_logs_fg <- function(playerid, year = 2017) {
 

@@ -18,5 +18,5 @@ requested
 Retrieve draft pick information by year via the MLB api \url{http://statsapi.mlb.com/api/}
 }
 \examples{
-\dontrun{get_draft_mlb(2009)}
+\donttest{get_draft_mlb(2009)}
 }

@@ -9,7 +9,7 @@
 #' weather, official scorer, attendance, etc., for the game_pk provided
 #' @export
 #'
-#' @examples \dontrun{get_probables_mlb(566001)}
+#' @examples \donttest{get_probables_mlb(566001)}
 
 get_game_info_mlb <- function(game_pk) {
 

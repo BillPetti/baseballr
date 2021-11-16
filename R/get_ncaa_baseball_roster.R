@@ -12,7 +12,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' get_ncaa_baseball_roster(teamid = 104, team_year =2019)
 #' }
 

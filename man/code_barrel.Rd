@@ -12,6 +12,3 @@ code_barrel(df)
 \description{
 This function allows you to code a batted ball as a barrel as defined by the Statcast research team using data as provided by baseballsavant.mlb.com.
 }
-\examples{
-\dontrun{code_barrel(df)}
-}

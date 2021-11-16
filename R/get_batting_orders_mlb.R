@@ -11,7 +11,7 @@
 #' requested
 #' @export
 #'
-#' @examples \dontrun{get_batting_orders(game_pk=566001)}
+#' @examples \donttest{get_batting_orders(game_pk=566001)}
 
 get_batting_orders <- function (game_pk,
                                 type = "starting") {

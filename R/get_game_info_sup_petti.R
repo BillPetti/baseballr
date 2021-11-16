@@ -6,7 +6,7 @@
 #' and start and end time,
 #' @export
 #' @examples
-#' \dontrun{get_game_info_sup_petti()}
+#' \donttest{get_game_info_sup_petti()}
 
 get_game_info_sup_petti <- function() {
 

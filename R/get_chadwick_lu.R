@@ -3,7 +3,7 @@
 #' @importFrom vroom vroom
 #' @export
 #' @examples
-#' \dontrun{get_chadwick_lu()}
+#' \donttest{get_chadwick_lu()}
 
 get_chadwick_lu <- function() {
   suppressWarnings(

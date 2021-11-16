@@ -8,7 +8,7 @@
 #' @importFrom dplyr mutate_at mutate_
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' process_statcast_payload(payload)
 #' }
 

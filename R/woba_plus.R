@@ -5,7 +5,7 @@
 #' @param df A data frame of statistics that includes, at a minimum, the following columns: uBB (unintentional walks), HBP (Hit By Pitch), X1B (singles), X2B (doubles), X3B (triples), HR (home runs), AB (at-bats), SH (sacrafice hits), SO (strike outs), and season.
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' woba_plus(df)
 #' }
 

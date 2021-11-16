@@ -20,7 +20,7 @@ after the date}
 This function allows you to scrape the standings from MLB for any date you choose.
 }
 \examples{
-\dontrun{
+\donttest{
 standings_on_date_bref(date = "2015-08-04", division = "AL East")
 }
 }

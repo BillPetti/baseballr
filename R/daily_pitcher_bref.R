@@ -7,7 +7,7 @@
 #' @importFrom rvest html_nodes html_table html_attr
 #' @export
 #' @examples
-#' \dontrun{daily_pitcher_bref("2015-05-10", "2015-06-20")}
+#' \donttest{daily_pitcher_bref("2015-05-10", "2015-06-20")}
 
 daily_pitcher_bref <- function(t1, t2) {
 

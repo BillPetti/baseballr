@@ -6,7 +6,7 @@
 #' @importFrom xml2 read_html
 #' @importFrom rvest html_table
 #' @export
-#' @examples \dontrun{team_consistency(year=2015)}
+#' @examples \donttest{team_consistency(year=2015)}
 
 #load packages: currently requires XML to scrape, dplyr to tidy, reldist for Gini calculations. Will be switching to rvest for scraping
 

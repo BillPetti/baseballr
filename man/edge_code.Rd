@@ -14,6 +14,3 @@ edge_code(df, height_var_name = "b_height")
 \description{
 This function allows you to classify individual pitches based on the various categories from the Edge% metric. The dataframe passed to the function must include the batter's handedness, the px and pz coordinates from the PITCHf/x system, and the batter's height.
 }
-\examples{
-\dontrun{edge_code(df)}
-}

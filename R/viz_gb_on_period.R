@@ -10,7 +10,7 @@
 #' @importFrom tidyr separate
 #' @export viz_gb_on_period
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' viz_gb_on_period(start_date = "2017-04-02", end_date = "2017-04-10", lg_div = "AL East")
 #' }
 

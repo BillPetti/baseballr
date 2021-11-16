@@ -5,7 +5,7 @@
 #' @param school_name A string that will be searched for in the names of the schools.
 #' @export school_id_lu
 #' @examples
-#' \dontrun{school_id_lu("Van")}
+#' \donttest{school_id_lu("Van")}
 
 school_id_lu <- function(school_name = NULL) {
   x <- baseballr::master_ncaa_team_lu %>%

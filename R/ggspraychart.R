@@ -15,7 +15,7 @@
 #' @importFrom ggplot2 ggplot geom_point geom_curve geom_segment coord_fixed theme stat_density2d xlim ylim scale_fill_continuous aes_string element_text scale_fill_manual aes
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' ggspraychart(df, x_value = "hc_x", y_value = "-hc_y", fill_value = "events")
 #' }
 

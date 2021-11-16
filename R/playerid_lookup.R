@@ -6,7 +6,7 @@
 #' @importFrom vroom vroom
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' playerid_lookup("Garcia", "Karim")
 #' }
 

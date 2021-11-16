@@ -9,7 +9,7 @@
 #' @importFrom rvest html_nodes html_table
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' statline_from_statcast(df, base = "contact")
 #' }
 

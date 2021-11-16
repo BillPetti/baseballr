@@ -62,7 +62,7 @@
 #' @importFrom readr read_csv
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' scrape_savant_leaderboards(leaderboard = "exit_velocity_barrels", year = 2018)
 #' }
 

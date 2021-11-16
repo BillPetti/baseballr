@@ -6,7 +6,7 @@
 #' @importFrom rlang .data
 #' @export
 #' @examples
-#' \dontrun{run_expectancy_table(df, level = "plate appearances")}
+#' \donttest{run_expectancy_table(df, level = "plate appearances")}
 
 run_expectancy_table <- function(df, level = "plate appearance") {
 

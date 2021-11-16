@@ -17,5 +17,5 @@ level. Defaults to 'plate appearance'.}
 This function allows a user to generate linear weight values for events using Baseball Savant data. Output includes both linear weights above average and linear weights above outs for home runs, triples, doubles, singles, walks, hit by pitches, and outs.
 }
 \examples{
-\dontrun{linear_weights_savant(df, level = "plate appearance")}
+\donttest{linear_weights_savant(df, level = "plate appearance")}
 }

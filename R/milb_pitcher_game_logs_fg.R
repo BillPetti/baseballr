@@ -9,7 +9,7 @@
 #' @importFrom readr parse_number
 #' @export
 #' @examples
-#' \dontrun{milb_pitcher_game_logs_fg(playerid = "sa3004210", year=2021)}
+#' \donttest{milb_pitcher_game_logs_fg(playerid = "sa3004210", year=2021)}
 
 milb_pitcher_game_logs_fg <- function(playerid, year = 2017) {
   

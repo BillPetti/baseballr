@@ -4,7 +4,6 @@
 #' @param df A data frame of pitch by pitch data that has been coded using the edge_code() function.
 #' @param group Character string indicating what column to group the frequency by. For example, "pitcher" or "batter". Defaults to NULL, which calculates the frequencies across the entire data set.
 #' @export
-#' @examples \dontrun{edge_code(df, group = "pitcher")}
 
 edge_frequency <- function(df, group = NULL) {
   if (is.null(group)) {

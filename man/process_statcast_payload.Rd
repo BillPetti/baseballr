@@ -16,7 +16,7 @@ The function processes the initial csv payload acquired from
 baseballsavant to ensure consistency in formattting across downloads
 }
 \examples{
-\dontrun{
+\donttest{
 process_statcast_payload(payload)
 }
 }
