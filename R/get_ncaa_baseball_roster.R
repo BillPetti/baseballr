@@ -3,9 +3,8 @@
 #' @param teamid NCAA id for a school
 #' @param team_year The year of interest
 #'
-#' @importFrom rvest html_nodes html_node html_attr html_table html_text
+#' @import rvest
 #' @importFrom tibble tibble
-#' @importFrom xml2 read_html
 #'
 #' @return A data frame containing roster information, including
 #' IDs and urls for each player (if available)

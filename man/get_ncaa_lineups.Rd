@@ -18,5 +18,7 @@ returns a data frame of each school's starting lineup and starting pitcher
 Retrieve lineups for a given NCAA game via its game_info_url
 }
 \examples{
-get_ncaa_lineups(game_info_url="https://stats.ncaa.org/game/index/4587474?org_id=528",year=2018)
+\donttest{
+  get_ncaa_lineups(game_info_url="https://stats.ncaa.org/game/index/4587474?org_id=528",year=2018)
+}
 }

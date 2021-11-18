@@ -4,9 +4,13 @@
 #' @param year The year the game was played in
 #'
 #' @return returns a data frame of each school's starting lineup and starting pitcher
+#' @import rvest
 #' @export
 #'
-#' @examples get_ncaa_lineups(game_info_url="https://stats.ncaa.org/game/index/4587474?org_id=528",year=2018)
+#' @examples 
+#' \donttest{
+#'   get_ncaa_lineups(game_info_url="https://stats.ncaa.org/game/index/4587474?org_id=528",year=2018)
+#' }
 get_ncaa_lineups <- function(game_info_url,year) {
   url <- game_info_url
   dfa <- (url %>% 

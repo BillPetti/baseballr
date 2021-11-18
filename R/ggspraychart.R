@@ -1,6 +1,10 @@
 #' Generate spray charts with ggplot2
-#'
+#' @description
 #' This function allows you to create spray charts with ggplots given a data frame with batted ball location coordinates.
+#' @details 
+#' ```r
+#' ggspraychart(df, x_value = "hc_x", y_value = "-hc_y", fill_value = "events")
+#' ```
 #' @param data A data frame that includes batted ball coordinates. Typically, this coordinates will come from the GameDay xml feed or downloads from baseballsavant.com
 #' @param x_value The x coordindate. Typically hc_x.
 #' @param y_value The y coordinate. Typically hc_y. You generally need the inverse or negative of the hc_y values, so it is recommended you calculate before plotting.
@@ -14,10 +18,6 @@
 #' @param frame Variable to use as the frame argument if using gganimate to create animated plots. For density plots be sure your variable is a factor.
 #' @importFrom ggplot2 ggplot geom_point geom_curve geom_segment coord_fixed theme stat_density2d xlim ylim scale_fill_continuous aes_string element_text scale_fill_manual aes
 #' @export
-#' @examples
-#' \donttest{
-#' ggspraychart(df, x_value = "hc_x", y_value = "-hc_y", fill_value = "events")
-#' }
 
 ggspraychart <- function(data, x_value = "hc_x",
                          y_value = "-hc_y",

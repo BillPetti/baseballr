@@ -8,11 +8,7 @@
 #' @importFrom highcharter hchart hc_title hc_subtitle hc_credits hc_yAxis hc_xAxis hc_add_theme hcaes hc_theme_smpl
 #' @importFrom pbapply pbsapply
 #' @importFrom tidyr separate
-#' @export viz_gb_on_period
-#' @examples
-#' \donttest{
-#' viz_gb_on_period(start_date = "2017-04-02", end_date = "2017-04-10", lg_div = "AL East")
-#' }
+#' @export 
 
 viz_gb_on_period <- function(start_date, end_date, lg_div) {
 

@@ -2,9 +2,9 @@
 #'
 #' This function allows you to calculate team-level consistency in run scoring and run prevention over the course of an entire season.
 #' @param year Season consistency should be run for.
+#' 
+#' @import rvest 
 #' @importFrom reldist gini
-#' @importFrom xml2 read_html
-#' @importFrom rvest html_table
 #' @export
 #' @examples \donttest{team_consistency(year=2015)}
 

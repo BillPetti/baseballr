@@ -4,14 +4,13 @@
 #'
 #' @param df A data frame of statistics that includes, at a minimum, the following columns: events, description, game_date, and type.
 #' @param base Tells the function what to use as the population of pitches to use for the statline. Options include "swings", "contact", or "pa". Defaults to "pa".
+#' @import rvest 
 #' @importFrom tidyr gather replace_na
-#' @importFrom xml2 read_html
-#' @importFrom rvest html_nodes html_table
 #' @export
-#' @examples
-#' \donttest{
+#' @details
+#' ```r
 #' statline_from_statcast(df, base = "contact")
-#' }
+#' ```
 
 statline_from_statcast <- function(df, base = "pa") {
 

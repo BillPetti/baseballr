@@ -8,7 +8,6 @@
 #' @import dplyr
 #' @import rvest
 #' @importFrom stringr str_split
-#' @importFrom xml2 read_html
 #' @export ncaa_scrape
 #' @examples
 #' \donttest{

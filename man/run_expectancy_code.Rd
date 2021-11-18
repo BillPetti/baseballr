@@ -14,6 +14,8 @@ run_expectancy_code(df, level = "plate appearance")
 \description{
 These functions allow a user to generate run expectancy and related measures and variables from Baseball Savant data. Measures and variables will be added to the data frame and a run expectancy table will be assigned to the Global Environment.
 }
-\examples{
-\donttest{run_expectancy_code(df, level = "plate appearances")}
+\details{
+```r
+run_expectancy_code(df, level = "plate appearances")
+```
 }

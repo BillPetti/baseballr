@@ -4,8 +4,7 @@
 #' @param year The season (i.e. use 2016 for the 2015-2016 season,
 #' etc.)
 #'
-#' @importFrom rvest html_nodes html_text
-#' @importFrom xml2 read_html
+#' @import rvest 
 #' @importFrom tibble tibble rownames_to_column
 #' @importFrom tidyr separate
 #' @importFrom stringr str_trim str_extract

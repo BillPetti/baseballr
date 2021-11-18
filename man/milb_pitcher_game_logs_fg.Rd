@@ -15,5 +15,5 @@ milb_pitcher_game_logs_fg(playerid, year = 2017)
 This function allows you to scrape MiLB game logs for individual batters from FanGraphs.com.
 }
 \examples{
-\donttest{milb_pitcher_game_logs_fg(playerid = "sa3004210", year=2021)}
+\donttest{milb_pitcher_game_logs_fg(playerid = "sa3004210", year=2017)}
 }

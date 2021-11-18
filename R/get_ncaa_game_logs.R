@@ -8,9 +8,8 @@
 #' @param span The span of time; can either be 'game' for game logs in a season, or 'career' which
 #' returns seasonal stats for a player's career.
 #'
-#' @importFrom rvest html_nodes html_attr html_table html_text
+#' @import rvest 
 #' @importFrom tibble tibble
-#' @importFrom xml2 read_html
 #' @importFrom tidyr extract_numeric
 #'
 #' @return A data frame containing player and school information

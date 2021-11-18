@@ -15,8 +15,8 @@ This is a helper function for all scrape_statcast_savant functions.
 The function processes the initial csv payload acquired from
 baseballsavant to ensure consistency in formattting across downloads
 }
-\examples{
-\donttest{
+\details{
+```r
 process_statcast_payload(payload)
-}
+````
 }
