@@ -23,7 +23,7 @@
 #' 17 = Winter League \cr
 #' @export
 #'
-#' @examples \dontrun{get_game_pks_mlb("2019-04-29")}
+#' @examples \donttest{get_game_pks_mlb("2019-04-29")}
 
 get_game_pks_mlb <- function(date,
                              level_ids = c(1)) {

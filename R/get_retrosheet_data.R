@@ -1,5 +1,10 @@
 #' Get, Parse, and Format Retrosheet Event and Roster Files
-#'
+#' @description 
+#' ```r
+#' get_retrosheet_data(path_to_directory = "/Users/Documents/retrosheet/", 
+#'     years_to_acquire = c(1957,1959), 
+#'     sequence_years = F)
+#' ```
 #' @param path_to_directory A file path that either 1) creates a new directory
 #' or 2) a path to an existing directory
 #' @param years_to_acquire The sesons to collect. Single, multiple, and
@@ -18,11 +23,6 @@
 #' roster for each year
 #' @export
 #'
-#' @examples \dontrun{
-#'   get_retrosheet_data(path_to_directory = "/Users/Documents/retrosheet/", 
-#'     years_to_acquire = c(1957,1959), 
-#'     sequence_years = F)
-#' }
 
 get_retrosheet_data <- function(path_to_directory,
                                 years_to_acquire = 2018,

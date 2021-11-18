@@ -7,10 +7,10 @@
 #' from \code{\link[readr]{read_csv}}
 #' @importFrom dplyr mutate_at mutate_
 #' @export
-#' @examples
-#' \dontrun{
+#' @details
+#' ```r
 #' process_statcast_payload(payload)
-#' }
+#' ````
 
 process_statcast_payload <- function(payload) {
 

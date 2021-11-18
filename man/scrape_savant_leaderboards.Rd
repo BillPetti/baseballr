@@ -110,7 +110,7 @@ This function allows you to read leaderboard data from BaseballSavant dirctly in
 }
 
 \examples{
-\dontrun{
+\donttest{
 scrape_savant_leaderboards(leaderboard = "exit_velocity_barrels", year = 2018)
 }
 }

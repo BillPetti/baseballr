@@ -4,8 +4,8 @@
 #' @param id An integer or character string representing a player ID in a baseball database, cross-referenced through the Chadwick Bureau's public register of baseball players.
 #' @export
 #' @examples
-#' \dontrun{playername_lookup(4885)}
-#' \dontrun{playername_lookup("kaaihki01")}
+#' \donttest{playername_lookup(4885)}
+#' \donttest{playername_lookup("kaaihki01")}
 
 playername_lookup <- function(id) {
   if (!exists("chadwick_player_lu_table")) {

@@ -6,7 +6,7 @@
 #' name, game_pk, game_date
 #' @export
 #' @examples
-#' \dontrun{get_umpire_ids_petti()}
+#' \donttest{get_umpire_ids_petti()}
 
 get_umpire_ids_petti <- function() {
 

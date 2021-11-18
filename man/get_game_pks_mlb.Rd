@@ -39,5 +39,5 @@ The following IDs can be passed to the level_ids argument:
 }
 
 \examples{
-\dontrun{get_game_pks_mlb("2019-04-29")}
+\donttest{get_game_pks_mlb("2019-04-29")}
 }

@@ -5,7 +5,7 @@
 #' @param x A boxscore.xml url for a given game from the MLBAM GameDay app data.
 #' @importFrom XML xmlParse xmlToList
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #' # pitchers
 #' url_base <- "http://gd2.mlb.com/components/game/mlb/"
 #' url <- paste0(url_base,

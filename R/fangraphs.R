@@ -6,11 +6,10 @@
 #' @param league Option for limiting results to different leagues or overall results. Options are "al", "nl", or "all".
 #' @param qual Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimumm number of plate appearaces/innings pitched, use the number desired. Defaults to "y".
 #' @param ind Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.
-#' @importFrom xml2 read_html
-#' @importFrom rvest html_nodes html_table html_attr
+#' @import rvest 
 #' @export
 #' @examples
-#' \dontrun{fg_bat_leaders(x = 2015, y = 2015, qual = 400)}
+#' \donttest{fg_bat_leaders(x = 2015, y = 2015, qual = 400)}
 
 fg_bat_leaders <- function(x, y, league = "all", qual = "y", ind = 1) {
 
@@ -122,11 +121,10 @@ fg_bat_leaders <- function(x, y, league = "all", qual = "y", ind = 1) {
 #' @param league Option for limiting results to different leagues or overall results. Options are "al", "nl", or "all".
 #' @param qual Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimumm number of plate appearaces/innings pitched, use the number desired. Defaults to "y".
 #' @param ind Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.
-#' @importFrom xml2 read_html
-#' @importFrom rvest html_nodes html_table html_attr
+#' @import rvest 
 #' @export
 #' @examples
-#' \dontrun{fg_pitch_leaders(x = 2015, y = 2015, qual = 150)}
+#' \donttest{fg_pitch_leaders(x = 2015, y = 2015, qual = 150)}
 
 fg_pitch_leaders <- function(x, y, league = "all", qual = "y",
                              pitcher_type = "pit", ind = 1) {
@@ -239,7 +237,7 @@ fg_pitch_leaders <- function(x, y, league = "all", qual = "y",
 #'
 #' @rdname fg_guts
 #' @description This function allows you to scrape the historical, season-by-season wOBA and FIP constants and coefficients at FanGraphs.com.
-#' @importFrom rvest html_node
+#' @import rvest
 #' @export
 #' @examples
 #' fg_guts()

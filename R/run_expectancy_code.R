@@ -6,8 +6,10 @@
 #' @importFrom stringr str_count
 #' @importFrom rlang .data
 #' @export
-#' @examples
-#' \dontrun{run_expectancy_code(df, level = "plate appearances")}
+#' @details
+#' ```r
+#' run_expectancy_code(df, level = "plate appearances")
+#' ```
 
 run_expectancy_code <- function (df, level = "plate appearance")
 {

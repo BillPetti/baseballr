@@ -98,26 +98,30 @@ are the results for all hitters from August 1st through October 3rd
 during the 2015 season:
 
 ``` r
-library(dplyr)
-```
-
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-``` r
-data <- daily_batter_bref("2015-08-01", "2015-10-03") %>%
-  head()
+data <- daily_batter_bref("2015-08-01", "2015-10-03") 
 ```
 
     ## Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com
+
+``` r
+data %>%
+  head()
+```
+
+    ##   bbref_id season             Name Age  Level          Team  G  PA  AB  R  H
+    ## 1   547989   2015    Manny Machado  22 Maj-AL     Baltimore 59 266 237 36 66
+    ## 2   554429   2015       Matt Duffy  24 Maj-NL San Francisco 59 264 248 33 71
+    ## 3   542436   2015      Jose Altuve  25 Maj-AL       Houston 57 262 244 30 81
+    ## 4   571431   2015       Adam Eaton  26 Maj-AL       Chicago 58 262 230 37 74
+    ## 5   501303   2015    Shin-Soo Choo  32 Maj-AL         Texas 58 260 211 48 71
+    ## 6   346793   2015 Francisco Lindor  21 Maj-AL     Cleveland 58 259 224 35 79
+    ##   X1B X2B X3B HR RBI BB IBB uBB SO HBP SH SF GDP SB CS    BA   OBP   SLG   OPS
+    ## 1  43  10   0 13  32 26   1  25 42   2  0  1   5  6  4 0.278 0.353 0.485 0.839
+    ## 2  54  12   2  3  30 15   0  15 35   0  0  1   9  8  0 0.286 0.326 0.387 0.713
+    ## 3  53  19   3  6  18 10   1   9 28   4  1  3   6 11  4 0.332 0.364 0.508 0.872
+    ## 4  56  12   1  5  31 23   1  22 55   5  2  2   1  9  4 0.322 0.392 0.448 0.840
+    ## 5  47  14   1  9  34 39   1  38 51   8  1  1   1  2  0 0.336 0.456 0.540 0.996
+    ## 6  51  17   4  7  32 18   0  18 38   1 11  5   4 10  2 0.353 0.395 0.558 0.953
 
 In terms of metric calculation, the package allows the user to calculate
 the consistency of team scoring and run prevention for any year using
@@ -159,13 +163,13 @@ data %>%
   head()
 ```
 
-    ##               Name          Team season  PA  wOBA wOBA_CON
-    ## 1    Shin-Soo Choo         Texas   2015 260 0.430    0.495
-    ## 2 Francisco Lindor     Cleveland   2015 259 0.404    0.468
-    ## 3      Jose Altuve       Houston   2015 262 0.372    0.406
-    ## 4       Adam Eaton       Chicago   2015 262 0.367    0.436
-    ## 5    Manny Machado     Baltimore   2015 266 0.362    0.396
-    ## 6       Matt Duffy San Francisco   2015 264 0.312    0.338
+    ##                Name       Team season  PA  wOBA wOBA_CON
+    ## 1 Edwin Encarnacion    Toronto   2015 216 0.490    0.555
+    ## 2      Bryce Harper Washington   2015 248 0.450    0.529
+    ## 3       David Ortiz     Boston   2015 213 0.449    0.541
+    ## 4        Joey Votto Cincinnati   2015 251 0.445    0.543
+    ## 5       Chris Davis  Baltimore   2015 253 0.434    0.617
+    ## 6     Shin-Soo Choo      Texas   2015 260 0.430    0.495
 
 You can also generate these wOBA-based stats, as well as FIP, for
 pitchers using the `fip_plus()` function:

@@ -5,8 +5,10 @@
 #' @param level Whether you want run expectancy calculated at the plate appearance or pitch level. Defaults to plate appearance.
 #' @importFrom rlang .data
 #' @export
-#' @examples
-#' \dontrun{run_expectancy_table(df, level = "plate appearances")}
+#' @details
+#' ```r
+#' run_expectancy_table(df, level = "plate appearances")
+#' ````
 
 run_expectancy_table <- function(df, level = "plate appearance") {
 

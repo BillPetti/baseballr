@@ -4,8 +4,7 @@
 #' @param Tm The abbreviation used by Baseball-Reference.com for the team whose results you want to scrape.
 #' @param year Season for which you want to scrape the park factors.
 #' @import dplyr
-#' @importFrom xml2 read_html
-#' @importFrom rvest html_table
+#' @import rvest 
 #' @export
 #' @examples
 #' team_results_bref("NYM", 2015)

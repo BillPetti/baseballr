@@ -12,8 +12,8 @@ woba_plus(df)
 \description{
 This function allows you to calculate wOBA for any given set of data, provided the right variables are in the data set. The function currently returns both wOBA per plate appearance on wOBA per instance of fair contact.
 }
-\examples{
-\dontrun{
+\details{
+```r
 woba_plus(df)
-}
+```
 }

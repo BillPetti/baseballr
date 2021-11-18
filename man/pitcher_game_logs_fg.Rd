@@ -15,5 +15,5 @@ pitcher_game_logs_fg(playerid, year = 2017)
 This function allows you to scrape game logs by year for a pitcher from FanGraphs.com.
 }
 \examples{
-\dontrun{pitcher_game_logs_fg(playerid = 104, year = 2006)}
+\donttest{pitcher_game_logs_fg(playerid = 104, year = 2006)}
 }

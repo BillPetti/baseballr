@@ -3,17 +3,16 @@
 #' @param teamid NCAA id for a school
 #' @param team_year The year of interest
 #'
-#' @importFrom rvest html_nodes html_node html_attr html_table html_text
+#' @import rvest
 #' @importFrom tibble tibble
-#' @importFrom xml2 read_html
 #'
 #' @return A data frame containing roster information, including
 #' IDs and urls for each player (if available)
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' get_ncaa_baseball_roster(teamid = 104, team_year =2019)
+#' \donttest{
+#' get_ncaa_baseball_roster(teamid = 104, team_year = 2021)
 #' }
 
 get_ncaa_baseball_roster <- function(teamid = NA,

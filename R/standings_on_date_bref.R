@@ -7,12 +7,11 @@
 #' @param from a logical indicating whether you want standings up to and
 #' including the date (FALSE, default) or rather standings for games played
 #' after the date
+#' @import rvest 
 #' @importFrom lubridate day month year
-#' @importFrom rvest html_text html_nodes
-#' @importFrom xml2 read_html
 #' @export standings_on_date_bref
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' standings_on_date_bref(date = "2015-08-04", division = "AL East")
 #' }
 

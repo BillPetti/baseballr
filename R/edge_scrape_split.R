@@ -6,10 +6,6 @@
 #' @param group Character string indicating whether to group the output by pitchers or batters. Options are "pitcher" or "batter".
 #' @importFrom pitchRx scrape
 #' @export
-#' @examples 
-#' \dontrun{
-#' edge_scrape_split(start = "2015-04-05", end = "2015-04-05", group = "pitcher")
-#' }
 
 edge_scrape_split <- function(start, end, group) {
   pfx <- suppressMessages(pitchRx::scrape(start, end))

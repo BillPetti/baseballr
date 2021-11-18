@@ -8,10 +8,9 @@
 #' @import dplyr
 #' @import rvest
 #' @importFrom stringr str_split
-#' @importFrom xml2 read_html
 #' @export ncaa_scrape
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' ncaa_scrape(teamid=255, year=2013, type = "batting")
 #' }
 

@@ -17,7 +17,7 @@
 #'  
 #' @export
 #'
-#' @examples \dontrun{get_pbp_mlb(game_pk = 575156)}
+#' @examples \donttest{get_pbp_mlb(game_pk = 575156)}
 
 get_pbp_mlb <- function(game_pk) {
   

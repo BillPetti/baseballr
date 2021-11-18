@@ -14,7 +14,7 @@
 #' @importFrom vroom vroom
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' correa <- scrape_statcast_savant(start_date = "2016-04-06",
 #'   end_date = "2016-04-15", playerid = 621043)
 #'
@@ -218,7 +218,7 @@ scrape_statcast_savant.default <- function(start_date = Sys.Date() - 1, end_date
 #' @param batterid The MLBAM ID for the batter whose data you want to query.
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' correa <- scrape_statcast_savant_batter(start_date = "2016-04-06",
 #'   end_date = "2016-04-15", batterid = 621043)
 #' }
@@ -231,7 +231,7 @@ scrape_statcast_savant_batter <- function(start_date, end_date, batterid, ...) {
 #' @rdname scrape_statcast_savant
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' daily <- scrape_statcast_savant_batter_all(start_date = "2016-04-06",
 #'   end_date = "2016-04-06")
 #' }
@@ -244,7 +244,7 @@ scrape_statcast_savant_batter_all <- function(start_date, end_date, ...) {
 #' @param pitcherid The MLBAM ID for the pitcher whose data you want to query.
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' noah <- scrape_statcast_savant_pitcher(start_date = "2016-04-06",
 #'   end_date = "2016-04-15", pitcherid = 592789)
 #' }
@@ -257,7 +257,7 @@ scrape_statcast_savant_pitcher <- function(start_date, end_date, pitcherid, ...)
 #' @rdname scrape_statcast_savant
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' daily <- scrape_statcast_savant_pitcher_all(start_date = "2016-04-06",
 #'   end_date = "2016-04-06")
 #' }

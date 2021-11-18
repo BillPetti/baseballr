@@ -4,11 +4,10 @@
 #' @param t1 First date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @param t2 Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @importFrom rlang .data
-#' @importFrom rvest html_table html_nodes
-#' @importFrom xml2 read_html
+#' @import rvest 
 #' @export
 #' @examples
-#' \dontrun{daily_batter_bref("2015-05-10", "2015-06-20")}
+#' \donttest{daily_batter_bref("2015-05-10", "2015-06-20")}
 
 daily_batter_bref <- function(t1, t2) {
 
