@@ -85,7 +85,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">baseballr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.92</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.93</span>
       </span>
     </div>
 
@@ -317,31 +317,69 @@ Default is <code>batter</code></p></td>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+    <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
 <span class='r-in'><span class='va'>correa</span> <span class='op'>&lt;-</span> <span class='fu'>scrape_statcast_savant</span><span class='op'>(</span>start_date <span class='op'>=</span> <span class='st'>"2016-04-06"</span>,</span>
 <span class='r-in'>  end_date <span class='op'>=</span> <span class='st'>"2016-04-15"</span>, playerid <span class='op'>=</span> <span class='fl'>621043</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> 2016-04-06 is not a date. Attempting to coerce...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> https://baseballsavant.mlb.com/statcast_search/csv?all=true&amp;hfPT=&amp;hfAB=&amp;hfBBT=&amp;hfPR=&amp;hfZ=&amp;stadium=&amp;hfBBL=&amp;hfNewZones=&amp;hfGT=R%7CPO%7CS%7C&amp;hfC&amp;hfSea=2016%7C&amp;hfSit=&amp;hfOuts=&amp;opponent=&amp;pitcher_throws=&amp;batter_stands=&amp;hfSA=&amp;player_type=batter&amp;hfInfield=&amp;team=&amp;position=&amp;hfOutfield=&amp;hfRO=&amp;home_road=&amp;batters_lookup%5B%5D=621043&amp;game_date_gt=2016-04-06&amp;game_date_lt=2016-04-15&amp;hfFlag=&amp;hfPull=&amp;metric_1=&amp;hfInn=&amp;min_pitches=0&amp;min_results=0&amp;group_by=name&amp;sort_col=pitches&amp;player_event_sort=h_launch_speed&amp;sort_order=desc&amp;min_abs=0&amp;type=details</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> These data are from BaseballSavant and are property of MLB Advanced Media, L.P. All rights reserved.</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Grabbing data, this may take a minute...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> URL read and payload acquired successfully.</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='va'>noah</span> <span class='op'>&lt;-</span> <span class='fu'>scrape_statcast_savant</span><span class='op'>(</span>start_date <span class='op'>=</span> <span class='st'>"2016-04-06"</span>,</span>
 <span class='r-in'>  end_date <span class='op'>=</span> <span class='st'>"2016-04-15"</span>, playerid <span class='op'>=</span> <span class='fl'>592789</span>, player_type <span class='op'>=</span> <span class='st'>'pitcher'</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> 2016-04-06 is not a date. Attempting to coerce...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> https://baseballsavant.mlb.com/statcast_search/csv?all=true&amp;hfPT=&amp;hfAB=&amp;hfBBT=&amp;hfPR=&amp;hfZ=&amp;stadium=&amp;hfBBL=&amp;hfNewZones=&amp;hfGT=R%7CPO%7CS%7C&amp;hfC&amp;hfSea=2016%7C&amp;hfSit=&amp;hfOuts=&amp;opponent=&amp;pitcher_throws=&amp;batter_stands=&amp;hfSA=&amp;player_type=pitcher&amp;hfInfield=&amp;team=&amp;position=&amp;hfOutfield=&amp;hfRO=&amp;home_road=&amp;pitchers_lookup%5B%5D=592789&amp;game_date_gt=2016-04-06&amp;game_date_lt=2016-04-15&amp;hfFlag=&amp;hfPull=&amp;metric_1=&amp;hfInn=&amp;min_pitches=0&amp;min_results=0&amp;group_by=name&amp;sort_col=pitches&amp;player_event_sort=h_launch_speed&amp;sort_order=desc&amp;min_abs=0&amp;type=details</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> These data are from BaseballSavant and are property of MLB Advanced Media, L.P. All rights reserved.</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Grabbing data, this may take a minute...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> URL read and payload acquired successfully.</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='va'>daily</span> <span class='op'>&lt;-</span> <span class='fu'>scrape_statcast_savant</span><span class='op'>(</span>start_date <span class='op'>=</span> <span class='st'>"2016-04-06"</span>, end_date <span class='op'>=</span> <span class='st'>"2016-04-06"</span><span class='op'>)</span></span>
-<span class='r-in'><span class='op'>}</span></span>
-<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> 2016-04-06 is not a date. Attempting to coerce...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> No playerid specified. Collecting data for all batters/pitchers.</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> https://baseballsavant.mlb.com/statcast_search/csv?all=true&amp;hfPT=&amp;hfAB=&amp;hfBBT=&amp;hfPR=&amp;hfZ=&amp;stadium=&amp;hfBBL=&amp;hfNewZones=&amp;hfGT=R%7CPO%7CS%7C&amp;hfC&amp;hfSea=2016%7C&amp;hfSit=&amp;hfOuts=&amp;opponent=&amp;pitcher_throws=&amp;batter_stands=&amp;hfSA=&amp;player_type=batter&amp;hfInfield=&amp;team=&amp;position=&amp;hfOutfield=&amp;hfRO=&amp;home_road=&amp;game_date_gt=2016-04-06&amp;game_date_lt=2016-04-06&amp;hfFlag=&amp;hfPull=&amp;metric_1=&amp;hfInn=&amp;min_pitches=0&amp;min_results=0&amp;group_by=name&amp;sort_col=pitches&amp;player_event_sort=h_launch_speed&amp;sort_order=desc&amp;min_abs=0&amp;type=details</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> These data are from BaseballSavant and are property of MLB Advanced Media, L.P. All rights reserved.</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Grabbing data, this may take a minute...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> URL read and payload acquired successfully.</span>
+<span class='r-in'><span class='co'># }</span></span>
+<span class='r-in'><span class='co'># \donttest{</span></span>
 <span class='r-in'><span class='va'>correa</span> <span class='op'>&lt;-</span> <span class='fu'>scrape_statcast_savant_batter</span><span class='op'>(</span>start_date <span class='op'>=</span> <span class='st'>"2016-04-06"</span>,</span>
 <span class='r-in'>  end_date <span class='op'>=</span> <span class='st'>"2016-04-15"</span>, batterid <span class='op'>=</span> <span class='fl'>621043</span><span class='op'>)</span></span>
-<span class='r-in'><span class='op'>}</span></span>
-<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> 2016-04-06 is not a date. Attempting to coerce...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> https://baseballsavant.mlb.com/statcast_search/csv?all=true&amp;hfPT=&amp;hfAB=&amp;hfBBT=&amp;hfPR=&amp;hfZ=&amp;stadium=&amp;hfBBL=&amp;hfNewZones=&amp;hfGT=R%7CPO%7CS%7C&amp;hfC&amp;hfSea=2016%7C&amp;hfSit=&amp;hfOuts=&amp;opponent=&amp;pitcher_throws=&amp;batter_stands=&amp;hfSA=&amp;player_type=batter&amp;hfInfield=&amp;team=&amp;position=&amp;hfOutfield=&amp;hfRO=&amp;home_road=&amp;batters_lookup%5B%5D=621043&amp;game_date_gt=2016-04-06&amp;game_date_lt=2016-04-15&amp;hfFlag=&amp;hfPull=&amp;metric_1=&amp;hfInn=&amp;min_pitches=0&amp;min_results=0&amp;group_by=name&amp;sort_col=pitches&amp;player_event_sort=h_launch_speed&amp;sort_order=desc&amp;min_abs=0&amp;type=details</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> These data are from BaseballSavant and are property of MLB Advanced Media, L.P. All rights reserved.</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Grabbing data, this may take a minute...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> URL read and payload acquired successfully.</span>
+<span class='r-in'><span class='co'># }</span></span>
+<span class='r-in'><span class='co'># \donttest{</span></span>
 <span class='r-in'><span class='va'>daily</span> <span class='op'>&lt;-</span> <span class='fu'>scrape_statcast_savant_batter_all</span><span class='op'>(</span>start_date <span class='op'>=</span> <span class='st'>"2016-04-06"</span>,</span>
 <span class='r-in'>  end_date <span class='op'>=</span> <span class='st'>"2016-04-06"</span><span class='op'>)</span></span>
-<span class='r-in'><span class='op'>}</span></span>
-<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> 2016-04-06 is not a date. Attempting to coerce...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> No playerid specified. Collecting data for all batters/pitchers.</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> https://baseballsavant.mlb.com/statcast_search/csv?all=true&amp;hfPT=&amp;hfAB=&amp;hfBBT=&amp;hfPR=&amp;hfZ=&amp;stadium=&amp;hfBBL=&amp;hfNewZones=&amp;hfGT=R%7CPO%7CS%7C&amp;hfC&amp;hfSea=2016%7C&amp;hfSit=&amp;hfOuts=&amp;opponent=&amp;pitcher_throws=&amp;batter_stands=&amp;hfSA=&amp;player_type=batter&amp;hfInfield=&amp;team=&amp;position=&amp;hfOutfield=&amp;hfRO=&amp;home_road=&amp;game_date_gt=2016-04-06&amp;game_date_lt=2016-04-06&amp;hfFlag=&amp;hfPull=&amp;metric_1=&amp;hfInn=&amp;min_pitches=0&amp;min_results=0&amp;group_by=name&amp;sort_col=pitches&amp;player_event_sort=h_launch_speed&amp;sort_order=desc&amp;min_abs=0&amp;type=details</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> These data are from BaseballSavant and are property of MLB Advanced Media, L.P. All rights reserved.</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Grabbing data, this may take a minute...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> URL read and payload acquired successfully.</span>
+<span class='r-in'><span class='co'># }</span></span>
+<span class='r-in'><span class='co'># \donttest{</span></span>
 <span class='r-in'><span class='va'>noah</span> <span class='op'>&lt;-</span> <span class='fu'>scrape_statcast_savant_pitcher</span><span class='op'>(</span>start_date <span class='op'>=</span> <span class='st'>"2016-04-06"</span>,</span>
 <span class='r-in'>  end_date <span class='op'>=</span> <span class='st'>"2016-04-15"</span>, pitcherid <span class='op'>=</span> <span class='fl'>592789</span><span class='op'>)</span></span>
-<span class='r-in'><span class='op'>}</span></span>
-<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> 2016-04-06 is not a date. Attempting to coerce...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> https://baseballsavant.mlb.com/statcast_search/csv?all=true&amp;hfPT=&amp;hfAB=&amp;hfBBT=&amp;hfPR=&amp;hfZ=&amp;stadium=&amp;hfBBL=&amp;hfNewZones=&amp;hfGT=R%7CPO%7CS%7C&amp;hfC&amp;hfSea=2016%7C&amp;hfSit=&amp;hfOuts=&amp;opponent=&amp;pitcher_throws=&amp;batter_stands=&amp;hfSA=&amp;player_type=pitcher&amp;hfInfield=&amp;team=&amp;position=&amp;hfOutfield=&amp;hfRO=&amp;home_road=&amp;pitchers_lookup%5B%5D=592789&amp;game_date_gt=2016-04-06&amp;game_date_lt=2016-04-15&amp;hfFlag=&amp;hfPull=&amp;metric_1=&amp;hfInn=&amp;min_pitches=0&amp;min_results=0&amp;group_by=name&amp;sort_col=pitches&amp;player_event_sort=h_launch_speed&amp;sort_order=desc&amp;min_abs=0&amp;type=details</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> These data are from BaseballSavant and are property of MLB Advanced Media, L.P. All rights reserved.</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Grabbing data, this may take a minute...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> URL read and payload acquired successfully.</span>
+<span class='r-in'><span class='co'># }</span></span>
+<span class='r-in'><span class='co'># \donttest{</span></span>
 <span class='r-in'><span class='va'>daily</span> <span class='op'>&lt;-</span> <span class='fu'>scrape_statcast_savant_pitcher_all</span><span class='op'>(</span>start_date <span class='op'>=</span> <span class='st'>"2016-04-06"</span>,</span>
 <span class='r-in'>  end_date <span class='op'>=</span> <span class='st'>"2016-04-06"</span><span class='op'>)</span></span>
-<span class='r-in'><span class='op'>}</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> 2016-04-06 is not a date. Attempting to coerce...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> No playerid specified. Collecting data for all batters/pitchers.</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> https://baseballsavant.mlb.com/statcast_search/csv?all=true&amp;hfPT=&amp;hfAB=&amp;hfBBT=&amp;hfPR=&amp;hfZ=&amp;stadium=&amp;hfBBL=&amp;hfNewZones=&amp;hfGT=R%7CPO%7CS%7C&amp;hfC&amp;hfSea=2016%7C&amp;hfSit=&amp;hfOuts=&amp;opponent=&amp;pitcher_throws=&amp;batter_stands=&amp;hfSA=&amp;player_type=pitcher&amp;hfInfield=&amp;team=&amp;position=&amp;hfOutfield=&amp;hfRO=&amp;home_road=&amp;game_date_gt=2016-04-06&amp;game_date_lt=2016-04-06&amp;hfFlag=&amp;hfPull=&amp;metric_1=&amp;hfInn=&amp;min_pitches=0&amp;min_results=0&amp;group_by=name&amp;sort_col=pitches&amp;player_event_sort=h_launch_speed&amp;sort_order=desc&amp;min_abs=0&amp;type=details</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> These data are from BaseballSavant and are property of MLB Advanced Media, L.P. All rights reserved.</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Grabbing data, this may take a minute...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> URL read and payload acquired successfully.</span>
+<span class='r-in'><span class='co'># }</span></span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

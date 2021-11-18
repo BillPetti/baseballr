@@ -85,7 +85,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">baseballr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.92</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.93</span>
       </span>
     </div>
 
@@ -262,7 +262,56 @@
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='fu'>milb_pitcher_game_logs_fg</span><span class='op'>(</span>playerid <span class='op'>=</span> <span class='st'>"sa3004210"</span>, year<span class='op'>=</span><span class='fl'>2021</span><span class='op'>)</span></span>
+    <pre class="examples"><span class='r-in'><span class='fu'>milb_pitcher_game_logs_fg</span><span class='op'>(</span>playerid <span class='op'>=</span> <span class='st'>"sa3004210"</span>, year<span class='op'>=</span><span class='fl'>2017</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Data courtey of FanGraphs.com. Please consider supporting FanGraphs by purchasing a membership: https://plus.fangraphs.com/product/fangraphs-membership/?switch-subscription=254671&amp;item=85029&amp;_wcsnonce=3e893e9b53&amp;auto-switch=true</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      player_name minor_playerid       Date Team Level  Opp W L       ERA G GS</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2  Riley O'Brien      sa3004210 2017-08-26  TBR   (R)  STL 1 0  0.000000 1  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3  Riley O'Brien      sa3004210 2017-08-20  TBR   (R) @ATL 0 0  3.857140 1  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4  Riley O'Brien      sa3004210 2017-08-14  TBR   (R)  TOR 0 0 26.999947 1  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5  Riley O'Brien      sa3004210 2017-08-08  TBR   (R)  NYY 0 0  0.000000 1  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6  Riley O'Brien      sa3004210 2017-08-01  TBR   (R) @TOR 0 0  0.000000 1  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7  Riley O'Brien      sa3004210 2017-07-26  TBR   (R) @HOU 0 0  0.000000 1  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8  Riley O'Brien      sa3004210 2017-07-20  TBR   (R)  NYY 0 0  3.000000 1  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9  Riley O'Brien      sa3004210 2017-07-14  TBR   (R)  ATL 0 0  2.700003 1  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10 Riley O'Brien      sa3004210 2017-07-07  TBR   (R) @TOR 0 0  2.076925 1  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11 Riley O'Brien      sa3004210 2017-06-30  TBR   (R)  PIT 0 0  0.000000 1  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12 Riley O'Brien      sa3004210 2017-06-26  TBR   (R) @ATL 0 0  0.000000 1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    CG ShO SV  IP TBF H R ER HR BB IBB HBP WP BK SO       K/9      BB/9</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2   0   0  0 5.0  19 0 0  0  0  4   0   0  0  0  5  9.000000  7.200000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3   0   0  0 4.2  16 2 2  2  0  2   0   0  1  0  5  9.642851  3.857140</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4   0   0  0 1.2  11 4 5  5  1  2   0   0  2  0  1  5.399989 10.799979</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5   0   0  0 4.0  16 3 0  0  0  1   0   1  0  0  4  9.000000  2.250000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6   0   0  0 5.0  17 1 0  0  0  2   0   0  0  0  7 12.600000  3.600000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7   0   0  0 4.0  15 4 0  0  0  0   0   2  0  0  1  2.250000  0.000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8   0   0  0 3.0  14 4 1  1  0  3   0   0  0  0  1  3.000000  9.000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9   0   0  0 3.1  15 3 1  1  0  2   0   0  0  0  4 10.800011  5.400006</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10  0   0  0 4.1  16 5 1  1  0  1   0   0  0  0  4  8.307698  2.076925</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11  0   0  0 4.0  14 2 0  0  0  0   0   1  0  0  5 11.250000  0.000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12  0   0  0 2.0   6 0 0  0  0  0   0   0  0  0  3 13.500000  0.000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>         K/BB     HR/9         K%       K-BB%       BB%        AVG      WHIP</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2  1.2500000 0.000000 0.26315789  0.05263157 0.2105263 0.00000000 0.8000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3  2.5000000 0.000000 0.31250000  0.18750000 0.1250000 0.14285714 0.8571423</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4  0.5000000 5.399989 0.09090909 -0.09090909 0.1818182 0.44444444 3.5999929</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5  4.0000000 0.000000 0.25000000  0.18750000 0.0625000 0.21428571 1.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6  3.5000000 0.000000 0.41176471  0.29411765 0.1176471 0.06666667 0.6000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7  1.0000000 0.000000 0.06666667  0.06666667 0.0000000 0.30769231 1.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8  0.3333333 0.000000 0.07142857 -0.14285714 0.2142857 0.36363636 2.3333333</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9  2.0000000 0.000000 0.26666667  0.13333334 0.1333333 0.23076923 1.5000015</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10 4.0000000 0.000000 0.25000000  0.18750000 0.0625000 0.33333333 1.3846164</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11 5.0000000 0.000000 0.35714286  0.35714286 0.0000000 0.15384615 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12 3.0000000 0.000000 0.50000000  0.50000000 0.0000000 0.00000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        BABIP      LOB%        FIP   gamedate dh</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2  0.0000000 1.0000000  4.2970556 2017-08-26  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3  0.2222222 0.5000000  3.0399133 2017-08-20  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4  0.4285714 0.2173913 14.0970354 2017-08-14  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5  0.3000000 1.0000000  3.3970556 2017-08-08  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6  0.1250000 1.0000000  2.2970556 2017-08-01  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7  0.3333333 1.0000000  4.8970556 2017-07-26  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8  0.4000000 0.8571429  6.2303889 2017-07-20  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9  0.3333333 0.8000000  3.2970550 2017-07-14  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10 0.4545455 0.8333333  2.7432086 2017-07-07  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11 0.2500000 1.0000000  2.1470556 2017-06-30  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12 0.0000000 1.0000000  0.8970556 2017-06-26  1</span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

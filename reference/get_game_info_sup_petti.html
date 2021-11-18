@@ -85,7 +85,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">baseballr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.92</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.93</span>
       </span>
     </div>
 
@@ -255,7 +255,34 @@ game_date, venue id, attendance, game temperature, wind speed and direction,
 and start and end time,</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='fu'>get_game_info_sup_petti</span><span class='op'>(</span><span class='op'>)</span></span>
+    <pre class="examples"><span class='r-in'><span class='fu'>get_game_info_sup_petti</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='font-weight: bold;'>Rows: </span><span style='color: #0000BB;'>39221</span> <span style='font-weight: bold;'>Columns: </span><span style='color: #0000BB;'>18</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BBBB;'>──</span> <span style='font-weight: bold;'>Column specification</span> <span style='color: #00BBBB;'>────────────────────────────────────────────────────────</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='font-weight: bold;'>Delimiter:</span> ","</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>chr</span>  (11): venue_name, other_weather, wind, elapsed_time, game_id, game_type...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>dbl</span>   (4): game_pk, venue_id, temperature, home_league_id</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>date</span>  (1): game_date</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>time</span>  (1): start_time</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BBBB;'>ℹ</span> Use <span style='color: #262626; background-color: #DADADA;'>`spec()`</span> to retrieve the full column specification for this data.</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BBBB;'>ℹ</span> Specify the column types or set <span style='color: #262626; background-color: #DADADA;'>`show_col_types = FALSE`</span> to quiet this message.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 39,221 × 18</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    game_date  game_pk venue_name       venue_id temperature other_weather wind  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>               <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> 2021-10-03  <span style='text-decoration: underline;'>632</span>234 Nationals Park       <span style='text-decoration: underline;'>3</span>309          85 Sunny         4 mph…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> 2021-10-03  <span style='text-decoration: underline;'>632</span>240 PNC Park               31          70 Cloudy        9 mph…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> 2021-10-03  <span style='text-decoration: underline;'>632</span>241 Oracle Park          <span style='text-decoration: underline;'>2</span>395          73 Sunny         7 mph…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> 2021-10-03  <span style='text-decoration: underline;'>632</span>236 Globe Life Field     <span style='text-decoration: underline;'>5</span>325          84 Partly Cloudy 9 mph…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> 2021-10-03  <span style='text-decoration: underline;'>632</span>239 Yankee Stadium       <span style='text-decoration: underline;'>3</span>313          79 Partly Cloudy 7 mph…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> 2021-10-03  <span style='text-decoration: underline;'>632</span>235 Rogers Centre          14          68 Roof Closed   0 mph…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> 2021-10-03  <span style='text-decoration: underline;'>632</span>253 Chase Field            15          73 Roof Closed   0 mph…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> 2021-10-03  <span style='text-decoration: underline;'>632</span>245 Minute Maid Park     <span style='text-decoration: underline;'>2</span>392          73 Roof Closed   0 mph…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> 2021-10-03  <span style='text-decoration: underline;'>632</span>237 T-Mobile Park         680          54 Roof Closed   0 mph…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> 2021-10-03  <span style='text-decoration: underline;'>632</span>243 Kauffman Stadium        7          71 Partly Cloudy 9 mph…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 39,211 more rows, and 11 more variables: attendance &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   start_time &lt;time&gt;, elapsed_time &lt;chr&gt;, game_id &lt;chr&gt;, game_type &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   home_sport_code &lt;chr&gt;, official_scorer &lt;chr&gt;, date &lt;chr&gt;, status_ind &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   home_league_id &lt;dbl&gt;, gameday_sw &lt;chr&gt;</span></span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -85,7 +85,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">baseballr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.92</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.93</span>
       </span>
     </div>
 
@@ -250,7 +250,36 @@
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='fu'>get_chadwick_lu</span><span class='op'>(</span><span class='op'>)</span></span>
+    <pre class="examples"><span class='r-in'><span class='fu'>get_chadwick_lu</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='font-weight: bold;'>Rows: </span><span style='color: #0000BB;'>409913</span> <span style='font-weight: bold;'>Columns: </span><span style='color: #0000BB;'>40</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BBBB;'>──</span> <span style='font-weight: bold;'>Column specification</span> <span style='color: #00BBBB;'>────────────────────────────────────────────────────────</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='font-weight: bold;'>Delimiter:</span> ","</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>chr</span> (10): key_person, key_uuid, key_retro, key_bbref, key_bbref_minors, name...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>dbl</span> (16): key_mlbam, key_fangraphs, birth_year, birth_month, birth_day, deat...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #BBBB00;'>lgl</span> (14): key_npb, key_sr_nfl, key_sr_nba, key_sr_nhl, key_findagrave, name_...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BBBB;'>ℹ</span> Use <span style='color: #262626; background-color: #DADADA;'>`spec()`</span> to retrieve the full column specification for this data.</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BBBB;'>ℹ</span> Specify the column types or set <span style='color: #262626; background-color: #DADADA;'>`show_col_types = FALSE`</span> to quiet this message.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 409,913 × 40</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    key_person key_uuid            key_mlbam key_retro key_bbref key_bbref_minors</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> 663ecca1   663ecca1-6b4e-4a11…    <span style='text-decoration: underline;'>439</span>524 <span style='color: #BB0000;'>NA</span>        <span style='color: #BB0000;'>NA</span>        thoen-001eve    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> 3e8b4a3e   3e8b4a3e-0866-4402…        <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>        <span style='color: #BB0000;'>NA</span>        ahara-000sco    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> 8e7b24b0   8e7b24b0-6dec-40b2…        <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>        <span style='color: #BB0000;'>NA</span>        ahease001---    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> aaf20538   aaf20538-b53e-4d63…        <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>        <span style='color: #BB0000;'>NA</span>        aaberg001alf    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> 34c63185   34c63185-85a0-4369…        <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>        <span style='color: #BB0000;'>NA</span>        aadlan001kir    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> a1f1855b   a1f1855b-c13c-4887…        <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>        <span style='color: #BB0000;'>NA</span>        aaker-000zac    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> 2f06a161   2f06a161-2cac-4bba…        <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>        <span style='color: #BB0000;'>NA</span>        aakhus001zac    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> 754d5b99   754d5b99-f754-45b9…    <span style='text-decoration: underline;'>444</span>058 <span style='color: #BB0000;'>NA</span>        <span style='color: #BB0000;'>NA</span>        aalber001bra    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> 735c68ec   735c68ec-17d6-419f…        <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>        <span style='color: #BB0000;'>NA</span>        aamold000ryl    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> cbcc7093   cbcc7093-038c-4ddd…        <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>        <span style='color: #BB0000;'>NA</span>        aander000bri    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 409,903 more rows, and 34 more variables: key_fangraphs &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   key_npb &lt;lgl&gt;, key_sr_nfl &lt;lgl&gt;, key_sr_nba &lt;lgl&gt;, key_sr_nhl &lt;lgl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   key_findagrave &lt;lgl&gt;, name_last &lt;chr&gt;, name_first &lt;chr&gt;, name_given &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   name_suffix &lt;lgl&gt;, name_matrilineal &lt;chr&gt;, name_nick &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   birth_year &lt;dbl&gt;, birth_month &lt;dbl&gt;, birth_day &lt;dbl&gt;, death_year &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   death_month &lt;dbl&gt;, death_day &lt;dbl&gt;, pro_played_first &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   pro_played_last &lt;dbl&gt;, mlb_played_first &lt;dbl&gt;, mlb_played_last &lt;dbl&gt;, …</span></span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

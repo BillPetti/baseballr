@@ -85,7 +85,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">baseballr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.92</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.93</span>
       </span>
     </div>
 
@@ -266,9 +266,24 @@
 IDs and urls for each player (if available)</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
-<span class='r-in'><span class='fu'>get_ncaa_baseball_roster</span><span class='op'>(</span>teamid <span class='op'>=</span> <span class='fl'>104</span>, team_year <span class='op'>=</span><span class='fl'>2019</span><span class='op'>)</span></span>
-<span class='r-in'><span class='op'>}</span></span>
+    <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
+<span class='r-in'><span class='fu'>get_ncaa_baseball_roster</span><span class='op'>(</span>teamid <span class='op'>=</span> <span class='fl'>104</span>, team_year <span class='op'>=</span> <span class='fl'>2021</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 49 × 12</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    name   class player_id season number position player_url    school conference</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> Adams… Fr    2337999     <span style='text-decoration: underline;'>2</span>021 39     P        https://stat… UC Sa… Big West  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> Arbol… So    2488302     <span style='text-decoration: underline;'>2</span>021 38     UT       https://stat… UC Sa… Big West  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> Arell… So    2140271     <span style='text-decoration: underline;'>2</span>021 36     P        https://stat… UC Sa… Big West  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> Barbe… Fr    2488298     <span style='text-decoration: underline;'>2</span>021 35     UT       https://stat… UC Sa… Big West  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> Beer,… So    2140229     <span style='text-decoration: underline;'>2</span>021 49     P        https://stat… UC Sa… Big West  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> Benbr… Fr    2338005     <span style='text-decoration: underline;'>2</span>021 51     P        https://stat… UC Sa… Big West  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> Bloom… Jr    2343531     <span style='text-decoration: underline;'>2</span>021 27     INF      https://stat… UC Sa… Big West  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> Boone… So    2140227     <span style='text-decoration: underline;'>2</span>021 10     P        https://stat… UC Sa… Big West  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> Calla… Fr    2337991     <span style='text-decoration: underline;'>2</span>021 23     P        https://stat… UC Sa… Big West  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> Casta… Jr    1996103     <span style='text-decoration: underline;'>2</span>021 3      INF      https://stat… UC Sa… Big West  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 39 more rows, and 3 more variables: school_id &lt;dbl&gt;, division &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   conference_id &lt;dbl&gt;</span></span>
+<span class='r-in'><span class='co'># }</span></span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

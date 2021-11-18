@@ -85,7 +85,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">baseballr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.92</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.93</span>
       </span>
     </div>
 
@@ -262,7 +262,460 @@
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='fu'>milb_batter_game_logs_fg</span><span class='op'>(</span>playerid <span class='op'>=</span> <span class='st'>"sa917940"</span>, year<span class='op'>=</span><span class='fl'>2018</span><span class='op'>)</span></span>
+    <pre class="examples"><span class='r-in'><span class='fu'>milb_batter_game_logs_fg</span><span class='op'>(</span>playerid <span class='op'>=</span> <span class='st'>"sa917940"</span>, year<span class='op'>=</span><span class='fl'>2018</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Data courtey of FanGraphs.com. Please consider supporting FanGraphs by purchasing a membership: https://plus.fangraphs.com/product/fangraphs-membership/?switch-subscription=254671&amp;item=85029&amp;_wcsnonce=3e893e9b53&amp;auto-switch=true</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       player_name minor_playerid       Date Team Level  Opp G AB PA H 1B 2B 3B</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2   Dylan Carlson       sa917940 2018-09-02  STL  (A+) @DET 1  4  4 1  0  1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3   Dylan Carlson       sa917940 2018-09-01  STL  (A+) @DET 1  4  5 1  0  1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4   Dylan Carlson       sa917940 2018-08-30  STL  (A+) @TOR 1  4  4 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5   Dylan Carlson       sa917940 2018-08-30  STL  (A+) @TOR 1  4  4 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6   Dylan Carlson       sa917940 2018-08-28  STL  (A+) @TOR 1  4  5 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7   Dylan Carlson       sa917940 2018-08-27  STL  (A+) @TOR 1  3  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8   Dylan Carlson       sa917940 2018-08-25  STL  (A+)  MIA 1  5  5 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9   Dylan Carlson       sa917940 2018-08-24  STL  (A+)  MIA 1  4  4 2  1  1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10  Dylan Carlson       sa917940 2018-08-23  STL  (A+)  MIN 1  3  4 1  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11  Dylan Carlson       sa917940 2018-08-22  STL  (A+)  MIN 1  3  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12  Dylan Carlson       sa917940 2018-08-21  STL  (A+)  MIN 1  4  5 2  1  1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13  Dylan Carlson       sa917940 2018-08-19  STL  (A+) @TBR 1  6  6 2  1  1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14  Dylan Carlson       sa917940 2018-08-18  STL  (A+) @TBR 1  6  6 2  1  1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15  Dylan Carlson       sa917940 2018-08-17  STL  (A+) @TBR 1  4  4 1  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16  Dylan Carlson       sa917940 2018-08-16  STL  (A+)  NYY 1  5  5 3  1  2  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17  Dylan Carlson       sa917940 2018-08-14  STL  (A+)  NYY 1  3  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18  Dylan Carlson       sa917940 2018-08-13  STL  (A+)  NYY 1  5  5 1  0  0  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19  Dylan Carlson       sa917940 2018-08-12  STL  (A+)  DET 1  3  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20  Dylan Carlson       sa917940 2018-08-11  STL  (A+)  DET 1  2  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21  Dylan Carlson       sa917940 2018-08-10  STL  (A+)  DET 1  1  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22  Dylan Carlson       sa917940 2018-08-09  STL  (A+)  DET 1  5  5 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23  Dylan Carlson       sa917940 2018-08-08  STL  (A+) @ATL 1  6  6 1  0  1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24  Dylan Carlson       sa917940 2018-08-07  STL  (A+) @ATL 1  5  5 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25  Dylan Carlson       sa917940 2018-08-06  STL  (A+) @ATL 1  4  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 26  Dylan Carlson       sa917940 2018-08-05  STL  (A+) @MIA 1  4  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 27  Dylan Carlson       sa917940 2018-08-04  STL  (A+) @MIA 1  5  5 2  1  1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 28  Dylan Carlson       sa917940 2018-08-03  STL  (A+) @MIA 1  3  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 29  Dylan Carlson       sa917940 2018-08-02  STL  (A+)  CIN 1  1  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 30  Dylan Carlson       sa917940 2018-08-01  STL  (A+)  CIN 1  4  5 2  2  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 31  Dylan Carlson       sa917940 2018-07-31  STL  (A+)  CIN 1  4  5 2  2  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 32  Dylan Carlson       sa917940 2018-07-29  STL  (A+) @NYY 1  3  4 1  0  1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33  Dylan Carlson       sa917940 2018-07-28  STL  (A+) @NYY 1  3  5 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 34  Dylan Carlson       sa917940 2018-07-27  STL  (A+) @NYY 1  4  5 2  1  0  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 35  Dylan Carlson       sa917940 2018-07-25  STL  (A+) @CIN 1  3  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 36  Dylan Carlson       sa917940 2018-07-24  STL  (A+) @CIN 1  5  5 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 37  Dylan Carlson       sa917940 2018-07-23  STL  (A+) @CIN 1  3  5 1  0  1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 38  Dylan Carlson       sa917940 2018-07-20  STL  (A+)  NYM 1  4  4 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 39  Dylan Carlson       sa917940 2018-07-19  STL  (A+)  NYM 1  4  4 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 40  Dylan Carlson       sa917940 2018-07-18  STL  (A+)  DET 1  4  5 3  2  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 41  Dylan Carlson       sa917940 2018-07-17  STL  (A+)  DET 1  6  6 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 42  Dylan Carlson       sa917940 2018-07-15  STL  (A+) @NYM 1  4  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 43  Dylan Carlson       sa917940 2018-07-14  STL  (A+) @NYM 1  4  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 44  Dylan Carlson       sa917940 2018-07-13  STL  (A+) @NYM 1  5  5 1  0  1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 45  Dylan Carlson       sa917940 2018-07-12  STL  (A+) @MIN 1  3  5 2  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 46  Dylan Carlson       sa917940 2018-07-11  STL  (A+) @MIN 1  4  5 1  0  1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 47  Dylan Carlson       sa917940 2018-07-10  STL  (A+) @MIN 1  5  6 2  0  1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 48  Dylan Carlson       sa917940 2018-07-09  STL  (A+) @MIN 1  4  5 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 49  Dylan Carlson       sa917940 2018-07-07  STL  (A+)  ATL 1  3  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 50  Dylan Carlson       sa917940 2018-07-06  STL  (A+)  ATL 1  5  5 2  1  1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 51  Dylan Carlson       sa917940 2018-07-05  STL  (A+)  CIN 1  4  5 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 52  Dylan Carlson       sa917940 2018-07-04  STL  (A+)  CIN 1  1  3 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 53  Dylan Carlson       sa917940 2018-07-03  STL  (A+) @PIT 1  4  5 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 54  Dylan Carlson       sa917940 2018-07-02  STL  (A+) @PIT 1  4  5 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 55  Dylan Carlson       sa917940 2018-07-01  STL  (A+) @MIA 1  3  4 2  2  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 56  Dylan Carlson       sa917940 2018-06-29  STL  (A+) @MIA 1  5  5 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 57  Dylan Carlson       sa917940 2018-06-28  STL  (A+)  PIT 1  3  5 2  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 58  Dylan Carlson       sa917940 2018-06-27  STL  (A+)  PIT 1  4  4 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 59  Dylan Carlson       sa917940 2018-06-26  STL  (A+)  PIT 1  4  5 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 60  Dylan Carlson       sa917940 2018-06-24  STL  (A+)  TBR 1  4  4 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 61  Dylan Carlson       sa917940 2018-06-23  STL  (A+)  TBR 1  4  4 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 62  Dylan Carlson       sa917940 2018-06-22  STL  (A+)  TBR 1  3  4 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 63  Dylan Carlson       sa917940 2018-06-21  STL  (A+)  TBR 1  4  4 2  2  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 64  Dylan Carlson       sa917940 2018-06-19  STL  (A+) @CIN 1  3  3 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 65  Dylan Carlson       sa917940 2018-06-14  STL  (A+)  MIN 1  2  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 66  Dylan Carlson       sa917940 2018-06-13  STL  (A+)  MIN 1  4  4 3  2  0  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 67  Dylan Carlson       sa917940 2018-06-10  STL  (A+)  CIN 1  4  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 68  Dylan Carlson       sa917940 2018-06-09  STL  (A+)  CIN 1  2  4 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 69  Dylan Carlson       sa917940 2018-06-08  STL  (A+)  CIN 1  5  5 1  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 70  Dylan Carlson       sa917940 2018-06-07  STL  (A+) @MIN 1  4  4 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 71  Dylan Carlson       sa917940 2018-06-06  STL  (A+) @MIN 1  4  5 2  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 72  Dylan Carlson       sa917940 2018-06-05  STL  (A+) @MIN 1  5  5 2  2  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 73  Dylan Carlson       sa917940 2018-06-04  STL  (A+) @MIN 1  4  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 74  Dylan Carlson       sa917940 2018-06-03  STL  (A+) @MIA 1  4  5 1  0  1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 75  Dylan Carlson       sa917940 2018-06-02  STL  (A+) @MIA 1  4  4 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 76  Dylan Carlson       sa917940 2018-05-31  STL  (A+)  TBR 1  4  4 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 77  Dylan Carlson       sa917940 2018-05-30  STL  (A+)  TBR 1  4  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 78  Dylan Carlson       sa917940 2018-05-29  STL  (A+)  TBR 1  3  5 2  2  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 79  Dylan Carlson       sa917940 2018-05-25  STL  (A+)  PHI 1  4  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 80  Dylan Carlson       sa917940 2018-05-24  STL  (A+)  PHI 1  3  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 81  Dylan Carlson       sa917940 2018-05-23  STL  (A+) @DET 1  4  5 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 82  Dylan Carlson       sa917940 2018-05-22  STL  (A+) @DET 1  4  4 2  2  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 83  Dylan Carlson       sa917940 2018-05-21  STL  (A+) @DET 1  4  4 2  2  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 84  Dylan Carlson       sa917940 2018-05-18  STL  (A+)  PIT 1  4  5 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 85  Dylan Carlson       sa917940 2018-05-17  STL  (A+) @PHI 1  2  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 86  Dylan Carlson       sa917940 2018-05-15  STL  (A+) @PHI 1  2  3 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 87  Dylan Carlson       sa917940 2018-05-12  STL  (A+) @PIT 1  4  4 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 88  Dylan Carlson       sa917940 2018-05-11  STL  (A+) @PIT 1  4  4 2  0  1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 89  Dylan Carlson       sa917940 2018-05-09  STL  (A+)  MIA 1  5  5 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 90  Dylan Carlson       sa917940 2018-05-08  STL  (A+)  MIA 1  2  5 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 91  Dylan Carlson       sa917940 2018-05-07  STL  (A+)  MIA 1  3  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 92  Dylan Carlson       sa917940 2018-05-04  STL  (A+)  NYM 1  4  4 2  2  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 93  Dylan Carlson       sa917940 2018-05-03  STL  (A+) @ATL 1  3  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 94  Dylan Carlson       sa917940 2018-05-02  STL  (A+) @ATL 1  4  5 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 95  Dylan Carlson       sa917940 2018-05-01  STL  (A+) @ATL 1  3  4 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 96  Dylan Carlson       sa917940 2018-04-29  STL  (A+) @NYM 1  4  5 2  2  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 97  Dylan Carlson       sa917940 2018-04-28  STL  (A+) @NYM 1  4  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 98  Dylan Carlson       sa917940 2018-04-27  STL  (A+) @NYM 1  4  4 2  1  1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 99  Dylan Carlson       sa917940 2018-04-26  STL  (A+) @NYM 1  4  4 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 100 Dylan Carlson       sa917940 2018-04-25  STL  (A+)  MIA 1  4  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 101 Dylan Carlson       sa917940 2018-04-24  STL   (A) @OAK 1  4  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 102 Dylan Carlson       sa917940 2018-04-23  STL   (A) @OAK 1  4  4 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 103 Dylan Carlson       sa917940 2018-04-21  STL   (A)  MIL 1  3  4 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 104 Dylan Carlson       sa917940 2018-04-20  STL   (A)  MIL 1  4  4 1  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 105 Dylan Carlson       sa917940 2018-04-19  STL   (A) @HOU 1  4  4 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 106 Dylan Carlson       sa917940 2018-04-17  STL   (A) @HOU 1  4  5 1  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 107 Dylan Carlson       sa917940 2018-04-15  STL   (A)  MIL 1  3  3 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 108 Dylan Carlson       sa917940 2018-04-13  STL   (A)  MIL 1  4  4 2  2  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 109 Dylan Carlson       sa917940 2018-04-12  STL   (A)  MIN 1  3  5 2  0  2  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 110 Dylan Carlson       sa917940 2018-04-11  STL   (A)  MIN 1  5  5 2  1  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 111 Dylan Carlson       sa917940 2018-04-09  STL   (A)  MIN 1  4  5 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 112 Dylan Carlson       sa917940 2018-04-07  STL   (A)  LAA 1  2  5 0  0  0  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 113 Dylan Carlson       sa917940 2018-04-05  STL   (A) @LAA 1  3  5 1  0  1  0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     HR R RBI BB IBB SO HBP SF SH GDP SB CS       AVG       BB%        K%</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2    0 0   0  0   0  0   0  0  0   0  0  0 0.2500000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3    0 2   0  0   0  2   1  0  0   0  0  0 0.2500000 0.0000000 0.4000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4    0 1   1  0   0  0   0  0  0   0  0  0 0.2500000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5    0 0   0  0   0  0   0  0  0   0  0  0 0.2500000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6    0 0   0  1   0  3   0  0  0   0  0  0 0.0000000 0.2000000 0.6000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7    0 0   0  1   0  0   0  0  0   0  0  0 0.0000000 0.2500000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8    0 1   1  0   0  1   0  0  0   0  0  0 0.2000000 0.0000000 0.2000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9    0 0   0  0   0  0   0  0  0   0  0  0 0.5000000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10   1 1   2  0   0  0   0  1  0   1  0  0 0.3333333 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11   0 0   0  1   0  1   0  0  0   1  0  0 0.0000000 0.2500000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12   0 2   0  1   0  2   0  0  0   0  0  0 0.5000000 0.2000000 0.4000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13   0 1   1  0   0  1   0  0  0   0  0  0 0.3333333 0.0000000 0.1666667</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14   0 2   0  0   0  1   0  0  0   0  0  0 0.3333333 0.0000000 0.1666667</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15   1 1   1  0   0  1   0  0  0   0  0  0 0.2500000 0.0000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16   0 1   1  0   0  0   0  0  0   0  0  0 0.6000000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17   0 1   0  1   0  0   0  0  0   0  0  0 0.0000000 0.2500000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18   0 2   0  0   0  1   0  0  0   1  0  0 0.2000000 0.0000000 0.2000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19   0 0   0  0   0  0   1  0  0   0  0  0 0.0000000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20   0 0   0  2   0  0   0  0  0   0  0  0 0.0000000 0.5000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21   0 0   0  2   0  1   1  0  0   0  0  0 0.0000000 0.5000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22   0 0   1  0   0  1   0  0  0   0  0  0 0.0000000 0.0000000 0.2000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23   0 1   0  0   0  1   0  0  0   0  0  0 0.1666667 0.0000000 0.1666667</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24   0 1   0  0   0  1   0  0  0   0  0  0 0.2000000 0.0000000 0.2000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25   0 0   0  0   0  1   0  0  0   0  0  0 0.0000000 0.0000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 26   0 0   0  0   0  1   0  0  0   0  0  0 0.0000000 0.0000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 27   0 1   2  0   0  0   0  0  0   0  0  0 0.4000000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 28   0 0   0  1   0  0   0  0  0   1  0  1 0.0000000 0.2500000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 29   0 0   0  3   0  0   0  0  0   0  0  0 0.0000000 0.7500000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 30   0 1   0  1   0  0   0  0  0   1  0  0 0.5000000 0.2000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 31   0 0   1  1   0  0   0  0  0   0  0  0 0.5000000 0.2000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 32   0 0   0  0   0  1   1  0  0   0  0  0 0.3333333 0.0000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33   0 1   0  2   0  2   0  0  0   0  0  0 0.0000000 0.4000000 0.4000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 34   0 2   2  1   0  1   0  0  0   1  0  0 0.5000000 0.2000000 0.2000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 35   0 0   0  1   0  1   0  0  0   0  0  0 0.0000000 0.2500000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 36   0 0   0  0   0  2   0  0  0   0  0  0 0.2000000 0.0000000 0.4000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 37   0 1   0  2   0  2   0  0  0   0  0  0 0.3333333 0.4000000 0.4000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 38   0 0   0  0   0  0   0  0  0   0  0  0 0.2500000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 39   0 0   0  0   0  2   0  0  0   0  0  0 0.2500000 0.0000000 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 40   1 1   2  1   0  0   0  0  0   0  0  0 0.7500000 0.2000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 41   0 0   0  0   0  1   0  0  0   0  0  0 0.1666667 0.0000000 0.1666667</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 42   0 0   0  0   0  0   0  0  0   0  0  0 0.0000000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 43   0 0   0  0   0  0   0  0  0   1  0  0 0.0000000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 44   0 0   2  0   0  1   0  0  0   0  0  0 0.2000000 0.0000000 0.2000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 45   1 2   1  2   0  1   0  0  0   0  0  0 0.6666667 0.4000000 0.2000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 46   0 0   3  0   0  1   0  1  0   0  0  0 0.2500000 0.0000000 0.2000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 47   1 2   3  0   0  1   1  0  0   0  0  0 0.4000000 0.0000000 0.1666667</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 48   0 0   2  1   0  0   0  0  0   0  0  0 0.2500000 0.2000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 49   0 0   0  1   0  1   0  0  0   1  0  0 0.0000000 0.2500000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 50   0 1   2  0   0  1   0  0  0   0  0  0 0.4000000 0.0000000 0.2000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 51   0 0   1  0   0  2   0  1  0   0  0  0 0.0000000 0.0000000 0.4000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 52   0 2   1  1   0  0   0  1  0   0  0  0 1.0000000 0.3333333 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 53   0 0   0  1   0  3   0  0  0   0  1  0 0.2500000 0.2000000 0.6000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 54   0 0   0  1   1  0   0  0  0   0  0  0 0.0000000 0.2000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 55   0 0   0  1   0  0   0  0  0   0  0  0 0.6666667 0.2500000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 56   0 1   0  0   0  1   0  0  0   0  0  0 0.2000000 0.0000000 0.2000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 57   1 3   2  2   0  0   0  0  0   0  1  0 0.6666667 0.4000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 58   0 1   0  0   0  1   0  0  0   0  0  0 0.2500000 0.0000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 59   0 2   0  1   0  2   0  0  0   0  0  0 0.2500000 0.2000000 0.4000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 60   0 1   0  0   0  1   0  0  0   1  0  0 0.2500000 0.0000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 61   0 0   0  0   0  0   0  0  0   0  1  0 0.2500000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 62   0 0   0  1   1  2   0  0  0   0  0  0 0.3333333 0.2500000 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 63   0 1   0  0   0  1   0  0  0   0  0  0 0.5000000 0.0000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 64   0 0   0  0   0  1   0  0  0   0  0  0 0.0000000 0.0000000 0.3333333</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 65   0 0   1  0   0  0   0  1  1   0  0  0 0.0000000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 66   0 2   3  0   0  1   0  0  0   0  1  0 0.7500000 0.0000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 67   0 0   0  0   0  1   0  0  0   1  0  0 0.0000000 0.0000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 68   0 1   0  2   0  1   0  0  0   0  0  0 0.5000000 0.5000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 69   1 1   2  0   0  0   0  0  0   0  0  0 0.2000000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 70   0 0   0  0   0  1   0  0  0   0  0  0 0.2500000 0.0000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 71   1 2   4  0   0  0   1  0  0   0  0  0 0.5000000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 72   0 0   0  0   0  1   0  0  0   0  1  0 0.4000000 0.0000000 0.2000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 73   0 0   0  0   0  0   0  0  0   0  0  0 0.0000000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 74   0 2   0  1   0  0   0  0  0   0  0  0 0.2500000 0.2000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 75   0 0   0  0   0  0   0  0  0   0  0  0 0.2500000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 76   0 0   0  0   0  1   0  0  0   0  0  0 0.2500000 0.0000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 77   0 0   0  0   0  3   0  0  0   0  0  0 0.0000000 0.0000000 0.7500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 78   0 0   1  2   0  0   0  0  0   0  0  0 0.6666667 0.4000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 79   0 0   0  0   0  2   0  0  0   1  0  0 0.0000000 0.0000000 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 80   0 1   0  1   0  2   0  0  0   1  0  0 0.0000000 0.2500000 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 81   0 0   1  1   0  1   0  0  0   0  0  0 0.2500000 0.2000000 0.2000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 82   0 1   1  0   0  0   0  0  0   0  0  0 0.5000000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 83   0 0   2  0   0  0   0  0  0   0  0  1 0.5000000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 84   0 0   0  1   0  0   0  0  0   0  1  0 0.0000000 0.2000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 85   0 2   0  2   0  1   0  0  0   1  0  0 0.0000000 0.5000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 86   0 0   0  1   0  1   0  0  0   0  0  0 0.0000000 0.3333333 0.3333333</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 87   0 0   0  0   0  1   0  0  0   0  0  0 0.2500000 0.0000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 88   1 1   4  0   0  0   0  0  0   0  0  0 0.5000000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 89   0 1   0  0   0  1   0  0  0   0  0  0 0.2000000 0.0000000 0.2000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 90   0 2   0  3   1  0   0  0  0   0  0  0 0.0000000 0.6000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 91   0 1   0  1   0  0   0  0  0   0  0  0 0.0000000 0.2500000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 92   0 0   1  0   0  2   0  0  0   0  0  0 0.5000000 0.0000000 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 93   0 0   0  0   0  2   1  0  0   0  0  0 0.0000000 0.0000000 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 94   0 1   0  1   0  2   0  0  0   1  0  0 0.0000000 0.2000000 0.4000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 95   0 1   0  1   0  1   0  0  0   0  0  0 0.3333333 0.2500000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 96   0 2   1  1   0  0   0  0  0   0  0  0 0.5000000 0.2000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 97   0 0   0  0   0  1   0  0  0   0  0  0 0.0000000 0.0000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 98   0 1   0  0   0  0   0  0  0   0  0  1 0.5000000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 99   0 1   0  0   0  0   0  0  0   0  0  0 0.2500000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 100  0 0   0  0   0  1   0  0  0   0  0  0 0.0000000 0.0000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 101  0 0   0  0   0  0   0  0  0   1  0  0 0.0000000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 102  0 0   1  0   0  0   0  0  0   0  0  0 0.2500000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 103  0 1   0  1   1  0   0  0  0   0  1  0 0.3333333 0.2500000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 104  1 1   1  0   0  1   0  0  0   0  0  0 0.2500000 0.0000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 105  0 0   0  0   0  4   0  0  0   0  0  0 0.0000000 0.0000000 1.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 106  0 1   2  1   0  2   0  0  0   0  0  0 0.2500000 0.2000000 0.4000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 107  0 0   0  0   0  0   0  0  0   1  0  0 0.0000000 0.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 108  0 0   0  0   0  1   0  0  0   0  1  0 0.5000000 0.0000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 109  0 1   2  2   0  0   0  0  0   0  0  0 0.6666667 0.4000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 110  1 1   3  0   0  2   0  0  0   0  0  0 0.4000000 0.0000000 0.4000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 111  0 0   0  1   0  0   0  0  0   1  0  0 0.0000000 0.2000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 112  0 0   0  3   0  0   0  0  0   0  0  0 0.0000000 0.6000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 113  0 0   0  2   0  0   0  0  0   0  0  0 0.3333333 0.4000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>          BB/K       OBP       SLG       OPS       ISO        Spd     BABIP</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2   0.0000000 0.2500000 0.5000000 0.7500000 0.2500000  0.1428571 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3   0.0000000 0.4000000 0.5000000 0.9000000 0.2500000  2.6428571 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4   0.0000000 0.2500000 0.2500000 0.5000000 0.0000000  2.6428571 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5   0.0000000 0.2500000 0.2500000 0.5000000 0.0000000  0.1428571 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6   0.3333333 0.2000000 0.0000000 0.2000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7   1.0000000 0.2500000 0.0000000 0.2500000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8   0.0000000 0.2000000 0.2000000 0.4000000 0.0000000  2.6428571 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9   0.0000000 0.5000000 0.7500000 1.2500000 0.2500000  0.1428571 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10  0.0000000 0.2500000 1.3333333 1.5833333 1.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11  1.0000000 0.2500000 0.0000000 0.2500000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12  0.5000000 0.6000000 0.7500000 1.3500000 0.2500000  2.6428571 1.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13  0.0000000 0.3333333 0.5000000 0.8333333 0.1666667  2.6428571 0.4000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14  0.0000000 0.3333333 0.5000000 0.8333333 0.1666667  2.6428571 0.4000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15  0.0000000 0.2500000 1.0000000 1.2500000 0.7500000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16  0.0000000 0.6000000 1.0000000 1.6000000 0.4000000  1.6011905 0.6000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17  1.0000000 0.2500000 0.0000000 0.2500000 0.0000000  2.6428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18  0.0000000 0.2000000 0.6000000 0.8000000 0.4000000  5.1428571 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19  0.0000000 0.2500000 0.0000000 0.2500000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20  2.0000000 0.5000000 0.0000000 0.5000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21  2.0000000 0.7500000 0.0000000 0.7500000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23  0.0000000 0.1666667 0.3333333 0.5000000 0.1666667  2.6428571 0.2000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24  0.0000000 0.2000000 0.2000000 0.4000000 0.0000000  2.6428571 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 26  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 27  0.0000000 0.4000000 0.6000000 1.0000000 0.2000000  2.6428571 0.4000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 28  1.0000000 0.2500000 0.0000000 0.2500000 0.0000000  2.5000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 29  3.0000000 0.7500000 0.0000000 0.7500000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 30  1.0000000 0.6000000 0.5000000 1.1000000 0.0000000  1.6011905 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 31  1.0000000 0.6000000 0.5000000 1.1000000 0.0000000  0.1428571 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 32  0.0000000 0.5000000 0.6666667 1.1666667 0.3333333  0.1428571 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33  1.0000000 0.4000000 0.0000000 0.4000000 0.0000000  2.6428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 34  1.0000000 0.6000000 1.0000000 1.6000000 0.5000000  5.1428571 0.6666667</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 35  1.0000000 0.2500000 0.0000000 0.2500000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 36  0.0000000 0.2000000 0.2000000 0.4000000 0.0000000  0.1428571 0.3333333</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 37  1.0000000 0.6000000 0.6666667 1.2666667 0.3333333  1.6011905 1.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 38  0.0000000 0.2500000 0.2500000 0.5000000 0.0000000  0.1428571 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 39  0.0000000 0.2500000 0.2500000 0.5000000 0.0000000  0.1428571 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 40  1.0000000 0.8000000 1.5000000 2.3000000 0.7500000  0.1428571 0.6666667</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 41  0.0000000 0.1666667 0.1666667 0.3333333 0.0000000  0.1428571 0.2000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 42  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 43  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 44  0.0000000 0.2000000 0.4000000 0.6000000 0.2000000  0.1428571 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 45  2.0000000 0.8000000 1.6666667 2.4666667 1.0000000  1.6011905 1.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 46  0.0000000 0.2000000 0.5000000 0.7000000 0.2500000  0.1428571 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 47  0.0000000 0.5000000 1.2000000 1.7000000 0.8000000  2.6428571 0.3333333</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 48  1.0000000 0.4000000 0.2500000 0.6500000 0.0000000  0.1428571 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 49  1.0000000 0.2500000 0.0000000 0.2500000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 50  0.0000000 0.4000000 0.6000000 1.0000000 0.2000000  2.6428571 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 51  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 52  1.0000000 0.6666667 1.0000000 1.6666667 0.0000000  2.6428571 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 53  0.3333333 0.4000000 0.2500000 0.6500000 0.0000000  5.0000000 1.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 54  1.0000000 0.2000000 0.0000000 0.2000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 55  1.0000000 0.7500000 0.6666667 1.4166667 0.0000000  0.1428571 0.6666667</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 56  0.0000000 0.2000000 0.2000000 0.4000000 0.0000000  2.6428571 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 57  2.0000000 0.8000000 1.6666667 2.4666667 1.0000000  7.0619652 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 58  0.0000000 0.2500000 0.2500000 0.5000000 0.0000000  2.6428571 0.3333333</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 59  0.5000000 0.4000000 0.2500000 0.6500000 0.0000000  2.6428571 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 60  0.0000000 0.2500000 0.2500000 0.5000000 0.0000000  2.6428571 0.3333333</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 61  0.0000000 0.2500000 0.2500000 0.5000000 0.0000000  5.0000000 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 62  0.5000000 0.5000000 0.3333333 0.8333333 0.0000000  0.1428571 1.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 63  0.0000000 0.5000000 0.5000000 1.0000000 0.0000000  2.6428571 0.6666667</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 64  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 65  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 66  0.0000000 0.7500000 1.2500000 2.0000000 0.5000000 10.0000000 1.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 67  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 68  2.0000000 0.7500000 0.5000000 1.2500000 0.0000000  1.6011905 1.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 69  0.0000000 0.2000000 0.8000000 1.0000000 0.6000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 70  0.0000000 0.2500000 0.2500000 0.5000000 0.0000000  0.1428571 0.3333333</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 71  0.0000000 0.6000000 1.2500000 1.8500000 0.7500000  2.6428571 0.3333333</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 72  0.0000000 0.4000000 0.4000000 0.8000000 0.0000000  5.0000000 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 73  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 74  1.0000000 0.4000000 0.5000000 0.9000000 0.2500000  2.6428571 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 75  0.0000000 0.2500000 0.2500000 0.5000000 0.0000000  0.1428571 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 76  0.0000000 0.2500000 0.2500000 0.5000000 0.0000000  0.1428571 0.3333333</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 77  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 78  2.0000000 0.8000000 0.6666667 1.4666667 0.0000000  0.1428571 0.6666667</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 79  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 80  0.5000000 0.2500000 0.0000000 0.2500000 0.0000000  2.6428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 81  1.0000000 0.4000000 0.2500000 0.6500000 0.0000000  0.1428571 0.3333333</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 82  0.0000000 0.5000000 0.5000000 1.0000000 0.0000000  2.6428571 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 83  0.0000000 0.5000000 0.5000000 1.0000000 0.0000000  2.5000000 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 84  1.0000000 0.2000000 0.0000000 0.2000000 0.0000000  5.0000000 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 85  2.0000000 0.5000000 0.0000000 0.5000000 0.0000000  2.6428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 86  1.0000000 0.3333333 0.0000000 0.3333333 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 87  0.0000000 0.2500000 0.2500000 0.5000000 0.0000000  0.1428571 0.3333333</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 88  0.0000000 0.5000000 1.5000000 2.0000000 1.0000000  0.1428571 0.3333333</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 89  0.0000000 0.2000000 0.2000000 0.4000000 0.0000000  2.6428571 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 90  3.0000000 0.6000000 0.0000000 0.6000000 0.0000000  2.6428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 91  1.0000000 0.2500000 0.0000000 0.2500000 0.0000000  2.6428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 92  0.0000000 0.5000000 0.5000000 1.0000000 0.0000000  0.1428571 1.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 93  0.0000000 0.2500000 0.0000000 0.2500000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 94  0.5000000 0.2000000 0.0000000 0.2000000 0.0000000  2.6428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 95  1.0000000 0.5000000 0.3333333 0.8333333 0.0000000  2.6428571 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 96  1.0000000 0.6000000 0.5000000 1.1000000 0.0000000  2.6428571 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 97  0.0000000 0.0000000 0.0000000 0.0000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 98  0.0000000 0.5000000 0.7500000 1.2500000 0.2500000  5.0000000 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 99  0.0000000 0.2500000 0.2500000 0.5000000 0.0000000  2.6428571 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 100 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 101 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 102 0.0000000 0.2500000 0.2500000 0.5000000 0.0000000  0.1428571 0.2500000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 103 1.0000000 0.5000000 0.3333333 0.8333333 0.0000000  7.5000000 0.3333333</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 104 0.0000000 0.2500000 1.0000000 1.2500000 0.7500000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 105 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 106 0.5000000 0.4000000 0.2500000 0.6500000 0.0000000  2.6428571 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 107 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 108 0.0000000 0.5000000 0.5000000 1.0000000 0.0000000  5.0000000 0.6666667</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 109 2.0000000 0.8000000 1.3333333 2.1333333 0.6666667  1.0803571 0.6666667</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 110 0.0000000 0.4000000 1.0000000 1.4000000 0.6000000  0.1428571 0.5000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 111 1.0000000 0.2000000 0.0000000 0.2000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 112 3.0000000 0.6000000 0.0000000 0.6000000 0.0000000  0.1428571 0.0000000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 113 2.0000000 0.6000000 0.6666667 1.2666667 0.3333333  0.1428571 0.3333333</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>             wRC        wRAA      wOBA        wRC+          wBsR   gamedate dh</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2    0.48955590  0.03143889 0.3318802  106.862634  0.0000000000 2018-09-02  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3    0.93216372  0.35951745 0.4168748  162.781769 -0.0005796827 2018-09-01  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4    0.18955594 -0.26856107 0.2323452   41.377188 -0.0005796827 2018-08-30  2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5    0.18955594 -0.26856107 0.2323452   41.377188 -0.0005796827 2018-08-30  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6   -0.09312803 -0.66577429 0.1447350  -16.262750 -0.0005796827 2018-08-28  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7    0.03455593 -0.42356107 0.1809188    7.543037 -0.0005796827 2018-08-27  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8    0.06187197 -0.51077429 0.1858761   10.804571 -0.0005796827 2018-08-25  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9    1.18984769  0.73173068 0.5642254  259.725718 -0.0005796827 2018-08-24  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10   1.13147735  0.67336034 0.5448591  246.984357  0.0000000000 2018-08-23  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11   0.03455593 -0.42356107 0.1809188    7.543037 -0.0005796827 2018-08-22  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12   1.60745551  1.03480925 0.5961153  280.706541 -0.0011593654 2018-08-21  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13   0.93447976  0.24730425 0.3761502  135.988513 -0.0005796827 2018-08-19  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14   0.93447976  0.24730425 0.3761502  135.988513 -0.0005796827 2018-08-18  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15   1.13147735  0.67336034 0.5448591  246.984357  0.0000000000 2018-08-17  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16   2.06245548  1.48980922 0.7168844  360.162219 -0.0005796827 2018-08-16  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17   0.03455593 -0.42356107 0.1809188    7.543037 -0.0005796827 2018-08-14  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18   0.63187196  0.05922570 0.3371694  110.342457  0.0000000000 2018-08-13  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19   0.05955593 -0.39856108 0.1892133   13.000156 -0.0005796827 2018-08-12  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20   0.57984772  0.12173071 0.3618375  126.571969 -0.0011593654 2018-08-11  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21   1.15013949  0.69202249 0.5510508  251.058021 -0.0017390481 2018-08-10  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22  -0.63841981 -1.21106607 0.0000000 -100.000000  0.0000000000 2018-08-09  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23   0.23418798 -0.45298754 0.2212535   34.079791  0.0000000000 2018-08-08  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24   0.06187197 -0.51077429 0.1858761   10.804571 -0.0005796827 2018-08-07  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25  -0.51073585 -0.96885286 0.0000000 -100.000000  0.0000000000 2018-08-06  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 26  -0.51073585 -0.96885286 0.0000000 -100.000000  0.0000000000 2018-08-05  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 27   1.06216373  0.48951746 0.4513803  185.483395 -0.0005796827 2018-08-04  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 28   0.03455593 -0.42356107 0.1809188    7.543037 -0.4017368234 2018-08-03  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 29   1.12513950  0.66702249 0.5427563  245.600901 -0.0017390481 2018-08-02  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 30   1.30745554  0.73480928 0.5164873  228.318184 -0.0017390481 2018-08-01  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 31   1.30745554  0.73480928 0.5164873  228.318184 -0.0017390481 2018-07-31  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 32   1.05984768  0.60173067 0.5210935  231.348686 -0.0005796827 2018-07-29  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33   0.45216375 -0.12048251 0.2894700   78.960396 -0.0011593654 2018-07-28  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 34   1.87745553  1.30480927 0.6677805  327.856070 -0.0011593654 2018-07-27  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 35   0.03455593 -0.42356107 0.1809188    7.543037 -0.0005796827 2018-07-25  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 36   0.06187197 -0.51077429 0.1858761   10.804571 -0.0005796827 2018-07-24  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 37   1.45245551  0.87980924 0.5549742  253.639220 -0.0011593654 2018-07-23  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 38   0.18955594 -0.26856107 0.2323452   41.377188 -0.0005796827 2018-07-20  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 39   0.18955594 -0.26856107 0.2323452   41.377188 -0.0005796827 2018-07-19  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 40   2.94966874  2.37702248 0.9523745  515.094386 -0.0017390481 2018-07-18  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 41  -0.06581199 -0.75298750 0.1548968   -9.577173 -0.0005796827 2018-07-17  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 42  -0.51073585 -0.96885286 0.0000000 -100.000000  0.0000000000 2018-07-15  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 43  -0.51073585 -0.96885286 0.0000000 -100.000000  0.0000000000 2018-07-14  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 44   0.36187194 -0.21077432 0.2655041   63.192928  0.0000000000 2018-07-13  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 45   2.79466874  2.22202248 0.9112334  488.027065 -0.0017390481 2018-07-12  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 46   0.36187194 -0.21077432 0.2655041   63.192928  0.0000000000 2018-07-11  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 47   2.44669295  1.75951744 0.7106350  356.050660 -0.0005796827 2018-07-10  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 48   0.60716376  0.03451750 0.3306111  106.027717 -0.0011593654 2018-07-09  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 49   0.03455593 -0.42356107 0.1809188    7.543037 -0.0005796827 2018-07-07  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 50   1.06216373  0.48951746 0.4513803  185.483395 -0.0005796827 2018-07-06  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 51  -0.63841981 -1.21106607 0.0000000 -100.000000  0.0000000000 2018-07-05  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 52   0.86253168  0.51894393 0.5510186  251.036793 -0.0011593654 2018-07-04  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 53   0.60716376  0.03451750 0.3306111  106.027717  0.1988406376 2018-07-03  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 54  -0.63841981 -1.21106607 0.0000000 -100.000000  0.0000000000 2018-07-02  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 55   1.43513951  0.97702250 0.6456091  313.269204 -0.0017390481 2018-07-01  2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 56   0.06187197 -0.51077429 0.1858761   10.804571 -0.0005796827 2018-06-29  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 57   2.79466874  2.22202248 0.9112334  488.027065  0.1982609549 2018-06-28  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 58   0.18955594 -0.26856107 0.2323452   41.377188 -0.0005796827 2018-06-27  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 59   0.60716376  0.03451750 0.3306111  106.027717 -0.0011593654 2018-06-26  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 60   0.18955594 -0.26856107 0.2323452   41.377188 -0.0005796827 2018-06-24  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 61   0.18955594 -0.26856107 0.2323452   41.377188  0.1994203203 2018-06-23  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 62   0.42298653 -0.03513048 0.3097936   92.331550 -0.0005796827 2018-06-22  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 63   0.88984772  0.43173072 0.4646904  194.240272 -0.0011593654 2018-06-21  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 64  -0.38305189 -0.72663964 0.0000000 -100.000000  0.0000000000 2018-06-19  2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 65  -0.51073585 -0.96885286 0.0000000 -100.000000  0.0000000000 2018-06-14  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 66   2.16013949  1.70202248 0.8861521  471.525713  0.1988406376 2018-06-13  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 67  -0.51073585 -0.96885286 0.0000000 -100.000000  0.0000000000 2018-06-10  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 68   1.28013950  0.82202250 0.5941827  279.435053 -0.0017390481 2018-06-09  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 69   1.00379338  0.43114712 0.4358872  175.290306  0.0000000000 2018-06-08  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 70   0.18955594 -0.26856107 0.2323452   41.377188 -0.0005796827 2018-06-07  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 71   2.27437695  1.70173069 0.7731341  397.169615 -0.0011593654 2018-06-06  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 72   0.76216376  0.18951750 0.3717523  133.095039  0.1988406376 2018-06-05  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 73  -0.51073585 -0.96885286 0.0000000 -100.000000  0.0000000000 2018-06-04  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 74   0.90716372  0.33451746 0.4102391  158.416074 -0.0005796827 2018-06-03  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 75   0.18955594 -0.26856107 0.2323452   41.377188 -0.0005796827 2018-06-02  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 76   0.18955594 -0.26856107 0.2323452   41.377188 -0.0005796827 2018-05-31  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 77  -0.51073585 -0.96885286 0.0000000 -100.000000  0.0000000000 2018-05-30  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 78   1.85274733  1.28010107 0.6612223  323.541330 -0.0023187308 2018-05-29  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 79  -0.51073585 -0.96885286 0.0000000 -100.000000  0.0000000000 2018-05-25  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 80   0.03455593 -0.42356107 0.1809188    7.543037 -0.0005796827 2018-05-24  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 81   0.60716376  0.03451750 0.3306111  106.027717 -0.0011593654 2018-05-23  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 82   0.88984772  0.43173072 0.4646904  194.240272 -0.0011593654 2018-05-22  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 83   0.88984772  0.43173072 0.4646904  194.240272 -0.4023165061 2018-05-21  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 84  -0.09312803 -0.66577429 0.1447350  -16.262750  0.1994203203 2018-05-18  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 85   0.57984772  0.12173071 0.3618375  126.571969 -0.0011593654 2018-05-17  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 86   0.16223990 -0.18134786 0.2412250   47.219347 -0.0005796827 2018-05-15  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 87   0.18955594 -0.26856107 0.2323452   41.377188 -0.0005796827 2018-05-12  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 88   2.13176910  1.67365209 0.8767392  465.332886  0.0000000000 2018-05-11  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 89   0.06187197 -0.51077429 0.1858761   10.804571 -0.0005796827 2018-05-09  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 90   0.72480965  0.15216339 0.3618375  126.571969 -0.0011593654 2018-05-08  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 91   0.03455593 -0.42356107 0.1809188    7.543037 -0.0005796827 2018-05-07  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 92   0.88984772  0.43173072 0.4646904  194.240272 -0.0011593654 2018-05-04  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 93   0.05955593 -0.39856108 0.1892133   13.000156 -0.0005796827 2018-05-03  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 94  -0.09312803 -0.66577429 0.1447350  -16.262750 -0.0005796827 2018-05-02  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 95   0.73484772  0.27673071 0.4132639  160.406120 -0.0011593654 2018-05-01  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 96   1.30745554  0.73480928 0.5164873  228.318184 -0.0017390481 2018-04-29  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 97  -0.51073585 -0.96885286 0.0000000 -100.000000  0.0000000000 2018-04-28  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 98   1.18984769  0.73173068 0.5642254  259.725718 -0.4017368234 2018-04-27  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 99   0.18955594 -0.26856107 0.2323452   41.377188 -0.0005796827 2018-04-26  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 100 -0.51073585 -0.96885286 0.0000000 -100.000000  0.0000000000 2018-04-25  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 101 -0.52525033 -0.98613297 0.0000000 -100.000000  0.0000000000 2018-04-24  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 102  0.18098192 -0.27990072 0.2317815   39.268548 -0.0010903301 2018-04-23  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 103  0.41639267 -0.04448997 0.3090420   90.346790  0.1989096729 2018-04-21  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 104  1.12128305  0.66040041 0.5403831  243.290366  0.0000000000 2018-04-20  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 105 -0.52525033 -0.98613297 0.0000000 -100.000000  0.0000000000 2018-04-19  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 106  0.60090155  0.02479825 0.3301543  104.304481 -0.0021806601 2018-04-17  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 107 -0.39393775 -0.73959973 0.0000000 -100.000000  0.0000000000 2018-04-15  2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 108  0.88721417  0.42633153 0.4635630  192.503276  0.1978193428 2018-04-13  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 109  2.45836603  1.88226274 0.8178419  426.723135 -0.0021806601 2018-04-12  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 110  1.69620272  1.12009942 0.6177317  294.426839 -0.0010903301 2018-04-11  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 111 -0.10533070 -0.68143400 0.1447291  -18.283302 -0.0010903301 2018-04-09  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 112  0.99713372  0.42103043 0.4341872  173.082455 -0.0032709902 2018-04-07  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 113  1.45213377  0.87603048 0.5536500  252.061356 -0.0021806601 2018-04-05  1</span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

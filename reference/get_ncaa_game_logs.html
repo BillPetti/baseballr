@@ -85,7 +85,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">baseballr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.92</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.93</span>
       </span>
     </div>
 
@@ -277,7 +277,201 @@ returns seasonal stats for a player's career.</p></td>
 as well as game by game statistics</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"></pre>
+    <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
+<span class='r-in'><span class='fu'>get_ncaa_game_logs</span><span class='op'>(</span>player_id <span class='op'>=</span> <span class='fl'>2113782</span>, year <span class='op'>=</span> <span class='fl'>2021</span>, type <span class='op'>=</span> <span class='st'>"pitching"</span>, span <span class='op'>=</span> <span class='st'>"game"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    player_id          player_name       Date                      Opponent</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3    2113782 Davitt, Duncan #44 P 03/06/2021  Michigan @ Round Rock, Texas</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4    2113782 Davitt, Duncan #44 P 03/07/2021  Michigan @ Round Rock, Texas</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5    2113782 Davitt, Duncan #44 P 03/07/2021  Michigan @ Round Rock, Texas</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6    2113782 Davitt, Duncan #44 P 03/08/2021  Michigan @ Round Rock, Texas</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7    2113782 Davitt, Duncan #44 P 03/12/2021 Ohio St. @ Minneapolis, Minn.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8    2113782 Davitt, Duncan #44 P 03/13/2021    Ohio St. @ Minneapolis, MN</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9    2113782 Davitt, Duncan #44 P 03/13/2021 Nebraska @ Minneapolis, Minn.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10   2113782 Davitt, Duncan #44 P 03/14/2021 Nebraska @ Minneapolis, Minn.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11   2113782 Davitt, Duncan #44 P 03/19/2021                      Nebraska</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12   2113782 Davitt, Duncan #44 P 03/20/2021                      Nebraska</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13   2113782 Davitt, Duncan #44 P 03/21/2021                      Nebraska</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14   2113782 Davitt, Duncan #44 P 03/26/2021                    @ Ohio St.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15   2113782 Davitt, Duncan #44 P 03/27/2021     Maryland @ Columbus, Ohio</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16   2113782 Davitt, Duncan #44 P 03/27/2021                    @ Ohio St.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17   2113782 Davitt, Duncan #44 P 03/28/2021     Maryland @ Columbus, Ohio</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18   2113782 Davitt, Duncan #44 P 04/02/2021                      @ Purdue</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19   2113782 Davitt, Duncan #44 P 04/03/2021                      @ Purdue</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20   2113782 Davitt, Duncan #44 P 04/04/2021                      @ Purdue</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21   2113782 Davitt, Duncan #44 P 04/09/2021                     Minnesota</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22   2113782 Davitt, Duncan #44 P 04/11/2021                     Minnesota</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23   2113782 Davitt, Duncan #44 P 04/11/2021                     Minnesota</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24   2113782 Davitt, Duncan #44 P 04/16/2021                     @ Rutgers</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25   2113782 Davitt, Duncan #44 P 04/17/2021                     @ Rutgers</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 26   2113782 Davitt, Duncan #44 P 04/17/2021                     @ Rutgers</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 27   2113782 Davitt, Duncan #44 P 04/18/2021                     @ Rutgers</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 28   2113782 Davitt, Duncan #44 P 04/23/2021                      Maryland</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 29   2113782 Davitt, Duncan #44 P 04/24/2021                      Maryland</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 30   2113782 Davitt, Duncan #44 P 04/25/2021                  Northwestern</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 31   2113782 Davitt, Duncan #44 P 04/26/2021                  Northwestern</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 32   2113782 Davitt, Duncan #44 P 04/30/2021                     @ Indiana</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33   2113782 Davitt, Duncan #44 P 05/01/2021                     @ Indiana</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 34   2113782 Davitt, Duncan #44 P 05/02/2021                     @ Indiana</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 35   2113782 Davitt, Duncan #44 P 05/07/2021                      Penn St.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 36   2113782 Davitt, Duncan #44 P 05/08/2021                      Penn St.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 37   2113782 Davitt, Duncan #44 P 05/08/2021                      Penn St.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 38   2113782 Davitt, Duncan #44 P 05/14/2021                      Illinois</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 39   2113782 Davitt, Duncan #44 P 05/15/2021                      Illinois</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 40   2113782 Davitt, Duncan #44 P 05/16/2021                      Illinois</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 41   2113782 Davitt, Duncan #44 P 05/21/2021                @ Northwestern</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 42   2113782 Davitt, Duncan #44 P 05/22/2021                @ Northwestern</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 43   2113782 Davitt, Duncan #44 P 05/23/2021                @ Northwestern</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 44   2113782 Davitt, Duncan #44 P 05/28/2021                @ Michigan St.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 45   2113782 Davitt, Duncan #44 P 05/29/2021                @ Michigan St.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 46   2113782 Davitt, Duncan #44 P 05/30/2021                @ Michigan St.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>          Result App  G GS  IP CG  H  R ER BB SO SHO BF P-OAB 2B-A 3B-A Bk HR-A</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3       L 2 - 4  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4       W 8 - 3  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5       L 0 - 7  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6      L 4 - 11   1  1  1 3.1 NA  6  4  4  1  4  NA 17    15    1   NA NA    1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7       W 4 - 0  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8       L 4 - 7  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9       L 0 - 4  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10      W 3 - 1   1  1  1 6.0 NA  2  1  1  2  6  NA 23    19    1   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11      W 3 - 0  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12     L 8 - 10  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13     L 8 - 13   1  1  1 1.2 NA  4  5  5  2 NA  NA 11     8    1   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14      L 2 - 8  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15      W 6 - 4  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16      W 5 - 1  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17     W 11 - 2   1  1  1 6.0 NA  3  1  1  2  5  NA 24    20    2   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18 W 4 - 2 (10)  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19     L 8 - 10  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20      W 8 - 5   1  1 NA 2.1 NA  4  1  1  1  1  NA 14     9   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21      W 7 - 1  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22      W 6 - 1  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23     W 18 - 0   1  1 NA 2.0 NA  2 NA NA  0  2  NA  8     8   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24    W 14 - 12  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25      W 3 - 1  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 26      W 8 - 1  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 27      L 7 - 8   1  1  1 5.0 NA  4  1  1  1  7  NA 21    19    1   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 28      W 6 - 2  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 29      L 6 - 8  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 30     W 15 - 4  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 31     W 12 - 9   1  1  1 6.0 NA  5  4  4  1  5  NA 24    23   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 32      W 6 - 5  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33     L 6 - 12  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 34     L 8 - 12   1  1 NA 3.1 NA  3  2  1  1  4  NA 15    14    2   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 35      W 4 - 2  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 36      W 5 - 3   1  1  1 5.0 NA  6  1  1  1  5  NA 22    20   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 37      L 4 - 5  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 38      W 5 - 4  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 39     L 1 - 14   1  1  1 2.2 NA  4  7  7  3  2  NA 16    11    2   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 40      L 2 - 6  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 41      W 6 - 1  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 42      L 4 - 5  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 43      L 6 - 8   1  1  1 1.2 NA  4  4  4  0  2  NA  9     9   NA   NA NA    3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 44     W 12 - 1  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 45      W 7 - 4   1  1 NA 3.2 NA  1 NA NA  4  4  NA 16    11    1   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 46     W 11 - 3  NA NA NA  NA NA NA NA NA NA NA  NA NA    NA   NA   NA NA   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    WP HB IBB Inh Run Inh Run Score SHA SFA Pitches GO FO  W  L SV OrdAppeared</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3  NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4  NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5  NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6  NA  1  NA      NA            NA  NA  NA      53  2  3 NA NA NA           1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7  NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8  NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9  NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10 NA  2  NA      NA            NA  NA  NA      86  5  6 NA NA NA           1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13  1 NA  NA      NA            NA  NA   1      NA NA  5 NA NA NA           1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17 NA  1  NA      NA            NA   1  NA      82  8  5 NA NA NA           1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20 NA  2  NA      NA            NA   1   1      48  2  4 NA NA NA           2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23 NA NA  NA      NA            NA  NA  NA      29  1  3 NA NA NA           3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 26 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 27 NA  1  NA      NA            NA  NA  NA      83  5  3 NA NA NA           1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 28 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 29 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 30 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 31 NA NA  NA      NA            NA  NA  NA      94  5  8 NA NA NA           1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 32 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 34 NA NA  NA      NA            NA  NA  NA      65  5  2 NA NA NA           2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 35 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 36  1  1  NA      NA            NA  NA  NA      90  3  6 NA NA NA           1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 37 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 38 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 39  1  1  NA      NA            NA  NA   1      52  3  3 NA NA NA           1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 40 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 41 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 42 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 43 NA NA  NA      NA            NA  NA  NA      28  2  1 NA NA NA           1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 44 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 45 NA NA  NA      NA            NA   1  NA      61  3  4 NA NA NA           2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 46 NA NA  NA      NA            NA  NA  NA      NA NA NA NA NA NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    KL pickoffs</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3  NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4  NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5  NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6   1         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7  NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8  NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9  NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10  1         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17  1         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 26 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 27  1         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 28 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 29 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 30 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 31 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 32 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 34 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 35 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 36  2         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 37 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 38 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 39 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 40 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 41 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 42 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 43  1         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 44 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 45 NA         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 46 NA         </span>
+<span class='r-in'><span class='fu'>get_ncaa_game_logs</span><span class='op'>(</span>player_id <span class='op'>=</span> <span class='fl'>1879650</span>, year <span class='op'>=</span> <span class='fl'>2019</span>, type <span class='op'>=</span> <span class='st'>"batting"</span>, span<span class='op'>=</span><span class='st'>"career"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      Year player_id          player_name       Team GP BA  G OBPct SlgPct R AB</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3 2016-17   1879650 Fellows, Drake #66 P Vanderbilt 18    18                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4 2017-18   1879650 Fellows, Drake #66 P Vanderbilt 21    21                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5 2018-19   1879650 Fellows, Drake #66 P Vanderbilt 28    28                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6  Totals   1879650 Fellows, Drake #66 P     Totals 67    67                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   H 2B 3B TB HR RBI BB HBP SF SH K DP CS Picked SB RBI2out</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3          0                                              </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4    0  0  0  0                                           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5    0  0  0  0                                           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6    0  0  0  0                                           </span>
+<span class='r-in'><span class='co'># }</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

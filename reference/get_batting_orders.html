@@ -85,7 +85,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">baseballr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.92</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.93</span>
       </span>
     </div>
 
@@ -268,7 +268,29 @@ the home plate umpire for the game_pk provided
 requested</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='fu'>get_batting_orders</span><span class='op'>(</span>game_pk<span class='op'>=</span><span class='fl'>566001</span><span class='op'>)</span></span>
+    <pre class="examples"><span class='r-in'><span class='fu'>get_batting_orders</span><span class='op'>(</span>game_pk<span class='op'>=</span><span class='fl'>566001</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 18 × 8</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        id fullName   abbreviation batting_order batting_positio… team  teamName </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> <span style='text-decoration: underline;'>606</span>299 Jose Pera… 2B           1             0                away  Cincinna…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> <span style='text-decoration: underline;'>458</span>015 Joey Votto 1B           2             0                away  Cincinna…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> <span style='text-decoration: underline;'>553</span>993 Eugenio S… 3B           3             0                away  Cincinna…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> <span style='text-decoration: underline;'>608</span>385 Jesse Win… LF           4             0                away  Cincinna…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> <span style='text-decoration: underline;'>624</span>577 Yasiel Pu… RF           5             0                away  Cincinna…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> <span style='text-decoration: underline;'>594</span>988 Scott Sch… CF           6             0                away  Cincinna…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> <span style='text-decoration: underline;'>578</span>428 Jose Igle… SS           7             0                away  Cincinna…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> <span style='text-decoration: underline;'>571</span>466 Tucker Ba… C            8             0                away  Cincinna…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> <span style='text-decoration: underline;'>543</span>699 Tanner Ro… P            9             0                away  Cincinna…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> <span style='text-decoration: underline;'>643</span>446 Jeff McNe… 2B           1             0                home  New York…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>11</span> <span style='text-decoration: underline;'>624</span>413 Pete Alon… 1B           2             0                home  New York…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>12</span> <span style='text-decoration: underline;'>607</span>043 Brandon N… LF           3             0                home  New York…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>13</span> <span style='text-decoration: underline;'>624</span>424 Michael C… RF           4             0                home  New York…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>14</span> <span style='text-decoration: underline;'>453</span>943 Todd Fraz… 3B           5             0                home  New York…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>15</span> <span style='text-decoration: underline;'>467</span>092 Wilson Ra… C            6             0                home  New York…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>16</span> <span style='text-decoration: underline;'>642</span>708 Amed Rosa… SS           7             0                home  New York…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>17</span> <span style='text-decoration: underline;'>501</span>571 Juan Laga… CF           8             0                home  New York…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>18</span> <span style='text-decoration: underline;'>554</span>430 Zack Whee… P            9             0                home  New York…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 1 more variable: teamID &lt;int&gt;</span></span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

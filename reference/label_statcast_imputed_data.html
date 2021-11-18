@@ -87,7 +87,7 @@ have been imputed." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">baseballr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.92</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.93</span>
       </span>
     </div>
 
@@ -281,11 +281,18 @@ and speed to for comparison. Default is <code>10000</code>, i.e. keep 4 digits o
 is 1 if launch angle and launch speed are likely imputed, 0 otherwise.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+    <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
 <span class='r-in'><span class='va'>statcast_df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='scrape_statcast_savant.html'>scrape_statcast_savant</a></span><span class='op'>(</span><span class='st'>"2017-05-01"</span>, <span class='st'>"2017-05-02"</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> 2017-05-01 is not a date. Attempting to coerce...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> No playerid specified. Collecting data for all batters/pitchers.</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> https://baseballsavant.mlb.com/statcast_search/csv?all=true&amp;hfPT=&amp;hfAB=&amp;hfBBT=&amp;hfPR=&amp;hfZ=&amp;stadium=&amp;hfBBL=&amp;hfNewZones=&amp;hfGT=R%7CPO%7CS%7C&amp;hfC&amp;hfSea=2017%7C&amp;hfSit=&amp;hfOuts=&amp;opponent=&amp;pitcher_throws=&amp;batter_stands=&amp;hfSA=&amp;player_type=batter&amp;hfInfield=&amp;team=&amp;position=&amp;hfOutfield=&amp;hfRO=&amp;home_road=&amp;game_date_gt=2017-05-01&amp;game_date_lt=2017-05-02&amp;hfFlag=&amp;hfPull=&amp;metric_1=&amp;hfInn=&amp;min_pitches=0&amp;min_results=0&amp;group_by=name&amp;sort_col=pitches&amp;player_event_sort=h_launch_speed&amp;sort_order=desc&amp;min_abs=0&amp;type=details</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> These data are from BaseballSavant and are property of MLB Advanced Media, L.P. All rights reserved.</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Grabbing data, this may take a minute...</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> URL read and payload acquired successfully.</span>
 <span class='r-in'><span class='va'>sc_df</span> <span class='op'>&lt;-</span> <span class='fu'>label_statcast_imputed_data</span><span class='op'>(</span><span class='va'>statcast_df</span><span class='op'>)</span></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>sc_df</span><span class='op'>$</span><span class='va'>imputed</span><span class='op'>)</span></span>
-<span class='r-in'><span class='op'>}</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 0.003561888</span>
+<span class='r-in'><span class='co'># }</span></span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -85,7 +85,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">baseballr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.92</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.93</span>
       </span>
     </div>
 
@@ -266,9 +266,97 @@
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+    <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
 <span class='r-in'><span class='fu'>ncaa_scrape</span><span class='op'>(</span>teamid<span class='op'>=</span><span class='fl'>255</span>, year<span class='op'>=</span><span class='fl'>2013</span>, type <span class='op'>=</span> <span class='st'>"batting"</span><span class='op'>)</span></span>
-<span class='r-in'><span class='op'>}</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    year       school conference division Jersey              Player Yr Pos GP</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1  2013 Georgia Tech        ACC        1      9        Murray, A.J. So   C 64</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2  2013 Georgia Tech        ACC        1     10         Evans, Zane Jr   C 64</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3  2013 Georgia Tech        ACC        1      8          Wren, Kyle Jr  OF 64</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4  2013 Georgia Tech        ACC        1      3          Hyde, Mott Jr INF 64</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5  2013 Georgia Tech        ACC        1     32       Palka, Daniel Jr  1B 62</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6  2013 Georgia Tech        ACC        1     31           Dove, Sam Sr INF 61</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7  2013 Georgia Tech        ACC        1     14      Gonzalez, Matt Fr INF 61</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8  2013 Georgia Tech        ACC        1      6     Thomas, Brandon Sr  OF 53</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9  2013 Georgia Tech        ACC        1     35    Spingola, Daniel So  OF 50</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10 2013 Georgia Tech        ACC        1     13       Smith, Thomas So INF 45</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11 2013 Georgia Tech        ACC        1     29      Earnest, Mitch Jr   C 32</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12 2013 Georgia Tech        ACC        1      1         Dore, Dylan Fr  OF 27</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13 2013 Georgia Tech        ACC        1     20        Miller, Cole Fr  1B 18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14 2013 Georgia Tech        ACC        1      2       Wruble, Grant Fr   C 11</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15 2013 Georgia Tech        ACC        1      4 Hodorowski, Michael So  OF 11</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16 2013 Georgia Tech        ACC        1     16       Lynch, Connor So   C 10</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17 2013 Georgia Tech        ACC        1      5  Sheffield, Charles So  OF  3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18 2013 Georgia Tech        ACC        1     23         Young, Will Fr INF  2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19 2013 Georgia Tech        ACC        1     12   Fineberg, Gregory Fr   C  2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20 2013 Georgia Tech        ACC        1      -              Totals  -   - NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21 2013 Georgia Tech        ACC        1      -     Opponent Totals  -   - NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    GS    BA OBPct SlgPct   R  AB   H  2B 3B TB HR RBI  BB HBP SF SH   K DP CS</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1  64 0.271 0.366  0.394  41 236  64  10  2 NA  5  35  30   6  1  2  56  8 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2  64 0.361 0.430  0.590  47 244  88  12  1 NA 14  66  33   1  6 NA  40  8  1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3  64 0.360 0.423  0.467  50 272  98  11  6 NA  2  28  29   2  2  2  36  2 13</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4  64 0.260 0.357  0.430  32 223  58  18  1 NA  6  32  26   8  1 11  46  1  5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5  62 0.342 0.436  0.637  55 237  81  13  3 NA 17  66  31  10  2 NA  60  8 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6  61 0.288 0.371  0.412  47 233  67  14  3 NA  3  34  30   4  5  5  44  5  3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7  58 0.291 0.324  0.388  37 227  66   9  2 NA  3  37  11   1  2  1  47  8  4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8  53 0.321 0.406  0.445  49 209  67  15  4 NA  1  30  30   2  3  3  40  3  2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9  21 0.256 0.375  0.321  12  78  20   2 NA NA  1  13  14   2  2 NA  13  1  2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10 30 0.286 0.362  0.446  16 112  32   5  2 NA  3  13  13   1  1  5  16  4  3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11 17 0.306 0.368  0.516  13  62  19   4 NA NA  3  15   3   3 NA  2  19  3 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12  8 0.289 0.386  0.368   8  38  11   3 NA NA NA   4   3   3 NA  1  10 NA NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13  1 0.053 0.095  0.053   2  19   1  NA NA NA NA   3   1  NA  1 NA  11  2 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14  0 0.250 0.333  0.250   1   4   1  NA NA NA NA   2   1  NA  1 NA   1 NA NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15  2 0.278 0.300  0.278  NA  18   5  NA NA NA NA   3   1  NA  1 NA   2  1 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16  7 0.192 0.179  0.231   3  26   5   1 NA NA NA   3  NA  NA  2 NA   4 NA NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17  0 0.000 0.500  0.000   1   2  NA  NA NA NA NA  NA   1   1 NA NA   2 NA NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18  0 0.000 0.000  0.000  NA   2  NA  NA NA NA NA   1  NA  NA NA NA  NA NA NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19  0 0.000 0.000  0.000  NA   2  NA  NA NA NA NA  NA  NA  NA NA NA   2 NA NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20 NA 0.304 0.382  0.455 414  NA 683 117 24 NA 58 385 257  44 30 32 449 54 33</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21 NA 0.264 0.353  0.368 317  NA 561  81 11 NA 40 296 258  51 30 51 447 59 29</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    Picked SB RBI2out teamid conference_id player_id</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1      NA  4      NA    255           821   1323370</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2      NA NA      NA    255           821   1211076</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3      NA 28      NA    255           821   1211075</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4      NA  6      NA    255           821   1211073</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5      NA  6      NA    255           821   1211087</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6      NA  7      NA    255           821   1106044</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7      NA 10      NA    255           821   1423138</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8      NA  9      NA    255           821   1106039</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9      NA  3      NA    255           821   1323375</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10     NA  3      NA    255           821   1323374</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11     NA  1      NA    255           821   1211086</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12     NA NA      NA    255           821   1423134</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13     NA NA      NA    255           821   1423140</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14     NA NA      NA    255           821   1423135</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15     NA NA      NA    255           821   1323368</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16     NA NA      NA    255           821   1323369</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17     NA NA      NA    255           821   1323373</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18     NA NA      NA    255           821   1423141</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19     NA NA      NA    255           821   1423137</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20     NA 77      NA    255           821      &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21     NA 79      NA    255           821      &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                                                                             player_url</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1  http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1323370</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2  http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1211076</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3  http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1211075</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4  http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1211073</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5  http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1211087</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6  http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1106044</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7  http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1423138</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8  http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1106039</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9  http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1323375</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10 http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1323374</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11 http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1211086</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12 http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1423134</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13 http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1423140</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14 http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1423135</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15 http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1323368</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16 http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1323369</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17 http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1323373</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18 http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1423141</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19 http://stats.ncaa.org/player/index?game_sport_year_ctl_id=11320&amp;org_id=255&amp;stats_player_seq=1423137</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20                                                                                                &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21                                                                                                &lt;NA&gt;</span>
+<span class='r-in'><span class='co'># }</span></span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

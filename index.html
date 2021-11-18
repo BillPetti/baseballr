@@ -42,7 +42,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">baseballr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.92</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.93</span>
       </span>
     </div>
 
@@ -254,21 +254,25 @@
 <p>Right now the function works as far as back as 1994, which is when both leagues split into three divisions.</p>
 <p>You can also pull data for all hitters over a specific date range. Here are the results for all hitters from August 1st through October 3rd during the 2015 season:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">## </span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="co">## Attaching package: 'dplyr'</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co">## The following objects are masked from 'package:stats':</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="co">## </span></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="co">##     filter, lag</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="co">## The following objects are masked from 'package:base':</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="co">## </span></span>
-<span id="cb7-10"><a href="#cb7-10"></a><span class="co">##     intersect, setdiff, setequal, union</span></span></code></pre></div>
+<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/daily_batter_bref.html">daily_batter_bref</a></span><span class="op">(</span><span class="st">"2015-08-01"</span>, <span class="st">"2015-10-03"</span><span class="op">)</span> </code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">## Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com</span></span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/daily_batter_bref.html">daily_batter_bref</a></span><span class="op">(</span><span class="st">"2015-08-01"</span>, <span class="st">"2015-10-03"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<code class="sourceCode R"><span class="va">data</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">## Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">##   bbref_id season             Name Age  Level          Team  G  PA  AB  R  H</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="co">## 1   547989   2015    Manny Machado  22 Maj-AL     Baltimore 59 266 237 36 66</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co">## 2   554429   2015       Matt Duffy  24 Maj-NL San Francisco 59 264 248 33 71</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">## 3   542436   2015      Jose Altuve  25 Maj-AL       Houston 57 262 244 30 81</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co">## 4   571431   2015       Adam Eaton  26 Maj-AL       Chicago 58 262 230 37 74</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">## 5   501303   2015    Shin-Soo Choo  32 Maj-AL         Texas 58 260 211 48 71</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co">## 6   346793   2015 Francisco Lindor  21 Maj-AL     Cleveland 58 259 224 35 79</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co">##   X1B X2B X3B HR RBI BB IBB uBB SO HBP SH SF GDP SB CS    BA   OBP   SLG   OPS</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="co">## 1  43  10   0 13  32 26   1  25 42   2  0  1   5  6  4 0.278 0.353 0.485 0.839</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="co">## 2  54  12   2  3  30 15   0  15 35   0  0  1   9  8  0 0.286 0.326 0.387 0.713</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="co">## 3  53  19   3  6  18 10   1   9 28   4  1  3   6 11  4 0.332 0.364 0.508 0.872</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a><span class="co">## 4  56  12   1  5  31 23   1  22 55   5  2  2   1  9  4 0.322 0.392 0.448 0.840</span></span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="co">## 5  47  14   1  9  34 39   1  38 51   8  1  1   1  2  0 0.336 0.456 0.540 0.996</span></span>
+<span id="cb9-14"><a href="#cb9-14"></a><span class="co">## 6  51  17   4  7  32 18   0  18 38   1 11  5   4 10  2 0.353 0.395 0.558 0.953</span></span></code></pre></div>
 <p>In terms of metric calculation, the package allows the user to calculate the consistency of team scoring and run prevention for any year using <code><a href="reference/team_consistency.html">team_consistency()</a></code>:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/team_consistency.html">team_consistency</a></span><span class="op">(</span><span class="fl">2015</span><span class="op">)</span></code></pre></div>
@@ -291,25 +295,25 @@
 <p>You can also calculate wOBA per plate appearance and wOBA on contact for any set of data over any date range, provided you have the data available.</p>
 <p>Simply pass the proper data frame to <code>woba_plus</code>:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">PA</span> <span class="op">&gt;</span> <span class="fl">200</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="va">woba_plus</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">wOBA</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">Team</span>, <span class="va">season</span>, <span class="va">PA</span>, <span class="va">wOBA</span>, <span class="va">wOBA_CON</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<code class="sourceCode R"><span class="va">data</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">PA</span> <span class="op">&gt;</span> <span class="fl">200</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="va">woba_plus</span> <span class="op">%&gt;%</span>
+  <span class="fu">arrange</span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">wOBA</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">select</span><span class="op">(</span><span class="va">Name</span>, <span class="va">Team</span>, <span class="va">season</span>, <span class="va">PA</span>, <span class="va">wOBA</span>, <span class="va">wOBA_CON</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">##               Name          Team season  PA  wOBA wOBA_CON</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="co">## 1    Shin-Soo Choo         Texas   2015 260 0.430    0.495</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="co">## 2 Francisco Lindor     Cleveland   2015 259 0.404    0.468</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="co">## 3      Jose Altuve       Houston   2015 262 0.372    0.406</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a><span class="co">## 4       Adam Eaton       Chicago   2015 262 0.367    0.436</span></span>
-<span id="cb13-6"><a href="#cb13-6"></a><span class="co">## 5    Manny Machado     Baltimore   2015 266 0.362    0.396</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a><span class="co">## 6       Matt Duffy San Francisco   2015 264 0.312    0.338</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">##                Name       Team season  PA  wOBA wOBA_CON</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="co">## 1 Edwin Encarnacion    Toronto   2015 216 0.490    0.555</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="co">## 2      Bryce Harper Washington   2015 248 0.450    0.529</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="co">## 3       David Ortiz     Boston   2015 213 0.449    0.541</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="co">## 4        Joey Votto Cincinnati   2015 251 0.445    0.543</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="co">## 5       Chris Davis  Baltimore   2015 253 0.434    0.617</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="co">## 6     Shin-Soo Choo      Texas   2015 260 0.430    0.495</span></span></code></pre></div>
 <p>You can also generate these wOBA-based stats, as well as FIP, for pitchers using the <code><a href="reference/fip_plus.html">fip_plus()</a></code> function:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/daily_pitcher_bref.html">daily_pitcher_bref</a></span><span class="op">(</span><span class="st">"2015-04-05"</span>, <span class="st">"2015-04-30"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/fip_plus.html">fip_plus</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">season</span>, <span class="va">Name</span>, <span class="va">IP</span>, <span class="va">ERA</span>, <span class="va">SO</span>, <span class="va">uBB</span>, <span class="va">HBP</span>, <span class="va">HR</span>, <span class="va">FIP</span>, <span class="va">wOBA_against</span>, <span class="va">wOBA_CON_against</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">IP</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<code class="sourceCode R"><span class="fu"><a href="reference/daily_pitcher_bref.html">daily_pitcher_bref</a></span><span class="op">(</span><span class="st">"2015-04-05"</span>, <span class="st">"2015-04-30"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="reference/fip_plus.html">fip_plus</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">select</span><span class="op">(</span><span class="va">season</span>, <span class="va">Name</span>, <span class="va">IP</span>, <span class="va">ERA</span>, <span class="va">SO</span>, <span class="va">uBB</span>, <span class="va">HBP</span>, <span class="va">HR</span>, <span class="va">FIP</span>, <span class="va">wOBA_against</span>, <span class="va">wOBA_CON_against</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">arrange</span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">IP</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">## Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a></span>
