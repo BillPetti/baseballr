@@ -21,10 +21,9 @@
 #' 5442 = Rookie Advanced \cr
 #' 16 = Rookie \cr
 #' 17 = Winter League \cr
-#' @keywords MLB, sabermetrics
 #' @export
 #'
-#' @examples \dontrun{get_game_pks_mlb("2019-04-29")}
+#' @examples \donttest{get_game_pks_mlb("2019-04-29")}
 
 get_game_pks_mlb <- function(date,
                              level_ids = c(1)) {
@@ -35,7 +34,7 @@ get_game_pks_mlb <- function(date,
 
   payload <- payload$dates$games %>%
     as.data.frame() %>%
-    rename(game_pk = gamePk)
+    rename(game_pk = .data$gamePk)
 
   return(payload)
 

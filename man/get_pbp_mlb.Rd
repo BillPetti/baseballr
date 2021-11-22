@@ -27,7 +27,5 @@ Both major and minor league pitch-by-pitch data can be pulled with this
 Acquire pitch-by-pitch data for Major and Minor League games via the MLB api \url{http://statsapi.mlb.com/api/}
 }
 \examples{
-\dontrun{get_pbp_mlb(575156)}
+\donttest{get_pbp_mlb(game_pk = 575156)}
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

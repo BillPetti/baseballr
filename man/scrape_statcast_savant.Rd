@@ -64,7 +64,7 @@ Default is \code{batter}}
 This function allows you to query Statcast and PITCHf/x data as provided on \url{http://baseballsavant.mlb.com} and have that data returned as a \code{\link{data.frame}}.
 }
 \examples{
-\dontrun{
+\donttest{
 correa <- scrape_statcast_savant(start_date = "2016-04-06",
   end_date = "2016-04-15", playerid = 621043)
 
@@ -73,23 +73,20 @@ noah <- scrape_statcast_savant(start_date = "2016-04-06",
 
 daily <- scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-06")
 }
-\dontrun{
+\donttest{
 correa <- scrape_statcast_savant_batter(start_date = "2016-04-06",
   end_date = "2016-04-15", batterid = 621043)
 }
-\dontrun{
+\donttest{
 daily <- scrape_statcast_savant_batter_all(start_date = "2016-04-06",
   end_date = "2016-04-06")
 }
-\dontrun{
+\donttest{
 noah <- scrape_statcast_savant_pitcher(start_date = "2016-04-06",
   end_date = "2016-04-15", pitcherid = 592789)
 }
-\dontrun{
+\donttest{
 daily <- scrape_statcast_savant_pitcher_all(start_date = "2016-04-06",
   end_date = "2016-04-06")
 }
 }
-\keyword{MLB,}
-\keyword{Statcast}
-\keyword{sabermetrics,}

@@ -13,8 +13,6 @@ playername_lookup(id)
 This function allows you to query the Chadwick Bureau's public register of baseball players and the various IDs associated with them in different systems of record.
 }
 \examples{
-\dontrun{playername_lookup(4885)}
-\dontrun{playername_lookup("kaaihki01")}
+\donttest{playername_lookup(4885)}
+\donttest{playername_lookup("kaaihki01")}
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

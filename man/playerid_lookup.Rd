@@ -15,9 +15,7 @@ playerid_lookup(last_name = NULL, first_name = NULL)
 This function allows you to query the Chadwick Bureau's public register of baseball players and the various IDs associated with them in different systems of record.
 }
 \examples{
-\dontrun{
+\donttest{
 playerid_lookup("Garcia", "Karim")
 }
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

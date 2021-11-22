@@ -14,13 +14,8 @@ statline_from_statcast(df, base = "pa")
 \description{
 This function allows you to create statlines of statistics for players or groups of players from raw Statcast or PITCHf/x data. When calculating wOBA, the most recent year in the data frame is used for weighting.
 }
-\examples{
-\dontrun{
+\details{
+```r
 statline_from_statcast(df, base = "contact")
+```
 }
-}
-\keyword{MLB,}
-\keyword{PITCHf/x,}
-\keyword{Statcast,}
-\keyword{sabermetrics}
-\keyword{woba,}

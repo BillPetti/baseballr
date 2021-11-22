@@ -16,11 +16,3 @@ edge_scrape_split(start, end, group)
 \description{
 This function allows you to calculate the percent of pitches thrown to different edges of the strike zone over any custom time frame, and to split the data by batter and pitcher handedness. Data is acquired by scraping the GameDay application from MLBAM using Carson Sievert's pitchRx package. The data can take a while to query, particular for large date ranges.
 }
-\examples{
-\dontrun{
-edge_scrape_split("2015-04-05", "2015-04-05", pitcher)
-}
-}
-\keyword{MLB,}
-\keyword{PITCHf/x}
-\keyword{sabermetrics,}

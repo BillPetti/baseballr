@@ -4,8 +4,7 @@
 #' @param year The season (i.e. use 2016 for the 2015-2016 season,
 #' etc.)
 #'
-#' @importFrom rvest html_nodes html_text
-#' @importFrom xml2 read_html
+#' @import rvest 
 #' @importFrom tibble tibble rownames_to_column
 #' @importFrom tidyr separate
 #' @importFrom stringr str_trim str_extract
@@ -14,121 +13,71 @@
 #' for the game itself.
 #' @export
 #'
-#' @examples \dontrun{get_ncaa_schedule_info(736, 2019)}
+#' @examples \donttest{get_ncaa_schedule_info(teamid =736, year = 2021)}
 
 get_ncaa_schedule_info <- function(teamid = NULL,
                                    year = NULL) {
-
-  id <- subset(ncaa_season_id_lu, season == year, select = id)
-
-  school_info <- subset(master_ncaa_team_lu, school_id ==
-                          teamid & year == year) %>%
-    dplyr::select(-year) %>%
+  
+  id <- subset(baseballr::ncaa_season_id_lu, baseballr::ncaa_season_id_lu$season == year, select = id)
+  
+  school_info <- baseballr::master_ncaa_team_lu %>% 
+    dplyr::filter(.data$school_id == teamid, .data$year == year) %>%
+    dplyr::select(-.data$year) %>%
     dplyr::distinct()
-
+  
   url <- paste0("https://stats.ncaa.org/team/", teamid, "/", id)
-
+  
   payload <- xml2::read_html(url)
-
-  if (year %in% c(2019,2020)) {
-
-    dates <- payload %>%
-      rvest::html_nodes("fieldset td:nth-child(1)") %>%
-      rvest::html_text() %>%
-      as.data.frame() %>%
-      dplyr::rename(date = '.') %>%
-      dplyr::filter(!date == "") %>%
-      dplyr::mutate(date = gsub("\\s*\\([^\\)]+\\)", "", date)) %>%
-      tibble::rownames_to_column('row')
-
-    game_opponents <- payload %>%
-      rvest::html_nodes("fieldset td:nth-child(2)") %>%
-      rvest::html_text() %>%
-      as.data.frame() %>%
-      dplyr::rename(opponent = '.') %>%
-      dplyr::filter(!opponent == "") %>%
-      dplyr::mutate(opponent = str_trim(opponent)) %>%
-      tibble::rownames_to_column('row')
-
-    game_info_url <- payload %>%
-      rvest::html_nodes("fieldset .skipMask") %>%
-      rvest::html_attr("href") %>%
-      as.data.frame() %>%
-      dplyr::rename(slug = '.') %>%
-      dplyr::mutate(game_info_url = paste0("https://stats.ncaa.org", slug)) %>%
-      tibble::rownames_to_column('row')
-
-    game_result <- payload %>%
-      rvest::html_nodes("fieldset .skipMask") %>%
-      rvest::html_text() %>%
-      as.data.frame() %>%
-      dplyr::rename(result = '.') %>%
-      dplyr::mutate(result = str_trim(result)) %>%
-      tidyr::separate(result, into = c("result", "score", "innings"),
-                      sep = " ") %>%
-      dplyr::mutate(innings = str_extract(innings, "[[0-9]]+"))  %>%
-      tibble::rownames_to_column('row')
-
-    game_info <- dplyr::full_join(dates, game_opponents, by = 'row')
-
-    game_info <- dplyr::full_join(game_info, game_result, by = 'row')
-
-    game_info <- dplyr::full_join(game_info, game_info_url, by = 'row')
-
-    game_info <- game_info %>%
-      dplyr::select(-row)
-
-  } else {
-
-    dates <- payload %>%
-      rvest::html_nodes(".smtext:nth-child(1)") %>%
-      rvest::html_text() %>%
-      as.data.frame() %>%
-      dplyr::rename(date = '.') %>%
-      dplyr::filter(!date == "") %>%
-      dplyr::mutate(date = gsub("\\s*\\([^\\)]+\\)", "", date)) %>%
-      tibble::rownames_to_column('row')
-
-    game_opponents <- payload %>%
-      rvest::html_nodes(".smtext:nth-child(2)") %>%
-      rvest::html_text() %>%
-      as.data.frame() %>%
-      dplyr::rename(opponent = '.') %>%
-      dplyr::filter(!opponent == "") %>%
-      dplyr::mutate(opponent = str_trim(opponent)) %>%
-      tibble::rownames_to_column('row')
-
-    game_info_url <- payload %>%
-      rvest::html_nodes(".smtext .skipMask") %>%
-      rvest::html_attr("href") %>%
-      as.data.frame() %>%
-      dplyr::rename(slug = '.') %>%
-      dplyr::mutate(game_info_url = paste0("https://stats.ncaa.org", slug)) %>%
-      tibble::rownames_to_column('row')
-
-    game_result <- payload %>%
-      rvest::html_nodes(".smtext .skipMask") %>%
-      rvest::html_text() %>%
-      as.data.frame() %>%
-      dplyr::rename(result = '.') %>%
-      dplyr::mutate(result = str_trim(result)) %>%
-      dplyr::mutate(result = str_trim(result)) %>%
-      tidyr::separate(result, into = c("result", "score", "div",
-                                       "opp_score", "innings"), sep = " ") %>%
-      dplyr::mutate(score = paste0(score, div, opp_score)) %>%
-      dplyr::select(-c(div, opp_score)) %>%
-      dplyr::mutate(innings = str_extract(innings, "[[0-9]]+"))  %>%
-      tibble::rownames_to_column('row')
-
-    game_info <- dplyr::full_join(dates, game_opponents, by = 'row')
-
-    game_info <- dplyr::full_join(game_info, game_result, by = 'row')
-
-    game_info <- dplyr::full_join(game_info, game_info_url, by = 'row')
-
-    game_info <- game_info %>%
-      dplyr::select(-row)
+  if(year>2018){
+    sched_html <- payload %>%
+      rvest::html_elements("fieldset") %>%
+      rvest::html_elements("table") 
+    sched <- sched_html %>%
+      rvest::html_table() %>%
+      as.data.frame() %>% 
+      dplyr::select(-.data$Attendance)
+  }else{
+    sched_html <- payload %>% 
+      rvest::html_element("td:nth-child(1) > table") 
+    
+    sched <- sched_html %>%
+      rvest::html_table() %>%
+      as.data.frame() 
+    colnames(sched) <- c("Date", "Opponent", "Result") 
+    sched <- sched[3:nrow(sched),]   
   }
 
-  return(game_info)
+  
+  sched <- sched %>%
+    dplyr::filter(.data$Date != "")
+  sched$opponent_slug <- sched_html %>%
+    rvest::html_elements("td:nth-child(2) > a" ) %>%
+    rvest::html_attr("href")
+  
+  sched <- sched %>%
+    dplyr::filter(!(.data$Result %in% c("Canceled","Ppd", "")))
+  
+  sched$slug <- sched_html %>%
+    rvest::html_elements("td .skipMask") %>%
+    rvest::html_attr("href")
+  sched <- sched %>%
+    dplyr::mutate(
+      Date = substr(.data$Date,1,10),
+      game_info_url = paste0("https://stats.ncaa.org", .data$slug))
+  
+  suppressWarnings(
+    sched <- sched %>%
+      tidyr::separate(.data$Result, into = c("Result", "Score", "Innings"),
+                      sep = " ") %>%
+      dplyr::filter(.data$Result != "RPI") %>% 
+      dplyr::mutate(
+        Innings = stringr::str_extract(.data$Innings,"\\d+")
+      )
+    
+  )
+  sched <- sched %>% 
+    janitor::clean_names()
+  
+  
+  return(sched)
 }

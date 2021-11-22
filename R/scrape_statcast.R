@@ -9,13 +9,12 @@
 #' @param player_type The player type. Can be \code{batter} or \code{pitcher}.
 #' Default is \code{batter}
 #' @param ... currently ignored
-#' @keywords MLB, sabermetrics, Statcast
 #' @importFrom tibble tribble
 #' @importFrom lubridate year
 #' @importFrom vroom vroom
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' correa <- scrape_statcast_savant(start_date = "2016-04-06",
 #'   end_date = "2016-04-15", playerid = 621043)
 #'
@@ -94,11 +93,11 @@ scrape_statcast_savant.Date <- function(start_date = Sys.Date() - 1, end_date = 
     "sort_order", "desc",
     "min_abs", "0",
     "type", "details") %>%
-    dplyr::mutate(pairs = paste0(var, "=", value))
+    dplyr::mutate(pairs = paste0(.data$var, "=", .data$value))
 
   if (is.null(playerid)) {
     message("No playerid specified. Collecting data for all batters/pitchers.")
-    vars <- vars %>% dplyr::filter(!grepl("lookup", var))
+    vars <- vars %>% dplyr::filter(!grepl("lookup", .data$var))
   }
 
   url_vars <- paste0(vars$pairs, collapse = "&")
@@ -113,7 +112,7 @@ scrape_statcast_savant.Date <- function(start_date = Sys.Date() - 1, end_date = 
       suppressMessages(
         suppressWarnings(
           # use vroom::vroom for significant speed improvment
-          payload <- vroom::vroom(url, delim = ",")
+          payload <- readr::read_csv(url)
         )
       )
     },
@@ -152,7 +151,8 @@ scrape_statcast_savant.Date <- function(start_date = Sys.Date() - 1, end_date = 
                         "babip_value", "iso_value", "launch_speed_angle", "at_bat_number",
                         "pitch_number", "pitch_name", "home_score", "away_score", "bat_score",
                         "fld_score", "post_away_score", "post_home_score", "post_bat_score",
-                        "post_fld_score", "if_fielding_alignment", "of_fielding_alignment")
+                        "post_fld_score", "if_fielding_alignment", "of_fielding_alignment",
+                        "spin_axis", "delta_home_win_exp", "delta_run_exp")
 
     return(process_statcast_payload(payload))
   } else {
@@ -177,7 +177,8 @@ scrape_statcast_savant.Date <- function(start_date = Sys.Date() - 1, end_date = 
                         "babip_value", "iso_value", "launch_speed_angle", "at_bat_number",
                         "pitch_number", "pitch_name", "home_score", "away_score", "bat_score",
                         "fld_score", "post_away_score", "post_home_score", "post_bat_score",
-                        "post_fld_score", "if_fielding_alignment", "of_fielding_alignment")
+                        "post_fld_score", "if_fielding_alignment", "of_fielding_alignment",
+                        "spin_axis", "delta_home_win_exp", "delta_run_exp")
     return(payload)
   }
 }
@@ -217,7 +218,7 @@ scrape_statcast_savant.default <- function(start_date = Sys.Date() - 1, end_date
 #' @param batterid The MLBAM ID for the batter whose data you want to query.
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' correa <- scrape_statcast_savant_batter(start_date = "2016-04-06",
 #'   end_date = "2016-04-15", batterid = 621043)
 #' }
@@ -230,7 +231,7 @@ scrape_statcast_savant_batter <- function(start_date, end_date, batterid, ...) {
 #' @rdname scrape_statcast_savant
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' daily <- scrape_statcast_savant_batter_all(start_date = "2016-04-06",
 #'   end_date = "2016-04-06")
 #' }
@@ -243,7 +244,7 @@ scrape_statcast_savant_batter_all <- function(start_date, end_date, ...) {
 #' @param pitcherid The MLBAM ID for the pitcher whose data you want to query.
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' noah <- scrape_statcast_savant_pitcher(start_date = "2016-04-06",
 #'   end_date = "2016-04-15", pitcherid = 592789)
 #' }
@@ -256,7 +257,7 @@ scrape_statcast_savant_pitcher <- function(start_date, end_date, pitcherid, ...)
 #' @rdname scrape_statcast_savant
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' daily <- scrape_statcast_savant_pitcher_all(start_date = "2016-04-06",
 #'   end_date = "2016-04-06")
 #' }

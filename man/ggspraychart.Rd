@@ -44,12 +44,8 @@ ggspraychart(
 \description{
 This function allows you to create spray charts with ggplots given a data frame with batted ball location coordinates.
 }
-\examples{
-\dontrun{
+\details{
+```r
 ggspraychart(df, x_value = "hc_x", y_value = "-hc_y", fill_value = "events")
+```
 }
-}
-\keyword{MLB,}
-\keyword{Statcast,}
-\keyword{ggplot2}
-\keyword{sabermetrics,}

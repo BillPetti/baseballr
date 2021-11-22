@@ -8,14 +8,16 @@
 #' @param year The season for which you want data.
 #' @param abs The minimum number of batted balls. Applies only to exit_velocity_barrels
 #' leaderboards.
-#' @param min_pa Minimum number of plate appearances.
+#' @param min_pa Minimum number of plate appearances. Can be a number or 'q' for qualified batters.
 #' @param min_pitches Minimum number of pitches thrown.
 #' @param min_field Minimum number of fieding opportunities.
 #' @param min_run Minimum number of running opportunities.
 #' @param player_type One of either 'batter' or pitcher. For the expected_statistics
 #' leaderboard, 'batter-team' and 'pitcher-team' are also available.
 #' @param fielding_type One of either 'player' or 'team'.
-#' @param ooa_position Can be either the number position of a player or 'if' or 'of' for
+#' @param oaa_position Can be either the number position of a player or 'if' or 'of' for
+#' position categories.
+#' @param oaa_roles Can be either the number position of a player or 'if' or 'of' for
 #' position categories.
 #' @param team An abbreviation for a team. Can be left blank.
 #' @param arsenal_type One of either 'n_', 'avg_spin', or 'avg_speed'.
@@ -57,18 +59,17 @@
 #' 92 = RF - Leaning Right \cr
 #' 99 = RF - Close to Line \cr
 #'
-#' @keywords MLB, sabermetrics, Statcast
 #' @importFrom readr read_csv
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' scrape_savant_leaderboards(leaderboard = "exit_velocity_barrels", year = 2018)
 #' }
 
 scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
                                        year = 2018,
                                        abs = 50,
-                                       min_pa = 250,
+                                       min_pa = 'q',
                                        min_pitches = 100,
                                        min_field = "q",
                                        min_run = 0,
@@ -92,7 +93,7 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
       message("Exit Velocity and Barrel leaderboards are only available starting in 2015. Please choose an appropriate year.")
     }
 
-    if (!min_pa %in% c(1,25,50,100,200,250,350,450,500,600)) {
+    if (!min_pa %in% c('q',1,25,50,100,200,250,350,450,500,600)) {
 
       message("Please choose one of the following for the minimum number of plate appearances:1,25,50,100,200,250,350,450,500,600")
 
@@ -108,7 +109,7 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     url <- paste0("https://baseballsavant.mlb.com/statcast_leaderboard?year=", year, "&abs=", abs, "&type=", player_type, "&min=", min_pa, "&csv=true")
 
-    payload <- read_csv(url)
+    payload <- readr::read_csv(url)
   }
 
   if (leaderboard == "expected_statistics") {
@@ -120,7 +121,7 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
       return(NULL)
     }
 
-    if (!min_pa %in% c(1,25,50,100,200,250,350,450,500,600)) {
+    if (!min_pa %in% c('q',1,25,50,100,200,250,350,450,500,600)) {
 
       message("Please choose one of the following for the minimum number of plate appearances:1,25,50,100,200,250,350,450,500,600")
 
@@ -143,7 +144,7 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     url <- paste0("https://baseballsavant.mlb.com/expected_statistics?type=", player_type, "&year=", year, "&position=", position, "&team=", team, "&min=", min_pa,"&csv=true")
 
-    payload <- read_csv(url)
+    payload <- readr::read_csv(url)
   }
 
   if (leaderboard == "pitch_arsenal") {
@@ -176,7 +177,7 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     url <- paste0("https://baseballsavant.mlb.com/pitch-arsenals?year=", year, "&min=", min_pitches, "&type=", arsenal_type, "&hand=", hand, "&csv=true")
 
-    payload <- read_csv(url)
+    payload <- readr::read_csv(url)
   }
 
 
@@ -199,7 +200,7 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     url <- paste0("https://baseballsavant.mlb.com/leaderboard/outs_above_average?type=Fielder&year=", year, "&team=&range=year&min=", min_field, "&pos=", oaa_position, "&roles=", oaa_roles, "&viz=show&csv=true")
 
-    payload <- read_csv(url)
+    payload <- readr::read_csv(url)
   }
 
 
@@ -229,7 +230,7 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     url <- paste0("https://baseballsavant.mlb.com/directional_outs_above_average?year=", year, "&min=", min_field, "&team=", team, "&csv=true")
 
-    payload <- read_csv(url)
+    payload <- readr::read_csv(url)
   }
 
   if (leaderboard == "catch_probability") {
@@ -250,7 +251,7 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     url <- paste0("https://baseballsavant.mlb.com/catch_probability_leaderboard?type=", fielding_type, "&min=", min_field, "&year=", year, "&csv=true")
 
-    payload <- read_csv(url)
+    payload <- readr::read_csv(url)
   }
 
   if (leaderboard == "pop_time") {
@@ -285,7 +286,7 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     url <- paste0("https://baseballsavant.mlb.com/poptime?year=", year, "&team=", team, "&min2b=", min2b, "&min3b=", min3b, "&csv=true")
 
-    payload <- read_csv(url)
+    payload <- readr::read_csv(url)
   }
 
   if (leaderboard == "sprint_speed") {
@@ -320,7 +321,7 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     url <- paste0("https://baseballsavant.mlb.com/sprint_speed_leaderboard?year=", year, "&position=", position, "&team=", team, "&min=", min_run, "&csv=true")
 
-    payload <- read_csv(url)
+    payload <- readr::read_csv(url)
   }
 
 
@@ -370,17 +371,17 @@ scrape_savant_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     url <- paste0("https://baseballsavant.mlb.com/running_splits?type=", run_type, "&bats=", bats, "&year=", year, "&position=", position, "&team=", team, "&min=", min_run, "&csv=true")
 
-    payload <- read_csv(url)
+    payload <- readr::read_csv(url)
   }
 
   if(!"year" %in% colnames(payload)) {
 
     payload <- payload %>%
-      mutate(year = year)
+      dplyr::mutate(year = year)
   }
 
   payload <- payload %>%
-    select(year, everything())
+    dplyr::select(.data$year, tidyr::everything())
 
   return(payload)
 }

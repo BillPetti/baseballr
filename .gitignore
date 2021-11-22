@@ -3,3 +3,4 @@
 .RData
 baseballr.Rproj
 .DS_Store
+^data-raw$

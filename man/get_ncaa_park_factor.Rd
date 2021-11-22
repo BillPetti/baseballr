@@ -25,7 +25,7 @@ runs_allowed_away, base_pf (base park factor), home_game_adj (an adjustment for 
 Get Park Effects for NCAA Baseball Teams
 }
 \examples{
-\dontrun{get_ncaa_park_factor(736, c(2017:2019),type = "conference")}
+\donttest{get_ncaa_park_factor(teamid = 736, years = c(2017:2019), type = "conference")}
 
 
 

@@ -4,25 +4,28 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, echo = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  warning = FALSE,
-  message = FALSE,
-  fig.path = "README-"
-)
+```{r, include = FALSE}
+# You can install using the pacman package using the following code:
+if (!requireNamespace('pacman', quietly = TRUE)){
+  install.packages('pacman')
+}
+pacman::p_load_current_gh("billpetti/baseballr")
+pacman::p_load(dplyr)
 ```
 
-<!-- badges: start -->
-[![Travis build status](https://travis-ci.org/BillPetti/baseballr.svg?branch=master)](https://travis-ci.org/BillPetti/baseballr)
+
+<!-- badges: start --> 
+
+![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)
+![R-CMD-check](https://img.shields.io/github/workflow/status/BillPetti/baseballr/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=blue&style=for-the-badge)
+![Contributors](https://img.shields.io/github/contributors/BillPetti/baseballr?style=for-the-badge)
+![Version-Number](https://img.shields.io/github/r-package/v/BillPetti/baseballr?label=baseballr&logo=R&style=for-the-badge)
+[![Twitter Follow](https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge)](https://twitter.com/BillPetti) 
 <!-- badges: end -->
 
-# baseballr
+# baseballr <a href='https://BillPetti.github.io/baseballr/'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
-# `baseballr` 0.6.0
-
-**(latest version released 2020-01-07)**
+# `baseballr`
 
 `baseballr` is a package written for R focused on baseball analysis. It
 includes functions for scraping various data from websites, such as
@@ -31,17 +34,29 @@ includes functions for calculating metrics, such as wOBA, FIP, and
 team-level consistency over custom time frames.
 
 You can read more about some of the functions and how to use them at its
-[official site](http://billpetti.github.io/baseballr/) as well as this
+[official site](https://billpetti.github.io/baseballr/) as well as this
 [Hardball Times
-article](http://www.hardballtimes.com/developing-the-baseballr-package-for-r/).
+article](https://www.hardballtimes.com/developing-the-baseballr-package-for-r/).
 
-## Installation
+## **Installation**
 
-You can install `baseballr` from github with:
+You can install the released version of [**```baseballr```**](https://github.com/BillPetti/baseballr/) from [GitHub](https://github.com/BillPetti/baseballr) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("BillPetti/baseballr")
+# You can install using the pacman package using the following code:
+if (!requireNamespace('pacman', quietly = TRUE)){
+  install.packages('pacman')
+}
+pacman::p_load_current_gh("BillPetti/baseballr")
+```
+
+``` r
+# if you would prefer devtools installation
+if (!requireNamespace('devtools', quietly = TRUE)){
+  install.packages('devtools')
+}
+# Alternatively, using the devtools package:
+devtools::install_github(repo = "BillPetti/baseballr")
 ```
 
 For experimental functions in development, you can install the [development branch](https://github.com/BillPetti/baseballr/tree/development_branch):
@@ -61,7 +76,7 @@ The package consists of two main sets of functions: data acquisition and metric 
 
 For example, if you want to see the standings for a specific MLB division on a given date, you can use the `standings_on_date_bref()` function. Just pass the year, month, day, and division you want:
 
-```{r}
+```{r standings_date_bref}
 library(baseballr)
 standings_on_date_bref("2015-08-01", "NL East", from = FALSE)
 ```
@@ -70,15 +85,16 @@ Right now the function works as far as back as 1994, which is when both leagues 
 
 You can also pull data for all hitters over a specific date range. Here are the results for all hitters from August 1st through October 3rd during the 2015 season:
 
-```{r}
-library(dplyr)
-data <- daily_batter_bref("2015-08-01", "2015-10-03") %>%
+```{r daily_batter_bref}
+
+data <- daily_batter_bref("2015-08-01", "2015-10-03") 
+data %>%
   head()
 ```
 
 In terms of metric calculation, the package allows the user to calculate the consistency of team scoring and run prevention for any year using `team_consistency()`:
 
-```{r}
+```{r team_consistency}
 team_consistency(2015)
 ```
 
@@ -86,7 +102,7 @@ You can also calculate wOBA per plate appearance and wOBA on contact for any set
 
 Simply pass the proper data frame to `woba_plus`:
 
-```{r}
+```{r woba}
 data %>%
   filter(PA > 200) %>%
   woba_plus %>%
@@ -97,7 +113,7 @@ data %>%
 
 You can also generate these wOBA-based stats, as well as FIP, for pitchers using the `fip_plus()` function:
 
-```{r}
+```{r daily_pitcher_bref}
 daily_pitcher_bref("2015-04-05", "2015-04-30") %>% 
   fip_plus() %>% 
   select(season, Name, IP, ERA, SO, uBB, HBP, HR, FIP, wOBA_against, wOBA_CON_against) %>%
@@ -109,7 +125,8 @@ The `edge_scrape()` function allows the user to scrape PITCHf/x data from the Ga
 
 Example (pitchers):
 
-```{r, message=FALSE}
+```{r edge_scrape_pitchers, eval = FALSE,message=FALSE}
+library(dplyr)
 edge_scrape("2015-04-06", "2015-04-07", "pitcher") %>% 
   select(-6:-4, -13) %>% 
   head(10)
@@ -117,10 +134,40 @@ edge_scrape("2015-04-06", "2015-04-07", "pitcher") %>%
 
 Example (batters):
 
-```{r, message=FALSE}
+```{r edge_scrape_batters, eval=FALSE, message=FALSE}
 edge_scrape("2015-04-06", "2015-04-07", "batter") %>% 
   select(-6:-4, -13) %>% 
   head(10)
 ```
 
 More functionality will be added soon. Please leave any suggestions or bugs in the [Issues section](https://github.com/BillPetti/baseballr/issues).
+
+## Follow the [SportsDataverse](https://twitter.com/SportsDataverse) on Twitter and star this repo
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=twitter&style=for-the-badge)](https://twitter.com/SportsDataverse) 
+
+[![GitHub stars](https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&logo=github&style=for-the-badge&label=Star%20baseballr&maxAge=2592000)](https://github.com/billpetti/baseballr/stargazers/)
+
+## **Our Authors**
+
+-   [Bill Petti](https://twitter.com/BillPetti)       
+<a href="https://twitter.com/BillPetti" target="blank"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge" alt="@BillPetti" /></a>
+<a href="https://github.com/BillPetti" target="blank"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&logo=Github&style=for-the-badge" alt="@BillPetti" /></a>
+
+## **Our Contributors (they're awesome)**
+
+-   [Ben Baumer](https://twitter.com/BaumerBen)       
+<a href="https://twitter.com/BaumerBen" target="blank"><img src="https://img.shields.io/twitter/follow/BaumerBen?color=blue&label=%40BaumerBen&logo=twitter&style=for-the-badge" alt="@BaumerBen" /></a>
+<a href="https://github.com/beanumber" target="blank"><img src="https://img.shields.io/github/followers/beanumber?color=eee&logo=Github&style=for-the-badge" alt="@beanumber" /></a>
+
+-   [Ben Dilday](https://twitter.com/BenDilday)      
+<a href="https://twitter.com/BenDilday" target="blank"><img src="https://img.shields.io/twitter/follow/BenDilday?color=blue&label=%40BenDilday&logo=twitter&style=for-the-badge" alt="@BenDilday" /></a> 
+<a href="https://github.com/bdilday" target="blank"><img src="https://img.shields.io/github/followers/bdilday?color=eee&logo=Github&style=for-the-badge" alt="@bdilday" /></a>
+
+-   [Robert Frey](https://twitter.com/RobertFrey40)      
+<a href="https://twitter.com/RobertFrey40" target="blank"><img src="https://img.shields.io/twitter/follow/RobertFrey40?color=blue&label=%40RobertFrey40&logo=twitter&style=for-the-badge" alt="@RobertFrey40" /></a> 
+<a href="https://github.com/robert-frey" target="blank"><img src="https://img.shields.io/github/followers/robert-frey?color=eee&logo=Github&style=for-the-badge" alt="@robert-frey" /></a>
+
+-   [Saiem Gilani](https://twitter.com/saiemgilani)       
+<a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
+<a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>

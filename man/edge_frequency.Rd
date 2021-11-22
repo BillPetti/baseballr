@@ -14,9 +14,3 @@ edge_frequency(df, group = NULL)
 \description{
 This function allows you to calculate the percent of pitches thrown to different edges of the strike zone for a pitch by pitch data set that has been coded using the edge_code() function.
 }
-\examples{
-\dontrun{edge_code(df, group = "pitcher")}
-}
-\keyword{MLB,}
-\keyword{PITCHf/x}
-\keyword{sabermetrics,}

@@ -1,83 +1,56 @@
 #' # Scrape MiLB game logs for pitchers from Fangraphs, combining 'standard' and 'advanced' tabs
 #'
-#' This function allows you to scrape MILB game logs for individual batters from FanGraphs.com.
+#' This function allows you to scrape MiLB game logs for individual batters from FanGraphs.com.
 #' @param playerid The pitcher's minor leauge ID from FanGraphs.com.
 #' @param year The season for which game logs should be returned.
-#' @keywords MLB, sabermetrics
-#' @importFrom xml2 read_html
-#' @importFrom rvest html_nodes html_table html_attr
+#' @import rvest 
 #' @importFrom tidyr separate
+#' @importFrom readr parse_number
 #' @export
 #' @examples
-#' \dontrun{milb_pitcher_game_logs_fg(playerid = "sa873980", 2018)}
+#' \donttest{milb_pitcher_game_logs_fg(playerid = "sa3004210", year=2017)}
 
 milb_pitcher_game_logs_fg <- function(playerid, year = 2017) {
-
+  
   message('Data courtey of FanGraphs.com. Please consider supporting FanGraphs by purchasing a membership: https://plus.fangraphs.com/product/fangraphs-membership/?switch-subscription=254671&item=85029&_wcsnonce=3e893e9b53&auto-switch=true')
-
+  
   # url for standard game log table
   url_basic <- paste0("http://www.fangraphs.com/statsd-legacy.aspx?playerid=",
                       playerid,
                       "&season=",
                       year,
                       "&position=P","&type=-1")
-
-  # url for advanced game log table
-  url_adv <- paste0("http://www.fangraphs.com/statsd-legacy.aspx?playerid=",
-                    playerid,
-                    "&season=",
-                    year,
-                    "&position=P","&type=-2")
-
-  # standard table
-  payload1 <- xml2::read_html(url_basic) %>%
-    rvest::html_nodes("table") %>%
-    .[length(.)] %>%
-    rvest::html_table() %>%
+  # CDN API game-log
+  url <- paste0("https://cdn.fangraphs.com/api/players/game-log?position=P&type=-1&&gds=&gde=&z=1637230004112&playerid=",
+                playerid,
+                "&season=",
+                year)
+  
+  res <- httr::RETRY("GET", url)
+  
+  resp <- res %>% 
+    httr::content(as = "text", encoding = "UTF-8")
+  
+  payload <- jsonlite::fromJSON(resp)[['minor']] %>% 
     as.data.frame()
-
-  payload1 <- payload1 %>%
-    dplyr::filter(!grepl("Date|Total", Date))
-
-  # advanced table
-  payload2 <- xml2::read_html(url_adv) %>%
-    rvest::html_nodes("table") %>%
-    .[length(.)] %>%
-    rvest::html_table() %>%
-    as.data.frame()
-
-  payload2 <- payload2 %>%
-    dplyr::filter(!grepl("Date|Total", Date)) %>%
-    dplyr::rename(BB_perc = BB., K_perc = K.,
-                  K_minus_BB = K.BB., LOB_perc = LOB.)
-
-  payload2 <- as.data.frame(sapply(payload2, function(x) (gsub("\\ %", "", x))),
-                            stringsAsFactors=F)
-
-  payload2$BB_perc <- as.numeric(payload2$BB_perc)/100
-  payload2$K_perc <- as.numeric(payload2$K_perc)/100
-  payload2$K_minus_BB <- as.numeric(payload2$K_minus_BB)/100
-  payload2$LOB_perc <- as.numeric(payload2$LOB_perc)/100
-
-  # combine standard & advanced game log tables
-  payload <- merge(payload1,payload2)
-
+  # remove averages/totals column
+  payload <- payload[-1,]
   # separate Team column into Team & MiLB level
-  payload <- payload %>%
-    separate(Team, into = c("Team","Level"),sep=" ")
-
+  suppressWarnings(
+    payload <- payload %>%
+      separate(.data$Team, into = c("Team","Level"),sep=" ")
+  )
   # extract player name
-
   player_name <- xml2::read_html(url_basic) %>%
     rvest::html_nodes("h1") %>%
     rvest::html_text()
-
+  
   # add playerid to payload
-
   payload <- payload %>%
-    mutate(name = player_name,
-           minor_playerid = playerid) %>%
-    select(name, minor_playerid, everything())
-
-  payload
+    dplyr::mutate(
+      player_name = player_name,
+      minor_playerid = playerid) %>%
+    dplyr::select(.data$player_name, .data$minor_playerid, tidyr::everything())
+  
+  return(payload)
 }

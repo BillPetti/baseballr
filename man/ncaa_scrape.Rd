@@ -17,10 +17,7 @@ ncaa_scrape(teamid, year, type = "batting")
 This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a data frame.
 }
 \examples{
-\dontrun{
-ncaa_scrape(255, 2013, "batting")
+\donttest{
+ncaa_scrape(teamid=255, year=2013, type = "batting")
 }
 }
-\keyword{NCAA,}
-\keyword{baseball,}
-\keyword{college}

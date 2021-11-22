@@ -7,14 +7,12 @@
 #' @param from a logical indicating whether you want standings up to and
 #' including the date (FALSE, default) or rather standings for games played
 #' after the date
-#' @keywords MLB, standings
+#' @import rvest 
 #' @importFrom lubridate day month year
-#' @importFrom rvest html_text html_nodes
-#' @importFrom xml2 read_html
 #' @export standings_on_date_bref
 #' @examples
-#' \dontrun{
-#' standings_on_date_bref("2015-08-04", "AL East")
+#' \donttest{
+#' standings_on_date_bref(date = "2015-08-04", division = "AL East")
 #' }
 
 standings_on_date_bref <- function(date, division, from = FALSE) {
@@ -34,7 +32,7 @@ standings_on_date_bref <- function(date, division, from = FALSE) {
   tables <- html_doc %>% rvest::html_nodes("table")
   min <- length(tables)
   max <- length(tables) - 15
-  tables <- tables %>% .[min:max] %>% html_table
+  tables <- tables[min:max] %>% html_table
   #table_names <- html_doc %>% rvest::html_nodes(".section_heading") %>% rvest::html_text() %>% gsub(pattern = "\\s+", replacement = " ") %>% gsub(pattern = " Division", replacement = "") %>% trimws(which = c("left")) %>% trimws(which = c("right")) %>% .[1:16]
 
   table_names <- c("NL Overall", "AL Overall", "NL West" , "NL Central", "NL East", "AL West", "AL Central", "AL East", "NL Overall", "AL Overall", "NL West" , "NL Central", "NL East", "AL West", "AL Central", "AL East")
@@ -50,9 +48,11 @@ standings_on_date_bref <- function(date, division, from = FALSE) {
   if (from == FALSE) {
     div_date <- paste0(division, "_up to_", date)
     x <- current[div_date]
+    x <- x[[1]]
   } else if (from != FALSE) {
     div_date <- paste0(division, "_after_", date)
     x <- after[div_date]
+    x <- x[[1]]
   }
-  x
+  return(x)
 }

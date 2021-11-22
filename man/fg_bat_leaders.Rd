@@ -4,7 +4,7 @@
 \alias{fg_bat_leaders}
 \title{Scrape Batter Leaderboards from FanGraphs}
 \usage{
-fg_bat_leaders(x, y, league = "all", qual = "y", ind = 0)
+fg_bat_leaders(x, y, league = "all", qual = "y", ind = 1)
 }
 \arguments{
 \item{x}{First season for which you want data.}
@@ -21,7 +21,5 @@ fg_bat_leaders(x, y, league = "all", qual = "y", ind = 0)
 This function allows you to scrape all leaderboard statistics (basic and advanced) from FanGraphs.com.
 }
 \examples{
-\dontrun{fg_bat_leaders(x = 2015, y = 2015, qual = 400)}
+\donttest{fg_bat_leaders(x = 2015, y = 2015, qual = 400)}
 }
-\keyword{MLB,}
-\keyword{sabermetrics}

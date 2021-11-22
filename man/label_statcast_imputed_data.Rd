@@ -30,12 +30,9 @@ label Statcast data for which the launch angle and speed
 have been imputed.
 }
 \examples{
-\dontrun{
+\donttest{
 statcast_df <- scrape_statcast_savant("2017-05-01", "2017-05-02")
 sc_df <- label_statcast_imputed_data(statcast_df)
 mean(sc_df$imputed)
 }
 }
-\keyword{MLB,}
-\keyword{Statcast,}
-\keyword{sabermetrics}

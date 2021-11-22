@@ -8,7 +8,7 @@ scrape_savant_leaderboards(
   leaderboard = "exit_velocity_barrels",
   year = 2018,
   abs = 50,
-  min_pa = 250,
+  min_pa = "q",
   min_pitches = 100,
   min_field = "q",
   min_run = 0,
@@ -37,7 +37,7 @@ running_splits_90_ft.}
 \item{abs}{The minimum number of batted balls. Applies only to exit_velocity_barrels
 leaderboards.}
 
-\item{min_pa}{Minimum number of plate appearances.}
+\item{min_pa}{Minimum number of plate appearances. Can be a number or 'q' for qualified batters.}
 
 \item{min_pitches}{Minimum number of pitches thrown.}
 
@@ -49,6 +49,12 @@ leaderboards.}
 leaderboard, 'batter-team' and 'pitcher-team' are also available.}
 
 \item{fielding_type}{One of either 'player' or 'team'.}
+
+\item{oaa_position}{Can be either the number position of a player or 'if' or 'of' for
+position categories.}
+
+\item{oaa_roles}{Can be either the number position of a player or 'if' or 'of' for
+position categories.}
 
 \item{team}{An abbreviation for a team. Can be left blank.}
 
@@ -65,9 +71,6 @@ leaderboard, 'batter-team' and 'pitcher-team' are also available.}
 \item{bats}{The handedness of the batter. One of 'R' or 'L'. Can be left blank.}
 
 \item{hand}{The handedness of the pitcher. One of 'R' or 'L'. Can be left blank.}
-
-\item{ooa_position}{Can be either the number position of a player or 'if' or 'of' for
-position categories.}
 }
 \description{
 This function allows you to read leaderboard data from BaseballSavant dirctly into R as #` a \code{\link{data.frame}}.
@@ -107,10 +110,7 @@ This function allows you to read leaderboard data from BaseballSavant dirctly in
 }
 
 \examples{
-\dontrun{
+\donttest{
 scrape_savant_leaderboards(leaderboard = "exit_velocity_barrels", year = 2018)
 }
 }
-\keyword{MLB,}
-\keyword{Statcast}
-\keyword{sabermetrics,}
