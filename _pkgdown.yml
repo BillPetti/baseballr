@@ -60,7 +60,7 @@ navbar:
         href: articles/ncaa_scraping.html
     network:
       icon: "fas fa-project-diagram"
-      text: SDV
+      text: " SDV"
       menu:
       - text: SportsDataverse
         href: https://sportsdataverse.org/
@@ -80,22 +80,6 @@ navbar:
         href: https://jacklich10.github.io/gamezoneR/
       - text: cfbplotR
         href: https://kazink36.github.io/cfbplotR/
-      - text: worldfootballR
-        href: https://jaseziv.github.io/worldfootballR/
-      - text: hockeyR
-        href: https://hockeyr.netlify.app/
-      - text: --------------------------------
-      - text: Python Packages
-      - text: cfbfastR-py
-        href: https://cfbfastR-py.sportsdataverse.org/
-      - text: hoopR-py
-        href: https://hoopR-py.sportsdataverse.org/
-      - text: wehoop-py
-        href: https://wehoop-py.sportsdataverse.org/
-      - text: --------------------------------
-      - text: Node.js Packages
-      - text: sportsdataverse.js
-        href: https://saiemgilani.github.io/sportsdataverse/
       - text: cfb4th
         href: https://kazink36.github.io/cfb4th/
       - text: worldfootballR
