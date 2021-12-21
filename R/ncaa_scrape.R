@@ -28,7 +28,7 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
     url <- paste0("http://stats.ncaa.org/team/",teamid,"/stats?game_sport_year_ctl_id=", id, "&id=", id)
     data_read <- xml2::read_html(url)
     data <- (data_read %>%
-      rvest::html_nodes("table"))[[3]] %>%
+      rvest::html_elements("table"))[[3]] %>%
       rvest::html_table(fill = TRUE)
     df <- as.data.frame(data)
     df$year <- year
@@ -81,7 +81,7 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
     url <- paste0("http://stats.ncaa.org/team/", teamid, "/stats?id=", year_id, "&year_stat_category_id=", type_id)
     data_read <- xml2::read_html(url)
     data <- (data_read %>%
-      rvest::html_nodes("table"))[[3]] %>%
+      rvest::html_elements("table"))[[3]] %>%
       rvest::html_table(fill = TRUE)
     df <- as.data.frame(data)
     df <- df[,-6]
@@ -120,14 +120,14 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
   }
 
   player_url <- data_read %>%
-    html_nodes('#stat_grid a') %>%
+    html_elements('#stat_grid a') %>%
     html_attr('href') %>%
     as.data.frame() %>%
     dplyr::rename(player_url = .data$`.`) %>%
     dplyr::mutate(player_url = paste0('http://stats.ncaa.org', .data$player_url))
 
   player_names_join <- data_read %>%
-    html_nodes('#stat_grid a') %>%
+    html_elements('#stat_grid a') %>%
     html_text() %>%
     as.data.frame() %>%
     dplyr::rename(player_names_join = .data$`.`)
