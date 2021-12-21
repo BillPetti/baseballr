@@ -34,6 +34,16 @@ navbar:
   # icon: https://raw.githubusercontent.com/BillPetti/baseballR/master/man/figures/logo.ico
   title: "baseballR"
   components:
+    home:
+      title: An R package to quickly obtain clean and tidy men's baseball play by play data
+      description: Functions to Access Men's Baseball Play by Play Data
+      icon: fa-home
+      href: index.html
+      links:
+        - text: "Plotting Statcast"
+          href: articles/plotting_statcast.html
+        - text: "NCAA Scraping"
+          href: articles/ncaa_scraping.html
     twitter:
       icon: "fab fa-twitter fa-lg"
       href: http://twitter.com/BillPetti
@@ -66,32 +76,30 @@ navbar:
         href: https://sportsdataverse.org/
       - text: --------------------------------
       - text: R Packages
+      - text: sportsdataverse-R
+        href: https://saiemgilani.github.io/sportsdataverse-R/
       - text: cfbfastR
         href: https://saiemgilani.github.io/cfbfastR/
       - text: hoopR
         href: https://hoopR.sportsdataverse.org/
       - text: wehoop
         href: https://wehoop.sportsdataverse.org/
-      - text: recruitR
-        href: https://saiemgilani.github.io/recruitR/
-      - text: puntr
-        href: https://puntalytics.github.io/puntr/
-      - text: gamezoneR
-        href: https://jacklich10.github.io/gamezoneR/
-      - text: cfbplotR
-        href: https://kazink36.github.io/cfbplotR/
-      - text: cfb4th
-        href: https://kazink36.github.io/cfb4th/
+      - text: fastRhockey
+        href: https://BenHowell71.github.io/fastRhockey/
       - text: worldfootballR
         href: https://jaseziv.github.io/worldfootballR/
       - text: baseballr
         href: https://BillPetti.github.io/baseballr/
-      - text: hockeyR
-        href: https://hockeyr.netlify.app/
-      - text: fastRhockey
-        href: https://BenHowell71.github.io/fastRhockey/
-      - text: powerplay
-        href: https://saiemgilani.github.io/powerplay/
+      - text: cfbplotR
+        href: https://kazink36.github.io/cfbplotR/
+      - text: cfb4th
+        href: https://kazink36.github.io/cfb4th/
+      - text: recruitR
+        href: https://saiemgilani.github.io/recruitR/
+      - text: gamezoneR
+        href: https://jacklich10.github.io/gamezoneR/
+      - text: puntr
+        href: https://puntalytics.github.io/puntr/
       - text: --------------------------------
       - text: Python Packages
       - text: sportsdataverse-py
@@ -101,7 +109,7 @@ navbar:
       - text: sportsdataverse.js
         href: https://saiemgilani.github.io/sportsdataverse/
       - text: nfl-nerd
-        href: https://github.com/nntrn/nfl-nerd/ 
+        href: https://github.com/nntrn/nfl-nerd/
     github:
       icon: "fab fa-github fa-lg"
       href: https://github.com/billpetti/baseballR/

@@ -1,4 +1,4 @@
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+
 <!-- badges: start -->
 
 ![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)
@@ -9,7 +9,7 @@
 Follow](https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge)](https://twitter.com/BillPetti)
 <!-- badges: end -->
 
-# baseballr <a href='https://BillPetti.github.io/baseballr/'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# baseballr <a href='https://billpetti.github.io/baseballr/'><img src='https://raw.githubusercontent.com/billpetti/baseballr/master/logo.png' align="right" width="20%" min-width="100px" /></a>
 
 # `baseballr`
 
@@ -27,7 +27,7 @@ article](https://www.hardballtimes.com/developing-the-baseballr-package-for-r/).
 ## **Installation**
 
 You can install the released version of
-[**`baseballr`**](https://github.com/BillPetti/baseballr/) from
+[**`baseballr`**](https://github.com/BillPetti/baseballr) from
 [GitHub](https://github.com/BillPetti/baseballr) with:
 
 ``` r
@@ -56,15 +56,7 @@ branch](https://github.com/BillPetti/baseballr/tree/development_branch):
 devtools::install_github("BillPetti/baseballr", ref = "development_branch")
 ```
 
-## Pull Requests
-
-Pull request are welcome, but I cannot guarantee that they will be
-accepted or accepted quickly. Please make all pull requests to the
-[development
-branch](https://github.com/BillPetti/baseballr/tree/development_branch)
-for review.
-
-## Functionality
+## **Functionality**
 
 The package consists of two main sets of functions: data acquisition and
 metric calculation.
@@ -206,34 +198,22 @@ daily_pitcher_bref("2015-04-05", "2015-04-30") %>%
     ## 9             0.357
     ## 10            0.274
 
-The `edge_scrape()` function allows the user to scrape PITCHf/x data
-from the GameDay application using Carson Sievert’s
-[pitchRx](https://github.com/cpsievert/pitchRx) package and to calculate
-metrics associated with
-[Edge%](https://billpetti.shinyapps.io/edge_shiny/). The function
-returns a dataframe grouped by either pitchers or batters and the
-percentge of pitches in each of the various Edge zones.
-
-Example (pitchers):
-
-``` r
-library(dplyr)
-edge_scrape("2015-04-06", "2015-04-07", "pitcher") %>% 
-  select(-6:-4, -13) %>% 
-  head(10)
-```
-
-Example (batters):
-
-``` r
-edge_scrape("2015-04-06", "2015-04-07", "batter") %>% 
-  select(-6:-4, -13) %>% 
-  head(10)
-```
-
 More functionality will be added soon. Please leave any suggestions or
 bugs in the [Issues
-section](https://github.com/BillPetti/baseballr/issues).
+section](https://github.com/billpetti/baseballr/issues).
+
+## **Pull Requests**
+
+Pull request are welcome, but I cannot guarantee that they will be
+accepted or accepted quickly. Please make all pull requests to the
+[development
+branch](https://github.com/billpetti/baseballr/tree/development_branch)
+for review.
+
+## **Breaking Changes**
+
+[**Full News on
+Releases**](https://billpetti.github.io/baseballr/news/index.html)
 
 ## Follow the [SportsDataverse](https://twitter.com/SportsDataverse) on Twitter and star this repo
 
@@ -248,6 +228,10 @@ stars](https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&log
 -   [Bill Petti](https://twitter.com/BillPetti)  
     <a href="https://twitter.com/BillPetti" target="blank"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge" alt="@BillPetti" /></a>
     <a href="https://github.com/BillPetti" target="blank"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&logo=Github&style=for-the-badge" alt="@BillPetti" /></a>
+
+-   [Saiem Gilani](https://twitter.com/saiemgilani)  
+    <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
+    <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
 
 ## **Our Contributors (they’re awesome)**
 
@@ -266,3 +250,19 @@ stars](https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&log
 -   [Saiem Gilani](https://twitter.com/saiemgilani)  
     <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
     <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
+
+## **Citations**
+
+To cite the [**`baseballr`**](https://billpetti.github.io/baseballr/) R
+package in publications, use:
+
+BibTex Citation
+
+``` bibtex
+@misc{petti_gilani_2021,
+  author = {Bill Petti and Saiem Gilani},
+  title = {baseballr: The SportsDataverse's R Package for Baseball Data.},
+  url = {https://billpetti.github.io/baseballr/},
+  year = {2021}
+}
+```
