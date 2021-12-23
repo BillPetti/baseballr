@@ -12,7 +12,8 @@ Description: Provides numerous functions for acquiring and analyzing baseball
     Custom metrics can also be calculated, such as wOBA, FIP, and Edge%.
 Depends:
     R (>= 3.6.0)
-Imports:
+Imports: 
+    data.table (>= 1.14.0),
     dplyr,
     ggplot2,
     janitor,
@@ -21,14 +22,11 @@ Imports:
     magrittr,
     pitchRx,
     purrr,
-    readr,
-    reldist,
     rlang (>= 0.4.0),
     rvest (>= 1.0.0),
     stringr (>= 1.3.0),
     tibble (>= 3.0),
     tidyr (>= 1.0.0),
-    vroom,
     XML
 Suggests: 
     curl,

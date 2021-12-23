@@ -1,3 +1,7 @@
+# baseballr 0.9.94
+* `mlb_schedules()` function added
+* Removed `viz_gb_on_period()` from package, see `data-raw/` for the last updated script.
+
 # baseballr 0.9.92-93 (2021-11-16)
 * minor fix for `ncaa_game_info()` function
 * fixing `ncaa_game_log()` function

@@ -107,7 +107,7 @@ navbar:
       - text: --------------------------------
       - text: Node.js Packages
       - text: sportsdataverse.js
-        href: https://saiemgilani.github.io/sportsdataverse/
+        href: https://js.sportsdataverse.org/
       - text: nfl-nerd
         href: https://github.com/nntrn/nfl-nerd/
     github:
@@ -119,3 +119,30 @@ navbar:
       source: https://github.com/billpetti/baseballR/blob/master/
       issue: https://github.com/billpetti/baseballR/issues/issues/
       user: https://github.com/billpetti/
+reference:
+  - title: Baseball-Reference Data
+  - subtitle: Baseball-Reference MLB Data Functions
+    desc: Functions exported by baseballr to access Baseball-Reference's MLB Data
+    contents:
+      - starts_with("bref_")
+  - title: FanGraphs Data
+  - subtitle: FanGraphs MLB and MiLB Data Functions
+    desc: Functions exported by baseballr to access FanGraphs' MLB and MiLB Data
+    contents:
+      - starts_with("fg_")
+  - title: GameDay MLB Data
+  - subtitle: GameDay MLB Data Functions
+    desc: Functions exported by baseballr to access GameDay MLB Data
+    contents:
+      - '`batter_boxscore`'
+      - '`pitcher_boxscore`'
+  - title: MLB Stats Data
+  - subtitle: MLB Stats Data Functions
+    desc: Functions exported by baseballr to access MLB Stats Data
+    contents:
+      - starts_with("mlb_")
+  - title: NCAA Baseball Data
+  - subtitle: NCAA Baseball Data Functions
+    desc: Functions exported by baseballr to access NCAA Baseball Data
+    contents:
+      - starts_with("ncaa_")
