@@ -1,17 +1,15 @@
-#' Scrape NCAA baseball data (Division I, II, and III)
-#'
-#' This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a data frame.
-#'
+#' @title Scrape NCAA baseball data (Division I, II, and III)
+#' @description This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a data frame.
 #' @param teamid The numerical ID that the NCAA website uses to identify a team
 #' @param year The season for which data should be returned, in the form of "YYYY". Years currently available: 2013-2017.
 #' @param type A string indicating whether to return "batting" or "pitching" statistics
 #' @import dplyr
 #' @import rvest
 #' @importFrom stringr str_split
-#' @export ncaa_scrape
+#' @export
 #' @examples
 #' \donttest{
-#' ncaa_scrape(teamid=255, year=2013, type = "batting")
+#'   ncaa_scrape(teamid=255, year=2013, type = "batting")
 #' }
 
 ncaa_scrape <- function(teamid, year, type = 'batting') {
@@ -145,7 +143,8 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
     dplyr::left_join(player_url_comb, by = c('Player' = 'player_names_join'))
 
   df <- df %>%
-    dplyr::mutate_at(vars(player_id, player_url), as.character)
+    dplyr::mutate_at(vars(player_url), as.character) %>%
+    dplyr::mutate_at(c("conference_id", "player_id", "year"), as.integer)
 
   return(df)
 
