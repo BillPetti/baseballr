@@ -16,6 +16,6 @@ This function allows you to query the Chadwick Bureau's public register of baseb
 }
 \examples{
 \donttest{
-playerid_lookup("Garcia", "Karim")
+  playerid_lookup("Garcia", "Karim")
 }
 }

@@ -9,11 +9,13 @@ get_game_info_sup_petti()
 \value{
 Function returns a data frame with various columns, including: game_pk,
 game_date, venue id, attendance, game temperature, wind speed and direction,
-and start and end time,
+and start and end time.
 }
 \description{
 Download a data frame of supplemental data about MLB games since 2008.
 }
 \examples{
-\donttest{get_game_info_sup_petti()}
+\donttest{
+  get_game_info_sup_petti()
+}
 }

@@ -18,6 +18,10 @@ This function allows you to scrape park factors for a given season from FanGraph
 This function allows you to scrape park factors by handedness from FanGraphs.com for a given single year.
 }
 \examples{
-fg_park(2013)
-fg_park_hand(2013)
+\donttest{
+  fg_park(2013)
+}
+\donttest{
+  fg_park_hand(2013)
+}
 }

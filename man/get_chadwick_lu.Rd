@@ -10,5 +10,7 @@ get_chadwick_lu()
 Directly download the Chadwick Bureau's public register of baseball players and the various IDs associated with them in different systems of record.
 }
 \examples{
-\donttest{get_chadwick_lu()}
+\donttest{
+  get_chadwick_lu()
+}
 }

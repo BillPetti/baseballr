@@ -7,8 +7,12 @@
 fg_guts()
 }
 \description{
+Scrape historical FanGraphs Guts! table, wOBA, FIP coefficients and constants
+
 This function allows you to scrape the historical, season-by-season wOBA and FIP constants and coefficients at FanGraphs.com.
 }
 \examples{
-fg_guts()
+\donttest{
+  fg_guts()
+}
 }
