@@ -1,21 +1,16 @@
-#' Look up Baseball Player Name
-#'
-#' This function allows you to query the Chadwick Bureau's public register of baseball players and the various IDs associated with them in different systems of record.
+#' @title Look up Baseball Player Name
+#' @description This function allows you to query the Chadwick Bureau's public register of baseball players and the various IDs associated with them in different systems of record.
 #' @param id An integer or character string representing a player ID in a baseball database, cross-referenced through the Chadwick Bureau's public register of baseball players.
 #' @export
-#' @examples
-#' \donttest{playername_lookup(4885)}
-#' \donttest{playername_lookup("kaaihki01")}
+#' @examples \donttest{
+#'   playername_lookup(4885)
+#'   playername_lookup("kaaihki01")
+#' }
 
 playername_lookup <- function(id) {
   if (!exists("chadwick_player_lu_table")) {
-    print("Be patient, this may take a few seconds...")
-    print("Data courtesy of the Chadwick Bureau Register (https://github.com/chadwickbureau/register)")
     url <- "https://raw.githubusercontent.com/chadwickbureau/register/master/data/people.csv"
-    suppressWarnings(
-      chadwick_player_lu_table <- readr::read_csv(url)
-    )
-    # assign("chadwick_player_lu_table", chadwick_player_lu_table, envir = .GlobalEnv)
+    chadwick_player_lu_table <- csv_from_url(url)
   }
   
   x <- chadwick_player_lu_table %>% 
