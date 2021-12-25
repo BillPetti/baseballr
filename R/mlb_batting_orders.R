@@ -52,7 +52,7 @@ mlb_batting_orders <- function (game_pk,
     dplyr::arrange(.data$batting_order)
   away_players <- unique(away_players$playerid)
   away_players <- purrr::map_df(away_players, function(x){
-    players(list = list, team = "away", playerid = x)
+    helper_players(list = list, team = "away", playerid = x)
   })
 
   away_players <- away_players %>%
