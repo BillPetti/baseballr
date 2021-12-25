@@ -2,7 +2,7 @@
 % Please edit documentation in R/sc_scrape_statcast_leaderboards.R
 \name{scrape_savant_leaderboards}
 \alias{scrape_savant_leaderboards}
-\title{\strong{Query BaseballSavant Leaderboards}}
+\title{\strong{Query Baseball Savant Leaderboards}}
 \usage{
 scrape_savant_leaderboards(
   leaderboard = "exit_velocity_barrels",

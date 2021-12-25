@@ -15,5 +15,4 @@ ncaa_school_id_lu <- function(school_name = NULL) {
 
 #' @rdname ncaa_school_id_lu
 #' @export
-
 school_id_lu <-  ncaa_school_id_lu

@@ -1,6 +1,5 @@
 #' @rdname mlb_batting_orders
 #' @title **Retrieve batting orders for a given MLB game**
-#'
 #' @param game_pk The unique game_pk identifier for the game
 #' @param type Whether to just return the starting lineup ('starting') or all
 #' batters that appeared ('all')
@@ -8,10 +7,8 @@
 #' @importFrom purrr map_df
 #' @importFrom tibble tibble
 #' @return Returns a data frame that includes probable starting pitchers and
-#' the home plate umpire for the game_pk provided
-#' requested
+#' the home plate umpire for the `game_pk` requested
 #' @export
-#'
 #' @examples \donttest{
 #'   mlb_batting_orders(game_pk=566001)
 #' }
@@ -36,24 +33,9 @@ mlb_batting_orders <- function (game_pk,
   away_players <- tibble::tibble(
     playerid = names(list[["liveData"]][["boxscore"]][["teams"]][["away"]][["players"]]))
 
-  players <- function(list, team = "home", playerid) {
-    person <- list[["liveData"]][["boxscore"]][["teams"]][[team]][["players"]][[playerid]][["person"]] %>%
-      dplyr::bind_rows()
-    position <- list[["liveData"]][["boxscore"]][["teams"]][[team]][["players"]][[playerid]][["position"]] %>%
-      dplyr::bind_rows()
-    batting_position <- list[["liveData"]][["boxscore"]][["teams"]][[team]][["players"]][[playerid]][["battingOrder"]]
-    final_table <- bind_cols(person, position) 
-    final_table <- final_table %>% 
-      dplyr::mutate(
-        batting_order = ifelse(is.null(batting_position),
-                               NA, substr(batting_position, 1, 1)), 
-        batting_position_num = ifelse(is.null(batting_position),
-                                      NA, as.numeric(substr(batting_position, 2, 3))))
-    return(final_table)
-  }
   home_players <- unique(home_players$playerid)
   home_players <- purrr::map_df(home_players, function(x){
-      players(list = list, team = "home", playerid = x)
+    helper_players(list = list, team = "home", playerid = x)
   })
   
   home_players <- home_players %>%
@@ -101,3 +83,21 @@ mlb_batting_orders <- function (game_pk,
 #' @rdname mlb_batting_orders
 #' @export
 get_batting_orders <- mlb_batting_orders
+
+
+
+helper_players <- function(list, team = "home", playerid) {
+  person <- list[["liveData"]][["boxscore"]][["teams"]][[team]][["players"]][[playerid]][["person"]] %>%
+    dplyr::bind_rows()
+  position <- list[["liveData"]][["boxscore"]][["teams"]][[team]][["players"]][[playerid]][["position"]] %>%
+    dplyr::bind_rows()
+  batting_position <- list[["liveData"]][["boxscore"]][["teams"]][[team]][["players"]][[playerid]][["battingOrder"]]
+  final_table <- bind_cols(person, position) 
+  final_table <- final_table %>% 
+    dplyr::mutate(
+      batting_order = ifelse(is.null(batting_position),
+                             NA, substr(batting_position, 1, 1)), 
+      batting_position_num = ifelse(is.null(batting_position),
+                                    NA, as.numeric(substr(batting_position, 2, 3))))
+  return(final_table)
+}

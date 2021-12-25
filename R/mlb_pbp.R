@@ -57,7 +57,7 @@ mlb_pbp <- function(game_pk) {
     dplyr::pull(.data$cols)
   
   at_bats <- at_bats %>%
-    dplyr::select(-c(one_of(list_columns)))
+    dplyr::select(-c(tidyr::one_of(list_columns)))
   
   pbp <- plays %>%
     dplyr::left_join(at_bats, by = c("endTime" = "playEndTime"))

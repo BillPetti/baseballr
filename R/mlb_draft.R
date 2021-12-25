@@ -1,5 +1,5 @@
 #' @rdname mlb_draft 
-#' @title **Retrieve draft pick information by year via the MLB API**
+#' @title **Retrieve draft pick information by year**
 #' @param year The year for which to return data
 #' @return Returns a data frame with information for every draft pick in every round for the year requested
 #' @export

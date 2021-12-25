@@ -17,8 +17,7 @@ batters that appeared ('all')}
 }
 \value{
 Returns a data frame that includes probable starting pitchers and
-the home plate umpire for the game_pk provided
-requested
+the home plate umpire for the \code{game_pk} requested
 }
 \description{
 \strong{Retrieve batting orders for a given MLB game}

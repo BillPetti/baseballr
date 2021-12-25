@@ -1,4 +1,4 @@
-#' @title **Generate run expectancy and related measures and variables from Baseball Savant data**
+#' @title **Generate run expectancy and related measures from Baseball Savant data**
 #'
 #' @description These functions allow a user to generate run expectancy and related measures and variables from Baseball Savant data. Measures and variables will be added to the data frame.
 #' @param df A data frame generated from Baseball Savant.

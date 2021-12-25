@@ -40,8 +40,8 @@ mlb_game_pks <- function(date,
     rename(game_pk = .data$gamePk)
 
   return(payload)
-
 }
+
 #' @rdname mlb_game_pks
 #' @export
 get_game_pks_mlb <- mlb_game_pks

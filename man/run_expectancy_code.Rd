@@ -2,7 +2,7 @@
 % Please edit documentation in R/metrics_run_expectancy_code.R
 \name{run_expectancy_code}
 \alias{run_expectancy_code}
-\title{\strong{Generate run expectancy and related measures and variables from Baseball Savant data}}
+\title{\strong{Generate run expectancy and related measures from Baseball Savant data}}
 \usage{
 run_expectancy_code(df, level = "plate appearance")
 }

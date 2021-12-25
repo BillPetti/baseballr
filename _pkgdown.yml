@@ -60,15 +60,21 @@ navbar:
       menu:
       - text: "Function Index"
         href: reference/index.html
-      - text: "Baseball Reference"
-        href: reference/bref.html
-      - text: "FanGraphs"
-        href: reference/fangraphs.html
       - text: "Retrosheet"
         href: reference/retrosheet_data.html
       - text: "NCAA Baseball"
         href: reference/ncaa.html
-      - 
+      - text: "Baseball Reference"
+        href: reference/bref.html
+      - text: "FanGraphs"
+        href: reference/fangraphs.html
+      - text: "Metrics"
+        href: reference/metrics.html
+      - text: "Visualizations"
+        href: reference/ggspraychart.html
+      - text: "Player Lookup"
+        href: reference/chadwick.html
+        
     articles:
       icon: "fas fa-book-reader"
       text: " Articles"
@@ -207,6 +213,7 @@ reference:
   - subtitle: Metrics Functions
     desc: Functions exported by baseballr to calculate metrics
     contents:
+      - '`metrics`'
       - '`woba_plus`'
       - '`fip_plus`'
       - '`team_consistency`'

@@ -1,5 +1,5 @@
 #' @rdname mlb_probables 
-#' @title **Retrieve probable starters for a given MLB game via the MLB API**
+#' @title **Retrieve probable starters for a given MLB game**
 #' @param game_pk The unique game_pk identifier for the game
 #' @importFrom jsonlite fromJSON
 #' @importFrom purrr map_df
