@@ -1,4 +1,8 @@
 
+# 
+
+# `baseballr` <a href='https://billpetti.github.io/baseballr/'><img src='https://raw.githubusercontent.com/billpetti/baseballr/master/logo.png' align="right" width="20%" min-width="100px" /></a>
+
 <!-- badges: start -->
 
 ![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)
@@ -8,10 +12,6 @@
 [![Twitter
 Follow](https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge)](https://twitter.com/BillPetti)
 <!-- badges: end -->
-
-# baseballr <a href='https://billpetti.github.io/baseballr/'><img src='https://raw.githubusercontent.com/billpetti/baseballr/master/logo.png' align="right" width="20%" min-width="100px" /></a>
-
-# `baseballr`
 
 `baseballr` is a package written for R focused on baseball analysis. It
 includes functions for scraping various data from websites, such as
@@ -198,8 +198,9 @@ daily_pitcher_bref("2015-04-05", "2015-04-30") %>%
     ## 9             0.357
     ## 10            0.274
 
-More functionality will be added soon. Please leave any suggestions or
-bugs in the [Issues
+## **Issues**
+
+Please leave any suggestions or bugs in the [Issues
 section](https://github.com/billpetti/baseballr/issues).
 
 ## **Pull Requests**
@@ -246,10 +247,6 @@ stars](https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&log
 -   [Robert Frey](https://twitter.com/RobertFrey40)  
     <a href="https://twitter.com/RobertFrey40" target="blank"><img src="https://img.shields.io/twitter/follow/RobertFrey40?color=blue&label=%40RobertFrey40&logo=twitter&style=for-the-badge" alt="@RobertFrey40" /></a>
     <a href="https://github.com/robert-frey" target="blank"><img src="https://img.shields.io/github/followers/robert-frey?color=eee&logo=Github&style=for-the-badge" alt="@robert-frey" /></a>
-
--   [Saiem Gilani](https://twitter.com/saiemgilani)  
-    <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
-    <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
 
 ## **Citations**
 

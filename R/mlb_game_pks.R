@@ -1,5 +1,5 @@
 #' @rdname mlb_game_pks
-#' @title Get MLB Game Info by Date and Level
+#' @title **Get MLB Game Info by Date and Level**
 #' @description Find game_pk values for professional baseball games (major and minor leagues)
 #' via the MLB api \url{http://statsapi.mlb.com/api/}
 #'
@@ -43,18 +43,5 @@ mlb_game_pks <- function(date,
 
 }
 #' @rdname mlb_game_pks
-#' @title Get MLB Game Info by Date and Level
-#' @description Find game_pk values for professional baseball games (major and minor leagues)
-#' via the MLB api \url{http://statsapi.mlb.com/api/}
-#'
-#' @param date The date for which you want to find game_pk values for MLB games
-#' @param level_ids A numeric vector with ids for each level where game_pks are
-#' desired. See below for a reference of level ids.
-#' @return Returns a data frame that includes game_pk values and additional
-#' information for games scheduled or played
-#' requested
 #' @export
-get_game_pks_mlb <- function(date,
-                             level_ids = c(1)) {
-  mlb_game_pks(date = date, level_ids = level_ids)
-}
+get_game_pks_mlb <- mlb_game_pks

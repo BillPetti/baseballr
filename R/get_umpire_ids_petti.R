@@ -1,7 +1,11 @@
-#' Download a data frame of all umpires and their mlbamids for games since 2008
+#' @title **Download a data frame of all umpires and their mlbamids for games since 2008**
 #'
-#' @return Function returns a data frame with the following columns: id, position,
-#' name, game_pk, game_date
+#' @return Function returns a data frame with the following columns: 
+#' * id 
+#' * position,
+#' * name
+#' * game_pk
+#' * game_date
 #' @export
 #' @examples
 #' \donttest{get_umpire_ids_petti()}

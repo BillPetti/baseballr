@@ -2,7 +2,7 @@
 % Please edit documentation in R/sch_label_statcast_imputed_data.R
 \name{label_statcast_imputed_data}
 \alias{label_statcast_imputed_data}
-\title{Label Statcast data as imputed}
+\title{\strong{Label Statcast data as imputed}}
 \usage{
 label_statcast_imputed_data(
   statcast_df,
@@ -13,11 +13,11 @@ label_statcast_imputed_data(
 \arguments{
 \item{statcast_df}{A dataframe containing Statcast batted ball data}
 
-\item{impute_file}{A CSV file giving the launch angle, launch speed, 
+\item{impute_file}{A CSV file giving the launch angle, launch speed,
 \code{bb_type}, events fields to label
 as imputed. if NULL then it's read from the \code{extdata} folder of the package.}
 
-\item{inverse_precision}{inverse of how many digits to truncate the launch angle 
+\item{inverse_precision}{inverse of how many digits to truncate the launch angle
 and speed to for comparison. Default is \code{10000}, i.e. keep 4 digits of precision.}
 }
 \value{
@@ -25,8 +25,8 @@ A copy of the input dataframe with a new column \code{imputed} appended. imputed
 is 1 if launch angle and launch speed are likely imputed, 0 otherwise.
 }
 \description{
-Based on a series of heuristics, this function attempts to 
-label Statcast data for which the launch angle and speed 
+Based on a series of heuristics, this function attempts to
+label Statcast data for which the launch angle and speed
 have been imputed.
 }
 \examples{

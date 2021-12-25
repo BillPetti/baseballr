@@ -2,22 +2,21 @@
 % Please edit documentation in R/utils.R
 \name{progressively}
 \alias{progressively}
-\title{Progressively}
+\title{\strong{Progressively}}
 \usage{
 progressively(f, p = NULL)
 }
 \arguments{
 \item{f}{a function to add progressr functionality to.}
 
-\item{p}{a progressor function as created by `progressr::progressor()`}
+\item{p}{a progressor function as created by \code{progressr::progressor()}}
 }
 \value{
-a function that does the same as `f` but it calls `p()` after iteration.
+a function that does the same as \code{f} but it calls \code{p()} after iteration.
 }
 \description{
-This function helps add progress-reporting to any function - given function `f()` and progressor `p()`, it will return a new function that calls `f()` and then (on-exiting) will call `p()` after every iteration.
+This function helps add progress-reporting to any function - given function \code{f()} and progressor \code{p()}, it will return a new function that calls \code{f()} and then (on-exiting) will call \code{p()} after every iteration.
+
+This is inspired by purrr's \code{safely}, \code{quietly}, and \code{possibly} function decorators.
 }
-\details{
-This is inspired by purrr's `safely`, `quietly`, and `possibly` function decorators.
-}
-\keyword{Internal}
+\keyword{internal}

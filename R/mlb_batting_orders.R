@@ -1,5 +1,5 @@
 #' @rdname mlb_batting_orders
-#' @title Retrieve batting orders for a given MLB game via the MLB api \url{http://statsapi.mlb.com/api/}
+#' @title **Retrieve batting orders for a given MLB game**
 #'
 #' @param game_pk The unique game_pk identifier for the game
 #' @param type Whether to just return the starting lineup ('starting') or all
@@ -99,15 +99,5 @@ mlb_batting_orders <- function (game_pk,
 }
 
 #' @rdname mlb_batting_orders
-#' @title Retrieve batting orders for a given MLB game via the MLB api \url{http://statsapi.mlb.com/api/}
-#' @param game_pk The unique game_pk identifier for the game
-#' @param type Whether to just return the starting lineup ('starting') or all
-#' batters that appeared ('all')
-#' @return Returns a data frame that includes probable starting pitchers and
-#' the home plate umpire for the game_pk provided
-#' requested
 #' @export
-get_batting_orders <- function (game_pk, type = "starting") {
-  mlb_batting_orders(game_pk = game_pk,
-                     type = type)
-}
+get_batting_orders <- mlb_batting_orders

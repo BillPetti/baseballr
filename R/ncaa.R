@@ -3,15 +3,16 @@
 #' **NCAA Functions Overview**
 #' @description
 #' \describe{
-#'   \item{`ncaa_scrape()`:}{ This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a data frame.}
-#'   \item{`get_ncaa_baseball_pbp()`:}{ Get Play-By-Play Data for NCAA Baseball Games.}
-#'   \item{`get_ncaa_baseball_roster()`:}{ Get NCAA Baseball Rosters.}
-#'   \item{`get_ncaa_game_logs()`:}{ Get NCAA Baseball Game Logs.}
-#'   \item{`get_ncaa_lineups()`:}{ Get NCAA Baseball Game Lineups.}
-#'   \item{`get_ncaa_park_factor()`:}{ Get Park Effects for NCAA Baseball Teams.}
-#'   \item{`get_ncaa_schedule_info()`:}{ Get Schedule and Results for NCAA Baseball Teams.}
-#'   \item{`school_id_lu()`}{Lookup NCAA School IDs (Division I, II, and III)}
+#'   \item{```ncaa_scrape()```:}{ This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a data frame.}
+#'   \item{```ncaa_baseball_pbp()```:}{ Get Play-By-Play Data for NCAA Baseball Games.}
+#'   \item{```ncaa_baseball_roster()```:}{ Get NCAA Baseball Rosters.}
+#'   \item{```ncaa_game_logs()```:}{ Get NCAA Baseball Game Logs.}
+#'   \item{```ncaa_lineups()```:}{ Get NCAA Baseball Game Lineups.}
+#'   \item{```ncaa_park_factor()```:}{ Get Park Effects for NCAA Baseball Teams.}
+#'   \item{```ncaa_schedule_info()```:}{ Get Schedule and Results for NCAA Baseball Teams.}
+#'   \item{```ncaa_school_id_lu()```:}{Lookup NCAA School IDs (Division I, II, and III)}
 #' }
+#' @details
 #' ### **Scrape NCAA baseball data (Division I, II, and III)**
 #' ```r
 #'   ncaa_scrape(teamid=255, year=2013, type = "batting")
@@ -43,7 +44,7 @@
 #' ```
 #' ### **Lookup NCAA School IDs (Division I, II, and III)**
 #' ```r
-#' school_id_lu("VAN")
+#'   ncaa_school_id_lu("VAN")
 #' ```
 #'
 NULL

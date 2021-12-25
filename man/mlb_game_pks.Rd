@@ -3,7 +3,7 @@
 \name{mlb_game_pks}
 \alias{mlb_game_pks}
 \alias{get_game_pks_mlb}
-\title{Get MLB Game Info by Date and Level}
+\title{\strong{Get MLB Game Info by Date and Level}}
 \usage{
 mlb_game_pks(date, level_ids = c(1))
 
@@ -19,15 +19,8 @@ desired. See below for a reference of level ids.}
 Returns a data frame that includes game_pk values and additional
 information for games scheduled or played
 requested
-
-Returns a data frame that includes game_pk values and additional
-information for games scheduled or played
-requested
 }
 \description{
-Find game_pk values for professional baseball games (major and minor leagues)
-via the MLB api \url{http://statsapi.mlb.com/api/}
-
 Find game_pk values for professional baseball games (major and minor leagues)
 via the MLB api \url{http://statsapi.mlb.com/api/}
 }
@@ -36,14 +29,14 @@ Level IDs:
 
 The following IDs can be passed to the level_ids argument:
 
-1 = MLB  
-11 = Triple-A  
-12 = Doubl-A  
-13 = Class A Advanced  
-14 = Class A  
-15 = Class A Short Season  
-5442 = Rookie Advanced  
-16 = Rookie  
+1 = MLB
+11 = Triple-A
+12 = Doubl-A
+13 = Class A Advanced
+14 = Class A
+15 = Class A Short Season
+5442 = Rookie Advanced
+16 = Rookie
 17 = Winter League
 }
 \examples{

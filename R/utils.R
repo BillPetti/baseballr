@@ -1,14 +1,14 @@
 .datatable.aware <- TRUE
 
-#' Progressively
+#' @title **Progressively**
 #'
-#' This function helps add progress-reporting to any function - given function `f()` and progressor `p()`, it will return a new function that calls `f()` and then (on-exiting) will call `p()` after every iteration.
+#' @description This function helps add progress-reporting to any function - given function `f()` and progressor `p()`, it will return a new function that calls `f()` and then (on-exiting) will call `p()` after every iteration.
 #'
 #' This is inspired by purrr's `safely`, `quietly`, and `possibly` function decorators.
 #'
 #' @param f a function to add progressr functionality to.
 #' @param p a progressor function as created by `progressr::progressor()`
-#' @keywords Internal
+#' @keywords internal
 #'
 #' @return a function that does the same as `f` but it calls `p()` after iteration.
 progressively <- function(f, p = NULL){
@@ -28,7 +28,7 @@ progressively <- function(f, p = NULL){
 #' @description
 #' This is a thin wrapper on data.table::fread
 #' @param ... passed to data.table::fread
-#' @keywords Internal
+#' @keywords internal
 #' @importFrom data.table fread
 csv_from_url <- function(...){
   data.table::fread(...)
@@ -37,7 +37,7 @@ csv_from_url <- function(...){
 #' @title
 #' **Load .rds file from a remote connection**
 #' @param url a character url
-#' @keywords Internal
+#' @keywords internal
 #' @return a dataframe as created by [`readRDS()`]
 #' @importFrom data.table data.table setDT
 #' @import rvest

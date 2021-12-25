@@ -1,13 +1,13 @@
 #' @name bref 
-#' @title **Baseball-Reference Functions Overview** 
+#' @title **Baseball Reference Functions Overview** 
 #' @description  
 #' \describe{
-#'   \item{`bref_daily_batter()`}{Scrape Batter Performance Data Over a Custom Time Frame}
-#'   \item{`bref_daily_pitcher()`}{Scrape Pitcher Performance Data Over a Custom Time Frame}
-#'   \item{`bref_standings_on_date()`}{Scrape MLB Standings on a Given Date}
-#'   \item{`bref_team_results()`}{Scrape Team Results}
+#'   \item{```bref_daily_batter()```}{Scrape Batter Performance Data Over a Custom Time Frame}
+#'   \item{```bref_daily_pitcher()```}{Scrape Pitcher Performance Data Over a Custom Time Frame}
+#'   \item{```bref_standings_on_date()```}{Scrape MLB Standings on a Given Date}
+#'   \item{```bref_team_results()```}{Scrape Team Results}
 #' }
-#' 
+#' @details
 #' ### **Scrape Batter Performance Data Over a Custom Time Frame**
 #' ```r
 #'   bref_daily_batter("2015-05-10", "2015-06-20")

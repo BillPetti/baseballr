@@ -3,7 +3,7 @@
 \name{mlb_probables}
 \alias{mlb_probables}
 \alias{get_probables_mlb}
-\title{Retrieve probable starters for a given MLB game via the MLB api \url{http://statsapi.mlb.com/api/}}
+\title{\strong{Retrieve probable starters for a given MLB game via the MLB API}}
 \usage{
 mlb_probables(game_pk)
 
@@ -15,14 +15,9 @@ get_probables_mlb(game_pk)
 \value{
 Returns a data frame that includes probable starting pitchers and
 the home plate umpire for the game_pk requested
-
-Returns a data frame that includes probable starting pitchers and
-the home plate umpire for the game_pk provided requested
 }
 \description{
-Retrieve probable starters for a given MLB game via the MLB api \url{http://statsapi.mlb.com/api/}
-
-Retrieve probable starters for a given MLB game via the MLB api \url{http://statsapi.mlb.com/api/}
+\strong{Retrieve probable starters for a given MLB game via the MLB API}
 }
 \examples{
 \donttest{

@@ -1,5 +1,5 @@
 #' @rdname ncaa_baseball_roster
-#' @title Get NCAA Baseball Rosters
+#' @title **Get NCAA Baseball Rosters**
 #' @param teamid NCAA id for a school
 #' @param team_year The year of interest
 #' @return A data frame containing roster information, including
@@ -18,7 +18,7 @@ ncaa_baseball_roster <- function(teamid = NA, team_year){
     dplyr::filter(.data$season == team_year) %>% 
     dplyr::select(.data$id)
 
-  school_info <- baseballr::master_ncaa_team_lu %>% 
+  school_info <- baseballr::ncaa_team_lu %>% 
     dplyr::filter(.data$school_id == teamid & .data$year == team_year) %>%
     dplyr::select(-.data$year) %>%
     dplyr::distinct()
@@ -72,13 +72,7 @@ ncaa_baseball_roster <- function(teamid = NA, team_year){
 
   return(roster)
 }
+
 #' @rdname ncaa_baseball_roster
-#' @title Get NCAA Baseball Rosters
-#' @param teamid NCAA id for a school
-#' @param team_year The year of interest
-#' @return A data frame containing roster information, including
-#' IDs and urls for each player (if available)
 #' @export
-get_ncaa_baseball_roster <- function(teamid = NA, team_year){
-  ncaa_baseball_roster(teamid = teamid, team_year = team_year)
-}
+get_ncaa_baseball_roster <- ncaa_baseball_roster

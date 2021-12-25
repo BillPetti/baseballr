@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{rds_from_url}
 \alias{rds_from_url}
-\title{**Load .rds file from a remote connection**}
+\title{\strong{Load .rds file from a remote connection}}
 \usage{
 rds_from_url(url)
 }
@@ -10,9 +10,9 @@ rds_from_url(url)
 \item{url}{a character url}
 }
 \value{
-a dataframe as created by [`readRDS()`]
+a dataframe as created by \code{\link[=readRDS]{readRDS()}}
 }
 \description{
-**Load .rds file from a remote connection**
+\strong{Load .rds file from a remote connection}
 }
-\keyword{Internal}
+\keyword{internal}

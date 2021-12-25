@@ -1,4 +1,4 @@
-#' @title Scrape NCAA baseball data (Division I, II, and III)
+#' @title **Scrape NCAA baseball data (Division I, II, and III)**
 #' @description This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a data frame.
 #' @param teamid The numerical ID that the NCAA website uses to identify a team
 #' @param year The season for which data should be returned, in the form of "YYYY". Years currently available: 2013-2017.
@@ -32,7 +32,7 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
     df$year <- year
     df$teamid <- teamid
     df <- df %>%
-      dplyr::left_join(baseballr::master_ncaa_team_lu,
+      dplyr::left_join(baseballr::ncaa_team_lu,
                        by = c("teamid" = "school_id", "year" = "year"))
     df <- df %>% 
       dplyr::select(.data$year, .data$school, .data$conference, .data$division, tidyr::everything())
@@ -86,7 +86,7 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
     df$year <- year
     df$teamid <- teamid
     df <- df %>%
-      dplyr::left_join(baseballr::master_ncaa_team_lu, by = c("teamid" = "school_id", "year" = "year"))
+      dplyr::left_join(baseballr::ncaa_team_lu, by = c("teamid" = "school_id", "year" = "year"))
     df <- df %>% 
       dplyr::select(.data$year, .data$school, .data$conference, .data$division, tidyr::everything())
     df$Player <- gsub("x ", "", df$Player)

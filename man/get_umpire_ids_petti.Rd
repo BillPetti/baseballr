@@ -2,16 +2,22 @@
 % Please edit documentation in R/get_umpire_ids_petti.R
 \name{get_umpire_ids_petti}
 \alias{get_umpire_ids_petti}
-\title{Download a data frame of all umpires and their mlbamids for games since 2008}
+\title{\strong{Download a data frame of all umpires and their mlbamids for games since 2008}}
 \usage{
 get_umpire_ids_petti()
 }
 \value{
-Function returns a data frame with the following columns: id, position,
-name, game_pk, game_date
+Function returns a data frame with the following columns:
+\itemize{
+\item id
+\item position,
+\item name
+\item game_pk
+\item game_date
+}
 }
 \description{
-Download a data frame of all umpires and their mlbamids for games since 2008
+\strong{Download a data frame of all umpires and their mlbamids for games since 2008}
 }
 \examples{
 \donttest{get_umpire_ids_petti()}

@@ -1,5 +1,4 @@
-#' @title Edge Percentage Scrape
-#'
+#' @title **Edge Percentage Scrape**
 #' @description This function allows you to calculate the percent of pitches thrown to different edges of the strike zone over any custom time frame. Data is acquired by scraping the GameDay application from MLBAM using Carson Sievert's pitchRx package. The data can take a while to query, particular for large date ranges.
 #' @param start First date in your date range. Must be a character string in the format "yyyy-mm-dd".
 #' @param end Last date in your date range. Must be a character string in the format "yyyy-mm-dd".
@@ -62,4 +61,4 @@ edge_scrape <- function(start, end, group) {
       dplyr::select(.data$batter_name, tidyr::everything())
   }
   return(grouped)
-  }
+}

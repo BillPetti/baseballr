@@ -1,5 +1,5 @@
 #' @rdname mlb_probables 
-#' @title Retrieve probable starters for a given MLB game via the MLB api \url{http://statsapi.mlb.com/api/}
+#' @title **Retrieve probable starters for a given MLB game via the MLB API**
 #' @param game_pk The unique game_pk identifier for the game
 #' @importFrom jsonlite fromJSON
 #' @importFrom purrr map_df
@@ -85,12 +85,6 @@ mlb_probables <- function(game_pk) {
   return(table)
 }
 
-#' @rdname mlb_probables 
-#' @title Retrieve probable starters for a given MLB game via the MLB api \url{http://statsapi.mlb.com/api/}
-#' @param game_pk The unique game_pk identifier for the game
-#' @return Returns a data frame that includes probable starting pitchers and
-#' the home plate umpire for the game_pk provided requested
+#' @rdname mlb_probables
 #' @export
-get_probables_mlb <- function(game_pk) {
-  mlb_probables(game_pk = game_pk)
-}
+get_probables_mlb <- mlb_probables

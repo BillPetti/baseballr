@@ -2,17 +2,26 @@
 % Please edit documentation in R/get_game_info_sup_petti.R
 \name{get_game_info_sup_petti}
 \alias{get_game_info_sup_petti}
-\title{Download a data frame of supplemental data about MLB games since 2008.}
+\title{\strong{Download a data frame of supplemental data about MLB games since 2008.}}
 \usage{
 get_game_info_sup_petti()
 }
 \value{
-Function returns a data frame with various columns, including: game_pk,
-game_date, venue id, attendance, game temperature, wind speed and direction,
-and start and end time.
+Function returns a data frame with various columns, including:
+\itemize{
+\item game_pk
+\item game_date
+\item venue id
+\item attendance
+\item game temperature
+\item wind speed
+\item direction
+\item start time
+\item end time
+}
 }
 \description{
-Download a data frame of supplemental data about MLB games since 2008.
+\strong{Download a data frame of supplemental data about MLB games since 2008.}
 }
 \examples{
 \donttest{

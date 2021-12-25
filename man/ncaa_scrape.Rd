@@ -2,7 +2,7 @@
 % Please edit documentation in R/ncaa_scrape.R
 \name{ncaa_scrape}
 \alias{ncaa_scrape}
-\title{Scrape NCAA baseball data (Division I, II, and III)}
+\title{\strong{Scrape NCAA baseball data (Division I, II, and III)}}
 \usage{
 ncaa_scrape(teamid, year, type = "batting")
 }

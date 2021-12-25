@@ -2,9 +2,12 @@
 % Please edit documentation in R/fg_milb_pitcher_game_logs.R
 \name{fg_milb_pitcher_game_logs}
 \alias{fg_milb_pitcher_game_logs}
-\title{Scrape MiLB game logs for pitchers from Fangraphs, combining 'standard' and 'advanced' tabs}
+\alias{milb_pitcher_game_logs_fg}
+\title{\strong{Scrape MiLB game logs for pitchers from Fangraphs}}
 \usage{
 fg_milb_pitcher_game_logs(playerid, year)
+
+milb_pitcher_game_logs_fg(playerid, year)
 }
 \arguments{
 \item{playerid}{The pitcher's minor leauge ID from FanGraphs.com.}

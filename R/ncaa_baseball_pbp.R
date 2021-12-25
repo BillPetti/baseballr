@@ -1,5 +1,5 @@
 #' @rdname ncaa_baseball_pbp
-#' @title Get Play-By-Play Data for NCAA Baseball Games
+#' @title **Get Play-By-Play Data for NCAA Baseball Games**
 #' @param game_info_url The url for the game's play-by-play data. This can be 
 #'  found using the get_ncaa_schedule_info function.
 #' @return A dataframe with play-by-play data for an individual game.
@@ -16,18 +16,20 @@
 
 ncaa_baseball_pbp <- function(game_info_url) {
 
-  payload <- read_html(game_info_url) %>%
-    rvest::html_nodes("#root li:nth-child(3) a") %>%
+  payload <- game_info_url %>% 
+    xml2::read_html() %>% 
+    rvest::html_elements("#root li:nth-child(3) a") %>%
     rvest::html_attr("href") %>%
     as.data.frame() %>%
     dplyr::rename(pbp_url_slug = .data$`.`) %>%
     dplyr::mutate(pbp_url = paste0("https://stats.ncaa.org", .data$pbp_url_slug)) %>%
     dplyr::pull(.data$pbp_url)
 
-  pbp_payload <- xml2::read_html(payload)
+  pbp_payload <- payload %>% 
+    xml2::read_html()
 
   game_info <- pbp_payload %>%
-    rvest::html_nodes("table:nth-child(7)") %>%
+    rvest::html_elements("table:nth-child(7)") %>%
     rvest::html_table() %>%
     as.data.frame() %>%
     tidyr::spread(.data$X1, .data$X2) 
@@ -46,7 +48,7 @@ ncaa_baseball_pbp <- function(game_info_url) {
   }
 
   table_list <- pbp_payload %>%
-    rvest::html_nodes("[class='mytable']")
+    rvest::html_elements("[class='mytable']")
 
   condition <- table_list %>%
     lapply(function(x) nrow(as.data.frame(x %>%
@@ -64,26 +66,10 @@ ncaa_baseball_pbp <- function(game_info_url) {
                             rvest::html_table() %>%
                             as.data.frame())[1,3])
 
-  format_baseball_pbp_tables <- function(table_node) {
-    table <- (table_node %>% 
-                rvest::html_table() %>%
-                as.data.frame() %>%
-                dplyr::filter(!grepl(pattern = "R:", x = .data$X1)) %>%
-                dplyr::mutate(batting = ifelse(.data$X1 != "", teams$away, teams$home)) %>%
-                dplyr::mutate(fielding = ifelse(.data$X1 != "", teams$home, teams$away)))[-1,] %>%
-      tidyr::gather(key = "X1", value = "value", -c("batting", "fielding", "X2")) %>%
-      dplyr::rename(score = .data$X2) %>%
-      dplyr::filter(.data$value != "")
 
-    table <- table %>%
-      dplyr::rename(description = .data$value) %>%
-      dplyr::select(-.data$X1)
-
-    return(table)
-  }
   
   mapped_table <- purrr::map(.x = table_list_innings,
-                             ~format_baseball_pbp_tables(.x)) %>%
+                             ~format_baseball_pbp_tables(.x, teams = teams)) %>%
     dplyr::bind_rows(.id = "inning")
 
   mapped_table[1,2] <- ifelse(mapped_table[1,2] == "",
@@ -107,11 +93,24 @@ ncaa_baseball_pbp <- function(game_info_url) {
 }
 
 #' @rdname ncaa_baseball_pbp
-#' @title Get Play-By-Play Data for NCAA Baseball Games
-#' @param game_info_url The url for the game's play-by-play data. This can be 
-#'  found using the get_ncaa_schedule_info function.
-#' @return A dataframe with play-by-play data for an individual game.
 #' @export
-get_ncaa_baseball_pbp <- function(game_info_url){
-  ncaa_baseball_pbp(game_info_url)
+get_ncaa_baseball_pbp <- ncaa_baseball_pbp
+
+
+format_baseball_pbp_tables <- function(table_node, teams) {
+  table <- (table_node %>% 
+              rvest::html_table() %>%
+              as.data.frame() %>%
+              dplyr::filter(!grepl(pattern = "R:", x = .data$X1)) %>%
+              dplyr::mutate(batting = ifelse(.data$X1 != "", teams$away, teams$home)) %>%
+              dplyr::mutate(fielding = ifelse(.data$X1 != "", teams$home, teams$away)))[-1,] %>%
+    tidyr::gather(key = "X1", value = "value", -c("batting", "fielding", "X2")) %>%
+    dplyr::rename(score = .data$X2) %>%
+    dplyr::filter(.data$value != "")
+  
+  table <- table %>%
+    dplyr::rename(description = .data$value) %>%
+    dplyr::select(-.data$X1)
+  
+  return(table)
 }

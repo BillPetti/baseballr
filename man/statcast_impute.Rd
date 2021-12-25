@@ -3,7 +3,7 @@
 \docType{data}
 \name{statcast_impute}
 \alias{statcast_impute}
-\title{Statcast Label Imputation}
+\title{\strong{Statcast Label Imputation}}
 \format{
 An object of class \code{data.frame} with 44 rows and 4 columns.
 }
@@ -11,9 +11,6 @@ An object of class \code{data.frame} with 44 rows and 4 columns.
 statcast_impute
 }
 \description{
-Statcast Label Imputation
-}
-\details{
-Dataset
+\strong{Statcast Label Imputation}
 }
 \keyword{datasets}

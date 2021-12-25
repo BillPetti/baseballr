@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{csv_from_url}
 \alias{csv_from_url}
-\title{**Load .csv / .csv.gz file from a remote connection**}
+\title{\strong{Load .csv / .csv.gz file from a remote connection}}
 \usage{
 csv_from_url(...)
 }
@@ -12,4 +12,4 @@ csv_from_url(...)
 \description{
 This is a thin wrapper on data.table::fread
 }
-\keyword{Internal}
+\keyword{internal}

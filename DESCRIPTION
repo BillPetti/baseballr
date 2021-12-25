@@ -38,9 +38,10 @@ Suggests:
     testthat,
     xml2 (>= 1.3)
 License: MIT + file LICENSE
-URL: https://billpetti.github.io/baseballr/, https://github.com/BillPetti/baseballr/
+URL: https://billpetti.github.io/baseballr/, https://github.com/BillPetti/baseballr
 BugReports: https://github.com/BillPetti/baseballr/issues
 LazyData: true
 RoxygenNote: 7.1.2
+Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
 Encoding: UTF-8

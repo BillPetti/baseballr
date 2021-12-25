@@ -2,7 +2,7 @@
 % Please edit documentation in R/metrics_fip_plus.R
 \name{fip_plus}
 \alias{fip_plus}
-\title{Calculate FIP and related metrics for any set of data}
+\title{\strong{Calculate FIP and related metrics for any set of data}}
 \usage{
 fip_plus(df)
 }

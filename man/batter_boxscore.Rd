@@ -2,7 +2,7 @@
 % Please edit documentation in R/gd2_batter_boxscore.R
 \name{batter_boxscore}
 \alias{batter_boxscore}
-\title{Retrieve batter boxscore data for a single game played}
+\title{\strong{Retrieve batter boxscore data for a single game played}}
 \usage{
 batter_boxscore(x)
 }

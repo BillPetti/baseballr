@@ -3,7 +3,7 @@
 \name{mlb_game_info}
 \alias{mlb_game_info}
 \alias{get_game_info_mlb}
-\title{Retrieve additional game information for major and minor league games via the MLB api \url{http://statsapi.mlb.com/api/}}
+\title{\strong{Retrieve additional game information for major and minor league games}}
 \usage{
 mlb_game_info(game_pk)
 
@@ -15,14 +15,9 @@ get_game_info_mlb(game_pk)
 \value{
 Returns a data frame that includes supplemental information, such as
 weather, official scorer, attendance, etc., for the game_pk provided
-
-Returns a data frame that includes supplemental information, such as
-weather, official scorer, attendance, etc., for the game_pk provided
 }
 \description{
-Retrieve additional game information for major and minor league games via the MLB api \url{http://statsapi.mlb.com/api/}
-
-Retrieve additional game information for major and minor league games via the MLB api \url{http://statsapi.mlb.com/api/}
+\strong{Retrieve additional game information for major and minor league games}
 }
 \examples{
 \donttest{

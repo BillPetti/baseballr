@@ -1,5 +1,5 @@
 #' @rdname ncaa_park_factor
-#' @title Get Park Effects for NCAA Baseball Teams
+#' @title **Get Park Effects for NCAA Baseball Teams**
 #'
 #' @param teamid The team's unique NCAA id.
 #' @param years The season or seasons (i.e. use 2016 for the 2015-2016 season,
@@ -19,13 +19,13 @@
 
 ncaa_park_factor <- function(teamid, years, type = "conference") {
   
-  conference_pull <-  baseballr::master_ncaa_team_lu %>% 
+  conference_pull <-  baseballr::ncaa_team_lu %>% 
     dplyr::filter(.data$school_id == teamid & .data$year == year) %>%
     dplyr::select(.data$school_id,.data$conference_id,.data$year,.data$division) %>%
     dplyr::distinct() %>% 
     dplyr::filter(.data$year %in% years)
   
-  teams <- baseballr::master_ncaa_team_lu %>% 
+  teams <- baseballr::ncaa_team_lu %>% 
     dplyr::filter(.data$conference_id %in% conference_pull$conference_id,
                   .data$year %in% years) %>% 
     dplyr::group_by(.data$conference_id,.data$year) %>% 
@@ -37,7 +37,7 @@ ncaa_park_factor <- function(teamid, years, type = "conference") {
   
   
   
-  school_name <- baseballr::master_ncaa_team_lu %>% 
+  school_name <- baseballr::ncaa_team_lu %>% 
     dplyr::filter(.data$school_id == teamid) %>%
     dplyr::select(.data$school) %>%
     dplyr::distinct() %>% 
@@ -330,17 +330,5 @@ ncaa_park_factor <- function(teamid, years, type = "conference") {
 }
 
 #' @rdname ncaa_park_factor
-#' @title Get Park Effects for NCAA Baseball Teams
-#' @param teamid The team's unique NCAA id.
-#' @param years The season or seasons (i.e. use 2016 for the 2015-2016 season,
-#' etc., limited to just 2013-2020 seasons).
-#' @param type default is conference. the conference parameter adjusts for the conference
-#' the school plays in, the division parameter calculates based on the division the school plays in 1,2,or 3.
-#' Defaults to 'conference'.
-#' @return A dataframe with the following fields: school, home_game,
-#' away_game, runs_scored_home, runs_allowed_home, run_scored_away,
-#' runs_allowed_away, base_pf (base park factor), home_game_adj (an adjustment for the percentage of home games played) final_pf (park factor after adjustments)
 #' @export
-get_ncaa_park_factor <- function(teamid, years, type = "conference") {
-  ncaa_park_factor(teamid = teamid, years = years, type = "conference")
-}
+get_ncaa_park_factor <- ncaa_park_factor

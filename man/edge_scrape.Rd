@@ -2,7 +2,7 @@
 % Please edit documentation in R/sc_edge_scrape.R
 \name{edge_scrape}
 \alias{edge_scrape}
-\title{Edge Percentage Scrape}
+\title{\strong{Edge Percentage Scrape}}
 \usage{
 edge_scrape(start, end, group)
 }

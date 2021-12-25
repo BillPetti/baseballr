@@ -3,7 +3,7 @@
 \name{bref_standings_on_date}
 \alias{bref_standings_on_date}
 \alias{standings_on_date_bref}
-\title{Scrape MLB Standings on a Given Date}
+\title{\strong{Scrape MLB Standings on a Given Date}}
 \usage{
 bref_standings_on_date(date, division, from = FALSE)
 
@@ -20,8 +20,6 @@ including the date (FALSE, default) or rather standings for games played
 after the date}
 }
 \description{
-This function allows you to scrape the standings from MLB for any date you choose.
-
 This function allows you to scrape the standings from MLB for any date you choose.
 }
 \examples{

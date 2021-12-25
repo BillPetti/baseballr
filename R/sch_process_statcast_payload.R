@@ -1,4 +1,4 @@
-#' @title Process Baseball Savant CSV payload
+#' @title **Process Baseball Savant CSV payload**
 #'
 #' @description This is a helper function for all `scrape_statcast_savant` functions.
 #' The function processes the initial csv payload acquired from
@@ -6,10 +6,6 @@
 #' @param payload payload from a Baseball Savant request
 #' @importFrom dplyr mutate_at mutate one_of
 #' @export
-#' @details
-#' ```r
-#' process_statcast_payload(payload)
-#' ````
 
 process_statcast_payload <- function(payload) {
 

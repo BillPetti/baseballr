@@ -1,5 +1,5 @@
 #' @rdname bref_daily_pitcher
-#' @title Scrape Pitcher Performance Data Over a Custom Time Frame
+#' @title **Scrape Pitcher Performance Data Over a Custom Time Frame**
 #'
 #' @description This function allows you to scrape basic pitcher statistics over a custom time frame. Data is sourced from Baseball-Reference.com.
 #' @param t1 First date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
@@ -79,15 +79,5 @@ bref_daily_pitcher <- function(t1, t2) {
 
 
 #' @rdname bref_daily_pitcher
-#' @title Scrape Pitcher Performance Data Over a Custom Time Frame
-#'
-#' @description This function allows you to scrape basic pitcher statistics over a custom time frame. Data is sourced from Baseball-Reference.com.
-#' @param t1 First date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
-#' @param t2 Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @export
-
-daily_pitcher_bref <- function(t1, t2) {
-  
-  bref_daily_pitcher(t1 = t1, t2 = t2)
-  
-}
+daily_pitcher_bref <- bref_daily_pitcher

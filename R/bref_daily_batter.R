@@ -1,5 +1,5 @@
 #' @rdname bref_daily_batter
-#' @title Scrape Batter Performance Data Over a Custom Time Frame
+#' @title **Scrape Batter Performance Data Over a Custom Time Frame**
 #'
 #' @description This function allows you to scrape basic batter statistics over a custom time frame. Data is sourced from Baseball-Reference.com.
 #' @param t1 First date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
@@ -54,15 +54,5 @@ bref_daily_batter <- function(t1, t2) {
 
 
 #' @rdname bref_daily_batter
-#' @title Scrape Batter Performance Data Over a Custom Time Frame
-#'
-#' @description This function allows you to scrape basic batter statistics over a custom time frame. Data is sourced from Baseball-Reference.com.
-#' @param t1 First date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
-#' @param t2 Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @export
-
-daily_batter_bref <- function(t1, t2) {
-  
-  bref_daily_batter(t1 = t1, t2 = t2)
-  
-}
+daily_batter_bref <-  bref_daily_batter

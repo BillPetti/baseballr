@@ -3,7 +3,7 @@
 \name{fg_batter_game_logs}
 \alias{fg_batter_game_logs}
 \alias{batter_game_logs_fg}
-\title{Scrape Batter Game Logs from FanGraphs}
+\title{\strong{Scrape Batter Game Logs from FanGraphs}}
 \usage{
 fg_batter_game_logs(playerid, year = 2017)
 
@@ -16,11 +16,10 @@ batter_game_logs_fg(playerid, year = 2017)
 }
 \description{
 This function allows you to scrape game logs by year for a batter from FanGraphs.com.
-
-This function allows you to scrape game logs by year for a batter from FanGraphs.com.
 }
 \examples{
 \donttest{
   fg_batter_game_logs(playerid = 6184, year = 2017)
  }
 }
+\keyword{legacy}

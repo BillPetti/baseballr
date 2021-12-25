@@ -3,7 +3,7 @@
 \docType{data}
 \name{stats_api_live_empty_df}
 \alias{stats_api_live_empty_df}
-\title{providing the column structure of stats_api_live_empty_df}
+\title{\strong{Column structure of MLB Stats Live Game API data frame}}
 \format{
 An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 0 rows and 131 columns.
 }
@@ -12,8 +12,5 @@ stats_api_live_empty_df
 }
 \description{
 An empty tibble
-}
-\details{
-Dataset
 }
 \keyword{datasets}

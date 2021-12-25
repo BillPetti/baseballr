@@ -3,7 +3,7 @@
 \name{bref_team_results}
 \alias{bref_team_results}
 \alias{team_results_bref}
-\title{Scrape Team Results}
+\title{\strong{Scrape Team Results}}
 \usage{
 bref_team_results(Tm, year)
 
@@ -15,8 +15,6 @@ team_results_bref(Tm, year)
 \item{year}{Season for which you want to scrape the park factors.}
 }
 \description{
-This function allows you to scrape schedule and results for a major league team from Baseball-Reference.com
-
 This function allows you to scrape schedule and results for a major league team from Baseball-Reference.com
 }
 \examples{

@@ -3,25 +3,21 @@
 \name{ncaa_baseball_pbp}
 \alias{ncaa_baseball_pbp}
 \alias{get_ncaa_baseball_pbp}
-\title{Get Play-By-Play Data for NCAA Baseball Games}
+\title{\strong{Get Play-By-Play Data for NCAA Baseball Games}}
 \usage{
 ncaa_baseball_pbp(game_info_url)
 
 get_ncaa_baseball_pbp(game_info_url)
 }
 \arguments{
-\item{game_info_url}{The url for the game's play-by-play data. This can be 
+\item{game_info_url}{The url for the game's play-by-play data. This can be
 found using the get_ncaa_schedule_info function.}
 }
 \value{
 A dataframe with play-by-play data for an individual game.
-
-A dataframe with play-by-play data for an individual game.
 }
 \description{
-Get Play-By-Play Data for NCAA Baseball Games
-
-Get Play-By-Play Data for NCAA Baseball Games
+\strong{Get Play-By-Play Data for NCAA Baseball Games}
 }
 \examples{
 \donttest{

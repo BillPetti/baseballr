@@ -2,7 +2,7 @@
 % Please edit documentation in R/ggspraychart.R
 \name{ggspraychart}
 \alias{ggspraychart}
-\title{Generate spray charts with ggplot2}
+\title{\strong{Generate spray charts with ggplot2}}
 \usage{
 ggspraychart(
   data,
@@ -45,7 +45,6 @@ ggspraychart(
 This function allows you to create spray charts with ggplots given a data frame with batted ball location coordinates.
 }
 \details{
-```r
-ggspraychart(df, x_value = "hc_x", y_value = "-hc_y", fill_value = "events")
-```
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ggspraychart(df, x_value = "hc_x", y_value = "-hc_y", fill_value = "events")
+}\if{html}{\out{</div>}}
 }

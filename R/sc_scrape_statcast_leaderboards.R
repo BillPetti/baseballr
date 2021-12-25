@@ -1,4 +1,4 @@
-#' @title Query BaseballSavant Leaderboards from \url{http://baseballsavant.mlb.com}
+#' @title **Query BaseballSavant Leaderboards**
 #'
 #' @description This function allows you to read leaderboard data from BaseballSavant dirctly into R as #` a \code{\link{data.frame}}.
 #' @param leaderboard The type of leaderboard to retrieve, input as a string. Current

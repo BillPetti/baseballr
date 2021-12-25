@@ -3,7 +3,7 @@
 \name{ncaa_schedule_info}
 \alias{ncaa_schedule_info}
 \alias{get_ncaa_schedule_info}
-\title{Get Schedule and Results for NCAA Baseball Teams}
+\title{\strong{Get Schedule and Results for NCAA Baseball Teams}}
 \usage{
 ncaa_schedule_info(teamid = NULL, year = NULL)
 
@@ -19,15 +19,9 @@ etc.)}
 A dataframe with the following fields: date, opponent,
 result, score, innings (if more than regulation), and the url
 for the game itself.
-
-A dataframe with the following fields: date, opponent,
-result, score, innings (if more than regulation), and the url
-for the game itself.
 }
 \description{
-Get Schedule and Results for NCAA Baseball Teams
-
-Get Schedule and Results for NCAA Baseball Teams
+\strong{Get Schedule and Results for NCAA Baseball Teams}
 }
 \examples{
 \donttest{

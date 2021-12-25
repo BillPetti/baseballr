@@ -1,5 +1,5 @@
 #' @rdname mlb_game_info
-#' @title Retrieve additional game information for major and minor league games via the MLB api \url{http://statsapi.mlb.com/api/}
+#' @title **Retrieve additional game information for major and minor league games**
 #' @param game_pk The unique game_pk identifier for the game
 #' @importFrom jsonlite fromJSON
 #' @importFrom tidyr spread
@@ -55,11 +55,5 @@ mlb_game_info <- function(game_pk) {
 }
 
 #' @rdname mlb_game_info
-#' @title Retrieve additional game information for major and minor league games via the MLB api \url{http://statsapi.mlb.com/api/}
-#' @param game_pk The unique game_pk identifier for the game
-#' @return Returns a data frame that includes supplemental information, such as
-#' weather, official scorer, attendance, etc., for the game_pk provided
 #' @export
-get_game_info_mlb <- function(game_pk) {
-  mlb_game_info(game_pk = game_pk)
-}
+get_game_info_mlb <- mlb_game_info

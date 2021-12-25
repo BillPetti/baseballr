@@ -1,6 +1,5 @@
 #' @rdname bref_standings_on_date
-#' @title Scrape MLB Standings on a Given Date
-#'
+#' @title **Scrape MLB Standings on a Given Date**
 #' @description This function allows you to scrape the standings from MLB for any date you choose.
 #' @param date a date object
 #' @param division One or more of AL East, AL Central, AL West,
@@ -10,7 +9,7 @@
 #' after the date
 #' @import rvest 
 #' @importFrom lubridate day month year
-#' @export bref_standings_on_date
+#' @export
 #' @examples \donttest{
 #'   bref_standings_on_date(date = "2015-08-04", division = "AL East")
 #' }
@@ -21,8 +20,7 @@ bref_standings_on_date <- function(date, division, from = FALSE) {
   if(!(division %in% all_divisions)){
     stop("Please select a division in the following: \n'AL East', 'AL Central', 'AL West', 'AL Overall',\n'NL Central', 'NL West', 'NL Overall'")
   }
-
-
+  
   url <- paste0("http://www.baseball-reference.com/boxes",
                 "?year=", sprintf("%04i", lubridate::year(date)), "&month=",
                 sprintf("%02i", lubridate::month(date)), "&day=", sprintf("%02i",
@@ -36,7 +34,7 @@ bref_standings_on_date <- function(date, division, from = FALSE) {
   min <- length(tables)
   max <- length(tables) - 15
   tables <- tables[min:max] %>% html_table
-  #table_names <- html_doc %>% rvest::html_nodes(".section_heading") %>% rvest::html_text() %>% gsub(pattern = "\\s+", replacement = " ") %>% gsub(pattern = " Division", replacement = "") %>% trimws(which = c("left")) %>% trimws(which = c("right")) %>% .[1:16]
+  #table_names <- html_doc %>% rvest::html_elements(".section_heading") %>% rvest::html_text() %>% gsub(pattern = "\\s+", replacement = " ") %>% gsub(pattern = " Division", replacement = "") %>% trimws(which = c("left")) %>% trimws(which = c("right")) %>% .[1:16]
 
   table_names <- c("NL Overall", "AL Overall", "NL West" , "NL Central", "NL East", "AL West", "AL Central", "AL East", "NL Overall", "AL Overall", "NL West" , "NL Central", "NL East", "AL West", "AL Central", "AL East")
   table_names[1:8] <- paste0(table_names[1:8], "_after_", date)     # Customizing list names for "After this Date" case
@@ -60,17 +58,5 @@ bref_standings_on_date <- function(date, division, from = FALSE) {
   return(x)
 }
 #' @rdname bref_standings_on_date
-#' @title Scrape MLB Standings on a Given Date
-#'
-#' @description This function allows you to scrape the standings from MLB for any date you choose.
-#' @param date a date object
-#' @param division One or more of AL East, AL Central, AL West,
-#' AL Overall, NL East, NL Central, NL West, and NL Overall
-#' @param from a logical indicating whether you want standings up to and
-#' including the date (FALSE, default) or rather standings for games played
-#' after the date
-#' @export standings_on_date_bref
-
-standings_on_date_bref <- function(date, division, from = FALSE) {
-  bref_standings_on_date(date = date, division = division, from = from)
-}
+#' @export
+standings_on_date_bref <- bref_standings_on_date

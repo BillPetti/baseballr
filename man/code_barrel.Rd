@@ -2,7 +2,7 @@
 % Please edit documentation in R/sch_code_barrel.R
 \name{code_barrel}
 \alias{code_barrel}
-\title{Code whether a batted ball is a "barrel" based on a Statcast dataset from baseballsavant.mlb.com}
+\title{\strong{Helper for determining whether a batted ball is a "barrel"}}
 \usage{
 code_barrel(df)
 }

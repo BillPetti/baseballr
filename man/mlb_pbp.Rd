@@ -3,7 +3,7 @@
 \name{mlb_pbp}
 \alias{mlb_pbp}
 \alias{get_pbp_mlb}
-\title{Acquire pitch-by-pitch data for Major and Minor League games via the MLB api \url{http://statsapi.mlb.com/api/}}
+\title{\strong{Acquire pitch-by-pitch data for Major and Minor League games}}
 \usage{
 mlb_pbp(game_pk)
 
@@ -24,25 +24,10 @@ information they provide. I plan to clean the output up down the road, but
 for now I am leaving the majority as-is.
 
 Both major and minor league pitch-by-pitch data can be pulled with this
- function.
-
-Returns a data frame that includes over 100 columns of data provided
-by the MLB Stats API at a pitch level.
-
-Some data will vary depending on the
-park and the league level, as most sensor data is not available in
-minor league parks via this API. Note that the column names have mostly
-been left as-is and there are likely duplicate columns in terms of the
-information they provide. I plan to clean the output up down the road, but
-for now I am leaving the majority as-is.
-
-Both major and minor league pitch-by-pitch data can be pulled with this
- function.
+function.
 }
 \description{
-Acquire pitch-by-pitch data for Major and Minor League games via the MLB api \url{http://statsapi.mlb.com/api/}
-
-Acquire pitch-by-pitch data for Major and Minor League games via the MLB api \url{http://statsapi.mlb.com/api/}
+\strong{Acquire pitch-by-pitch data for Major and Minor League games}
 }
 \examples{
 \donttest{

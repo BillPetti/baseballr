@@ -1,4 +1,4 @@
-#' @title Calculate FIP and related metrics for any set of data
+#' @title **Calculate FIP and related metrics for any set of data**
 #' @description This function allows you to calculate FIP and related metrics for any given set of data, provided the right variables are in the data set. The function currently returns both FIP per inning pitched, wOBA against (based on batters faced), and wOBA against per instance of fair contact.
 #' @param df A data frame of statistics that includes, at a minimum, the following columns: IP (innings pitched), BF (batters faced), uBB (unintentional walks), HBP (Hit By Pitch), x1B (singles), x2B (doubles), x3B (triples), HR (home runs), AB (at-bats), SH (sacrafice hits), SO (strike outs), and season.
 #' @importFrom dplyr left_join desc arrange
@@ -6,19 +6,10 @@
 #' @export
 
 fip_plus <- function(df) {
-
+  
+  df$season <- as.character(df$season)
   if (!exists("guts_table")) {
-    df$season <- as.character(df$season)
-    guts_table <- "http://www.fangraphs.com/guts.aspx?type=cn" %>% 
-      xml2::read_html()
-    guts_table <- guts_table %>% 
-      rvest::html_elements(xpath = '//*[@id="content"]/table') %>% 
-      rvest::html_table(fill = TRUE)
-    guts_table<- as.data.frame(guts_table)[-(1:2), (1:14)]
-    names(guts_table) <- c("season", "lg_woba", "woba_scale", "wBB", "wHBP", "w1B", "w2B", "w3B", "wHR", "runSB", "runCS", "lg_r_pa", "lg_r_w", "cFIP")
-    for(i in c(2:ncol(guts_table))) {
-      guts_table[,i] <- as.numeric(as.character(guts_table[,i]))
-    }
+    guts_table <- fg_guts()
   }
 
   df_join <- df %>% 

@@ -3,11 +3,11 @@
 \name{ncaa_game_logs}
 \alias{ncaa_game_logs}
 \alias{get_ncaa_game_logs}
-\title{Get NCAA Baseball Game Logs}
+\title{\strong{Get NCAA Baseball Game Logs}}
 \usage{
 ncaa_game_logs(player_id, year, type = "batting", span = "game")
 
-get_ncaa_game_logs(player_id, year, type, span)
+get_ncaa_game_logs(player_id, year, type = "batting", span = "game")
 }
 \arguments{
 \item{player_id}{A player's unique id. Can be found using the
@@ -24,14 +24,9 @@ returns seasonal stats for a player's career.}
 \value{
 A data frame containing player and school information
 as well as game by game statistics
-
-A data frame containing player and school information
-as well as game by game statistics
 }
 \description{
-Get NCAA Baseball Game Logs
-
-Get NCAA Baseball Game Logs
+\strong{Get NCAA Baseball Game Logs}
 }
 \examples{
 \donttest{

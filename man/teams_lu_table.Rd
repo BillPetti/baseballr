@@ -3,7 +3,7 @@
 \docType{data}
 \name{teams_lu_table}
 \alias{teams_lu_table}
-\title{A Team Lookup Table}
+\title{\strong{A Team Lookup Table}}
 \format{
 An object of class \code{data.frame} with 797 rows and 31 columns.
 }
@@ -12,8 +12,5 @@ teams_lu_table
 }
 \description{
 A Team Lookup Table
-}
-\details{
-Dataset
 }
 \keyword{datasets}

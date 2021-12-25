@@ -3,7 +3,7 @@
 \name{mlb_draft}
 \alias{mlb_draft}
 \alias{get_draft_mlb}
-\title{Retrieve draft pick information by year via the MLB api \url{http://statsapi.mlb.com/api/}}
+\title{\strong{Retrieve draft pick information by year via the MLB API}}
 \usage{
 mlb_draft(year)
 
@@ -13,15 +13,8 @@ get_draft_mlb(year)
 \item{year}{The year for which to return data}
 }
 \value{
-Returns a data frame with information for every draft pick in every
-round for that year
-requested
-
-Returns a data frame with information for every draft pick in every
-round for the year requested
+Returns a data frame with information for every draft pick in every round for the year requested
 }
 \description{
-Retrieve draft pick information by year via the MLB api \url{http://statsapi.mlb.com/api/}
-
-Retrieve draft pick information by year via the MLB api \url{http://statsapi.mlb.com/api/}
+\strong{Retrieve draft pick information by year via the MLB API}
 }

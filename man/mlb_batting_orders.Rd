@@ -3,7 +3,7 @@
 \name{mlb_batting_orders}
 \alias{mlb_batting_orders}
 \alias{get_batting_orders}
-\title{Retrieve batting orders for a given MLB game via the MLB api \url{http://statsapi.mlb.com/api/}}
+\title{\strong{Retrieve batting orders for a given MLB game}}
 \usage{
 mlb_batting_orders(game_pk, type = "starting")
 
@@ -19,15 +19,9 @@ batters that appeared ('all')}
 Returns a data frame that includes probable starting pitchers and
 the home plate umpire for the game_pk provided
 requested
-
-Returns a data frame that includes probable starting pitchers and
-the home plate umpire for the game_pk provided
-requested
 }
 \description{
-Retrieve batting orders for a given MLB game via the MLB api \url{http://statsapi.mlb.com/api/}
-
-Retrieve batting orders for a given MLB game via the MLB api \url{http://statsapi.mlb.com/api/}
+\strong{Retrieve batting orders for a given MLB game}
 }
 \examples{
 \donttest{

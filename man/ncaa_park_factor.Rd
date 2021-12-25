@@ -3,7 +3,7 @@
 \name{ncaa_park_factor}
 \alias{ncaa_park_factor}
 \alias{get_ncaa_park_factor}
-\title{Get Park Effects for NCAA Baseball Teams}
+\title{\strong{Get Park Effects for NCAA Baseball Teams}}
 \usage{
 ncaa_park_factor(teamid, years, type = "conference")
 
@@ -23,15 +23,9 @@ Defaults to 'conference'.}
 A dataframe with the following fields: school, home_game,
 away_game, runs_scored_home, runs_allowed_home, run_scored_away,
 runs_allowed_away, base_pf (base park factor), home_game_adj (an adjustment for the percentage of home games played) final_pf (park factor after adjustments)
-
-A dataframe with the following fields: school, home_game,
-away_game, runs_scored_home, runs_allowed_home, run_scored_away,
-runs_allowed_away, base_pf (base park factor), home_game_adj (an adjustment for the percentage of home games played) final_pf (park factor after adjustments)
 }
 \description{
-Get Park Effects for NCAA Baseball Teams
-
-Get Park Effects for NCAA Baseball Teams
+\strong{Get Park Effects for NCAA Baseball Teams}
 }
 \examples{
 \donttest{

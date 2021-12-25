@@ -1,6 +1,6 @@
-#' Retrieve pitcher boxscore data for a single game played
+#' @title **Retrieve pitcher boxscore data for a single game played**
 #'
-#' This function allows a user to retrieve a boxscore of pitcher statistics for any game played in the PITCHf/x era (2008-current). The function takes a boxscore.xml url as it's only argument and returns boxscore data for both the home and away batters.
+#' @description This function allows a user to retrieve a boxscore of pitcher statistics for any game played in the PITCHf/x era (2008-current). The function takes a boxscore.xml url as it's only argument and returns boxscore data for both the home and away batters.
 #'
 #' @param x A boxscore.xml url for a given game from the MLBAM GameDay app data.
 #' @importFrom XML xmlParse xmlToList

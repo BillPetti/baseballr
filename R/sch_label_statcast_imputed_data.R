@@ -1,7 +1,7 @@
 
-#' Label Statcast data as imputed
+#' @title **Label Statcast data as imputed**
 #' 
-#' Based on a series of heuristics, this function attempts to 
+#' @description Based on a series of heuristics, this function attempts to 
 #' label Statcast data for which the launch angle and speed 
 #' have been imputed. 
 #' 

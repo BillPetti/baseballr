@@ -1,5 +1,5 @@
 #' @rdname ncaa_schedule_info
-#' @title Get Schedule and Results for NCAA Baseball Teams
+#' @title **Get Schedule and Results for NCAA Baseball Teams**
 #' @param teamid The team's unique NCAA id.
 #' @param year The season (i.e. use 2016 for the 2015-2016 season,
 #' etc.)
@@ -19,7 +19,7 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
   
   id <- subset(baseballr::ncaa_season_id_lu, baseballr::ncaa_season_id_lu$season == year, select = id)
   
-  school_info <- baseballr::master_ncaa_team_lu %>% 
+  school_info <- baseballr::ncaa_team_lu %>% 
     dplyr::filter(.data$school_id == teamid, .data$year == year) %>%
     dplyr::select(-.data$year) %>%
     dplyr::distinct()
@@ -82,14 +82,5 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
 }
 
 #' @rdname ncaa_schedule_info
-#' @title Get Schedule and Results for NCAA Baseball Teams
-#' @param teamid The team's unique NCAA id.
-#' @param year The season (i.e. use 2016 for the 2015-2016 season,
-#' etc.)
-#' @return A dataframe with the following fields: date, opponent,
-#' result, score, innings (if more than regulation), and the url
-#' for the game itself.
 #' @export
-get_ncaa_schedule_info <- function(teamid = NULL, year = NULL) {
-  ncaa_schedule_info(teamid = teamid, year = year)
-}
+get_ncaa_schedule_info <- ncaa_schedule_info

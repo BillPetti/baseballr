@@ -3,7 +3,7 @@
 \name{bref_daily_pitcher}
 \alias{bref_daily_pitcher}
 \alias{daily_pitcher_bref}
-\title{Scrape Pitcher Performance Data Over a Custom Time Frame}
+\title{\strong{Scrape Pitcher Performance Data Over a Custom Time Frame}}
 \usage{
 bref_daily_pitcher(t1, t2)
 
@@ -15,8 +15,6 @@ daily_pitcher_bref(t1, t2)
 \item{t2}{Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"}
 }
 \description{
-This function allows you to scrape basic pitcher statistics over a custom time frame. Data is sourced from Baseball-Reference.com.
-
 This function allows you to scrape basic pitcher statistics over a custom time frame. Data is sourced from Baseball-Reference.com.
 }
 \examples{

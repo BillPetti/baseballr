@@ -2,7 +2,7 @@
 % Please edit documentation in R/metrics_woba_plus.R
 \name{woba_plus}
 \alias{woba_plus}
-\title{Calcuate wOBA and related metrics for any set of data}
+\title{\strong{Calcuate wOBA and related metrics for any set of data}}
 \usage{
 woba_plus(df)
 }
@@ -13,7 +13,6 @@ woba_plus(df)
 This function allows you to calculate wOBA for any given set of data, provided the right variables are in the data set. The function currently returns both wOBA per plate appearance on wOBA per instance of fair contact.
 }
 \details{
-```r
-woba_plus(df)
-```
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{woba_plus(df)
+}\if{html}{\out{</div>}}
 }

@@ -3,7 +3,7 @@
 \name{ncaa_lineups}
 \alias{ncaa_lineups}
 \alias{get_ncaa_lineups}
-\title{Retrieve lineups for a given NCAA game via its `game_info_url`}
+\title{\strong{Retrieve lineups for a given NCAA game via its \code{game_info_url}}}
 \usage{
 ncaa_lineups(game_info_url, year)
 
@@ -16,13 +16,9 @@ get_ncaa_lineups(game_info_url, year)
 }
 \value{
 Returns a data frame of each school's starting lineup and starting pitcher
-
-Returns a data frame of each school's starting lineup and starting pitcher
 }
 \description{
-Retrieve lineups for a given NCAA game via its `game_info_url`
-
-Retrieve lineups for a given NCAA game via its `game_info_url`
+\strong{Retrieve lineups for a given NCAA game via its \code{game_info_url}}
 }
 \examples{
 \donttest{

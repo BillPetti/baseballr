@@ -2,7 +2,7 @@
 % Please edit documentation in R/sc_scrape_statcast_leaderboards.R
 \name{scrape_savant_leaderboards}
 \alias{scrape_savant_leaderboards}
-\title{Query BaseballSavant Leaderboards from \url{http://baseballsavant.mlb.com}}
+\title{\strong{Query BaseballSavant Leaderboards}}
 \usage{
 scrape_savant_leaderboards(
   leaderboard = "exit_velocity_barrels",
@@ -77,34 +77,34 @@ This function allows you to read leaderboard data from BaseballSavant dirctly in
 }
 \details{
 oaa_roles argument:
-30 = 1B - Straight Up   
-31 = 1B - Towards 1B/2B Hole  
-32 = 1B - Close to Line  
-40 = 2B - Straight Up  
-41 = 2B - Shaded Towards 2B Bag  
-42 = 2B - Towards 1B/2B Hole  
-43 = 2B - Behind First Basemen  
-46 = 2B - Up the Middle 
-60 = SS - Straight Up  
-61 = SS - Towards 3B/SS Hole  
-62 = SS - Shaded Towards 2B Bag  
-64 = SS - Up the Middle  
-50 = 3B - Straight Up  
-51 = 3B - Close to Line  
-52 = 3B - Towards 3B/SS Hole  
-77 = LF - Close to Line  
-71 = LF - Leaning Left  
-70 = LF - Straight Up  
-72 = LF - Leaning Right  
-78 = LF - LF Gap 
-87 = CF - LF Gap 
-81 = CF - Leaning Left 
-82 = CF - Leaning Right 
-89 = CF - RF Gap 
-98 = RF - RF Gap 
-91 = RF - Leaning Left  
-90 = RF - Straight Up 
-92 = RF - Leaning Right 
+30 = 1B - Straight Up
+31 = 1B - Towards 1B/2B Hole
+32 = 1B - Close to Line
+40 = 2B - Straight Up
+41 = 2B - Shaded Towards 2B Bag
+42 = 2B - Towards 1B/2B Hole
+43 = 2B - Behind First Basemen
+46 = 2B - Up the Middle
+60 = SS - Straight Up
+61 = SS - Towards 3B/SS Hole
+62 = SS - Shaded Towards 2B Bag
+64 = SS - Up the Middle
+50 = 3B - Straight Up
+51 = 3B - Close to Line
+52 = 3B - Towards 3B/SS Hole
+77 = LF - Close to Line
+71 = LF - Leaning Left
+70 = LF - Straight Up
+72 = LF - Leaning Right
+78 = LF - LF Gap
+87 = CF - LF Gap
+81 = CF - Leaning Left
+82 = CF - Leaning Right
+89 = CF - RF Gap
+98 = RF - RF Gap
+91 = RF - Leaning Left
+90 = RF - Straight Up
+92 = RF - Leaning Right
 99 = RF - Close to Line
 }
 \examples{

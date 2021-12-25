@@ -1,6 +1,5 @@
 #' @rdname fg_batter_game_logs
-#' @title Scrape Batter Game Logs from FanGraphs
-#'
+#' @title **Scrape Batter Game Logs from FanGraphs**
 #' @description This function allows you to scrape game logs by year for a batter from FanGraphs.com.
 #' @param playerid This is the playerid used by FanGraphs for a given player
 #' @param year The season for which game logs should be returned (use the YYYY format)
@@ -37,13 +36,8 @@ fg_batter_game_logs <- function(playerid, year = 2017) {
     
   return(payload)
 }
-#' @rdname fg_batter_game_logs
-#' @title Scrape Batter Game Logs from FanGraphs
-#' @description This function allows you to scrape game logs by year for a batter from FanGraphs.com.
-#' @param playerid This is the playerid used by FanGraphs for a given player
-#' @param year The season for which game logs should be returned (use the YYYY format)
-#' @export
-batter_game_logs_fg <- function(playerid, year = 2017) {
-  fg_batter_game_logs(playerid = playerid, year = year)
-}
 
+#' @rdname fg_batter_game_logs
+#' @keywords legacy
+#' @export
+batter_game_logs_fg <- fg_batter_game_logs

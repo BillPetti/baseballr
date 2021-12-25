@@ -1,4 +1,5 @@
-#' @title Scrape MiLB game logs for pitchers from Fangraphs, combining 'standard' and 'advanced' tabs
+#' @rdname fg_milb_pitcher_game_logs
+#' @title **Scrape MiLB game logs for pitchers from Fangraphs**
 #'
 #' @description This function allows you to scrape MiLB game logs for individual batters from FanGraphs.com.
 #' @param playerid The pitcher's minor leauge ID from FanGraphs.com.
@@ -39,7 +40,8 @@ fg_milb_pitcher_game_logs <- function(playerid, year) {
       tidyr::separate(.data$Team, into = c("Team","Level"),sep=" ")
   )
   # extract player name
-  player_name <- xml2::read_html(url_basic) %>%
+  player_name <- url_basic %>% 
+    xml2::read_html() %>%
     rvest::html_elements("h1") %>%
     rvest::html_text()
   
@@ -53,15 +55,6 @@ fg_milb_pitcher_game_logs <- function(playerid, year) {
   return(payload)
 }
 
-
-#' # Scrape MiLB game logs for pitchers from Fangraphs, combining 'standard' and 'advanced' tabs
-#'
-#' This function allows you to scrape MiLB game logs for individual batters from FanGraphs.com.
-#' @param playerid The pitcher's minor leauge ID from FanGraphs.com.
-#' @param year The season for which game logs should be returned.
+#' @rdname fg_milb_pitcher_game_logs
 #' @export
-milb_pitcher_game_logs_fg <- function(playerid, year) {
-  
-  fg_milb_pitcher_game_logs(playerid = playerid, year = year)
-  
-}
+milb_pitcher_game_logs_fg <-  fg_milb_pitcher_game_logs

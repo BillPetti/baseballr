@@ -1,6 +1,7 @@
-#' Query Statcast and PITCHf/x Data for data from \url{http://baseballsavant.mlb.com}
+#' @title **Query Statcast by Date Range and Players**
 #'
-#' This function allows you to query Statcast and PITCHf/x data as provided on \url{http://baseballsavant.mlb.com} and have that data returned as a \code{\link{data.frame}}.
+#' @description This function allows you to query Statcast data as provided on \url{http://baseballsavant.mlb.com}
+#' @return Data returned as a data frame
 #' @param start_date Date of first game for which you want data.
 #' Format must be in YYYY-MM-DD format.
 #' @param end_date Date of last game for which you want data.
@@ -14,13 +15,13 @@
 #' @export
 #' @examples
 #' \donttest{
-#' correa <- scrape_statcast_savant(start_date = "2016-04-06",
-#'   end_date = "2016-04-15", playerid = 621043)
+#'   correa <- scrape_statcast_savant(start_date = "2016-04-06",
+#'     end_date = "2016-04-15", playerid = 621043)
 #'
-#' noah <- scrape_statcast_savant(start_date = "2016-04-06",
-#'   end_date = "2016-04-15", playerid = 592789, player_type = 'pitcher')
+#'   noah <- scrape_statcast_savant(start_date = "2016-04-06",
+#'     end_date = "2016-04-15", playerid = 592789, player_type = 'pitcher')
 #'
-#' daily <- scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-06")
+#'   daily <- scrape_statcast_savant(start_date = "2016-04-06", end_date = "2016-04-06")
 #' }
 
 scrape_statcast_savant <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
@@ -176,7 +177,6 @@ scrape_statcast_savant.Date <- function(start_date = Sys.Date() - 1, end_date = 
 
 #' @rdname scrape_statcast_savant
 #' @export
-
 scrape_statcast_savant.default <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
                                              playerid = NULL, player_type = "batter", ...) {
   # Check to make sure args are in the correct format.
@@ -210,8 +210,8 @@ scrape_statcast_savant.default <- function(start_date = Sys.Date() - 1, end_date
 #' @export
 #' @examples
 #' \donttest{
-#' correa <- scrape_statcast_savant_batter(start_date = "2016-04-06",
-#'   end_date = "2016-04-15", batterid = 621043)
+#'   correa <- scrape_statcast_savant_batter(start_date = "2016-04-06",
+#'     end_date = "2016-04-15", batterid = 621043)
 #' }
 
 scrape_statcast_savant_batter <- function(start_date, end_date, batterid, ...) {
@@ -223,8 +223,8 @@ scrape_statcast_savant_batter <- function(start_date, end_date, batterid, ...) {
 #' @export
 #' @examples
 #' \donttest{
-#' daily <- scrape_statcast_savant_batter_all(start_date = "2016-04-06",
-#'   end_date = "2016-04-06")
+#'   daily <- scrape_statcast_savant_batter_all(start_date = "2016-04-06",
+#'     end_date = "2016-04-06")
 #' }
 
 scrape_statcast_savant_batter_all <- function(start_date, end_date, ...) {
@@ -236,8 +236,8 @@ scrape_statcast_savant_batter_all <- function(start_date, end_date, ...) {
 #' @export
 #' @examples
 #' \donttest{
-#' noah <- scrape_statcast_savant_pitcher(start_date = "2016-04-06",
-#'   end_date = "2016-04-15", pitcherid = 592789)
+#'   noah <- scrape_statcast_savant_pitcher(start_date = "2016-04-06",
+#'     end_date = "2016-04-15", pitcherid = 592789)
 #' }
 
 scrape_statcast_savant_pitcher <- function(start_date, end_date, pitcherid, ...) {
@@ -249,8 +249,8 @@ scrape_statcast_savant_pitcher <- function(start_date, end_date, pitcherid, ...)
 #' @export
 #' @examples
 #' \donttest{
-#' daily <- scrape_statcast_savant_pitcher_all(start_date = "2016-04-06",
-#'   end_date = "2016-04-06")
+#'   daily <- scrape_statcast_savant_pitcher_all(start_date = "2016-04-06",
+#'     end_date = "2016-04-06")
 #' }
 
 scrape_statcast_savant_pitcher_all <- function(start_date, end_date, ...) {

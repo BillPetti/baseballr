@@ -2,7 +2,7 @@
 % Please edit documentation in R/gd2_pitcher_boxscore.R
 \name{pitcher_boxscore}
 \alias{pitcher_boxscore}
-\title{Retrieve pitcher boxscore data for a single game played}
+\title{\strong{Retrieve pitcher boxscore data for a single game played}}
 \usage{
 pitcher_boxscore(x)
 }

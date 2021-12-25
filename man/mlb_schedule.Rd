@@ -2,8 +2,7 @@
 % Please edit documentation in R/mlb_schedule.R
 \name{mlb_schedule}
 \alias{mlb_schedule}
-\title{Find game_pk values for professional baseball games (major and minor leagues)
-via the MLB api \url{http://statsapi.mlb.com/api/}}
+\title{\strong{Find game_pk values for professional baseball games (major and minor leagues)}}
 \usage{
 mlb_schedule(season = 2019, level_ids = "1")
 }
@@ -19,8 +18,7 @@ information for games scheduled or played
 requested
 }
 \description{
-Find game_pk values for professional baseball games (major and minor leagues)
-via the MLB api \url{http://statsapi.mlb.com/api/}
+\strong{Find game_pk values for professional baseball games (major and minor leagues)}
 }
 \section{Level IDs}{
 

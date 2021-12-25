@@ -1,4 +1,4 @@
-#' Generate spray charts with ggplot2
+#' @title **Generate spray charts with ggplot2**
 #' @description
 #' This function allows you to create spray charts with ggplots given a data frame with batted ball location coordinates.
 #' @details 

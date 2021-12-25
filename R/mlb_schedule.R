@@ -1,5 +1,4 @@
-#' Find game_pk values for professional baseball games (major and minor leagues)
-#' via the MLB api \url{http://statsapi.mlb.com/api/}
+#' @title **Find game_pk values for professional baseball games (major and minor leagues)**
 #'
 #' @param season The season for which you want to find game_pk values for MLB games
 #' @param level_ids A numeric vector with ids for each level where game_pks are

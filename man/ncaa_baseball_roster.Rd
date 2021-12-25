@@ -3,7 +3,7 @@
 \name{ncaa_baseball_roster}
 \alias{ncaa_baseball_roster}
 \alias{get_ncaa_baseball_roster}
-\title{Get NCAA Baseball Rosters}
+\title{\strong{Get NCAA Baseball Rosters}}
 \usage{
 ncaa_baseball_roster(teamid = NA, team_year)
 
@@ -17,14 +17,9 @@ get_ncaa_baseball_roster(teamid = NA, team_year)
 \value{
 A data frame containing roster information, including
 IDs and urls for each player (if available)
-
-A data frame containing roster information, including
-IDs and urls for each player (if available)
 }
 \description{
-Get NCAA Baseball Rosters
-
-Get NCAA Baseball Rosters
+\strong{Get NCAA Baseball Rosters}
 }
 \examples{
 \donttest{

@@ -2,7 +2,7 @@
 % Please edit documentation in R/sch_process_statcast_payload.R
 \name{process_statcast_payload}
 \alias{process_statcast_payload}
-\title{Process Baseball Savant CSV payload}
+\title{\strong{Process Baseball Savant CSV payload}}
 \usage{
 process_statcast_payload(payload)
 }
@@ -10,12 +10,7 @@ process_statcast_payload(payload)
 \item{payload}{payload from a Baseball Savant request}
 }
 \description{
-This is a helper function for all `scrape_statcast_savant` functions.
+This is a helper function for all \code{scrape_statcast_savant} functions.
 The function processes the initial csv payload acquired from
 Baseball Savant to ensure consistency in formatting across downloads
-}
-\details{
-```r
-process_statcast_payload(payload)
-````
 }

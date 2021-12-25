@@ -1,5 +1,5 @@
 #' @rdname ncaa_game_logs
-#' @title Get NCAA Baseball Game Logs
+#' @title **Get NCAA Baseball Game Logs**
 #' @param player_id A player's unique id. Can be found using the
 #' get_ncaa_baseball_roster function.
 #' @param year The year of interest.
@@ -194,17 +194,5 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
 
 }
 #' @rdname ncaa_game_logs
-#' @title Get NCAA Baseball Game Logs
-#' @param player_id A player's unique id. Can be found using the
-#' get_ncaa_baseball_roster function.
-#' @param year The year of interest.
-#' @param type The kind of statistics you want to return. Current options
-#' are 'batting' or 'pitching'.
-#' @param span The span of time; can either be 'game' for game logs in a season, or 'career' which
-#' returns seasonal stats for a player's career.
-#' @return A data frame containing player and school information
-#' as well as game by game statistics
 #' @export
-get_ncaa_game_logs <- function(player_id, year, type, span) {
-  ncaa_game_logs(player_id = player_id, year = year, type = type, span = span)
-}
+get_ncaa_game_logs <- ncaa_game_logs

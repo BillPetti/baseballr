@@ -2,53 +2,54 @@
 % Please edit documentation in R/fangraphs.R
 \name{fangraphs}
 \alias{fangraphs}
-\title{**FanGraphs Functions Overview**}
+\title{\strong{FanGraphs Functions Overview}}
 \description{
 \describe{
-  \item{`fg_pitcher_game_logs()`:}{ Scrape Pitcher Game Logs from FanGraphs.}
-  \item{`fg_batter_game_logs()`:}{ Scrape Batter Game Logs from FanGraphs.}
-  \item{`fg_milb_pitcher_game_logs()`:}{ Scrape MiLB game logs for pitchers from Fangraphs, combining 'standard' and 'advanced' tabs.}
-  \item{`fg_milb_batter_game_logs()`:}{ Scrape MiLB game logs for batters from Fangraphs, combining 'standard' and 'advanced' tabs.}
-  \item{`fg_bat_leaders()`:}{ Scrape Batter Leaderboards from FanGraphs.}
-  \item{`fg_pitch_leaders()`:}{ Scrape Pitcher Leaderboards from FanGraphs.}
-  \item{`fg_guts()`:}{ Scrape FanGraphs.com Guts!.}
-  \item{`fg_park()`:}{ Scrape Park Factors from FanGraphs.com.}
-  \item{`fg_park_hand()`:}{ Scrape Park Factors by handedness from FanGraphs.com.}
+\item{\code{fg_pitcher_game_logs()}:}{ Scrape Pitcher Game Logs from FanGraphs.}
+\item{\code{fg_batter_game_logs()}:}{ Scrape Batter Game Logs from FanGraphs.}
+\item{\code{fg_milb_pitcher_game_logs()}:}{ Scrape MiLB game logs for pitchers from Fangraphs, combining 'standard' and 'advanced' tabs.}
+\item{\code{fg_milb_batter_game_logs()}:}{ Scrape MiLB game logs for batters from Fangraphs, combining 'standard' and 'advanced' tabs.}
+\item{\code{fg_batter_leaders()}:}{ Scrape Batter Leaderboards from FanGraphs.}
+\item{\code{fg_pitcher_leaders()}:}{ Scrape Pitcher Leaderboards from FanGraphs.}
+\item{\code{fg_guts()}:}{ Scrape FanGraphs.com Guts!.}
+\item{\code{fg_park()}:}{ Scrape Park Factors from FanGraphs.com.}
+\item{\code{fg_park_hand()}:}{ Scrape Park Factors by handedness from FanGraphs.com.}
 }
-### **Scrape Pitcher Game Logs from FanGraphs**
-```r
-  fg_pitcher_game_logs(playerid = 104, year = 2006)
-```
-### **Scrape Batter Game Logs from FanGraphs**
-```r
-  fg_batter_game_logs(playerid = 6184, year = 2017)
-```
-### **Scrape MiLB game logs for pitchers from Fangraphs**
-```r
-  fg_milb_pitcher_game_logs(playerid = "sa3004210", year=2017)
-```
-### **Scrape MiLB game logs for batters from Fangraphs**
-```r
-  fg_milb_batter_game_logs(playerid = "sa917940", year=2018)
-```
-### **Scrape Batter Leaderboards from FanGraphs**
-```r
-  fg_bat_leaders(x = 2015, y = 2015, qual = 400)
-```
-### **Scrape Pitcher Leaderboards from FanGraphs**
-```r
-  fg_pitch_leaders(x = 2015, y = 2015, qual = 150)
-```
-### **Scrape FanGraphs.com Guts!**
-```r
-  fg_guts()
-```
-### **Scrape Park Factors from FanGraphs.com**
-```r
-  fg_park(2013)
-```
-### **Scrape Park Factors by handedness from FanGraphs.com**
-```r
-  fg_park_hand(2013)
-```
+}
+\details{
+\subsection{\strong{Scrape Pitcher Game Logs from FanGraphs}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_pitcher_game_logs(playerid = 104, year = 2006)
+}\if{html}{\out{</div>}}
+}
+
+\subsection{\strong{Scrape Batter Game Logs from FanGraphs}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_batter_game_logs(playerid = 6184, year = 2017)
+}\if{html}{\out{</div>}}
+}
+
+\subsection{\strong{Scrape MiLB game logs for pitchers from Fangraphs}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_milb_pitcher_game_logs(playerid = "sa3004210", year=2017)
+}\if{html}{\out{</div>}}
+}
+
+\subsection{\strong{Scrape MiLB game logs for batters from Fangraphs}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_milb_batter_game_logs(playerid = "sa917940", year=2018)
+}\if{html}{\out{</div>}}
+}
+
+\subsection{\strong{Scrape Batter Leaderboards from FanGraphs}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_batter_leaders(x = 2015, y = 2015, qual = 400)
+}\if{html}{\out{</div>}}
+}
+
+\subsection{\strong{Scrape Pitcher Leaderboards from FanGraphs}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_pitcher_leaders(x = 2015, y = 2015, qual = 150)
+}\if{html}{\out{</div>}}
+}
+
+\subsection{\strong{Scrape FanGraphs.com Guts!}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_guts()
+}\if{html}{\out{</div>}}
+}
+
+\subsection{\strong{Scrape Park Factors from FanGraphs.com}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_park(2013)
+}\if{html}{\out{</div>}}
+}
+
+\subsection{\strong{Scrape Park Factors by handedness from FanGraphs.com}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_park_hand(2013)
+}\if{html}{\out{</div>}}
+}
 }
