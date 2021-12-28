@@ -1,6 +1,6 @@
 # baseballr 0.9.94
 ## Function Naming Convention Change
-|name                               |new_name                  |file                                |
+|legacy_name                               |new_name                  |file                                |
 |:----------------------------------|:-------------------------|:-----------------------------------|
 |daily_batter_bref                  |bref_daily_batter         |R/bref_daily_batter.R               |
 |daily_pitcher_bref                 |bref_daily_pitcher        |R/bref_daily_pitcher.R              |
