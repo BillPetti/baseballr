@@ -80,7 +80,12 @@ mlb_batting_orders <- function (game_pk,
   return(final_batting_order_table)
 }
 
-#' @rdname mlb_batting_orders
+#' @rdname get_batting_orders
+#' @title **(legacy) Retrieve batting orders for a given MLB game**
+#' @inheritParams mlb_batting_orders
+#' @return Returns a data frame that includes probable starting pitchers and
+#' the home plate umpire for the `game_pk` requested
+#' @keywords legacy
 #' @export
 get_batting_orders <- mlb_batting_orders
 

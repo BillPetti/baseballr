@@ -11,6 +11,8 @@ get_chadwick_lu()
 }
 \value{
 A data frame of baseball players and the various IDs associated with them in different systems of record.
+
+A data frame of baseball players and the various IDs associated with them in different systems of record.
 }
 \description{
 \strong{Download the Chadwick Bureau's public register of baseball players}

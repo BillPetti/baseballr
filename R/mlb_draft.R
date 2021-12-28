@@ -24,6 +24,10 @@ mlb_draft <- function(year) {
   return(draft_table_filled)
 }
 
-#' @rdname mlb_draft
+#' @rdname get_draft_mlb
+#' @title **(legacy) Retrieve draft pick information by year**
+#' @inheritParams mlb_draft
+#' @return Returns a data frame with information for every draft pick in every round for the year requested
+#' @keywords legacy
 #' @export
 get_draft_mlb <- mlb_draft

@@ -2,12 +2,9 @@
 % Please edit documentation in R/ncaa_baseball_roster.R
 \name{ncaa_baseball_roster}
 \alias{ncaa_baseball_roster}
-\alias{get_ncaa_baseball_roster}
 \title{\strong{Get NCAA Baseball Rosters}}
 \usage{
 ncaa_baseball_roster(teamid = NA, team_year)
-
-get_ncaa_baseball_roster(teamid = NA, team_year)
 }
 \arguments{
 \item{teamid}{NCAA id for a school}

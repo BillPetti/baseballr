@@ -2,17 +2,17 @@
 % Please edit documentation in R/fg_milb_batter_game_logs.R
 \name{fg_milb_batter_game_logs}
 \alias{fg_milb_batter_game_logs}
-\alias{milb_batter_game_logs_fg}
-\title{\strong{Scrape MiLB game logs for batters from Fangraphs}}
+\title{\strong{Scrape MiLB game logs for batters from FanGraphs}}
 \usage{
 fg_milb_batter_game_logs(playerid, year)
-
-milb_batter_game_logs_fg(playerid, year)
 }
 \arguments{
 \item{playerid}{The batter's minor leauge ID from FanGraphs.}
 
 \item{year}{The season for which game logs should be returned.}
+}
+\value{
+Returns a data frame of Minor League batter game logs.
 }
 \description{
 This function allows you to scrape MiLB game logs for individual batters from FanGraphs.

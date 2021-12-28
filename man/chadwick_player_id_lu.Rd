@@ -11,6 +11,9 @@ playerid_lookup(last_name = NULL, first_name = NULL)
 
 \item{first_name}{A text string used to return results for players with that string in their first name.}
 }
+\value{
+A data frame of baseball players and the various IDs associated with them in different systems of record.
+}
 \description{
 This function allows you to query the Chadwick Bureau's public register of baseball players and the various IDs associated with them in different systems of record.
 }

@@ -2,17 +2,17 @@
 % Please edit documentation in R/fg_batter_game_logs.R
 \name{fg_batter_game_logs}
 \alias{fg_batter_game_logs}
-\alias{batter_game_logs_fg}
 \title{\strong{Scrape Batter Game Logs from FanGraphs}}
 \usage{
 fg_batter_game_logs(playerid, year = 2017)
-
-batter_game_logs_fg(playerid, year = 2017)
 }
 \arguments{
 \item{playerid}{This is the playerid used by FanGraphs for a given player}
 
 \item{year}{The season for which game logs should be returned (use the YYYY format)}
+}
+\value{
+A data frame of batter game logs.
 }
 \description{
 This function allows you to scrape game logs by year for a batter from FanGraphs.com.
@@ -22,4 +22,3 @@ This function allows you to scrape game logs by year for a batter from FanGraphs
   fg_batter_game_logs(playerid = 6184, year = 2017)
  }
 }
-\keyword{legacy}

@@ -82,7 +82,7 @@ statline_from_statcast <- function(df, base = "pa") {
     statline <- statline %>% 
       dplyr::select(.data$year, tidyr::everything())
 
-    statline <- woba_swings(statline)
+    statline <- woba_swings(statline, guts_table)
 
     return(statline)
 
@@ -167,7 +167,7 @@ statline_from_statcast <- function(df, base = "pa") {
     statline <- statline %>% 
       dplyr::select(.data$year, tidyr::everything())
 
-    statline <- woba_pas(statline)
+    statline <- woba_pas(statline, guts_table)
 
     statline <- statline %>%
       dplyr::mutate_at(vars(.data$ba:.data$woba), round, 3) %>%
@@ -215,7 +215,7 @@ statline_from_statcast <- function(df, base = "pa") {
     batted_balls <- batted_balls %>% 
       dplyr::select(.data$year, tidyr::everything())
 
-    batted_balls <- woba_contact(batted_balls)
+    batted_balls <- woba_contact(batted_balls, guts_table)
 
     return(batted_balls)
   }

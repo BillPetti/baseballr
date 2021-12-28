@@ -2,17 +2,17 @@
 % Please edit documentation in R/bref_daily_pitcher.R
 \name{bref_daily_pitcher}
 \alias{bref_daily_pitcher}
-\alias{daily_pitcher_bref}
 \title{\strong{Scrape Pitcher Performance Data Over a Custom Time Frame}}
 \usage{
 bref_daily_pitcher(t1, t2)
-
-daily_pitcher_bref(t1, t2)
 }
 \arguments{
 \item{t1}{First date data should be scraped from. Should take the form "YEAR-MONTH-DAY"}
 
 \item{t2}{Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"}
+}
+\value{
+Returns a data frame of pitcher performance
 }
 \description{
 This function allows you to scrape basic pitcher statistics over a custom time frame. Data is sourced from Baseball-Reference.com.

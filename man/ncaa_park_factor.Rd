@@ -2,12 +2,9 @@
 % Please edit documentation in R/ncaa_park_factor.R
 \name{ncaa_park_factor}
 \alias{ncaa_park_factor}
-\alias{get_ncaa_park_factor}
 \title{\strong{Get Park Effects for NCAA Baseball Teams}}
 \usage{
 ncaa_park_factor(teamid, years, type = "conference")
-
-get_ncaa_park_factor(teamid, years, type = "conference")
 }
 \arguments{
 \item{teamid}{The team's unique NCAA id.}
@@ -20,7 +17,7 @@ the school plays in, the division parameter calculates based on the division the
 Defaults to 'conference'.}
 }
 \value{
-A dataframe with the following fields: school, home_game,
+A data frame with the following fields: school, home_game,
 away_game, runs_scored_home, runs_allowed_home, run_scored_away,
 runs_allowed_away, base_pf (base park factor), home_game_adj (an adjustment for the percentage of home games played) final_pf (park factor after adjustments)
 }

@@ -2,16 +2,9 @@
 % Please edit documentation in R/retrosheet_data.R
 \name{retrosheet_data}
 \alias{retrosheet_data}
-\alias{get_retrosheet_data}
 \title{\strong{Get, Parse, and Format Retrosheet Event and Roster Files}}
 \usage{
 retrosheet_data(
-  path_to_directory,
-  years_to_acquire = 2018,
-  sequence_years = FALSE
-)
-
-get_retrosheet_data(
   path_to_directory,
   years_to_acquire = 2018,
   sequence_years = FALSE

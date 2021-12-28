@@ -3,7 +3,7 @@
 #' @param teamid The team's unique NCAA id.
 #' @param year The season (i.e. use 2016 for the 2015-2016 season,
 #' etc.)
-#' @return A dataframe with the following fields: date, opponent,
+#' @return A data frame with the following fields: date, opponent,
 #' result, score, innings (if more than regulation), and the url
 #' for the game itself.
 #' @importFrom tibble tibble rownames_to_column
@@ -81,6 +81,12 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
   return(sched)
 }
 
-#' @rdname ncaa_schedule_info
+#' @rdname get_ncaa_schedule_info
+#' @title **(legacy) Get Schedule and Results for NCAA Baseball Teams**
+#' @inheritParams ncaa_schedule_info
+#' @return A data frame with the following fields: date, opponent,
+#' result, score, innings (if more than regulation), and the url
+#' for the game itself.
+#' @keywords legacy
 #' @export
 get_ncaa_schedule_info <- ncaa_schedule_info

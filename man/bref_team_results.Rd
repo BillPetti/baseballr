@@ -2,17 +2,17 @@
 % Please edit documentation in R/bref_team_results.R
 \name{bref_team_results}
 \alias{bref_team_results}
-\alias{team_results_bref}
 \title{\strong{Scrape Team Results}}
 \usage{
 bref_team_results(Tm, year)
-
-team_results_bref(Tm, year)
 }
 \arguments{
 \item{Tm}{The abbreviation used by Baseball-Reference.com for the team whose results you want to scrape.}
 
 \item{year}{Season for which you want to scrape the park factors.}
+}
+\value{
+Returns a data frame of MLB team results
 }
 \description{
 This function allows you to scrape schedule and results for a major league team from Baseball-Reference.com

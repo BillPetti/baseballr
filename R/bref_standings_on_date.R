@@ -7,6 +7,7 @@
 #' @param from a logical indicating whether you want standings up to and
 #' including the date (FALSE, default) or rather standings for games played
 #' after the date
+#' @return Returns a data frame of MLB standings
 #' @import rvest 
 #' @importFrom lubridate day month year
 #' @export
@@ -57,6 +58,10 @@ bref_standings_on_date <- function(date, division, from = FALSE) {
   }
   return(x)
 }
-#' @rdname bref_standings_on_date
+#' @rdname standings_on_date_bref
+#' @title **(legacy) Scrape MLB Standings on a Given Date**
+#' @inheritParams bref_standings_on_date
+#' @return Returns a data frame of MLB standings
+#' @keywords legacy
 #' @export
 standings_on_date_bref <- bref_standings_on_date

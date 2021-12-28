@@ -2,12 +2,9 @@
 % Please edit documentation in R/mlb_batting_orders.R
 \name{mlb_batting_orders}
 \alias{mlb_batting_orders}
-\alias{get_batting_orders}
 \title{\strong{Retrieve batting orders for a given MLB game}}
 \usage{
 mlb_batting_orders(game_pk, type = "starting")
-
-get_batting_orders(game_pk, type = "starting")
 }
 \arguments{
 \item{game_pk}{The unique game_pk identifier for the game}

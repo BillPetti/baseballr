@@ -146,6 +146,11 @@ mlb_pbp <- function(game_pk) {
   return(pbp)
 }
 
-#' @rdname mlb_pbp
+#' @rdname get_pbp_mlb
+#' @title **(legacy) Acquire pitch-by-pitch data for Major and Minor League games**
+#' @inheritParams mlb_pbp
+#' @return Returns a data frame that includes over 100 columns of data provided
+#' by the MLB Stats API at a pitch level.
+#' @keywords legacy
 #' @export
 get_pbp_mlb <- mlb_pbp

@@ -6,7 +6,7 @@
 #' @importFrom tibble tibble
 #' @importFrom stringr str_sub
 #' @return Returns a data frame that includes probable starting pitchers and
-#' the home plate umpire for the game_pk requested
+#' the home plate umpire for the `game_pk` requested
 #' @export
 #' @examples \donttest{
 #'   mlb_probables(566001)
@@ -85,6 +85,11 @@ mlb_probables <- function(game_pk) {
   return(table)
 }
 
-#' @rdname mlb_probables
+#' @rdname get_probables_mlb
+#' @title **(legacy) Retrieve probable starters for a given MLB game**
+#' @inheritParams mlb_probables
+#' @return Returns a data frame that includes probable starting pitchers and
+#' the home plate umpire for the `game_pk` requested
+#' @keywords legacy
 #' @export
 get_probables_mlb <- mlb_probables

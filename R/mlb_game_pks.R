@@ -9,7 +9,6 @@
 #' @importFrom jsonlite fromJSON
 #' @return Returns a data frame that includes game_pk values and additional
 #' information for games scheduled or played
-#' requested
 #' @details Level IDs:
 #'
 #' The following IDs can be passed to the level_ids argument:
@@ -42,6 +41,11 @@ mlb_game_pks <- function(date,
   return(payload)
 }
 
-#' @rdname mlb_game_pks
+#' @rdname get_game_pks_mlb
+#' @title **(legacy) Get MLB Game Info by Date and Level**
+#' @inheritParams mlb_game_pks
+#' @return Returns a data frame that includes game_pk values and additional
+#' information for games scheduled or played
+#' @keywords legacy
 #' @export
 get_game_pks_mlb <- mlb_game_pks

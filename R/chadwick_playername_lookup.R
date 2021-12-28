@@ -2,6 +2,7 @@
 #' @title **Look up Baseball Player Name by ID**
 #' @description This function allows you to query the Chadwick Bureau's public register of baseball players and the various IDs associated with them in different systems of record.
 #' @param id An integer or character string representing a player ID in a baseball database, cross-referenced through the Chadwick Bureau's public register of baseball players.
+#' @return A data frame of baseball players and the various IDs associated with them in different systems of record.
 #' @export
 #' @examples \donttest{
 #'   playername_lookup(4885)

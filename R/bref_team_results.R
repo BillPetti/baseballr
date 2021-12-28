@@ -4,6 +4,7 @@
 #' @description This function allows you to scrape schedule and results for a major league team from Baseball-Reference.com
 #' @param Tm The abbreviation used by Baseball-Reference.com for the team whose results you want to scrape.
 #' @param year Season for which you want to scrape the park factors.
+#' @return Returns a data frame of MLB team results
 #' @import dplyr
 #' @import rvest 
 #' @export
@@ -54,6 +55,10 @@ bref_team_results <-function(Tm, year) {
   return(data)
 }
 
-#' @rdname bref_team_results
+#' @rdname team_results_bref
+#' @title **(legacy) Scrape Team Results**
+#' @inheritParams bref_team_results
+#' @return Returns a data frame of MLB team results
+#' @keywords legacy
 #' @export
 team_results_bref <- bref_team_results

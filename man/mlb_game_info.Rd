@@ -2,12 +2,9 @@
 % Please edit documentation in R/mlb_game_info.R
 \name{mlb_game_info}
 \alias{mlb_game_info}
-\alias{get_game_info_mlb}
 \title{\strong{Retrieve additional game information for major and minor league games}}
 \usage{
 mlb_game_info(game_pk)
-
-get_game_info_mlb(game_pk)
 }
 \arguments{
 \item{game_pk}{The unique game_pk identifier for the game}

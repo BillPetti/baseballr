@@ -2,12 +2,9 @@
 % Please edit documentation in R/ncaa_lineups.R
 \name{ncaa_lineups}
 \alias{ncaa_lineups}
-\alias{get_ncaa_lineups}
 \title{\strong{Retrieve lineups for a given NCAA game via its \code{game_info_url}}}
 \usage{
 ncaa_lineups(game_info_url, year)
-
-get_ncaa_lineups(game_info_url, year)
 }
 \arguments{
 \item{game_info_url}{The unique game info url}

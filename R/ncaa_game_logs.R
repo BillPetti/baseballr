@@ -193,6 +193,11 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
   return(payload_df)
 
 }
-#' @rdname ncaa_game_logs
+#' @rdname get_ncaa_game_logs
+#' @title **(legacy) Get NCAA Baseball Game Logs**
+#' @inheritParams ncaa_game_logs
+#' @return A data frame containing player and school information
+#' as well as game by game statistics
+#' @keywords legacy
 #' @export
 get_ncaa_game_logs <- ncaa_game_logs

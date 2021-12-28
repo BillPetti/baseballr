@@ -2,12 +2,9 @@
 % Please edit documentation in R/ncaa_game_logs.R
 \name{ncaa_game_logs}
 \alias{ncaa_game_logs}
-\alias{get_ncaa_game_logs}
 \title{\strong{Get NCAA Baseball Game Logs}}
 \usage{
 ncaa_game_logs(player_id, year, type = "batting", span = "game")
-
-get_ncaa_game_logs(player_id, year, type = "batting", span = "game")
 }
 \arguments{
 \item{player_id}{A player's unique id. Can be found using the

@@ -2,12 +2,9 @@
 % Please edit documentation in R/mlb_draft.R
 \name{mlb_draft}
 \alias{mlb_draft}
-\alias{get_draft_mlb}
 \title{\strong{Retrieve draft pick information by year}}
 \usage{
 mlb_draft(year)
-
-get_draft_mlb(year)
 }
 \arguments{
 \item{year}{The year for which to return data}

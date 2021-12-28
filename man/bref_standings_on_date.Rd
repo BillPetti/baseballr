@@ -2,12 +2,9 @@
 % Please edit documentation in R/bref_standings_on_date.R
 \name{bref_standings_on_date}
 \alias{bref_standings_on_date}
-\alias{standings_on_date_bref}
 \title{\strong{Scrape MLB Standings on a Given Date}}
 \usage{
 bref_standings_on_date(date, division, from = FALSE)
-
-standings_on_date_bref(date, division, from = FALSE)
 }
 \arguments{
 \item{date}{a date object}
@@ -18,6 +15,9 @@ AL Overall, NL East, NL Central, NL West, and NL Overall}
 \item{from}{a logical indicating whether you want standings up to and
 including the date (FALSE, default) or rather standings for games played
 after the date}
+}
+\value{
+Returns a data frame of MLB standings
 }
 \description{
 This function allows you to scrape the standings from MLB for any date you choose.

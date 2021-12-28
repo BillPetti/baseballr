@@ -2,19 +2,16 @@
 % Please edit documentation in R/mlb_probables.R
 \name{mlb_probables}
 \alias{mlb_probables}
-\alias{get_probables_mlb}
 \title{\strong{Retrieve probable starters for a given MLB game}}
 \usage{
 mlb_probables(game_pk)
-
-get_probables_mlb(game_pk)
 }
 \arguments{
 \item{game_pk}{The unique game_pk identifier for the game}
 }
 \value{
 Returns a data frame that includes probable starting pitchers and
-the home plate umpire for the game_pk requested
+the home plate umpire for the \code{game_pk} requested
 }
 \description{
 \strong{Retrieve probable starters for a given MLB game}

@@ -60,6 +60,10 @@ navbar:
       menu:
       - text: "Function Index"
         href: reference/index.html
+      - text: "MLB"
+        href: reference/mlb.html
+      - text: "Statcast"
+        href: reference/statcast.html
       - text: "Retrosheet"
         href: reference/retrosheet_data.html
       - text: "NCAA Baseball"
@@ -145,34 +149,24 @@ repo:
     issue: https://github.com/billpetti/baseballR/issues/
     user: https://github.com/billpetti/
 reference:
-  - title: Baseball Reference
-  - subtitle: Baseball Reference MLB Data Functions
-    desc: Functions exported by baseballr to access Baseball Reference's MLB Data
+  - title: MLB Stats
+  - subtitle: MLB Stats Data Functions
+    desc: Functions exported by baseballr to access MLB Stats Data
     contents:
-      - starts_with("bref")
-  - title: FanGraphs
-  - subtitle: FanGraphs MLB and MiLB Data Functions
-    desc: Functions exported by baseballr to access FanGraphs' MLB and MiLB Data
-    contents:
-      - '`fangraphs`'
-      - starts_with("fg_")
-  - title: GameDay MLB 
-  - subtitle: GameDay MLB Data Functions
-    desc: Functions exported by baseballr to access GameDay MLB Data
-    contents:
-      - '`batter_boxscore`'
-      - '`pitcher_boxscore`'
+      - '`mlb`'
+      - starts_with("mlb_")
   - title: Baseball Savant
   - subtitle: Baseball Savant MLB Data Functions
     desc: Functions exported by baseballr to access Baseball Savant MLB Data
     contents:
+      - '`statcast`'
+      - '`statcast_leaderboards`'
+      - '`statcast_search`'
       - '`edge_scrape`'
       - '`edge_scrape_split`'
-      - '`scrape_savant_leaderboards`'
-      - '`scrape_statcast_savant`'
   - title: Baseball Savant Helpers
   - subtitle: Baseball Savant MLB Helper Functions
-    desc: Functions exported by baseballr to access Baseball Savant MLB Data
+    desc: Functions exported by baseballr to process Baseball Savant MLB Data
     contents:
       - '`edge_code`'
       - '`edge_frequency`'
@@ -181,11 +175,6 @@ reference:
       - '`statline_from_statcast`'
       - '`label_statcast_imputed_data`'
       - '`linear_weights_savant`'
-  - title: MLB Stats
-  - subtitle: MLB Stats Data Functions
-    desc: Functions exported by baseballr to access MLB Stats Data
-    contents:
-      - starts_with("mlb_")
   - title: NCAA Baseball 
   - subtitle: NCAA Baseball Data Functions
     desc: Functions exported by baseballr to access NCAA Baseball Data
@@ -196,6 +185,21 @@ reference:
     desc: Functions exported by baseballr to access Retrosheet Data
     contents:
       - '`retrosheet_data`'
+  - title: FanGraphs
+  - subtitle: FanGraphs MLB and MiLB Data Functions
+    desc: Functions exported by baseballr to access FanGraphs' MLB and MiLB Data
+    contents:
+      - '`fangraphs`'
+      - starts_with("fg_park")
+      - starts_with("fg_guts")
+      - starts_with("fg_batter")
+      - starts_with("fg_pitcher")
+      - starts_with("fg_milb")
+  - title: Baseball Reference
+  - subtitle: Baseball Reference MLB Data Functions
+    desc: Functions exported by baseballr to access Baseball Reference's MLB Data
+    contents:
+      - starts_with("bref")
   - title: Player Lookup
   - subtitle: Player Lookup Functions
     desc: Functions exported by baseballr to access Baseball player information from the Chadwick Bureau Register
@@ -209,6 +213,12 @@ reference:
     contents:
       - '`get_umpire_ids_petti`'
       - '`get_game_info_sup_petti`'
+  - title: GameDay MLB 
+  - subtitle: GameDay MLB Data Functions
+    desc: Functions exported by baseballr to access GameDay MLB Data
+    contents:
+      - '`batter_boxscore`'
+      - '`pitcher_boxscore`'
   - title: Metrics
   - subtitle: Metrics Functions
     desc: Functions exported by baseballr to calculate metrics
@@ -237,8 +247,12 @@ reference:
       - '`statcast_impute`'
   - title: Utilities
   - subtitle: Internal utilities of baseballr
-    desc: Data exported by baseballr for ease of use
     contents:
       - '`csv_from_url`'
       - '`rds_from_url`'
       - '`progressively`'
+  - title: Legacy
+  - subtitle: Legacy Functions
+    desc: Functions superseded by new naming convention
+    contents:
+      - has_keyword("legacy")

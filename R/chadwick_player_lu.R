@@ -12,5 +12,6 @@ chadwick_player_lu <- function() {
   return(df)
 }
 #' @rdname chadwick_player_lu
+#' @return A data frame of baseball players and the various IDs associated with them in different systems of record.
 #' @export
 get_chadwick_lu <-  chadwick_player_lu

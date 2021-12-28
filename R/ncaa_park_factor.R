@@ -7,7 +7,7 @@
 #' @param type default is conference. the conference parameter adjusts for the conference
 #' the school plays in, the division parameter calculates based on the division the school plays in 1,2,or 3.
 #' Defaults to 'conference'.
-#' @return A dataframe with the following fields: school, home_game,
+#' @return A data frame with the following fields: school, home_game,
 #' away_game, runs_scored_home, runs_allowed_home, run_scored_away,
 #' runs_allowed_away, base_pf (base park factor), home_game_adj (an adjustment for the percentage of home games played) final_pf (park factor after adjustments)
 #' @importFrom stringr str_detect str_squish str_remove_all str_split_fixed
@@ -52,7 +52,7 @@ ncaa_park_factor <- function(teamid, years, type = "conference") {
   message('Acquiring game data and calculating park factors. Please be patient...')
   
   if (y == 1) {
-    df = suppressWarnings(baseballr::get_ncaa_schedule_info(teamid = teamid, year = years))
+    df = suppressWarnings(baseballr::ncaa_schedule_info(teamid = teamid, year = years))
     
     df = df %>%
       dplyr::mutate(
@@ -106,7 +106,7 @@ ncaa_park_factor <- function(teamid, years, type = "conference") {
     
   } else if (y == 2) {
     for (j in 1:length(years)) {
-      y_all[[j]] = suppressWarnings(baseballr::get_ncaa_schedule_info(teamid = teamid, year = years[[j]]))
+      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(teamid = teamid, year = years[[j]]))
     }
     
     df = do.call(rbind,y_all)
@@ -163,7 +163,7 @@ ncaa_park_factor <- function(teamid, years, type = "conference") {
   } else if (y == 3) {
     
     for (j in 1:length(years)) {
-      y_all[[j]] = suppressWarnings(baseballr::get_ncaa_schedule_info(teamid = teamid, year = years[[j]]))
+      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(teamid = teamid, year = years[[j]]))
     }
     
     df = do.call(rbind,y_all)
@@ -220,7 +220,7 @@ ncaa_park_factor <- function(teamid, years, type = "conference") {
   } else if(y == 4) {
     
     for (j in 1:length(years)) {
-      y_all[[j]] = suppressWarnings(baseballr::get_ncaa_schedule_info(teamid = teamid, year = years[[j]]))
+      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(teamid = teamid, year = years[[j]]))
     }
     
     df = do.call(rbind,y_all)
@@ -276,7 +276,7 @@ ncaa_park_factor <- function(teamid, years, type = "conference") {
   } else if(y >= 5) {
     
     for (j in 1:length(years)) {
-      y_all[[j]] = suppressWarnings(baseballr::get_ncaa_schedule_info(teamid = teamid, year = years[[j]]))
+      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(teamid = teamid, year = years[[j]]))
     }
     
     df = do.call(rbind,y_all)
@@ -329,6 +329,12 @@ ncaa_park_factor <- function(teamid, years, type = "conference") {
   }
 }
 
-#' @rdname ncaa_park_factor
+#' @rdname get_ncaa_park_factor
+#' @title **(legacy) Get Park Effects for NCAA Baseball Teams**
+#' @inheritParams ncaa_park_factor
+#' @return A data frame with the following fields: school, home_game,
+#' away_game, runs_scored_home, runs_allowed_home, run_scored_away,
+#' runs_allowed_away, base_pf (base park factor), home_game_adj (an adjustment for the percentage of home games played) final_pf (park factor after adjustments)
+#' @keywords legacy
 #' @export
 get_ncaa_park_factor <- ncaa_park_factor

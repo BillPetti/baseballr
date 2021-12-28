@@ -12,6 +12,11 @@ fg_park_hand(yr)
 \arguments{
 \item{yr}{Season for which you want to scrape the park factors.}
 }
+\value{
+Returns a data frame of park factors by handedness.
+
+Returns a data frame of park factors by handedness.
+}
 \description{
 This function allows you to scrape park factors for a given season from FanGraphs.com.
 

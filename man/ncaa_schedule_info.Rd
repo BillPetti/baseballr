@@ -2,12 +2,9 @@
 % Please edit documentation in R/ncaa_schedule_info.R
 \name{ncaa_schedule_info}
 \alias{ncaa_schedule_info}
-\alias{get_ncaa_schedule_info}
 \title{\strong{Get Schedule and Results for NCAA Baseball Teams}}
 \usage{
 ncaa_schedule_info(teamid = NULL, year = NULL)
-
-get_ncaa_schedule_info(teamid = NULL, year = NULL)
 }
 \arguments{
 \item{teamid}{The team's unique NCAA id.}
@@ -16,7 +13,7 @@ get_ncaa_schedule_info(teamid = NULL, year = NULL)
 etc.)}
 }
 \value{
-A dataframe with the following fields: date, opponent,
+A data frame with the following fields: date, opponent,
 result, score, innings (if more than regulation), and the url
 for the game itself.
 }

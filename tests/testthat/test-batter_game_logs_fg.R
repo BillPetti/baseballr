@@ -277,7 +277,7 @@ cols <- c(
 
 test_that("Fangraphs Batter Game Logs", {
   skip_on_cran()
-  x <- batter_game_logs_fg(playerid = 6184, year = 2017)
+  x <- fg_batter_game_logs(playerid = 6184, year = 2017)
   
   expect_equal(colnames(x), cols)
   expect_s3_class(x, "data.frame")

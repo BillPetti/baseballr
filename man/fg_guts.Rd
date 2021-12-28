@@ -6,6 +6,9 @@
 \usage{
 fg_guts()
 }
+\value{
+Returns a data frame of seasonal constants from FanGraphs
+}
 \description{
 Scrape historical FanGraphs Guts! table, wOBA, FIP coefficients and constants
 }

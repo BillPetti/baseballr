@@ -1,4 +1,39 @@
 # baseballr 0.9.94
+## Function Naming Convention Change
+|name                               |new_name                  |file                                |
+|:----------------------------------|:-------------------------|:-----------------------------------|
+|daily_batter_bref                  |bref_daily_batter         |R/bref_daily_batter.R               |
+|daily_pitcher_bref                 |bref_daily_pitcher        |R/bref_daily_pitcher.R              |
+|standings_on_date_bref             |bref_standings_on_date    |R/bref_standings_on_date.R          |
+|team_results_bref                  |bref_team_results         |R/bref_team_results.R               |
+|get_chadwick_lu                    |chadwick_player_lu        |R/chadwick_player_lu.R              |
+|batter_game_logs_fg                |fg_batter_game_logs       |R/fg_batter_game_logs.R             |
+|fg_bat_leaders                     |fg_batter_leaders         |R/fg_batter_players.R               |
+|milb_batter_game_logs_fg           |fg_milb_batter_game_logs  |R/fg_milb_batter_game_logs.R        |
+|milb_pitcher_game_logs_fg          |fg_milb_pitcher_game_logs |R/fg_milb_pitcher_game_logs.R       |
+|pitcher_game_logs_fg               |fg_pitcher_game_logs      |R/fg_pitcher_game_logs.R            |
+|fg_pitch_leaders                   |fg_pitcher_leaders        |R/fg_pitcher_leaders.R              |
+|get_batting_orders                 |mlb_batting_orders        |R/mlb_batting_orders.R              |
+|get_draft_mlb                      |mlb_draft                 |R/mlb_draft.R                       |
+|get_game_info_mlb                  |mlb_game_info             |R/mlb_game_info.R                   |
+|get_game_pks_mlb                   |mlb_game_pks              |R/mlb_game_pks.R                    |
+|get_pbp_mlb                        |mlb_pbp                   |R/mlb_pbp.R                         |
+|get_probables_mlb                  |mlb_probables             |R/mlb_probables.R                   |
+|get_ncaa_baseball_pbp              |ncaa_baseball_pbp         |R/ncaa_baseball_pbp.R               |
+|get_ncaa_baseball_roster           |ncaa_baseball_roster      |R/ncaa_baseball_roster.R            |
+|get_ncaa_game_logs                 |ncaa_game_logs            |R/ncaa_game_logs.R                  |
+|get_ncaa_lineups                   |ncaa_lineups              |R/ncaa_lineups.R                    |
+|get_ncaa_park_factor               |ncaa_park_factor          |R/ncaa_park_factor.R                |
+|get_ncaa_schedule_info             |ncaa_schedule_info        |R/ncaa_schedule_info.R              |
+|school_id_lu                       |ncaa_school_id_lu         |R/ncaa_school_id_lu.R               |
+|get_retrosheet_data                |retrosheet_data           |R/retrosheet_data.R                 |
+|scrape_savant_leaderboards         |statcast_leaderboards     |R/sc_scrape_statcast_leaderboards.R |
+|scrape_statcast_savant             |statcast_search           |R/sc_scrape_statcast.R              |
+|scrape_statcast_savant_batter      |statcast_search_batters   |R/sc_scrape_statcast.R              |
+|scrape_statcast_savant_batter_all  |statcast_search_batters   |R/sc_scrape_statcast.R              |
+|scrape_statcast_savant_pitcher     |statcast_search_pitchers  |R/sc_scrape_statcast.R              |
+|scrape_statcast_savant_pitcher_all |statcast_search_pitchers  |R/sc_scrape_statcast.R              |
+
 * `mlb_schedules()` function added
 * Removed `viz_gb_on_period()` from package, see `data-raw/` for the last updated script.
 

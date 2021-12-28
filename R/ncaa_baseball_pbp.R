@@ -2,7 +2,7 @@
 #' @title **Get Play-By-Play Data for NCAA Baseball Games**
 #' @param game_info_url The url for the game's play-by-play data. This can be 
 #'  found using the get_ncaa_schedule_info function.
-#' @return A dataframe with play-by-play data for an individual game.
+#' @return A data frame with play-by-play data for an individual game.
 #' @importFrom tibble tibble
 #' @importFrom tidyr gather spread
 #' @importFrom purrr map
@@ -92,7 +92,11 @@ ncaa_baseball_pbp <- function(game_info_url) {
   return(mapped_table)
 }
 
-#' @rdname ncaa_baseball_pbp
+#' @rdname get_ncaa_baseball_pbp
+#' @title **(legacy) Get Play-By-Play Data for NCAA Baseball Games**
+#' @inheritParams ncaa_baseball_pbp
+#' @return A data frame with play-by-play data for an individual game.
+#' @keywords legacy
 #' @export
 get_ncaa_baseball_pbp <- ncaa_baseball_pbp
 

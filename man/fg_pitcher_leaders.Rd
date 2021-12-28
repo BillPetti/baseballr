@@ -2,19 +2,9 @@
 % Please edit documentation in R/fg_pitcher_leaders.R
 \name{fg_pitcher_leaders}
 \alias{fg_pitcher_leaders}
-\alias{fg_pitch_leaders}
 \title{\strong{Scrape Pitcher Leaderboards from FanGraphs}}
 \usage{
 fg_pitcher_leaders(
-  x,
-  y,
-  league = "all",
-  qual = "y",
-  pitcher_type = "pit",
-  ind = 1
-)
-
-fg_pitch_leaders(
   x,
   y,
   league = "all",
@@ -35,6 +25,9 @@ fg_pitch_leaders(
 \item{pitcher_type}{Whether you want only starting pitchers, relievers, or all pitchers that meet the criteria specified in the qual argument. Options include "pit", "sta", "rel".}
 
 \item{ind}{Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.}
+}
+\value{
+A data frame of pitcher data.
 }
 \description{
 \strong{Scrape Pitcher Leaderboards from FanGraphs}

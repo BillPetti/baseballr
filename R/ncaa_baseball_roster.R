@@ -73,6 +73,11 @@ ncaa_baseball_roster <- function(teamid = NA, team_year){
   return(roster)
 }
 
-#' @rdname ncaa_baseball_roster
+#' @rdname get_ncaa_baseball_roster
+#' @title **(legacy) Get NCAA Baseball Rosters**
+#' @inheritParams ncaa_baseball_roster
+#' @return A data frame containing roster information, including
+#' IDs and urls for each player (if available)
+#' @keywords legacy
 #' @export
 get_ncaa_baseball_roster <- ncaa_baseball_roster

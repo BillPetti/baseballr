@@ -4,6 +4,7 @@
 #' @description This function allows you to scrape game logs by year for a pitcher from FanGraphs.com.
 #' @param playerid This is the playerid used by FanGraphs for a given player
 #' @param year The season for which game logs should be returned (use the YYYY format)
+#' @return A data frame of pitcher game logs.
 #' @importFrom dplyr mutate select 
 #' @importFrom jsonlite fromJSON 
 #' @importFrom stringr str_extract
@@ -36,6 +37,10 @@ fg_pitcher_game_logs <- function(playerid, year = 2017) {
 }
 
 
-#' @rdname fg_pitcher_game_logs
+#' @rdname pitcher_game_logs_fg
+#' @title **(legacy) Scrape Pitcher Game Logs from FanGraphs**
+#' @inheritParams fg_pitcher_game_logs
+#' @return A data frame of pitcher game logs.
+#' @keywords legacy
 #' @export
 pitcher_game_logs_fg <- fg_pitcher_game_logs

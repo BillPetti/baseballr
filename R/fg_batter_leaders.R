@@ -6,6 +6,7 @@
 #' @param league Option for limiting results to different leagues or overall results. Options are "al", "nl", or "all".
 #' @param qual Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimumm number of plate appearaces/innings pitched, use the number desired. Defaults to "y".
 #' @param ind Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.
+#' @return A data frame of batter data.
 #' @import rvest 
 #' @export
 #' @examples \donttest{
@@ -111,6 +112,10 @@ fg_batter_leaders <- function(x, y, league = "all", qual = "y", ind = 1) {
     return(leaders)
   }
 }
-#' @rdname fg_batter_leaders
+#' @rdname fg_bat_leaders
+#' @title **(legacy) Scrape Batter Leaderboards from FanGraphs**
+#' @inheritParams fg_batter_leaders
+#' @return A data frame of batter data.
+#' @keywords legacy
 #' @export
 fg_bat_leaders <- fg_batter_leaders

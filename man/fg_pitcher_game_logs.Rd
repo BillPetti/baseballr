@@ -2,17 +2,17 @@
 % Please edit documentation in R/fg_pitcher_game_logs.R
 \name{fg_pitcher_game_logs}
 \alias{fg_pitcher_game_logs}
-\alias{pitcher_game_logs_fg}
 \title{\strong{Scrape Pitcher Game Logs from FanGraphs}}
 \usage{
 fg_pitcher_game_logs(playerid, year = 2017)
-
-pitcher_game_logs_fg(playerid, year = 2017)
 }
 \arguments{
 \item{playerid}{This is the playerid used by FanGraphs for a given player}
 
 \item{year}{The season for which game logs should be returned (use the YYYY format)}
+}
+\value{
+A data frame of pitcher game logs.
 }
 \description{
 This function allows you to scrape game logs by year for a pitcher from FanGraphs.com.

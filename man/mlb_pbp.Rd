@@ -2,12 +2,9 @@
 % Please edit documentation in R/mlb_pbp.R
 \name{mlb_pbp}
 \alias{mlb_pbp}
-\alias{get_pbp_mlb}
 \title{\strong{Acquire pitch-by-pitch data for Major and Minor League games}}
 \usage{
 mlb_pbp(game_pk)
-
-get_pbp_mlb(game_pk)
 }
 \arguments{
 \item{game_pk}{The date for which you want to find game_pk values for MLB games}

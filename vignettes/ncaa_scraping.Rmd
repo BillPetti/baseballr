@@ -42,11 +42,11 @@ ncaa_scrape(736, 2013, "pitching") %>%
 ```
 
 
-Now, the function is dependent on the user knowing the `school_id` used by the NCAA website. Given that, I've included a `school_id_lu` function so that users can find the `school_id` they need.
+Now, the function is dependent on the user knowing the `school_id` used by the NCAA website. Given that, I've included a `ncaa_school_id_lu` function so that users can find the `school_id` they need.
 
 Just pass a string to the function and it will return possible matches based on the school's name:
 
 ```{r}
-school_id_lu("Vand")
+ncaa_school_id_lu("Vand")
 ```
 

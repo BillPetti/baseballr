@@ -64,7 +64,10 @@ retrosheet_data <- function(path_to_directory,
              ~acquire_parse_restrosheet_event(season = .x,
                                               wd = path_to_directory))
 }
-#' @rdname retrosheet_data
+#' @rdname get_retrosheet_data
+#' @title **(legacy) Get, Parse, and Format Retrosheet Event and Roster Files**
+#' @inheritParams retrosheet_data
+#' @keywords legacy
 #' @export
 get_retrosheet_data <- retrosheet_data 
 

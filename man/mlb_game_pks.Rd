@@ -2,12 +2,9 @@
 % Please edit documentation in R/mlb_game_pks.R
 \name{mlb_game_pks}
 \alias{mlb_game_pks}
-\alias{get_game_pks_mlb}
 \title{\strong{Get MLB Game Info by Date and Level}}
 \usage{
 mlb_game_pks(date, level_ids = c(1))
-
-get_game_pks_mlb(date, level_ids = c(1))
 }
 \arguments{
 \item{date}{The date for which you want to find game_pk values for MLB games}
@@ -18,7 +15,6 @@ desired. See below for a reference of level ids.}
 \value{
 Returns a data frame that includes game_pk values and additional
 information for games scheduled or played
-requested
 }
 \description{
 Find game_pk values for professional baseball games (major and minor leagues)

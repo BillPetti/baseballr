@@ -54,6 +54,11 @@ mlb_game_info <- function(game_pk) {
 
 }
 
-#' @rdname mlb_game_info
+#' @rdname get_game_info_mlb 
+#' @title **(legacy) Retrieve additional game information for major and minor league games**
+#' @inheritParams mlb_game_info
+#' @return Returns a data frame that includes supplemental information, such as
+#' weather, official scorer, attendance, etc., for the game_pk provided
+#' @keywords legacy
 #' @export
 get_game_info_mlb <- mlb_game_info

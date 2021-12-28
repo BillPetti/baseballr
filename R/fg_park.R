@@ -3,6 +3,7 @@
 #' @title **Scrape Park Factors from FanGraphs**
 #' @description This function allows you to scrape park factors for a given season from FanGraphs.com.
 #' @param yr Season for which you want to scrape the park factors.
+#' @return Returns a data frame of park factors by handedness.
 #' @export
 #' @examples \donttest{
 #'   fg_park(2013)
@@ -24,6 +25,7 @@ fg_park <- function(yr) {
 #'
 #' @description This function allows you to scrape park factors by handedness from FanGraphs.com for a given single year.
 #' @param yr Season for which you want to scrape the park factors.
+#' @return Returns a data frame of park factors by handedness.
 #' @importFrom stats setNames
 #' @export
 #' @examples \donttest{
