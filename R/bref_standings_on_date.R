@@ -8,11 +8,21 @@
 #' including the date (FALSE, default) or rather standings for games played
 #' after the date
 #' @return Returns a data frame of MLB standings
+#' |col_name |types     |
+#' |:--------|:---------|
+#' |Tm       |character |
+#' |W        |integer   |
+#' |L        |integer   |
+#' |W-L%     |numeric   |
+#' |GB       |character |
+#' |RS       |integer   |
+#' |RA       |integer   |
+#' |pythW-L% |numeric   |
 #' @import rvest 
 #' @importFrom lubridate day month year
 #' @export
 #' @examples \donttest{
-#'   bref_standings_on_date(date = "2015-08-04", division = "AL East")
+#'   x <- bref_standings_on_date(date = "2015-08-04", division = "AL East")
 #' }
 
 bref_standings_on_date <- function(date, division, from = FALSE) {

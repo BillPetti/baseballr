@@ -28,4 +28,5 @@ write.csv(exported,"data-raw/baseballr_exported_functions.csv",row.names=F)
 read.csv("data-raw/baseballr_exported_functions_wip.csv") %>% 
   dplyr::filter(.data$new_name !="") %>% 
   dplyr::select(-.data$exported) %>% 
+  dplyr::select(legacy_name = .data$name, tidyr::everything()) %>% 
   knitr::kable()

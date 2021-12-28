@@ -5,6 +5,48 @@
 #' @param playerid The pitcher's minor leauge ID from FanGraphs.com.
 #' @param year The season for which game logs should be returned.
 #' @return Returns a data frame of Minor League pitcher game logs.
+#'  |col_name       |types     |
+#'  |:--------------|:---------|
+#'  |player_name    |character |
+#'  |minor_playerid |character |
+#'  |Date           |character |
+#'  |Team           |character |
+#'  |Level          |character |
+#'  |Opp            |character |
+#'  |W              |numeric   |
+#'  |L              |numeric   |
+#'  |ERA            |numeric   |
+#'  |G              |numeric   |
+#'  |GS             |numeric   |
+#'  |CG             |numeric   |
+#'  |ShO            |numeric   |
+#'  |SV             |numeric   |
+#'  |IP             |numeric   |
+#'  |TBF            |numeric   |
+#'  |H              |numeric   |
+#'  |R              |numeric   |
+#'  |ER             |numeric   |
+#'  |HR             |numeric   |
+#'  |BB             |numeric   |
+#'  |IBB            |numeric   |
+#'  |HBP            |numeric   |
+#'  |WP             |numeric   |
+#'  |BK             |numeric   |
+#'  |SO             |numeric   |
+#'  |K/9            |numeric   |
+#'  |BB/9           |numeric   |
+#'  |K/BB           |numeric   |
+#'  |HR/9           |numeric   |
+#'  |K%             |numeric   |
+#'  |K-BB%          |numeric   |
+#'  |BB%            |numeric   |
+#'  |AVG            |numeric   |
+#'  |WHIP           |numeric   |
+#'  |BABIP          |numeric   |
+#'  |LOB%           |numeric   |
+#'  |FIP            |numeric   |
+#'  |gamedate       |character |
+#'  |dh             |integer   |
 #' @import rvest 
 #' @importFrom tidyr separate
 #' @export

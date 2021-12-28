@@ -3,6 +3,13 @@
 #' @param game_info_url The unique game info url
 #' @param year The year the game was played in
 #' @return Returns a data frame of each school's starting lineup and starting pitcher
+#'  |col_name      |types     |
+#'  |:-------------|:---------|
+#'  |year          |numeric   |
+#'  |playerName    |character |
+#'  |position      |character |
+#'  |batting_order |character |
+#'  |school        |character |
 #' @importFrom stringr str_detect str_squish str_starts str_remove_all str_split_fixed
 #' @import rvest
 #' @export

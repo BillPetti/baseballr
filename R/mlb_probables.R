@@ -7,6 +7,16 @@
 #' @importFrom stringr str_sub
 #' @return Returns a data frame that includes probable starting pitchers and
 #' the home plate umpire for the `game_pk` requested
+#'  |col_name             |types     |
+#'  |:--------------------|:---------|
+#'  |game_pk              |integer   |
+#'  |game_date            |character |
+#'  |fullName             |character |
+#'  |id                   |integer   |
+#'  |team                 |character |
+#'  |team_id              |integer   |
+#'  |home_plate_full_name |character |
+#'  |home_plate_id        |integer   |
 #' @export
 #' @examples \donttest{
 #'   mlb_probables(566001)

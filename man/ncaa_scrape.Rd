@@ -13,6 +13,46 @@ ncaa_scrape(teamid, year, type = "batting")
 
 \item{type}{A string indicating whether to return "batting" or "pitching" statistics}
 }
+\value{
+A data frame with the following variables
+|col_name      |types     |
+|:-------------|:---------|
+|year          |integer   |
+|school        |character |
+|conference    |character |
+|division      |numeric   |
+|Jersey        |character |
+|Player        |character |
+|Yr            |character |
+|Pos           |character |
+|GP            |numeric   |
+|GS            |numeric   |
+|BA            |numeric   |
+|OBPct         |numeric   |
+|SlgPct        |numeric   |
+|R             |numeric   |
+|AB            |numeric   |
+|H             |numeric   |
+|2B            |numeric   |
+|3B            |numeric   |
+|TB            |numeric   |
+|HR            |numeric   |
+|RBI           |numeric   |
+|BB            |numeric   |
+|HBP           |numeric   |
+|SF            |numeric   |
+|SH            |numeric   |
+|K             |numeric   |
+|DP            |numeric   |
+|CS            |numeric   |
+|Picked        |numeric   |
+|SB            |numeric   |
+|RBI2out       |numeric   |
+|teamid        |numeric   |
+|conference_id |integer   |
+|player_id     |integer   |
+|player_url    |character |
+}
 \description{
 This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a data frame.
 }

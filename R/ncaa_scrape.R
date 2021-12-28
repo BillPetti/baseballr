@@ -3,6 +3,44 @@
 #' @param teamid The numerical ID that the NCAA website uses to identify a team
 #' @param year The season for which data should be returned, in the form of "YYYY". Years currently available: 2013-2017.
 #' @param type A string indicating whether to return "batting" or "pitching" statistics
+#' @return A data frame with the following variables
+#'  |col_name      |types     |
+#'  |:-------------|:---------|
+#'  |year          |integer   |
+#'  |school        |character |
+#'  |conference    |character |
+#'  |division      |numeric   |
+#'  |Jersey        |character |
+#'  |Player        |character |
+#'  |Yr            |character |
+#'  |Pos           |character |
+#'  |GP            |numeric   |
+#'  |GS            |numeric   |
+#'  |BA            |numeric   |
+#'  |OBPct         |numeric   |
+#'  |SlgPct        |numeric   |
+#'  |R             |numeric   |
+#'  |AB            |numeric   |
+#'  |H             |numeric   |
+#'  |2B            |numeric   |
+#'  |3B            |numeric   |
+#'  |TB            |numeric   |
+#'  |HR            |numeric   |
+#'  |RBI           |numeric   |
+#'  |BB            |numeric   |
+#'  |HBP           |numeric   |
+#'  |SF            |numeric   |
+#'  |SH            |numeric   |
+#'  |K             |numeric   |
+#'  |DP            |numeric   |
+#'  |CS            |numeric   |
+#'  |Picked        |numeric   |
+#'  |SB            |numeric   |
+#'  |RBI2out       |numeric   |
+#'  |teamid        |numeric   |
+#'  |conference_id |integer   |
+#'  |player_id     |integer   |
+#'  |player_url    |character |
 #' @import dplyr
 #' @import rvest
 #' @importFrom stringr str_split

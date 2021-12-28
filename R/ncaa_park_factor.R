@@ -10,6 +10,18 @@
 #' @return A data frame with the following fields: school, home_game,
 #' away_game, runs_scored_home, runs_allowed_home, run_scored_away,
 #' runs_allowed_away, base_pf (base park factor), home_game_adj (an adjustment for the percentage of home games played) final_pf (park factor after adjustments)
+#'  |col_name          |types     |
+#'  |:-----------------|:---------|
+#'  |school            |character |
+#'  |home_game         |numeric   |
+#'  |away_game         |numeric   |
+#'  |runs_scored_home  |numeric   |
+#'  |runs_allowed_home |numeric   |
+#'  |runs_scored_away  |numeric   |
+#'  |runs_allowed_away |numeric   |
+#'  |base_pf           |numeric   |
+#'  |home_game_adj     |numeric   |
+#'  |final_pf          |numeric   |
 #' @importFrom stringr str_detect str_squish str_remove_all str_split_fixed
 #' @importFrom janitor adorn_totals
 #' @export

@@ -13,6 +13,19 @@ playerid_lookup(last_name = NULL, first_name = NULL)
 }
 \value{
 A data frame of baseball players and the various IDs associated with them in different systems of record.
+|col_name         |types     |
+|:----------------|:---------|
+|first_name       |character |
+|last_name        |character |
+|given_name       |character |
+|name_suffix      |character |
+|nick_name        |character |
+|birth_year       |integer   |
+|mlb_played_first |integer   |
+|mlbam_id         |integer   |
+|retrosheet_id    |character |
+|bbref_id         |character |
+|fangraphs_id     |integer   |
 }
 \description{
 This function allows you to query the Chadwick Bureau's public register of baseball players and the various IDs associated with them in different systems of record.

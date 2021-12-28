@@ -12,12 +12,32 @@ mlb_game_info(game_pk)
 \value{
 Returns a data frame that includes supplemental information, such as
 weather, official scorer, attendance, etc., for the game_pk provided
+|col_name        |types     |
+|:---------------|:---------|
+|game_date       |character |
+|game_pk         |numeric   |
+|venue_name      |character |
+|venue_id        |integer   |
+|temperature     |character |
+|other_weather   |character |
+|wind            |character |
+|attendance      |character |
+|start_time      |character |
+|elapsed_time    |character |
+|game_id         |character |
+|game_type       |character |
+|home_sport_code |character |
+|official_scorer |character |
+|date            |character |
+|status_ind      |character |
+|home_league_id  |integer   |
+|gameday_sw      |character |
 }
 \description{
 \strong{Retrieve additional game information for major and minor league games}
 }
 \examples{
 \donttest{
-  mlb_game_info(game_pk = 566001)
+ mlb_game_info(game_pk = 566001)
 }
 }

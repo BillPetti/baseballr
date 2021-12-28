@@ -4,6 +4,50 @@
 #' @param playerid The batter's minor leauge ID from FanGraphs.
 #' @param year The season for which game logs should be returned.
 #' @return Returns a data frame of Minor League batter game logs.
+#'  |col_name       |types     |
+#'  |:--------------|:---------|
+#'  |player_name    |character |
+#'  |minor_playerid |character |
+#'  |Date           |character |
+#'  |Team           |character |
+#'  |Level          |character |
+#'  |Opp            |character |
+#'  |G              |numeric   |
+#'  |AB             |numeric   |
+#'  |PA             |numeric   |
+#'  |H              |numeric   |
+#'  |1B             |numeric   |
+#'  |2B             |numeric   |
+#'  |3B             |numeric   |
+#'  |HR             |numeric   |
+#'  |R              |numeric   |
+#'  |RBI            |numeric   |
+#'  |BB             |numeric   |
+#'  |IBB            |numeric   |
+#'  |SO             |numeric   |
+#'  |HBP            |numeric   |
+#'  |SF             |numeric   |
+#'  |SH             |numeric   |
+#'  |GDP            |numeric   |
+#'  |SB             |numeric   |
+#'  |CS             |numeric   |
+#'  |AVG            |numeric   |
+#'  |BB%            |numeric   |
+#'  |K%             |numeric   |
+#'  |BB/K           |numeric   |
+#'  |OBP            |numeric   |
+#'  |SLG            |numeric   |
+#'  |OPS            |numeric   |
+#'  |ISO            |numeric   |
+#'  |Spd            |numeric   |
+#'  |BABIP          |numeric   |
+#'  |wRC            |numeric   |
+#'  |wRAA           |numeric   |
+#'  |wOBA           |numeric   |
+#'  |wRC+           |numeric   |
+#'  |wBsR           |numeric   |
+#'  |gamedate       |character |
+#'  |dh             |integer   |
 #' @importFrom tidyr separate everything
 #' @importFrom dplyr mutate select
 #' @importFrom jsonlite fromJSON

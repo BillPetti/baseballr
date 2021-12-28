@@ -1,6 +1,6 @@
 #' @title **Process Baseball Savant CSV payload**
 #'
-#' @description This is a helper function for all `scrape_statcast_savant` functions.
+#' @description This is a helper function for all ```statcast_search()``` functions.
 #' The function processes the initial csv payload acquired from
 #' Baseball Savant to ensure consistency in formatting across downloads
 #' @param payload payload from a Baseball Savant request

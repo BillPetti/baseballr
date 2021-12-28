@@ -5,6 +5,38 @@
 #' @param t1 First date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @param t2 Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @return Returns a data frame of batter performance
+#'  |col_name |types     |
+#'  |:--------|:---------|
+#'  |bbref_id |character |
+#'  |season   |character |
+#'  |Name     |character |
+#'  |Age      |numeric   |
+#'  |Level    |character |
+#'  |Team     |character |
+#'  |G        |numeric   |
+#'  |PA       |numeric   |
+#'  |AB       |numeric   |
+#'  |R        |numeric   |
+#'  |H        |numeric   |
+#'  |X1B      |numeric   |
+#'  |X2B      |numeric   |
+#'  |X3B      |numeric   |
+#'  |HR       |numeric   |
+#'  |RBI      |numeric   |
+#'  |BB       |numeric   |
+#'  |IBB      |numeric   |
+#'  |uBB      |numeric   |
+#'  |SO       |numeric   |
+#'  |HBP      |numeric   |
+#'  |SH       |numeric   |
+#'  |SF       |numeric   |
+#'  |GDP      |numeric   |
+#'  |SB       |numeric   |
+#'  |CS       |numeric   |
+#'  |BA       |numeric   |
+#'  |OBP      |numeric   |
+#'  |SLG      |numeric   |
+#'  |OPS      |numeric   |
 #' @importFrom rlang .data
 #' @importFrom dplyr filter mutate arrange desc rename select
 #' @importFrom tidyr everything

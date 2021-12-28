@@ -10,7 +10,7 @@ process_statcast_payload(payload)
 \item{payload}{payload from a Baseball Savant request}
 }
 \description{
-This is a helper function for all \code{scrape_statcast_savant} functions.
+This is a helper function for all \code{statcast_search()} functions.
 The function processes the initial csv payload acquired from
 Baseball Savant to ensure consistency in formatting across downloads
 }

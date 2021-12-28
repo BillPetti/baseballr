@@ -13,6 +13,48 @@ fg_milb_pitcher_game_logs(playerid, year)
 }
 \value{
 Returns a data frame of Minor League pitcher game logs.
+|col_name       |types     |
+|:--------------|:---------|
+|player_name    |character |
+|minor_playerid |character |
+|Date           |character |
+|Team           |character |
+|Level          |character |
+|Opp            |character |
+|W              |numeric   |
+|L              |numeric   |
+|ERA            |numeric   |
+|G              |numeric   |
+|GS             |numeric   |
+|CG             |numeric   |
+|ShO            |numeric   |
+|SV             |numeric   |
+|IP             |numeric   |
+|TBF            |numeric   |
+|H              |numeric   |
+|R              |numeric   |
+|ER             |numeric   |
+|HR             |numeric   |
+|BB             |numeric   |
+|IBB            |numeric   |
+|HBP            |numeric   |
+|WP             |numeric   |
+|BK             |numeric   |
+|SO             |numeric   |
+|K/9            |numeric   |
+|BB/9           |numeric   |
+|K/BB           |numeric   |
+|HR/9           |numeric   |
+|K\%             |numeric   |
+|K-BB\%          |numeric   |
+|BB\%            |numeric   |
+|AVG            |numeric   |
+|WHIP           |numeric   |
+|BABIP          |numeric   |
+|LOB\%           |numeric   |
+|FIP            |numeric   |
+|gamedate       |character |
+|dh             |integer   |
 }
 \description{
 This function allows you to scrape MiLB game logs for individual batters from FanGraphs.com.

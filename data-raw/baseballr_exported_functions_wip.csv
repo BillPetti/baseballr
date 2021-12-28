@@ -45,8 +45,8 @@ fg_park_hand,,R/fg_park.R,TRUE
 fg_pitcher_game_logs,,R/fg_pitcher_game_logs.R,TRUE
 fg_pitcher_leaders,,R/fg_pitcher_leaders.R,TRUE
 fip_plus,,R/metrics_fip_plus.R,TRUE
-get_game_info_sup_petti,,R/get_game_info_sup_petti.R,TRUE
-get_umpire_ids_petti,,R/get_umpire_ids_petti.R,TRUE
+get_game_info_sup_petti,load_game_info_sup,R/load_game_info_sup.R,TRUE
+get_umpire_ids_petti,load_umpire_ids,R/load_umpire_ids.R,TRUE
 ggspraychart,,R/ggspraychart.R,TRUE
 label_statcast_imputed_data,,R/sch_label_statcast_imputed_data.R,TRUE
 linear_weights_savant,,R/metrics_linear_weights_savant.R,TRUE

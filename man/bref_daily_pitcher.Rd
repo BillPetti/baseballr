@@ -13,6 +13,54 @@ bref_daily_pitcher(t1, t2)
 }
 \value{
 Returns a data frame of pitcher performance
+|col_name |types     |
+|:--------|:---------|
+|bbref_id |character |
+|season   |character |
+|Name     |character |
+|Age      |numeric   |
+|Level    |character |
+|Team     |character |
+|G        |numeric   |
+|GS       |numeric   |
+|W        |numeric   |
+|L        |numeric   |
+|SV       |numeric   |
+|IP       |numeric   |
+|H        |numeric   |
+|R        |numeric   |
+|ER       |numeric   |
+|uBB      |numeric   |
+|BB       |numeric   |
+|SO       |numeric   |
+|HR       |numeric   |
+|HBP      |numeric   |
+|ERA      |numeric   |
+|AB       |numeric   |
+|X1B      |numeric   |
+|X2B      |numeric   |
+|X3B      |numeric   |
+|IBB      |numeric   |
+|GDP      |numeric   |
+|SF       |numeric   |
+|SB       |numeric   |
+|CS       |numeric   |
+|PO       |numeric   |
+|BF       |numeric   |
+|Pit      |numeric   |
+|Str      |numeric   |
+|StL      |numeric   |
+|StS      |numeric   |
+|GB.FB    |numeric   |
+|LD       |numeric   |
+|PU       |numeric   |
+|WHIP     |numeric   |
+|BAbip    |numeric   |
+|SO9      |numeric   |
+|SO.W     |numeric   |
+|SO_perc  |numeric   |
+|uBB_perc |numeric   |
+|SO_uBB   |numeric   |
 }
 \description{
 This function allows you to scrape basic pitcher statistics over a custom time frame. Data is sourced from Baseball-Reference.com.

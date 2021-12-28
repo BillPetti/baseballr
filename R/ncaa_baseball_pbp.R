@@ -3,6 +3,17 @@
 #' @param game_info_url The url for the game's play-by-play data. This can be 
 #'  found using the get_ncaa_schedule_info function.
 #' @return A data frame with play-by-play data for an individual game.
+#'  |col_name       |types     |
+#'  |:--------------|:---------|
+#'  |date           |character |
+#'  |location       |character |
+#'  |attendance     |logical   |
+#'  |inning         |character |
+#'  |inning_top_bot |character |
+#'  |score          |character |
+#'  |batting        |character |
+#'  |fielding       |character |
+#'  |description    |character |
 #' @importFrom tibble tibble
 #' @importFrom tidyr gather spread
 #' @importFrom purrr map

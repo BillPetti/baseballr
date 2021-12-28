@@ -16,6 +16,16 @@ etc.)}
 A data frame with the following fields: date, opponent,
 result, score, innings (if more than regulation), and the url
 for the game itself.
+|col_name      |types     |
+|:-------------|:---------|
+|date          |character |
+|opponent      |character |
+|result        |character |
+|score         |character |
+|innings       |character |
+|opponent_slug |character |
+|slug          |character |
+|game_info_url |character |
 }
 \description{
 \strong{Get Schedule and Results for NCAA Baseball Teams}

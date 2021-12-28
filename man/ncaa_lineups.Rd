@@ -13,6 +13,13 @@ ncaa_lineups(game_info_url, year)
 }
 \value{
 Returns a data frame of each school's starting lineup and starting pitcher
+|col_name      |types     |
+|:-------------|:---------|
+|year          |numeric   |
+|playerName    |character |
+|position      |character |
+|batting_order |character |
+|school        |character |
 }
 \description{
 \strong{Retrieve lineups for a given NCAA game via its \code{game_info_url}}

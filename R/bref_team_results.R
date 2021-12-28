@@ -5,7 +5,31 @@
 #' @param Tm The abbreviation used by Baseball-Reference.com for the team whose results you want to scrape.
 #' @param year Season for which you want to scrape the park factors.
 #' @return Returns a data frame of MLB team results
-#' @import dplyr
+#'  |col_name       |types     |
+#'  |:--------------|:---------|
+#'  |Gm             |numeric   |
+#'  |Date           |character |
+#'  |Tm             |character |
+#'  |H_A            |character |
+#'  |Opp            |character |
+#'  |Result         |character |
+#'  |R              |numeric   |
+#'  |RA             |numeric   |
+#'  |Inn            |character |
+#'  |Record         |character |
+#'  |Rank           |numeric   |
+#'  |GB             |character |
+#'  |Win            |character |
+#'  |Loss           |character |
+#'  |Save           |character |
+#'  |Time           |character |
+#'  |D/N            |character |
+#'  |Attendance     |numeric   |
+#'  |cLI            |numeric   |
+#'  |Streak         |numeric   |
+#'  |Orig_Scheduled |character |
+#'  |Year           |numeric   |
+#' @importFrom dplyr filter select mutate_at
 #' @import rvest 
 #' @export
 #' @examples

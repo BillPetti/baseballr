@@ -6,6 +6,16 @@
 #' @return A data frame with the following fields: date, opponent,
 #' result, score, innings (if more than regulation), and the url
 #' for the game itself.
+#'  |col_name      |types     |
+#'  |:-------------|:---------|
+#'  |date          |character |
+#'  |opponent      |character |
+#'  |result        |character |
+#'  |score         |character |
+#'  |innings       |character |
+#'  |opponent_slug |character |
+#'  |slug          |character |
+#'  |game_info_url |character |
 #' @importFrom tibble tibble rownames_to_column
 #' @importFrom tidyr separate
 #' @importFrom stringr str_trim str_extract

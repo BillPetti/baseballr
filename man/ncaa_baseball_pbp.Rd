@@ -12,6 +12,17 @@ found using the get_ncaa_schedule_info function.}
 }
 \value{
 A data frame with play-by-play data for an individual game.
+|col_name       |types     |
+|:--------------|:---------|
+|date           |character |
+|location       |character |
+|attendance     |logical   |
+|inning         |character |
+|inning_top_bot |character |
+|score          |character |
+|batting        |character |
+|fielding       |character |
+|description    |character |
 }
 \description{
 \strong{Get Play-By-Play Data for NCAA Baseball Games}

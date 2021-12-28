@@ -1,6 +1,6 @@
-# baseballr 0.9.94
+# baseballr 1.0.0
 ## Function Naming Convention Change
-|legacy_name                               |new_name                  |file                                |
+|legacy_name                        |new_name                  |file                                |
 |:----------------------------------|:-------------------------|:-----------------------------------|
 |daily_batter_bref                  |bref_daily_batter         |R/bref_daily_batter.R               |
 |daily_pitcher_bref                 |bref_daily_pitcher        |R/bref_daily_pitcher.R              |
@@ -27,6 +27,8 @@
 |get_ncaa_schedule_info             |ncaa_schedule_info        |R/ncaa_schedule_info.R              |
 |school_id_lu                       |ncaa_school_id_lu         |R/ncaa_school_id_lu.R               |
 |get_retrosheet_data                |retrosheet_data           |R/retrosheet_data.R                 |
+|get_game_info_sup_petti            |load_game_info_sup        |R/load_game_info_sup.R              |
+|get_umpire_ids_petti               |load_umpire_ids           |R/load_umpire_ids.R                 |
 |scrape_savant_leaderboards         |statcast_leaderboards     |R/sc_scrape_statcast_leaderboards.R |
 |scrape_statcast_savant             |statcast_search           |R/sc_scrape_statcast.R              |
 |scrape_statcast_savant_batter      |statcast_search_batters   |R/sc_scrape_statcast.R              |
@@ -35,7 +37,8 @@
 |scrape_statcast_savant_pitcher_all |statcast_search_pitchers  |R/sc_scrape_statcast.R              |
 
 * `mlb_schedules()` function added
-* Removed `viz_gb_on_period()` from package, see `data-raw/` for the last updated script.
+* Removed `viz_gb_on_period()` from package. See `data-raw/` for the last updated script.
+* Removed GameDay2 MLB API functions, `batter_boxscore()` and `pitcher_boxscore()`, from package. See `data-raw/` for the last updated script.
 
 # baseballr 0.9.92-93 (2021-11-16)
 * minor fix for `ncaa_game_info()` function

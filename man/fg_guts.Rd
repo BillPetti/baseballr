@@ -8,6 +8,22 @@ fg_guts()
 }
 \value{
 Returns a data frame of seasonal constants from FanGraphs
+|col_name   |types   |
+|:----------|:-------|
+|season     |integer |
+|lg_woba    |numeric |
+|woba_scale |numeric |
+|wBB        |numeric |
+|wHBP       |numeric |
+|w1B        |numeric |
+|w2B        |numeric |
+|w3B        |numeric |
+|wHR        |numeric |
+|runSB      |numeric |
+|runCS      |numeric |
+|lg_r_pa    |numeric |
+|lg_r_w     |numeric |
+|cFIP       |numeric |
 }
 \description{
 Scrape historical FanGraphs Guts! table, wOBA, FIP coefficients and constants

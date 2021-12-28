@@ -8,15 +8,27 @@ linear_weights_savant(df, level = "plate appearance")
 }
 \arguments{
 \item{df}{A data frame generated from Baseball Savant that has been run through
-the \code{\link{run_expectancy_code}} function.}
+the \code{run_expectancy_code()} function.}
 
 \item{level}{Whether to calculate linear weights the plate appearance or pitch
 level. Defaults to 'plate appearance'.}
 }
+\value{
+Returns a data frame with the following columns
+|col_name                     |types     |
+|:----------------------------|:---------|
+|events                       |character |
+|linear_weights_above_average |numeric   |
+|linear_weights_above_outs    |numeric   |
+}
 \description{
 This function allows a user to generate linear weight values for events using Baseball Savant data. Output includes both linear weights above average and linear weights above outs for home runs, triples, doubles, singles, walks, hit by pitches, and outs.
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{linear_weights_savant(df, level = "plate appearance")
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  df <- statcast_search(start_date = "2016-04-06", end_date = "2016-04-15", 
+                        playerid = 621043, player_type = 'batter') 
+  df <- run_expectancy_code(df, level = "plate appearances")
+  linear_weights_savant(df, level = "plate appearance")
+}
 }

@@ -13,6 +13,38 @@ bref_daily_batter(t1, t2)
 }
 \value{
 Returns a data frame of batter performance
+|col_name |types     |
+|:--------|:---------|
+|bbref_id |character |
+|season   |character |
+|Name     |character |
+|Age      |numeric   |
+|Level    |character |
+|Team     |character |
+|G        |numeric   |
+|PA       |numeric   |
+|AB       |numeric   |
+|R        |numeric   |
+|H        |numeric   |
+|X1B      |numeric   |
+|X2B      |numeric   |
+|X3B      |numeric   |
+|HR       |numeric   |
+|RBI      |numeric   |
+|BB       |numeric   |
+|IBB      |numeric   |
+|uBB      |numeric   |
+|SO       |numeric   |
+|HBP      |numeric   |
+|SH       |numeric   |
+|SF       |numeric   |
+|GDP      |numeric   |
+|SB       |numeric   |
+|CS       |numeric   |
+|BA       |numeric   |
+|OBP      |numeric   |
+|SLG      |numeric   |
+|OPS      |numeric   |
 }
 \description{
 This function allows you to scrape basic batter statistics over a custom time frame. Data is sourced from Baseball-Reference.com.

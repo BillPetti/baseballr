@@ -4,6 +4,20 @@
 #' @param team_year The year of interest
 #' @return A data frame containing roster information, including
 #' IDs and urls for each player (if available)
+#'  |col_name      |types     |
+#'  |:-------------|:---------|
+#'  |name          |character |
+#'  |class         |character |
+#'  |player_id     |character |
+#'  |season        |numeric   |
+#'  |number        |character |
+#'  |position      |character |
+#'  |player_url    |character |
+#'  |school        |character |
+#'  |conference    |character |
+#'  |school_id     |numeric   |
+#'  |division      |numeric   |
+#'  |conference_id |numeric   |
 #' @importFrom tibble tibble
 #' @import rvest
 #' @export

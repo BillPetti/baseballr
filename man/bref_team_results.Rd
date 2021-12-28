@@ -13,6 +13,30 @@ bref_team_results(Tm, year)
 }
 \value{
 Returns a data frame of MLB team results
+|col_name       |types     |
+|:--------------|:---------|
+|Gm             |numeric   |
+|Date           |character |
+|Tm             |character |
+|H_A            |character |
+|Opp            |character |
+|Result         |character |
+|R              |numeric   |
+|RA             |numeric   |
+|Inn            |character |
+|Record         |character |
+|Rank           |numeric   |
+|GB             |character |
+|Win            |character |
+|Loss           |character |
+|Save           |character |
+|Time           |character |
+|D/N            |character |
+|Attendance     |numeric   |
+|cLI            |numeric   |
+|Streak         |numeric   |
+|Orig_Scheduled |character |
+|Year           |numeric   |
 }
 \description{
 This function allows you to scrape schedule and results for a major league team from Baseball-Reference.com

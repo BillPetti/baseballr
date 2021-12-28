@@ -21,6 +21,46 @@ returns seasonal stats for a player's career.}
 \value{
 A data frame containing player and school information
 as well as game by game statistics
+|col_name      |types     |
+|:-------------|:---------|
+|player_id     |numeric   |
+|player_name   |character |
+|Date          |character |
+|Opponent      |character |
+|Result        |character |
+|App           |numeric   |
+|G             |numeric   |
+|GS            |numeric   |
+|IP            |numeric   |
+|CG            |numeric   |
+|H             |numeric   |
+|R             |numeric   |
+|ER            |numeric   |
+|BB            |numeric   |
+|SO            |numeric   |
+|SHO           |numeric   |
+|BF            |numeric   |
+|P-OAB         |numeric   |
+|2B-A          |numeric   |
+|3B-A          |numeric   |
+|Bk            |numeric   |
+|HR-A          |numeric   |
+|WP            |numeric   |
+|HB            |numeric   |
+|IBB           |numeric   |
+|Inh Run       |numeric   |
+|Inh Run Score |numeric   |
+|SHA           |numeric   |
+|SFA           |numeric   |
+|Pitches       |numeric   |
+|GO            |numeric   |
+|FO            |numeric   |
+|W             |numeric   |
+|L             |numeric   |
+|SV            |numeric   |
+|OrdAppeared   |numeric   |
+|KL            |numeric   |
+|pickoffs      |character |
 }
 \description{
 \strong{Get NCAA Baseball Game Logs}

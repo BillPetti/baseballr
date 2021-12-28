@@ -18,12 +18,22 @@ after the date}
 }
 \value{
 Returns a data frame of MLB standings
+|col_name |types     |
+|:--------|:---------|
+|Tm       |character |
+|W        |integer   |
+|L        |integer   |
+|W-L\%     |numeric   |
+|GB       |character |
+|RS       |integer   |
+|RA       |integer   |
+|pythW-L\% |numeric   |
 }
 \description{
 This function allows you to scrape the standings from MLB for any date you choose.
 }
 \examples{
 \donttest{
-  bref_standings_on_date(date = "2015-08-04", division = "AL East")
+  x <- bref_standings_on_date(date = "2015-08-04", division = "AL East")
 }
 }

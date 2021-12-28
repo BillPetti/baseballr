@@ -9,6 +9,16 @@ team_consistency(year)
 \arguments{
 \item{year}{Season consistency should be run for.}
 }
+\value{
+Returns a data frame with the following columns
+|col_name     |types     |
+|:------------|:---------|
+|Team         |character |
+|Con_R        |numeric   |
+|Con_RA       |numeric   |
+|Con_R_Ptile  |numeric   |
+|Con_RA_Ptile |numeric   |
+}
 \description{
 This function allows you to calculate team-level consistency in run scoring and run prevention over the course of an entire season.
 }

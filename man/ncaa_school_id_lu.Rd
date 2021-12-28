@@ -2,18 +2,26 @@
 % Please edit documentation in R/ncaa_school_id_lu.R
 \name{ncaa_school_id_lu}
 \alias{ncaa_school_id_lu}
-\alias{school_id_lu}
 \title{\strong{Lookup NCAA baseball school IDs (Division I, II, and III)}}
 \usage{
 ncaa_school_id_lu(school_name = NULL)
-
-school_id_lu(school_name = NULL)
 }
 \arguments{
 \item{school_name}{A string that will be searched for in the names of the schools.}
 }
+\value{
+Returns a data frame with school identification data: school, conference, school_id, year, division, conference_id
+|col_name      |types     |
+|:-------------|:---------|
+|school        |character |
+|conference    |character |
+|school_id     |numeric   |
+|year          |numeric   |
+|division      |numeric   |
+|conference_id |numeric   |
+}
 \description{
-This function allows the user to lookup the school_id needed for the ncaa_scrape function.
+This function allows the user to look up the \code{school_id} needed for the \code{ncaa_scrape()} function.
 }
 \examples{
 \donttest{

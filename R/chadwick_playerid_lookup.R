@@ -5,6 +5,19 @@
 #' @param last_name A text string used to return results for players with that string in their last name.
 #' @param first_name A text string used to return results for players with that string in their first name.
 #' @return A data frame of baseball players and the various IDs associated with them in different systems of record.
+#'   |col_name         |types     |
+#'   |:----------------|:---------|
+#'   |first_name       |character |
+#'   |last_name        |character |
+#'   |given_name       |character |
+#'   |name_suffix      |character |
+#'   |nick_name        |character |
+#'   |birth_year       |integer   |
+#'   |mlb_played_first |integer   |
+#'   |mlbam_id         |integer   |
+#'   |retrosheet_id    |character |
+#'   |bbref_id         |character |
+#'   |fangraphs_id     |integer   |
 #' @export
 #' @examples \donttest{
 #'   playerid_lookup("Garcia", "Karim")
