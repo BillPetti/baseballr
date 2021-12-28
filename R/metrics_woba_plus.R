@@ -4,24 +4,16 @@
 #' @importFrom dplyr left_join desc arrange
 #' @import rvest 
 #' @export
-#' @details
-#' ```r
-#' woba_plus(df)
-#' ```
+#' @examples \donttest{
+#'   df <- bref_daily_batter("2015-08-01", "2015-10-03") 
+#'   woba_plus(df)
+#' }
 woba_plus <- function(df) {
-
+  
+  df$season <- as.integer(df$season)
+  
   if (!exists("guts_table")) {
-    df$season <- as.character(df$season)
-    guts_table <- "http://www.fangraphs.com/guts.aspx?type=cn" %>% 
-      xml2::read_html()
-    guts_table <- guts_table %>% 
-      rvest::html_elements(xpath = '//*[@id="content"]/table') %>%
-      rvest::html_table(fill = TRUE)
-    guts_table<- as.data.frame(guts_table)[-(1:2), (1:14)]
-    names(guts_table) <- c("season", "lg_woba", "woba_scale", "wBB", "wHBP", "w1B", "w2B", "w3B", "wHR", "runSB", "runCS", "lg_r_pa", "lg_r_w", "cFIP")
-    for(i in c(2:ncol(guts_table))) {
-      guts_table[,i] <- as.numeric(as.character(guts_table[,i]))
-    }
+    guts_table <- fg_guts()
 
   }
 
@@ -43,7 +35,7 @@ woba_plus <- function(df) {
                                (df_join$AB - df_join$SO)),3)
 
   df_join <- df_join %>% 
-    dplyr::arrange(desc(.data$wOBA))
+    dplyr::arrange(dplyr::desc(.data$wOBA))
   x <- names(df_join) %in% c("lg_woba", "woba_scale", "wBB", "wHBP", "w1B", "w2B", "w3B", "wHR", "runSB", "runCS", "lg_r_pa", "lg_r_w", "cFIP")
   df_join <- df_join[!x]
 

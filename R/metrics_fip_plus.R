@@ -4,10 +4,15 @@
 #' @importFrom dplyr left_join desc arrange
 #' @import rvest
 #' @export
+#' @examples \donttest{
+#'   df <- bref_daily_pitcher("2015-04-05", "2015-04-30")
+#'   fip_plus(df)
+#' }
 
 fip_plus <- function(df) {
   
   df$season <- as.integer(df$season)
+  
   if (!exists("guts_table")) {
     guts_table <- fg_guts()
   }
@@ -18,7 +23,7 @@ fip_plus <- function(df) {
   df_join$wOBA_against <- round((((df_join$wBB * df_join$uBB) + (df_join$wHBP * df_join$HBP) + (df_join$w1B * df_join$X1B) + (df_join$w2B * df_join$X2B) + 	(df_join$w3B * df_join$X3B) + (df_join$wHR * df_join$HR))/(df_join$BF)),3)
   df_join$wOBA_CON_against <- round((((df_join$w1B * df_join$X1B) + (df_join$w2B * df_join$X2B) + 	(df_join$w3B * df_join$X3B) + (df_join$wHR * df_join$HR))/(df_join$AB - df_join$SO)),3)
   df_join <- df_join %>% 
-    dplyr::arrange(desc(.data$wOBA_against))
+    dplyr::arrange(dplyr::desc(.data$wOBA_against))
   x <- names(df_join) %in% c("lg_woba", "woba_scale", "wBB", "wHBP", "w1B", "w2B", "w3B", "wHR", "runSB", "runCS", "lg_r_pa", "lg_r_w", "cFIP")
   df_join <- df_join[!x]
   return(df_join)

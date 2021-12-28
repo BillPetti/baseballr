@@ -12,7 +12,9 @@ woba_plus(df)
 \description{
 This function allows you to calculate wOBA for any given set of data, provided the right variables are in the data set. The function currently returns both wOBA per plate appearance on wOBA per instance of fair contact.
 }
-\details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{woba_plus(df)
-}\if{html}{\out{</div>}}
+\examples{
+\donttest{
+  df <- bref_daily_batter("2015-08-01", "2015-10-03") 
+  woba_plus(df)
+}
 }
