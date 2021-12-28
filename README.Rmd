@@ -7,7 +7,7 @@ output: github_document
 if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
 }
-pacman::p_load_current_gh("billpetti/baseballr")
+
 pacman::p_load(dplyr)
 ```
 
@@ -47,11 +47,10 @@ pacman::p_load_current_gh("BillPetti/baseballr")
 ```
 
 ``` r
-# if you would prefer devtools installation
+# Alternatively, using the devtools package:
 if (!requireNamespace('devtools', quietly = TRUE)){
   install.packages('devtools')
 }
-# Alternatively, using the devtools package:
 devtools::install_github(repo = "BillPetti/baseballr")
 ```
 
@@ -66,22 +65,23 @@ devtools::install_github("BillPetti/baseballr", ref = "development_branch")
 
 The package consists of two main sets of functions: data acquisition and metric calculation.
 
-For example, if you want to see the standings for a specific MLB division on a given date, you can use the `standings_on_date_bref()` function. Just pass the year, month, day, and division you want:
+For example, if you want to see the standings for a specific MLB division on a given date, you can use the `bref_standings_on_date()` function. Just pass the year, month, day, and division you want:
 
-```{r standings_date_bref}
+```{r bref_standings_on_date}
 library(baseballr)
-standings_on_date_bref("2015-08-01", "NL East", from = FALSE)
+library(dplyr)
+bref_standings_on_date("2015-08-01", "NL East", from = FALSE)
 ```
 
 Right now the function works as far as back as 1994, which is when both leagues split into three divisions.
 
 You can also pull data for all hitters over a specific date range. Here are the results for all hitters from August 1st through October 3rd during the 2015 season:
 
-```{r daily_batter_bref}
+```{r bref_daily_batter}
 
-data <- daily_batter_bref("2015-08-01", "2015-10-03") 
+data <- bref_daily_batter("2015-08-01", "2015-10-03") 
 data %>%
-  head()
+  dplyr::glimpse()
 ```
 
 In terms of metric calculation, the package allows the user to calculate the consistency of team scoring and run prevention for any year using `team_consistency()`:
@@ -96,20 +96,20 @@ Simply pass the proper data frame to `woba_plus`:
 
 ```{r woba}
 data %>%
-  filter(PA > 200) %>%
+  dplyr::filter(PA > 200) %>%
   woba_plus %>%
-  arrange(desc(wOBA)) %>%
-  select(Name, Team, season, PA, wOBA, wOBA_CON) %>%
-  head()
+  dplyr::arrange(desc(wOBA)) %>%
+  dplyr::select(Name, Team, season, PA, wOBA, wOBA_CON) %>%
+  dplyr::glimpse()
 ```
 
 You can also generate these wOBA-based stats, as well as FIP, for pitchers using the `fip_plus()` function:
 
-```{r daily_pitcher_bref}
-daily_pitcher_bref("2015-04-05", "2015-04-30") %>% 
+```{r bref_daily_pitcher}
+bref_daily_pitcher("2015-04-05", "2015-04-30") %>% 
   fip_plus() %>% 
-  select(season, Name, IP, ERA, SO, uBB, HBP, HR, FIP, wOBA_against, wOBA_CON_against) %>%
-  arrange(desc(IP)) %>% 
+  dplyr::select(season, Name, IP, ERA, SO, uBB, HBP, HR, FIP, wOBA_against, wOBA_CON_against) %>%
+  dplyr::arrange(dplyr::desc(IP)) %>% 
   head(10)
 ```
 

@@ -7,7 +7,7 @@
 
 fip_plus <- function(df) {
   
-  df$season <- as.character(df$season)
+  df$season <- as.integer(df$season)
   if (!exists("guts_table")) {
     guts_table <- fg_guts()
   }

@@ -16,7 +16,7 @@ Returns a data frame of batter performance
 |col_name |types     |
 |:--------|:---------|
 |bbref_id |character |
-|season   |character |
+|season   |integer   |
 |Name     |character |
 |Age      |numeric   |
 |Level    |character |

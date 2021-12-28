@@ -8,7 +8,7 @@
 #'  |col_name |types     |
 #'  |:--------|:---------|
 #'  |bbref_id |character |
-#'  |season   |character |
+#'  |season   |integer   |
 #'  |Name     |character |
 #'  |Age      |numeric   |
 #'  |Level    |character |
@@ -78,7 +78,7 @@ bref_daily_pitcher <- function(t1, t2) {
   )
   df$X1B <- with(df, H-(X2B+X3B+HR))
   season <- substr(t1, 1, 4)
-  df$season <- season
+  df$season <- as.integer(season)
   df$uBB <- with(df, BB-IBB)
   
   suppressWarnings(
