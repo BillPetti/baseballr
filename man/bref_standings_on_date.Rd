@@ -34,6 +34,6 @@ This function allows you to scrape the standings from MLB for any date you choos
 }
 \examples{
 \donttest{
-  x <- bref_standings_on_date(date = "2015-08-04", division = "AL East")
+  bref_standings_on_date(date = "2015-08-04", division = "AL East")
 }
 }

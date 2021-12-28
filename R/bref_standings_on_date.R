@@ -22,7 +22,7 @@
 #' @importFrom lubridate day month year
 #' @export
 #' @examples \donttest{
-#'   x <- bref_standings_on_date(date = "2015-08-04", division = "AL East")
+#'   bref_standings_on_date(date = "2015-08-04", division = "AL East")
 #' }
 
 bref_standings_on_date <- function(date, division, from = FALSE) {
