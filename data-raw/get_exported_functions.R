@@ -24,7 +24,17 @@ pkg_usage_summary <- function_calls %>%
   dplyr::arrange(dplyr::desc(.data$n))
 
 write.csv(exported,"data-raw/baseballr_exported_functions.csv",row.names=F)
-
+existing_mlb_stats_api_functions <- c("mlb_batting_orders",
+                                      "mlb_draft",
+                                      "mlb_game_info",
+                                      "mlb_game_pks",
+                                      "mlb_pbp",
+                                      "mlb_schedule")
+exported %>% 
+  dplyr::filter(stringr::str_starts(.data$name,"mlb_"),
+                !(.data$name %in% existing_mlb_stats_api_functions)) %>% 
+  dplyr::select(-.data$new_name, -.data$exported) %>% 
+  knitr::kable()
 read.csv("data-raw/baseballr_exported_functions_wip.csv") %>% 
   dplyr::filter(.data$new_name !="") %>% 
   dplyr::select(-.data$exported) %>% 
