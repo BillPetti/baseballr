@@ -12,3 +12,9 @@ fip_plus(df)
 \description{
 This function allows you to calculate FIP and related metrics for any given set of data, provided the right variables are in the data set. The function currently returns both FIP per inning pitched, wOBA against (based on batters faced), and wOBA against per instance of fair contact.
 }
+\examples{
+\donttest{
+  df <- bref_daily_pitcher("2015-04-05", "2015-04-30")
+  fip_plus(df)
+}
+}
