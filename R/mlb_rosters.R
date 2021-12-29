@@ -62,22 +62,3 @@ mlb_rosters <- function(team_id = NULL, season = NULL, date = NULL, roster_type 
   )
   return(roster)
 }
-#' @title **MLB Roster Types** 
-#' @return Returns a data frame with the following columns
-#'  |col_name    |types     |
-#'  |:-----------|:---------|
-#'  |description |character |
-#'  |lookup_name |character |
-#'  |parameter   |character |
-#' @export
-#' @examples \donttest{
-#'   mlb_roster_types()
-#' }
-mlb_roster_types <- function(){
-  mlb_endpoint <- mlb_stats_endpoint("v1/rosterTypes")
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  roster_types <- resp %>% 
-    janitor::clean_names()
-  return(roster_types)
-}
