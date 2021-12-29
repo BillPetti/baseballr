@@ -4,7 +4,7 @@
 \alias{fg_batter_leaders}
 \title{\strong{Scrape Batter Leaderboards from FanGraphs}}
 \usage{
-fg_batter_leaders(x, y, league = "all", qual = "y", ind = 1)
+fg_batter_leaders(x, y, league = "all", qual = "y", ind = 1, exc_p = TRUE)
 }
 \arguments{
 \item{x}{First season for which you want data.}
@@ -16,6 +16,8 @@ fg_batter_leaders(x, y, league = "all", qual = "y", ind = 1)
 \item{qual}{Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimumm number of plate appearaces/innings pitched, use the number desired. Defaults to "y".}
 
 \item{ind}{Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.}
+
+\item{exc_p}{(logical) Whether or not to exclude pitchers from the batter leaderboards. TRUE = exclude pitchers, FALSE = retain pitchers.}
 }
 \value{
 A data frame of batter data.
