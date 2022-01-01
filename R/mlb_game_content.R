@@ -26,7 +26,6 @@
 #' @importFrom tidyr spread
 #' @importFrom tibble tibble
 #' @importFrom stringr str_sub
-#' @return Returns a data frame that includes game content information
 #' @export
 #' @examples \donttest{
 #'  mlb_game_content(game_pk = 566001)
