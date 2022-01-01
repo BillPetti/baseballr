@@ -1,7 +1,7 @@
 #' @rdname mlb_pbp_timecodes
 #' @title **Acquire time codes for Major and Minor League games**
 #'
-#' @param game_pk The date for which you want to find game_pk values for MLB games
+#' @param game_pk The game_pk for the game requested
 #' @importFrom jsonlite fromJSON
 #' @return Returns a data frame that includes time codes from the game_pk requested
 #' 
