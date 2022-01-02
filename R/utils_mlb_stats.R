@@ -12,49 +12,49 @@ mlb_api_call <- function(url){
 mlb_stats_endpoint <- function(endpoint){
   all_endpoints = c(
     "v1/attendance",
-    "v1/conferences",
-    "v1/conferences/{conferenceId}",
-    "v1/awards/{awardId}/recipients",
-    "v1/awards",
-    "v1/baseballStats",
-    "v1/eventTypes",
-    "v1/fielderDetailTypes",
-    "v1/gameStatus",
-    "v1/gameTypes",
-    "v1/highLow/types",
-    "v1/hitTrajectories",
-    "v1/jobTypes",
+    "v1/conferences",#
+    "v1/conferences/{conferenceId}",#
+    "v1/awards/{awardId}/recipients",#
+    "v1/awards",#
+    "v1/baseballStats",#
+    "v1/eventTypes",#
+    "v1/fielderDetailTypes",#
+    "v1/gameStatus",#
+    "v1/gameTypes",#
+    "v1/highLow/types",#
+    "v1/hitTrajectories",#
+    "v1/jobTypes",#
     "v1/languages",
-    "v1/leagueLeaderTypes",
-    "v1/logicalEvents",
-    "v1/metrics",
-    "v1/pitchCodes",
-    "v1/pitchTypes",
-    "v1/playerStatusCodes",
-    "v1/positions",
-    "v1/reviewReasons",
-    "v1/rosterTypes",
-    "v1/runnerDetailTypes",
-    "v1/scheduleEventTypes",
-    "v1/situationCodes",
-    "v1/sky",
-    "v1/standingsTypes",
-    "v1/statGroups",
-    "v1/statTypes",
-    "v1/windDirection",
-    "v1/divisions",
-    "v1/draft/{year}",
-    "v1/draft/prospects/{year}",
-    "v1/draft/{year}/latest",
+    "v1/leagueLeaderTypes",#
+    "v1/logicalEvents",#
+    "v1/metrics",#
+    "v1/pitchCodes",#
+    "v1/pitchTypes",#
+    "v1/playerStatusCodes",#
+    "v1/positions",#
+    "v1/reviewReasons",#
+    "v1/rosterTypes",#
+    "v1/runnerDetailTypes",#
+    "v1/scheduleEventTypes",#
+    "v1/situationCodes",#
+    "v1/sky",#
+    "v1/standingsTypes",#
+    "v1/statGroups",#
+    "v1/statTypes",#
+    "v1/windDirection",#
+    "v1/divisions",#
+    "v1/draft/{year}",#
+    "v1/draft/prospects/{year}",#
+    "v1/draft/{year}/latest",#
     "v1.1/game/{gamePk}/feed/live",
-    "v1.1/game/{gamePk}/feed/live/diffPatch",
-    "v1.1/game/{gamePk}/feed/live/timestamps",
-    "v1/game/changes",
-    "v1/game/analytics/game",
-    "v1/game/analytics/guids",
-    "v1/game/{gamePk}/guids",
-    "v1/game/{gamePk}/{GUID}/analytics",
-    "v1/game/{gamePk}/{GUID}/contextMetricsAverages",
+    "v1.1/game/{gamePk}/feed/live/diffPatch",#
+    "v1.1/game/{gamePk}/feed/live/timestamps",#
+    "v1/game/changes",##x
+    "v1/game/analytics/game",##x
+    "v1/game/analytics/guids",##x
+    "v1/game/{gamePk}/guids",##x
+    "v1/game/{gamePk}/{GUID}/analytics",##x
+    "v1/game/{gamePk}/{GUID}/contextMetricsAverages",##x
     "v1/game/{gamePk}/contextMetrics",
     "v1/game/{gamePk}/winProbability",
     "v1/game/{gamePk}/boxscore",

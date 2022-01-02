@@ -31,8 +31,6 @@ Returns a data frame with the following columns
 |description         |character |
 |rendition_name      |character |
 |language            |character |
-
-Returns a data frame that includes game content information
 }
 \description{
 \strong{Retrieve additional game content for major and minor league games}
