@@ -1,4 +1,4 @@
-#' @rdname mlb_pbp_changes
+#' @rdname mlb_game_changes
 #' @title **Acquire time codes for Major and Minor League games**
 #'
 #' @param updated_since Updated since date time
@@ -77,10 +77,10 @@
 #'  
 #' @export
 #' @examples \donttest{
-#'   mlb_pbp_changes(updated_since = "2021-08-10T19:08:24.000004Z", sport_id = 1)
+#'   mlb_game_changes(updated_since = "2021-08-10T19:08:24.000004Z", sport_id = 1)
 #' }
 
-mlb_pbp_changes <- function(updated_since, sport_id) {
+mlb_game_changes <- function(updated_since, sport_id) {
   
   query_params <- list( 
     sportId = sport_id,
