@@ -1,4 +1,4 @@
-#' @rdname mlb_pbp_timecodes
+#' @rdname mlb_game_timecodes
 #' @title **Acquire time codes for Major and Minor League games**
 #'
 #' @param game_pk The game_pk for the game requested
@@ -11,10 +11,10 @@
 #'  
 #' @export
 #' @examples \donttest{
-#'   mlb_pbp_timecodes(game_pk = 632970)
+#'   mlb_game_timecodes(game_pk = 632970)
 #' }
 
-mlb_pbp_timecodes <- function(game_pk) {
+mlb_game_timecodes <- function(game_pk) {
   
   
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1.1/game/{game_pk}/feed/live/timestamps"))
