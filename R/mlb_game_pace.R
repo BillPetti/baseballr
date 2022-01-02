@@ -1,10 +1,10 @@
 #' @rdname mlb_game_pace
 #' @title **Retrieve game pace metrics for major and minor league**
-#' @param season Year to return to return information for (*required*).
-#' @param team_ids The team_id(s) to return information for.
-#' @param league_ids The league_id(s) to return information for.
-#' @param sport_ids The sport_id(s) to return information for.
-#' @param game_type The game_type to return information for.
+#' @param season Year for which to return information (*Required*).
+#' @param team_ids The team_id(s) for which to return information.
+#' @param league_ids The league_id(s) for which to return information.
+#' @param sport_ids The sport_id(s) for which to return information.
+#' @param game_type The game_type for which to return information.
 #' @param venue_ids Venue directorial information based venue_id. 
 #' @param org_type pace of game metrics based on team ('T'), league ('L') or sport('S')
 #' @param start_date Date of first game for which you want data.
