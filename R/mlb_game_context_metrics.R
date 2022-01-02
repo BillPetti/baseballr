@@ -1,4 +1,4 @@
-#' @rdname mlb_pbp_context_metrics
+#' @rdname mlb_game_context_metrics
 #' @title **Acquire game context metrics for Major and Minor League games**
 #'
 #' @param game_pk The game_pk for the game requested
@@ -75,10 +75,10 @@
 #'  
 #' @export
 #' @examples \donttest{
-#'   mlb_pbp_context_metrics(game_pk = 531060, timecode = "20180803_182458")
+#'   mlb_game_context_metrics(game_pk = 531060, timecode = "20180803_182458")
 #' }
 
-mlb_pbp_context_metrics <- function(
+mlb_game_context_metrics <- function(
   game_pk, 
   timecode) {
   
