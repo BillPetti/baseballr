@@ -237,6 +237,13 @@ mlb_homerun_derby_bracket <- function(
 #' @return Returns a data frame with the following columns 
 #'   |col_name                                       |types     |
 #'   |:----------------------------------------------|:---------|
+#'   |game_pk                                        |integer   |
+#'   |event_name                                     |character |
+#'   |event_date                                     |character |
+#'   |event_type_code                                |character |
+#'   |event_type_name                                |character |
+#'   |venue_id                                       |integer   |
+#'   |venue_name                                     |character |
 #'   |player_id                                      |integer   |
 #'   |player_full_name                               |character |
 #'   |player_link                                    |character |
@@ -315,6 +322,12 @@ mlb_homerun_derby_bracket <- function(
 #'   |player_bat_side_description                    |character |
 #'   |player_pitch_hand_code                         |character |
 #'   |player_pitch_hand_description                  |character |
+#'   |venue_link                                     |character |
+#'   |is_multi_day                                   |logical   |
+#'   |is_primary_calendar                            |logical   |
+#'   |file_code                                      |character |
+#'   |event_number                                   |integer   |
+#'   |public_facing                                  |logical   |
 #'   
 #' @importFrom jsonlite fromJSON
 #' @export
@@ -345,16 +358,23 @@ mlb_homerun_derby_players <- function(
       game_pk = .data$id,
       event_name = .data$name)
   
-  rounds <- resp$rounds %>% 
-    as.data.frame() %>% 
-    tidyr::unnest(.data$matchups) %>% 
-    janitor::clean_names() 
-  
   players <- resp$players %>% 
     as.data.frame() %>%  
     janitor::clean_names() %>% 
     dplyr::select(-.data$stats)
   colnames(players) <- paste0("player_", colnames(players))
+  
+  players <- players %>% 
+    dplyr::bind_cols(info) %>% 
+    dplyr::select(
+      .data$game_pk,
+      .data$event_name,
+      .data$event_date,
+      .data$event_type_code,
+      .data$event_type_name,
+      .data$venue_id,
+      .data$venue_name,
+      tidyr::everything())
   return(players)
 }
 
