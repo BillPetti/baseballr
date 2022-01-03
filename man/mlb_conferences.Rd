@@ -32,6 +32,6 @@ Returns a data frame with the following columns
 \examples{
 \donttest{
   mlb_conferences()
-  mlb_conferences(conference_id =  301, season = 2021)
+  mlb_conferences(conference_id =  301, season = 2020)
 }
 }

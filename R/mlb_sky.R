@@ -3,7 +3,7 @@
 #'  |col_name            |types     |
 #'  |:-------------------|:---------|
 #'  |sky_code            |character |
-#'  |sky_name            |character |
+#'  |sky_description     |character |
 #' @export
 #' @examples \donttest{
 #'   mlb_sky()
@@ -22,7 +22,7 @@ mlb_sky <- function(){
     as.data.frame() %>% 
     dplyr::rename(
       sky_code = .data$code,
-      sky_name = .data$name
+      sky_description = .data$description
     )
   
   return(sky)

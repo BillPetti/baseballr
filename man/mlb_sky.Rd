@@ -11,7 +11,7 @@ Returns a tibble with the following columns
 |col_name            |types     |
 |:-------------------|:---------|
 |sky_code            |character |
-|sky_name            |character |
+|sky_description     |character |
 }
 \description{
 \strong{MLB Sky (Weather) Codes}
