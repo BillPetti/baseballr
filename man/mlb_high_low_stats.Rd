@@ -2,7 +2,7 @@
 % Please edit documentation in R/mlb_high_low_stats.R
 \name{mlb_high_low_stats}
 \alias{mlb_high_low_stats}
-\title{\strong{Acquire time codes for Major and Minor League games}}
+\title{\strong{Acquire high/low stats for Major and Minor Leagues}}
 \usage{
 mlb_high_low_stats(
   org_type,
@@ -19,11 +19,11 @@ mlb_high_low_stats(
 \arguments{
 \item{org_type}{The organization type for return information (\emph{Required}). Valid values include:
 \itemize{
-\item PLAYER
-\item TEAM
-\item DIVISION
-\item LEAGUE
-\item SPORT
+\item player
+\item team
+\item division
+\item league
+\item sport
 }}
 
 \item{season}{The season for which you want to return information (\emph{Required}).}
@@ -102,7 +102,7 @@ Returns a data frame with the following columns
 |col_name               |types     |
 |:----------------------|:---------|
 |total_splits           |integer   |
-|season                 |character |
+|season                 |integer   |
 |date                   |character |
 |is_home                |logical   |
 |rank                   |integer   |
@@ -134,7 +134,7 @@ Returns a data frame with the following columns
 |sort_stat_label        |character |
 }
 \description{
-\strong{Acquire time codes for Major and Minor League games}
+\strong{Acquire high/low stats for Major and Minor Leagues}
 }
 \examples{
 \donttest{
