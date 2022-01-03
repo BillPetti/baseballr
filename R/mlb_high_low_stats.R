@@ -1,12 +1,12 @@
 #' @rdname mlb_high_low_stats
-#' @title **Acquire time codes for Major and Minor League games**
+#' @title **Acquire high/low stats for Major and Minor Leagues**
 #'
 #' @param org_type The organization type for return information (*Required*). Valid values include:
-#' - PLAYER
-#' - TEAM
-#' - DIVISION
-#' - LEAGUE
-#' - SPORT
+#' - player
+#' - team
+#' - division
+#' - league
+#' - sport
 #' @param season The season for which you want to return information (*Required*).
 #' @param sort_stat The stat to sort the return  (*Required*). Valid values can be found from 'stat_lookup_param' below
 #' 
@@ -71,12 +71,11 @@
 #'  |team            |
 #'  |streak          |
 #' @param limit Number of records as the limit of the return.  
-#' @importFrom jsonlite fromJSON
 #' @return Returns a data frame with the following columns 
 #'   |col_name               |types     |
 #'   |:----------------------|:---------|
 #'   |total_splits           |integer   |
-#'   |season                 |character |
+#'   |season                 |integer   |
 #'   |date                   |character |
 #'   |is_home                |logical   |
 #'   |rank                   |integer   |
@@ -107,6 +106,7 @@
 #'   |sort_stat_is_counting  |logical   |
 #'   |sort_stat_label        |character |
 #'  
+#' @importFrom jsonlite fromJSON
 #' @export
 #' @examples \donttest{
 #'  mlb_high_low_stats(org_type = 'Team', season = 2020, sort_stat = 'atBats')
@@ -158,6 +158,8 @@ mlb_high_low_stats <- function(
       -.data$sort_stat_streak_levels) %>% 
     dplyr::rename(
       game_number = .data$game_game_number,
-      game_pk = .data$game_game_pk)
+      game_pk = .data$game_game_pk) %>% 
+    dplyr::mutate(
+      season = as.integer(.data$season))
   return(high_low_results_splits)
 }
