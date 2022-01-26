@@ -1,5 +1,8 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+# 
+
+# `baseballr` <a href='https://billpetti.github.io/baseballr/'><img src='https://raw.githubusercontent.com/billpetti/baseballr/master/logo.png' align="right" width="30%" min-width="100px" /></a>
+
 <!-- badges: start -->
 
 ![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)
@@ -9,10 +12,6 @@
 [![Twitter
 Follow](https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge)](https://twitter.com/BillPetti)
 <!-- badges: end -->
-
-# baseballr <a href='https://BillPetti.github.io/baseballr/'><img src='man/figures/logo.png' align="right" height="139" /></a>
-
-# `baseballr`
 
 `baseballr` is a package written for R focused on baseball analysis. It
 includes functions for scraping various data from websites, such as
@@ -28,7 +27,7 @@ article](https://www.hardballtimes.com/developing-the-baseballr-package-for-r/).
 ## **Installation**
 
 You can install the released version of
-[**`baseballr`**](https://github.com/BillPetti/baseballr/) from
+[**`baseballr`**](https://github.com/BillPetti/baseballr) from
 [GitHub](https://github.com/BillPetti/baseballr) with:
 
 ``` r
@@ -40,11 +39,10 @@ pacman::p_load_current_gh("BillPetti/baseballr")
 ```
 
 ``` r
-# if you would prefer devtools installation
+# Alternatively, using the devtools package:
 if (!requireNamespace('devtools', quietly = TRUE)){
   install.packages('devtools')
 }
-# Alternatively, using the devtools package:
 devtools::install_github(repo = "BillPetti/baseballr")
 ```
 
@@ -57,29 +55,20 @@ branch](https://github.com/BillPetti/baseballr/tree/development_branch):
 devtools::install_github("BillPetti/baseballr", ref = "development_branch")
 ```
 
-## Pull Requests
-
-Pull request are welcome, but I cannot guarantee that they will be
-accepted or accepted quickly. Please make all pull requests to the
-[development
-branch](https://github.com/BillPetti/baseballr/tree/development_branch)
-for review.
-
-## Functionality
+## **Functionality**
 
 The package consists of two main sets of functions: data acquisition and
 metric calculation.
 
 For example, if you want to see the standings for a specific MLB
-division on a given date, you can use the `standings_on_date_bref()`
+division on a given date, you can use the `bref_standings_on_date()`
 function. Just pass the year, month, day, and division you want:
 
 ``` r
 library(baseballr)
-standings_on_date_bref("2015-08-01", "NL East", from = FALSE)
+library(dplyr)
+bref_standings_on_date("2015-08-01", "NL East", from = FALSE)
 ```
-
-    ## Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Stathead account: https://stathead.com
 
     ## # A tibble: 5 x 8
     ##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`
@@ -98,30 +87,43 @@ are the results for all hitters from August 1st through October 3rd
 during the 2015 season:
 
 ``` r
-data <- daily_batter_bref("2015-08-01", "2015-10-03") 
-```
-
-    ## Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com
-
-``` r
+data <- bref_daily_batter("2015-08-01", "2015-10-03") 
 data %>%
-  head()
+  dplyr::glimpse()
 ```
 
-    ##   bbref_id season             Name Age  Level          Team  G  PA  AB  R  H
-    ## 1   547989   2015    Manny Machado  22 Maj-AL     Baltimore 59 266 237 36 66
-    ## 2   554429   2015       Matt Duffy  24 Maj-NL San Francisco 59 264 248 33 71
-    ## 3   542436   2015      Jose Altuve  25 Maj-AL       Houston 57 262 244 30 81
-    ## 4   571431   2015       Adam Eaton  26 Maj-AL       Chicago 58 262 230 37 74
-    ## 5   501303   2015    Shin-Soo Choo  32 Maj-AL         Texas 58 260 211 48 71
-    ## 6   346793   2015 Francisco Lindor  21 Maj-AL     Cleveland 58 259 224 35 79
-    ##   X1B X2B X3B HR RBI BB IBB uBB SO HBP SH SF GDP SB CS    BA   OBP   SLG   OPS
-    ## 1  43  10   0 13  32 26   1  25 42   2  0  1   5  6  4 0.278 0.353 0.485 0.839
-    ## 2  54  12   2  3  30 15   0  15 35   0  0  1   9  8  0 0.286 0.326 0.387 0.713
-    ## 3  53  19   3  6  18 10   1   9 28   4  1  3   6 11  4 0.332 0.364 0.508 0.872
-    ## 4  56  12   1  5  31 23   1  22 55   5  2  2   1  9  4 0.322 0.392 0.448 0.840
-    ## 5  47  14   1  9  34 39   1  38 51   8  1  1   1  2  0 0.336 0.456 0.540 0.996
-    ## 6  51  17   4  7  32 18   0  18 38   1 11  5   4 10  2 0.353 0.395 0.558 0.953
+    ## Rows: 764
+    ## Columns: 30
+    ## $ bbref_id <chr> "547989", "554429", "542436", "571431", "501303", "346793", "~
+    ## $ season   <int> 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2~
+    ## $ Name     <chr> "Manny Machado", "Matt Duffy", "Jose Altuve", "Adam Eaton", "~
+    ## $ Age      <dbl> 22, 24, 25, 26, 32, 21, 27, 28, 36, 28, 29, 29, 27, 29, 27, 2~
+    ## $ Level    <chr> "Maj-AL", "Maj-NL", "Maj-AL", "Maj-AL", "Maj-AL", "Maj-AL", "~
+    ## $ Team     <chr> "Baltimore", "San Francisco", "Houston", "Chicago", "Texas", ~
+    ## $ G        <dbl> 59, 59, 57, 58, 58, 58, 59, 58, 59, 57, 55, 57, 57, 58, 56, 5~
+    ## $ PA       <dbl> 266, 264, 262, 262, 260, 259, 259, 258, 257, 257, 255, 255, 2~
+    ## $ AB       <dbl> 237, 248, 244, 230, 211, 224, 239, 235, 231, 233, 213, 218, 2~
+    ## $ R        <dbl> 36, 33, 30, 37, 48, 35, 32, 29, 37, 27, 50, 37, 36, 25, 38, 4~
+    ## $ H        <dbl> 66, 71, 81, 74, 71, 79, 54, 66, 75, 48, 65, 56, 61, 51, 78, 5~
+    ## $ X1B      <dbl> 43, 54, 53, 56, 47, 51, 34, 37, 48, 30, 34, 32, 35, 33, 66, 2~
+    ## $ X2B      <dbl> 10, 12, 19, 12, 14, 17, 6, 17, 16, 11, 13, 13, 15, 10, 7, 13,~
+    ## $ X3B      <dbl> 0, 2, 3, 1, 1, 4, 1, 0, 2, 1, 2, 4, 0, 1, 3, 0, 4, 0, 1, 1, 0~
+    ## $ HR       <dbl> 13, 3, 6, 5, 9, 7, 13, 12, 9, 6, 16, 7, 11, 7, 2, 20, 9, 8, 8~
+    ## $ RBI      <dbl> 32, 30, 18, 31, 34, 32, 27, 40, 53, 21, 50, 19, 31, 39, 23, 4~
+    ## $ BB       <dbl> 26, 15, 10, 23, 39, 18, 16, 17, 21, 21, 34, 33, 21, 39, 12, 3~
+    ## $ IBB      <dbl> 1, 0, 1, 1, 1, 0, 0, 6, 1, 1, 0, 1, 1, 5, 0, 4, 3, 3, 7, 2, 2~
+    ## $ uBB      <dbl> 25, 15, 9, 22, 38, 18, 16, 11, 20, 20, 34, 32, 20, 34, 12, 35~
+    ## $ SO       <dbl> 42, 35, 28, 55, 51, 38, 68, 56, 29, 53, 46, 62, 41, 48, 27, 7~
+    ## $ HBP      <dbl> 2, 0, 4, 5, 8, 1, 3, 5, 1, 1, 2, 3, 3, 1, 1, 6, 1, 3, 4, 1, 0~
+    ## $ SH       <dbl> 0, 0, 1, 2, 1, 11, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, ~
+    ## $ SF       <dbl> 1, 1, 3, 2, 1, 5, 1, 1, 4, 2, 5, 1, 2, 2, 3, 0, 3, 2, 3, 4, 3~
+    ## $ GDP      <dbl> 5, 9, 6, 1, 1, 4, 2, 2, 9, 7, 5, 1, 4, 8, 1, 2, 3, 10, 5, 4, ~
+    ## $ SB       <dbl> 6, 8, 11, 9, 2, 10, 0, 0, 0, 3, 3, 4, 5, 4, 24, 2, 1, 0, 6, 0~
+    ## $ CS       <dbl> 4, 0, 4, 4, 0, 2, 0, 0, 0, 1, 0, 1, 3, 2, 7, 2, 3, 0, 2, 0, 0~
+    ## $ BA       <dbl> 0.278, 0.286, 0.332, 0.322, 0.336, 0.353, 0.226, 0.281, 0.325~
+    ## $ OBP      <dbl> 0.353, 0.326, 0.364, 0.392, 0.456, 0.395, 0.282, 0.341, 0.377~
+    ## $ SLG      <dbl> 0.485, 0.387, 0.508, 0.448, 0.540, 0.558, 0.423, 0.506, 0.528~
+    ## $ OPS      <dbl> 0.839, 0.713, 0.872, 0.840, 0.996, 0.953, 0.704, 0.847, 0.906~
 
 In terms of metric calculation, the package allows the user to calculate
 the consistency of team scoring and run prevention for any year using
@@ -130,8 +132,6 @@ the consistency of team scoring and run prevention for any year using
 ``` r
 team_consistency(2015)
 ```
-
-    ## Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Stathead account: https://stathead.com
 
     ## # A tibble: 30 x 5
     ##    Team  Con_R Con_RA Con_R_Ptile Con_RA_Ptile
@@ -156,33 +156,32 @@ Simply pass the proper data frame to `woba_plus`:
 
 ``` r
 data %>%
-  filter(PA > 200) %>%
+  dplyr::filter(PA > 200) %>%
   woba_plus %>%
-  arrange(desc(wOBA)) %>%
-  select(Name, Team, season, PA, wOBA, wOBA_CON) %>%
-  head()
+  dplyr::arrange(desc(wOBA)) %>%
+  dplyr::select(Name, Team, season, PA, wOBA, wOBA_CON) %>%
+  dplyr::glimpse()
 ```
 
-    ##                Name       Team season  PA  wOBA wOBA_CON
-    ## 1 Edwin Encarnacion    Toronto   2015 216 0.490    0.555
-    ## 2      Bryce Harper Washington   2015 248 0.450    0.529
-    ## 3       David Ortiz     Boston   2015 213 0.449    0.541
-    ## 4        Joey Votto Cincinnati   2015 251 0.445    0.543
-    ## 5       Chris Davis  Baltimore   2015 253 0.434    0.617
-    ## 6     Shin-Soo Choo      Texas   2015 260 0.430    0.495
+    ## Rows: 117
+    ## Columns: 6
+    ## $ Name     <chr> "Edwin Encarnacion", "Bryce Harper", "David Ortiz", "Joey Vot~
+    ## $ Team     <chr> "Toronto", "Washington", "Boston", "Cincinnati", "Baltimore",~
+    ## $ season   <chr> "2015", "2015", "2015", "2015", "2015", "2015", "2015", "2015~
+    ## $ PA       <dbl> 216, 248, 213, 251, 253, 260, 245, 255, 223, 241, 223, 259, 2~
+    ## $ wOBA     <dbl> 0.490, 0.450, 0.449, 0.445, 0.434, 0.430, 0.430, 0.422, 0.410~
+    ## $ wOBA_CON <dbl> 0.555, 0.529, 0.541, 0.543, 0.617, 0.495, 0.481, 0.494, 0.459~
 
 You can also generate these wOBA-based stats, as well as FIP, for
 pitchers using the `fip_plus()` function:
 
 ``` r
-daily_pitcher_bref("2015-04-05", "2015-04-30") %>% 
+bref_daily_pitcher("2015-04-05", "2015-04-30") %>% 
   fip_plus() %>% 
-  select(season, Name, IP, ERA, SO, uBB, HBP, HR, FIP, wOBA_against, wOBA_CON_against) %>%
-  arrange(desc(IP)) %>% 
+  dplyr::select(season, Name, IP, ERA, SO, uBB, HBP, HR, FIP, wOBA_against, wOBA_CON_against) %>%
+  dplyr::arrange(dplyr::desc(IP)) %>% 
   head(10)
 ```
-
-    ## Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com
 
     ##    season            Name   IP  ERA SO uBB HBP HR  FIP wOBA_against
     ## 1    2015    Johnny Cueto 37.0 1.95 38   4   2  3 2.62        0.210
@@ -207,34 +206,23 @@ daily_pitcher_bref("2015-04-05", "2015-04-30") %>%
     ## 9             0.357
     ## 10            0.274
 
-The `edge_scrape()` function allows the user to scrape PITCHf/x data
-from the GameDay application using Carson Sievert’s
-[pitchRx](https://github.com/cpsievert/pitchRx) package and to calculate
-metrics associated with
-[Edge%](https://billpetti.shinyapps.io/edge_shiny/). The function
-returns a dataframe grouped by either pitchers or batters and the
-percentge of pitches in each of the various Edge zones.
+## **Issues**
 
-Example (pitchers):
+Please leave any suggestions or bugs in the [Issues
+section](https://github.com/billpetti/baseballr/issues).
 
-``` r
-library(dplyr)
-edge_scrape("2015-04-06", "2015-04-07", "pitcher") %>% 
-  select(-6:-4, -13) %>% 
-  head(10)
-```
+## **Pull Requests**
 
-Example (batters):
+Pull request are welcome, but I cannot guarantee that they will be
+accepted or accepted quickly. Please make all pull requests to the
+[development
+branch](https://github.com/billpetti/baseballr/tree/development_branch)
+for review.
 
-``` r
-edge_scrape("2015-04-06", "2015-04-07", "batter") %>% 
-  select(-6:-4, -13) %>% 
-  head(10)
-```
+## **Breaking Changes**
 
-More functionality will be added soon. Please leave any suggestions or
-bugs in the [Issues
-section](https://github.com/BillPetti/baseballr/issues).
+[**Full News on
+Releases**](https://billpetti.github.io/baseballr/news/index.html)
 
 ## Follow the [SportsDataverse](https://twitter.com/SportsDataverse) on Twitter and star this repo
 
@@ -250,6 +238,10 @@ stars](https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&log
     <a href="https://twitter.com/BillPetti" target="blank"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge" alt="@BillPetti" /></a>
     <a href="https://github.com/BillPetti" target="blank"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&logo=Github&style=for-the-badge" alt="@BillPetti" /></a>
 
+-   [Saiem Gilani](https://twitter.com/saiemgilani)  
+    <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
+    <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
+
 ## **Our Contributors (they’re awesome)**
 
 -   [Ben Baumer](https://twitter.com/BaumerBen)  
@@ -264,6 +256,18 @@ stars](https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&log
     <a href="https://twitter.com/RobertFrey40" target="blank"><img src="https://img.shields.io/twitter/follow/RobertFrey40?color=blue&label=%40RobertFrey40&logo=twitter&style=for-the-badge" alt="@RobertFrey40" /></a>
     <a href="https://github.com/robert-frey" target="blank"><img src="https://img.shields.io/github/followers/robert-frey?color=eee&logo=Github&style=for-the-badge" alt="@robert-frey" /></a>
 
--   [Saiem Gilani](https://twitter.com/saiemgilani)  
-    <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
-    <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
+## **Citations**
+
+To cite the [**`baseballr`**](https://billpetti.github.io/baseballr/) R
+package in publications, use:
+
+BibTex Citation
+
+``` bibtex
+@misc{petti_gilani_2021,
+  author = {Bill Petti and Saiem Gilani},
+  title = {baseballr: The SportsDataverse's R Package for Baseball Data.},
+  url = {https://billpetti.github.io/baseballr/},
+  year = {2021}
+}
+```

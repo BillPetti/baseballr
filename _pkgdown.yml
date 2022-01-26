@@ -1,46 +1,58 @@
-url: http://BillPetti.github.io/baseballr
-
-title: baseballr
+url: ~
 template:
-  params:
-    bootswatch: flatly
+  bootstrap: 5
+  bootswatch: flatly
+  bslib:
+    primary: "#0054AD"
+    secondary: "#2178C0"
+    border-radius: 0.5rem
+    btn-border-radius: 0.25rem
   opengraph:
     image:
       src: "https://raw.githubusercontent.com/BillPetti/baseballR/master/logo.png"
     twitter:
       creator: "@BillPetti"
+      href: https://twitter.com/BillPetti
       card: summary
+
 
 toc:
   depth: 3
 
 authors:
   Bill Petti:
-   href: https://twitter.com/BillPetti
+    href: https://twitter.com/BillPetti
+  Saiem Gilani:
+    href: https://twitter.com/saiemgilani
+    
+
+code:
+  width: 72
+  
+development:
+  mode: auto    
+  
+
 home:
-  title: An R package to quickly obtain clean and tidy men's baseball play by play data
-  description: Functions to Access Men's Baseball Play by Play Data
-  icon: fa-home
-  href: index.html
   links:
-    - text: "Plotting Statcast"
-      href: articles/plotting_statcast.html
-    - text: "NCAA Scraping"
-      href: articles/ncaa_scraping.html
+  - text: "Plotting Statcast"
+    href:  https://BillPetti.github.io/baseballr/articles/plotting_statcast.html
+  - text: "NCAA Scraping"
+    href:  https://BillPetti.github.io/baseballr/articles/ncaa_scraping.html
+    
+
 navbar:
   structure:
-    left:  [home, intro, reference, articles, news, games, network, data, repo]
+    left:  [home, reference, articles, news, network, repo]
     right: [twitter, github]
   # icon: https://raw.githubusercontent.com/BillPetti/baseballR/master/man/figures/logo.ico
   title: "baseballR"
   components:
-    twitter:
-      icon: "fab fa-twitter fa-lg"
-      href: http://twitter.com/BillPetti
-    news:
-      icon: "fas fa-newspaper"
-      text: " News"
-      href: news/index.html
+    home:
+      title: An R package to quickly obtain clean and tidy men's baseball play by play data
+      description: Functions to Access Men's Baseball Play by Play Data
+      icon: fa-home
+      href: index.html
     reference:
       icon: "fas fa-code"
       text: " Funcs"
@@ -48,6 +60,25 @@ navbar:
       menu:
       - text: "Function Index"
         href: reference/index.html
+      - text: "MLB"
+        href: reference/mlb.html
+      - text: "Statcast"
+        href: reference/statcast.html
+      - text: "Retrosheet"
+        href: reference/retrosheet_data.html
+      - text: "NCAA Baseball"
+        href: reference/ncaa.html
+      - text: "Baseball Reference"
+        href: reference/bref.html
+      - text: "FanGraphs"
+        href: reference/fangraphs.html
+      - text: "Metrics"
+        href: reference/metrics.html
+      - text: "Visualizations"
+        href: reference/ggspraychart.html
+      - text: "Player Lookup"
+        href: reference/chadwick.html
+        
     articles:
       icon: "fas fa-book-reader"
       text: " Articles"
@@ -58,6 +89,10 @@ navbar:
         href: articles/plotting_statcast.html
       - text: "NCAA Scraping"
         href: articles/ncaa_scraping.html
+    news:
+      icon: "fas fa-newspaper"
+      text: " News"
+      href: news/index.html
     network:
       icon: "fas fa-project-diagram"
       text: " SDV"
@@ -66,32 +101,30 @@ navbar:
         href: https://sportsdataverse.org/
       - text: --------------------------------
       - text: R Packages
+      - text: sportsdataverse-R
+        href: https://saiemgilani.github.io/sportsdataverse-R/
       - text: cfbfastR
         href: https://saiemgilani.github.io/cfbfastR/
       - text: hoopR
         href: https://hoopR.sportsdataverse.org/
       - text: wehoop
         href: https://wehoop.sportsdataverse.org/
-      - text: recruitR
-        href: https://saiemgilani.github.io/recruitR/
-      - text: puntr
-        href: https://puntalytics.github.io/puntr/
-      - text: gamezoneR
-        href: https://jacklich10.github.io/gamezoneR/
-      - text: cfbplotR
-        href: https://kazink36.github.io/cfbplotR/
-      - text: cfb4th
-        href: https://kazink36.github.io/cfb4th/
+      - text: fastRhockey
+        href: https://BenHowell71.github.io/fastRhockey/
       - text: worldfootballR
         href: https://jaseziv.github.io/worldfootballR/
       - text: baseballr
         href: https://BillPetti.github.io/baseballr/
-      - text: hockeyR
-        href: https://hockeyr.netlify.app/
-      - text: fastRhockey
-        href: https://BenHowell71.github.io/fastRhockey/
-      - text: powerplay
-        href: https://saiemgilani.github.io/powerplay/
+      - text: cfbplotR
+        href: https://kazink36.github.io/cfbplotR/
+      - text: cfb4th
+        href: https://kazink36.github.io/cfb4th/
+      - text: recruitR
+        href: https://saiemgilani.github.io/recruitR/
+      - text: gamezoneR
+        href: https://jacklich10.github.io/gamezoneR/
+      - text: puntr
+        href: https://puntalytics.github.io/puntr/
       - text: --------------------------------
       - text: Python Packages
       - text: sportsdataverse-py
@@ -99,15 +132,127 @@ navbar:
       - text: --------------------------------
       - text: Node.js Packages
       - text: sportsdataverse.js
-        href: https://saiemgilani.github.io/sportsdataverse/
+        href: https://js.sportsdataverse.org/
       - text: nfl-nerd
-        href: https://github.com/nntrn/nfl-nerd/ 
+        href: https://github.com/nntrn/nfl-nerd/
     github:
       icon: "fab fa-github fa-lg"
       href: https://github.com/billpetti/baseballR/
-    repo:
-      url:
-      home: https://github.com//billpetti/baseballR/
-      source: https://github.com/billpetti/baseballR/blob/master/
-      issue: https://github.com/billpetti/baseballR/issues/issues/
-      user: https://github.com/billpetti/
+    twitter:
+      icon: "fa-twitter"
+      href: http://twitter.com/BillPetti
+      aria-label: Twitter
+repo:
+  url:
+    home: https://github.com//billpetti/baseballR/
+    source: https://github.com/billpetti/baseballR/blob/master/
+    issue: https://github.com/billpetti/baseballR/issues/
+    user: https://github.com/billpetti/
+reference:
+  - title: MLB Stats
+  - subtitle: MLB Stats Data Functions
+    desc: Functions exported by baseballr to access MLB Stats Data
+    contents:
+      - '`mlb`'
+      - starts_with("mlb_")
+  - title: Baseball Savant
+  - subtitle: Baseball Savant MLB Data Functions
+    desc: Functions exported by baseballr to access Baseball Savant MLB Data
+    contents:
+      - '`statcast`'
+      - '`statcast_leaderboards`'
+      - '`statcast_search`'
+      - '`edge_scrape`'
+      - '`edge_scrape_split`'
+  - title: Baseball Savant Helpers
+  - subtitle: Baseball Savant MLB Helper Functions
+    desc: Functions exported by baseballr to process Baseball Savant MLB Data
+    contents:
+      - '`edge_code`'
+      - '`edge_frequency`'
+      - '`code_barrel`'
+      - '`process_statcast_payload`'
+      - '`statline_from_statcast`'
+      - '`label_statcast_imputed_data`'
+      - '`linear_weights_savant`'
+  - title: NCAA Baseball 
+  - subtitle: NCAA Baseball Data Functions
+    desc: Functions exported by baseballr to access NCAA Baseball Data
+    contents:
+      - starts_with("ncaa")
+  - title: Retrosheet
+  - subtitle: Retrosheet Data Functions
+    desc: Functions exported by baseballr to access Retrosheet Data
+    contents:
+      - '`retrosheet_data`'
+  - title: FanGraphs
+  - subtitle: FanGraphs MLB and MiLB Data Functions
+    desc: Functions exported by baseballr to access FanGraphs' MLB and MiLB Data
+    contents:
+      - '`fangraphs`'
+      - starts_with("fg_park")
+      - starts_with("fg_guts")
+      - starts_with("fg_batter")
+      - starts_with("fg_pitcher")
+      - starts_with("fg_milb")
+  - title: Baseball Reference
+  - subtitle: Baseball Reference MLB Data Functions
+    desc: Functions exported by baseballr to access Baseball Reference's MLB Data
+    contents:
+      - starts_with("bref")
+  - title: Player Lookup
+  - subtitle: Player Lookup Functions
+    desc: Functions exported by baseballr to access Baseball player information from the Chadwick Bureau Register
+    contents:
+      - starts_with("chadwick")
+      - '`playerid_lookup`'
+      - '`playername_lookup`'
+  - title: Misc. Lookup
+  - subtitle: Misc. Lookup Functions
+    desc: Functions exported by baseballr to access Baseball players and teams
+    contents:
+      - '`get_umpire_ids_petti`'
+      - '`get_game_info_sup_petti`'
+  - title: GameDay MLB 
+  - subtitle: GameDay MLB Data Functions
+    desc: Functions exported by baseballr to access GameDay MLB Data
+    contents:
+      - '`batter_boxscore`'
+      - '`pitcher_boxscore`'
+  - title: Metrics
+  - subtitle: Metrics Functions
+    desc: Functions exported by baseballr to calculate metrics
+    contents:
+      - '`metrics`'
+      - '`woba_plus`'
+      - '`fip_plus`'
+      - '`team_consistency`'
+      - '`run_expectancy_code`'
+      - '`run_expectancy_table`'
+  - title: Visualizations
+  - subtitle: Visualizations Functions
+    desc: Functions exported by baseballr to create visuals
+    contents:
+      - '`ggspraychart`'
+  - title: Included Data
+  - subtitle: Included baseballr data
+    desc: Data exported by baseballr for ease of use
+    contents:
+      - '`column_structure_draft_mlb`'
+      - '`ncaa_season_id_lu`'
+      - '`ncaa_school_id_lu`'
+      - '`ncaa_team_lu`'
+      - '`teams_lu_table`'
+      - '`stats_api_live_empty_df`'
+      - '`statcast_impute`'
+  - title: Utilities
+  - subtitle: Internal utilities of baseballr
+    contents:
+      - '`csv_from_url`'
+      - '`rds_from_url`'
+      - '`progressively`'
+  - title: Legacy
+  - subtitle: Legacy Functions
+    desc: Functions superseded by new naming convention
+    contents:
+      - has_keyword("legacy")

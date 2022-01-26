@@ -33,39 +33,42 @@ library(zoo)
 
 ```{r}
 betts_id <- playerid_lookup("Betts") %>%
-  filter(first_name == "Mookie") %>%
-  select(mlbam_id, first_name, last_name)
+  dplyr::filter(first_name == "Mookie") %>%
+  dplyr::select(mlbam_id, first_name, last_name)
 ```
 
 ## scrape Betts' Statcast data, by pitch removing those with a batted ball speed of 0
 
 ```{r}
-betts_15 <- scrape_statcast_savant("2015-03-31", "2015-10-31", playerid = betts_id[1,1], player_type = 'batter')
-betts_16 <- scrape_statcast_savant("2016-03-31", "2016-10-31", playerid = betts_id[1,1], player_type = 'batter')   
-betts <- bind_rows(betts_15, betts_16) 3%>%
-  mutate(Year = as.factor(substr(game_date,1,4))) %>%
-  filter(type == "X") %>%
-  filter(launch_speed != 0)
+betts_15 <- statcast_search("2015-03-31", "2015-10-31", playerid = betts_id[1,1], player_type = 'batter')
+betts_16 <- statcast_search("2016-03-31", "2016-10-31", playerid = betts_id[1,1], player_type = 'batter')   
+betts <- dplyr::bind_rows(betts_15, betts_16) 3%>%
+  dplyr::mutate(Year = as.factor(substr(game_date,1,4))) %>%
+  dplyr::filter(type == "X") %>%
+  dplyr::filter(launch_speed != 0)
 ```
 
 ## calculate average launch angles and batted ball speeds by game
 
 ```{r}
 betts_grpd <- betts %>%
-  group_by(game_date) %>%
-  summarise(`Average Launch Angle` = mean(launch_angle, na.rm = TRUE), 
-            `Average Batted Ball Speed` = mean(launch_speed, na.rm = TRUE)) %>%
-  ungroup() %>%
+  dplyr::group_by(game_date) %>%
+  dplyr::summarise(
+    `Average Launch Angle` = mean(launch_angle, na.rm = TRUE), 
+    `Average Batted Ball Speed` = mean(launch_speed, na.rm = TRUE)) %>%
+  dplyr::ungroup() %>%
   melt(id=c("game_date")) %>%
-  mutate(Year = as.factor(substr(game_date,1,4)))
+  dplyr::mutate(Year = as.factor(substr(game_date,1,4)))
 ```
 
 ## calculate Betts' average launch angle and batted ball speed by year
 
 ```{r}
 betts_avg_speed_yr <- betts %>%
-  group_by(Year) %>%
-  summarise(speed = round(mean(launch_speed, na.rm = TRUE),1), angle = round(mean(launch_angle, na.rm = TRUE),1))
+  dplyr::group_by(Year) %>%
+  dplyr::summarise(
+    speed = round(mean(launch_speed, na.rm = TRUE),1), 
+    angle = round(mean(launch_angle, na.rm = TRUE),1))
 ```
 
 ## plot the data

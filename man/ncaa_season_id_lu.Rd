@@ -3,24 +3,20 @@
 \docType{data}
 \name{ncaa_season_id_lu}
 \alias{ncaa_season_id_lu}
-\title{A data set of college baseball seasons}
+\title{\strong{A data set of college baseball seasons}}
 \format{
-A data frame with 6 rows and 4 variables
+A data frame with 4 variables:
+\itemize{
+\item \code{season}: Year date
+\item \code{id}: Season id
+\item \code{batting_id}: Batting id
+\item \code{pitching_id}: Pitching id
+}
 }
 \usage{
 data(ncaa_season_id_lu)
 }
 \description{
 A data set college baseball
-
-\itemize{
-  \item \code{season}: Year date
-  \item \code{id}: Season id
-  \item \code{batting_id}: Batting id
-  \item \code{pitching_id}: Pitching id
-}
-}
-\details{
-Dataset
 }
 \keyword{datasets}

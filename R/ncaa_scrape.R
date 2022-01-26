@@ -1,17 +1,53 @@
-#' Scrape NCAA baseball data (Division I, II, and III)
-#'
-#' This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a data frame.
-#'
+#' @title **Scrape NCAA baseball data (Division I, II, and III)**
+#' @description This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a data frame.
 #' @param teamid The numerical ID that the NCAA website uses to identify a team
 #' @param year The season for which data should be returned, in the form of "YYYY". Years currently available: 2013-2017.
 #' @param type A string indicating whether to return "batting" or "pitching" statistics
+#' @return A data frame with the following variables
+#'  |col_name      |types     |
+#'  |:-------------|:---------|
+#'  |year          |integer   |
+#'  |school        |character |
+#'  |conference    |character |
+#'  |division      |numeric   |
+#'  |Jersey        |character |
+#'  |Player        |character |
+#'  |Yr            |character |
+#'  |Pos           |character |
+#'  |GP            |numeric   |
+#'  |GS            |numeric   |
+#'  |BA            |numeric   |
+#'  |OBPct         |numeric   |
+#'  |SlgPct        |numeric   |
+#'  |R             |numeric   |
+#'  |AB            |numeric   |
+#'  |H             |numeric   |
+#'  |2B            |numeric   |
+#'  |3B            |numeric   |
+#'  |TB            |numeric   |
+#'  |HR            |numeric   |
+#'  |RBI           |numeric   |
+#'  |BB            |numeric   |
+#'  |HBP           |numeric   |
+#'  |SF            |numeric   |
+#'  |SH            |numeric   |
+#'  |K             |numeric   |
+#'  |DP            |numeric   |
+#'  |CS            |numeric   |
+#'  |Picked        |numeric   |
+#'  |SB            |numeric   |
+#'  |RBI2out       |numeric   |
+#'  |teamid        |numeric   |
+#'  |conference_id |integer   |
+#'  |player_id     |integer   |
+#'  |player_url    |character |
 #' @import dplyr
 #' @import rvest
 #' @importFrom stringr str_split
-#' @export ncaa_scrape
+#' @export
 #' @examples
 #' \donttest{
-#' ncaa_scrape(teamid=255, year=2013, type = "batting")
+#'   ncaa_scrape(teamid=255, year=2013, type = "batting")
 #' }
 
 ncaa_scrape <- function(teamid, year, type = 'batting') {
@@ -28,13 +64,13 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
     url <- paste0("http://stats.ncaa.org/team/",teamid,"/stats?game_sport_year_ctl_id=", id, "&id=", id)
     data_read <- xml2::read_html(url)
     data <- (data_read %>%
-      rvest::html_nodes("table"))[[3]] %>%
+      rvest::html_elements("table"))[[3]] %>%
       rvest::html_table(fill = TRUE)
     df <- as.data.frame(data)
     df$year <- year
     df$teamid <- teamid
     df <- df %>%
-      dplyr::left_join(baseballr::master_ncaa_team_lu,
+      dplyr::left_join(baseballr::ncaa_team_lu,
                        by = c("teamid" = "school_id", "year" = "year"))
     df <- df %>% 
       dplyr::select(.data$year, .data$school, .data$conference, .data$division, tidyr::everything())
@@ -81,14 +117,14 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
     url <- paste0("http://stats.ncaa.org/team/", teamid, "/stats?id=", year_id, "&year_stat_category_id=", type_id)
     data_read <- xml2::read_html(url)
     data <- (data_read %>%
-      rvest::html_nodes("table"))[[3]] %>%
+      rvest::html_elements("table"))[[3]] %>%
       rvest::html_table(fill = TRUE)
     df <- as.data.frame(data)
     df <- df[,-6]
     df$year <- year
     df$teamid <- teamid
     df <- df %>%
-      dplyr::left_join(baseballr::master_ncaa_team_lu, by = c("teamid" = "school_id", "year" = "year"))
+      dplyr::left_join(baseballr::ncaa_team_lu, by = c("teamid" = "school_id", "year" = "year"))
     df <- df %>% 
       dplyr::select(.data$year, .data$school, .data$conference, .data$division, tidyr::everything())
     df$Player <- gsub("x ", "", df$Player)
@@ -120,14 +156,14 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
   }
 
   player_url <- data_read %>%
-    html_nodes('#stat_grid a') %>%
+    html_elements('#stat_grid a') %>%
     html_attr('href') %>%
     as.data.frame() %>%
     dplyr::rename(player_url = .data$`.`) %>%
     dplyr::mutate(player_url = paste0('http://stats.ncaa.org', .data$player_url))
 
   player_names_join <- data_read %>%
-    html_nodes('#stat_grid a') %>%
+    html_elements('#stat_grid a') %>%
     html_text() %>%
     as.data.frame() %>%
     dplyr::rename(player_names_join = .data$`.`)
@@ -145,7 +181,8 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
     dplyr::left_join(player_url_comb, by = c('Player' = 'player_names_join'))
 
   df <- df %>%
-    dplyr::mutate_at(vars(player_id, player_url), as.character)
+    dplyr::mutate_at(vars(player_url), as.character) %>%
+    dplyr::mutate_at(c("conference_id", "player_id", "year"), as.integer)
 
   return(df)
 

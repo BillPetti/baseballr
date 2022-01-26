@@ -3,7 +3,7 @@
 \docType{data}
 \name{column_structure_draft_mlb}
 \alias{column_structure_draft_mlb}
-\title{Column structure of the MLB Draft data}
+\title{\strong{Column structure of the MLB Draft data}}
 \format{
 An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 0 rows and 72 columns.
 }
@@ -12,8 +12,5 @@ column_structure_draft_mlb
 }
 \description{
 A tibble giving column structure of MLB Draft data
-}
-\details{
-Dataset
 }
 \keyword{datasets}
