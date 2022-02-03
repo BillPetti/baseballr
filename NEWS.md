@@ -1,3 +1,6 @@
+# baseballr 1.0.1
+- Update ```ncaa_season_id_lu``` for 2022 season. 
+
 # baseballr 1.0.0
 ## Function Naming Convention Change
 |legacy_name                        |new_name                  |file                                |
