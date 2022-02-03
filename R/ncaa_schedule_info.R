@@ -22,7 +22,7 @@
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'   ncaa_schedule_info(teamid = 736, year = 2021)
+#'   ncaa_schedule_info(teamid = 736, year = 2022)
 #' }
 
 ncaa_schedule_info <- function(teamid = NULL, year = NULL){
