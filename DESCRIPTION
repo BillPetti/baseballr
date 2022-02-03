@@ -1,6 +1,6 @@
 Package: baseballr
 Title: Functions for Acquiring and Analyzing Baseball Data
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: c(
     person("Bill", "Petti", email = "billpetti@gmail.com", role = "aut"),
     person("Saiem", "Gilani", email = "saiem.gilani@gmail.com", role = c("aut", "cre")),
@@ -11,7 +11,7 @@ Description: Provides numerous functions for acquiring and analyzing baseball
     data. Data can be acquired from various online sources from within R.
     Custom metrics can also be calculated, such as wOBA, FIP, and Edge%.
 Depends:
-    R (>= 3.6.0)
+    R (>= 4.0.0)
 Imports: 
     data.table (>= 1.14.0),
     dplyr,
