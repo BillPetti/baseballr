@@ -4,17 +4,28 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono');
 @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab');
+
+--light-bright-blue: #07C8F9;
+--sapphire: #0054AD;
+--spanish-blue: #2A71BB;
+--tufts-blue: #558DC8;
+--iceberg: #80AAD6;
+--light-steel-blue: #AAC6E4;
+--beau-blue: #D5E3F1;
+--white: #FFFFFF;
+
 body {
   font-family: "Lato";
   /*color: #1f1f1f;*/
   color: #0f0f0f;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 h1, h2, .h1, .h2{
   font-family: "Chivo";
-  letter-spacing: 1px;
-  line-height: 2.2rem; /* increases, so wrapping headers don't overlap */ 
+  letter-spacing: 0.6px;
+  line-height: 2.1rem; /* increases, so wrapping headers don't overlap */ 
   color: #0f0f0f;
   font-weight: 500;
   font-size: 20px;
@@ -26,41 +37,101 @@ h3, h4, h5, h6, .h3, .h4{
   line-height: 1.8rem; /* increases, so wrapping headers don't overlap */ 
   color: #0f0f0f;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 pre, code {
-  font-family: "Fira Mono", Consolas, Inconsolata, monospace;
+  font-family: "Fira Code", Consolas, Inconsolata, monospace;
 }
 .figure {
    margin-top: 10px;
    margin-bottom: 10px;
 }
-.navbar-default {
-    border-color: #0d1b2a;
-}
-.label-default {
-  background-color: #454444;
-}
+
 #tocnav ul ul {
-  font-family: "Fira Mono";
+  font-family: "Fira Code";
   margin-left: 5px;
   font-size: 11px;
   line-height: 1.35rem;
 }
 
 #toc ul.nav li a{
-  font-family: "Fira Mono";
+  font-family: "Fira Code";
   margin-left: 5px;
   font-size: 14px;
   line-height: 1.65rem;
 }
 .dropdown-menu {
-  box-shadow: 0 6px 12px rgba(5, 5, 5, 0.18);
-  background-color: #222222;
+  font-family: "Fira Code";
+  color: #fff;
+  box-shadow: 0px 0px 12px #2178C0;
+  background-color: #AFD2F7;
+}
+.dropdown-item{
+  color: #0f0f0f;
+  font-family: "Fira Code";
+}
+.dropdown-item:active{
+  font-family: "Fira Code";
+  color: #fff;
+  background-color: #2178C0;
+  animation: glow 2.5s ease-in-out infinite alternate;
+}
+.nav-link:hover, .bg-primary .navbar-nav .nav-link.active, .bg-primary .navbar-nav .nav-link:hover, .bg-primary .navbar-nav .nav-link:focus {
+  font-family: "Fira Code";
+  color: #f0f0f0;
+}
+.logo {
+  margin: 1rem;
+}
+nav {
+  margin-bottom: 2.5rem;
+}
+aside {
+  margin-top: 2.5rem;
+  font-family: "Fira Code";
+  font-weight: 500;
+  font-size: 13px;
+  color: #1668A7;
+}
+.links {
+  font-family: "Fira Code";
+  font-weight: 500;
+  font-size: 14px;
+  color: #1668A7;
+}
+a {
+  font-family: "Fira Code";
+  font-weight: 500;
+  color: #1668A7;
+}
+.bg-primary .navbar-nav .show>.nav-link, 
+.bg-primary .navbar-nav .nav-link.active, 
+.bg-primary .navbar-nav .nav-link:hover, 
+.bg-primary .navbar-nav .nav-link:focus {
+    color: #A8ADB3 !important;
+}
+.bg-primary .navbar-nav .show>.nav-link, .bg-primary .navbar-nav .nav-link.active, .bg-primary .navbar-nav .nav-link:hover, .bg-primary .navbar-nav .nav-link:focus{
+  font-family: "Fira Code";
+  color: #0054AD;
+  background-color: #2178C0;
+}
+#toc ul.nav li a{
+  font-family: "Fira Code";
+  margin-left: 5px;
+  font-size: 14px;
+  line-height: 1.65rem;
+}
+#navbar {
+  font-family: "Fira Code";
+  letter-spacing: 0.05px;
+  line-height: 1.25rem;
+  color: #fff;
+  font-weight: 400;
+  font-size: 14px;
 }
 #navbar ul ul{
-  font-family: "Fira Mono";
+  font-family: "Fira Code";
   letter-spacing: 0.05px;
   line-height: 1.25rem;
   color: #fff;
@@ -68,7 +139,7 @@ pre, code {
   font-size: 12px;
 }
 .nav li a {
-  font-family: "Fira Mono";
+  font-family: "Fira Code";
   letter-spacing: 0.05px;
   line-height: 1.55rem;
   color: #fff;
@@ -78,20 +149,75 @@ pre, code {
 .pkgdown {
   display: none;
 }
-
-
-
+.navbar-dark input[type="search"] {
+    border-color: #868e96;
+    background-color: #e9ecef;
+    color: #212529;
+}
   
 .dropdown-header {
   font-family: "Chivo";
   letter-spacing: 0.1px;
-  line-height: 1.3rem;
-  color: #f6ae2d;
+  border-radius: 5px;
+  line-height: 1.1rem;
+  color: #0054AD;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 16px;
 }
-.navbar-default .navbar-link {
+
+.navbar-dark .navbar-nav .nav-link{
+  font-family: "Fira Code";
+  color: #fff;
+  border-radius: 5px;
+}
+.navbar-dark .navbar-nav .active>.nav-link {
+  background: #2178C0;
+  color: #fff;
+  border-radius: 5px;
+}
+.navbar-toggler{
+  margin: 5px;
+}
+.active.nav-item.dropdown{
+  font-family: "Fira Code";
+  background: #AFD2F7;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.navbar-brand {
     font-family: "Bungee";
-    font-size: 16px;
+    font-size: 18px;
     color: #f6ae2d;
+    animation: glow 2.5s ease-in-out infinite alternate;
 }
+
+.text-muted {
+    font-family: "Roboto Slab";
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 6px 12px rgba(5, 5, 5, 0.18);
+    background-color: #AFD2F7;
+    padding: 3px;
+    color: #1668A7 !important;
+}
+
+
+
+
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 8px #07C8F9, 0 0 10px #07C8F9;
+  }
+  
+  to {
+    text-shadow: 0 0 10px #07C8F9, 0 0 11px #07C8F9;
+  }
+}
+
+@keyframes glow {
+    to {
+     text-shadow: 0 0 10px #07C8F9, 0 0 11px #07C8F9;
+    }
+  }

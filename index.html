@@ -4,22 +4,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>An R package to quickly obtain clean and tidy men's baseball play by play data • baseballr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Provides numerous functions for acquiring and analyzing baseball
+    data. Data can be acquired from various online sources from within R.
+    Custom metrics can also be calculated, such as wOBA, FIP, and Edge%.">
+<title>Functions for Acquiring and Analyzing Baseball Data • baseballr</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
-<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
-<meta property="og:title" content="An R package to quickly obtain clean and tidy men's baseball play by play data">
-<meta property="og:description" content="Functions to Access Men's Baseball Play by Play Data">
+<!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
+<meta property="og:title" content="Functions for Acquiring and Analyzing Baseball Data">
+<meta property="og:description" content="Provides numerous functions for acquiring and analyzing baseball
+    data. Data can be acquired from various online sources from within R.
+    Custom metrics can also be calculated, such as wOBA, FIP, and Edge%.">
 <meta property="og:image" content="https://raw.githubusercontent.com/BillPetti/baseballR/master/logo.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@BillPetti">
@@ -29,415 +33,401 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body data-spy="scroll" data-target="#toc">
-    <div class="container template-home">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">baseballr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.93</span>
-      </span>
-    </div>
+<body>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
+    
 
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
+    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary"><div class="container">
+    
+    <a class="navbar-brand me-2" href="index.html">baseballr</a>
+
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.1</small>
+
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar" class="collapse navbar-collapse ms-3">
+      <ul class="navbar-nav me-auto">
+<li class="active nav-item">
+  <a class="nav-link" href="index.html">
+    <span class="fa fa-home"></span>
      
   </a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-code"></span>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--funcs">
+    <span class="fas fa fas fa-code"></span>
      
      Funcs
-     
-    <span class="caret"></span>
   </a>
-  <ul class="dropdown-menu" role="menu">
-<li>
-      <a href="reference/index.html">Function Index</a>
-    </li>
-  </ul>
+  <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
+    <a class="dropdown-item" href="reference/index.html">Function Index</a>
+    <a class="dropdown-item" href="reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="reference/statcast.html">Statcast</a>
+    <a class="dropdown-item" href="reference/retrosheet_data.html">Retrosheet</a>
+    <a class="dropdown-item" href="reference/ncaa.html">NCAA Baseball</a>
+    <a class="dropdown-item" href="reference/bref.html">Baseball Reference</a>
+    <a class="dropdown-item" href="reference/fangraphs.html">FanGraphs</a>
+    <a class="dropdown-item" href="reference/metrics.html">Metrics</a>
+    <a class="dropdown-item" href="reference/ggspraychart.html">Visualizations</a>
+    <a class="dropdown-item" href="reference/chadwick.html">Player Lookup</a>
+  </div>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-book-reader"></span>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--articles">
+    <span class="fas fa fas fa-book-reader"></span>
      
      Articles
-     
-    <span class="caret"></span>
   </a>
-  <ul class="dropdown-menu" role="menu">
-<li>
-      <a href="articles/index.html">Vignettes</a>
-    </li>
-    <li>
-      <a href="articles/plotting_statcast.html">Plotting Statcast</a>
-    </li>
-    <li>
-      <a href="articles/ncaa_scraping.html">NCAA Scraping</a>
-    </li>
-  </ul>
+  <div class="dropdown-menu" aria-labelledby="dropdown--articles">
+    <a class="dropdown-item" href="articles/index.html">Vignettes</a>
+    <a class="dropdown-item" href="articles/plotting_statcast.html">Plotting Statcast</a>
+    <a class="dropdown-item" href="articles/ncaa_scraping.html">NCAA Scraping</a>
+  </div>
 </li>
-<li>
-  <a href="news/index.html">
-    <span class="fas fa-newspaper"></span>
+<li class="nav-item">
+  <a class="nav-link" href="news/index.html">
+    <span class="fas fa fas fa-newspaper"></span>
      
      News
   </a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-project-diagram"></span>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--sdv">
+    <span class="fas fa fas fa-project-diagram"></span>
      
      SDV
-     
-    <span class="caret"></span>
   </a>
-  <ul class="dropdown-menu" role="menu">
-<li>
-      <a href="https://sportsdataverse.org/">SportsDataverse</a>
-    </li>
-    <li class="divider">
-    <li class="dropdown-header">R Packages</li>
-    <li>
-      <a href="https://saiemgilani.github.io/cfbfastR/">cfbfastR</a>
-    </li>
-    <li>
-      <a href="https://hoopR.sportsdataverse.org/">hoopR</a>
-    </li>
-    <li>
-      <a href="https://wehoop.sportsdataverse.org/">wehoop</a>
-    </li>
-    <li>
-      <a href="https://saiemgilani.github.io/recruitR/">recruitR</a>
-    </li>
-    <li>
-      <a href="https://puntalytics.github.io/puntr/">puntr</a>
-    </li>
-    <li>
-      <a href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a>
-    </li>
-    <li>
-      <a href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
-    </li>
-    <li>
-      <a href="https://kazink36.github.io/cfb4th/">cfb4th</a>
-    </li>
-    <li>
-      <a href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
-    </li>
-    <li>
-      <a href="https://BillPetti.github.io/baseballr/">baseballr</a>
-    </li>
-    <li>
-      <a href="https://hockeyr.netlify.app/">hockeyR</a>
-    </li>
-    <li>
-      <a href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
-    </li>
-    <li>
-      <a href="https://saiemgilani.github.io/powerplay/">powerplay</a>
-    </li>
-    <li class="divider">
-    <li class="dropdown-header">Python Packages</li>
-    <li>
-      <a href="https://py.sportsdataverse.org/">sportsdataverse-py</a>
-    </li>
-    <li class="divider">
-    <li class="dropdown-header">Node.js Packages</li>
-    <li>
-      <a href="https://saiemgilani.github.io/sportsdataverse/">sportsdataverse.js</a>
-    </li>
-    <li>
-      <a href="https://github.com/nntrn/nfl-nerd/">nfl-nerd</a>
-    </li>
-  </ul>
-</li>
-<li>
-  <a></a>
-</li>
-      </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="http://twitter.com/BillPetti">
-    <span class="fab fa-twitter fa-lg"></span>
-     
-  </a>
-</li>
-<li>
-  <a href="https://github.com/billpetti/baseballR/">
-    <span class="fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
-      </ul>
-</div>
-<!--/.nav-collapse -->
+  <div class="dropdown-menu" aria-labelledby="dropdown--sdv">
+    <a class="external-link dropdown-item" href="https://sportsdataverse.org/">SportsDataverse</a>
+    <div class="dropdown-divider"></div>
+    <h6 class="dropdown-header" data-toc-skip>R Packages</h6>
+    <a class="external-link dropdown-item" href="https://saiemgilani.github.io/sportsdataverse-R/">sportsdataverse-R</a>
+    <a class="external-link dropdown-item" href="https://saiemgilani.github.io/cfbfastR/">cfbfastR</a>
+    <a class="external-link dropdown-item" href="https://hoopR.sportsdataverse.org/">hoopR</a>
+    <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
+    <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
+    <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
+    <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
+    <a class="external-link dropdown-item" href="https://saiemgilani.github.io/recruitR/">recruitR</a>
+    <a class="external-link dropdown-item" href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a>
+    <a class="external-link dropdown-item" href="https://puntalytics.github.io/puntr/">puntr</a>
+    <div class="dropdown-divider"></div>
+    <h6 class="dropdown-header" data-toc-skip>Python Packages</h6>
+    <a class="external-link dropdown-item" href="https://py.sportsdataverse.org/">sportsdataverse-py</a>
+    <div class="dropdown-divider"></div>
+    <h6 class="dropdown-header" data-toc-skip>Node.js Packages</h6>
+    <a class="external-link dropdown-item" href="https://js.sportsdataverse.org/">sportsdataverse.js</a>
+    <a class="external-link dropdown-item" href="https://github.com/nntrn/nfl-nerd/">nfl-nerd</a>
   </div>
-<!--/.container -->
+</li>
+      </ul>
+<form class="form-inline my-2 my-lg-0" role="search">
+        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
+</form>
+
+      <ul class="navbar-nav">
+<li class="nav-item">
+  <a class="external-link nav-link" href="http://twitter.com/BillPetti" aria-label="Twitter">
+    <span class="fa fa-twitter"></span>
+     
+  </a>
+</li>
+<li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/billpetti/baseballR/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
-<!--/.navbar -->
 
-      
-
-      </header><div class="row">
-  <div class="contents col-md-9">
-
-
-<div id="baseballr-" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#baseballr-" class="anchor"></a>baseballr <a href="https://BillPetti.github.io/baseballr/"><img src="reference/figures/logo.png" align="right" height="139"></a>
-</h1></div>
+    
+  </div>
+</nav><div class="container template-home">
+<div class="row">
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header">
+<img src="logo.png" class="logo" alt=""><h1 id="section"></h1>
 </div>
-<div id="baseballr" class="section level1">
-<h1 class="hasAnchor">
-<a href="#baseballr" class="anchor"></a><code>baseballr</code>
+</div>
+<div class="section level1">
+<h1 id="baseballr-">
+<code>baseballr</code> 
+<a class="anchor" aria-label="anchor" href="#baseballr-"></a>
 </h1>
+<!-- badges: start -->
+
 <p><code>baseballr</code> is a package written for R focused on baseball analysis. It includes functions for scraping various data from websites, such as FanGraphs.com, Baseball-Reference.com, and baseballsavant.com. It also includes functions for calculating metrics, such as wOBA, FIP, and team-level consistency over custom time frames.</p>
-<p>You can read more about some of the functions and how to use them at its <a href="https://billpetti.github.io/baseballr/">official site</a> as well as this <a href="https://www.hardballtimes.com/developing-the-baseballr-package-for-r/">Hardball Times article</a>.</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a><strong>Installation</strong>
+<p>You can read more about some of the functions and how to use them at its <a href="https://billpetti.github.io/baseballr/" class="external-link">official site</a> as well as this <a href="https://www.hardballtimes.com/developing-the-baseballr-package-for-r/" class="external-link">Hardball Times article</a>.</p>
+<div class="section level2">
+<h2 id="installation">
+<strong>Installation</strong><a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the released version of <a href="https://github.com/BillPetti/baseballr/"><strong><code>baseballr</code></strong></a> from <a href="https://github.com/BillPetti/baseballr">GitHub</a> with:</p>
+<p>You can install the released version of <a href="https://github.com/BillPetti/baseballr" class="external-link"><strong><code>baseballr</code></strong></a> from <a href="https://github.com/BillPetti/baseballr" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># You can install using the pacman package using the following code:</span>
-<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">'pacman'</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'pacman'</span><span class="op">)</span>
+<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">'pacman'</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'pacman'</span><span class="op">)</span>
 <span class="op">}</span>
 <span class="fu">pacman</span><span class="fu">::</span><span class="fu">p_load_current_gh</span><span class="op">(</span><span class="st">"BillPetti/baseballr"</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># if you would prefer devtools installation</span>
-<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">'devtools'</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span>
+<code class="sourceCode R"><span class="co"># Alternatively, using the devtools package:</span>
+<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">'devtools'</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span>
 <span class="op">}</span>
-<span class="co"># Alternatively, using the devtools package:</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span>repo <span class="op">=</span> <span class="st">"BillPetti/baseballr"</span><span class="op">)</span></code></pre></div>
-<p>For experimental functions in development, you can install the <a href="https://github.com/BillPetti/baseballr/tree/development_branch">development branch</a>:</p>
+<p>For experimental functions in development, you can install the <a href="https://github.com/BillPetti/baseballr/tree/development_branch" class="external-link">development branch</a>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"BillPetti/baseballr"</span>, ref <span class="op">=</span> <span class="st">"development_branch"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="pull-requests" class="section level2">
-<h2 class="hasAnchor">
-<a href="#pull-requests" class="anchor"></a>Pull Requests</h2>
-<p>Pull request are welcome, but I cannot guarantee that they will be accepted or accepted quickly. Please make all pull requests to the <a href="https://github.com/BillPetti/baseballr/tree/development_branch">development branch</a> for review.</p>
-</div>
-<div id="functionality" class="section level2">
-<h2 class="hasAnchor">
-<a href="#functionality" class="anchor"></a>Functionality</h2>
+<div class="section level2">
+<h2 id="functionality">
+<strong>Functionality</strong><a class="anchor" aria-label="anchor" href="#functionality"></a>
+</h2>
 <p>The package consists of two main sets of functions: data acquisition and metric calculation.</p>
-<p>For example, if you want to see the standings for a specific MLB division on a given date, you can use the <code><a href="reference/standings_on_date_bref.html">standings_on_date_bref()</a></code> function. Just pass the year, month, day, and division you want:</p>
+<p>For example, if you want to see the standings for a specific MLB division on a given date, you can use the <code><a href="reference/bref_standings_on_date.html">bref_standings_on_date()</a></code> function. Just pass the year, month, day, and division you want:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://billpetti.github.io/baseballr/">baseballr</a></span><span class="op">)</span>
-<span class="fu"><a href="reference/standings_on_date_bref.html">standings_on_date_bref</a></span><span class="op">(</span><span class="st">"2015-08-01"</span>, <span class="st">"NL East"</span>, from <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">## Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Stathead account: https://stathead.com</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="co">## # A tibble: 5 x 8</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co">##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="co">##   &lt;chr&gt; &lt;int&gt; &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt;      &lt;dbl&gt;</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="co">## 1 WSN      54    48  0.529 --      422   391      0.535</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="co">## 2 NYM      54    50  0.519 1.0     368   373      0.494</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="co">## 3 ATL      46    58  0.442 9.0     379   449      0.423</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="co">## 4 MIA      42    62  0.404 13.0    370   408      0.455</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="co">## 5 PHI      41    64  0.39  14.5    386   511      0.374</span></span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://billpetti.github.io/baseballr/" class="external-link">baseballr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
+<span class="fu"><a href="reference/bref_standings_on_date.html">bref_standings_on_date</a></span><span class="op">(</span><span class="st">"2015-08-01"</span>, <span class="st">"NL East"</span>, from <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">## # A tibble: 5 x 8</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">##   &lt;chr&gt; &lt;int&gt; &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt;      &lt;dbl&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">## 1 WSN      54    48  0.529 --      422   391      0.535</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">## 2 NYM      54    50  0.519 1.0     368   373      0.494</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">## 3 ATL      46    58  0.442 9.0     379   449      0.423</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">## 4 MIA      42    62  0.404 13.0    370   408      0.455</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">## 5 PHI      41    64  0.39  14.5    386   511      0.374</span></span></code></pre></div>
 <p>Right now the function works as far as back as 1994, which is when both leagues split into three divisions.</p>
 <p>You can also pull data for all hitters over a specific date range. Here are the results for all hitters from August 1st through October 3rd during the 2015 season:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/daily_batter_bref.html">daily_batter_bref</a></span><span class="op">(</span><span class="st">"2015-08-01"</span>, <span class="st">"2015-10-03"</span><span class="op">)</span> </code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">## Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com</span></span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">data</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">##   bbref_id season             Name Age  Level          Team  G  PA  AB  R  H</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="co">## 1   547989   2015    Manny Machado  22 Maj-AL     Baltimore 59 266 237 36 66</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="co">## 2   554429   2015       Matt Duffy  24 Maj-NL San Francisco 59 264 248 33 71</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co">## 3   542436   2015      Jose Altuve  25 Maj-AL       Houston 57 262 244 30 81</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="co">## 4   571431   2015       Adam Eaton  26 Maj-AL       Chicago 58 262 230 37 74</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="co">## 5   501303   2015    Shin-Soo Choo  32 Maj-AL         Texas 58 260 211 48 71</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co">## 6   346793   2015 Francisco Lindor  21 Maj-AL     Cleveland 58 259 224 35 79</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="co">##   X1B X2B X3B HR RBI BB IBB uBB SO HBP SH SF GDP SB CS    BA   OBP   SLG   OPS</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="co">## 1  43  10   0 13  32 26   1  25 42   2  0  1   5  6  4 0.278 0.353 0.485 0.839</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="co">## 2  54  12   2  3  30 15   0  15 35   0  0  1   9  8  0 0.286 0.326 0.387 0.713</span></span>
-<span id="cb9-11"><a href="#cb9-11"></a><span class="co">## 3  53  19   3  6  18 10   1   9 28   4  1  3   6 11  4 0.332 0.364 0.508 0.872</span></span>
-<span id="cb9-12"><a href="#cb9-12"></a><span class="co">## 4  56  12   1  5  31 23   1  22 55   5  2  2   1  9  4 0.322 0.392 0.448 0.840</span></span>
-<span id="cb9-13"><a href="#cb9-13"></a><span class="co">## 5  47  14   1  9  34 39   1  38 51   8  1  1   1  2  0 0.336 0.456 0.540 0.996</span></span>
-<span id="cb9-14"><a href="#cb9-14"></a><span class="co">## 6  51  17   4  7  32 18   0  18 38   1 11  5   4 10  2 0.353 0.395 0.558 0.953</span></span></code></pre></div>
+<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bref_daily_batter.html">bref_daily_batter</a></span><span class="op">(</span><span class="st">"2015-08-01"</span>, <span class="st">"2015-10-03"</span><span class="op">)</span> 
+<span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">## Rows: 764</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co">## Columns: 30</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">## $ bbref_id &lt;chr&gt; "547989", "554429", "542436", "571431", "501303", "346793", "~</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">## $ season   &lt;int&gt; 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2~</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">## $ Name     &lt;chr&gt; "Manny Machado", "Matt Duffy", "Jose Altuve", "Adam Eaton", "~</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">## $ Age      &lt;dbl&gt; 22, 24, 25, 26, 32, 21, 27, 28, 36, 28, 29, 29, 27, 29, 27, 2~</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">## $ Level    &lt;chr&gt; "Maj-AL", "Maj-NL", "Maj-AL", "Maj-AL", "Maj-AL", "Maj-AL", "~</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">## $ Team     &lt;chr&gt; "Baltimore", "San Francisco", "Houston", "Chicago", "Texas", ~</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co">## $ G        &lt;dbl&gt; 59, 59, 57, 58, 58, 58, 59, 58, 59, 57, 55, 57, 57, 58, 56, 5~</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co">## $ PA       &lt;dbl&gt; 266, 264, 262, 262, 260, 259, 259, 258, 257, 257, 255, 255, 2~</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="co">## $ AB       &lt;dbl&gt; 237, 248, 244, 230, 211, 224, 239, 235, 231, 233, 213, 218, 2~</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="co">## $ R        &lt;dbl&gt; 36, 33, 30, 37, 48, 35, 32, 29, 37, 27, 50, 37, 36, 25, 38, 4~</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="co">## $ H        &lt;dbl&gt; 66, 71, 81, 74, 71, 79, 54, 66, 75, 48, 65, 56, 61, 51, 78, 5~</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="co">## $ X1B      &lt;dbl&gt; 43, 54, 53, 56, 47, 51, 34, 37, 48, 30, 34, 32, 35, 33, 66, 2~</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a><span class="co">## $ X2B      &lt;dbl&gt; 10, 12, 19, 12, 14, 17, 6, 17, 16, 11, 13, 13, 15, 10, 7, 13,~</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="co">## $ X3B      &lt;dbl&gt; 0, 2, 3, 1, 1, 4, 1, 0, 2, 1, 2, 4, 0, 1, 3, 0, 4, 0, 1, 1, 0~</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a><span class="co">## $ HR       &lt;dbl&gt; 13, 3, 6, 5, 9, 7, 13, 12, 9, 6, 16, 7, 11, 7, 2, 20, 9, 8, 8~</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a><span class="co">## $ RBI      &lt;dbl&gt; 32, 30, 18, 31, 34, 32, 27, 40, 53, 21, 50, 19, 31, 39, 23, 4~</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="co">## $ BB       &lt;dbl&gt; 26, 15, 10, 23, 39, 18, 16, 17, 21, 21, 34, 33, 21, 39, 12, 3~</span></span>
+<span id="cb7-20"><a href="#cb7-20"></a><span class="co">## $ IBB      &lt;dbl&gt; 1, 0, 1, 1, 1, 0, 0, 6, 1, 1, 0, 1, 1, 5, 0, 4, 3, 3, 7, 2, 2~</span></span>
+<span id="cb7-21"><a href="#cb7-21"></a><span class="co">## $ uBB      &lt;dbl&gt; 25, 15, 9, 22, 38, 18, 16, 11, 20, 20, 34, 32, 20, 34, 12, 35~</span></span>
+<span id="cb7-22"><a href="#cb7-22"></a><span class="co">## $ SO       &lt;dbl&gt; 42, 35, 28, 55, 51, 38, 68, 56, 29, 53, 46, 62, 41, 48, 27, 7~</span></span>
+<span id="cb7-23"><a href="#cb7-23"></a><span class="co">## $ HBP      &lt;dbl&gt; 2, 0, 4, 5, 8, 1, 3, 5, 1, 1, 2, 3, 3, 1, 1, 6, 1, 3, 4, 1, 0~</span></span>
+<span id="cb7-24"><a href="#cb7-24"></a><span class="co">## $ SH       &lt;dbl&gt; 0, 0, 1, 2, 1, 11, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, ~</span></span>
+<span id="cb7-25"><a href="#cb7-25"></a><span class="co">## $ SF       &lt;dbl&gt; 1, 1, 3, 2, 1, 5, 1, 1, 4, 2, 5, 1, 2, 2, 3, 0, 3, 2, 3, 4, 3~</span></span>
+<span id="cb7-26"><a href="#cb7-26"></a><span class="co">## $ GDP      &lt;dbl&gt; 5, 9, 6, 1, 1, 4, 2, 2, 9, 7, 5, 1, 4, 8, 1, 2, 3, 10, 5, 4, ~</span></span>
+<span id="cb7-27"><a href="#cb7-27"></a><span class="co">## $ SB       &lt;dbl&gt; 6, 8, 11, 9, 2, 10, 0, 0, 0, 3, 3, 4, 5, 4, 24, 2, 1, 0, 6, 0~</span></span>
+<span id="cb7-28"><a href="#cb7-28"></a><span class="co">## $ CS       &lt;dbl&gt; 4, 0, 4, 4, 0, 2, 0, 0, 0, 1, 0, 1, 3, 2, 7, 2, 3, 0, 2, 0, 0~</span></span>
+<span id="cb7-29"><a href="#cb7-29"></a><span class="co">## $ BA       &lt;dbl&gt; 0.278, 0.286, 0.332, 0.322, 0.336, 0.353, 0.226, 0.281, 0.325~</span></span>
+<span id="cb7-30"><a href="#cb7-30"></a><span class="co">## $ OBP      &lt;dbl&gt; 0.353, 0.326, 0.364, 0.392, 0.456, 0.395, 0.282, 0.341, 0.377~</span></span>
+<span id="cb7-31"><a href="#cb7-31"></a><span class="co">## $ SLG      &lt;dbl&gt; 0.485, 0.387, 0.508, 0.448, 0.540, 0.558, 0.423, 0.506, 0.528~</span></span>
+<span id="cb7-32"><a href="#cb7-32"></a><span class="co">## $ OPS      &lt;dbl&gt; 0.839, 0.713, 0.872, 0.840, 0.996, 0.953, 0.704, 0.847, 0.906~</span></span></code></pre></div>
 <p>In terms of metric calculation, the package allows the user to calculate the consistency of team scoring and run prevention for any year using <code><a href="reference/team_consistency.html">team_consistency()</a></code>:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/team_consistency.html">team_consistency</a></span><span class="op">(</span><span class="fl">2015</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">## Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Stathead account: https://stathead.com</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="co">## # A tibble: 30 x 5</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="co">##    Team  Con_R Con_RA Con_R_Ptile Con_RA_Ptile</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a><span class="co">##    &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;</span></span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="co">##  1 ARI    0.37   0.36          17           15</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a><span class="co">##  2 ATL    0.41   0.4           88           63</span></span>
-<span id="cb11-8"><a href="#cb11-8"></a><span class="co">##  3 BAL    0.4    0.38          70           42</span></span>
-<span id="cb11-9"><a href="#cb11-9"></a><span class="co">##  4 BOS    0.39   0.4           52           63</span></span>
-<span id="cb11-10"><a href="#cb11-10"></a><span class="co">##  5 CHC    0.38   0.41          30           85</span></span>
-<span id="cb11-11"><a href="#cb11-11"></a><span class="co">##  6 CHW    0.39   0.4           52           63</span></span>
-<span id="cb11-12"><a href="#cb11-12"></a><span class="co">##  7 CIN    0.41   0.36          88           15</span></span>
-<span id="cb11-13"><a href="#cb11-13"></a><span class="co">##  8 CLE    0.41   0.4           88           63</span></span>
-<span id="cb11-14"><a href="#cb11-14"></a><span class="co">##  9 COL    0.35   0.34           7            3</span></span>
-<span id="cb11-15"><a href="#cb11-15"></a><span class="co">## 10 DET    0.39   0.38          52           42</span></span>
-<span id="cb11-16"><a href="#cb11-16"></a><span class="co">## # ... with 20 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">## # A tibble: 30 x 5</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="co">##    Team  Con_R Con_RA Con_R_Ptile Con_RA_Ptile</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co">##    &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">##  1 ARI    0.37   0.36          17           15</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co">##  2 ATL    0.41   0.4           88           63</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">##  3 BAL    0.4    0.38          70           42</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co">##  4 BOS    0.39   0.4           52           63</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co">##  5 CHC    0.38   0.41          30           85</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="co">##  6 CHW    0.39   0.4           52           63</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="co">##  7 CIN    0.41   0.36          88           15</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="co">##  8 CLE    0.41   0.4           88           63</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a><span class="co">##  9 COL    0.35   0.34           7            3</span></span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="co">## 10 DET    0.39   0.38          52           42</span></span>
+<span id="cb9-14"><a href="#cb9-14"></a><span class="co">## # ... with 20 more rows</span></span></code></pre></div>
 <p>You can also calculate wOBA per plate appearance and wOBA on contact for any set of data over any date range, provided you have the data available.</p>
 <p>Simply pass the proper data frame to <code>woba_plus</code>:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">data</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">PA</span> <span class="op">&gt;</span> <span class="fl">200</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="va">woba_plus</span> <span class="op">%&gt;%</span>
-  <span class="fu">arrange</span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">wOBA</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">select</span><span class="op">(</span><span class="va">Name</span>, <span class="va">Team</span>, <span class="va">season</span>, <span class="va">PA</span>, <span class="va">wOBA</span>, <span class="va">wOBA_CON</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">##                Name       Team season  PA  wOBA wOBA_CON</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="co">## 1 Edwin Encarnacion    Toronto   2015 216 0.490    0.555</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="co">## 2      Bryce Harper Washington   2015 248 0.450    0.529</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="co">## 3       David Ortiz     Boston   2015 213 0.449    0.541</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a><span class="co">## 4        Joey Votto Cincinnati   2015 251 0.445    0.543</span></span>
-<span id="cb13-6"><a href="#cb13-6"></a><span class="co">## 5       Chris Davis  Baltimore   2015 253 0.434    0.617</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a><span class="co">## 6     Shin-Soo Choo      Texas   2015 260 0.430    0.495</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">PA</span> <span class="op">&gt;</span> <span class="fl">200</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="va">woba_plus</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">wOBA</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">Team</span>, <span class="va">season</span>, <span class="va">PA</span>, <span class="va">wOBA</span>, <span class="va">wOBA_CON</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">## Rows: 117</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="co">## Columns: 6</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="co">## $ Name     &lt;chr&gt; "Edwin Encarnacion", "Bryce Harper", "David Ortiz", "Joey Vot~</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co">## $ Team     &lt;chr&gt; "Toronto", "Washington", "Boston", "Cincinnati", "Baltimore",~</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co">## $ season   &lt;chr&gt; "2015", "2015", "2015", "2015", "2015", "2015", "2015", "2015~</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="co">## $ PA       &lt;dbl&gt; 216, 248, 213, 251, 253, 260, 245, 255, 223, 241, 223, 259, 2~</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="co">## $ wOBA     &lt;dbl&gt; 0.490, 0.450, 0.449, 0.445, 0.434, 0.430, 0.430, 0.422, 0.410~</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="co">## $ wOBA_CON &lt;dbl&gt; 0.555, 0.529, 0.541, 0.543, 0.617, 0.495, 0.481, 0.494, 0.459~</span></span></code></pre></div>
 <p>You can also generate these wOBA-based stats, as well as FIP, for pitchers using the <code><a href="reference/fip_plus.html">fip_plus()</a></code> function:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/daily_pitcher_bref.html">daily_pitcher_bref</a></span><span class="op">(</span><span class="st">"2015-04-05"</span>, <span class="st">"2015-04-30"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="reference/fip_plus.html">fip_plus</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">select</span><span class="op">(</span><span class="va">season</span>, <span class="va">Name</span>, <span class="va">IP</span>, <span class="va">ERA</span>, <span class="va">SO</span>, <span class="va">uBB</span>, <span class="va">HBP</span>, <span class="va">HR</span>, <span class="va">FIP</span>, <span class="va">wOBA_against</span>, <span class="va">wOBA_CON_against</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">arrange</span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">IP</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">## Data courtesy of Baseball-Reference.com. Please consider supporting Baseball-Reference by signing up for a Statehead account: https://stathead.com</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="co">##    season            Name   IP  ERA SO uBB HBP HR  FIP wOBA_against</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="co">## 1    2015    Johnny Cueto 37.0 1.95 38   4   2  3 2.62        0.210</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="co">## 2    2015  Dallas Keuchel 37.0 0.73 22  11   0  0 2.84        0.169</span></span>
-<span id="cb15-6"><a href="#cb15-6"></a><span class="co">## 3    2015      Sonny Gray 36.1 1.98 25   6   1  1 2.69        0.218</span></span>
-<span id="cb15-7"><a href="#cb15-7"></a><span class="co">## 4    2015      Mike Leake 35.2 3.03 25   7   0  5 4.16        0.240</span></span>
-<span id="cb15-8"><a href="#cb15-8"></a><span class="co">## 5    2015 Felix Hernandez 34.2 1.82 36   6   3  1 2.20        0.225</span></span>
-<span id="cb15-9"><a href="#cb15-9"></a><span class="co">## 6    2015    Corey Kluber 34.0 4.24 36   5   2  2 2.40        0.295</span></span>
-<span id="cb15-10"><a href="#cb15-10"></a><span class="co">## 7    2015   Jake Odorizzi 33.2 2.41 26   8   1  0 2.38        0.213</span></span>
-<span id="cb15-11"><a href="#cb15-11"></a><span class="co">## 8    2015 Josh Collmenter 32.2 2.76 16   3   0  1 2.82        0.290</span></span>
-<span id="cb15-12"><a href="#cb15-12"></a><span class="co">## 9    2015   Bartolo Colon 32.2 3.31 25   1   0  4 3.29        0.280</span></span>
-<span id="cb15-13"><a href="#cb15-13"></a><span class="co">## 10   2015    Zack Greinke 32.2 1.93 27   7   1  2 3.01        0.240</span></span>
-<span id="cb15-14"><a href="#cb15-14"></a><span class="co">##    wOBA_CON_against</span></span>
-<span id="cb15-15"><a href="#cb15-15"></a><span class="co">## 1             0.276</span></span>
-<span id="cb15-16"><a href="#cb15-16"></a><span class="co">## 2             0.151</span></span>
-<span id="cb15-17"><a href="#cb15-17"></a><span class="co">## 3             0.239</span></span>
-<span id="cb15-18"><a href="#cb15-18"></a><span class="co">## 4             0.281</span></span>
-<span id="cb15-19"><a href="#cb15-19"></a><span class="co">## 5             0.272</span></span>
-<span id="cb15-20"><a href="#cb15-20"></a><span class="co">## 6             0.391</span></span>
-<span id="cb15-21"><a href="#cb15-21"></a><span class="co">## 7             0.228</span></span>
-<span id="cb15-22"><a href="#cb15-22"></a><span class="co">## 8             0.330</span></span>
-<span id="cb15-23"><a href="#cb15-23"></a><span class="co">## 9             0.357</span></span>
-<span id="cb15-24"><a href="#cb15-24"></a><span class="co">## 10            0.274</span></span></code></pre></div>
-<p>The <code><a href="reference/edge_scrape.html">edge_scrape()</a></code> function allows the user to scrape PITCHf/x data from the GameDay application using Carson Sievert’s <a href="https://github.com/cpsievert/pitchRx">pitchRx</a> package and to calculate metrics associated with <a href="https://billpetti.shinyapps.io/edge_shiny/">Edge%</a>. The function returns a dataframe grouped by either pitchers or batters and the percentge of pitches in each of the various Edge zones.</p>
-<p>Example (pitchers):</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
-<span class="fu"><a href="reference/edge_scrape.html">edge_scrape</a></span><span class="op">(</span><span class="st">"2015-04-06"</span>, <span class="st">"2015-04-07"</span>, <span class="st">"pitcher"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fl">6</span><span class="op">:</span><span class="op">-</span><span class="fl">4</span>, <span class="op">-</span><span class="fl">13</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
-<p>Example (batters):</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/edge_scrape.html">edge_scrape</a></span><span class="op">(</span><span class="st">"2015-04-06"</span>, <span class="st">"2015-04-07"</span>, <span class="st">"batter"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fl">6</span><span class="op">:</span><span class="op">-</span><span class="fl">4</span>, <span class="op">-</span><span class="fl">13</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
-<p>More functionality will be added soon. Please leave any suggestions or bugs in the <a href="https://github.com/BillPetti/baseballr/issues">Issues section</a>.</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/bref_daily_pitcher.html">bref_daily_pitcher</a></span><span class="op">(</span><span class="st">"2015-04-05"</span>, <span class="st">"2015-04-30"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="reference/fip_plus.html">fip_plus</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">season</span>, <span class="va">Name</span>, <span class="va">IP</span>, <span class="va">ERA</span>, <span class="va">SO</span>, <span class="va">uBB</span>, <span class="va">HBP</span>, <span class="va">HR</span>, <span class="va">FIP</span>, <span class="va">wOBA_against</span>, <span class="va">wOBA_CON_against</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">IP</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">##    season            Name   IP  ERA SO uBB HBP HR  FIP wOBA_against</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="co">## 1    2015    Johnny Cueto 37.0 1.95 38   4   2  3 2.62        0.210</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="co">## 2    2015  Dallas Keuchel 37.0 0.73 22  11   0  0 2.84        0.169</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="co">## 3    2015      Sonny Gray 36.1 1.98 25   6   1  1 2.69        0.218</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="co">## 4    2015      Mike Leake 35.2 3.03 25   7   0  5 4.16        0.240</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="co">## 5    2015 Felix Hernandez 34.2 1.82 36   6   3  1 2.20        0.225</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="co">## 6    2015    Corey Kluber 34.0 4.24 36   5   2  2 2.40        0.295</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="co">## 7    2015   Jake Odorizzi 33.2 2.41 26   8   1  0 2.38        0.213</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a><span class="co">## 8    2015 Josh Collmenter 32.2 2.76 16   3   0  1 2.82        0.290</span></span>
+<span id="cb13-10"><a href="#cb13-10"></a><span class="co">## 9    2015   Bartolo Colon 32.2 3.31 25   1   0  4 3.29        0.280</span></span>
+<span id="cb13-11"><a href="#cb13-11"></a><span class="co">## 10   2015    Zack Greinke 32.2 1.93 27   7   1  2 3.01        0.240</span></span>
+<span id="cb13-12"><a href="#cb13-12"></a><span class="co">##    wOBA_CON_against</span></span>
+<span id="cb13-13"><a href="#cb13-13"></a><span class="co">## 1             0.276</span></span>
+<span id="cb13-14"><a href="#cb13-14"></a><span class="co">## 2             0.151</span></span>
+<span id="cb13-15"><a href="#cb13-15"></a><span class="co">## 3             0.239</span></span>
+<span id="cb13-16"><a href="#cb13-16"></a><span class="co">## 4             0.281</span></span>
+<span id="cb13-17"><a href="#cb13-17"></a><span class="co">## 5             0.272</span></span>
+<span id="cb13-18"><a href="#cb13-18"></a><span class="co">## 6             0.391</span></span>
+<span id="cb13-19"><a href="#cb13-19"></a><span class="co">## 7             0.228</span></span>
+<span id="cb13-20"><a href="#cb13-20"></a><span class="co">## 8             0.330</span></span>
+<span id="cb13-21"><a href="#cb13-21"></a><span class="co">## 9             0.357</span></span>
+<span id="cb13-22"><a href="#cb13-22"></a><span class="co">## 10            0.274</span></span></code></pre></div>
 </div>
-<div id="follow-the-sportsdataverse-on-twitter-and-star-this-repo" class="section level2">
-<h2 class="hasAnchor">
-<a href="#follow-the-sportsdataverse-on-twitter-and-star-this-repo" class="anchor"></a>Follow the <a href="https://twitter.com/SportsDataverse">SportsDataverse</a> on Twitter and star this repo</h2>
-<p><a href="https://twitter.com/SportsDataverse"><img src="https://img.shields.io/twitter/follow/SportsDataverse?color=blue&amp;label=%40SportsDataverse&amp;logo=twitter&amp;style=for-the-badge" alt="Twitter Follow"></a></p>
-<p><a href="https://github.com/billpetti/baseballr/stargazers/"><img src="https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&amp;logo=github&amp;style=for-the-badge&amp;label=Star%20baseballr&amp;maxAge=2592000" alt="GitHub stars"></a></p>
+<div class="section level2">
+<h2 id="issues">
+<strong>Issues</strong><a class="anchor" aria-label="anchor" href="#issues"></a>
+</h2>
+<p>Please leave any suggestions or bugs in the <a href="https://github.com/billpetti/baseballr/issues" class="external-link">Issues section</a>.</p>
 </div>
-<div id="our-authors" class="section level2">
-<h2 class="hasAnchor">
-<a href="#our-authors" class="anchor"></a><strong>Our Authors</strong>
+<div class="section level2">
+<h2 id="pull-requests">
+<strong>Pull Requests</strong><a class="anchor" aria-label="anchor" href="#pull-requests"></a>
+</h2>
+<p>Pull request are welcome, but I cannot guarantee that they will be accepted or accepted quickly. Please make all pull requests to the <a href="https://github.com/billpetti/baseballr/tree/development_branch" class="external-link">development branch</a> for review.</p>
+</div>
+<div class="section level2">
+<h2 id="breaking-changes">
+<strong>Breaking Changes</strong><a class="anchor" aria-label="anchor" href="#breaking-changes"></a>
+</h2>
+<p><a href="https://billpetti.github.io/baseballr/news/index.html" class="external-link"><strong>Full News on Releases</strong></a></p>
+</div>
+<div class="section level2">
+<h2 id="follow-the-sportsdataverse-on-twitter-and-star-this-repo">Follow the <a href="https://twitter.com/SportsDataverse" class="external-link">SportsDataverse</a> on Twitter and star this repo<a class="anchor" aria-label="anchor" href="#follow-the-sportsdataverse-on-twitter-and-star-this-repo"></a>
+</h2>
+<p><a href="https://twitter.com/SportsDataverse" class="external-link"><img src="https://img.shields.io/twitter/follow/SportsDataverse?color=blue&amp;label=%40SportsDataverse&amp;logo=twitter&amp;style=for-the-badge" alt="Twitter Follow"></a></p>
+<p><a href="https://github.com/billpetti/baseballr/stargazers/" class="external-link"><img src="https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&amp;logo=github&amp;style=for-the-badge&amp;label=Star%20baseballr&amp;maxAge=2592000" alt="GitHub stars"></a></p>
+</div>
+<div class="section level2">
+<h2 id="our-authors">
+<strong>Our Authors</strong><a class="anchor" aria-label="anchor" href="#our-authors"></a>
 </h2>
 <ul>
-<li>
-<a href="https://twitter.com/BillPetti">Bill Petti</a><br><a href="https://twitter.com/BillPetti" target="blank"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&amp;label=%40BillPetti&amp;logo=twitter&amp;style=for-the-badge" alt="@BillPetti"></a> <a href="https://github.com/BillPetti" target="blank"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@BillPetti"></a>
-</li>
+<li><p><a href="https://twitter.com/BillPetti" class="external-link">Bill Petti</a><br><a href="https://twitter.com/BillPetti" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&amp;label=%40BillPetti&amp;logo=twitter&amp;style=for-the-badge" alt="@BillPetti"></a> <a href="https://github.com/BillPetti" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@BillPetti"></a></p></li>
+<li><p><a href="https://twitter.com/saiemgilani" class="external-link">Saiem Gilani</a><br><a href="https://twitter.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge" alt="@saiemgilani"></a> <a href="https://github.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a></p></li>
 </ul>
 </div>
-<div id="our-contributors-theyre-awesome" class="section level2">
-<h2 class="hasAnchor">
-<a href="#our-contributors-theyre-awesome" class="anchor"></a><strong>Our Contributors (they’re awesome)</strong>
+<div class="section level2">
+<h2 id="our-contributors-theyre-awesome">
+<strong>Our Contributors (they’re awesome)</strong><a class="anchor" aria-label="anchor" href="#our-contributors-theyre-awesome"></a>
 </h2>
 <ul>
-<li><p><a href="https://twitter.com/BaumerBen">Ben Baumer</a><br><a href="https://twitter.com/BaumerBen" target="blank"><img src="https://img.shields.io/twitter/follow/BaumerBen?color=blue&amp;label=%40BaumerBen&amp;logo=twitter&amp;style=for-the-badge" alt="@BaumerBen"></a> <a href="https://github.com/beanumber" target="blank"><img src="https://img.shields.io/github/followers/beanumber?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@beanumber"></a></p></li>
-<li><p><a href="https://twitter.com/BenDilday">Ben Dilday</a><br><a href="https://twitter.com/BenDilday" target="blank"><img src="https://img.shields.io/twitter/follow/BenDilday?color=blue&amp;label=%40BenDilday&amp;logo=twitter&amp;style=for-the-badge" alt="@BenDilday"></a> <a href="https://github.com/bdilday" target="blank"><img src="https://img.shields.io/github/followers/bdilday?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@bdilday"></a></p></li>
-<li><p><a href="https://twitter.com/RobertFrey40">Robert Frey</a><br><a href="https://twitter.com/RobertFrey40" target="blank"><img src="https://img.shields.io/twitter/follow/RobertFrey40?color=blue&amp;label=%40RobertFrey40&amp;logo=twitter&amp;style=for-the-badge" alt="@RobertFrey40"></a> <a href="https://github.com/robert-frey" target="blank"><img src="https://img.shields.io/github/followers/robert-frey?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@robert-frey"></a></p></li>
-<li><p><a href="https://twitter.com/saiemgilani">Saiem Gilani</a><br><a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge" alt="@saiemgilani"></a> <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a></p></li>
+<li><p><a href="https://twitter.com/BaumerBen" class="external-link">Ben Baumer</a><br><a href="https://twitter.com/BaumerBen" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/BaumerBen?color=blue&amp;label=%40BaumerBen&amp;logo=twitter&amp;style=for-the-badge" alt="@BaumerBen"></a> <a href="https://github.com/beanumber" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/beanumber?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@beanumber"></a></p></li>
+<li><p><a href="https://twitter.com/BenDilday" class="external-link">Ben Dilday</a><br><a href="https://twitter.com/BenDilday" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/BenDilday?color=blue&amp;label=%40BenDilday&amp;logo=twitter&amp;style=for-the-badge" alt="@BenDilday"></a> <a href="https://github.com/bdilday" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/bdilday?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@bdilday"></a></p></li>
+<li><p><a href="https://twitter.com/RobertFrey40" class="external-link">Robert Frey</a><br><a href="https://twitter.com/RobertFrey40" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/RobertFrey40?color=blue&amp;label=%40RobertFrey40&amp;logo=twitter&amp;style=for-the-badge" alt="@RobertFrey40"></a> <a href="https://github.com/robert-frey" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/robert-frey?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@robert-frey"></a></p></li>
 </ul>
+</div>
+<div class="section level2">
+<h2 id="citations">
+<strong>Citations</strong><a class="anchor" aria-label="anchor" href="#citations"></a>
+</h2>
+<p>To cite the <a href="https://billpetti.github.io/baseballr/" class="external-link"><strong><code>baseballr</code></strong></a> R package in publications, use:</p>
+<p>BibTex Citation</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb14-1"><a href="#cb14-1"></a><span class="va">@misc</span>{<span class="ot">petti_gilani_2021</span>,</span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="dt">author</span> = {Bill Petti and Saiem Gilani},</span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="dt">title</span> = {baseballr: The SportsDataverse's R Package for Baseball Data.},</span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="dt">url</span> = {https://billpetti.github.io/baseballr/},</span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="dt">year</span> = {2021}</span>
+<span id="cb14-6"><a href="#cb14-6"></a>}</span></code></pre></div>
 </div>
 </div>
 
-  </div>
-
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <div class="links">
-<h2>Links</h2>
+  </main><aside class="col-md-3"><div class="links">
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/BillPetti/baseballr/">https://​github.com/​BillPetti/​baseballr/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/BillPetti/baseballr/issues">https://​github.com/​BillPetti/​baseballr/​issues</a>
-</li>
-<li>Plotting Statcast at <br><a href="articles/plotting_statcast.html">articles/​plotting_statcast.html</a>
-</li>
-<li>NCAA Scraping at <br><a href="articles/ncaa_scraping.html">articles/​ncaa_scraping.html</a>
-</li>
+<li><a href="https://github.com//billpetti/baseballR/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/BillPetti/baseballr/issues" class="external-link">Report a bug</a></li>
+<li><a href="https://BillPetti.github.io/baseballr/articles/plotting_statcast.html" class="external-link">Plotting Statcast</a></li>
+<li><a href="https://BillPetti.github.io/baseballr/articles/ncaa_scraping.html" class="external-link">NCAA Scraping</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li>
-<a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a>
-</li>
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing baseballr</a></li>
+</ul>
+</div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://twitter.com/BillPetti">Bill Petti</a> <br><small class="roles"> Author, maintainer </small>  </li>
-<li><a href="authors.html">All authors...</a></li>
+<a href="https://twitter.com/BillPetti" class="external-link">Bill Petti</a> <br><small class="roles"> Author </small>  </li>
+<li>
+<a href="https://twitter.com/saiemgilani" class="external-link">Saiem Gilani</a> <br><small class="roles"> Author, maintainer </small>  </li>
+<li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://twitter.com/BillPetti"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&amp;label=%40BillPetti&amp;logo=twitter&amp;style=for-the-badge" alt="Twitter Follow"></a></li>
+<li><a href="https://twitter.com/BillPetti" class="external-link"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&amp;label=%40BillPetti&amp;logo=twitter&amp;style=for-the-badge" alt="Twitter Follow"></a></li>
 </ul>
 </div>
-</div>
-</div>
 
-
-      <footer><div class="copyright">
-  <p>Developed by <a href="https://twitter.com/BillPetti">Bill Petti</a>.</p>
+  </aside>
 </div>
 
-<div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+
+    <footer><div class="pkgdown-footer-left">
+  <p></p>
+<p>Developed by <a href="https://twitter.com/BillPetti" class="external-link">Bill Petti</a>, <a href="https://twitter.com/saiemgilani" class="external-link">Saiem Gilani</a>.</p>
 </div>
 
-      </footer>
+<div class="pkgdown-footer-right">
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+</div>
+
+    </footer>
 </div>
 
   
 
+  
 
   </body>
 </html>
