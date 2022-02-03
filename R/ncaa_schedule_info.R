@@ -44,7 +44,7 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
     sched <- sched_html %>%
       rvest::html_table() %>%
       as.data.frame() %>% 
-      dplyr::select(-.data$Attendance)
+      dplyr::select(-dplyr::any_of("Attendance"))
   }else{
     sched_html <- payload %>% 
       rvest::html_element("td:nth-child(1) > table") 
