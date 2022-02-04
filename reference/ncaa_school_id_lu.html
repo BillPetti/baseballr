@@ -151,18 +151,19 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="fu">ncaa_school_id_lu</span><span class="op">(</span><span class="st">"Van"</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 6</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   school     conference school_id  year division conference_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>013        1           911</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>014        1           911</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>015        1           911</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>016        1           911</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>017        1           911</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>018        1           911</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>019        1           911</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>020        1           911</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">9</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>021        1           911</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    school     conference school_id  year division conference_id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>013        1           911</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>014        1           911</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>015        1           911</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>016        1           911</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>017        1           911</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>018        1           911</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>019        1           911</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>020        1           911</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>021        1           911</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>022        1           911</span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>
