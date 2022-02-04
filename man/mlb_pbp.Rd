@@ -172,6 +172,6 @@ Both major and minor league pitch-by-pitch data can be pulled with this function
 }
 \examples{
 \donttest{
-  mlb_pbp(game_pk = 575156)
+  mlb_pbp(game_pk = 632970)
 }
 }

@@ -15,6 +15,7 @@ Depends:
 Imports: 
     data.table (>= 1.14.0),
     dplyr,
+    glue,
     ggplot2,
     janitor,
     jsonlite,
