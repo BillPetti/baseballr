@@ -22,7 +22,7 @@
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'   ncaa_schedule_info(teamid = 736, year = 2021)
+#'   ncaa_schedule_info(teamid = 736, year = 2022)
 #' }
 
 ncaa_schedule_info <- function(teamid = NULL, year = NULL){
@@ -43,8 +43,10 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
       rvest::html_elements("table") 
     sched <- sched_html %>%
       rvest::html_table() %>%
-      as.data.frame() %>% 
-      dplyr::select(-.data$Attendance)
+      as.data.frame() 
+    sched <- sched %>%
+      dplyr::filter(.data$Date != "") %>% 
+      dplyr::select(-dplyr::any_of("Attendance"))
   }else{
     sched_html <- payload %>% 
       rvest::html_element("td:nth-child(1) > table") 
@@ -64,28 +66,31 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
     rvest::html_attr("href")
   
   sched <- sched %>%
-    dplyr::filter(!(.data$Result %in% c("Canceled","Ppd", "")))
+    dplyr::filter(!(.data$Result %in% c("Canceled","Ppd")))
   
-  sched$slug <- sched_html %>%
+  slugs <- sched_html %>%
     rvest::html_elements("td .skipMask") %>%
     rvest::html_attr("href")
+  
   sched <- sched %>%
     dplyr::mutate(
+      slug = ifelse(length(slugs)==0, NA_character_, slugs),
       Date = substr(.data$Date,1,10),
-      game_info_url = paste0("https://stats.ncaa.org", .data$slug))
+      game_info_url = ifelse(!is.na(.data$slug), paste0("https://stats.ncaa.org", .data$slug), NA_character_))
   
   suppressWarnings(
     sched <- sched %>%
       tidyr::separate(.data$Result, into = c("Result", "Score", "Innings"),
                       sep = " ") %>%
-      dplyr::filter(.data$Result != "RPI") %>% 
+      # dplyr::filter(.data$Result != "RPI") %>% 
       dplyr::mutate(
         Innings = stringr::str_extract(.data$Innings,"\\d+")
       )
     
   )
   sched <- sched %>% 
-    janitor::clean_names()
+    janitor::clean_names() 
+  
   
   
   return(sched)

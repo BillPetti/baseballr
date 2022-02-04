@@ -211,14 +211,8 @@ reference:
   - subtitle: Misc. Lookup Functions
     desc: Functions exported by baseballr to access Baseball players and teams
     contents:
-      - '`get_umpire_ids_petti`'
-      - '`get_game_info_sup_petti`'
-  - title: GameDay MLB 
-  - subtitle: GameDay MLB Data Functions
-    desc: Functions exported by baseballr to access GameDay MLB Data
-    contents:
-      - '`batter_boxscore`'
-      - '`pitcher_boxscore`'
+      - '`load_umpire_ids`'
+      - '`load_game_info_sup`'
   - title: Metrics
   - subtitle: Metrics Functions
     desc: Functions exported by baseballr to calculate metrics
@@ -228,7 +222,6 @@ reference:
       - '`fip_plus`'
       - '`team_consistency`'
       - '`run_expectancy_code`'
-      - '`run_expectancy_table`'
   - title: Visualizations
   - subtitle: Visualizations Functions
     desc: Functions exported by baseballr to create visuals
