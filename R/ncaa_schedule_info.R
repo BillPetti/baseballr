@@ -62,9 +62,10 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
   sched <- sched %>%
     dplyr::filter(.data$Date != "")
   sched$opponent_slug <- sched_html %>%
-    rvest::html_elements("td:nth-child(2) > a" ) %>%
+    rvest::html_elements("td:nth-child(2)")%>%
+    rvest::html_element("a") %>%
     rvest::html_attr("href")
-  
+
   sched <- sched %>%
     dplyr::filter(!(.data$Result %in% c("Canceled","Ppd")))
   
