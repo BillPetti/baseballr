@@ -1,4 +1,3 @@
-context("MLB Get Game Info Supplement Petti")
 
 cols <- c(
   "game_date", "game_pk", "venue_name", "venue_id", 
@@ -11,7 +10,7 @@ cols <- c(
 test_that("MLB Get Game Info Supplement Petti", {
   skip_on_cran()
   
-  x <- get_game_info_sup_petti()
+  x <- load_game_info_sup()
   
   expect_equal(colnames(x), cols)
   expect_s3_class(x, "data.frame")

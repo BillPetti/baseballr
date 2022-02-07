@@ -1,3 +1,57 @@
+# baseballr 1.1.0
+## ~49 MLB Stats API functions added
+|name                      |file                         |
+|:-------------------------|:----------------------------|
+|mlb_attendance            |R/mlb_attendance.R           |
+|mlb_awards                |R/mlb_awards.R               |
+|mlb_awards_recipient      |R/mlb_awards_recipient.R     |
+|mlb_baseball_stats        |R/mlb_baseball_stats.R       |
+|mlb_conferences           |R/mlb_conferences.R          |
+|mlb_divisions             |R/mlb_divisions.R            |
+|mlb_draft_latest          |R/mlb_draft_latest.R         |
+|mlb_draft_prospects       |R/mlb_draft_prospects.R      |
+|mlb_event_types           |R/mlb_event_types.R          |
+|mlb_fielder_detail_types  |R/mlb_fielder_detail_types.R |
+|mlb_game_changes          |R/mlb_game_changes.R         |
+|mlb_game_content          |R/mlb_game_content.R         |
+|mlb_game_context_metrics  |R/mlb_game_context_metrics.R |
+|mlb_game_linescore        |R/mlb_game_linescore.R       |
+|mlb_game_pace             |R/mlb_game_pace.R            |
+|mlb_game_status_codes     |R/mlb_game_status_codes.R    |
+|mlb_game_timecodes        |R/mlb_game_timecodes.R       |
+|mlb_game_types            |R/mlb_game_types.R           |
+|mlb_game_wp               |R/mlb_game_wp.R              |
+|mlb_high_low_stats        |R/mlb_high_low_stats.R       |
+|mlb_high_low_types        |R/mlb_high_low_types.R       |
+|mlb_hit_trajectories      |R/mlb_hit_trajectories.R     |
+|mlb_homerun_derby         |R/mlb_homerun_derby.R        |
+|mlb_homerun_derby_bracket |R/mlb_homerun_derby.R        |
+|mlb_homerun_derby_players |R/mlb_homerun_derby.R        |
+|mlb_job_types             |R/mlb_job_types.R            |
+|mlb_languages             |R/mlb_languages.R            |
+|mlb_league_leader_types   |R/mlb_league_leader_types.R  |
+|mlb_logical_events        |R/mlb_logical_events.R       |
+|mlb_metrics               |R/mlb_metrics.R              |
+|mlb_pbp_diff              |R/mlb_pbp_diff.R             |
+|mlb_pitch_codes           |R/mlb_pitch_codes.R          |
+|mlb_pitch_types           |R/mlb_pitch_types.R          |
+|mlb_player_status_codes   |R/mlb_player_status_codes.R  |
+|mlb_positions             |R/mlb_positions.R            |
+|mlb_review_reasons        |R/mlb_review_reasons.R       |
+|mlb_roster_types          |R/mlb_roster_types.R         |
+|mlb_rosters               |R/mlb_rosters.R              |
+|mlb_runner_detail_types   |R/mlb_runner_detail_types.R  |
+|mlb_schedule_event_types  |R/mlb_schedule_event_types.R |
+|mlb_situation_codes       |R/mlb_situation_codes.R      |
+|mlb_sky                   |R/mlb_sky.R                  |
+|mlb_sports                |R/mlb_sports.R               |
+|mlb_standings_types       |R/mlb_standings_types.R      |
+|mlb_stat_groups           |R/mlb_stat_groups.R          |
+|mlb_stat_types            |R/mlb_stat_types.R           |
+|mlb_teams                 |R/mlb_teams.R                |
+|mlb_venues                |R/mlb_venues.R               |
+|mlb_wind_direction_codes  |R/mlb_wind_direction_codes.R |
+
 # baseballr 1.0.1
 - Update ```ncaa_season_id_lu``` for 2022 season. 
 

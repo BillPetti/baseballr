@@ -1,5 +1,3 @@
-context("MLB Get Game Packs")
-
 cols <- c(
   "game_pk", "link", "gameType", "season", "gameDate", 
   "officialDate", "isTie", "gameNumber", "publicFacing", 
@@ -26,7 +24,7 @@ cols <- c(
 test_that("MLB Get Game Packs", {
   skip_on_cran()
   
-  x <- get_game_pks_mlb("2019-04-29")
+  x <- mlb_game_pks("2019-04-29")
   
   expect_equal(colnames(x), cols)
   expect_s3_class(x, "data.frame")

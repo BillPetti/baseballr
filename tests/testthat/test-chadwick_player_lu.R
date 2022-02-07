@@ -1,4 +1,3 @@
-context("MLB Get Chadwick Lookup")
 
 cols <- c(
   "key_person", "key_uuid", "key_mlbam",
@@ -16,10 +15,10 @@ cols <- c(
   "pro_umpired_last", "mlb_umpired_first", "mlb_umpired_last"
 )
 
-test_that("MLB Get Chadwick Lookup", {
+test_that("MLB Chadwick Lookup", {
   skip_on_cran()
   
-  x <- get_chadwick_lu()
+  x <- chadwick_player_lu()
   
   expect_equal(colnames(x), cols)
   expect_s3_class(x, "data.frame")

@@ -1,0 +1,53 @@
+
+cols <- c(
+  "PlayerName", "playerid", "Date", "Team", "Opp",
+  "season", "Age", "BatOrder", "Pos", 
+  "G", "AB", "PA", "H", "1B", "2B", "3B", "HR", 
+  "R", "RBI", "BB", "IBB", "SO", "HBP", "SF", "SH", 
+  "GDP", "SB", "CS", "AVG", "GB", "FB", "LD", 
+  "IFFB", "Pitches", "Balls", "Strikes", "IFH", 
+  "BU", "BUH", "BB%", "K%", "BB/K", "OBP", "SLG", "OPS",
+  "ISO", "BABIP", "GB/FB", "LD%", "GB%", "FB%", "IFFB%", 
+  "HR/FB", "IFH%", "BUH%", "wOBA", "wRAA", "wRC", "Spd", "wRC+", 
+  "wBSR", "WPA", "-WPA", "+WPA", "RE24", "REW", "pLI", "phLI", "PH", 
+  "WPA/LI", "Clutch", "FB%1", "FBv", "SL%", "SLv", "CT%", "CTv",
+  "CB%", "CBv", "CH%", "CHv", "SF%", "SFv", "KN%", "KNv",
+  "XX%", "wFB", "wSL", "wCT", "wCB", "wCH", "wSF", "wKN", 
+  "wFB/C", "wSL/C", "wCT/C", "wCB/C", "wCH/C", "wSF/C", "wKN/C", 
+  "O-Swing%", "Z-Swing%", "Swing%", "O-Contact%", "Z-Contact%", 
+  "Contact%", "Zone%", "F-Strike%", "SwStr%", "Pull", "Cent", 
+  "Oppo", "Soft", "Med", "Hard", "bipCount", "Pull%", "Cent%",
+  "Oppo%", "Soft%", "Med%", "Hard%", "pfxFA%", "pfxFT%", 
+  "pfxFC%", "pfxFS%", "pfxFO%", "pfxSI%", "pfxSL%", "pfxCU%",
+  "pfxKC%", "pfxCH%", "pfxKN%", "pfxvFA", "pfxvFT", "pfxvFC",
+  "pfxvFS", "pfxvFO", "pfxvSI", "pfxvSL", "pfxvCU", "pfxvKC",
+  "pfxvCH", "pfxvKN", "pfxFA-X", "pfxFT-X", "pfxFC-X", "pfxFS-X",
+  "pfxFO-X", "pfxSI-X", "pfxSL-X", "pfxCU-X", "pfxKC-X", "pfxCH-X", 
+  "pfxKN-X", "pfxFA-Z", "pfxFT-Z", "pfxFC-Z", "pfxFS-Z", "pfxFO-Z",
+  "pfxSI-Z", "pfxSL-Z", "pfxCU-Z", "pfxKC-Z", "pfxCH-Z", "pfxKN-Z", 
+  "pfxwFA", "pfxwFT", "pfxwFC", "pfxwFS", "pfxwFO", "pfxwSI", "pfxwSL",
+  "pfxwCU", "pfxwKC", "pfxwCH", "pfxwKN", "pfxwFA/C", "pfxwFT/C", "pfxwFC/C", 
+  "pfxwFS/C", "pfxwFO/C", "pfxwSI/C", "pfxwSL/C", "pfxwCU/C", "pfxwKC/C", 
+  "pfxwCH/C", "pfxwKN/C", "pfxO-Swing%", "pfxZ-Swing%", "pfxSwing%", 
+  "pfxO-Contact%", "pfxZ-Contact%", "pfxContact%", "pfxZone%", "piCH%",
+  "piCS%", "piCU%", "piFA%", "piFC%", "piFS%", "piKN%", "piSI%", 
+  "piSL%", "piXX%", "pivCH", "pivCS", "pivCU", "pivFA", "pivFC", 
+  "pivFS", "pivKN", "pivSI", "pivSL", "pivXX", "piCH-X", "piCS-X", 
+  "piCU-X", "piFA-X", "piFC-X", "piFS-X", "piKN-X", "piSI-X", 
+  "piSL-X", "piXX-X", "piCH-Z", "piCS-Z", "piCU-Z", "piFA-Z", 
+  "piFC-Z", "piFS-Z", "piKN-Z", "piSI-Z", "piSL-Z", "piXX-Z", 
+  "piwCH", "piwCS", "piwCU", "piwFA", "piwFC", "piwFS", "piwKN", 
+  "piwSI", "piwSL", "piwXX", "piwCH/C", "piwCS/C", "piwCU/C", 
+  "piwFA/C", "piwFC/C", "piwFS/C", "piwKN/C", "piwSI/C", "piwSL/C", 
+  "piwXX/C", "piO-Swing%", "piZ-Swing%", "piSwing%", "piO-Contact%",
+  "piZ-Contact%", "piContact%", "piZone%", "Events", "EV", "LA", 
+  "Barrels", "Barrel%", "maxEV", "HardHit", "HardHit%", "gamedate", "dh"
+)
+
+test_that("Fangraphs Batter Game Logs", {
+  skip_on_cran()
+  x <- fg_batter_game_logs(playerid = 6184, year = 2017)
+  
+  expect_equal(colnames(x), cols)
+  expect_s3_class(x, "data.frame")
+})

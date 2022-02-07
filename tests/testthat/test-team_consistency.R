@@ -1,4 +1,3 @@
-context("Team Consistency")
 
 cols <- c(
   "Team", "Con_R", "Con_RA", "Con_R_Ptile", "Con_RA_Ptile"

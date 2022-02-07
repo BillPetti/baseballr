@@ -1,4 +1,3 @@
-context("Label Statcast Imputed Data")
 
 cols <- c(
   "pitch_type", "game_date", "release_speed", 

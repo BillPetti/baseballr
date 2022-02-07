@@ -1,4 +1,3 @@
-context("Daily Pitcher logs Baseball-Reference")
 
 cols <- c(
   "bbref_id", "season", "Name", "Age", "Level",
@@ -13,7 +12,7 @@ cols <- c(
 test_that("Daily Pitcher logs Baseball-Reference", {
   skip_on_cran()
   
-  x <- daily_pitcher_bref("2015-05-10", "2015-06-20")
+  x <- bref_daily_pitcher("2021-05-10", "2021-06-20")
   
   expect_equal(colnames(x), cols)
   expect_s3_class(x, "data.frame")

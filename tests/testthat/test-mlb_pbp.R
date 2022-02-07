@@ -1,5 +1,3 @@
-context("MLB Get Play-by-Play")
-
 cols <- c(
   "game_pk", "game_date", "index", "startTime", 
   "endTime", "isPitch", "type", "playId", 
@@ -60,7 +58,7 @@ cols <- c(
 test_that("MLB Get Play-by-Play", {
   skip_on_cran()
   
-  x <- get_pbp_mlb(game_pk = 575156)
+  x <- mlb_pbp(game_pk = 575156)
   
   expect_equal(colnames(x), cols)
   expect_s3_class(x, "data.frame")

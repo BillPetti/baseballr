@@ -175,7 +175,8 @@ statline_from_statcast <- function(df, base = "pa") {
 
     return(statline)
 
-  } else {
+  } 
+  else {
 
     batted_balls <- df %>%
       dplyr::filter(.data$type == "X") %>%

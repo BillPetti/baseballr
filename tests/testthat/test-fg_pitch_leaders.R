@@ -1,4 +1,3 @@
-context("FanGraphs Pitching Leaders")
 
 cols <- c(
   "playerid", "#", "Season", "Name", 

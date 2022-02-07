@@ -3,10 +3,12 @@ library(tidyverse)
 pacman::p_load_current_gh("r-lib/pkgapi")
 pkg <- pkgapi::map_package()
 function_calls <- pkg$calls
-exported <- pkg$defs %>% filter(exported == TRUE) %>% 
-  dplyr::mutate(new_name = "") %>% 
-  dplyr::select(all_of(c("name","new_name", "file", "exported"))) 
+exported <- pkg$defs %>% 
+  dplyr::filter(exported == TRUE) %>% 
+  dplyr::select(all_of(c("name", "file"))) 
 
+mlb_functions <- exported %>% 
+  dplyr::filter(stringr::str_detect(.data$name,pattern = "^mlb_*"))
 ## --- Exported functions ---
 exported %>% 
   knitr::kable()
