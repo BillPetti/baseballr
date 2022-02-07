@@ -31,37 +31,44 @@ ncaa_baseball_roster <- function(teamid = NA, team_year){
   id <- baseballr::ncaa_season_id_lu %>% 
     dplyr::filter(.data$season == team_year) %>% 
     dplyr::select(.data$id)
-
+  
   school_info <- baseballr::ncaa_team_lu %>% 
     dplyr::filter(.data$school_id == teamid & .data$year == team_year) %>%
     dplyr::select(-.data$year) %>%
     dplyr::distinct()
-
+  
   url <- paste0("https://stats.ncaa.org/team/", teamid, "/roster/", id)
-
+  
   payload <- url %>% 
     xml2::read_html()
-
+  
   payload1 <- (payload %>%
-    rvest::html_elements("table"))[[1]] %>%
+                 rvest::html_elements("table"))[[1]] %>%
     rvest::html_elements("tr")
   
   payload_table <- (payload %>%
-                 rvest::html_elements("table"))[[1]] %>%
+                      rvest::html_elements("table"))[[1]] %>%
     rvest::html_table()
   
   colnames(payload_table) <- payload_table[1,]
   
   payload_table <- payload_table[-1,]
-  
-  url_slug <- lapply(payload1, function(x){
-    (url_slug <- x %>%
-       rvest::html_elements("td"))[2] %>%
-      rvest::html_elements("a") %>%
-      rvest::html_attr("href") %>% 
-      as.data.frame() }) %>% 
-    dplyr::bind_rows() %>% 
-    dplyr::rename(url_slug = .data$`.`)
+  payload1 <- payload1[c(3:length(payload1))]
+  extractor <- function(x){
+    data.frame(url_slug = ifelse(
+      is.null(
+        (x %>%
+           rvest::html_elements("td"))[2] %>% 
+          rvest::html_element("a")), 
+      NA_character_,
+      (x %>%
+         rvest::html_elements("td"))[2] %>% 
+        rvest::html_element("a")  %>% 
+        html_attr("href")
+    ))
+  }
+  url_slug <- lapply(payload1, extractor) %>% 
+    dplyr::bind_rows() 
   
   roster <- dplyr::bind_cols(payload_table, url_slug) %>% 
     dplyr::rename(
@@ -78,10 +85,10 @@ ncaa_baseball_roster <- function(teamid = NA, team_year){
       player_url = ifelse(is.na(.data$player_id), NA, paste0("https://stats.ncaa.org", .data$url_slug))) %>%
     dplyr::select(.data$name, .data$class, .data$player_id, .data$season, 
                   .data$number, .data$position, .data$player_url)
-
+  
   school_info <- school_info %>%
     dplyr::slice(rep(1:n(), each = nrow(roster)))
-
+  
   roster <- dplyr::bind_cols(roster, school_info)
 
   return(roster)
