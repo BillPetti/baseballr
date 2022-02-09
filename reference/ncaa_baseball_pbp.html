@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -156,363 +156,258 @@ found using the get_ncaa_schedule_info function.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="ncaa_schedule_info.html">ncaa_schedule_info</a></span><span class="op">(</span><span class="fl">736</span>, <span class="fl">2021</span><span class="op">)</span><span class="op">$</span><span class="va">game_info_url</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span>
 <span class="r-in">  <span class="fu">ncaa_baseball_pbp</span><span class="op">(</span>game_info_url <span class="op">=</span> <span class="va">x</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           date         location attendance inning inning_top_bot score</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   02/22/2021 Nashville, Tenn.         NA      1            top   0-0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   02/22/2021 Nashville, Tenn.         NA      1            top   0-0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   02/22/2021 Nashville, Tenn.         NA      1            top   0-0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   02/22/2021 Nashville, Tenn.         NA      1            bot   0-0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   02/22/2021 Nashville, Tenn.         NA      1            bot   0-0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   02/22/2021 Nashville, Tenn.         NA      1            bot   0-0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   02/22/2021 Nashville, Tenn.         NA      2            top   0-0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   02/22/2021 Nashville, Tenn.         NA      2            top   0-0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   02/22/2021 Nashville, Tenn.         NA      2            top   0-0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  02/22/2021 Nashville, Tenn.         NA      2            top   0-0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  02/22/2021 Nashville, Tenn.         NA      2            bot   0-0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  02/22/2021 Nashville, Tenn.         NA      2            bot   0-0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  02/22/2021 Nashville, Tenn.         NA      2            bot   0-1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  02/22/2021 Nashville, Tenn.         NA      2            bot   0-2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  02/22/2021 Nashville, Tenn.         NA      2            bot   0-2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  02/22/2021 Nashville, Tenn.         NA      2            bot   0-2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  02/22/2021 Nashville, Tenn.         NA      2            bot   0-2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  02/22/2021 Nashville, Tenn.         NA      3            top   0-2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  02/22/2021 Nashville, Tenn.         NA      3            top   0-2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20  02/22/2021 Nashville, Tenn.         NA      3            top   0-2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21  02/22/2021 Nashville, Tenn.         NA      3            top   0-2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22  02/22/2021 Nashville, Tenn.         NA      3            top   0-2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23  02/22/2021 Nashville, Tenn.         NA      3            bot   0-2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24  02/22/2021 Nashville, Tenn.         NA      3            bot   0-2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25  02/22/2021 Nashville, Tenn.         NA      3            bot   0-2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26  02/22/2021 Nashville, Tenn.         NA      4            top   0-2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27  02/22/2021 Nashville, Tenn.         NA      4            top   0-2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28  02/22/2021 Nashville, Tenn.         NA      4            top   0-2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29  02/22/2021 Nashville, Tenn.         NA      4            top   0-2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30  02/22/2021 Nashville, Tenn.         NA      4            top   0-3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31  02/22/2021 Nashville, Tenn.         NA      4            bot   0-3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32  02/22/2021 Nashville, Tenn.         NA      4            bot   0-3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33  02/22/2021 Nashville, Tenn.         NA      4            bot   0-3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34  02/22/2021 Nashville, Tenn.         NA      4            bot   0-3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35  02/22/2021 Nashville, Tenn.         NA      4            top   0-3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36  02/22/2021 Nashville, Tenn.         NA      5            top   0-3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37  02/22/2021 Nashville, Tenn.         NA      5            top   0-3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38  02/22/2021 Nashville, Tenn.         NA      5            top   0-3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39  02/22/2021 Nashville, Tenn.         NA      5            top   0-3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40  02/22/2021 Nashville, Tenn.         NA      5            top   0-3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41  02/22/2021 Nashville, Tenn.         NA      5            top   0-3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42  02/22/2021 Nashville, Tenn.         NA      5            top   0-3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43  02/22/2021 Nashville, Tenn.         NA      5            top   0-5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44  02/22/2021 Nashville, Tenn.         NA      5            bot   0-3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45  02/22/2021 Nashville, Tenn.         NA      5            bot   0-3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46  02/22/2021 Nashville, Tenn.         NA      5            bot   0-5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47  02/22/2021 Nashville, Tenn.         NA      5            bot   0-5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48  02/22/2021 Nashville, Tenn.         NA      5            bot   0-5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49  02/22/2021 Nashville, Tenn.         NA      5            bot   0-5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50  02/22/2021 Nashville, Tenn.         NA      5            top   0-5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51  02/22/2021 Nashville, Tenn.         NA      6            top   0-5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52  02/22/2021 Nashville, Tenn.         NA      6            top   0-5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53  02/22/2021 Nashville, Tenn.         NA      6            top   0-5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54  02/22/2021 Nashville, Tenn.         NA      6            top   0-5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55  02/22/2021 Nashville, Tenn.         NA      6            top   0-5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56  02/22/2021 Nashville, Tenn.         NA      6            top   0-5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57  02/22/2021 Nashville, Tenn.         NA      6            top   0-7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58  02/22/2021 Nashville, Tenn.         NA      6            bot   0-5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59  02/22/2021 Nashville, Tenn.         NA      6            bot   0-5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60  02/22/2021 Nashville, Tenn.         NA      6            bot   0-5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61  02/22/2021 Nashville, Tenn.         NA      6            bot   0-5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62  02/22/2021 Nashville, Tenn.         NA      6            bot   0-6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63  02/22/2021 Nashville, Tenn.         NA      6            bot   0-6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64  02/22/2021 Nashville, Tenn.         NA      6            bot   0-7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65  02/22/2021 Nashville, Tenn.         NA      6            bot   0-7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66  02/22/2021 Nashville, Tenn.         NA      6            bot   0-7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67  02/22/2021 Nashville, Tenn.         NA      6            top   0-7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68  02/22/2021 Nashville, Tenn.         NA      7            top   0-7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69  02/22/2021 Nashville, Tenn.         NA      7            top   0-7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70  02/22/2021 Nashville, Tenn.         NA      7            top   0-7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71  02/22/2021 Nashville, Tenn.         NA      7            top   0-7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72  02/22/2021 Nashville, Tenn.         NA      7            top   0-7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73  02/22/2021 Nashville, Tenn.         NA      7            top   0-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74  02/22/2021 Nashville, Tenn.         NA      7            bot   0-7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75  02/22/2021 Nashville, Tenn.         NA      7            bot   0-7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76  02/22/2021 Nashville, Tenn.         NA      7            bot   0-7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77  02/22/2021 Nashville, Tenn.         NA      7            bot   0-7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78  02/22/2021 Nashville, Tenn.         NA      7            bot   0-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79  02/22/2021 Nashville, Tenn.         NA      7            bot   0-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80  02/22/2021 Nashville, Tenn.         NA      7            top   0-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81  02/22/2021 Nashville, Tenn.         NA      8            top   0-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82  02/22/2021 Nashville, Tenn.         NA      8            top   0-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83  02/22/2021 Nashville, Tenn.         NA      8            top   0-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84  02/22/2021 Nashville, Tenn.         NA      8            top   0-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85  02/22/2021 Nashville, Tenn.         NA      8            top   0-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86  02/22/2021 Nashville, Tenn.         NA      8            top   0-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87  02/22/2021 Nashville, Tenn.         NA      8            top   1-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88  02/22/2021 Nashville, Tenn.         NA      8            top   1-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89  02/22/2021 Nashville, Tenn.         NA      8            top   1-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90  02/22/2021 Nashville, Tenn.         NA      8            bot   1-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 91  02/22/2021 Nashville, Tenn.         NA      8            bot   1-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 92  02/22/2021 Nashville, Tenn.         NA      8            bot   1-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 93  02/22/2021 Nashville, Tenn.         NA      8            bot   1-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 94  02/22/2021 Nashville, Tenn.         NA      8            bot   1-8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 95  02/22/2021 Nashville, Tenn.         NA      8            bot   1-9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 96  02/22/2021 Nashville, Tenn.         NA      8            bot   1-9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 97  02/22/2021 Nashville, Tenn.         NA      8            bot   1-9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 98  02/22/2021 Nashville, Tenn.         NA      8            bot   1-9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 99  02/22/2021 Nashville, Tenn.         NA      8            bot  1-10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100 02/22/2021 Nashville, Tenn.         NA      8            bot  1-12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 101 02/22/2021 Nashville, Tenn.         NA      8            bot  1-12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 102 02/22/2021 Nashville, Tenn.         NA      8            bot  1-12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 103 02/22/2021 Nashville, Tenn.         NA      8            bot  1-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 104 02/22/2021 Nashville, Tenn.         NA      8            bot  1-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 105 02/22/2021 Nashville, Tenn.         NA      8            bot  1-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 106 02/22/2021 Nashville, Tenn.         NA      8            bot  1-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 107 02/22/2021 Nashville, Tenn.         NA      9            top  1-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 108 02/22/2021 Nashville, Tenn.         NA      9            top  1-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 109 02/22/2021 Nashville, Tenn.         NA      9            top  1-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 110 02/22/2021 Nashville, Tenn.         NA      9            top  1-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 111 02/22/2021 Nashville, Tenn.         NA      9            top  1-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 112 02/22/2021 Nashville, Tenn.         NA      9            top  1-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 113 02/22/2021 Nashville, Tenn.         NA      9            top  1-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 114 02/22/2021 Nashville, Tenn.         NA      9            top  1-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 115 02/22/2021 Nashville, Tenn.         NA      9            top  1-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 116 02/22/2021 Nashville, Tenn.         NA      9            top  1-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 117 02/22/2021 Nashville, Tenn.         NA      9            top  1-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 118 02/22/2021 Nashville, Tenn.         NA      9            top  1-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        batting   fielding</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89  Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 91  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 92  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 93  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 94  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 95  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 96  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 97  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 98  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 99  Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100 Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 101 Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 102 Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 103 Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 104 Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 105 Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 106 Vanderbilt Wright St.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 107 Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 108 Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 109 Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 110 Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 111 Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 112 Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 113 Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 114 Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 115 Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 116 Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 117 Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 118 Wright St. Vanderbilt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                         description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                           Dues, D. struck out swinging (0-2 KKS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                      Hamilton, Q. struck out swinging (1-2 BKKS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                     Black, T. struck out swinging (3-2 KBFBFFBS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                            Davis struck out looking (1-2 BFKFFK).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                                                     Young lined out to p (0-1 K).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                                         Rodriguez struck out looking (2-2 BBFFK).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                                                                                     Bulger to lf.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                                                             Harris, Z. flied out to rf (2-1 BKB).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                                                   Anglin, G. grounded out to 1b unassisted (0-0).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                                                       Alders, A. struck out swinging (1-2 KBSS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                                                           Thomas struck out swinging (1-2 SBKS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                                                           Noland singled to left center (1-0 B).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                                      Kolwyck doubled to right center, RBI (0-1 K) Noland scored.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                                    Keegan doubled down the rf line, RBI (2-0 BB) Kolwyck scored.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                           Bradfield Jr grounded out to ss (3-2 BFKBFB) Keegan advanced to third.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                                                        Gonzalez struck out swinging (1-2 SSBFS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                                                                                                 R: 2 H: 3 LOB: 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                                                     Piotto, K. struck out swinging (2-2 BSSFBS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                                                                                 Greenwell, J walked (3-1 BBSBB).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20                                                                      McConnell, J struck out swinging (0-2 KFS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21                                                                          Dues, D. grounded out to 2b (2-2 BKBF).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22                                                                                                           LOB: 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23                                                                                    Bulger lined out to lf (0-0).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24                                                                                  Young popped up to cf (0-2 FK).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                                                                              Rodriguez popped up to 1b (1-1 BK).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26                                                                    Hamilton, Q. struck out swinging (2-2 BKBFS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27                                                                     Black, T. doubled to right center (1-2 FBF).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28                                                                       Harris, Z. struck out swinging (1-2 SSBS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29                                                                             Anglin, G. flied out to cf (1-1 BK).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30                                                                                                      H: 1 LOB: 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31                                                                     Thomas homered to left field, RBI (2-1 BBK).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32                                                                                      Noland singled, bunt (0-0).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33                                 Kolwyck grounded into double play ss to 2b to 1b (1-0 B) Noland out on the play.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34                                                                                 Keegan popped up to 2b (1-1 FB).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35                                                                                                        R: 1 H: 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36                                                                                    Alders, A. walked (3-0 BBBB).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37                                                      Piotto, K. walked (3-0 BBBB) Alders, A. advanced to second.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38                                                                                         Hliboki to p for Rocker.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39  Greenwell, J singled through the right side (0-1 K) Piotto, K. advanced to second Alders, A. advanced to third.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40                                                                          McConnell, J infield fly to c (0-2 SS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41                                                                         Dues, D. struck out looking (1-2 BKSFK).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42                                                                            Hamilton, Q. fouled out to c (0-1 K).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43                                                                                                      H: 1 LOB: 3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44                                                              Bradfield Jr singled to third base, bunt (2-1 BBK).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45                                                                                       Bradfield Jr stole second.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46                                           Gonzalez homered to center field, 2 RBI (1-2 FBF) Bradfield Jr scored.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47                                                                          Bulger struck out swinging (2-2 FKBBS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48                                                                           Young struck out swinging (2-2 BKBKS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49                                                                       Rodriguez struck out looking (3-2 KBFBBK).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50                                                                                                        R: 2 H: 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51                                                                                    Black, T. walked (3-1 SBBBB).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52                                                                             Harris, Z. flied out to cf (0-2 SS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53                                                                       Anglin, G. struck out swinging (1-2 SSBS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54                       Alders, A. reached on an error by 1b, assist by ss (2-1 KBB) Black, T. advanced to second.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55                    Piotto, K. hit by pitch (2-2 BBFF) Alders, A. advanced to second Black, T. advanced to third.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56                                                                         Greenwell, J lined out to 2b (2-2 KBFB).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57                                                                                                      E: 1 LOB: 3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58                                                                                 Hornsmeier to p for Schrand, J..</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59                                                                         Thomas tripled to right field (1-2 FBS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60                                                                                     Noland walked (3-2 KBBBKFB).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61                                                Kolwyck grounded out to 3b (3-2 KBBBK) Noland advanced to second.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62                                                  Keegan reached on a fielders choice, RBI (1-0 B) Thomas scored.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63                             Bradfield Jr walked (3-2 BKBFBB) Keegan advanced to second Noland advanced to third.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64     Gonzalez hit by pitch, RBI (1-2 BFF) Bradfield Jr advanced to second Keegan advanced to third Noland scored.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65                                                                                   Shirk, J. to p for Hornsmeier.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66                                  Bulger grounded into double play 2b to 1b (3-2 KBBKB) Gonzalez out on the play.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67                                                                                                 R: 2 H: 1 LOB: 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68                                                                                       McElvain to p for Hliboki.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69                                                                   McConnell, J struck out swinging (3-2 BBBKFS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70                                                                                Dues, D. flied out to 2b (0-1 S).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71                                                             Hamilton, Q. reached on a fielding error by p (0-0).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72                                                                             Black, T. flied out to 3b (2-1 BBK).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73                                                                                                      E: 1 LOB: 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74                                                                         Young singled to center field (2-1 KBB).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75                                                                        Young advanced to second on a wild pitch.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76                                                                       Rodriguez struck out swinging (2-2 BBKFS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77                                                                           Thomas struck out swinging (1-2 BFFS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78                                                       Noland doubled to left field, RBI (1-2 FFFB) Young scored.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79                                                                           Kolwyck grounded out to 2b (2-2 KBBF).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80                                                                                                 R: 1 H: 2 LOB: 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81                                                                                         Hewett to lf for Bulger.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82                                                                           Harris, Z. grounded out to ss (0-1 K).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83                                                                            Luikart, J. pinch hit for Anglin, G..</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84                                                                         Luikart, J. singled to left field (0-0).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85                                                                    Alders, A. struck out swinging (3-2 BKFBBFS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86                                                                               Sass, S. pinch hit for Piotto, K..</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87                                                Sass, S. doubled to left center, RBI (1-1 KB) Luikart, J. scored.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88                                                                         Castleman, L pinch hit for Greenwell, J.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89                                                                   Castleman, L struck out swinging (3-2 BBBKFS).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90                                                                                               Luikart, J. to 1b.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 91                                                                                                   Sass, S. to c.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 92                                                                                Sayre, A. to rf for Castleman, L.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 93                                                                                 Tabeling, L. to p for Shirk, J..</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 94                                                                   Keegan tripled to right field (3-2 KSFBFBFFB).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 95                                          Bradfield Jr singled through the right side, RBI (1-0 B) Keegan scored.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 96                                          Gonzalez grounded out to 2b (2-2 FKBB) Bradfield Jr advanced to second.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 97                                                                                   Hewett hit by pitch (2-1 BFB).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 98                               Young walked (3-1 BBFBB) Hewett advanced to second Bradfield Jr advanced to third.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 99       Rodriguez hit by pitch, RBI (0-1 K) Young advanced to second Hewett advanced to third Bradfield Jr scored.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100            Thomas singled to center field, 2 RBI (0-0) Rodriguez advanced to second Young scored Hewett scored.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 101                                                                                     ODowd pinch hit for Noland.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 102                                                                            ODowd struck out looking (1-2 BFFK).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 103                                  Kolwyck doubled to right center, 2 RBI (1-0 B) Thomas scored Rodriguez scored.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 104                                                                               Haught, T. to p for Tabeling, L..</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 105                                                                                     Casas pinch hit for Keegan.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 106                                                                                  Casas grounded out to p (0-0).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 107                                                                                                   Hewett to cf.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 108                                                                                                    Casas to 1b.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 109                                                                                  LaNeve to lf for Bradfield Jr.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 110                                                                        Rountree, C. pinch hit for McConnell, J.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 111                                                                     Rountree, C. struck out looking (0-2 FKFK).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 112                                                                                Neff, A. pinch hit for Dues, D..</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 113                                                                           Neff, A. singled to left field (0-0).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 114                                                                         Merlano, D. pinch hit for Hamilton, Q..</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 115                                                                    Merlano, D. struck out looking (2-2 KKBBFK).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 116                                                   Black, T. walked (3-2 BKBFFFBFB) Neff, A. advanced to second.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 117                                                                            Harris, Z. flied out to cf (0-2 FF).</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 118                                                                                                     H: 1 LOB: 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          date         location attendance inning inning_top_bot score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  02/22/2021 Nashville, Tenn.         NA      1            top   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  02/22/2021 Nashville, Tenn.         NA      1            top   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  02/22/2021 Nashville, Tenn.         NA      1            top   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  02/22/2021 Nashville, Tenn.         NA      1            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  02/22/2021 Nashville, Tenn.         NA      1            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  02/22/2021 Nashville, Tenn.         NA      1            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  02/22/2021 Nashville, Tenn.         NA      1            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  02/22/2021 Nashville, Tenn.         NA      1            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  02/22/2021 Nashville, Tenn.         NA      2            top   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 02/22/2021 Nashville, Tenn.         NA      2            top   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 02/22/2021 Nashville, Tenn.         NA      2            top   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 02/22/2021 Nashville, Tenn.         NA      2            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 02/22/2021 Nashville, Tenn.         NA      2            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 02/22/2021 Nashville, Tenn.         NA      2            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 02/22/2021 Nashville, Tenn.         NA      2            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 02/22/2021 Nashville, Tenn.         NA      2            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 02/22/2021 Nashville, Tenn.         NA      3            top   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 02/22/2021 Nashville, Tenn.         NA      3            top   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 02/22/2021 Nashville, Tenn.         NA      3            top   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 02/22/2021 Nashville, Tenn.         NA      3            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 02/22/2021 Nashville, Tenn.         NA      3            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 02/22/2021 Nashville, Tenn.         NA      3            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 02/22/2021 Nashville, Tenn.         NA      3            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 02/22/2021 Nashville, Tenn.         NA      3            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 02/22/2021 Nashville, Tenn.         NA      3            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 02/22/2021 Nashville, Tenn.         NA      4            top   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 02/22/2021 Nashville, Tenn.         NA      4            top   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 02/22/2021 Nashville, Tenn.         NA      4            top   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29 02/22/2021 Nashville, Tenn.         NA      4            top   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30 02/22/2021 Nashville, Tenn.         NA      4            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31 02/22/2021 Nashville, Tenn.         NA      4            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32 02/22/2021 Nashville, Tenn.         NA      4            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 02/22/2021 Nashville, Tenn.         NA      4            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34 02/22/2021 Nashville, Tenn.         NA      4            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35 02/22/2021 Nashville, Tenn.         NA      5            top   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36 02/22/2021 Nashville, Tenn.         NA      5            top   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37 02/22/2021 Nashville, Tenn.         NA      5            top   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38 02/22/2021 Nashville, Tenn.         NA      5            top   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39 02/22/2021 Nashville, Tenn.         NA      5            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40 02/22/2021 Nashville, Tenn.         NA      5            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41 02/22/2021 Nashville, Tenn.         NA      5            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42 02/22/2021 Nashville, Tenn.         NA      5            bot   0-0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43 02/22/2021 Nashville, Tenn.         NA      5            bot   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44 02/22/2021 Nashville, Tenn.         NA      5            bot   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45 02/22/2021 Nashville, Tenn.         NA      5            bot   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46 02/22/2021 Nashville, Tenn.         NA      5            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47 02/22/2021 Nashville, Tenn.         NA      6            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48 02/22/2021 Nashville, Tenn.         NA      6            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49 02/22/2021 Nashville, Tenn.         NA      6            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50 02/22/2021 Nashville, Tenn.         NA      6            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51 02/22/2021 Nashville, Tenn.         NA      6            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52 02/22/2021 Nashville, Tenn.         NA      6            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53 02/22/2021 Nashville, Tenn.         NA      6            bot   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54 02/22/2021 Nashville, Tenn.         NA      6            bot   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55 02/22/2021 Nashville, Tenn.         NA      6            bot   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56 02/22/2021 Nashville, Tenn.         NA      7            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57 02/22/2021 Nashville, Tenn.         NA      7            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58 02/22/2021 Nashville, Tenn.         NA      7            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59 02/22/2021 Nashville, Tenn.         NA      7            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60 02/22/2021 Nashville, Tenn.         NA      7            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61 02/22/2021 Nashville, Tenn.         NA      7            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62 02/22/2021 Nashville, Tenn.         NA      7            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63 02/22/2021 Nashville, Tenn.         NA      7            bot   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64 02/22/2021 Nashville, Tenn.         NA      7            bot   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65 02/22/2021 Nashville, Tenn.         NA      7            bot   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66 02/22/2021 Nashville, Tenn.         NA      7            bot   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67 02/22/2021 Nashville, Tenn.         NA      7            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68 02/22/2021 Nashville, Tenn.         NA      8            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69 02/22/2021 Nashville, Tenn.         NA      8            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70 02/22/2021 Nashville, Tenn.         NA      8            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71 02/22/2021 Nashville, Tenn.         NA      8            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72 02/22/2021 Nashville, Tenn.         NA      8            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73 02/22/2021 Nashville, Tenn.         NA      8            bot   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74 02/22/2021 Nashville, Tenn.         NA      8            bot   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75 02/22/2021 Nashville, Tenn.         NA      8            bot   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76 02/22/2021 Nashville, Tenn.         NA      8            bot   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77 02/22/2021 Nashville, Tenn.         NA      8            bot   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78 02/22/2021 Nashville, Tenn.         NA      9            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79 02/22/2021 Nashville, Tenn.         NA      9            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80 02/22/2021 Nashville, Tenn.         NA      9            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81 02/22/2021 Nashville, Tenn.         NA      9            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82 02/22/2021 Nashville, Tenn.         NA      9            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83 02/22/2021 Nashville, Tenn.         NA      9            top   0-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       batting   fielding</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77 Vanderbilt Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83 Wright St. Vanderbilt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                          description</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                           Dues, D. struck out looking (2-2 BKBSK).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                        Hamilton, Q. struck out looking (1-2 SBKK).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                          Black, T. struck out looking (2-2 BBSKK).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                               Bulger grounded out to 3b (2-1 FBB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                                           Young tripled to center field (2-1 SBB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                                            Thomas struck out swinging (1-2 SBKFS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                                                             Noland struck out swinging (1-2 BFSS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                                                                                        H: 1 LOB: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                                                         Harris, Z. struck out looking (2-2 BKBSK).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                                                               Anglin, G. popped up to 1b (0-1 K).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                                                         Alders, A. struck out looking (1-2 SKBK).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                                                                  Kolwyck flied out to rf (0-1 F).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                                                        Romero Jr. struck out swinging (1-2 KBKS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                                                                       Keegan walked (3-2 KBBBFB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                                                       Bradfield Jr struck out swinging (0-2 KKS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                                                                                            LOB: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17                                                                       Piotto, K. struck out swinging (2-2 FBBSS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                                                            Greenwell, J grounded out to 2b (0-0).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19                                                                          Luikart, J. flied out to 2b (1-2 BKFFF).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20                                                                             Gonzalez singled to left field (0-0).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21                                                                                  Bulger flied out to 2b (1-1 KB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22                                                                        Gonzalez out at first p to 1b, picked off.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23                                                                          Young doubled to left center (2-2 BKSB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24                                                                                  Thomas flied out to cf (1-1 BK).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25                                                                                                       H: 2 LOB: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26                                                                           Dues, D. struck out swinging (0-2 KKS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27                                                            Hamilton, Q. grounded out to 1b unassisted (2-2 BFSB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28                                                                                Black, T. hit by pitch (2-2 KBKB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29                                                                 Black, T. out at second c to ss, caught stealing.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30                                                                                   Noland popped up to ss (1-0 B).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31                                                                         Kolwyck singled to center field (0-2 KK).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32                                                         Romero Jr. walked (3-1 BBBSB) Kolwyck advanced to second.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33     Keegan reached on a fielders choice (2-1 BBK) Romero Jr. out on the play Kolwyck out on double play 3b to 2b.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34                                                                                                       H: 1 LOB: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35                                                                      Harris, Z. struck out swinging (3-2 KBFBBS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36                                                                             Anglin, G. flied out to cf (1-2 BKS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37                                                                  Alders, A. singled through the right side (0-0).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38                                                                        Piotto, K. grounded out to ss (2-2 KBKFB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39                                                                                                       H: 1 LOB: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40                                                                   Bradfield Jr singled to first base, bunt (0-0).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41     Gonzalez singled through the left side, advanced to second on the throw (0-0) Bradfield Jr advanced to third.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42                                                                                   Cline, A. to p for Brehmer, B..</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43                         Bulger out at first 1b to p, RBI (2-0 BB) Gonzalez advanced to third Bradfield Jr scored.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44                                                                              Young struck out swinging (0-2 KKS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45                                                                            Thomas struck out swinging (1-2 KBFS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46                                                                                                  R: 1 H: 2 LOB: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47                                                                                          Schultz to p for Leiter.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48                                                                  Greenwell, J doubled down the lf line (1-2 KSB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49                                              Luikart, J. grounded out to 2b (0-0) Greenwell, J advanced to third.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50                                                                         Dues, D. struck out looking (3-2 FFBBBK).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51                                                                      Hamilton, Q. struck out swinging (1-2 KKBS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52                                                                                                       H: 1 LOB: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53                                                                            Noland struck out swinging (1-2 FKBS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54                                                                                 Kolwyck flied out to cf (1-1 BF).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55                                                                       Romero Jr. struck out looking (3-2 BBBKFK).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56                                                                                       Maldonado to p for Schultz.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57                                                                                  Black, T. walked (3-2 KBFBBFFB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58                                                      Harris, Z. walked (3-2 BBBKFB) Black, T. advanced to second.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59                                                                       Anglin, G. struck out looking (3-2 SBFBBK).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60 Alders, A. reached on a fielders choice (3-1 BKBB) Harris, Z. out at second 2b to ss Black, T. advanced to third.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61                                                                            Piotto, K. grounded out to 2b (1-0 B).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62                                                                                                            LOB: 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63                                                                            Keegan struck out swinging (1-2 BSKS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64                                                                         Bradfield Jr flied out to lf (3-2 BBKBK).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65                                                                     Gonzalez singled through the left side (0-0).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66                                                                                 Bulger fouled out to 1b (0-2 KS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67                                                                                                       H: 1 LOB: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68                                                                                        Murphy to p for Maldonado.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69                                                                                          Hewett to lf for Bulger.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70                                                                     Greenwell, J struck out swinging (2-2 KBSBS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71                                                                      Luikart, J. struck out swinging (2-2 KBBKS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72                                                                           Dues, D. struck out looking (1-2 BFSK).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73                                                                                  Young popped up to ss (2-1 BBF).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74                                                                            Thomas singled to third base (0-2 KS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75                                   Noland reached on a fielders choice (1-0 B) Thomas out at second ss unassisted.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76                                                                             Kolwyck struck out looking (0-2 KSK).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77                                                                                                       H: 1 LOB: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78                                                                                            Smith to p for Murphy.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79                                                                             Hamilton, Q. flied out to cf (0-1 K).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80                                                                                    Black, T. walked (3-2 BFFBBB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81                                                                     Harris, Z. struck out swinging (3-2 BBBKKFS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82                                                                         Anglin, G. struck out swinging (0-2 KSS).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83                                                                                                            LOB: 1</span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>
