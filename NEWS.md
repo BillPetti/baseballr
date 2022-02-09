@@ -1,3 +1,6 @@
+# baseballr 1.0.2
+- Hotfix ```ncaa_schedule_info``` for incorrect game urls. 
+
 # baseballr 1.0.1
 - Update ```ncaa_season_id_lu``` for 2022 season. 
 
