@@ -7,7 +7,7 @@ cols <- c(
   "date", "status_ind", "home_league_id", "gameday_sw"
 )
 
-test_that("MLB Get Game Info Supplement Petti", {
+test_that("Load MLB Game Info Supplement", {
   skip_on_cran()
   
   x <- load_game_info_sup()

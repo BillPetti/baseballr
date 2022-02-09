@@ -3,7 +3,7 @@ cols <- c(
   "id", "position", "name", "game_pk", "game_date"
 )
 
-test_that("Get Umpire IDs Petti", {
+test_that("Load Umpire IDs", {
   skip_on_cran()
   
   x <-load_umpire_ids()

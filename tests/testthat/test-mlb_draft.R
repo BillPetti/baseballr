@@ -39,7 +39,7 @@
 #   skip_on_ci()
 #   skip_on_cran()
 #   
-#   x <- get_draft_mlb(2009)
+#   x <- mlb_draft(2009)
 #   
 #   expect_equal(colnames(x), cols)
 #   expect_s3_class(x, "data.frame")

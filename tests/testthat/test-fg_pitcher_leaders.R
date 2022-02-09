@@ -65,7 +65,7 @@ cols <- c(
 test_that("FanGraphs Pitching Leaders", {
   skip_on_cran()
   
-  x <- fg_pitch_leaders(x = 2015, y = 2015, qual = 150)
+  x <- fg_pitcher_leaders(x = 2015, y = 2015, qual = 150)
   
   expect_equal(colnames(x), cols)
   expect_s3_class(x, "data.frame")
