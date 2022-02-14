@@ -4,7 +4,7 @@ cols <- c(
   "id", "team", "team_id", "home_plate_full_name", "home_plate_id"
 )
 
-test_that("MLB Get Probables", {
+test_that("MLB Probables", {
   skip_on_cran()
   
   x <- mlb_probables(game_pk = 566001)

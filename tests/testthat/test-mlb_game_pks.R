@@ -21,7 +21,7 @@ cols <- c(
   "venue.id", "venue.name", "venue.link", "content.link"
 )
 
-test_that("MLB Get Game Packs", {
+test_that("MLB Game Packs", {
   skip_on_cran()
   
   x <- mlb_game_pks("2019-04-29")

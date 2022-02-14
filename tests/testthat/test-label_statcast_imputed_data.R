@@ -25,7 +25,7 @@ cols <- c(
   "delta_home_win_exp", "delta_run_exp", "ila", "ils", "imputed"
 )
 
-test_that("Label Statcast Imputed Data", {
+test_that("Statcast - Label Imputed Data", {
   skip_on_cran()
   
   statcast_df <- statcast_search("2017-05-01", "2017-05-02")

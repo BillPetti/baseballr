@@ -55,7 +55,7 @@ cols <- c(
   "matchup.postOnThird.link"
 )
 
-test_that("MLB Get Play-by-Play", {
+test_that("MLB Play-by-Play", {
   skip_on_cran()
   
   x <- mlb_pbp(game_pk = 575156)
