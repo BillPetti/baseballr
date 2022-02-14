@@ -36,8 +36,14 @@ mlb_positions <- function(){
       position_code = .data$code,
       position_type = .data$type,
       position_formal_name = .data$formal_name,
-      position_display_name = .data$display_name
-    )
+      position_display_name = .data$display_name) %>% 
+    dplyr::select(c(
+      "position_short_name", "position_full_name",
+      "position_abbreviation", "position_code", 
+      "position_type", "position_formal_name",
+      "position_display_name", "outfield", "game_position",
+      "pitcher", "fielder"
+    ))
   
   return(positions)
 }
