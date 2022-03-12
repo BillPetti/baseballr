@@ -64,8 +64,7 @@ cols <- c(
   "reschedule_date",
   "reschedule_game_date",
   "rescheduled_from",
-  "rescheduled_from_date",
-  "events"
+  "rescheduled_from_date"
 )
 
 test_that("MLB Umpire Games", {

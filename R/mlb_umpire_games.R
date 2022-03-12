@@ -69,7 +69,6 @@
 #'   |reschedule_game_date            |character |
 #'   |rescheduled_from                |character |
 #'   |rescheduled_from_date           |character |
-#'   |events                          |list      |
 #'   
 #' @export
 #' @examples \donttest{
@@ -91,7 +90,8 @@ mlb_umpire_games <- function(
   games <- jsonlite::fromJSON(jsonlite::toJSON(resp$dates), flatten = TRUE) %>% 
     tidyr::unnest(.data$games) %>% 
     janitor::clean_names() %>% 
-    as.data.frame() 
+    as.data.frame() %>% 
+    dplyr::select(-.data$events)
   
   return(games)
 }
