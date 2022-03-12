@@ -1,5 +1,5 @@
 #' @title **Find Biographical Information for MLB Players**
-#' @param person_ids MLBAMIDs for players of interest. Multiple IDs should be separated by a comma.
+#' @param person_ids MLBAMIDs for players of interest. Multiple IDs should be provided in a vector separated by a comma.
 #' @return Returns a data frame with the following columns:
 #'  |col_name                       |types      |
 #'  |:------------------------------|:----------|

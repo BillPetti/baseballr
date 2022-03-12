@@ -7,7 +7,7 @@
 mlb_people(person_ids = NULL)
 }
 \arguments{
-\item{person_ids}{MLBAMIDs for players of interest. Multiple IDs should be separated by a comma.}
+\item{person_ids}{MLBAMIDs for players of interest. Multiple IDs should be provided in a vector separated by a comma.}
 }
 \value{
 Returns a data frame with the following columns:
