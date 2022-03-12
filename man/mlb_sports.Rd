@@ -4,7 +4,10 @@
 \alias{mlb_sports}
 \title{\strong{MLB Sport IDs}}
 \usage{
-mlb_sports()
+mlb_sports(sport_id = NULL)
+}
+\arguments{
+\item{sport_id}{The sport_id to return information for.}
 }
 \value{
 Returns a tibble with the following columns

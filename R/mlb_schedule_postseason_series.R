@@ -1,4 +1,4 @@
-#' @title **Find game_pk values for professional baseball postseason games (major and minor leagues)**
+#' @title **Find game_pk values for professional baseball postseason series games (major and minor leagues)**
 #'
 #' @param season The season for which you want to find game_pk values for MLB games
 #' @param game_type game_type to return schedule information for all tied games in a particular game_type
@@ -25,9 +25,7 @@
 #' information for games scheduled or played
 #'  |col_name                        |types     |
 #'  |:-------------------------------|:---------|
-#'  |date                            |character |
 #'  |total_items                     |integer   |
-#'  |total_events                    |integer   |
 #'  |total_games                     |integer   |
 #'  |total_games_in_progress         |integer   |
 #'  |game_pk                         |integer   |
@@ -49,12 +47,14 @@
 #'  |description                     |character |
 #'  |scheduled_innings               |integer   |
 #'  |reverse_home_away_status        |logical   |
+#'  |inning_break_length             |integer   |
 #'  |games_in_series                 |integer   |
 #'  |series_game_number              |integer   |
 #'  |series_description              |character |
 #'  |record_source                   |character |
 #'  |if_necessary                    |character |
 #'  |if_necessary_description        |character |
+#'  |is_default_game                 |logical   |
 #'  |status_abstract_game_state      |character |
 #'  |status_coded_game_state         |character |
 #'  |status_detailed_state           |character |
@@ -85,27 +85,29 @@
 #'  |venue_name                      |character |
 #'  |venue_link                      |character |
 #'  |content_link                    |character |
-#'  |inning_break_length             |integer   |
 #'  |reschedule_date                 |character |
 #'  |reschedule_game_date            |character |
-#'  |status_reason                   |character |
 #'  |rescheduled_from                |character |
 #'  |rescheduled_from_date           |character |
-#'  |is_default_game                 |logical   |
-#'  |events                          |list      |
+#'  |status_reason                   |character |
+#'  |sort_order                      |integer   |
+#'  |series_id                       |character |
+#'  |series_sort_number              |integer   |
+#'  |series_is_default               |logical   |
+#'  |series_game_type                |character |
 #'  
 #' @export
 #'
 #' @examples \donttest{
-#'   mlb_schedule_postseason(season = 2021)
+#'   mlb_schedule_postseason_series(season = 2021, sport_id = 1)
 #' }
 
-mlb_schedule_postseason <- function(season = 2021,
+mlb_schedule_postseason_series <- function(season = 2021,
                                     game_type = NULL,
                                     series_number = NULL,
                                     sport_id = 1,
                                     team_id = NULL){
-  mlb_endpoint <- mlb_stats_endpoint("v1/schedule/postseason")
+  mlb_endpoint <- mlb_stats_endpoint("v1/schedule/postseason/series")
   query_params <- list(
     season = season, 
     gameTypes = game_type,
@@ -120,7 +122,7 @@ mlb_schedule_postseason <- function(season = 2021,
   resp <- mlb_endpoint %>% 
     mlb_api_call()
 
-  games <- jsonlite::fromJSON(jsonlite::toJSON(resp$dates),flatten = TRUE) %>% 
+  games <- jsonlite::fromJSON(jsonlite::toJSON(resp$series),flatten = TRUE) %>% 
     tidyr::unnest(.data$games) %>%
     as.data.frame() %>%
     janitor::clean_names()

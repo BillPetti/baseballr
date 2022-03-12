@@ -1,4 +1,5 @@
 #' @title **MLB Sport IDs**
+#' @param sport_id The sport_id to return information for.
 #' @return Returns a tibble with the following columns
 #'  |col_name           |types     |
 #'  |:------------------|:---------|
@@ -34,10 +35,12 @@
 #' @examples \donttest{
 #'   mlb_sports()
 #' }
-mlb_sports <- function(){
+mlb_sports <- function(sport_id = NULL){
   
   mlb_endpoint <- mlb_stats_endpoint("v1/sports")
-  query_params <- list()
+  query_params <- list(
+    sportId = sport_id
+  )
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   

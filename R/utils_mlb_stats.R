@@ -73,28 +73,28 @@ mlb_stats_endpoint <- function(endpoint){
     "v1/league/{leagueId}/allStarBallot",
     "v1/league/{leagueId}/allStarWriteIns",
     "v1/league/{leagueId}/allStarFinalVote",
-    "v1/people",
-    "v1/people/freeAgents",
-    "v1/people/{personId}",
+    "v1/people",#
+    "v1/people/freeAgents",#
+    "v1/people/{personId}",##U
     "v1/people/{personId}/stats/game/{gamePk}",
     "v1/people/{personId}/stats/game/current",
-    "v1/jobs",
-    "v1/jobs/umpires",
-    "v1/jobs/datacasters",
-    "v1/jobs/officialScorers",
-    "v1/jobs/umpires/games/{umpireId}",
+    "v1/jobs",#
+    "v1/jobs/umpires",#
+    "v1/jobs/datacasters",#
+    "v1/jobs/officialScorers",#
+    "v1/jobs/umpires/games/{umpireId}",#
     "v1/schedule/",#
     "v1/schedule/games/tied",#
     "v1/schedule/postseason",#
-    "v1/schedule/postseason/series",
-    "v1/schedule/postseason/tuneIn",
-    "v1/seasons",
-    "v1/seasons/all",
-    "v1/seasons/{seasonId}",
-    "v1/sports",
-    "v1/sports/{sportId}",
-    "v1/sports/{sportId}/players",
-    "v1/standings",
+    "v1/schedule/postseason/series",#
+    "v1/schedule/postseason/tuneIn",##U
+    "v1/seasons",#
+    "v1/seasons/all",#
+    "v1/seasons/{seasonId}",#
+    "v1/sports",#
+    "v1/sports/{sportId}",#
+    "v1/sports/{sportId}/players",#
+    "v1/standings",#
     "v1/stats",
     "v1/stats/metrics",
     "v1/stats/leaders",
@@ -112,8 +112,8 @@ mlb_stats_endpoint <- function(endpoint){
     "v1/teams/{teamId}/personnel",
     "v1/teams/{teamId}/leaders",
     "v1/teams/{teamId}/roster",#
-    "v1/teams/{teamId}/roster/{rosterType}",
-    "v1/venues"
+    "v1/teams/{teamId}/roster/{rosterType}",##U
+    "v1/venues"#
   )
   base_url = glue::glue('http://statsapi.mlb.com/api/{endpoint}')
   return(base_url)
