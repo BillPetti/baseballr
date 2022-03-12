@@ -55,21 +55,21 @@ mlb_stats_endpoint <- function(endpoint){
     "v1/game/{gamePk}/guids",##x
     "v1/game/{gamePk}/{GUID}/analytics",##x
     "v1/game/{gamePk}/{GUID}/contextMetricsAverages",##x
-    "v1/game/{gamePk}/contextMetrics",
-    "v1/game/{gamePk}/winProbability",
-    "v1/game/{gamePk}/boxscore",
-    "v1/game/{gamePk}/content",
-    "v1/game/{gamePk}/feed/color",
-    "v1/game/{gamePk}/feed/color/diffPatch",
-    "v1/game/{gamePk}/feed/color/timestamps",
-    "v1/game/{gamePk}/linescore",
-    "v1/game/{gamePk}/playByPlay",
-    "v1/gamePace",
-    "v1/highLow/{orgType}",
-    "v1/homeRunDerby/{gamePk}",
-    "v1/homeRunDerby/{gamePk}/bracket",
-    "v1/homeRunDerby/{gamePk}/pool",
-    "v1/league",
+    "v1/game/{gamePk}/contextMetrics",#
+    "v1/game/{gamePk}/winProbability",#
+    "v1/game/{gamePk}/boxscore",#
+    "v1/game/{gamePk}/content",#
+    "v1/game/{gamePk}/feed/color",##x
+    "v1/game/{gamePk}/feed/color/diffPatch",##x
+    "v1/game/{gamePk}/feed/color/timestamps",##x
+    "v1/game/{gamePk}/linescore",#
+    "v1/game/{gamePk}/playByPlay",#
+    "v1/gamePace",#
+    "v1/highLow/{orgType}",#
+    "v1/homeRunDerby/{gamePk}",#
+    "v1/homeRunDerby/{gamePk}/bracket",#
+    "v1/homeRunDerby/{gamePk}/pool",#
+    "v1/league",#
     "v1/league/{leagueId}/allStarBallot",
     "v1/league/{leagueId}/allStarWriteIns",
     "v1/league/{leagueId}/allStarFinalVote",
@@ -83,9 +83,9 @@ mlb_stats_endpoint <- function(endpoint){
     "v1/jobs/datacasters",
     "v1/jobs/officialScorers",
     "v1/jobs/umpires/games/{umpireId}",
-    "v1/schedule/",
-    "v1/schedule/games/tied",
-    "v1/schedule/postseason",
+    "v1/schedule/",#
+    "v1/schedule/games/tied",#
+    "v1/schedule/postseason",#
     "v1/schedule/postseason/series",
     "v1/schedule/postseason/tuneIn",
     "v1/seasons",
@@ -99,7 +99,7 @@ mlb_stats_endpoint <- function(endpoint){
     "v1/stats/metrics",
     "v1/stats/leaders",
     "v1/stats/streaks",
-    "v1/teams",
+    "v1/teams",#
     "v1/teams/history",
     "v1/teams/stats",
     "v1/teams/stats/leaders",
@@ -111,7 +111,7 @@ mlb_stats_endpoint <- function(endpoint){
     "v1/teams/{teamId}/coaches",
     "v1/teams/{teamId}/personnel",
     "v1/teams/{teamId}/leaders",
-    "v1/teams/{teamId}/roster",
+    "v1/teams/{teamId}/roster",#
     "v1/teams/{teamId}/roster/{rosterType}",
     "v1/venues"
   )

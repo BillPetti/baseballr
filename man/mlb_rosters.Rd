@@ -7,13 +7,13 @@
 mlb_rosters(team_id = NULL, season = NULL, date = NULL, roster_type = NULL)
 }
 \arguments{
-\item{team_id}{teamId to returnteam directorial information based on roster for a particular club.}
+\item{team_id}{team_id to return team roster information for a particular club.}
 
-\item{season}{Year to return team directorial information based on roster a particular club in a specific season.}
+\item{season}{Year to return team roster information for a particular club in a specific season.}
 
-\item{date}{Date to return team and their coaching staff directorial information for a particular date.}
+\item{date}{Date to return team roster and their coaching staff directorial information for a particular team.}
 
-\item{roster_type}{roster_type to return team directorial information based for a particular roster. See \code{mlb_roster_types()} for more options.
+\item{roster_type}{roster_type to return team directorial information for. See \code{mlb_roster_types()} for more options.
 Valid options include: '40Man', 'fullSeason', 'fullRoster', 'nonRosterInvitees', 'active',
 'allTime', 'depthChart', 'gameday', 'coach'}
 }

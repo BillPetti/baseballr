@@ -43,7 +43,8 @@ cols <- c(
 test_that("MLB Draft Latest", {
   skip_on_cran()
   
-  x <- mlb_draft_latest(year = 2020)
+  x <- mlb_draft_latest(year = 2020) %>% 
+    dplyr::select(tidyr::all_of(cols))
   
   expect_equal(colnames(x), cols)
   expect_s3_class(x, "data.frame")

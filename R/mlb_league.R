@@ -1,7 +1,7 @@
 #' @title **MLB Leagues** 
-#' @param season Year to return to return league information for.
-#' @param sport_ids The sport_id to return league information for.
-#' @param league_ids The league_id(s) to return league information for.
+#' @param seasons Year(s) to return to return league information for.
+#' @param sport_id The sport_id to return league information for.
+#' @param league_id The league_id(s) to return league information for.
 #' @return Returns a tibble with the following columns
 #'  |col_name      |types     |
 #'  |:-------------|:---------|
@@ -13,12 +13,12 @@
 mlb_league <- function(
   seasons = NULL,
   sport_id = NULL, 
-  league_ids = NULL){
+  league_id = NULL){
   
   mlb_endpoint <- mlb_stats_endpoint("v1/league")
   query_params <- list(
     seasons = seasons, 
-    leagueIds = league_ids,
+    leagueIds = league_id,
     sportId = sport_id
   )
   
@@ -26,6 +26,7 @@ mlb_league <- function(
   
   resp <- mlb_endpoint %>% 
     mlb_api_call()
+  
   leagues <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)$leagues %>% 
     janitor::clean_names() %>% 
     as.data.frame() %>% 
@@ -47,9 +48,8 @@ mlb_league <- function(
       league_conferences_in_use = .data$conferences_in_use,
       league_divisions_in_use = .data$divisions_in_use,
       league_sort_order = .data$sort_order,
-      league_active = .data$active
-    )
-  
+      league_active = .data$active)
+    
   return(leagues)
 }
 
