@@ -1,7 +1,8 @@
-#' @rdname mlb_draft_prospects 
+#' @rdname mlb_draft_prospects
 #' @title **Retrieve draft prospect information by year**
 #' @param year The year for which to return data
-#' @return Returns a data frame with information for every draft prospect for the year requested
+#' @return Returns a data frame with information for every draft prospect for the year requested:
+#'
 #'  |col_name                             |types     |
 #'  |:------------------------------------|:---------|
 #'  |bis_player_id                        |integer   |
@@ -103,7 +104,7 @@
 #'  |team_spring_league_abbreviation      |character |
 #'  |draft_type_code                      |character |
 #'  |draft_type_description               |character |
-#' @export 
+#' @export
 #' @examples \donttest{
 #'   mlb_draft_prospects(year = 2020)
 #' }
@@ -111,13 +112,13 @@ mlb_draft_prospects <- function(year) {
 
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/draft/prospects/{year}"))
 
-  resp <- mlb_endpoint %>% 
+  resp <- mlb_endpoint %>%
     mlb_api_call()
 
-  draft_prospects <- jsonlite::fromJSON(jsonlite::toJSON(resp$prospects), flatten = TRUE)  %>% 
-    janitor::clean_names() %>% 
+  draft_prospects <- jsonlite::fromJSON(jsonlite::toJSON(resp$prospects), flatten = TRUE)  %>%
+    janitor::clean_names() %>%
     as.data.frame()
-  
+
 
   return(draft_prospects)
 }

@@ -1,7 +1,8 @@
-#' @rdname mlb_draft_latest 
+#' @rdname mlb_draft_latest
 #' @title **Retrieve latest draft information by year**
 #' @param year The year for which to return data
-#' @return Returns a data frame with the latest draft information for the year requested
+#' @return Returns a data frame with the latest draft information for the year requested:
+#'
 #'  |col_name                             |types     |
 #'  |:------------------------------------|:---------|
 #'  |bis_player_id                        |integer   |
@@ -98,7 +99,7 @@
 #'  |is_drafted                           |logical   |
 #'  |is_pass                              |logical   |
 #'  |year                                 |character |
-#' @export 
+#' @export
 #' @examples \donttest{
 #'   mlb_draft_latest(year = 2020)
 #' }
@@ -106,13 +107,13 @@ mlb_draft_latest <- function(year) {
 
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/draft/{year}/latest"))
 
-  resp <- mlb_endpoint %>% 
+  resp <- mlb_endpoint %>%
     mlb_api_call()
 
-  draft_latest <- jsonlite::fromJSON(jsonlite::toJSON(resp$pick), flatten = TRUE) %>% 
-    as.data.frame() %>% 
-    janitor::clean_names() 
-  
+  draft_latest <- jsonlite::fromJSON(jsonlite::toJSON(resp$pick), flatten = TRUE) %>%
+    as.data.frame() %>%
+    janitor::clean_names()
+
 
   return(draft_latest)
 }

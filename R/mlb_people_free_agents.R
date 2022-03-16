@@ -1,25 +1,26 @@
 #' @title **Find Information About MLB Free Agents**
 #' @param season Season preceding free agency
 #' @return Returns a data frame with the following columns:
+#'
 #'  |col_name               |types      |
 #'  |:----------------------|:----------|
-#`  | date_declared         | character |
-#`  | notes                 | character |
-#`  | date_signed           | character |
-#`  | sort_order            | integer   |
-#`  | player_id             | integer   |
-#`  | player_full_name      | character |
-#`  | player_link           | character |
-#`  | original_team_id      | integer   |
-#`  | original_team_name    | character |
-#`  | original_team_link    | character |
-#`  | position_code         | character |
-#`  | position_name         | character |
-#`  | position_type         | character |
-#`  | position_abbreviation | character |
-#`  | new_team_id           | integer   |
-#`  | new_team_name         | character |
-#`  | new_team_link         | character |
+#'  | date_declared         | character |
+#'  | notes                 | character |
+#'  | date_signed           | character |
+#'  | sort_order            | integer   |
+#'  | player_id             | integer   |
+#'  | player_full_name      | character |
+#'  | player_link           | character |
+#'  | original_team_id      | integer   |
+#'  | original_team_name    | character |
+#'  | original_team_link    | character |
+#'  | position_code         | character |
+#'  | position_name         | character |
+#'  | position_type         | character |
+#'  | position_abbreviation | character |
+#'  | new_team_id           | integer   |
+#'  | new_team_name         | character |
+#'  | new_team_link         | character |
 #'
 #' @export
 #' @examples \donttest{

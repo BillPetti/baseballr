@@ -80,7 +80,6 @@ Returns a tibble with the following columns
 |reschedule_game_date            |character |
 |rescheduled_from                |character |
 |rescheduled_from_date           |character |
-|events                          |list      |
 }
 \description{
 \strong{MLB Umpire Games}

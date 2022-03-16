@@ -10,108 +10,108 @@ mlb_draft_prospects(year)
 \item{year}{The year for which to return data}
 }
 \value{
-Returns a data frame with information for every draft prospect for the year requested
-|col_name                             |types     |
-|:------------------------------------|:---------|
-|bis_player_id                        |integer   |
-|pick_round                           |character |
-|pick_number                          |integer   |
-|rank                                 |integer   |
-|scouting_report                      |character |
-|blurb                                |character |
-|headshot_link                        |character |
-|is_drafted                           |logical   |
-|year                                 |character |
-|home_city                            |character |
-|home_state                           |character |
-|home_country                         |character |
-|school_name                          |character |
-|school_school_class                  |character |
-|school_country                       |character |
-|school_state                         |character |
-|person_id                            |integer   |
-|person_full_name                     |character |
-|person_link                          |character |
-|person_first_name                    |character |
-|person_last_name                     |character |
-|person_birth_date                    |character |
-|person_current_age                   |integer   |
-|person_birth_city                    |character |
-|person_birth_state_province          |character |
-|person_birth_country                 |character |
-|person_height                        |character |
-|person_weight                        |integer   |
-|person_active                        |logical   |
-|person_use_name                      |character |
-|person_middle_name                   |character |
-|person_boxscore_name                 |character |
-|person_gender                        |character |
-|person_is_player                     |logical   |
-|person_is_verified                   |logical   |
-|person_draft_year                    |integer   |
-|person_name_first_last               |character |
-|person_name_slug                     |character |
-|person_first_last_name               |character |
-|person_last_first_name               |character |
-|person_last_init_name                |character |
-|person_init_last_name                |character |
-|person_full_fml_name                 |character |
-|person_full_lfm_name                 |character |
-|person_strike_zone_top               |numeric   |
-|person_strike_zone_bottom            |numeric   |
-|person_primary_number                |character |
-|person_pronunciation                 |character |
-|person_name_title                    |character |
-|person_mlb_debut_date                |character |
-|person_name_matrilineal              |character |
-|person_nick_name                     |character |
-|person_death_date                    |character |
-|person_death_city                    |character |
-|person_death_state_province          |character |
-|person_death_country                 |character |
-|person_primary_position_code         |character |
-|person_primary_position_name         |character |
-|person_primary_position_type         |character |
-|person_primary_position_abbreviation |character |
-|person_bat_side_code                 |character |
-|person_bat_side_description          |character |
-|person_pitch_hand_code               |character |
-|person_pitch_hand_description        |character |
-|team_id                              |integer   |
-|team_name                            |character |
-|team_link                            |character |
-|team_season                          |integer   |
-|team_team_code                       |character |
-|team_file_code                       |character |
-|team_abbreviation                    |character |
-|team_team_name                       |character |
-|team_location_name                   |character |
-|team_first_year_of_play              |character |
-|team_short_name                      |character |
-|team_franchise_name                  |character |
-|team_club_name                       |character |
-|team_all_star_status                 |character |
-|team_active                          |logical   |
-|team_venue_id                        |integer   |
-|team_venue_name                      |character |
-|team_venue_link                      |character |
-|team_spring_venue_id                 |integer   |
-|team_spring_venue_link               |character |
-|team_league_id                       |integer   |
-|team_league_name                     |character |
-|team_league_link                     |character |
-|team_division_id                     |integer   |
-|team_division_name                   |character |
-|team_division_link                   |character |
-|team_sport_id                        |integer   |
-|team_sport_link                      |character |
-|team_sport_name                      |character |
-|team_spring_league_id                |integer   |
-|team_spring_league_name              |character |
-|team_spring_league_link              |character |
-|team_spring_league_abbreviation      |character |
-|draft_type_code                      |character |
-|draft_type_description               |character |
+Returns a data frame with information for every draft prospect for the year requested:\tabular{ll}{
+   col_name \tab types \cr
+   bis_player_id \tab integer \cr
+   pick_round \tab character \cr
+   pick_number \tab integer \cr
+   rank \tab integer \cr
+   scouting_report \tab character \cr
+   blurb \tab character \cr
+   headshot_link \tab character \cr
+   is_drafted \tab logical \cr
+   year \tab character \cr
+   home_city \tab character \cr
+   home_state \tab character \cr
+   home_country \tab character \cr
+   school_name \tab character \cr
+   school_school_class \tab character \cr
+   school_country \tab character \cr
+   school_state \tab character \cr
+   person_id \tab integer \cr
+   person_full_name \tab character \cr
+   person_link \tab character \cr
+   person_first_name \tab character \cr
+   person_last_name \tab character \cr
+   person_birth_date \tab character \cr
+   person_current_age \tab integer \cr
+   person_birth_city \tab character \cr
+   person_birth_state_province \tab character \cr
+   person_birth_country \tab character \cr
+   person_height \tab character \cr
+   person_weight \tab integer \cr
+   person_active \tab logical \cr
+   person_use_name \tab character \cr
+   person_middle_name \tab character \cr
+   person_boxscore_name \tab character \cr
+   person_gender \tab character \cr
+   person_is_player \tab logical \cr
+   person_is_verified \tab logical \cr
+   person_draft_year \tab integer \cr
+   person_name_first_last \tab character \cr
+   person_name_slug \tab character \cr
+   person_first_last_name \tab character \cr
+   person_last_first_name \tab character \cr
+   person_last_init_name \tab character \cr
+   person_init_last_name \tab character \cr
+   person_full_fml_name \tab character \cr
+   person_full_lfm_name \tab character \cr
+   person_strike_zone_top \tab numeric \cr
+   person_strike_zone_bottom \tab numeric \cr
+   person_primary_number \tab character \cr
+   person_pronunciation \tab character \cr
+   person_name_title \tab character \cr
+   person_mlb_debut_date \tab character \cr
+   person_name_matrilineal \tab character \cr
+   person_nick_name \tab character \cr
+   person_death_date \tab character \cr
+   person_death_city \tab character \cr
+   person_death_state_province \tab character \cr
+   person_death_country \tab character \cr
+   person_primary_position_code \tab character \cr
+   person_primary_position_name \tab character \cr
+   person_primary_position_type \tab character \cr
+   person_primary_position_abbreviation \tab character \cr
+   person_bat_side_code \tab character \cr
+   person_bat_side_description \tab character \cr
+   person_pitch_hand_code \tab character \cr
+   person_pitch_hand_description \tab character \cr
+   team_id \tab integer \cr
+   team_name \tab character \cr
+   team_link \tab character \cr
+   team_season \tab integer \cr
+   team_team_code \tab character \cr
+   team_file_code \tab character \cr
+   team_abbreviation \tab character \cr
+   team_team_name \tab character \cr
+   team_location_name \tab character \cr
+   team_first_year_of_play \tab character \cr
+   team_short_name \tab character \cr
+   team_franchise_name \tab character \cr
+   team_club_name \tab character \cr
+   team_all_star_status \tab character \cr
+   team_active \tab logical \cr
+   team_venue_id \tab integer \cr
+   team_venue_name \tab character \cr
+   team_venue_link \tab character \cr
+   team_spring_venue_id \tab integer \cr
+   team_spring_venue_link \tab character \cr
+   team_league_id \tab integer \cr
+   team_league_name \tab character \cr
+   team_league_link \tab character \cr
+   team_division_id \tab integer \cr
+   team_division_name \tab character \cr
+   team_division_link \tab character \cr
+   team_sport_id \tab integer \cr
+   team_sport_link \tab character \cr
+   team_sport_name \tab character \cr
+   team_spring_league_id \tab integer \cr
+   team_spring_league_name \tab character \cr
+   team_spring_league_link \tab character \cr
+   team_spring_league_abbreviation \tab character \cr
+   draft_type_code \tab character \cr
+   draft_type_description \tab character \cr
+}
 }
 \description{
 \strong{Retrieve draft prospect information by year}

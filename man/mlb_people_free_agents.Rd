@@ -10,9 +10,26 @@ mlb_people_free_agents(season = NULL)
 \item{season}{Season preceding free agency}
 }
 \value{
-Returns a data frame with the following columns:
-|col_name               |types      |
-|:----------------------|:----------|
+Returns a data frame with the following columns:\tabular{ll}{
+   col_name \tab types \cr
+   date_declared \tab character \cr
+   notes \tab character \cr
+   date_signed \tab character \cr
+   sort_order \tab integer \cr
+   player_id \tab integer \cr
+   player_full_name \tab character \cr
+   player_link \tab character \cr
+   original_team_id \tab integer \cr
+   original_team_name \tab character \cr
+   original_team_link \tab character \cr
+   position_code \tab character \cr
+   position_name \tab character \cr
+   position_type \tab character \cr
+   position_abbreviation \tab character \cr
+   new_team_id \tab integer \cr
+   new_team_name \tab character \cr
+   new_team_link \tab character \cr
+}
 }
 \description{
 \strong{Find Information About MLB Free Agents}
