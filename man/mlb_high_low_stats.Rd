@@ -83,55 +83,55 @@ mlb_high_low_stats(
 
 \item{game_type}{The game_type for which to return information.}
 
-\item{stat_group}{Stat group for which to return information. Valid values include:
-|stat_group      |
-|:---------------|
-|hitting         |
-|pitching        |
-|fielding        |
-|catching        |
-|running         |
-|game            |
-|team            |
-|streak          |}
+\item{stat_group}{Stat group for which to return information. Valid values include:\tabular{l}{
+   stat_group \cr
+   hitting \cr
+   pitching \cr
+   fielding \cr
+   catching \cr
+   running \cr
+   game \cr
+   team \cr
+   streak \cr
+}}
 
 \item{limit}{Number of records as the limit of the return.}
 }
 \value{
-Returns a data frame with the following columns
-|col_name               |types     |
-|:----------------------|:---------|
-|total_splits           |integer   |
-|season                 |integer   |
-|date                   |character |
-|is_home                |logical   |
-|rank                   |integer   |
-|game_innings           |integer   |
-|stat_at_bats           |integer   |
-|team_id                |integer   |
-|team_name              |character |
-|team_link              |character |
-|opponent_id            |integer   |
-|opponent_name          |character |
-|opponent_link          |character |
-|game_pk                |integer   |
-|game_link              |character |
-|game_number            |integer   |
-|game_content_link      |character |
-|home_team_id           |integer   |
-|home_team_name         |character |
-|home_team_link         |character |
-|away_team_id           |integer   |
-|away_team_name         |character |
-|away_team_link         |character |
-|combined_stats         |logical   |
-|group_display_name     |character |
-|game_type_id           |character |
-|game_type_description  |character |
-|sort_stat_name         |character |
-|sort_stat_lookup_param |character |
-|sort_stat_is_counting  |logical   |
-|sort_stat_label        |character |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   total_splits \tab integer \cr
+   season \tab integer \cr
+   date \tab character \cr
+   is_home \tab logical \cr
+   rank \tab integer \cr
+   game_innings \tab integer \cr
+   stat_at_bats \tab integer \cr
+   team_id \tab integer \cr
+   team_name \tab character \cr
+   team_link \tab character \cr
+   opponent_id \tab integer \cr
+   opponent_name \tab character \cr
+   opponent_link \tab character \cr
+   game_pk \tab integer \cr
+   game_link \tab character \cr
+   game_number \tab integer \cr
+   game_content_link \tab character \cr
+   home_team_id \tab integer \cr
+   home_team_name \tab character \cr
+   home_team_link \tab character \cr
+   away_team_id \tab integer \cr
+   away_team_name \tab character \cr
+   away_team_link \tab character \cr
+   combined_stats \tab logical \cr
+   group_display_name \tab character \cr
+   game_type_id \tab character \cr
+   game_type_description \tab character \cr
+   sort_stat_name \tab character \cr
+   sort_stat_lookup_param \tab character \cr
+   sort_stat_is_counting \tab logical \cr
+   sort_stat_label \tab character \cr
+}
 }
 \description{
 \strong{Acquire high/low stats for Major and Minor Leagues}

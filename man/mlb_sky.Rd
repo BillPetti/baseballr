@@ -7,11 +7,11 @@
 mlb_sky()
 }
 \value{
-Returns a tibble with the following columns
-|col_name            |types     |
-|:-------------------|:---------|
-|sky_code            |character |
-|sky_description     |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   sky_code \tab character \cr
+   sky_description \tab character \cr
+}
 }
 \description{
 \strong{MLB Sky (Weather) Codes}

@@ -7,14 +7,14 @@
 mlb_fielder_detail_types()
 }
 \value{
-Returns a data frame with the following columns
-|col_name  |types     |
-|:---------|:---------|
-|stat_name |character |
-|code      |character |
-|names     |character |
-|chance    |logical   |
-|error     |logical   |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   stat_name \tab character \cr
+   code \tab character \cr
+   names \tab character \cr
+   chance \tab logical \cr
+   error \tab logical \cr
+}
 }
 \description{
 \strong{MLB Fielder Detail Types}

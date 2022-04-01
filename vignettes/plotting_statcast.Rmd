@@ -42,7 +42,7 @@ betts_id <- playerid_lookup("Betts") %>%
 ```{r}
 betts_15 <- statcast_search("2015-03-31", "2015-10-31", playerid = betts_id[1,1], player_type = 'batter')
 betts_16 <- statcast_search("2016-03-31", "2016-10-31", playerid = betts_id[1,1], player_type = 'batter')   
-betts <- dplyr::bind_rows(betts_15, betts_16) 3%>%
+betts <- dplyr::bind_rows(betts_15, betts_16) %>%
   dplyr::mutate(Year = as.factor(substr(game_date,1,4))) %>%
   dplyr::filter(type == "X") %>%
   dplyr::filter(launch_speed != 0)

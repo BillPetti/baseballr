@@ -10,20 +10,20 @@ playername_lookup(id)
 \item{id}{An integer or character string representing a player ID in a baseball database, cross-referenced through the Chadwick Bureau's public register of baseball players.}
 }
 \value{
-A data frame of baseball players and the various IDs associated with them in different systems of record.
-|col_name         |types     |
-|:----------------|:---------|
-|name_first       |character |
-|name_last        |character |
-|name_given       |character |
-|name_suffix      |character |
-|name_nick        |character |
-|birth_year       |integer   |
-|mlb_played_first |integer   |
-|key_mlbam        |integer   |
-|key_retro        |character |
-|key_bbref        |character |
-|key_fangraphs    |integer   |
+A data frame of baseball players and the various IDs associated with them in different systems of record.\tabular{ll}{
+   col_name \tab types \cr
+   name_first \tab character \cr
+   name_last \tab character \cr
+   name_given \tab character \cr
+   name_suffix \tab character \cr
+   name_nick \tab character \cr
+   birth_year \tab integer \cr
+   mlb_played_first \tab integer \cr
+   key_mlbam \tab integer \cr
+   key_retro \tab character \cr
+   key_bbref \tab character \cr
+   key_fangraphs \tab integer \cr
+}
 }
 \description{
 This function allows you to query the Chadwick Bureau's public register of baseball players and the various IDs associated with them in different systems of record.

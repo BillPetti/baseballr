@@ -7,11 +7,11 @@
 mlb_pitch_codes()
 }
 \value{
-Returns a tibble with the following columns
-|col_name           |types     |
-|:------------------|:---------|
-|pitch_code         |character |
-|pitch_description  |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   pitch_code \tab character \cr
+   pitch_description \tab character \cr
+}
 }
 \description{
 \strong{MLB Pitch Codes}

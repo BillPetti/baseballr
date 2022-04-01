@@ -7,16 +7,16 @@
 mlb_high_low_types()
 }
 \value{
-Returns a tibble with the following columns
-|col_name          |types     |
-|:-----------------|:---------|
-|stat_name         |character |
-|stat_lookup_param |character |
-|is_counting       |logical   |
-|stat_label        |character |
-|stat_groups       |list      |
-|org_types         |list      |
-|high_low_types    |list      |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   stat_name \tab character \cr
+   stat_lookup_param \tab character \cr
+   is_counting \tab logical \cr
+   stat_label \tab character \cr
+   stat_groups \tab list \cr
+   org_types \tab list \cr
+   high_low_types \tab list \cr
+}
 }
 \description{
 \strong{MLB Stat High/Low Types}

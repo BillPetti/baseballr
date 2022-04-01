@@ -14,16 +14,16 @@ mlb_jobs(job_type = "UMPR", sport_id = NULL, date = NULL)
 \item{date}{Return information for a given date.}
 }
 \value{
-Returns a tibble with the following columns
-|col_name         |types     |
-|:----------------|:---------|
-|jersey_number    |character |
-|job              |character |
-|job_code         |character |
-|title            |character |
-|person_id        |integer   |
-|person_full_name |character |
-|person_link      |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   jersey_number \tab character \cr
+   job \tab character \cr
+   job_code \tab character \cr
+   title \tab character \cr
+   person_id \tab integer \cr
+   person_full_name \tab character \cr
+   person_link \tab character \cr
+}
 }
 \description{
 \strong{MLB Jobs}

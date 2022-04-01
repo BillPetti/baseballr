@@ -97,7 +97,7 @@
 #' @export
 #'
 #' @examples \donttest{
-#'   mlb_schedule_postseason(season = 2021)
+#'   try(mlb_schedule_postseason(season = 2021))
 #' }
 
 mlb_schedule_postseason <- function(season = 2021,
@@ -116,7 +116,10 @@ mlb_schedule_postseason <- function(season = 2021,
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-
+  
+  games <- data.frame()
+  tryCatch(
+    expr = {
   resp <- mlb_endpoint %>% 
     mlb_api_call()
 
@@ -124,6 +127,16 @@ mlb_schedule_postseason <- function(season = 2021,
     tidyr::unnest(.data$games) %>%
     as.data.frame() %>%
     janitor::clean_names()
+  
+    },
+  error = function(e) {
+    message(glue::glue("{Sys.time()}: Invalid arguments or no MLB postseason schedule data available!"))
+  },
+  warning = function(w) {
+  },
+  finally = {
+  }
+  )
 
   return(games)
 

@@ -7,11 +7,11 @@
 mlb_wind_direction_codes()
 }
 \value{
-Returns a tibble with the following columns
-|col_name                   |types     |
-|:--------------------------|:---------|
-|wind_direction_code        |character |
-|wind_direction_description |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   wind_direction_code \tab character \cr
+   wind_direction_description \tab character \cr
+}
 }
 \description{
 \strong{MLB Wind Direction Codes}

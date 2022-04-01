@@ -14,10 +14,10 @@ mlb_league(seasons = NULL, sport_id = NULL, league_id = NULL)
 \item{league_id}{The league_id(s) to return league information for.}
 }
 \value{
-Returns a tibble with the following columns
-|col_name      |types     |
-|:-------------|:---------|
-|leader_type   |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   leader_type \tab character \cr
+}
 }
 \description{
 \strong{MLB Leagues}

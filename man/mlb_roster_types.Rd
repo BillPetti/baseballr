@@ -7,12 +7,12 @@
 mlb_roster_types()
 }
 \value{
-Returns a data frame with the following columns
-|col_name                |types     |
-|:-----------------------|:---------|
-|roster_type_description |character |
-|roster_type_lookup_name |character |
-|roster_type_parameter   |character |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   roster_type_description \tab character \cr
+   roster_type_lookup_name \tab character \cr
+   roster_type_parameter \tab character \cr
+}
 }
 \description{
 \strong{MLB Roster Types}

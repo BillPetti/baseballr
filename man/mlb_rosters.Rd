@@ -18,24 +18,24 @@ Valid options include: '40Man', 'fullSeason', 'fullRoster', 'nonRosterInvitees',
 'allTime', 'depthChart', 'gameday', 'coach'}
 }
 \value{
-Returns a data frame with the following columns:
-|col_name              |types     |
-|:---------------------|:---------|
-|jersey_number         |character |
-|person_id             |integer   |
-|person_full_name      |character |
-|person_link           |character |
-|position_code         |character |
-|position_name         |character |
-|position_type         |character |
-|position_abbreviation |character |
-|status_code           |character |
-|status_description    |character |
-|link                  |character |
-|team_id               |integer   |
-|roster_type           |character |
-|season                |numeric   |
-|date                  |character |
+Returns a data frame with the following columns:\tabular{ll}{
+   col_name \tab types \cr
+   jersey_number \tab character \cr
+   person_id \tab integer \cr
+   person_full_name \tab character \cr
+   person_link \tab character \cr
+   position_code \tab character \cr
+   position_name \tab character \cr
+   position_type \tab character \cr
+   position_abbreviation \tab character \cr
+   status_code \tab character \cr
+   status_description \tab character \cr
+   link \tab character \cr
+   team_id \tab integer \cr
+   roster_type \tab character \cr
+   season \tab numeric \cr
+   date \tab character \cr
+}
 }
 \description{
 \strong{Find MLB Rosters by Roster Type}

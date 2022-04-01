@@ -12,31 +12,31 @@ bref_team_results(Tm, year)
 \item{year}{Season for which you want to scrape the park factors.}
 }
 \value{
-Returns a data frame of MLB team results
-|col_name       |types     |
-|:--------------|:---------|
-|Gm             |numeric   |
-|Date           |character |
-|Tm             |character |
-|H_A            |character |
-|Opp            |character |
-|Result         |character |
-|R              |numeric   |
-|RA             |numeric   |
-|Inn            |character |
-|Record         |character |
-|Rank           |numeric   |
-|GB             |character |
-|Win            |character |
-|Loss           |character |
-|Save           |character |
-|Time           |character |
-|D/N            |character |
-|Attendance     |numeric   |
-|cLI            |numeric   |
-|Streak         |numeric   |
-|Orig_Scheduled |character |
-|Year           |numeric   |
+Returns a data frame of MLB team results\tabular{ll}{
+   col_name \tab types \cr
+   Gm \tab numeric \cr
+   Date \tab character \cr
+   Tm \tab character \cr
+   H_A \tab character \cr
+   Opp \tab character \cr
+   Result \tab character \cr
+   R \tab numeric \cr
+   RA \tab numeric \cr
+   Inn \tab character \cr
+   Record \tab character \cr
+   Rank \tab numeric \cr
+   GB \tab character \cr
+   Win \tab character \cr
+   Loss \tab character \cr
+   Save \tab character \cr
+   Time \tab character \cr
+   D/N \tab character \cr
+   Attendance \tab numeric \cr
+   cLI \tab numeric \cr
+   Streak \tab numeric \cr
+   Orig_Scheduled \tab character \cr
+   Year \tab numeric \cr
+}
 }
 \description{
 This function allows you to scrape schedule and results for a major league team from Baseball-Reference.com

@@ -7,15 +7,15 @@
 mlb_game_status_codes()
 }
 \value{
-Returns a data frame with the following columns
-|col_name            |types     |
-|:-------------------|:---------|
-|abstract_game_state |character |
-|coded_game_state    |character |
-|detailed_state      |character |
-|status_code         |character |
-|reason              |character |
-|abstract_game_code  |character |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   abstract_game_state \tab character \cr
+   coded_game_state \tab character \cr
+   detailed_state \tab character \cr
+   status_code \tab character \cr
+   reason \tab character \cr
+   abstract_game_code \tab character \cr
+}
 }
 \description{
 \strong{MLB Game Status Codes}

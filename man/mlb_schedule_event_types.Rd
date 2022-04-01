@@ -7,11 +7,11 @@
 mlb_schedule_event_types()
 }
 \value{
-Returns a tibble with the following columns
-|col_name                 |types     |
-|:------------------------|:---------|
-|schedule_event_type_code |character |
-|schedule_event_type_name |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   schedule_event_type_code \tab character \cr
+   schedule_event_type_name \tab character \cr
+}
 }
 \description{
 \strong{MLB Schedule Event Types}

@@ -7,10 +7,10 @@
 mlb_logical_events()
 }
 \value{
-Returns a tibble with the following columns
-|col_name      |types     |
-|:-------------|:---------|
-|event_code    |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   event_code \tab character \cr
+}
 }
 \description{
 \strong{MLB Logical Events}

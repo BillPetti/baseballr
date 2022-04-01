@@ -7,11 +7,11 @@
 mlb_hit_trajectories()
 }
 \value{
-Returns a tibble with the following columns
-|col_name                   |types     |
-|:--------------------------|:---------|
-|hit_trajectory_code        |character |
-|hit_trajectory_description |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   hit_trajectory_code \tab character \cr
+   hit_trajectory_description \tab character \cr
+}
 }
 \description{
 \strong{MLB Hit Trajectories}

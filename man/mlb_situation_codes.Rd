@@ -7,17 +7,17 @@
 mlb_situation_codes()
 }
 \value{
-Returns a tibble with the following columns
-|col_name                   |types     |
-|:--------------------------|:---------|
-|situation_code             |character |
-|sort_order                 |integer   |
-|navigation_menu            |character |
-|situation_code_description |character |
-|team                       |logical   |
-|batting                    |logical   |
-|fielding                   |logical   |
-|pitching                   |logical   |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   situation_code \tab character \cr
+   sort_order \tab integer \cr
+   navigation_menu \tab character \cr
+   situation_code_description \tab character \cr
+   team \tab logical \cr
+   batting \tab logical \cr
+   fielding \tab logical \cr
+   pitching \tab logical \cr
+}
 }
 \description{
 \strong{MLB Situation Codes}

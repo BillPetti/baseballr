@@ -27,42 +27,42 @@ mlb_teams(
 \item{game_type}{The game_type to return team information for.}
 }
 \value{
-Returns a data frame with the following columns
-|col_name                   |types     |
-|:--------------------------|:---------|
-|team_id                    |integer   |
-|team_full_name             |character |
-|link                       |character |
-|season                     |integer   |
-|team_code                  |character |
-|file_code                  |character |
-|team_abbreviation          |character |
-|team_name                  |character |
-|location_name              |character |
-|first_year_of_play         |character |
-|short_name                 |character |
-|franchise_name             |character |
-|club_name                  |character |
-|all_star_status            |character |
-|active                     |logical   |
-|venue_id                   |integer   |
-|venue_name                 |character |
-|venue_link                 |character |
-|spring_venue_id            |integer   |
-|spring_venue_link          |character |
-|league_id                  |integer   |
-|league_name                |character |
-|league_link                |character |
-|division_id                |integer   |
-|division_name              |character |
-|division_link              |character |
-|sport_id                   |integer   |
-|sport_link                 |character |
-|sport_name                 |character |
-|spring_league_id           |integer   |
-|spring_league_name         |character |
-|spring_league_link         |character |
-|spring_league_abbreviation |character |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   team_id \tab integer \cr
+   team_full_name \tab character \cr
+   link \tab character \cr
+   season \tab integer \cr
+   team_code \tab character \cr
+   file_code \tab character \cr
+   team_abbreviation \tab character \cr
+   team_name \tab character \cr
+   location_name \tab character \cr
+   first_year_of_play \tab character \cr
+   short_name \tab character \cr
+   franchise_name \tab character \cr
+   club_name \tab character \cr
+   all_star_status \tab character \cr
+   active \tab logical \cr
+   venue_id \tab integer \cr
+   venue_name \tab character \cr
+   venue_link \tab character \cr
+   spring_venue_id \tab integer \cr
+   spring_venue_link \tab character \cr
+   league_id \tab integer \cr
+   league_name \tab character \cr
+   league_link \tab character \cr
+   division_id \tab integer \cr
+   division_name \tab character \cr
+   division_link \tab character \cr
+   sport_id \tab integer \cr
+   sport_link \tab character \cr
+   sport_name \tab character \cr
+   spring_league_id \tab integer \cr
+   spring_league_name \tab character \cr
+   spring_league_link \tab character \cr
+   spring_league_abbreviation \tab character \cr
+}
 }
 \description{
 \strong{MLB Teams}

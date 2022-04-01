@@ -7,14 +7,14 @@
 mlb_baseball_stats()
 }
 \value{
-Returns a data frame with the following columns
-|col_name          |types     |
-|:-----------------|:---------|
-|stat_name         |character |
-|stat_lookup_param |character |
-|is_counting       |logical   |
-|stat_label        |character |
-|stat_group        |character |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   stat_name \tab character \cr
+   stat_lookup_param \tab character \cr
+   is_counting \tab logical \cr
+   stat_label \tab character \cr
+   stat_group \tab character \cr
+}
 }
 \description{
 \strong{MLB Baseball Stats}

@@ -7,11 +7,11 @@
 mlb_game_types()
 }
 \value{
-Returns a data frame with the following columns
-|col_name              |types     |
-|:---------------------|:---------|
-|game_type_id          |character |
-|game_type_description |character |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   game_type_id \tab character \cr
+   game_type_description \tab character \cr
+}
 }
 \description{
 \strong{MLB Game Types}

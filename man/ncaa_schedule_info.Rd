@@ -15,17 +15,17 @@ etc.)}
 \value{
 A data frame with the following fields: date, opponent,
 result, score, innings (if more than regulation), and the url
-for the game itself.
-|col_name      |types     |
-|:-------------|:---------|
-|date          |character |
-|opponent      |character |
-|result        |character |
-|score         |character |
-|innings       |character |
-|opponent_slug |character |
-|slug          |character |
-|game_info_url |character |
+for the game itself.\tabular{ll}{
+   col_name \tab types \cr
+   date \tab character \cr
+   opponent \tab character \cr
+   result \tab character \cr
+   score \tab character \cr
+   innings \tab character \cr
+   opponent_slug \tab character \cr
+   slug \tab character \cr
+   game_info_url \tab character \cr
+}
 }
 \description{
 \strong{Get Schedule and Results for NCAA Baseball Teams}

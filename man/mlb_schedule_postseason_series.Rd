@@ -39,85 +39,85 @@ mlb_schedule_postseason_series(
 }
 \value{
 Returns a data frame that includes game_pk values and additional
-information for games scheduled or played
-|col_name                        |types     |
-|:-------------------------------|:---------|
-|total_items                     |integer   |
-|total_games                     |integer   |
-|total_games_in_progress         |integer   |
-|game_pk                         |integer   |
-|link                            |character |
-|game_type                       |character |
-|season                          |character |
-|game_date                       |character |
-|official_date                   |character |
-|is_tie                          |logical   |
-|is_featured_game                |logical   |
-|game_number                     |integer   |
-|public_facing                   |logical   |
-|double_header                   |character |
-|gameday_type                    |character |
-|tiebreaker                      |character |
-|calendar_event_id               |character |
-|season_display                  |character |
-|day_night                       |character |
-|description                     |character |
-|scheduled_innings               |integer   |
-|reverse_home_away_status        |logical   |
-|inning_break_length             |integer   |
-|games_in_series                 |integer   |
-|series_game_number              |integer   |
-|series_description              |character |
-|record_source                   |character |
-|if_necessary                    |character |
-|if_necessary_description        |character |
-|is_default_game                 |logical   |
-|status_abstract_game_state      |character |
-|status_coded_game_state         |character |
-|status_detailed_state           |character |
-|status_status_code              |character |
-|status_start_time_tbd           |logical   |
-|status_abstract_game_code       |character |
-|teams_away_score                |integer   |
-|teams_away_is_winner            |logical   |
-|teams_away_split_squad          |logical   |
-|teams_away_series_number        |integer   |
-|teams_away_league_record_wins   |integer   |
-|teams_away_league_record_losses |integer   |
-|teams_away_league_record_pct    |character |
-|teams_away_team_id              |integer   |
-|teams_away_team_name            |character |
-|teams_away_team_link            |character |
-|teams_home_score                |integer   |
-|teams_home_is_winner            |logical   |
-|teams_home_split_squad          |logical   |
-|teams_home_series_number        |integer   |
-|teams_home_league_record_wins   |integer   |
-|teams_home_league_record_losses |integer   |
-|teams_home_league_record_pct    |character |
-|teams_home_team_id              |integer   |
-|teams_home_team_name            |character |
-|teams_home_team_link            |character |
-|venue_id                        |integer   |
-|venue_name                      |character |
-|venue_link                      |character |
-|content_link                    |character |
-|reschedule_date                 |character |
-|reschedule_game_date            |character |
-|rescheduled_from                |character |
-|rescheduled_from_date           |character |
-|status_reason                   |character |
-|sort_order                      |integer   |
-|series_id                       |character |
-|series_sort_number              |integer   |
-|series_is_default               |logical   |
-|series_game_type                |character |
+information for games scheduled or played\tabular{ll}{
+   col_name \tab types \cr
+   total_items \tab integer \cr
+   total_games \tab integer \cr
+   total_games_in_progress \tab integer \cr
+   game_pk \tab integer \cr
+   link \tab character \cr
+   game_type \tab character \cr
+   season \tab character \cr
+   game_date \tab character \cr
+   official_date \tab character \cr
+   is_tie \tab logical \cr
+   is_featured_game \tab logical \cr
+   game_number \tab integer \cr
+   public_facing \tab logical \cr
+   double_header \tab character \cr
+   gameday_type \tab character \cr
+   tiebreaker \tab character \cr
+   calendar_event_id \tab character \cr
+   season_display \tab character \cr
+   day_night \tab character \cr
+   description \tab character \cr
+   scheduled_innings \tab integer \cr
+   reverse_home_away_status \tab logical \cr
+   inning_break_length \tab integer \cr
+   games_in_series \tab integer \cr
+   series_game_number \tab integer \cr
+   series_description \tab character \cr
+   record_source \tab character \cr
+   if_necessary \tab character \cr
+   if_necessary_description \tab character \cr
+   is_default_game \tab logical \cr
+   status_abstract_game_state \tab character \cr
+   status_coded_game_state \tab character \cr
+   status_detailed_state \tab character \cr
+   status_status_code \tab character \cr
+   status_start_time_tbd \tab logical \cr
+   status_abstract_game_code \tab character \cr
+   teams_away_score \tab integer \cr
+   teams_away_is_winner \tab logical \cr
+   teams_away_split_squad \tab logical \cr
+   teams_away_series_number \tab integer \cr
+   teams_away_league_record_wins \tab integer \cr
+   teams_away_league_record_losses \tab integer \cr
+   teams_away_league_record_pct \tab character \cr
+   teams_away_team_id \tab integer \cr
+   teams_away_team_name \tab character \cr
+   teams_away_team_link \tab character \cr
+   teams_home_score \tab integer \cr
+   teams_home_is_winner \tab logical \cr
+   teams_home_split_squad \tab logical \cr
+   teams_home_series_number \tab integer \cr
+   teams_home_league_record_wins \tab integer \cr
+   teams_home_league_record_losses \tab integer \cr
+   teams_home_league_record_pct \tab character \cr
+   teams_home_team_id \tab integer \cr
+   teams_home_team_name \tab character \cr
+   teams_home_team_link \tab character \cr
+   venue_id \tab integer \cr
+   venue_name \tab character \cr
+   venue_link \tab character \cr
+   content_link \tab character \cr
+   reschedule_date \tab character \cr
+   reschedule_game_date \tab character \cr
+   rescheduled_from \tab character \cr
+   rescheduled_from_date \tab character \cr
+   status_reason \tab character \cr
+   sort_order \tab integer \cr
+   series_id \tab character \cr
+   series_sort_number \tab integer \cr
+   series_is_default \tab logical \cr
+   series_game_type \tab character \cr
+}
 }
 \description{
 \strong{Find game_pk values for professional baseball postseason series games (major and minor leagues)}
 }
 \examples{
 \donttest{
-  mlb_schedule_postseason_series(season = 2021, sport_id = 1)
+  try(mlb_schedule_postseason_series(season = 2021, sport_id = 1))
 }
 }

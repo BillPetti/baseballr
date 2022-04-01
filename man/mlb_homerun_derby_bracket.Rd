@@ -10,50 +10,50 @@ mlb_homerun_derby_bracket(game_pk)
 \item{game_pk}{The game_pk for which you want to return data}
 }
 \value{
-Returns a data frame with the following columns
-|col_name                                      |types     |
-|:---------------------------------------------|:---------|
-|game_pk                                       |integer   |
-|event_name                                    |character |
-|event_type_code                               |character |
-|event_type_name                               |character |
-|event_date                                    |character |
-|venue_id                                      |integer   |
-|venue_name                                    |character |
-|venue_link                                    |character |
-|is_multi_day                                  |logical   |
-|is_primary_calendar                           |logical   |
-|file_code                                     |character |
-|event_number                                  |integer   |
-|public_facing                                 |logical   |
-|round                                         |integer   |
-|num_batters                                   |integer   |
-|top_seed_complete                             |logical   |
-|top_seed_started                              |logical   |
-|top_seed_winner                               |logical   |
-|top_seed_seed                                 |integer   |
-|top_seed_is_winner                            |logical   |
-|top_seed_is_complete                          |logical   |
-|top_seed_is_started                           |logical   |
-|top_seed_num_home_runs                        |integer   |
-|top_seed_player_id                            |integer   |
-|top_seed_player_full_name                     |character |
-|top_seed_player_link                          |character |
-|top_seed_top_derby_hit_data_launch_speed      |integer   |
-|top_seed_top_derby_hit_data_total_distance    |integer   |
-|bottom_seed_complete                          |logical   |
-|bottom_seed_started                           |logical   |
-|bottom_seed_winner                            |logical   |
-|bottom_seed_seed                              |integer   |
-|bottom_seed_is_winner                         |logical   |
-|bottom_seed_is_complete                       |logical   |
-|bottom_seed_is_started                        |logical   |
-|bottom_seed_num_home_runs                     |integer   |
-|bottom_seed_player_id                         |integer   |
-|bottom_seed_player_full_name                  |character |
-|bottom_seed_player_link                       |character |
-|bottom_seed_top_derby_hit_data_launch_speed   |integer   |
-|bottom_seed_top_derby_hit_data_total_distance |integer   |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   game_pk \tab integer \cr
+   event_name \tab character \cr
+   event_type_code \tab character \cr
+   event_type_name \tab character \cr
+   event_date \tab character \cr
+   venue_id \tab integer \cr
+   venue_name \tab character \cr
+   venue_link \tab character \cr
+   is_multi_day \tab logical \cr
+   is_primary_calendar \tab logical \cr
+   file_code \tab character \cr
+   event_number \tab integer \cr
+   public_facing \tab logical \cr
+   round \tab integer \cr
+   num_batters \tab integer \cr
+   top_seed_complete \tab logical \cr
+   top_seed_started \tab logical \cr
+   top_seed_winner \tab logical \cr
+   top_seed_seed \tab integer \cr
+   top_seed_is_winner \tab logical \cr
+   top_seed_is_complete \tab logical \cr
+   top_seed_is_started \tab logical \cr
+   top_seed_num_home_runs \tab integer \cr
+   top_seed_player_id \tab integer \cr
+   top_seed_player_full_name \tab character \cr
+   top_seed_player_link \tab character \cr
+   top_seed_top_derby_hit_data_launch_speed \tab integer \cr
+   top_seed_top_derby_hit_data_total_distance \tab integer \cr
+   bottom_seed_complete \tab logical \cr
+   bottom_seed_started \tab logical \cr
+   bottom_seed_winner \tab logical \cr
+   bottom_seed_seed \tab integer \cr
+   bottom_seed_is_winner \tab logical \cr
+   bottom_seed_is_complete \tab logical \cr
+   bottom_seed_is_started \tab logical \cr
+   bottom_seed_num_home_runs \tab integer \cr
+   bottom_seed_player_id \tab integer \cr
+   bottom_seed_player_full_name \tab character \cr
+   bottom_seed_player_link \tab character \cr
+   bottom_seed_top_derby_hit_data_launch_speed \tab integer \cr
+   bottom_seed_top_derby_hit_data_total_distance \tab integer \cr
+}
 }
 \description{
 \strong{Retrieve Homerun Derby Bracket}

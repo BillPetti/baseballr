@@ -12,80 +12,80 @@ mlb_umpire_games(umpire_id = NULL, season = 2021)
 \item{season}{Return information for a given season.}
 }
 \value{
-Returns a tibble with the following columns
-|col_name                        |types     |
-|:-------------------------------|:---------|
-|date                            |character |
-|total_items                     |integer   |
-|total_events                    |integer   |
-|total_games                     |integer   |
-|total_games_in_progress         |integer   |
-|game_pk                         |integer   |
-|link                            |character |
-|game_type                       |character |
-|season                          |character |
-|game_date                       |character |
-|official_date                   |character |
-|is_tie                          |logical   |
-|game_number                     |integer   |
-|public_facing                   |logical   |
-|double_header                   |character |
-|gameday_type                    |character |
-|tiebreaker                      |character |
-|calendar_event_id               |character |
-|season_display                  |character |
-|day_night                       |character |
-|scheduled_innings               |integer   |
-|reverse_home_away_status        |logical   |
-|games_in_series                 |integer   |
-|series_game_number              |integer   |
-|series_description              |character |
-|record_source                   |character |
-|if_necessary                    |character |
-|if_necessary_description        |character |
-|status_abstract_game_state      |character |
-|status_coded_game_state         |character |
-|status_detailed_state           |character |
-|status_status_code              |character |
-|status_start_time_tbd           |logical   |
-|status_abstract_game_code       |character |
-|teams_away_score                |integer   |
-|teams_away_is_winner            |logical   |
-|teams_away_split_squad          |logical   |
-|teams_away_series_number        |integer   |
-|teams_away_league_record_wins   |integer   |
-|teams_away_league_record_losses |integer   |
-|teams_away_league_record_pct    |character |
-|teams_away_team_id              |integer   |
-|teams_away_team_name            |character |
-|teams_away_team_link            |character |
-|teams_home_score                |integer   |
-|teams_home_is_winner            |logical   |
-|teams_home_split_squad          |logical   |
-|teams_home_series_number        |integer   |
-|teams_home_league_record_wins   |integer   |
-|teams_home_league_record_losses |integer   |
-|teams_home_league_record_pct    |character |
-|teams_home_team_id              |integer   |
-|teams_home_team_name            |character |
-|teams_home_team_link            |character |
-|venue_id                        |integer   |
-|venue_name                      |character |
-|venue_link                      |character |
-|content_link                    |character |
-|inning_break_length             |integer   |
-|status_reason                   |character |
-|description                     |character |
-|reschedule_date                 |character |
-|reschedule_game_date            |character |
-|rescheduled_from                |character |
-|rescheduled_from_date           |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   date \tab character \cr
+   total_items \tab integer \cr
+   total_events \tab integer \cr
+   total_games \tab integer \cr
+   total_games_in_progress \tab integer \cr
+   game_pk \tab integer \cr
+   link \tab character \cr
+   game_type \tab character \cr
+   season \tab character \cr
+   game_date \tab character \cr
+   official_date \tab character \cr
+   is_tie \tab logical \cr
+   game_number \tab integer \cr
+   public_facing \tab logical \cr
+   double_header \tab character \cr
+   gameday_type \tab character \cr
+   tiebreaker \tab character \cr
+   calendar_event_id \tab character \cr
+   season_display \tab character \cr
+   day_night \tab character \cr
+   scheduled_innings \tab integer \cr
+   reverse_home_away_status \tab logical \cr
+   games_in_series \tab integer \cr
+   series_game_number \tab integer \cr
+   series_description \tab character \cr
+   record_source \tab character \cr
+   if_necessary \tab character \cr
+   if_necessary_description \tab character \cr
+   status_abstract_game_state \tab character \cr
+   status_coded_game_state \tab character \cr
+   status_detailed_state \tab character \cr
+   status_status_code \tab character \cr
+   status_start_time_tbd \tab logical \cr
+   status_abstract_game_code \tab character \cr
+   teams_away_score \tab integer \cr
+   teams_away_is_winner \tab logical \cr
+   teams_away_split_squad \tab logical \cr
+   teams_away_series_number \tab integer \cr
+   teams_away_league_record_wins \tab integer \cr
+   teams_away_league_record_losses \tab integer \cr
+   teams_away_league_record_pct \tab character \cr
+   teams_away_team_id \tab integer \cr
+   teams_away_team_name \tab character \cr
+   teams_away_team_link \tab character \cr
+   teams_home_score \tab integer \cr
+   teams_home_is_winner \tab logical \cr
+   teams_home_split_squad \tab logical \cr
+   teams_home_series_number \tab integer \cr
+   teams_home_league_record_wins \tab integer \cr
+   teams_home_league_record_losses \tab integer \cr
+   teams_home_league_record_pct \tab character \cr
+   teams_home_team_id \tab integer \cr
+   teams_home_team_name \tab character \cr
+   teams_home_team_link \tab character \cr
+   venue_id \tab integer \cr
+   venue_name \tab character \cr
+   venue_link \tab character \cr
+   content_link \tab character \cr
+   inning_break_length \tab integer \cr
+   status_reason \tab character \cr
+   description \tab character \cr
+   reschedule_date \tab character \cr
+   reschedule_game_date \tab character \cr
+   rescheduled_from \tab character \cr
+   rescheduled_from_date \tab character \cr
+}
 }
 \description{
 \strong{MLB Umpire Games}
 }
 \examples{
 \donttest{
-  mlb_umpire_games(umpire_id = 596809, season = 2021)
+  try(mlb_umpire_games(umpire_id = 608093))
 }
 }

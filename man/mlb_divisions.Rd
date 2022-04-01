@@ -14,23 +14,23 @@ mlb_divisions(division_id = NULL, league_id = NULL, sport_id = NULL)
 \item{sport_id}{Return division(s) for all divisions in a specific sport.}
 }
 \value{
-Returns a tibble with the following columns
-|col_name              |types     |
-|:---------------------|:---------|
-|division_id           |integer   |
-|division_name         |character |
-|season                |character |
-|division_name_short   |character |
-|division_link         |character |
-|division_abbreviation |character |
-|has_wildcard          |logical   |
-|sort_order            |integer   |
-|num_playoff_teams     |integer   |
-|active                |logical   |
-|league_id             |integer   |
-|league_link           |character |
-|sport_id              |integer   |
-|sport_link            |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   division_id \tab integer \cr
+   division_name \tab character \cr
+   season \tab character \cr
+   division_name_short \tab character \cr
+   division_link \tab character \cr
+   division_abbreviation \tab character \cr
+   has_wildcard \tab logical \cr
+   sort_order \tab integer \cr
+   num_playoff_teams \tab integer \cr
+   active \tab logical \cr
+   league_id \tab integer \cr
+   league_link \tab character \cr
+   sport_id \tab integer \cr
+   sport_link \tab character \cr
+}
 }
 \description{
 \strong{MLB Divisions}

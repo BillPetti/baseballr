@@ -72,7 +72,7 @@
 #'   
 #' @export
 #' @examples \donttest{
-#'   mlb_umpire_games(umpire_id = 596809, season = 2021)
+#'   try(mlb_umpire_games(umpire_id = 608093))
 #' }
 mlb_umpire_games <- function(
                      umpire_id = NULL,
@@ -84,15 +84,26 @@ mlb_umpire_games <- function(
   )
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
-  
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  games <- jsonlite::fromJSON(jsonlite::toJSON(resp$dates), flatten = TRUE) %>% 
-    tidyr::unnest(.data$games) %>% 
-    janitor::clean_names() %>% 
-    as.data.frame() %>% 
-    dplyr::select(-.data$events)
-  
+  games <- data.frame()
+  tryCatch(
+    expr = {
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      games <- jsonlite::fromJSON(jsonlite::toJSON(resp$dates), flatten = TRUE) %>% 
+        tidyr::unnest(.data$games) %>% 
+        janitor::clean_names() %>% 
+        as.data.frame() %>% 
+        dplyr::select(-.data$events)
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no umpire game data for {umpire_id} available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(games)
 }
 

@@ -10,27 +10,27 @@ mlb_game_content(game_pk)
 \item{game_pk}{The unique game_pk identifier for the game}
 }
 \value{
-Returns a data frame with the following columns
-|col_name            |types     |
-|:-------------------|:---------|
-|title               |character |
-|epg_id              |integer   |
-|content_id          |character |
-|media_id            |character |
-|media_state         |character |
-|media_feed_type     |character |
-|media_feed_sub_type |character |
-|call_letters        |character |
-|fox_auth_required   |logical   |
-|tbs_auth_required   |logical   |
-|espn_auth_required  |logical   |
-|fs1auth_required    |logical   |
-|mlbn_auth_required  |logical   |
-|free_game           |logical   |
-|type                |character |
-|description         |character |
-|rendition_name      |character |
-|language            |character |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   title \tab character \cr
+   epg_id \tab integer \cr
+   content_id \tab character \cr
+   media_id \tab character \cr
+   media_state \tab character \cr
+   media_feed_type \tab character \cr
+   media_feed_sub_type \tab character \cr
+   call_letters \tab character \cr
+   fox_auth_required \tab logical \cr
+   tbs_auth_required \tab logical \cr
+   espn_auth_required \tab logical \cr
+   fs1auth_required \tab logical \cr
+   mlbn_auth_required \tab logical \cr
+   free_game \tab logical \cr
+   type \tab character \cr
+   description \tab character \cr
+   rendition_name \tab character \cr
+   language \tab character \cr
+}
 }
 \description{
 \strong{Retrieve additional game content for major and minor league games}

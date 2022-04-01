@@ -38,57 +38,57 @@ Format must be in MM/DD/YYYY format.}
 Format must be in MM/DD/YYYY format.}
 }
 \value{
-Returns a data frame with the following columns
-|col_name                                            |types     |
-|:---------------------------------------------------|:---------|
-|hits_per9inn                                        |numeric   |
-|runs_per9inn                                        |numeric   |
-|pitches_per9inn                                     |numeric   |
-|plate_appearances_per9inn                           |numeric   |
-|hits_per_game                                       |numeric   |
-|runs_per_game                                       |numeric   |
-|innings_played_per_game                             |numeric   |
-|pitches_per_game                                    |numeric   |
-|pitchers_per_game                                   |numeric   |
-|plate_appearances_per_game                          |numeric   |
-|total_game_time                                     |character |
-|total_innings_played                                |integer   |
-|total_hits                                          |integer   |
-|total_runs                                          |integer   |
-|total_plate_appearances                             |integer   |
-|total_pitchers                                      |integer   |
-|total_pitches                                       |integer   |
-|total_games                                         |integer   |
-|total7inn_games                                     |integer   |
-|total9inn_games                                     |integer   |
-|total_extra_inn_games                               |integer   |
-|time_per_game                                       |character |
-|time_per_pitch                                      |character |
-|time_per_hit                                        |character |
-|time_per_run                                        |character |
-|time_per_plate_appearance                           |character |
-|time_per9inn                                        |character |
-|time_per77plate_appearances                         |character |
-|total_extra_inn_time                                |character |
-|time_per7inn_game                                   |character |
-|time_per7inn_game_without_extra_inn                 |character |
-|total7inn_games_scheduled                           |integer   |
-|total7inn_games_without_extra_inn                   |integer   |
-|total9inn_games_completed_early                     |integer   |
-|total9inn_games_without_extra_inn                   |integer   |
-|total9inn_games_scheduled                           |integer   |
-|hits_per_run                                        |numeric   |
-|pitches_per_pitcher                                 |numeric   |
-|season                                              |character |
-|sport_id                                            |integer   |
-|sport_code                                          |character |
-|sport_link                                          |character |
-|pr_portal_calculated_fields_total7inn_games         |integer   |
-|pr_portal_calculated_fields_total9inn_games         |integer   |
-|pr_portal_calculated_fields_total_extra_inn_games   |integer   |
-|pr_portal_calculated_fields_time_per7inn_game       |character |
-|pr_portal_calculated_fields_time_per9inn_game       |character |
-|pr_portal_calculated_fields_time_per_extra_inn_game |character |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   hits_per9inn \tab numeric \cr
+   runs_per9inn \tab numeric \cr
+   pitches_per9inn \tab numeric \cr
+   plate_appearances_per9inn \tab numeric \cr
+   hits_per_game \tab numeric \cr
+   runs_per_game \tab numeric \cr
+   innings_played_per_game \tab numeric \cr
+   pitches_per_game \tab numeric \cr
+   pitchers_per_game \tab numeric \cr
+   plate_appearances_per_game \tab numeric \cr
+   total_game_time \tab character \cr
+   total_innings_played \tab integer \cr
+   total_hits \tab integer \cr
+   total_runs \tab integer \cr
+   total_plate_appearances \tab integer \cr
+   total_pitchers \tab integer \cr
+   total_pitches \tab integer \cr
+   total_games \tab integer \cr
+   total7inn_games \tab integer \cr
+   total9inn_games \tab integer \cr
+   total_extra_inn_games \tab integer \cr
+   time_per_game \tab character \cr
+   time_per_pitch \tab character \cr
+   time_per_hit \tab character \cr
+   time_per_run \tab character \cr
+   time_per_plate_appearance \tab character \cr
+   time_per9inn \tab character \cr
+   time_per77plate_appearances \tab character \cr
+   total_extra_inn_time \tab character \cr
+   time_per7inn_game \tab character \cr
+   time_per7inn_game_without_extra_inn \tab character \cr
+   total7inn_games_scheduled \tab integer \cr
+   total7inn_games_without_extra_inn \tab integer \cr
+   total9inn_games_completed_early \tab integer \cr
+   total9inn_games_without_extra_inn \tab integer \cr
+   total9inn_games_scheduled \tab integer \cr
+   hits_per_run \tab numeric \cr
+   pitches_per_pitcher \tab numeric \cr
+   season \tab character \cr
+   sport_id \tab integer \cr
+   sport_code \tab character \cr
+   sport_link \tab character \cr
+   pr_portal_calculated_fields_total7inn_games \tab integer \cr
+   pr_portal_calculated_fields_total9inn_games \tab integer \cr
+   pr_portal_calculated_fields_total_extra_inn_games \tab integer \cr
+   pr_portal_calculated_fields_time_per7inn_game \tab character \cr
+   pr_portal_calculated_fields_time_per9inn_game \tab character \cr
+   pr_portal_calculated_fields_time_per_extra_inn_game \tab character \cr
+}
 }
 \description{
 \strong{Retrieve game pace metrics for major and minor league}

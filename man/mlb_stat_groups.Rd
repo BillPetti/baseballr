@@ -7,10 +7,10 @@
 mlb_stat_groups()
 }
 \value{
-Returns a tibble with the following columns
-|col_name               |types     |
-|:----------------------|:---------|
-|stat_group_name        |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   stat_group_name \tab character \cr
+}
 }
 \description{
 \strong{MLB Stat Groups}

@@ -7,11 +7,11 @@
 mlb_player_status_codes()
 }
 \value{
-Returns a tibble with the following columns
-|col_name                   |types     |
-|:--------------------------|:---------|
-|player_status_code         |character |
-|player_status_description  |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   player_status_code \tab character \cr
+   player_status_description \tab character \cr
+}
 }
 \description{
 \strong{MLB Player Status Codes}

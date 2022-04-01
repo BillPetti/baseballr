@@ -11,27 +11,27 @@ mlb_game_info(game_pk)
 }
 \value{
 Returns a data frame that includes supplemental information, such as
-weather, official scorer, attendance, etc., for the game_pk provided
-|col_name        |types     |
-|:---------------|:---------|
-|game_date       |character |
-|game_pk         |numeric   |
-|venue_name      |character |
-|venue_id        |integer   |
-|temperature     |character |
-|other_weather   |character |
-|wind            |character |
-|attendance      |character |
-|start_time      |character |
-|elapsed_time    |character |
-|game_id         |character |
-|game_type       |character |
-|home_sport_code |character |
-|official_scorer |character |
-|date            |character |
-|status_ind      |character |
-|home_league_id  |integer   |
-|gameday_sw      |character |
+weather, official scorer, attendance, etc., for the game_pk provided\tabular{ll}{
+   col_name \tab types \cr
+   game_date \tab character \cr
+   game_pk \tab numeric \cr
+   venue_name \tab character \cr
+   venue_id \tab integer \cr
+   temperature \tab character \cr
+   other_weather \tab character \cr
+   wind \tab character \cr
+   attendance \tab character \cr
+   start_time \tab character \cr
+   elapsed_time \tab character \cr
+   game_id \tab character \cr
+   game_type \tab character \cr
+   home_sport_code \tab character \cr
+   official_scorer \tab character \cr
+   date \tab character \cr
+   status_ind \tab character \cr
+   home_league_id \tab integer \cr
+   gameday_sw \tab character \cr
+}
 }
 \description{
 \strong{Retrieve additional game information for major and minor league games}

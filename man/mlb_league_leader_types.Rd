@@ -7,10 +7,10 @@
 mlb_league_leader_types()
 }
 \value{
-Returns a tibble with the following columns
-|col_name      |types     |
-|:-------------|:---------|
-|leader_type   |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   leader_type \tab character \cr
+}
 }
 \description{
 \strong{MLB League Leader Types}

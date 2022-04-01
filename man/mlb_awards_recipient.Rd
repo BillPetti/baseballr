@@ -21,24 +21,24 @@ mlb_awards_recipient(
 \item{season}{Year(s) to return a directory of players for a given award in a given season.}
 }
 \value{
-Returns a data frame with the following columns
-|col_name                             |types     |
-|:------------------------------------|:---------|
-|award_id                             |character |
-|award_name                           |character |
-|date                                 |character |
-|season                               |character |
-|votes                                |integer   |
-|notes                                |character |
-|player_id                            |integer   |
-|player_link                          |character |
-|player_name_first_last               |character |
-|player_primary_position_code         |character |
-|player_primary_position_name         |character |
-|player_primary_position_type         |character |
-|player_primary_position_abbreviation |character |
-|team_id                              |integer   |
-|team_link                            |character |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   award_id \tab character \cr
+   award_name \tab character \cr
+   date \tab character \cr
+   season \tab character \cr
+   votes \tab integer \cr
+   notes \tab character \cr
+   player_id \tab integer \cr
+   player_link \tab character \cr
+   player_name_first_last \tab character \cr
+   player_primary_position_code \tab character \cr
+   player_primary_position_name \tab character \cr
+   player_primary_position_type \tab character \cr
+   player_primary_position_abbreviation \tab character \cr
+   team_id \tab integer \cr
+   team_link \tab character \cr
+}
 }
 \description{
 \strong{MLB Award Recipients}

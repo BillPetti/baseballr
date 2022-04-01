@@ -10,100 +10,100 @@ mlb_homerun_derby_players(game_pk)
 \item{game_pk}{The game_pk for which you want to return data}
 }
 \value{
-Returns a data frame with the following columns
-|col_name                                       |types     |
-|:----------------------------------------------|:---------|
-|game_pk                                        |integer   |
-|event_name                                     |character |
-|event_date                                     |character |
-|event_type_code                                |character |
-|event_type_name                                |character |
-|venue_id                                       |integer   |
-|venue_name                                     |character |
-|player_id                                      |integer   |
-|player_full_name                               |character |
-|player_link                                    |character |
-|player_first_name                              |character |
-|player_last_name                               |character |
-|player_primary_number                          |character |
-|player_birth_date                              |character |
-|player_current_age                             |integer   |
-|player_birth_city                              |character |
-|player_birth_state_province                    |character |
-|player_birth_country                           |character |
-|player_height                                  |character |
-|player_weight                                  |integer   |
-|player_active                                  |logical   |
-|player_use_name                                |character |
-|player_middle_name                             |character |
-|player_boxscore_name                           |character |
-|player_nick_name                               |character |
-|player_gender                                  |character |
-|player_is_player                               |logical   |
-|player_is_verified                             |logical   |
-|player_draft_year                              |integer   |
-|player_pronunciation                           |character |
-|player_mlb_debut_date                          |character |
-|player_name_first_last                         |character |
-|player_name_slug                               |character |
-|player_first_last_name                         |character |
-|player_last_first_name                         |character |
-|player_last_init_name                          |character |
-|player_init_last_name                          |character |
-|player_full_fml_name                           |character |
-|player_full_lfm_name                           |character |
-|player_strike_zone_top                         |numeric   |
-|player_strike_zone_bottom                      |numeric   |
-|player_name_matrilineal                        |character |
-|player_current_team_id                         |integer   |
-|player_current_team_name                       |character |
-|player_current_team_link                       |character |
-|player_current_team_season                     |integer   |
-|player_current_team_team_code                  |character |
-|player_current_team_file_code                  |character |
-|player_current_team_abbreviation               |character |
-|player_current_team_team_name                  |character |
-|player_current_team_location_name              |character |
-|player_current_team_first_year_of_play         |character |
-|player_current_team_short_name                 |character |
-|player_current_team_franchise_name             |character |
-|player_current_team_club_name                  |character |
-|player_current_team_all_star_status            |character |
-|player_current_team_active                     |logical   |
-|player_current_team_parent_org_name            |character |
-|player_current_team_parent_org_id              |integer   |
-|player_current_team_venue_id                   |integer   |
-|player_current_team_venue_name                 |character |
-|player_current_team_venue_link                 |character |
-|player_current_team_spring_venue_id            |integer   |
-|player_current_team_spring_venue_link          |character |
-|player_current_team_league_id                  |integer   |
-|player_current_team_league_name                |character |
-|player_current_team_league_link                |character |
-|player_current_team_division_id                |integer   |
-|player_current_team_division_name              |character |
-|player_current_team_division_link              |character |
-|player_current_team_sport_id                   |integer   |
-|player_current_team_sport_link                 |character |
-|player_current_team_sport_name                 |character |
-|player_current_team_spring_league_id           |integer   |
-|player_current_team_spring_league_name         |character |
-|player_current_team_spring_league_link         |character |
-|player_current_team_spring_league_abbreviation |character |
-|player_primary_position_code                   |character |
-|player_primary_position_name                   |character |
-|player_primary_position_type                   |character |
-|player_primary_position_abbreviation           |character |
-|player_bat_side_code                           |character |
-|player_bat_side_description                    |character |
-|player_pitch_hand_code                         |character |
-|player_pitch_hand_description                  |character |
-|venue_link                                     |character |
-|is_multi_day                                   |logical   |
-|is_primary_calendar                            |logical   |
-|file_code                                      |character |
-|event_number                                   |integer   |
-|public_facing                                  |logical   |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   game_pk \tab integer \cr
+   event_name \tab character \cr
+   event_date \tab character \cr
+   event_type_code \tab character \cr
+   event_type_name \tab character \cr
+   venue_id \tab integer \cr
+   venue_name \tab character \cr
+   player_id \tab integer \cr
+   player_full_name \tab character \cr
+   player_link \tab character \cr
+   player_first_name \tab character \cr
+   player_last_name \tab character \cr
+   player_primary_number \tab character \cr
+   player_birth_date \tab character \cr
+   player_current_age \tab integer \cr
+   player_birth_city \tab character \cr
+   player_birth_state_province \tab character \cr
+   player_birth_country \tab character \cr
+   player_height \tab character \cr
+   player_weight \tab integer \cr
+   player_active \tab logical \cr
+   player_use_name \tab character \cr
+   player_middle_name \tab character \cr
+   player_boxscore_name \tab character \cr
+   player_nick_name \tab character \cr
+   player_gender \tab character \cr
+   player_is_player \tab logical \cr
+   player_is_verified \tab logical \cr
+   player_draft_year \tab integer \cr
+   player_pronunciation \tab character \cr
+   player_mlb_debut_date \tab character \cr
+   player_name_first_last \tab character \cr
+   player_name_slug \tab character \cr
+   player_first_last_name \tab character \cr
+   player_last_first_name \tab character \cr
+   player_last_init_name \tab character \cr
+   player_init_last_name \tab character \cr
+   player_full_fml_name \tab character \cr
+   player_full_lfm_name \tab character \cr
+   player_strike_zone_top \tab numeric \cr
+   player_strike_zone_bottom \tab numeric \cr
+   player_name_matrilineal \tab character \cr
+   player_current_team_id \tab integer \cr
+   player_current_team_name \tab character \cr
+   player_current_team_link \tab character \cr
+   player_current_team_season \tab integer \cr
+   player_current_team_team_code \tab character \cr
+   player_current_team_file_code \tab character \cr
+   player_current_team_abbreviation \tab character \cr
+   player_current_team_team_name \tab character \cr
+   player_current_team_location_name \tab character \cr
+   player_current_team_first_year_of_play \tab character \cr
+   player_current_team_short_name \tab character \cr
+   player_current_team_franchise_name \tab character \cr
+   player_current_team_club_name \tab character \cr
+   player_current_team_all_star_status \tab character \cr
+   player_current_team_active \tab logical \cr
+   player_current_team_parent_org_name \tab character \cr
+   player_current_team_parent_org_id \tab integer \cr
+   player_current_team_venue_id \tab integer \cr
+   player_current_team_venue_name \tab character \cr
+   player_current_team_venue_link \tab character \cr
+   player_current_team_spring_venue_id \tab integer \cr
+   player_current_team_spring_venue_link \tab character \cr
+   player_current_team_league_id \tab integer \cr
+   player_current_team_league_name \tab character \cr
+   player_current_team_league_link \tab character \cr
+   player_current_team_division_id \tab integer \cr
+   player_current_team_division_name \tab character \cr
+   player_current_team_division_link \tab character \cr
+   player_current_team_sport_id \tab integer \cr
+   player_current_team_sport_link \tab character \cr
+   player_current_team_sport_name \tab character \cr
+   player_current_team_spring_league_id \tab integer \cr
+   player_current_team_spring_league_name \tab character \cr
+   player_current_team_spring_league_link \tab character \cr
+   player_current_team_spring_league_abbreviation \tab character \cr
+   player_primary_position_code \tab character \cr
+   player_primary_position_name \tab character \cr
+   player_primary_position_type \tab character \cr
+   player_primary_position_abbreviation \tab character \cr
+   player_bat_side_code \tab character \cr
+   player_bat_side_description \tab character \cr
+   player_pitch_hand_code \tab character \cr
+   player_pitch_hand_description \tab character \cr
+   venue_link \tab character \cr
+   is_multi_day \tab logical \cr
+   is_primary_calendar \tab logical \cr
+   file_code \tab character \cr
+   event_number \tab integer \cr
+   public_facing \tab logical \cr
+}
 }
 \description{
 \strong{Retrieve Homerun Derby Players}

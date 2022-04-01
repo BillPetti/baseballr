@@ -7,12 +7,12 @@
 mlb_job_types()
 }
 \value{
-Returns a tibble with the following columns
-|col_name   |types     |
-|:----------|:---------|
-|job_code   |character |
-|job        |character |
-|sort_order |integer   |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   job_code \tab character \cr
+   job \tab character \cr
+   sort_order \tab integer \cr
+}
 }
 \description{
 \strong{MLB Job Types}

@@ -7,13 +7,13 @@
 mlb_metrics()
 }
 \value{
-Returns a tibble with the following columns
-|col_name    |types     |
-|:-----------|:---------|
-|metric_name |character |
-|metric_id   |integer   |
-|stat_group  |character |
-|metric_unit |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   metric_name \tab character \cr
+   metric_id \tab integer \cr
+   stat_group \tab character \cr
+   metric_unit \tab character \cr
+}
 }
 \description{
 \strong{MLB Metrics}

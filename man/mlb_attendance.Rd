@@ -47,41 +47,41 @@ Valid values include:
 }}
 }
 \value{
-Returns a data frame with the following columns
-|col_name                          |types     |
-|:---------------------------------|:---------|
-|openings_total                    |integer   |
-|openings_total_away               |integer   |
-|openings_total_home               |integer   |
-|openings_total_lost               |integer   |
-|games_total                       |integer   |
-|games_away_total                  |integer   |
-|games_home_total                  |integer   |
-|year                              |character |
-|attendance_average_away           |integer   |
-|attendance_average_home           |integer   |
-|attendance_average_ytd            |integer   |
-|attendance_high                   |integer   |
-|attendance_high_date              |character |
-|attendance_low                    |integer   |
-|attendance_low_date               |character |
-|attendance_opening_average        |integer   |
-|attendance_total                  |integer   |
-|attendance_total_away             |integer   |
-|attendance_total_home             |integer   |
-|attendance_high_game_game_pk      |integer   |
-|attendance_high_game_link         |character |
-|attendance_high_game_day_night    |character |
-|attendance_high_game_content_link |character |
-|attendance_low_game_game_pk       |integer   |
-|attendance_low_game_link          |character |
-|attendance_low_game_day_night     |character |
-|attendance_low_game_content_link  |character |
-|game_type_id                      |character |
-|game_type_description             |character |
-|team_id                           |integer   |
-|team_name                         |character |
-|team_link                         |character |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   openings_total \tab integer \cr
+   openings_total_away \tab integer \cr
+   openings_total_home \tab integer \cr
+   openings_total_lost \tab integer \cr
+   games_total \tab integer \cr
+   games_away_total \tab integer \cr
+   games_home_total \tab integer \cr
+   year \tab character \cr
+   attendance_average_away \tab integer \cr
+   attendance_average_home \tab integer \cr
+   attendance_average_ytd \tab integer \cr
+   attendance_high \tab integer \cr
+   attendance_high_date \tab character \cr
+   attendance_low \tab integer \cr
+   attendance_low_date \tab character \cr
+   attendance_opening_average \tab integer \cr
+   attendance_total \tab integer \cr
+   attendance_total_away \tab integer \cr
+   attendance_total_home \tab integer \cr
+   attendance_high_game_game_pk \tab integer \cr
+   attendance_high_game_link \tab character \cr
+   attendance_high_game_day_night \tab character \cr
+   attendance_high_game_content_link \tab character \cr
+   attendance_low_game_game_pk \tab integer \cr
+   attendance_low_game_link \tab character \cr
+   attendance_low_game_day_night \tab character \cr
+   attendance_low_game_content_link \tab character \cr
+   game_type_id \tab character \cr
+   game_type_description \tab character \cr
+   team_id \tab integer \cr
+   team_name \tab character \cr
+   team_link \tab character \cr
+}
 }
 \description{
 \strong{MLB Attendance}

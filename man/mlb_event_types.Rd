@@ -7,14 +7,14 @@
 mlb_event_types()
 }
 \value{
-Returns a data frame with the following columns
-|col_name           |types     |
-|:------------------|:---------|
-|plate_appearance   |logical   |
-|hit                |logical   |
-|event_code         |character |
-|base_running_event |logical   |
-|event_description  |character |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   plate_appearance \tab logical \cr
+   hit \tab logical \cr
+   event_code \tab character \cr
+   base_running_event \tab logical \cr
+   event_description \tab character \cr
+}
 }
 \description{
 \strong{MLB Event Types}

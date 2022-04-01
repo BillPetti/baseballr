@@ -13,21 +13,21 @@ ncaa_baseball_roster(teamid = NA, team_year)
 }
 \value{
 A data frame containing roster information, including
-IDs and urls for each player (if available)
-|col_name      |types     |
-|:-------------|:---------|
-|name          |character |
-|class         |character |
-|player_id     |character |
-|season        |numeric   |
-|number        |character |
-|position      |character |
-|player_url    |character |
-|school        |character |
-|conference    |character |
-|school_id     |numeric   |
-|division      |numeric   |
-|conference_id |numeric   |
+IDs and urls for each player (if available)\tabular{ll}{
+   col_name \tab types \cr
+   name \tab character \cr
+   class \tab character \cr
+   player_id \tab character \cr
+   season \tab numeric \cr
+   number \tab character \cr
+   position \tab character \cr
+   player_url \tab character \cr
+   school \tab character \cr
+   conference \tab character \cr
+   school_id \tab numeric \cr
+   division \tab numeric \cr
+   conference_id \tab numeric \cr
+}
 }
 \description{
 \strong{Get NCAA Baseball Rosters}

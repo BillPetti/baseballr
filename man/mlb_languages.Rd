@@ -7,12 +7,12 @@
 mlb_languages()
 }
 \value{
-Returns a tibble with the following columns
-|col_name      |types     |
-|:-------------|:---------|
-|language_name |character |
-|language_code |character |
-|locale        |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   language_name \tab character \cr
+   language_code \tab character \cr
+   locale \tab character \cr
+}
 }
 \description{
 \strong{MLB API Language Options}

@@ -12,281 +12,281 @@ fg_batter_game_logs(playerid, year = 2017)
 \item{year}{The season for which game logs should be returned (use the YYYY format)}
 }
 \value{
-A data frame of batter game logs.
-|col_name      |types     |
-|:-------------|:---------|
-|PlayerName    |character |
-|playerid      |integer   |
-|Date          |character |
-|Team          |character |
-|Opp           |character |
-|season        |integer   |
-|Age           |integer   |
-|BatOrder      |character |
-|Pos           |character |
-|G             |numeric   |
-|AB            |numeric   |
-|PA            |numeric   |
-|H             |numeric   |
-|1B            |numeric   |
-|2B            |numeric   |
-|3B            |numeric   |
-|HR            |numeric   |
-|R             |numeric   |
-|RBI           |numeric   |
-|BB            |numeric   |
-|IBB           |numeric   |
-|SO            |numeric   |
-|HBP           |numeric   |
-|SF            |numeric   |
-|SH            |numeric   |
-|GDP           |numeric   |
-|SB            |numeric   |
-|CS            |numeric   |
-|AVG           |numeric   |
-|GB            |numeric   |
-|FB            |numeric   |
-|LD            |numeric   |
-|IFFB          |numeric   |
-|Pitches       |numeric   |
-|Balls         |numeric   |
-|Strikes       |numeric   |
-|IFH           |numeric   |
-|BU            |numeric   |
-|BUH           |numeric   |
-|BB\%           |numeric   |
-|K\%            |numeric   |
-|BB/K          |numeric   |
-|OBP           |numeric   |
-|SLG           |numeric   |
-|OPS           |numeric   |
-|ISO           |numeric   |
-|BABIP         |numeric   |
-|GB/FB         |numeric   |
-|LD\%           |numeric   |
-|GB\%           |numeric   |
-|FB\%           |numeric   |
-|IFFB\%         |numeric   |
-|HR/FB         |numeric   |
-|IFH\%          |numeric   |
-|BUH\%          |numeric   |
-|wOBA          |numeric   |
-|wRAA          |numeric   |
-|wRC           |numeric   |
-|Spd           |numeric   |
-|wRC+          |numeric   |
-|wBSR          |numeric   |
-|WPA           |numeric   |
-|-WPA          |numeric   |
-|+WPA          |numeric   |
-|RE24          |numeric   |
-|REW           |numeric   |
-|pLI           |numeric   |
-|phLI          |numeric   |
-|PH            |numeric   |
-|WPA/LI        |numeric   |
-|Clutch        |numeric   |
-|FB\%1          |numeric   |
-|FBv           |numeric   |
-|SL\%           |numeric   |
-|SLv           |numeric   |
-|CT\%           |numeric   |
-|CTv           |numeric   |
-|CB\%           |numeric   |
-|CBv           |numeric   |
-|CH\%           |numeric   |
-|CHv           |numeric   |
-|SF\%           |numeric   |
-|SFv           |numeric   |
-|KN\%           |numeric   |
-|KNv           |numeric   |
-|XX\%           |numeric   |
-|wFB           |numeric   |
-|wSL           |numeric   |
-|wCT           |numeric   |
-|wCB           |numeric   |
-|wCH           |numeric   |
-|wSF           |numeric   |
-|wKN           |numeric   |
-|wFB/C         |numeric   |
-|wSL/C         |numeric   |
-|wCT/C         |numeric   |
-|wCB/C         |numeric   |
-|wCH/C         |numeric   |
-|wSF/C         |numeric   |
-|wKN/C         |numeric   |
-|O-Swing\%      |numeric   |
-|Z-Swing\%      |numeric   |
-|Swing\%        |numeric   |
-|O-Contact\%    |numeric   |
-|Z-Contact\%    |numeric   |
-|Contact\%      |numeric   |
-|Zone\%         |numeric   |
-|F-Strike\%     |numeric   |
-|SwStr\%        |numeric   |
-|Pull          |numeric   |
-|Cent          |numeric   |
-|Oppo          |numeric   |
-|Soft          |numeric   |
-|Med           |numeric   |
-|Hard          |numeric   |
-|bipCount      |numeric   |
-|Pull\%         |numeric   |
-|Cent\%         |numeric   |
-|Oppo\%         |numeric   |
-|Soft\%         |numeric   |
-|Med\%          |numeric   |
-|Hard\%         |numeric   |
-|pfxFA\%        |numeric   |
-|pfxFT\%        |numeric   |
-|pfxFC\%        |numeric   |
-|pfxFS\%        |numeric   |
-|pfxFO\%        |numeric   |
-|pfxSI\%        |numeric   |
-|pfxSL\%        |numeric   |
-|pfxCU\%        |numeric   |
-|pfxKC\%        |numeric   |
-|pfxCH\%        |numeric   |
-|pfxKN\%        |numeric   |
-|pfxvFA        |numeric   |
-|pfxvFT        |numeric   |
-|pfxvFC        |numeric   |
-|pfxvFS        |numeric   |
-|pfxvFO        |numeric   |
-|pfxvSI        |numeric   |
-|pfxvSL        |numeric   |
-|pfxvCU        |numeric   |
-|pfxvKC        |numeric   |
-|pfxvCH        |numeric   |
-|pfxvKN        |numeric   |
-|pfxFA-X       |numeric   |
-|pfxFT-X       |numeric   |
-|pfxFC-X       |numeric   |
-|pfxFS-X       |numeric   |
-|pfxFO-X       |numeric   |
-|pfxSI-X       |numeric   |
-|pfxSL-X       |numeric   |
-|pfxCU-X       |numeric   |
-|pfxKC-X       |numeric   |
-|pfxCH-X       |numeric   |
-|pfxKN-X       |numeric   |
-|pfxFA-Z       |numeric   |
-|pfxFT-Z       |numeric   |
-|pfxFC-Z       |numeric   |
-|pfxFS-Z       |numeric   |
-|pfxFO-Z       |numeric   |
-|pfxSI-Z       |numeric   |
-|pfxSL-Z       |numeric   |
-|pfxCU-Z       |numeric   |
-|pfxKC-Z       |numeric   |
-|pfxCH-Z       |numeric   |
-|pfxKN-Z       |numeric   |
-|pfxwFA        |numeric   |
-|pfxwFT        |numeric   |
-|pfxwFC        |numeric   |
-|pfxwFS        |numeric   |
-|pfxwFO        |numeric   |
-|pfxwSI        |numeric   |
-|pfxwSL        |numeric   |
-|pfxwCU        |numeric   |
-|pfxwKC        |numeric   |
-|pfxwCH        |numeric   |
-|pfxwKN        |numeric   |
-|pfxwFA/C      |numeric   |
-|pfxwFT/C      |numeric   |
-|pfxwFC/C      |numeric   |
-|pfxwFS/C      |numeric   |
-|pfxwFO/C      |numeric   |
-|pfxwSI/C      |numeric   |
-|pfxwSL/C      |numeric   |
-|pfxwCU/C      |numeric   |
-|pfxwKC/C      |numeric   |
-|pfxwCH/C      |numeric   |
-|pfxwKN/C      |numeric   |
-|pfxO-Swing\%   |numeric   |
-|pfxZ-Swing\%   |numeric   |
-|pfxSwing\%     |numeric   |
-|pfxO-Contact\% |numeric   |
-|pfxZ-Contact\% |numeric   |
-|pfxContact\%   |numeric   |
-|pfxZone\%      |numeric   |
-|piCH\%         |numeric   |
-|piCS\%         |numeric   |
-|piCU\%         |numeric   |
-|piFA\%         |numeric   |
-|piFC\%         |numeric   |
-|piFS\%         |numeric   |
-|piKN\%         |numeric   |
-|piSI\%         |numeric   |
-|piSL\%         |numeric   |
-|piXX\%         |numeric   |
-|pivCH         |numeric   |
-|pivCS         |numeric   |
-|pivCU         |numeric   |
-|pivFA         |numeric   |
-|pivFC         |numeric   |
-|pivFS         |numeric   |
-|pivKN         |numeric   |
-|pivSI         |numeric   |
-|pivSL         |numeric   |
-|pivXX         |numeric   |
-|piCH-X        |numeric   |
-|piCS-X        |numeric   |
-|piCU-X        |numeric   |
-|piFA-X        |numeric   |
-|piFC-X        |numeric   |
-|piFS-X        |numeric   |
-|piKN-X        |numeric   |
-|piSI-X        |numeric   |
-|piSL-X        |numeric   |
-|piXX-X        |numeric   |
-|piCH-Z        |numeric   |
-|piCS-Z        |numeric   |
-|piCU-Z        |numeric   |
-|piFA-Z        |numeric   |
-|piFC-Z        |numeric   |
-|piFS-Z        |numeric   |
-|piKN-Z        |numeric   |
-|piSI-Z        |numeric   |
-|piSL-Z        |numeric   |
-|piXX-Z        |numeric   |
-|piwCH         |numeric   |
-|piwCS         |numeric   |
-|piwCU         |numeric   |
-|piwFA         |numeric   |
-|piwFC         |numeric   |
-|piwFS         |numeric   |
-|piwKN         |numeric   |
-|piwSI         |numeric   |
-|piwSL         |numeric   |
-|piwXX         |numeric   |
-|piwCH/C       |numeric   |
-|piwCS/C       |numeric   |
-|piwCU/C       |numeric   |
-|piwFA/C       |numeric   |
-|piwFC/C       |numeric   |
-|piwFS/C       |numeric   |
-|piwKN/C       |numeric   |
-|piwSI/C       |numeric   |
-|piwSL/C       |numeric   |
-|piwXX/C       |numeric   |
-|piO-Swing\%    |numeric   |
-|piZ-Swing\%    |numeric   |
-|piSwing\%      |numeric   |
-|piO-Contact\%  |numeric   |
-|piZ-Contact\%  |numeric   |
-|piContact\%    |numeric   |
-|piZone\%       |numeric   |
-|Events        |numeric   |
-|EV            |numeric   |
-|LA            |numeric   |
-|Barrels       |numeric   |
-|Barrel\%       |numeric   |
-|maxEV         |numeric   |
-|HardHit       |numeric   |
-|HardHit\%      |numeric   |
-|gamedate      |character |
-|dh            |integer   |
+A data frame of batter game logs.\tabular{ll}{
+   col_name \tab types \cr
+   PlayerName \tab character \cr
+   playerid \tab integer \cr
+   Date \tab character \cr
+   Team \tab character \cr
+   Opp \tab character \cr
+   season \tab integer \cr
+   Age \tab integer \cr
+   BatOrder \tab character \cr
+   Pos \tab character \cr
+   G \tab numeric \cr
+   AB \tab numeric \cr
+   PA \tab numeric \cr
+   H \tab numeric \cr
+   1B \tab numeric \cr
+   2B \tab numeric \cr
+   3B \tab numeric \cr
+   HR \tab numeric \cr
+   R \tab numeric \cr
+   RBI \tab numeric \cr
+   BB \tab numeric \cr
+   IBB \tab numeric \cr
+   SO \tab numeric \cr
+   HBP \tab numeric \cr
+   SF \tab numeric \cr
+   SH \tab numeric \cr
+   GDP \tab numeric \cr
+   SB \tab numeric \cr
+   CS \tab numeric \cr
+   AVG \tab numeric \cr
+   GB \tab numeric \cr
+   FB \tab numeric \cr
+   LD \tab numeric \cr
+   IFFB \tab numeric \cr
+   Pitches \tab numeric \cr
+   Balls \tab numeric \cr
+   Strikes \tab numeric \cr
+   IFH \tab numeric \cr
+   BU \tab numeric \cr
+   BUH \tab numeric \cr
+   BB\% \tab numeric \cr
+   K\% \tab numeric \cr
+   BB/K \tab numeric \cr
+   OBP \tab numeric \cr
+   SLG \tab numeric \cr
+   OPS \tab numeric \cr
+   ISO \tab numeric \cr
+   BABIP \tab numeric \cr
+   GB/FB \tab numeric \cr
+   LD\% \tab numeric \cr
+   GB\% \tab numeric \cr
+   FB\% \tab numeric \cr
+   IFFB\% \tab numeric \cr
+   HR/FB \tab numeric \cr
+   IFH\% \tab numeric \cr
+   BUH\% \tab numeric \cr
+   wOBA \tab numeric \cr
+   wRAA \tab numeric \cr
+   wRC \tab numeric \cr
+   Spd \tab numeric \cr
+   wRC+ \tab numeric \cr
+   wBSR \tab numeric \cr
+   WPA \tab numeric \cr
+   -WPA \tab numeric \cr
+   +WPA \tab numeric \cr
+   RE24 \tab numeric \cr
+   REW \tab numeric \cr
+   pLI \tab numeric \cr
+   phLI \tab numeric \cr
+   PH \tab numeric \cr
+   WPA/LI \tab numeric \cr
+   Clutch \tab numeric \cr
+   FB\%1 \tab numeric \cr
+   FBv \tab numeric \cr
+   SL\% \tab numeric \cr
+   SLv \tab numeric \cr
+   CT\% \tab numeric \cr
+   CTv \tab numeric \cr
+   CB\% \tab numeric \cr
+   CBv \tab numeric \cr
+   CH\% \tab numeric \cr
+   CHv \tab numeric \cr
+   SF\% \tab numeric \cr
+   SFv \tab numeric \cr
+   KN\% \tab numeric \cr
+   KNv \tab numeric \cr
+   XX\% \tab numeric \cr
+   wFB \tab numeric \cr
+   wSL \tab numeric \cr
+   wCT \tab numeric \cr
+   wCB \tab numeric \cr
+   wCH \tab numeric \cr
+   wSF \tab numeric \cr
+   wKN \tab numeric \cr
+   wFB/C \tab numeric \cr
+   wSL/C \tab numeric \cr
+   wCT/C \tab numeric \cr
+   wCB/C \tab numeric \cr
+   wCH/C \tab numeric \cr
+   wSF/C \tab numeric \cr
+   wKN/C \tab numeric \cr
+   O-Swing\% \tab numeric \cr
+   Z-Swing\% \tab numeric \cr
+   Swing\% \tab numeric \cr
+   O-Contact\% \tab numeric \cr
+   Z-Contact\% \tab numeric \cr
+   Contact\% \tab numeric \cr
+   Zone\% \tab numeric \cr
+   F-Strike\% \tab numeric \cr
+   SwStr\% \tab numeric \cr
+   Pull \tab numeric \cr
+   Cent \tab numeric \cr
+   Oppo \tab numeric \cr
+   Soft \tab numeric \cr
+   Med \tab numeric \cr
+   Hard \tab numeric \cr
+   bipCount \tab numeric \cr
+   Pull\% \tab numeric \cr
+   Cent\% \tab numeric \cr
+   Oppo\% \tab numeric \cr
+   Soft\% \tab numeric \cr
+   Med\% \tab numeric \cr
+   Hard\% \tab numeric \cr
+   pfxFA\% \tab numeric \cr
+   pfxFT\% \tab numeric \cr
+   pfxFC\% \tab numeric \cr
+   pfxFS\% \tab numeric \cr
+   pfxFO\% \tab numeric \cr
+   pfxSI\% \tab numeric \cr
+   pfxSL\% \tab numeric \cr
+   pfxCU\% \tab numeric \cr
+   pfxKC\% \tab numeric \cr
+   pfxCH\% \tab numeric \cr
+   pfxKN\% \tab numeric \cr
+   pfxvFA \tab numeric \cr
+   pfxvFT \tab numeric \cr
+   pfxvFC \tab numeric \cr
+   pfxvFS \tab numeric \cr
+   pfxvFO \tab numeric \cr
+   pfxvSI \tab numeric \cr
+   pfxvSL \tab numeric \cr
+   pfxvCU \tab numeric \cr
+   pfxvKC \tab numeric \cr
+   pfxvCH \tab numeric \cr
+   pfxvKN \tab numeric \cr
+   pfxFA-X \tab numeric \cr
+   pfxFT-X \tab numeric \cr
+   pfxFC-X \tab numeric \cr
+   pfxFS-X \tab numeric \cr
+   pfxFO-X \tab numeric \cr
+   pfxSI-X \tab numeric \cr
+   pfxSL-X \tab numeric \cr
+   pfxCU-X \tab numeric \cr
+   pfxKC-X \tab numeric \cr
+   pfxCH-X \tab numeric \cr
+   pfxKN-X \tab numeric \cr
+   pfxFA-Z \tab numeric \cr
+   pfxFT-Z \tab numeric \cr
+   pfxFC-Z \tab numeric \cr
+   pfxFS-Z \tab numeric \cr
+   pfxFO-Z \tab numeric \cr
+   pfxSI-Z \tab numeric \cr
+   pfxSL-Z \tab numeric \cr
+   pfxCU-Z \tab numeric \cr
+   pfxKC-Z \tab numeric \cr
+   pfxCH-Z \tab numeric \cr
+   pfxKN-Z \tab numeric \cr
+   pfxwFA \tab numeric \cr
+   pfxwFT \tab numeric \cr
+   pfxwFC \tab numeric \cr
+   pfxwFS \tab numeric \cr
+   pfxwFO \tab numeric \cr
+   pfxwSI \tab numeric \cr
+   pfxwSL \tab numeric \cr
+   pfxwCU \tab numeric \cr
+   pfxwKC \tab numeric \cr
+   pfxwCH \tab numeric \cr
+   pfxwKN \tab numeric \cr
+   pfxwFA/C \tab numeric \cr
+   pfxwFT/C \tab numeric \cr
+   pfxwFC/C \tab numeric \cr
+   pfxwFS/C \tab numeric \cr
+   pfxwFO/C \tab numeric \cr
+   pfxwSI/C \tab numeric \cr
+   pfxwSL/C \tab numeric \cr
+   pfxwCU/C \tab numeric \cr
+   pfxwKC/C \tab numeric \cr
+   pfxwCH/C \tab numeric \cr
+   pfxwKN/C \tab numeric \cr
+   pfxO-Swing\% \tab numeric \cr
+   pfxZ-Swing\% \tab numeric \cr
+   pfxSwing\% \tab numeric \cr
+   pfxO-Contact\% \tab numeric \cr
+   pfxZ-Contact\% \tab numeric \cr
+   pfxContact\% \tab numeric \cr
+   pfxZone\% \tab numeric \cr
+   piCH\% \tab numeric \cr
+   piCS\% \tab numeric \cr
+   piCU\% \tab numeric \cr
+   piFA\% \tab numeric \cr
+   piFC\% \tab numeric \cr
+   piFS\% \tab numeric \cr
+   piKN\% \tab numeric \cr
+   piSI\% \tab numeric \cr
+   piSL\% \tab numeric \cr
+   piXX\% \tab numeric \cr
+   pivCH \tab numeric \cr
+   pivCS \tab numeric \cr
+   pivCU \tab numeric \cr
+   pivFA \tab numeric \cr
+   pivFC \tab numeric \cr
+   pivFS \tab numeric \cr
+   pivKN \tab numeric \cr
+   pivSI \tab numeric \cr
+   pivSL \tab numeric \cr
+   pivXX \tab numeric \cr
+   piCH-X \tab numeric \cr
+   piCS-X \tab numeric \cr
+   piCU-X \tab numeric \cr
+   piFA-X \tab numeric \cr
+   piFC-X \tab numeric \cr
+   piFS-X \tab numeric \cr
+   piKN-X \tab numeric \cr
+   piSI-X \tab numeric \cr
+   piSL-X \tab numeric \cr
+   piXX-X \tab numeric \cr
+   piCH-Z \tab numeric \cr
+   piCS-Z \tab numeric \cr
+   piCU-Z \tab numeric \cr
+   piFA-Z \tab numeric \cr
+   piFC-Z \tab numeric \cr
+   piFS-Z \tab numeric \cr
+   piKN-Z \tab numeric \cr
+   piSI-Z \tab numeric \cr
+   piSL-Z \tab numeric \cr
+   piXX-Z \tab numeric \cr
+   piwCH \tab numeric \cr
+   piwCS \tab numeric \cr
+   piwCU \tab numeric \cr
+   piwFA \tab numeric \cr
+   piwFC \tab numeric \cr
+   piwFS \tab numeric \cr
+   piwKN \tab numeric \cr
+   piwSI \tab numeric \cr
+   piwSL \tab numeric \cr
+   piwXX \tab numeric \cr
+   piwCH/C \tab numeric \cr
+   piwCS/C \tab numeric \cr
+   piwCU/C \tab numeric \cr
+   piwFA/C \tab numeric \cr
+   piwFC/C \tab numeric \cr
+   piwFS/C \tab numeric \cr
+   piwKN/C \tab numeric \cr
+   piwSI/C \tab numeric \cr
+   piwSL/C \tab numeric \cr
+   piwXX/C \tab numeric \cr
+   piO-Swing\% \tab numeric \cr
+   piZ-Swing\% \tab numeric \cr
+   piSwing\% \tab numeric \cr
+   piO-Contact\% \tab numeric \cr
+   piZ-Contact\% \tab numeric \cr
+   piContact\% \tab numeric \cr
+   piZone\% \tab numeric \cr
+   Events \tab numeric \cr
+   EV \tab numeric \cr
+   LA \tab numeric \cr
+   Barrels \tab numeric \cr
+   Barrel\% \tab numeric \cr
+   maxEV \tab numeric \cr
+   HardHit \tab numeric \cr
+   HardHit\% \tab numeric \cr
+   gamedate \tab character \cr
+   dh \tab integer \cr
+}
 }
 \description{
 This function allows you to scrape game logs by year for a batter from FanGraphs.com.

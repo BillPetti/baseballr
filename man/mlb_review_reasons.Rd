@@ -7,11 +7,11 @@
 mlb_review_reasons()
 }
 \value{
-Returns a tibble with the following columns
-|col_name                  |types     |
-|:-------------------------|:---------|
-|review_reason_code        |character |
-|review_reason_description |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   review_reason_code \tab character \cr
+   review_reason_description \tab character \cr
+}
 }
 \description{
 \strong{MLB Review Reasons}

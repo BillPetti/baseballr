@@ -10,16 +10,16 @@ mlb_sports_info(sport_id = 1)
 \item{sport_id}{The sport_id to return information for.}
 }
 \value{
-Returns a tibble with the following columns
-|col_name           |types     |
-|:------------------|:---------|
-|sport_id           |integer   |
-|sport_code         |character |
-|sport_link         |character |
-|sport_name         |character |
-|sport_abbreviation |character |
-|sort_order         |integer   |
-|active_status      |logical   |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   sport_id \tab integer \cr
+   sport_code \tab character \cr
+   sport_link \tab character \cr
+   sport_name \tab character \cr
+   sport_abbreviation \tab character \cr
+   sort_order \tab integer \cr
+   active_status \tab logical \cr
+}
 }
 \description{
 \strong{MLB Sport IDs Information}

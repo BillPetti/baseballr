@@ -20,47 +20,47 @@ returns seasonal stats for a player's career.}
 }
 \value{
 A data frame containing player and school information
-as well as game by game statistics
-|col_name      |types     |
-|:-------------|:---------|
-|player_id     |numeric   |
-|player_name   |character |
-|Date          |character |
-|Opponent      |character |
-|Result        |character |
-|App           |numeric   |
-|G             |numeric   |
-|GS            |numeric   |
-|IP            |numeric   |
-|CG            |numeric   |
-|H             |numeric   |
-|R             |numeric   |
-|ER            |numeric   |
-|BB            |numeric   |
-|SO            |numeric   |
-|SHO           |numeric   |
-|BF            |numeric   |
-|P-OAB         |numeric   |
-|2B-A          |numeric   |
-|3B-A          |numeric   |
-|Bk            |numeric   |
-|HR-A          |numeric   |
-|WP            |numeric   |
-|HB            |numeric   |
-|IBB           |numeric   |
-|Inh Run       |numeric   |
-|Inh Run Score |numeric   |
-|SHA           |numeric   |
-|SFA           |numeric   |
-|Pitches       |numeric   |
-|GO            |numeric   |
-|FO            |numeric   |
-|W             |numeric   |
-|L             |numeric   |
-|SV            |numeric   |
-|OrdAppeared   |numeric   |
-|KL            |numeric   |
-|pickoffs      |character |
+as well as game by game statistics\tabular{ll}{
+   col_name \tab types \cr
+   player_id \tab numeric \cr
+   player_name \tab character \cr
+   Date \tab character \cr
+   Opponent \tab character \cr
+   Result \tab character \cr
+   App \tab numeric \cr
+   G \tab numeric \cr
+   GS \tab numeric \cr
+   IP \tab numeric \cr
+   CG \tab numeric \cr
+   H \tab numeric \cr
+   R \tab numeric \cr
+   ER \tab numeric \cr
+   BB \tab numeric \cr
+   SO \tab numeric \cr
+   SHO \tab numeric \cr
+   BF \tab numeric \cr
+   P-OAB \tab numeric \cr
+   2B-A \tab numeric \cr
+   3B-A \tab numeric \cr
+   Bk \tab numeric \cr
+   HR-A \tab numeric \cr
+   WP \tab numeric \cr
+   HB \tab numeric \cr
+   IBB \tab numeric \cr
+   Inh Run \tab numeric \cr
+   Inh Run Score \tab numeric \cr
+   SHA \tab numeric \cr
+   SFA \tab numeric \cr
+   Pitches \tab numeric \cr
+   GO \tab numeric \cr
+   FO \tab numeric \cr
+   W \tab numeric \cr
+   L \tab numeric \cr
+   SV \tab numeric \cr
+   OrdAppeared \tab numeric \cr
+   KL \tab numeric \cr
+   pickoffs \tab character \cr
+}
 }
 \description{
 \strong{Get NCAA Baseball Game Logs}

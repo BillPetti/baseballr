@@ -7,10 +7,10 @@
 mlb_runner_detail_types()
 }
 \value{
-Returns a data frame with the following columns
-|col_name  |types     |
-|:---------|:---------|
-|stat_name |character |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   stat_name \tab character \cr
+}
 }
 \description{
 \strong{MLB Runner Detail Types}

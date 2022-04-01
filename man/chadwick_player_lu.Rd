@@ -10,49 +10,49 @@ chadwick_player_lu()
 get_chadwick_lu()
 }
 \value{
-A data frame of baseball players and the various IDs associated with them in different systems of record.
-|col_name          |types     |
-|:-----------------|:---------|
-|key_person        |character |
-|key_uuid          |character |
-|key_mlbam         |integer   |
-|key_retro         |character |
-|key_bbref         |character |
-|key_bbref_minors  |character |
-|key_fangraphs     |integer   |
-|key_npb           |integer   |
-|key_sr_nfl        |character |
-|key_sr_nba        |character |
-|key_sr_nhl        |character |
-|key_findagrave    |integer   |
-|name_last         |character |
-|name_first        |character |
-|name_given        |character |
-|name_suffix       |character |
-|name_matrilineal  |character |
-|name_nick         |character |
-|birth_year        |integer   |
-|birth_month       |integer   |
-|birth_day         |integer   |
-|death_year        |integer   |
-|death_month       |integer   |
-|death_day         |integer   |
-|pro_played_first  |integer   |
-|pro_played_last   |integer   |
-|mlb_played_first  |integer   |
-|mlb_played_last   |integer   |
-|col_played_first  |integer   |
-|col_played_last   |integer   |
-|pro_managed_first |integer   |
-|pro_managed_last  |integer   |
-|mlb_managed_first |integer   |
-|mlb_managed_last  |integer   |
-|col_managed_first |integer   |
-|col_managed_last  |integer   |
-|pro_umpired_first |integer   |
-|pro_umpired_last  |integer   |
-|mlb_umpired_first |integer   |
-|mlb_umpired_last  |integer   |
+A data frame of baseball players and the various IDs associated with them in different systems of record.\tabular{ll}{
+   col_name \tab types \cr
+   key_person \tab character \cr
+   key_uuid \tab character \cr
+   key_mlbam \tab integer \cr
+   key_retro \tab character \cr
+   key_bbref \tab character \cr
+   key_bbref_minors \tab character \cr
+   key_fangraphs \tab integer \cr
+   key_npb \tab integer \cr
+   key_sr_nfl \tab character \cr
+   key_sr_nba \tab character \cr
+   key_sr_nhl \tab character \cr
+   key_findagrave \tab integer \cr
+   name_last \tab character \cr
+   name_first \tab character \cr
+   name_given \tab character \cr
+   name_suffix \tab character \cr
+   name_matrilineal \tab character \cr
+   name_nick \tab character \cr
+   birth_year \tab integer \cr
+   birth_month \tab integer \cr
+   birth_day \tab integer \cr
+   death_year \tab integer \cr
+   death_month \tab integer \cr
+   death_day \tab integer \cr
+   pro_played_first \tab integer \cr
+   pro_played_last \tab integer \cr
+   mlb_played_first \tab integer \cr
+   mlb_played_last \tab integer \cr
+   col_played_first \tab integer \cr
+   col_played_last \tab integer \cr
+   pro_managed_first \tab integer \cr
+   pro_managed_last \tab integer \cr
+   mlb_managed_first \tab integer \cr
+   mlb_managed_last \tab integer \cr
+   col_managed_first \tab integer \cr
+   col_managed_last \tab integer \cr
+   pro_umpired_first \tab integer \cr
+   pro_umpired_last \tab integer \cr
+   mlb_umpired_first \tab integer \cr
+   mlb_umpired_last \tab integer \cr
+}
 
 A data frame of baseball players and the various IDs associated with them in different systems of record.
 }

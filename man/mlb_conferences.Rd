@@ -12,19 +12,19 @@ mlb_conferences(conference_id = NULL, season = NULL)
 \item{season}{Year to return to return conference information for.}
 }
 \value{
-Returns a data frame with the following columns
-|col_name                |types     |
-|:-----------------------|:---------|
-|conference_id           |integer   |
-|conference_name         |character |
-|link                    |character |
-|conference_abbreviation |character |
-|has_wildcard            |logical   |
-|name_short              |character |
-|league_id               |integer   |
-|league_link             |character |
-|sport_id                |integer   |
-|sport_link              |character |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   conference_id \tab integer \cr
+   conference_name \tab character \cr
+   link \tab character \cr
+   conference_abbreviation \tab character \cr
+   has_wildcard \tab logical \cr
+   name_short \tab character \cr
+   league_id \tab integer \cr
+   league_link \tab character \cr
+   sport_id \tab integer \cr
+   sport_link \tab character \cr
+}
 }
 \description{
 \strong{View all PCL conferences}

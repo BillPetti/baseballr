@@ -7,18 +7,18 @@
 mlb_awards()
 }
 \value{
-Returns a data frame with the following columns
-|col_name          |types     |
-|:-----------------|:---------|
-|award_id          |character |
-|award_name        |character |
-|award_description |character |
-|sort_order        |integer   |
-|notes             |character |
-|sport_id          |integer   |
-|sport_link        |character |
-|league_id         |integer   |
-|league_link       |character |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   award_id \tab character \cr
+   award_name \tab character \cr
+   award_description \tab character \cr
+   sort_order \tab integer \cr
+   notes \tab character \cr
+   sport_id \tab integer \cr
+   sport_link \tab character \cr
+   league_id \tab integer \cr
+   league_link \tab character \cr
+}
 }
 \description{
 \strong{MLB Awards}

@@ -7,11 +7,11 @@
 mlb_standings_types()
 }
 \value{
-Returns a tibble with the following columns
-|col_name                   |types     |
-|:--------------------------|:---------|
-|standings_type_name        |character |
-|standings_type_description |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   standings_type_name \tab character \cr
+   standings_type_description \tab character \cr
+}
 }
 \description{
 \strong{MLB Standings Types}

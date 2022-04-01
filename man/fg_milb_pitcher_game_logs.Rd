@@ -12,55 +12,55 @@ fg_milb_pitcher_game_logs(playerid, year)
 \item{year}{The season for which game logs should be returned.}
 }
 \value{
-Returns a data frame of Minor League pitcher game logs.
-|col_name       |types     |
-|:--------------|:---------|
-|player_name    |character |
-|minor_playerid |character |
-|Date           |character |
-|Team           |character |
-|Level          |character |
-|Opp            |character |
-|W              |numeric   |
-|L              |numeric   |
-|ERA            |numeric   |
-|G              |numeric   |
-|GS             |numeric   |
-|CG             |numeric   |
-|ShO            |numeric   |
-|SV             |numeric   |
-|IP             |numeric   |
-|TBF            |numeric   |
-|H              |numeric   |
-|R              |numeric   |
-|ER             |numeric   |
-|HR             |numeric   |
-|BB             |numeric   |
-|IBB            |numeric   |
-|HBP            |numeric   |
-|WP             |numeric   |
-|BK             |numeric   |
-|SO             |numeric   |
-|K/9            |numeric   |
-|BB/9           |numeric   |
-|K/BB           |numeric   |
-|HR/9           |numeric   |
-|K\%             |numeric   |
-|K-BB\%          |numeric   |
-|BB\%            |numeric   |
-|AVG            |numeric   |
-|WHIP           |numeric   |
-|BABIP          |numeric   |
-|LOB\%           |numeric   |
-|FIP            |numeric   |
-|gamedate       |character |
-|dh             |integer   |
+Returns a data frame of Minor League pitcher game logs.\tabular{ll}{
+   col_name \tab types \cr
+   player_name \tab character \cr
+   minor_playerid \tab character \cr
+   Date \tab character \cr
+   Team \tab character \cr
+   Level \tab character \cr
+   Opp \tab character \cr
+   W \tab numeric \cr
+   L \tab numeric \cr
+   ERA \tab numeric \cr
+   G \tab numeric \cr
+   GS \tab numeric \cr
+   CG \tab numeric \cr
+   ShO \tab numeric \cr
+   SV \tab numeric \cr
+   IP \tab numeric \cr
+   TBF \tab numeric \cr
+   H \tab numeric \cr
+   R \tab numeric \cr
+   ER \tab numeric \cr
+   HR \tab numeric \cr
+   BB \tab numeric \cr
+   IBB \tab numeric \cr
+   HBP \tab numeric \cr
+   WP \tab numeric \cr
+   BK \tab numeric \cr
+   SO \tab numeric \cr
+   K/9 \tab numeric \cr
+   BB/9 \tab numeric \cr
+   K/BB \tab numeric \cr
+   HR/9 \tab numeric \cr
+   K\% \tab numeric \cr
+   K-BB\% \tab numeric \cr
+   BB\% \tab numeric \cr
+   AVG \tab numeric \cr
+   WHIP \tab numeric \cr
+   BABIP \tab numeric \cr
+   LOB\% \tab numeric \cr
+   FIP \tab numeric \cr
+   gamedate \tab character \cr
+   dh \tab integer \cr
+}
 }
 \description{
 This function allows you to scrape MiLB game logs for individual batters from FanGraphs.com.
 }
 \examples{
 \donttest{
-  fg_milb_pitcher_game_logs(playerid = "sa3004210", year=2017)
+  fg_milb_pitcher_game_logs(playerid = "sa3005315", year=2021)
 }
 }

@@ -7,20 +7,20 @@
 mlb_positions()
 }
 \value{
-Returns a tibble with the following columns
-|col_name              |types     |
-|:---------------------|:---------|
-|position_short_name   |character |
-|position_full_name    |character |
-|position_abbreviation |character |
-|position_code         |character |
-|position_type         |character |
-|position_formal_name  |character |
-|game_position         |logical   |
-|pitcher               |logical   |
-|fielder               |logical   |
-|outfield              |logical   |
-|position_display_name |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   position_short_name \tab character \cr
+   position_full_name \tab character \cr
+   position_abbreviation \tab character \cr
+   position_code \tab character \cr
+   position_type \tab character \cr
+   position_formal_name \tab character \cr
+   game_position \tab logical \cr
+   pitcher \tab logical \cr
+   fielder \tab logical \cr
+   outfield \tab logical \cr
+   position_display_name \tab character \cr
+}
 }
 \description{
 \strong{MLB Positions}

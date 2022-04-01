@@ -35,61 +35,61 @@ mlb_standings(
 \item{league_id}{The league_id(s) to return standings information for.}
 }
 \value{
-Returns a tibble with the following columns
-|col_name                                  |types     |
-|:-----------------------------------------|:---------|
-|standings_type                            |character |
-|last_updated                              |character |
-|team_records_season                       |character |
-|team_records_clinch_indicator             |character |
-|team_records_division_rank                |character |
-|team_records_league_rank                  |character |
-|team_records_sport_rank                   |character |
-|team_records_games_played                 |integer   |
-|team_records_games_back                   |character |
-|team_records_wild_card_games_back         |character |
-|team_records_league_games_back            |character |
-|team_records_spring_league_games_back     |character |
-|team_records_sport_games_back             |character |
-|team_records_division_games_back          |character |
-|team_records_conference_games_back        |character |
-|team_records_last_updated                 |character |
-|team_records_runs_allowed                 |integer   |
-|team_records_runs_scored                  |integer   |
-|team_records_division_champ               |logical   |
-|team_records_division_leader              |logical   |
-|team_records_has_wildcard                 |logical   |
-|team_records_clinched                     |logical   |
-|team_records_elimination_number           |character |
-|team_records_wild_card_elimination_number |character |
-|team_records_magic_number                 |character |
-|team_records_wins                         |integer   |
-|team_records_losses                       |integer   |
-|team_records_run_differential             |integer   |
-|team_records_winning_percentage           |character |
-|team_records_wild_card_rank               |character |
-|team_records_wild_card_leader             |logical   |
-|team_records_team_id                      |integer   |
-|team_records_team_name                    |character |
-|team_records_team_link                    |character |
-|team_records_streak_streak_type           |character |
-|team_records_streak_streak_number         |integer   |
-|team_records_streak_streak_code           |character |
-|team_records_league_record_wins           |integer   |
-|team_records_league_record_losses         |integer   |
-|team_records_league_record_ties           |integer   |
-|team_records_league_record_pct            |character |
-|team_records_records_split_records        |list      |
-|team_records_records_division_records     |list      |
-|team_records_records_overall_records      |list      |
-|team_records_records_league_records       |list      |
-|team_records_records_expected_records     |list      |
-|league_id                                 |integer   |
-|league_link                               |character |
-|division_id                               |integer   |
-|division_link                             |character |
-|sport_id                                  |integer   |
-|sport_link                                |character |
+Returns a tibble with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   standings_type \tab character \cr
+   last_updated \tab character \cr
+   team_records_season \tab character \cr
+   team_records_clinch_indicator \tab character \cr
+   team_records_division_rank \tab character \cr
+   team_records_league_rank \tab character \cr
+   team_records_sport_rank \tab character \cr
+   team_records_games_played \tab integer \cr
+   team_records_games_back \tab character \cr
+   team_records_wild_card_games_back \tab character \cr
+   team_records_league_games_back \tab character \cr
+   team_records_spring_league_games_back \tab character \cr
+   team_records_sport_games_back \tab character \cr
+   team_records_division_games_back \tab character \cr
+   team_records_conference_games_back \tab character \cr
+   team_records_last_updated \tab character \cr
+   team_records_runs_allowed \tab integer \cr
+   team_records_runs_scored \tab integer \cr
+   team_records_division_champ \tab logical \cr
+   team_records_division_leader \tab logical \cr
+   team_records_has_wildcard \tab logical \cr
+   team_records_clinched \tab logical \cr
+   team_records_elimination_number \tab character \cr
+   team_records_wild_card_elimination_number \tab character \cr
+   team_records_magic_number \tab character \cr
+   team_records_wins \tab integer \cr
+   team_records_losses \tab integer \cr
+   team_records_run_differential \tab integer \cr
+   team_records_winning_percentage \tab character \cr
+   team_records_wild_card_rank \tab character \cr
+   team_records_wild_card_leader \tab logical \cr
+   team_records_team_id \tab integer \cr
+   team_records_team_name \tab character \cr
+   team_records_team_link \tab character \cr
+   team_records_streak_streak_type \tab character \cr
+   team_records_streak_streak_number \tab integer \cr
+   team_records_streak_streak_code \tab character \cr
+   team_records_league_record_wins \tab integer \cr
+   team_records_league_record_losses \tab integer \cr
+   team_records_league_record_ties \tab integer \cr
+   team_records_league_record_pct \tab character \cr
+   team_records_records_split_records \tab list \cr
+   team_records_records_division_records \tab list \cr
+   team_records_records_overall_records \tab list \cr
+   team_records_records_league_records \tab list \cr
+   team_records_records_expected_records \tab list \cr
+   league_id \tab integer \cr
+   league_link \tab character \cr
+   division_id \tab integer \cr
+   division_link \tab character \cr
+   sport_id \tab integer \cr
+   sport_link \tab character \cr
+}
 }
 \description{
 \strong{MLB Standings}

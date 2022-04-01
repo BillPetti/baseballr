@@ -54,3 +54,32 @@ rds_from_url <- function(url) {
   data.table::setDT(load)
   return(load)
 }
+
+
+
+# Functions for custom class
+# turn a data.frame into a tibble/baseballr_data
+make_baseballr_data <- function(df,type,timestamp){
+  out <- df %>%
+    tidyr::as_tibble()
+  
+  class(out) <- c("baseballr_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"baseballr_timestamp") <- timestamp
+  attr(out,"baseballr_type") <- type
+  return(out)
+}
+
+#' @export
+#' @noRd
+print.baseballr_data <- function(x,...) {
+  cli::cli_rule(left = "{attr(x,'baseballr_type')}",right = "{.emph baseballr {utils::packageVersion('baseballr')}}")
+  
+  if(!is.null(attr(x,'baseballr_timestamp'))) {
+    cli::cli_alert_info(
+      "Data loaded: {.field {format(attr(x,'baseballr_timestamp'), tz = Sys.timezone(), usetz = TRUE)}}"
+    )
+  }
+  
+  NextMethod(print,x)
+  invisible(x)
+}
