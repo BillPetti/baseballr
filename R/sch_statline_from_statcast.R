@@ -26,7 +26,7 @@ statline_from_statcast <- function(df, base = "pa") {
         .data$type == "X" & .data$events== "double" ~ 2,
         .data$type == "X" & .data$events == "triple" ~ 3,
         .data$type == "X" & .data$events == "home_run" ~ 4,
-        TRUE ~ NA_integer_),
+        TRUE ~ NA_real_),
       swing = ifelse(grepl("swinging|into_play|foul", .data$description) & !grepl("bunt", .data$description), 1, 0),
       swinging_strike = ifelse(.data$swing == 1 & 
                                  grepl("swinging_strike|foul", .data$description) & 
@@ -77,7 +77,7 @@ statline_from_statcast <- function(df, base = "pa") {
         slg = round((.data$X1B + (2*.data$X2B) + (3*.data$X3B) + (4*.data$HR))/.data$swings, 3), 
         ops = .data$obp + .data$slg)
 
-    statline$year <- substr(max(df$game_date),1,4)
+    statline$year <- as.integer(substr(max(df$game_date),1,4))
 
     statline <- statline %>% 
       dplyr::select(.data$year, tidyr::everything())
@@ -162,7 +162,7 @@ statline_from_statcast <- function(df, base = "pa") {
         ops = .data$obp + .data$slg
       )
     
-    statline$year <- substr(max(df$game_date),1,4)
+    statline$year <- as.integer(substr(max(df$game_date),1,4))
 
     statline <- statline %>% 
       dplyr::select(.data$year, tidyr::everything())
@@ -211,7 +211,7 @@ statline_from_statcast <- function(df, base = "pa") {
         slg = round((.data$X1B + (2*.data$X2B) + (3*.data$X3B) + (4*.data$HR))/.data$batted_balls, 3), 
         ops = .data$obp + .data$slg)
 
-    batted_balls$year <- substr(max(df$game_date),1,4)
+    batted_balls$year <- as.integer(substr(max(df$game_date),1,4))
 
     batted_balls <- batted_balls %>% 
       dplyr::select(.data$year, tidyr::everything())
