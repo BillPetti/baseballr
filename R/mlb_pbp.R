@@ -162,7 +162,7 @@
 #'  |matchup.postOnThird.link       |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_pbp(game_pk = 632970)
+#'   try(mlb_pbp(game_pk = 632970))
 #' }
 
 mlb_pbp <- function(game_pk) {

@@ -31,7 +31,7 @@ Returns a data frame with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_conferences()
-  mlb_conferences(conference_id =  301, season = 2020)
+  try(mlb_conferences())
+  try(mlb_conferences(conference_id =  301, season = 2020))
 }
 }

@@ -101,7 +101,7 @@
 #'  |year                                 |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_draft_latest(year = 2020)
+#'  try(mlb_draft_latest(year = 2020))
 #' }
 mlb_draft_latest <- function(year) {
 

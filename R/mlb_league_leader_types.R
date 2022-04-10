@@ -5,7 +5,7 @@
 #'  |leader_type   |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_league_leader_types()
+#'   try(mlb_league_leader_types())
 #' }
 mlb_league_leader_types <- function(){
   

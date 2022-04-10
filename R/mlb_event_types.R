@@ -9,7 +9,7 @@
 #'  |event_description  |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_event_types()
+#'   try(mlb_event_types())
 #' }
 mlb_event_types <- function(){
   

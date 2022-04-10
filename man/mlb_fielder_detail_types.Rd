@@ -21,6 +21,6 @@ Returns a data frame with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_fielder_detail_types()
+  try(mlb_fielder_detail_types())
 }
 }

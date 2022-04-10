@@ -13,7 +13,7 @@
 #'  
 #' @export
 #' @examples \donttest{
-#'   mlb_sports_info(sport_id = 1)
+#'   try(mlb_sports_info(sport_id = 1))
 #' }
 mlb_sports_info <- function(sport_id = 1){
   

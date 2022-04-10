@@ -29,7 +29,7 @@
 #'  |gameday_sw      |character |
 #' @export
 #' @examples \donttest{
-#'  mlb_game_info(game_pk = 566001)
+#'   try(mlb_game_info(game_pk = 566001))
 #' }
 
 mlb_game_info <- function(game_pk) {

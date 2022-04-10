@@ -21,7 +21,7 @@
 #'  |sport_link            |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_divisions(sport_id = 1)
+#'   try(mlb_divisions(sport_id = 1))
 #' }
 mlb_divisions <- function(
   division_id = NULL,

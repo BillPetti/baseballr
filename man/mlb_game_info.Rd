@@ -38,6 +38,6 @@ weather, official scorer, attendance, etc., for the game_pk provided\tabular{ll}
 }
 \examples{
 \donttest{
- mlb_game_info(game_pk = 566001)
+  try(mlb_game_info(game_pk = 566001))
 }
 }

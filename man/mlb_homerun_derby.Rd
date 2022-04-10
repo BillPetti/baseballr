@@ -81,6 +81,6 @@ Returns a data frame with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
- mlb_homerun_derby(game_pk = 511101)
+  try(mlb_homerun_derby(game_pk = 511101))
 }
 }

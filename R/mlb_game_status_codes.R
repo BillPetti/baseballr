@@ -10,7 +10,7 @@
 #'  |abstract_game_code  |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_game_status_codes()
+#'   try(mlb_game_status_codes())
 #' }
 mlb_game_status_codes <- function(){
   

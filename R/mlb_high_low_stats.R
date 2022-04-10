@@ -109,7 +109,7 @@
 #' @importFrom jsonlite fromJSON
 #' @export
 #' @examples \donttest{
-#'  mlb_high_low_stats(org_type = 'Team', season = 2020, sort_stat = 'atBats')
+#'   try(mlb_high_low_stats(org_type = 'Team', season = 2020, sort_stat = 'atBats'))
 #' }
 
 mlb_high_low_stats <- function(

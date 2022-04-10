@@ -11,7 +11,7 @@
 #'  |high_low_types    |list      |
 #' @export
 #' @examples \donttest{
-#'   mlb_high_low_types()
+#'   try(mlb_high_low_types())
 #' }
 mlb_high_low_types <- function(){
   

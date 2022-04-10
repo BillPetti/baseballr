@@ -48,8 +48,8 @@
 #'  |pitch_hand_description         |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_people(person_ids = 502671)
-#'   mlb_people(person_ids = c(502671,605151))
+#'   try(mlb_people(person_ids = 502671))
+#'   try(mlb_people(person_ids = c(502671,605151)))
 #' }
 mlb_people <- function(person_ids = NULL){
   person_ids <- paste(person_ids, collapse = ',')

@@ -13,7 +13,7 @@
 #'  |person_link      |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_jobs_umpires(sport_id=1)
+#'   try(mlb_jobs_umpires(sport_id=1))
 #' }
 mlb_jobs_umpires <- function(
                      sport_id = NULL,

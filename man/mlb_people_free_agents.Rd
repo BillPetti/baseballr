@@ -36,6 +36,6 @@ Returns a data frame with the following columns:\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_people_free_agents(season = 2018)
+  try(mlb_people_free_agents(season = 2018))
 }
 }

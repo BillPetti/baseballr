@@ -47,6 +47,6 @@ and the following values:\tabular{rllllrl}{
 }
 \examples{
 \donttest{
-  mlb_sports()
+  try(mlb_sports())
 }
 }

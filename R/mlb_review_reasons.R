@@ -6,7 +6,7 @@
 #'  |review_reason_description |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_review_reasons()
+#'   try(mlb_review_reasons())
 #' }
 mlb_review_reasons <- function(){
   

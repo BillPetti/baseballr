@@ -13,7 +13,7 @@
 #'  |league_link       |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_awards()
+#'   try(mlb_awards())
 #' }
 mlb_awards <- function(){
   

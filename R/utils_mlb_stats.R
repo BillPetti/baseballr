@@ -11,7 +11,7 @@ mlb_api_call <- function(url){
 
 mlb_stats_endpoint <- function(endpoint){
   all_endpoints = c(
-    "v1/attendance",
+    "v1/attendance",#
     "v1/conferences",#
     "v1/conferences/{conferenceId}",#
     "v1/awards/{awardId}/recipients",#
@@ -70,24 +70,24 @@ mlb_stats_endpoint <- function(endpoint){
     "v1/homeRunDerby/{gamePk}/bracket",#
     "v1/homeRunDerby/{gamePk}/pool",#
     "v1/league",#
-    "v1/league/{leagueId}/allStarBallot",
-    "v1/league/{leagueId}/allStarWriteIns",
-    "v1/league/{leagueId}/allStarFinalVote",
+    "v1/league/{leagueId}/allStarBallot",#
+    "v1/league/{leagueId}/allStarWriteIns",#
+    "v1/league/{leagueId}/allStarFinalVote",#
     "v1/people",#
     "v1/people/freeAgents",#
     "v1/people/{personId}",##U
-    "v1/people/{personId}/stats/game/{gamePk}",
-    "v1/people/{personId}/stats/game/current",
+    "v1/people/{personId}/stats/game/{gamePk}",#
+    "v1/people/{personId}/stats/game/current",#
     "v1/jobs",#
     "v1/jobs/umpires",#
     "v1/jobs/datacasters",#
     "v1/jobs/officialScorers",#
-    "v1/jobs/umpires/games/{umpireId}",#
+    "v1/jobs/umpires/games/{umpireId}",##x
     "v1/schedule/",#
     "v1/schedule/games/tied",#
     "v1/schedule/postseason",#
     "v1/schedule/postseason/series",#
-    "v1/schedule/postseason/tuneIn",##U
+    "v1/schedule/postseason/tuneIn",##x
     "v1/seasons",#
     "v1/seasons/all",#
     "v1/seasons/{seasonId}",#
@@ -95,24 +95,24 @@ mlb_stats_endpoint <- function(endpoint){
     "v1/sports/{sportId}",#
     "v1/sports/{sportId}/players",#
     "v1/standings",#
-    "v1/stats",
-    "v1/stats/metrics",
-    "v1/stats/leaders",
-    "v1/stats/streaks",
+    "v1/stats",#
+    "v1/stats/metrics",##x
+    "v1/stats/leaders",#
+    "v1/stats/streaks",##404
     "v1/teams",#
-    "v1/teams/history",
-    "v1/teams/stats",
-    "v1/teams/stats/leaders",
-    "v1/teams/affiliates",
-    "v1/teams/{teamId}",
-    "v1/teams/{teamId}/stats",
-    "v1/teams/{teamId}/affiliates",
-    "v1/teams/{teamId}/alumni",
-    "v1/teams/{teamId}/coaches",
-    "v1/teams/{teamId}/personnel",
-    "v1/teams/{teamId}/leaders",
-    "v1/teams/{teamId}/roster",#
-    "v1/teams/{teamId}/roster/{rosterType}",##U
+    "v1/teams/history",#
+    "v1/teams/stats",#
+    "v1/teams/stats/leaders",#
+    "v1/teams/affiliates",#
+    "v1/teams/{teamId}",#
+    "v1/teams/{teamId}/stats",#
+    "v1/teams/{teamId}/affiliates",#
+    "v1/teams/{teamId}/alumni",#
+    "v1/teams/{teamId}/coaches",#
+    "v1/teams/{teamId}/personnel",#
+    "v1/teams/{teamId}/leaders",#
+    "v1/teams/{teamId}/roster",##x
+    "v1/teams/{teamId}/roster/{rosterType}",#
     "v1/venues"#
   )
   base_url = glue::glue('http://statsapi.mlb.com/api/{endpoint}')

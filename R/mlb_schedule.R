@@ -112,7 +112,7 @@
 #' @export
 #'
 #' @examples \donttest{
-#'   mlb_schedule(season = "2019")
+#'   try(mlb_schedule(season = "2019"))
 #' }
 
 mlb_schedule <- function(season = 2019, level_ids = '1'){

@@ -5,7 +5,7 @@
 #'  |stat_name |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_runner_detail_types()
+#'   try(mlb_runner_detail_types())
 #' }
 mlb_runner_detail_types <- function(){
   

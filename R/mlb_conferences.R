@@ -16,8 +16,8 @@
 #'   |sport_link              |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_conferences()
-#'   mlb_conferences(conference_id =  301, season = 2020)
+#'   try(mlb_conferences())
+#'   try(mlb_conferences(conference_id =  301, season = 2020))
 #' }
 mlb_conferences <- function(
   conference_id = NULL,

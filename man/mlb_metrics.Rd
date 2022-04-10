@@ -20,6 +20,6 @@ Returns a tibble with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_metrics()
+  try(mlb_metrics())
 }
 }

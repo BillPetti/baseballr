@@ -127,6 +127,6 @@ The following IDs can be passed to the level_ids argument:
 
 \examples{
 \donttest{
-  mlb_schedule(season = "2019")
+  try(mlb_schedule(season = "2019"))
 }
 }

@@ -75,7 +75,7 @@
 #'  
 #' @export
 #' @examples \donttest{
-#'   mlb_game_context_metrics(game_pk = 531060, timecode = "20180803_182458")
+#'   try(mlb_game_context_metrics(game_pk = 531060, timecode = "20180803_182458"))
 #' }
 
 mlb_game_context_metrics <- function(

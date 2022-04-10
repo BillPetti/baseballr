@@ -18,6 +18,6 @@ Returns a tibble with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_standings_types()
+  try(mlb_standings_types())
 }
 }

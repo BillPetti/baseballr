@@ -17,7 +17,7 @@
 #'  
 #' @export
 #' @examples \donttest{
-#'   mlb_game_wp(game_pk = 531060)
+#'   try(mlb_game_wp(game_pk = 531060))
 #' }
 
 mlb_game_wp <- function(

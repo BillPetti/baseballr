@@ -5,7 +5,7 @@
 #'  |event_code    |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_logical_events()
+#'   try(mlb_logical_events())
 #' }
 mlb_logical_events <- function(){
   

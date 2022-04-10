@@ -92,6 +92,6 @@ Returns a data frame with information for every draft pick in every round for th
 }
 \examples{
 \donttest{
-  mlb_draft(year = 2020)
+  try(mlb_draft(year = 2020))
 }
 }

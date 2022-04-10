@@ -17,6 +17,6 @@ Returns a tibble with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_stat_types()
+  try(mlb_stat_types())
 }
 }

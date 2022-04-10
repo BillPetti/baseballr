@@ -18,6 +18,6 @@ Returns a tibble with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_hit_trajectories()
+  try(mlb_hit_trajectories())
 }
 }

@@ -24,6 +24,6 @@ Returns a tibble with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_league(seasons = 2021, sport_id = 1)
+  try(mlb_league(seasons = 2021, sport_id = 1))
 }
 }

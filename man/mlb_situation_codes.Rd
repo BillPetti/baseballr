@@ -24,6 +24,6 @@ Returns a tibble with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_situation_codes()
+  try(mlb_situation_codes())
 }
 }

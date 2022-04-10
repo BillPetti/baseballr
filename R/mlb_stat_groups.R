@@ -5,7 +5,7 @@
 #'  |stat_group_name        |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_stat_groups()
+#'   try(mlb_stat_groups())
 #' }
 mlb_stat_groups <- function(){
   

@@ -61,7 +61,7 @@ Returns a data frame with the following columns:\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_people(person_ids = 502671)
-  mlb_people(person_ids = c(502671,605151))
+  try(mlb_people(person_ids = 502671))
+  try(mlb_people(person_ids = c(502671,605151)))
 }
 }

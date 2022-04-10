@@ -45,6 +45,6 @@ Returns a data frame with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_awards_recipient(award_id = 'MLBHOF', season = 2020)
+  try(mlb_awards_recipient(award_id = 'MLBHOF', season = 2020))
 }
 }

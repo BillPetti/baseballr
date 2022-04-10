@@ -6,7 +6,7 @@
 #'  |schedule_event_type_name |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_schedule_event_types()
+#'   try(mlb_schedule_event_types())
 #' }
 mlb_schedule_event_types <- function(){
   

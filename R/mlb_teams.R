@@ -43,7 +43,7 @@
 #'  |spring_league_abbreviation |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_teams(season = 2021, sport_ids = c(1))
+#'   try(mlb_teams(season = 2021, sport_ids = c(1)))
 #' }
 mlb_teams <- function(
   season = NULL, 

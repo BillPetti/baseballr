@@ -27,8 +27,8 @@ Returns a data frame with the following columns:\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_venues()
-  mlb_venues(venue_ids = 4781)
-  mlb_venues(sport_ids = 1)
+  try(mlb_venues())
+  try(mlb_venues(venue_ids = 4781))
+  try(mlb_venues(sport_ids = 1))
 }
 }

@@ -20,6 +20,6 @@ Returns a data frame that includes time codes from the game_pk requested\tabular
 }
 \examples{
 \donttest{
-  mlb_game_timecodes(game_pk = 632970)
+  try(mlb_game_timecodes(game_pk = 632970))
 }
 }

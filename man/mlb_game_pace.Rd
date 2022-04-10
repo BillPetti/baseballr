@@ -95,6 +95,6 @@ Returns a data frame with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
- mlb_game_pace(season = 2021, start_date = "09/14/2021", end_date = "09/16/2021")
+  try(mlb_game_pace(season = 2021, start_date = "09/14/2021", end_date = "09/16/2021"))
 }
 }

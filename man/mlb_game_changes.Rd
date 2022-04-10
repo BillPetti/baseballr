@@ -87,6 +87,6 @@ Returns a data frame that includes time codes from the game_pk requested\tabular
 }
 \examples{
 \donttest{
-  mlb_game_changes(updated_since = "2021-08-10T19:08:24.000004Z", sport_id = 1)
+  try(mlb_game_changes(updated_since = "2021-08-10T19:08:24.000004Z", sport_id = 1))
 }
 }

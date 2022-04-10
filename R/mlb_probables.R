@@ -19,7 +19,7 @@
 #'  |home_plate_id        |integer   |
 #' @export
 #' @examples \donttest{
-#'   mlb_probables(566001)
+#'   try(mlb_probables(566001))
 #' }
 
 mlb_probables <- function(game_pk) {

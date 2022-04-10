@@ -8,7 +8,7 @@
 #'  |metric_unit |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_metrics()
+#'   try(mlb_metrics())
 #' }
 mlb_metrics <- function(){
   

@@ -118,6 +118,6 @@ Returns a data frame with information for every draft prospect for the year requ
 }
 \examples{
 \donttest{
-  mlb_draft_prospects(year = 2020)
+  try(mlb_draft_prospects(year = 2020))
 }
 }

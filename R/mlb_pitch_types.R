@@ -6,7 +6,7 @@
 #'  |pitch_type_description  |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_pitch_types()
+#'   try(mlb_pitch_types())
 #' }
 mlb_pitch_types <- function(){
   

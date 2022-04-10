@@ -43,7 +43,7 @@
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'   bref_daily_batter("2015-05-10", "2015-06-20")
+#'   try(bref_daily_batter("2015-05-10", "2015-06-20"))
 #' }
 
 bref_daily_batter <- function(t1, t2) {

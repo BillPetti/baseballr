@@ -12,9 +12,9 @@
 #' @importFrom jsonlite fromJSON 
 #' @export
 #' @examples \donttest{
-#'   mlb_venues()
-#'   mlb_venues(venue_ids = 4781)
-#'   mlb_venues(sport_ids = 1)
+#'   try(mlb_venues())
+#'   try(mlb_venues(venue_ids = 4781))
+#'   try(mlb_venues(sport_ids = 1))
 #' }
 mlb_venues <- function(venue_ids = NULL, sport_ids = NULL, season = NULL){
   mlb_endpoint <- mlb_stats_endpoint("v1/venues")

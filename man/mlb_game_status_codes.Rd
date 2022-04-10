@@ -22,6 +22,6 @@ Returns a data frame with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_game_status_codes()
+  try(mlb_game_status_codes())
 }
 }

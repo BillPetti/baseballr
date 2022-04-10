@@ -26,6 +26,6 @@ Returns a tibble with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_sports_info(sport_id = 1)
+  try(mlb_sports_info(sport_id = 1))
 }
 }

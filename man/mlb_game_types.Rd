@@ -18,6 +18,6 @@ Returns a data frame with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_game_types()
+  try(mlb_game_types())
 }
 }

@@ -31,6 +31,6 @@ the home plate umpire for the \code{game_pk} requested\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_batting_orders(game_pk=566001)
+  try(mlb_batting_orders(game_pk=566001))
 }
 }

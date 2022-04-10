@@ -56,7 +56,7 @@
 #'  
 #' @export
 #' @examples \donttest{
-#'   mlb_sports_players(sport_id = 1, season = 2021)
+#'   try(mlb_sports_players(sport_id = 1, season = 2021))
 #' }
 mlb_sports_players <- function(sport_id = 1,
                             season = 2021){

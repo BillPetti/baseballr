@@ -106,6 +106,6 @@ information for games scheduled or played\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_schedule_games_tied(season = 2021)
+  try(mlb_schedule_games_tied(season = 2021))
 }
 }

@@ -96,6 +96,6 @@ Returns a tibble with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_standings(season = 2021, league_id = 103)
+  try(mlb_standings(season = 2021, league_id = 103))
 }
 }

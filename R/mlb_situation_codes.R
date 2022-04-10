@@ -12,7 +12,7 @@
 #'  |pitching                   |logical   |
 #' @export
 #' @examples \donttest{
-#'   mlb_situation_codes()
+#'   try(mlb_situation_codes())
 #' }
 mlb_situation_codes <- function(){
   

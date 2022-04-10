@@ -28,6 +28,6 @@ Returns a tibble with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_jobs_umpires(sport_id=1)
+  try(mlb_jobs_umpires(sport_id=1))
 }
 }

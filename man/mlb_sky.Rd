@@ -18,6 +18,6 @@ Returns a tibble with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_sky()
+  try(mlb_sky())
 }
 }

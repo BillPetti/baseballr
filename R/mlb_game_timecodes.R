@@ -11,7 +11,7 @@
 #'  
 #' @export
 #' @examples \donttest{
-#'   mlb_game_timecodes(game_pk = 632970)
+#'   try(mlb_game_timecodes(game_pk = 632970))
 #' }
 
 mlb_game_timecodes <- function(game_pk) {

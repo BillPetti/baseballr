@@ -103,7 +103,7 @@
 #' @importFrom stringr str_sub
 #' @export
 #' @examples \donttest{
-#'  mlb_game_linescore(game_pk = 566001)
+#'   try(mlb_game_linescore(game_pk = 566001))
 #' }
 
 mlb_game_linescore <- function(game_pk) {

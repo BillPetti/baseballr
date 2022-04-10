@@ -6,7 +6,7 @@
 #'  |game_type_description |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_game_types()
+#'   try(mlb_game_types())
 #' }
 mlb_game_types <- function(){
   

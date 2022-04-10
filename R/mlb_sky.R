@@ -6,7 +6,7 @@
 #'  |sky_description     |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_sky()
+#'   try(mlb_sky())
 #' }
 mlb_sky <- function(){
   

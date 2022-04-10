@@ -6,7 +6,7 @@
 #'  |standings_type_description |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_standings_types()
+#'   try(mlb_standings_types())
 #' }
 mlb_standings_types <- function(){
   

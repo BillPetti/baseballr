@@ -113,6 +113,6 @@ Returns a data frame with the latest draft information for the year requested:\t
 }
 \examples{
 \donttest{
-  mlb_draft_latest(year = 2020)
+ try(mlb_draft_latest(year = 2020))
 }
 }

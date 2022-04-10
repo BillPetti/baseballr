@@ -96,7 +96,7 @@
 #' @export
 #'
 #' @examples \donttest{
-#'   mlb_schedule_games_tied(season = 2021)
+#'   try(mlb_schedule_games_tied(season = 2021))
 #' }
 
 mlb_schedule_games_tied <- function(season = 2021, game_type = 'S'){

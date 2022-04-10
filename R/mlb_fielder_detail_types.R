@@ -9,7 +9,7 @@
 #'  |error     |logical   |
 #' @export
 #' @examples \donttest{
-#'   mlb_fielder_detail_types()
+#'   try(mlb_fielder_detail_types())
 #' }
 mlb_fielder_detail_types <- function(){
   

@@ -33,7 +33,7 @@
 #'  |      586|hsb        |/api/v1/sports/586 |High School Baseball                  |H.S.               |       6201|TRUE      
 #' @export
 #' @examples \donttest{
-#'   mlb_sports()
+#'   try(mlb_sports())
 #' }
 mlb_sports <- function(sport_id = NULL){
   

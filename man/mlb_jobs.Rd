@@ -30,6 +30,6 @@ Returns a tibble with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_jobs(job_type='UMPR')
+  try(mlb_jobs(job_type='UMPR'))
 }
 }

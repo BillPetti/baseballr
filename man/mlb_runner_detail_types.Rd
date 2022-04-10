@@ -17,6 +17,6 @@ Returns a data frame with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_runner_detail_types()
+  try(mlb_runner_detail_types())
 }
 }

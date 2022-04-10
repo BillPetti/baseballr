@@ -93,6 +93,6 @@ The following IDs can be passed to the level_ids argument:
 }
 \examples{
 \donttest{
-  mlb_game_pks("2019-04-29")
+  try(mlb_game_pks("2019-04-29"))
 }
 }

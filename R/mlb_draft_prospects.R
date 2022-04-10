@@ -106,7 +106,7 @@
 #'  |draft_type_description               |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_draft_prospects(year = 2020)
+#'   try(mlb_draft_prospects(year = 2020))
 #' }
 mlb_draft_prospects <- function(year) {
 

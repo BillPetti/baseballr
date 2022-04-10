@@ -14,7 +14,7 @@
 #'  |person_link      |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_jobs(job_type='UMPR')
+#'   try(mlb_jobs(job_type='UMPR'))
 #' }
 mlb_jobs <- function(job_type='UMPR',
                      sport_id = NULL,

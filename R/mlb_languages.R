@@ -7,7 +7,7 @@
 #'  |locale        |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_languages()
+#'   try(mlb_languages())
 #' }
 mlb_languages <- function(){
   

@@ -70,7 +70,7 @@
 #' @importFrom jsonlite fromJSON
 #' @export
 #' @examples \donttest{
-#'  mlb_homerun_derby(game_pk = 511101)
+#'   try(mlb_homerun_derby(game_pk = 511101))
 #' }
 
 mlb_homerun_derby <- function(
@@ -224,7 +224,7 @@ mlb_homerun_derby <- function(
 #' @importFrom jsonlite fromJSON
 #' @export
 #' @examples \donttest{
-#'  mlb_homerun_derby_bracket(game_pk = 511101)
+#'   try(mlb_homerun_derby_bracket(game_pk = 511101))
 #' }
 
 mlb_homerun_derby_bracket <- function(
@@ -384,7 +384,7 @@ mlb_homerun_derby_bracket <- function(
 #' @importFrom jsonlite fromJSON
 #' @export
 #' @examples \donttest{
-#'  mlb_homerun_derby_players(game_pk = 511101)
+#'   try(mlb_homerun_derby_players(game_pk = 511101))
 #' }
 
 mlb_homerun_derby_players <- function(

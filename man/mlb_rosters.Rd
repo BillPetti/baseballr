@@ -42,7 +42,7 @@ Returns a data frame with the following columns:\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_rosters(team_id = 109, season = 2018, roster_type = 'active')
-  mlb_rosters(team_id = 109, season = 2018, roster_type = 'coach')
+  try(mlb_rosters(team_id = 109, season = 2018, roster_type = 'active'))
+  try(mlb_rosters(team_id = 109, season = 2018, roster_type = 'coach'))
 }
 }

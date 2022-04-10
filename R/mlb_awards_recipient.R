@@ -23,7 +23,7 @@
 #'  |team_link                            |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_awards_recipient(award_id = 'MLBHOF', season = 2020)
+#'   try(mlb_awards_recipient(award_id = 'MLBHOF', season = 2020))
 #' }
 mlb_awards_recipient <- function(award_id = NULL, sport_id = NULL, league_id = NULL, season = NULL){
   

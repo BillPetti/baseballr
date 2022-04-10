@@ -77,7 +77,7 @@
 #'  
 #' @export
 #' @examples \donttest{
-#'   mlb_game_changes(updated_since = "2021-08-10T19:08:24.000004Z", sport_id = 1)
+#'   try(mlb_game_changes(updated_since = "2021-08-10T19:08:24.000004Z", sport_id = 1))
 #' }
 
 mlb_game_changes <- function(updated_since, sport_id) {

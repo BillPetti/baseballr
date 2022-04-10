@@ -26,8 +26,8 @@
 #'  
 #' @export
 #' @examples \donttest{
-#'   mlb_rosters(team_id = 109, season = 2018, roster_type = 'active')
-#'   mlb_rosters(team_id = 109, season = 2018, roster_type = 'coach')
+#'   try(mlb_rosters(team_id = 109, season = 2018, roster_type = 'active'))
+#'   try(mlb_rosters(team_id = 109, season = 2018, roster_type = 'coach'))
 #' }
 mlb_rosters <- function(team_id = NULL, season = NULL, date = NULL, roster_type = NULL){
   team_id <- team_id

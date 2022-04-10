@@ -7,7 +7,7 @@
 #'  |sort_order |integer   |
 #' @export
 #' @examples \donttest{
-#'   mlb_job_types()
+#'   try(mlb_job_types())
 #' }
 mlb_job_types <- function(){
   

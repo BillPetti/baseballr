@@ -19,6 +19,6 @@ Returns a tibble with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_languages()
+  try(mlb_languages())
 }
 }

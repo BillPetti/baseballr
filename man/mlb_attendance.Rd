@@ -88,6 +88,6 @@ Returns a data frame with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_attendance(team_id = 109, season = 2021)
+  try(mlb_attendance(team_id = 109, season = 2021))
 }
 }

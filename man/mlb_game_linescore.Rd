@@ -112,6 +112,6 @@ Returns a data frame with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
- mlb_game_linescore(game_pk = 566001)
+  try(mlb_game_linescore(game_pk = 566001))
 }
 }

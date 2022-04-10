@@ -24,7 +24,7 @@
 #'
 #' @export
 #' @examples \donttest{
-#'   mlb_people_free_agents(season = 2018)
+#'   try(mlb_people_free_agents(season = 2018))
 #' }
 mlb_people_free_agents <- function(season = NULL){
 

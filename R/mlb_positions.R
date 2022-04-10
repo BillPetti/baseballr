@@ -15,7 +15,7 @@
 #'  |position_display_name |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_positions()
+#'   try(mlb_positions())
 #' }
 mlb_positions <- function(){
   

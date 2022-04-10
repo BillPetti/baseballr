@@ -9,7 +9,7 @@
 #'  |stat_group        |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_baseball_stats()
+#'   try(mlb_baseball_stats())
 #' }
 mlb_baseball_stats <- function(){
   

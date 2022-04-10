@@ -7,7 +7,7 @@
 #'  |roster_type_parameter   |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_roster_types()
+#'   try(mlb_roster_types())
 #' }
 mlb_roster_types <- function(){
   mlb_endpoint <- mlb_stats_endpoint("v1/rosterTypes")

@@ -159,8 +159,8 @@ by the MLB Stats API at a pitch level between the start_timecode and end_timecod
 }
 \examples{
 \donttest{
-  mlb_pbp_diff(game_pk = 632970, 
-               start_timecode = "20210808_231704", 
-               end_timecode = "20210808_233711")
+  try(mlb_pbp_diff(game_pk = 632970, 
+                   start_timecode = "20210808_231704", 
+                   end_timecode = "20210808_233711"))
 }
 }

@@ -6,7 +6,7 @@
 #'  |hit_trajectory_description |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_hit_trajectories()
+#'   try(mlb_hit_trajectories())
 #' }
 mlb_hit_trajectories <- function(){
   
