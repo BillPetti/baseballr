@@ -32,10 +32,11 @@ existing_mlb_stats_api_functions <- c("mlb_batting_orders",
                                       "mlb_game_pks",
                                       "mlb_pbp",
                                       "mlb_schedule")
-exported %>% 
+new_mlb <- exported %>% 
   dplyr::filter(stringr::str_starts(.data$name,"mlb_"),
-                !(.data$name %in% existing_mlb_stats_api_functions)) %>% 
-  dplyr::select(-.data$new_name, -.data$exported) %>% 
+                !(.data$name %in% existing_mlb_stats_api_functions)) 
+print(nrow(new_mlb))
+new_mlb %>%
   knitr::kable()
 read.csv("data-raw/baseballr_exported_functions_wip.csv") %>% 
   dplyr::filter(.data$new_name !="") %>% 
