@@ -1,4 +1,3 @@
-context("FanGraphs Park Factors")
 
 cols <- c(
   "season", "home_team", "basic_5yr", "3yr",

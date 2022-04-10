@@ -12,7 +12,7 @@
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'   team_consistency(year=2015)
+#'   team_consistency(year=2021)
 #' }
 
 team_consistency <- function(year) {
@@ -47,6 +47,7 @@ team_consistency <- function(year) {
     dplyr::mutate(
       bref_abbreviation = dplyr::case_when(
         .data$year <= 2015 & .data$Tm == "Los Angeles Angels" ~ "LAA",
+        .data$Tm == "Los Angeles Angels" ~ "LAA",
         .data$year < 2012 & .data$Tm == "Florida Marlins" ~ "FLA",
          TRUE ~ .data$bref_abbreviation))
   

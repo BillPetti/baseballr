@@ -3,6 +3,24 @@
 #' @param season The season for which you want to find game_pk values for MLB games
 #' @param level_ids A numeric vector with ids for each level where game_pks are
 #' desired. See below for a reference of level ids.
+#'  | sport_id|sport_code |sport_link         |sport_name                            |sport_abbreviation | sort_order|active_status |
+#'  |--------:|:----------|:------------------|:-------------------------------------|:------------------|----------:|:-------------|
+#'  |        1|mlb        |/api/v1/sports/1   |Major League Baseball                 |MLB                |         11|TRUE          |
+#'  |       11|aaa        |/api/v1/sports/11  |Triple-A                              |AAA                |        101|TRUE          |
+#'  |       12|aax        |/api/v1/sports/12  |Double-A                              |AA                 |        201|TRUE          |
+#'  |       13|afa        |/api/v1/sports/13  |High-A                                |A+                 |        301|TRUE          |
+#'  |       14|afx        |/api/v1/sports/14  |Low-A                                 |A                  |        401|TRUE          |
+#'  |       16|rok        |/api/v1/sports/16  |Rookie                                |ROK                |        701|TRUE          |
+#'  |       17|win        |/api/v1/sports/17  |Winter Leagues                        |WIN                |       1301|TRUE          |
+#'  |        8|bbl        |/api/v1/sports/8   |Organized Baseball                    |Pros               |       1401|TRUE          |
+#'  |       21|min        |/api/v1/sports/21  |Minor League Baseball                 |Minors             |       1402|TRUE          |
+#'  |       23|ind        |/api/v1/sports/23  |Independent Leagues                   |IND                |       2101|TRUE          |
+#'  |       51|int        |/api/v1/sports/51  |International Baseball                |INT                |       3501|TRUE          |
+#'  |      508|nat        |/api/v1/sports/508 |International Baseball (Collegiate)   |INTC               |       3502|TRUE          |
+#'  |      509|nae        |/api/v1/sports/509 |International Baseball (18 and under) |18U                |       3503|TRUE          |
+#'  |      510|nas        |/api/v1/sports/510 |International Baseball (16 and under) |16U                |       3505|TRUE          |
+#'  |       22|bbc        |/api/v1/sports/22  |College Baseball                      |College            |       5101|TRUE          |
+#'  |      586|hsb        |/api/v1/sports/586 |High School Baseball                  |H.S.               |       6201|TRUE      
 #' @importFrom jsonlite fromJSON
 #' @return Returns a data frame that includes game_pk values and additional
 #' information for games scheduled or played
@@ -94,7 +112,7 @@
 #' @export
 #'
 #' @examples \donttest{
-#'   mlb_schedule(season = "2019")
+#'   try(mlb_schedule(season = "2019"))
 #' }
 
 mlb_schedule <- function(season = 2019, level_ids = '1'){

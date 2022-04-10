@@ -1,4 +1,3 @@
-context("NCAA Scrape")
 
 cols <- c(
   "year", "school", "conference", "division",
@@ -13,7 +12,7 @@ cols <- c(
 test_that("NCAA Scrape", {
   skip_on_cran()
   
-  x <- ncaa_scrape(teamid=255, year=2013, type = "batting")
+  x <- ncaa_scrape(teamid=255, year=2021, type = "batting")
   
   expect_equal(colnames(x), cols)
   expect_s3_class(x, "data.frame")

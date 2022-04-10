@@ -12,116 +12,116 @@ run_expectancy_code(df, level = "plate appearance")
 \item{level}{Whether you want run expectancy calculated at the plate appearance or pitch level. Defaults to plate appearance.}
 }
 \value{
-Returns a data frame with the following columns
-|col_name                        |types     |
-|:-------------------------------|:---------|
-|pitch_type                      |character |
-|game_date                       |Date      |
-|release_speed                   |numeric   |
-|release_pos_x                   |numeric   |
-|release_pos_z                   |numeric   |
-|player_name                     |character |
-|batter                          |numeric   |
-|pitcher                         |numeric   |
-|events                          |character |
-|description                     |character |
-|spin_dir                        |logical   |
-|spin_rate_deprecated            |logical   |
-|break_angle_deprecated          |logical   |
-|break_length_deprecated         |logical   |
-|zone                            |numeric   |
-|des                             |character |
-|game_type                       |character |
-|stand                           |character |
-|p_throws                        |character |
-|home_team                       |character |
-|away_team                       |character |
-|type                            |character |
-|hit_location                    |integer   |
-|bb_type                         |character |
-|balls                           |integer   |
-|strikes                         |integer   |
-|game_year                       |integer   |
-|pfx_x                           |numeric   |
-|pfx_z                           |numeric   |
-|plate_x                         |numeric   |
-|plate_z                         |numeric   |
-|on_3b                           |numeric   |
-|on_2b                           |numeric   |
-|on_1b                           |numeric   |
-|outs_when_up                    |integer   |
-|inning                          |numeric   |
-|inning_topbot                   |character |
-|hc_x                            |numeric   |
-|hc_y                            |numeric   |
-|tfs_deprecated                  |logical   |
-|tfs_zulu_deprecated             |logical   |
-|fielder_2                       |numeric   |
-|umpire                          |logical   |
-|sv_id                           |character |
-|vx0                             |numeric   |
-|vy0                             |numeric   |
-|vz0                             |numeric   |
-|ax                              |numeric   |
-|ay                              |numeric   |
-|az                              |numeric   |
-|sz_top                          |numeric   |
-|sz_bot                          |numeric   |
-|hit_distance_sc                 |numeric   |
-|launch_speed                    |numeric   |
-|launch_angle                    |numeric   |
-|effective_speed                 |numeric   |
-|release_spin_rate               |numeric   |
-|release_extension               |numeric   |
-|game_pk                         |numeric   |
-|pitcher_1                       |numeric   |
-|fielder_2_1                     |numeric   |
-|fielder_3                       |numeric   |
-|fielder_4                       |numeric   |
-|fielder_5                       |numeric   |
-|fielder_6                       |numeric   |
-|fielder_7                       |numeric   |
-|fielder_8                       |numeric   |
-|fielder_9                       |numeric   |
-|release_pos_y                   |numeric   |
-|estimated_ba_using_speedangle   |numeric   |
-|estimated_woba_using_speedangle |numeric   |
-|woba_value                      |numeric   |
-|woba_denom                      |integer   |
-|babip_value                     |integer   |
-|iso_value                       |integer   |
-|launch_speed_angle              |integer   |
-|at_bat_number                   |numeric   |
-|pitch_number                    |numeric   |
-|pitch_name                      |character |
-|home_score                      |numeric   |
-|away_score                      |numeric   |
-|bat_score                       |numeric   |
-|fld_score                       |numeric   |
-|post_away_score                 |numeric   |
-|post_home_score                 |numeric   |
-|post_bat_score                  |numeric   |
-|post_fld_score                  |numeric   |
-|if_fielding_alignment           |character |
-|of_fielding_alignment           |character |
-|spin_axis                       |numeric   |
-|delta_home_win_exp              |numeric   |
-|delta_run_exp                   |numeric   |
-|final_pitch_game                |numeric   |
-|final_pitch_at_bat              |numeric   |
-|runs_scored_on_pitch            |numeric   |
-|bat_score_after                 |numeric   |
-|final_pitch_inning              |numeric   |
-|bat_score_start_inning          |numeric   |
-|bat_score_end_inning            |numeric   |
-|cum_runs_in_inning              |numeric   |
-|runs_to_end_inning              |numeric   |
-|count_base_out_state            |character |
-|avg_re                          |numeric   |
-|next_count_base_out_state       |character |
-|next_avg_re                     |numeric   |
-|change_re                       |numeric   |
-|re24                            |numeric   |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   pitch_type \tab character \cr
+   game_date \tab Date \cr
+   release_speed \tab numeric \cr
+   release_pos_x \tab numeric \cr
+   release_pos_z \tab numeric \cr
+   player_name \tab character \cr
+   batter \tab numeric \cr
+   pitcher \tab numeric \cr
+   events \tab character \cr
+   description \tab character \cr
+   spin_dir \tab logical \cr
+   spin_rate_deprecated \tab logical \cr
+   break_angle_deprecated \tab logical \cr
+   break_length_deprecated \tab logical \cr
+   zone \tab numeric \cr
+   des \tab character \cr
+   game_type \tab character \cr
+   stand \tab character \cr
+   p_throws \tab character \cr
+   home_team \tab character \cr
+   away_team \tab character \cr
+   type \tab character \cr
+   hit_location \tab integer \cr
+   bb_type \tab character \cr
+   balls \tab integer \cr
+   strikes \tab integer \cr
+   game_year \tab integer \cr
+   pfx_x \tab numeric \cr
+   pfx_z \tab numeric \cr
+   plate_x \tab numeric \cr
+   plate_z \tab numeric \cr
+   on_3b \tab numeric \cr
+   on_2b \tab numeric \cr
+   on_1b \tab numeric \cr
+   outs_when_up \tab integer \cr
+   inning \tab numeric \cr
+   inning_topbot \tab character \cr
+   hc_x \tab numeric \cr
+   hc_y \tab numeric \cr
+   tfs_deprecated \tab logical \cr
+   tfs_zulu_deprecated \tab logical \cr
+   fielder_2 \tab numeric \cr
+   umpire \tab logical \cr
+   sv_id \tab character \cr
+   vx0 \tab numeric \cr
+   vy0 \tab numeric \cr
+   vz0 \tab numeric \cr
+   ax \tab numeric \cr
+   ay \tab numeric \cr
+   az \tab numeric \cr
+   sz_top \tab numeric \cr
+   sz_bot \tab numeric \cr
+   hit_distance_sc \tab numeric \cr
+   launch_speed \tab numeric \cr
+   launch_angle \tab numeric \cr
+   effective_speed \tab numeric \cr
+   release_spin_rate \tab numeric \cr
+   release_extension \tab numeric \cr
+   game_pk \tab numeric \cr
+   pitcher_1 \tab numeric \cr
+   fielder_2_1 \tab numeric \cr
+   fielder_3 \tab numeric \cr
+   fielder_4 \tab numeric \cr
+   fielder_5 \tab numeric \cr
+   fielder_6 \tab numeric \cr
+   fielder_7 \tab numeric \cr
+   fielder_8 \tab numeric \cr
+   fielder_9 \tab numeric \cr
+   release_pos_y \tab numeric \cr
+   estimated_ba_using_speedangle \tab numeric \cr
+   estimated_woba_using_speedangle \tab numeric \cr
+   woba_value \tab numeric \cr
+   woba_denom \tab integer \cr
+   babip_value \tab integer \cr
+   iso_value \tab integer \cr
+   launch_speed_angle \tab integer \cr
+   at_bat_number \tab numeric \cr
+   pitch_number \tab numeric \cr
+   pitch_name \tab character \cr
+   home_score \tab numeric \cr
+   away_score \tab numeric \cr
+   bat_score \tab numeric \cr
+   fld_score \tab numeric \cr
+   post_away_score \tab numeric \cr
+   post_home_score \tab numeric \cr
+   post_bat_score \tab numeric \cr
+   post_fld_score \tab numeric \cr
+   if_fielding_alignment \tab character \cr
+   of_fielding_alignment \tab character \cr
+   spin_axis \tab numeric \cr
+   delta_home_win_exp \tab numeric \cr
+   delta_run_exp \tab numeric \cr
+   final_pitch_game \tab numeric \cr
+   final_pitch_at_bat \tab numeric \cr
+   runs_scored_on_pitch \tab numeric \cr
+   bat_score_after \tab numeric \cr
+   final_pitch_inning \tab numeric \cr
+   bat_score_start_inning \tab numeric \cr
+   bat_score_end_inning \tab numeric \cr
+   cum_runs_in_inning \tab numeric \cr
+   runs_to_end_inning \tab numeric \cr
+   count_base_out_state \tab character \cr
+   avg_re \tab numeric \cr
+   next_count_base_out_state \tab character \cr
+   next_avg_re \tab numeric \cr
+   change_re \tab numeric \cr
+   re24 \tab numeric \cr
+}
 }
 \description{
 These functions allow a user to generate run expectancy and related measures and variables from Baseball Savant data. Measures and variables will be added to the data frame.

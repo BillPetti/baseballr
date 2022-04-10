@@ -1,4 +1,3 @@
-context("Label Statcast Imputed Data")
 
 cols <- c(
   "pitch_type", "game_date", "release_speed", 
@@ -26,10 +25,10 @@ cols <- c(
   "delta_home_win_exp", "delta_run_exp", "ila", "ils", "imputed"
 )
 
-test_that("Label Statcast Imputed Data", {
+test_that("Statcast - Label Imputed Data", {
   skip_on_cran()
   
-  statcast_df <- scrape_statcast_savant("2017-05-01", "2017-05-02")
+  statcast_df <- statcast_search("2017-05-01", "2017-05-02")
   x <- label_statcast_imputed_data(statcast_df)
   
   expect_equal(colnames(x), cols)

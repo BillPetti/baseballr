@@ -1,4 +1,3 @@
-context("FanGraphs GUTS Factors")
 
 cols <- c(
   "season", "lg_woba", "woba_scale", "wBB",

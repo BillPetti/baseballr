@@ -13,39 +13,39 @@ fg_park_hand(yr)
 \item{yr}{Season for which you want to scrape the park factors.}
 }
 \value{
-Returns a data frame of park factors.
-|col_name  |types     |
-|:---------|:---------|
-|season    |integer   |
-|home_team |character |
-|basic_5yr |integer   |
-|3yr       |integer   |
-|1yr       |integer   |
-|single    |integer   |
-|double    |integer   |
-|triple    |integer   |
-|hr        |integer   |
-|so        |integer   |
-|UIBB      |integer   |
-|GB        |integer   |
-|FB        |integer   |
-|LD        |integer   |
-|IFFB      |integer   |
-|FIP       |integer   |
+Returns a data frame of park factors.\tabular{ll}{
+   col_name \tab types \cr
+   season \tab integer \cr
+   home_team \tab character \cr
+   basic_5yr \tab integer \cr
+   3yr \tab integer \cr
+   1yr \tab integer \cr
+   single \tab integer \cr
+   double \tab integer \cr
+   triple \tab integer \cr
+   hr \tab integer \cr
+   so \tab integer \cr
+   UIBB \tab integer \cr
+   GB \tab integer \cr
+   FB \tab integer \cr
+   LD \tab integer \cr
+   IFFB \tab integer \cr
+   FIP \tab integer \cr
+}
 
-Returns a data frame of park factors by handedness.
-|col_name      |types     |
-|:-------------|:---------|
-|season        |integer   |
-|home_team     |character |
-|single_as_LHH |integer   |
-|single_as_RHH |integer   |
-|double_as_LHH |integer   |
-|double_as_RHH |integer   |
-|triple_as_LHH |integer   |
-|triple_as_RHH |integer   |
-|hr_as_LHH     |integer   |
-|hr_as_RHH     |integer   |
+Returns a data frame of park factors by handedness.\tabular{ll}{
+   col_name \tab types \cr
+   season \tab integer \cr
+   home_team \tab character \cr
+   single_as_LHH \tab integer \cr
+   single_as_RHH \tab integer \cr
+   double_as_LHH \tab integer \cr
+   double_as_RHH \tab integer \cr
+   triple_as_LHH \tab integer \cr
+   triple_as_RHH \tab integer \cr
+   hr_as_LHH \tab integer \cr
+   hr_as_RHH \tab integer \cr
+}
 }
 \description{
 This function allows you to scrape park factors for a given season from FanGraphs.com.

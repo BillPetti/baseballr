@@ -51,7 +51,7 @@
 #' @importFrom tidyr separate
 #' @export
 #' @examples \donttest{
-#'   fg_milb_pitcher_game_logs(playerid = "sa3004210", year=2017)
+#'   fg_milb_pitcher_game_logs(playerid = "sa3005315", year=2021)
 #' }
 
 fg_milb_pitcher_game_logs <- function(playerid, year) {

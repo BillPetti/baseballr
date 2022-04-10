@@ -20,7 +20,7 @@
 #'  |teamID               |integer   |
 #' @export
 #' @examples \donttest{
-#'   mlb_batting_orders(game_pk=566001)
+#'   try(mlb_batting_orders(game_pk=566001))
 #' }
 
 mlb_batting_orders <- function (game_pk,

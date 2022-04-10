@@ -7,10 +7,23 @@
 #'  |bis_player_id                        |integer   |
 #'  |pick_round                           |character |
 #'  |pick_number                          |integer   |
+#'  |round_pick_number                    |integer   |
+#'  |rank                                 |integer   |
+#'  |pick_value                           |character |
+#'  |signing_bonus                        |character |
+#'  |scouting_report                      |character |
+#'  |blurb                                |character |
 #'  |headshot_link                        |character |
 #'  |is_drafted                           |logical   |
 #'  |is_pass                              |logical   |
+#'  |year                                 |character |
+#'  |home_city                            |character |
+#'  |home_state                           |character |
+#'  |home_country                         |character |
 #'  |school_name                          |character |
+#'  |school_school_class                  |character |
+#'  |school_country                       |character |
+#'  |school_state                         |character |
 #'  |person_id                            |integer   |
 #'  |person_full_name                     |character |
 #'  |person_link                          |character |
@@ -28,9 +41,10 @@
 #'  |person_use_name                      |character |
 #'  |person_middle_name                   |character |
 #'  |person_boxscore_name                 |character |
+#'  |person_gender                        |character |
+#'  |person_is_player                     |logical   |
+#'  |person_is_verified                   |logical   |
 #'  |person_draft_year                    |integer   |
-#'  |person_last_played_date              |logical   |
-#'  |person_mlb_debut_date                |character |
 #'  |person_name_first_last               |character |
 #'  |person_name_slug                     |character |
 #'  |person_first_last_name               |character |
@@ -41,12 +55,10 @@
 #'  |person_full_lfm_name                 |character |
 #'  |person_strike_zone_top               |numeric   |
 #'  |person_strike_zone_bottom            |numeric   |
-#'  |person_nick_name                     |character |
-#'  |person_death_date                    |logical   |
-#'  |person_death_city                    |logical   |
-#'  |person_death_state_province          |logical   |
-#'  |person_death_country                 |logical   |
 #'  |person_pronunciation                 |character |
+#'  |person_name_title                    |character |
+#'  |person_mlb_debut_date                |character |
+#'  |person_name_matrilineal              |character |
 #'  |person_primary_position_code         |character |
 #'  |person_primary_position_name         |character |
 #'  |person_primary_position_type         |character |
@@ -63,47 +75,28 @@
 #'  |team_spring_league_name              |character |
 #'  |team_spring_league_link              |character |
 #'  |team_spring_league_abbreviation      |character |
-#'  |person_name_title                    |character |
-#'  |school_school_class                  |character |
-#'  |rank                                 |integer   |
-#'  |pick_value                           |character |
-#'  |signing_bonus                        |character |
-#'  |scouting_report                      |character |
-#'  |blurb                                |character |
-#'  |home_city                            |character |
-#'  |home_state                           |character |
-#'  |home_country                         |character |
-#'  |school_city                          |character |
-#'  |school_country                       |character |
-#'  |school_state                         |character |
-#'  |round_pick_number                    |integer   |
-#'  |year                                 |character |
-#'  |person_gender                        |character |
-#'  |person_is_player                     |logical   |
-#'  |person_is_verified                   |logical   |
 #'  |draft_type_code                      |character |
 #'  |draft_type_description               |character |
-#'  |person_name_matrilineal              |character |
-#' @export
+#' @export 
+#' @examples \donttest{
+#'   try(mlb_draft(year = 2020))
+#' }
 mlb_draft <- function(year) {
 
-  api_call <- paste0("http://statsapi.mlb.com/api/v1/draft/", year)
+  mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/draft/{year}"))
 
-  payload <- jsonlite::fromJSON(api_call, flatten = TRUE)
+  resp <- mlb_endpoint %>% 
+    mlb_api_call()
 
-  draft_table <- payload$drafts$rounds$picks
+  draft_table <- resp$drafts$rounds$picks
 
   draft_table <- draft_table %>%
     dplyr::bind_rows()
-
-  column_structure_draft_mlb[1,] <- NA
-
-  draft_table_filled <- column_structure_draft_mlb %>% 
-    dplyr::bind_rows(draft_table) %>%
-    dplyr::filter(!is.na(.data$bisPlayerId)) %>%
+  draft_table <- jsonlite::fromJSON(jsonlite::toJSON(draft_table), flatten = TRUE) %>%
     janitor::clean_names()
+  
 
-  return(draft_table_filled)
+  return(draft_table)
 }
 
 #' @rdname get_draft_mlb

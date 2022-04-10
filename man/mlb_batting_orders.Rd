@@ -14,23 +14,23 @@ batters that appeared ('all')}
 }
 \value{
 Returns a data frame that includes probable starting pitchers and
-the home plate umpire for the \code{game_pk} requested
-|col_name             |types     |
-|:--------------------|:---------|
-|id                   |integer   |
-|fullName             |character |
-|abbreviation         |character |
-|batting_order        |character |
-|batting_position_num |character |
-|team                 |character |
-|teamName             |character |
-|teamID               |integer   |
+the home plate umpire for the \code{game_pk} requested\tabular{ll}{
+   col_name \tab types \cr
+   id \tab integer \cr
+   fullName \tab character \cr
+   abbreviation \tab character \cr
+   batting_order \tab character \cr
+   batting_position_num \tab character \cr
+   team \tab character \cr
+   teamName \tab character \cr
+   teamID \tab integer \cr
+}
 }
 \description{
 \strong{Retrieve batting orders for a given MLB game}
 }
 \examples{
 \donttest{
-  mlb_batting_orders(game_pk=566001)
+  try(mlb_batting_orders(game_pk=566001))
 }
 }

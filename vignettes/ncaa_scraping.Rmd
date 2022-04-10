@@ -29,7 +29,7 @@ If you want to pull batting statistics for Vanderbilt for the 2013 season, you w
 ```{r}
 library(baseballr)
 library(dplyr)
-ncaa_scrape(736, 2013, "batting") %>%
+ncaa_scrape(736, 2021, "batting") %>%
   select(year:OBPct)
 ```
 
@@ -37,7 +37,7 @@ ncaa_scrape(736, 2013, "batting") %>%
 The same can be done for pitching, just by changing the `type` parameter:
 
 ```{r}
-ncaa_scrape(736, 2013, "pitching") %>%
+ncaa_scrape(736, 2021, "pitching") %>%
   select(year:ERA)
 ```
 

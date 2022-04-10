@@ -11,18 +11,18 @@ ncaa_baseball_pbp(game_info_url)
 found using the get_ncaa_schedule_info function.}
 }
 \value{
-A data frame with play-by-play data for an individual game.
-|col_name       |types     |
-|:--------------|:---------|
-|date           |character |
-|location       |character |
-|attendance     |logical   |
-|inning         |character |
-|inning_top_bot |character |
-|score          |character |
-|batting        |character |
-|fielding       |character |
-|description    |character |
+A data frame with play-by-play data for an individual game.\tabular{ll}{
+   col_name \tab types \cr
+   date \tab character \cr
+   location \tab character \cr
+   attendance \tab logical \cr
+   inning \tab character \cr
+   inning_top_bot \tab character \cr
+   score \tab character \cr
+   batting \tab character \cr
+   fielding \tab character \cr
+   description \tab character \cr
+}
 }
 \description{
 \strong{Get Play-By-Play Data for NCAA Baseball Games}

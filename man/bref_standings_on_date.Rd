@@ -17,17 +17,17 @@ including the date (FALSE, default) or rather standings for games played
 after the date}
 }
 \value{
-Returns a data frame of MLB standings
-|col_name |types     |
-|:--------|:---------|
-|Tm       |character |
-|W        |integer   |
-|L        |integer   |
-|W-L\%     |numeric   |
-|GB       |character |
-|RS       |integer   |
-|RA       |integer   |
-|pythW-L\% |numeric   |
+Returns a data frame of MLB standings\tabular{ll}{
+   col_name \tab types \cr
+   Tm \tab character \cr
+   W \tab integer \cr
+   L \tab integer \cr
+   W-L\% \tab numeric \cr
+   GB \tab character \cr
+   RS \tab integer \cr
+   RA \tab integer \cr
+   pythW-L\% \tab numeric \cr
+}
 }
 \description{
 This function allows you to scrape the standings from MLB for any date you choose.

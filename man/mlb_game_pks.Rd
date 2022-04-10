@@ -14,63 +14,63 @@ desired. See below for a reference of level ids.}
 }
 \value{
 Returns a data frame that includes game_pk values and additional
-information for games scheduled or played
-|col_name                       |types     |
-|:------------------------------|:---------|
-|game_pk                        |integer   |
-|link                           |character |
-|gameType                       |character |
-|season                         |character |
-|gameDate                       |character |
-|officialDate                   |character |
-|isTie                          |logical   |
-|gameNumber                     |integer   |
-|publicFacing                   |logical   |
-|doubleHeader                   |character |
-|gamedayType                    |character |
-|tiebreaker                     |character |
-|calendarEventID                |character |
-|seasonDisplay                  |character |
-|dayNight                       |character |
-|scheduledInnings               |integer   |
-|reverseHomeAwayStatus          |logical   |
-|inningBreakLength              |integer   |
-|gamesInSeries                  |integer   |
-|seriesGameNumber               |integer   |
-|seriesDescription              |character |
-|recordSource                   |character |
-|ifNecessary                    |character |
-|ifNecessaryDescription         |character |
-|status.abstractGameState       |character |
-|status.codedGameState          |character |
-|status.detailedState           |character |
-|status.statusCode              |character |
-|status.startTimeTBD            |logical   |
-|status.abstractGameCode        |character |
-|teams.away.score               |integer   |
-|teams.away.isWinner            |logical   |
-|teams.away.splitSquad          |logical   |
-|teams.away.seriesNumber        |integer   |
-|teams.away.leagueRecord.wins   |integer   |
-|teams.away.leagueRecord.losses |integer   |
-|teams.away.leagueRecord.pct    |character |
-|teams.away.team.id             |integer   |
-|teams.away.team.name           |character |
-|teams.away.team.link           |character |
-|teams.home.score               |integer   |
-|teams.home.isWinner            |logical   |
-|teams.home.splitSquad          |logical   |
-|teams.home.seriesNumber        |integer   |
-|teams.home.leagueRecord.wins   |integer   |
-|teams.home.leagueRecord.losses |integer   |
-|teams.home.leagueRecord.pct    |character |
-|teams.home.team.id             |integer   |
-|teams.home.team.name           |character |
-|teams.home.team.link           |character |
-|venue.id                       |integer   |
-|venue.name                     |character |
-|venue.link                     |character |
-|content.link                   |character |
+information for games scheduled or played\tabular{ll}{
+   col_name \tab types \cr
+   game_pk \tab integer \cr
+   link \tab character \cr
+   gameType \tab character \cr
+   season \tab character \cr
+   gameDate \tab character \cr
+   officialDate \tab character \cr
+   isTie \tab logical \cr
+   gameNumber \tab integer \cr
+   publicFacing \tab logical \cr
+   doubleHeader \tab character \cr
+   gamedayType \tab character \cr
+   tiebreaker \tab character \cr
+   calendarEventID \tab character \cr
+   seasonDisplay \tab character \cr
+   dayNight \tab character \cr
+   scheduledInnings \tab integer \cr
+   reverseHomeAwayStatus \tab logical \cr
+   inningBreakLength \tab integer \cr
+   gamesInSeries \tab integer \cr
+   seriesGameNumber \tab integer \cr
+   seriesDescription \tab character \cr
+   recordSource \tab character \cr
+   ifNecessary \tab character \cr
+   ifNecessaryDescription \tab character \cr
+   status.abstractGameState \tab character \cr
+   status.codedGameState \tab character \cr
+   status.detailedState \tab character \cr
+   status.statusCode \tab character \cr
+   status.startTimeTBD \tab logical \cr
+   status.abstractGameCode \tab character \cr
+   teams.away.score \tab integer \cr
+   teams.away.isWinner \tab logical \cr
+   teams.away.splitSquad \tab logical \cr
+   teams.away.seriesNumber \tab integer \cr
+   teams.away.leagueRecord.wins \tab integer \cr
+   teams.away.leagueRecord.losses \tab integer \cr
+   teams.away.leagueRecord.pct \tab character \cr
+   teams.away.team.id \tab integer \cr
+   teams.away.team.name \tab character \cr
+   teams.away.team.link \tab character \cr
+   teams.home.score \tab integer \cr
+   teams.home.isWinner \tab logical \cr
+   teams.home.splitSquad \tab logical \cr
+   teams.home.seriesNumber \tab integer \cr
+   teams.home.leagueRecord.wins \tab integer \cr
+   teams.home.leagueRecord.losses \tab integer \cr
+   teams.home.leagueRecord.pct \tab character \cr
+   teams.home.team.id \tab integer \cr
+   teams.home.team.name \tab character \cr
+   teams.home.team.link \tab character \cr
+   venue.id \tab integer \cr
+   venue.name \tab character \cr
+   venue.link \tab character \cr
+   content.link \tab character \cr
+}
 }
 \description{
 Find game_pk values for professional baseball games (major and minor leagues)
@@ -93,6 +93,6 @@ The following IDs can be passed to the level_ids argument:
 }
 \examples{
 \donttest{
-  mlb_game_pks("2019-04-29")
+  try(mlb_game_pks("2019-04-29"))
 }
 }

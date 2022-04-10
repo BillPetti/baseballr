@@ -162,13 +162,17 @@
 #'  |matchup.postOnThird.link       |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_pbp(game_pk = 575156)
+#'   try(mlb_pbp(game_pk = 632970))
 #' }
 
 mlb_pbp <- function(game_pk) {
   
-  api_call <- paste0("http://statsapi.mlb.com/api/v1.1/game/", game_pk, "/feed/live")
-  payload <- jsonlite::fromJSON(api_call, flatten = TRUE)
+  mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1.1/game/{game_pk}/feed/live"))
+  
+  payload <- mlb_endpoint %>% 
+    mlb_api_call() %>% 
+    jsonlite::toJSON() %>% 
+    jsonlite::fromJSON(flatten = TRUE)
   
   plays <- payload$liveData$plays$allPlays$playEvents %>% 
     dplyr::bind_rows()

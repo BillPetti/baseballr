@@ -14,12 +14,12 @@ the \code{run_expectancy_code()} function.}
 level. Defaults to 'plate appearance'.}
 }
 \value{
-Returns a data frame with the following columns
-|col_name                     |types     |
-|:----------------------------|:---------|
-|events                       |character |
-|linear_weights_above_average |numeric   |
-|linear_weights_above_outs    |numeric   |
+Returns a data frame with the following columns\tabular{ll}{
+   col_name \tab types \cr
+   events \tab character \cr
+   linear_weights_above_average \tab numeric \cr
+   linear_weights_above_outs \tab numeric \cr
+}
 }
 \description{
 This function allows a user to generate linear weight values for events using Baseball Savant data. Output includes both linear weights above average and linear weights above outs for home runs, triples, doubles, singles, walks, hit by pitches, and outs.

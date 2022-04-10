@@ -11,23 +11,23 @@ mlb_probables(game_pk)
 }
 \value{
 Returns a data frame that includes probable starting pitchers and
-the home plate umpire for the \code{game_pk} requested
-|col_name             |types     |
-|:--------------------|:---------|
-|game_pk              |integer   |
-|game_date            |character |
-|fullName             |character |
-|id                   |integer   |
-|team                 |character |
-|team_id              |integer   |
-|home_plate_full_name |character |
-|home_plate_id        |integer   |
+the home plate umpire for the \code{game_pk} requested\tabular{ll}{
+   col_name \tab types \cr
+   game_pk \tab integer \cr
+   game_date \tab character \cr
+   fullName \tab character \cr
+   id \tab integer \cr
+   team \tab character \cr
+   team_id \tab integer \cr
+   home_plate_full_name \tab character \cr
+   home_plate_id \tab integer \cr
+}
 }
 \description{
 \strong{Retrieve probable starters for a given MLB game}
 }
 \examples{
 \donttest{
-  mlb_probables(566001)
+  try(mlb_probables(566001))
 }
 }

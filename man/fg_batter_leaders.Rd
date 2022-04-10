@@ -20,298 +20,298 @@ fg_batter_leaders(x, y, league = "all", qual = "y", ind = 1, exc_p = TRUE)
 \item{exc_p}{(logical) Whether or not to exclude pitchers from the batter leaderboards. TRUE = exclude pitchers, FALSE = retain pitchers.}
 }
 \value{
-A data frame of batter data.
-|col_name           |types     |
-|:------------------|:---------|
-|playerid           |character |
-|#                  |character |
-|Season             |character |
-|Name               |character |
-|Team               |character |
-|Age                |numeric   |
-|G                  |numeric   |
-|AB                 |numeric   |
-|PA                 |numeric   |
-|H                  |numeric   |
-|1B                 |numeric   |
-|2B                 |numeric   |
-|3B                 |numeric   |
-|HR                 |numeric   |
-|R                  |numeric   |
-|RBI                |numeric   |
-|BB                 |numeric   |
-|IBB                |numeric   |
-|SO                 |numeric   |
-|HBP                |numeric   |
-|SF                 |numeric   |
-|SH                 |numeric   |
-|GDP                |numeric   |
-|SB                 |numeric   |
-|CS                 |numeric   |
-|AVG                |numeric   |
-|GB                 |numeric   |
-|FB                 |numeric   |
-|LD                 |numeric   |
-|IFFB               |numeric   |
-|Pitches            |numeric   |
-|Balls              |numeric   |
-|Strikes            |numeric   |
-|IFH                |numeric   |
-|BU                 |numeric   |
-|BUH                |numeric   |
-|BB_pct             |numeric   |
-|K_pct              |numeric   |
-|BB_K               |numeric   |
-|OBP                |numeric   |
-|SLG                |numeric   |
-|OPS                |numeric   |
-|ISO                |numeric   |
-|BABIP              |numeric   |
-|GB_FB              |numeric   |
-|LD_pct             |numeric   |
-|GB_pct             |numeric   |
-|FB_pct             |numeric   |
-|IFFB_pct           |numeric   |
-|HR_FB              |numeric   |
-|IFH_pct            |numeric   |
-|BUH_pct            |numeric   |
-|wOBA               |numeric   |
-|wRAA               |numeric   |
-|wRC                |numeric   |
-|Bat                |numeric   |
-|Fld                |numeric   |
-|Rep                |numeric   |
-|Pos                |numeric   |
-|RAR                |numeric   |
-|WAR                |numeric   |
-|Dol                |numeric   |
-|Spd                |numeric   |
-|wRC_plus           |numeric   |
-|WPA                |numeric   |
-|WPA_minus          |numeric   |
-|WPA_plus           |numeric   |
-|RE24               |numeric   |
-|REW                |numeric   |
-|pLI                |numeric   |
-|phLI               |numeric   |
-|PH                 |numeric   |
-|WPA_LI             |numeric   |
-|Clutch             |numeric   |
-|FBall_pct          |numeric   |
-|FBv                |numeric   |
-|SL_pct             |numeric   |
-|SLv                |numeric   |
-|CT_pct             |numeric   |
-|CTv                |numeric   |
-|CB_pct             |numeric   |
-|CBv                |numeric   |
-|CH_pct             |numeric   |
-|CHv                |numeric   |
-|SF_pct             |numeric   |
-|SFv                |numeric   |
-|KN_pct             |numeric   |
-|KNv                |numeric   |
-|XX_pct             |numeric   |
-|PO_pct             |numeric   |
-|wFB                |numeric   |
-|wSL                |numeric   |
-|wCT                |numeric   |
-|wCB                |numeric   |
-|wCH                |numeric   |
-|wSF                |numeric   |
-|wKN                |numeric   |
-|wFB_C              |numeric   |
-|wSL_C              |numeric   |
-|wCT_C              |numeric   |
-|wCB_C              |numeric   |
-|wCH_C              |numeric   |
-|wSF_C              |numeric   |
-|wKN_C              |numeric   |
-|O-Swing_pct        |numeric   |
-|Z-Swing_pct        |numeric   |
-|Swing_pct          |numeric   |
-|O-Contact_pct      |numeric   |
-|Z-Contact_pct      |numeric   |
-|Contact_pct        |numeric   |
-|Zone_pct           |numeric   |
-|F-Strike_pct       |numeric   |
-|SwStr_pct          |numeric   |
-|BsR                |numeric   |
-|FA_pct (sc)        |numeric   |
-|FT_pct (sc)        |numeric   |
-|FC_pct (sc)        |numeric   |
-|FS_pct (sc)        |numeric   |
-|FO_pct (sc)        |numeric   |
-|SI_pct (sc)        |numeric   |
-|SL_pct (sc)        |numeric   |
-|CU_pct (sc)        |numeric   |
-|KC_pct (sc)        |numeric   |
-|EP_pct (sc)        |numeric   |
-|CH_pct (sc)        |numeric   |
-|SC_pct (sc)        |numeric   |
-|KN_pct (sc)        |numeric   |
-|UN_pct (sc)        |numeric   |
-|vFA (sc)           |numeric   |
-|vFT (sc)           |numeric   |
-|vFC (sc)           |numeric   |
-|vFS (sc)           |numeric   |
-|vFO (sc)           |numeric   |
-|vSI (sc)           |numeric   |
-|vSL (sc)           |numeric   |
-|vCU (sc)           |numeric   |
-|vKC (sc)           |numeric   |
-|vEP (sc)           |numeric   |
-|vCH (sc)           |numeric   |
-|vSC (sc)           |numeric   |
-|vKN (sc)           |numeric   |
-|FA-X (sc)          |numeric   |
-|FT-X (sc)          |numeric   |
-|FC-X (sc)          |numeric   |
-|FS-X (sc)          |numeric   |
-|FO-X (sc)          |numeric   |
-|SI-X (sc)          |numeric   |
-|SL-X (sc)          |numeric   |
-|CU-X (sc)          |numeric   |
-|KC-X (sc)          |numeric   |
-|EP-X (sc)          |numeric   |
-|CH-X (sc)          |numeric   |
-|SC-X (sc)          |numeric   |
-|KN-X (sc)          |numeric   |
-|FA-Z (sc)          |numeric   |
-|FT-Z (sc)          |numeric   |
-|FC-Z (sc)          |numeric   |
-|FS-Z (sc)          |numeric   |
-|FO-Z (sc)          |numeric   |
-|SI-Z (sc)          |numeric   |
-|SL-Z (sc)          |numeric   |
-|CU-Z (sc)          |numeric   |
-|KC-Z (sc)          |numeric   |
-|EP-Z (sc)          |numeric   |
-|CH-Z (sc)          |numeric   |
-|SC-Z (sc)          |numeric   |
-|KN-Z (sc)          |numeric   |
-|wFA (sc)           |numeric   |
-|wFT (sc)           |numeric   |
-|wFC (sc)           |numeric   |
-|wFS (sc)           |numeric   |
-|wFO (sc)           |numeric   |
-|wSI (sc)           |numeric   |
-|wSL (sc)           |numeric   |
-|wCU (sc)           |numeric   |
-|wKC (sc)           |numeric   |
-|wEP (sc)           |numeric   |
-|wCH (sc)           |numeric   |
-|wSC (sc)           |numeric   |
-|wKN (sc)           |numeric   |
-|wFA_C (sc)         |numeric   |
-|wFT_C (sc)         |numeric   |
-|wFC_C (sc)         |numeric   |
-|wFS_C (sc)         |numeric   |
-|wFO_C (sc)         |numeric   |
-|wSI_C (sc)         |numeric   |
-|wSL_C (sc)         |numeric   |
-|wCU_C (sc)         |numeric   |
-|wKC_C (sc)         |numeric   |
-|wEP_C (sc)         |numeric   |
-|wCH_C (sc)         |numeric   |
-|wSC_C (sc)         |numeric   |
-|wKN_C (sc)         |numeric   |
-|O-Swing_pct (sc)   |numeric   |
-|Z-Swing_pct (sc)   |numeric   |
-|Swing_pct (sc)     |numeric   |
-|O-Contact_pct (sc) |numeric   |
-|Z-Contact_pct (sc) |numeric   |
-|Contact_pct (sc)   |numeric   |
-|Zone_pct (sc)      |numeric   |
-|Pace               |numeric   |
-|Def                |numeric   |
-|wSB                |numeric   |
-|UBR                |numeric   |
-|AgeRng             |numeric   |
-|Off                |numeric   |
-|Lg                 |numeric   |
-|wGDP               |numeric   |
-|Pull_pct           |numeric   |
-|Cent_pct           |numeric   |
-|Oppo_pct           |numeric   |
-|Soft_pct           |numeric   |
-|Med_pct            |numeric   |
-|Hard_pct           |numeric   |
-|TTO_pct            |numeric   |
-|CH_pct_pi          |numeric   |
-|CS_pct_pi          |numeric   |
-|CU_pct_pi          |numeric   |
-|FA_pct_pi          |numeric   |
-|FC_pct_pi          |numeric   |
-|FS_pct_pi          |numeric   |
-|KN_pct_pi          |numeric   |
-|SB_pct_pi          |numeric   |
-|SI_pct_pi          |numeric   |
-|SL_pct_pi          |numeric   |
-|XX_pct_pi          |numeric   |
-|vCH_pi             |numeric   |
-|vCS_pi             |numeric   |
-|vCU_pi             |numeric   |
-|vFA_pi             |numeric   |
-|vFC_pi             |numeric   |
-|vFS_pi             |numeric   |
-|vKN_pi             |numeric   |
-|vSB_pi             |numeric   |
-|vSI_pi             |numeric   |
-|vSL_pi             |numeric   |
-|vXX_pi             |numeric   |
-|CH-X_pi            |numeric   |
-|CS-X_pi            |numeric   |
-|CU-X_pi            |numeric   |
-|FA-X_pi            |numeric   |
-|FC-X_pi            |numeric   |
-|FS-X_pi            |numeric   |
-|KN-X_pi            |numeric   |
-|SB-X_pi            |numeric   |
-|SI-X_pi            |numeric   |
-|SL-X_pi            |numeric   |
-|XX-X_pi            |numeric   |
-|CH-Z_pi            |numeric   |
-|CS-Z_pi            |numeric   |
-|CU-Z_pi            |numeric   |
-|FA-Z_pi            |numeric   |
-|FC-Z_pi            |numeric   |
-|FS-Z_pi            |numeric   |
-|KN-Z_pi            |numeric   |
-|SB-Z_pi            |numeric   |
-|SI-Z_pi            |numeric   |
-|SL-Z_pi            |numeric   |
-|XX-Z_pi            |numeric   |
-|wCH_pi             |numeric   |
-|wCS_pi             |numeric   |
-|wCU_pi             |numeric   |
-|wFA_pi             |numeric   |
-|wFC_pi             |numeric   |
-|wFS_pi             |numeric   |
-|wKN_pi             |numeric   |
-|wSB_pi             |numeric   |
-|wSI_pi             |numeric   |
-|wSL_pi             |numeric   |
-|wXX_pi             |numeric   |
-|wCH_C_pi           |numeric   |
-|wCS_C_pi           |numeric   |
-|wCU_C_pi           |numeric   |
-|wFA_C_pi           |numeric   |
-|wFC_C_pi           |numeric   |
-|wFS_C_pi           |numeric   |
-|wKN_C_pi           |numeric   |
-|wSB_C_pi           |numeric   |
-|wSI_C_pi           |numeric   |
-|wSL_C_pi           |numeric   |
-|wXX_C_pi           |numeric   |
-|O-Swing_pct_pi     |numeric   |
-|Z-Swing_pct_pi     |numeric   |
-|Swing_pct_pi       |numeric   |
-|O-Contact_pct_pi   |numeric   |
-|Z-Contact_pct_pi   |numeric   |
-|Contact_pct_pi     |numeric   |
-|Zone_pct_pi        |numeric   |
-|Pace_pi            |numeric   |
+A data frame of batter data.\tabular{ll}{
+   col_name \tab types \cr
+   playerid \tab character \cr
+   # \tab character \cr
+   Season \tab character \cr
+   Name \tab character \cr
+   Team \tab character \cr
+   Age \tab numeric \cr
+   G \tab numeric \cr
+   AB \tab numeric \cr
+   PA \tab numeric \cr
+   H \tab numeric \cr
+   1B \tab numeric \cr
+   2B \tab numeric \cr
+   3B \tab numeric \cr
+   HR \tab numeric \cr
+   R \tab numeric \cr
+   RBI \tab numeric \cr
+   BB \tab numeric \cr
+   IBB \tab numeric \cr
+   SO \tab numeric \cr
+   HBP \tab numeric \cr
+   SF \tab numeric \cr
+   SH \tab numeric \cr
+   GDP \tab numeric \cr
+   SB \tab numeric \cr
+   CS \tab numeric \cr
+   AVG \tab numeric \cr
+   GB \tab numeric \cr
+   FB \tab numeric \cr
+   LD \tab numeric \cr
+   IFFB \tab numeric \cr
+   Pitches \tab numeric \cr
+   Balls \tab numeric \cr
+   Strikes \tab numeric \cr
+   IFH \tab numeric \cr
+   BU \tab numeric \cr
+   BUH \tab numeric \cr
+   BB_pct \tab numeric \cr
+   K_pct \tab numeric \cr
+   BB_K \tab numeric \cr
+   OBP \tab numeric \cr
+   SLG \tab numeric \cr
+   OPS \tab numeric \cr
+   ISO \tab numeric \cr
+   BABIP \tab numeric \cr
+   GB_FB \tab numeric \cr
+   LD_pct \tab numeric \cr
+   GB_pct \tab numeric \cr
+   FB_pct \tab numeric \cr
+   IFFB_pct \tab numeric \cr
+   HR_FB \tab numeric \cr
+   IFH_pct \tab numeric \cr
+   BUH_pct \tab numeric \cr
+   wOBA \tab numeric \cr
+   wRAA \tab numeric \cr
+   wRC \tab numeric \cr
+   Bat \tab numeric \cr
+   Fld \tab numeric \cr
+   Rep \tab numeric \cr
+   Pos \tab numeric \cr
+   RAR \tab numeric \cr
+   WAR \tab numeric \cr
+   Dol \tab numeric \cr
+   Spd \tab numeric \cr
+   wRC_plus \tab numeric \cr
+   WPA \tab numeric \cr
+   WPA_minus \tab numeric \cr
+   WPA_plus \tab numeric \cr
+   RE24 \tab numeric \cr
+   REW \tab numeric \cr
+   pLI \tab numeric \cr
+   phLI \tab numeric \cr
+   PH \tab numeric \cr
+   WPA_LI \tab numeric \cr
+   Clutch \tab numeric \cr
+   FBall_pct \tab numeric \cr
+   FBv \tab numeric \cr
+   SL_pct \tab numeric \cr
+   SLv \tab numeric \cr
+   CT_pct \tab numeric \cr
+   CTv \tab numeric \cr
+   CB_pct \tab numeric \cr
+   CBv \tab numeric \cr
+   CH_pct \tab numeric \cr
+   CHv \tab numeric \cr
+   SF_pct \tab numeric \cr
+   SFv \tab numeric \cr
+   KN_pct \tab numeric \cr
+   KNv \tab numeric \cr
+   XX_pct \tab numeric \cr
+   PO_pct \tab numeric \cr
+   wFB \tab numeric \cr
+   wSL \tab numeric \cr
+   wCT \tab numeric \cr
+   wCB \tab numeric \cr
+   wCH \tab numeric \cr
+   wSF \tab numeric \cr
+   wKN \tab numeric \cr
+   wFB_C \tab numeric \cr
+   wSL_C \tab numeric \cr
+   wCT_C \tab numeric \cr
+   wCB_C \tab numeric \cr
+   wCH_C \tab numeric \cr
+   wSF_C \tab numeric \cr
+   wKN_C \tab numeric \cr
+   O-Swing_pct \tab numeric \cr
+   Z-Swing_pct \tab numeric \cr
+   Swing_pct \tab numeric \cr
+   O-Contact_pct \tab numeric \cr
+   Z-Contact_pct \tab numeric \cr
+   Contact_pct \tab numeric \cr
+   Zone_pct \tab numeric \cr
+   F-Strike_pct \tab numeric \cr
+   SwStr_pct \tab numeric \cr
+   BsR \tab numeric \cr
+   FA_pct (sc) \tab numeric \cr
+   FT_pct (sc) \tab numeric \cr
+   FC_pct (sc) \tab numeric \cr
+   FS_pct (sc) \tab numeric \cr
+   FO_pct (sc) \tab numeric \cr
+   SI_pct (sc) \tab numeric \cr
+   SL_pct (sc) \tab numeric \cr
+   CU_pct (sc) \tab numeric \cr
+   KC_pct (sc) \tab numeric \cr
+   EP_pct (sc) \tab numeric \cr
+   CH_pct (sc) \tab numeric \cr
+   SC_pct (sc) \tab numeric \cr
+   KN_pct (sc) \tab numeric \cr
+   UN_pct (sc) \tab numeric \cr
+   vFA (sc) \tab numeric \cr
+   vFT (sc) \tab numeric \cr
+   vFC (sc) \tab numeric \cr
+   vFS (sc) \tab numeric \cr
+   vFO (sc) \tab numeric \cr
+   vSI (sc) \tab numeric \cr
+   vSL (sc) \tab numeric \cr
+   vCU (sc) \tab numeric \cr
+   vKC (sc) \tab numeric \cr
+   vEP (sc) \tab numeric \cr
+   vCH (sc) \tab numeric \cr
+   vSC (sc) \tab numeric \cr
+   vKN (sc) \tab numeric \cr
+   FA-X (sc) \tab numeric \cr
+   FT-X (sc) \tab numeric \cr
+   FC-X (sc) \tab numeric \cr
+   FS-X (sc) \tab numeric \cr
+   FO-X (sc) \tab numeric \cr
+   SI-X (sc) \tab numeric \cr
+   SL-X (sc) \tab numeric \cr
+   CU-X (sc) \tab numeric \cr
+   KC-X (sc) \tab numeric \cr
+   EP-X (sc) \tab numeric \cr
+   CH-X (sc) \tab numeric \cr
+   SC-X (sc) \tab numeric \cr
+   KN-X (sc) \tab numeric \cr
+   FA-Z (sc) \tab numeric \cr
+   FT-Z (sc) \tab numeric \cr
+   FC-Z (sc) \tab numeric \cr
+   FS-Z (sc) \tab numeric \cr
+   FO-Z (sc) \tab numeric \cr
+   SI-Z (sc) \tab numeric \cr
+   SL-Z (sc) \tab numeric \cr
+   CU-Z (sc) \tab numeric \cr
+   KC-Z (sc) \tab numeric \cr
+   EP-Z (sc) \tab numeric \cr
+   CH-Z (sc) \tab numeric \cr
+   SC-Z (sc) \tab numeric \cr
+   KN-Z (sc) \tab numeric \cr
+   wFA (sc) \tab numeric \cr
+   wFT (sc) \tab numeric \cr
+   wFC (sc) \tab numeric \cr
+   wFS (sc) \tab numeric \cr
+   wFO (sc) \tab numeric \cr
+   wSI (sc) \tab numeric \cr
+   wSL (sc) \tab numeric \cr
+   wCU (sc) \tab numeric \cr
+   wKC (sc) \tab numeric \cr
+   wEP (sc) \tab numeric \cr
+   wCH (sc) \tab numeric \cr
+   wSC (sc) \tab numeric \cr
+   wKN (sc) \tab numeric \cr
+   wFA_C (sc) \tab numeric \cr
+   wFT_C (sc) \tab numeric \cr
+   wFC_C (sc) \tab numeric \cr
+   wFS_C (sc) \tab numeric \cr
+   wFO_C (sc) \tab numeric \cr
+   wSI_C (sc) \tab numeric \cr
+   wSL_C (sc) \tab numeric \cr
+   wCU_C (sc) \tab numeric \cr
+   wKC_C (sc) \tab numeric \cr
+   wEP_C (sc) \tab numeric \cr
+   wCH_C (sc) \tab numeric \cr
+   wSC_C (sc) \tab numeric \cr
+   wKN_C (sc) \tab numeric \cr
+   O-Swing_pct (sc) \tab numeric \cr
+   Z-Swing_pct (sc) \tab numeric \cr
+   Swing_pct (sc) \tab numeric \cr
+   O-Contact_pct (sc) \tab numeric \cr
+   Z-Contact_pct (sc) \tab numeric \cr
+   Contact_pct (sc) \tab numeric \cr
+   Zone_pct (sc) \tab numeric \cr
+   Pace \tab numeric \cr
+   Def \tab numeric \cr
+   wSB \tab numeric \cr
+   UBR \tab numeric \cr
+   AgeRng \tab numeric \cr
+   Off \tab numeric \cr
+   Lg \tab numeric \cr
+   wGDP \tab numeric \cr
+   Pull_pct \tab numeric \cr
+   Cent_pct \tab numeric \cr
+   Oppo_pct \tab numeric \cr
+   Soft_pct \tab numeric \cr
+   Med_pct \tab numeric \cr
+   Hard_pct \tab numeric \cr
+   TTO_pct \tab numeric \cr
+   CH_pct_pi \tab numeric \cr
+   CS_pct_pi \tab numeric \cr
+   CU_pct_pi \tab numeric \cr
+   FA_pct_pi \tab numeric \cr
+   FC_pct_pi \tab numeric \cr
+   FS_pct_pi \tab numeric \cr
+   KN_pct_pi \tab numeric \cr
+   SB_pct_pi \tab numeric \cr
+   SI_pct_pi \tab numeric \cr
+   SL_pct_pi \tab numeric \cr
+   XX_pct_pi \tab numeric \cr
+   vCH_pi \tab numeric \cr
+   vCS_pi \tab numeric \cr
+   vCU_pi \tab numeric \cr
+   vFA_pi \tab numeric \cr
+   vFC_pi \tab numeric \cr
+   vFS_pi \tab numeric \cr
+   vKN_pi \tab numeric \cr
+   vSB_pi \tab numeric \cr
+   vSI_pi \tab numeric \cr
+   vSL_pi \tab numeric \cr
+   vXX_pi \tab numeric \cr
+   CH-X_pi \tab numeric \cr
+   CS-X_pi \tab numeric \cr
+   CU-X_pi \tab numeric \cr
+   FA-X_pi \tab numeric \cr
+   FC-X_pi \tab numeric \cr
+   FS-X_pi \tab numeric \cr
+   KN-X_pi \tab numeric \cr
+   SB-X_pi \tab numeric \cr
+   SI-X_pi \tab numeric \cr
+   SL-X_pi \tab numeric \cr
+   XX-X_pi \tab numeric \cr
+   CH-Z_pi \tab numeric \cr
+   CS-Z_pi \tab numeric \cr
+   CU-Z_pi \tab numeric \cr
+   FA-Z_pi \tab numeric \cr
+   FC-Z_pi \tab numeric \cr
+   FS-Z_pi \tab numeric \cr
+   KN-Z_pi \tab numeric \cr
+   SB-Z_pi \tab numeric \cr
+   SI-Z_pi \tab numeric \cr
+   SL-Z_pi \tab numeric \cr
+   XX-Z_pi \tab numeric \cr
+   wCH_pi \tab numeric \cr
+   wCS_pi \tab numeric \cr
+   wCU_pi \tab numeric \cr
+   wFA_pi \tab numeric \cr
+   wFC_pi \tab numeric \cr
+   wFS_pi \tab numeric \cr
+   wKN_pi \tab numeric \cr
+   wSB_pi \tab numeric \cr
+   wSI_pi \tab numeric \cr
+   wSL_pi \tab numeric \cr
+   wXX_pi \tab numeric \cr
+   wCH_C_pi \tab numeric \cr
+   wCS_C_pi \tab numeric \cr
+   wCU_C_pi \tab numeric \cr
+   wFA_C_pi \tab numeric \cr
+   wFC_C_pi \tab numeric \cr
+   wFS_C_pi \tab numeric \cr
+   wKN_C_pi \tab numeric \cr
+   wSB_C_pi \tab numeric \cr
+   wSI_C_pi \tab numeric \cr
+   wSL_C_pi \tab numeric \cr
+   wXX_C_pi \tab numeric \cr
+   O-Swing_pct_pi \tab numeric \cr
+   Z-Swing_pct_pi \tab numeric \cr
+   Swing_pct_pi \tab numeric \cr
+   O-Contact_pct_pi \tab numeric \cr
+   Z-Contact_pct_pi \tab numeric \cr
+   Contact_pct_pi \tab numeric \cr
+   Zone_pct_pi \tab numeric \cr
+   Pace_pi \tab numeric \cr
+}
 }
 \description{
 This function allows you to scrape all leaderboard statistics (basic and advanced) from FanGraphs.com.

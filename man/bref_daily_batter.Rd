@@ -12,45 +12,45 @@ bref_daily_batter(t1, t2)
 \item{t2}{Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"}
 }
 \value{
-Returns a data frame of batter performance
-|col_name |types     |
-|:--------|:---------|
-|bbref_id |character |
-|season   |integer   |
-|Name     |character |
-|Age      |numeric   |
-|Level    |character |
-|Team     |character |
-|G        |numeric   |
-|PA       |numeric   |
-|AB       |numeric   |
-|R        |numeric   |
-|H        |numeric   |
-|X1B      |numeric   |
-|X2B      |numeric   |
-|X3B      |numeric   |
-|HR       |numeric   |
-|RBI      |numeric   |
-|BB       |numeric   |
-|IBB      |numeric   |
-|uBB      |numeric   |
-|SO       |numeric   |
-|HBP      |numeric   |
-|SH       |numeric   |
-|SF       |numeric   |
-|GDP      |numeric   |
-|SB       |numeric   |
-|CS       |numeric   |
-|BA       |numeric   |
-|OBP      |numeric   |
-|SLG      |numeric   |
-|OPS      |numeric   |
+Returns a data frame of batter performance\tabular{ll}{
+   col_name \tab types \cr
+   bbref_id \tab character \cr
+   season \tab integer \cr
+   Name \tab character \cr
+   Age \tab numeric \cr
+   Level \tab character \cr
+   Team \tab character \cr
+   G \tab numeric \cr
+   PA \tab numeric \cr
+   AB \tab numeric \cr
+   R \tab numeric \cr
+   H \tab numeric \cr
+   X1B \tab numeric \cr
+   X2B \tab numeric \cr
+   X3B \tab numeric \cr
+   HR \tab numeric \cr
+   RBI \tab numeric \cr
+   BB \tab numeric \cr
+   IBB \tab numeric \cr
+   uBB \tab numeric \cr
+   SO \tab numeric \cr
+   HBP \tab numeric \cr
+   SH \tab numeric \cr
+   SF \tab numeric \cr
+   GDP \tab numeric \cr
+   SB \tab numeric \cr
+   CS \tab numeric \cr
+   BA \tab numeric \cr
+   OBP \tab numeric \cr
+   SLG \tab numeric \cr
+   OPS \tab numeric \cr
+}
 }
 \description{
 This function allows you to scrape basic batter statistics over a custom time frame. Data is sourced from Baseball-Reference.com.
 }
 \examples{
 \donttest{
-  bref_daily_batter("2015-05-10", "2015-06-20")
+  try(bref_daily_batter("2015-05-10", "2015-06-20"))
 }
 }

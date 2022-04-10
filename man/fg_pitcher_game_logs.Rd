@@ -12,143 +12,143 @@ fg_pitcher_game_logs(playerid, year = 2017)
 \item{year}{The season for which game logs should be returned (use the YYYY format)}
 }
 \value{
-A data frame of pitcher game logs.
-|col_name   |types     |
-|:----------|:---------|
-|PlayerName |character |
-|playerid   |integer   |
-|Date       |character |
-|Opp        |character |
-|teamid     |integer   |
-|season     |integer   |
-|Team       |character |
-|HomeAway   |character |
-|Age        |integer   |
-|W          |numeric   |
-|L          |numeric   |
-|ERA        |numeric   |
-|G          |numeric   |
-|GS         |numeric   |
-|CG         |numeric   |
-|ShO        |numeric   |
-|SV         |numeric   |
-|HLD        |numeric   |
-|BS         |numeric   |
-|IP         |numeric   |
-|TBF        |numeric   |
-|H          |numeric   |
-|R          |numeric   |
-|ER         |numeric   |
-|HR         |numeric   |
-|BB         |numeric   |
-|IBB        |numeric   |
-|HBP        |numeric   |
-|WP         |numeric   |
-|BK         |numeric   |
-|SO         |numeric   |
-|K/9        |numeric   |
-|BB/9       |numeric   |
-|H/9        |numeric   |
-|K/BB       |numeric   |
-|IFH\%       |numeric   |
-|BUH\%       |numeric   |
-|GB         |numeric   |
-|FB         |numeric   |
-|LD         |numeric   |
-|IFFB       |numeric   |
-|IFH        |numeric   |
-|BU         |numeric   |
-|BUH        |numeric   |
-|K\%         |numeric   |
-|BB\%        |numeric   |
-|K-BB\%      |numeric   |
-|SIERA      |numeric   |
-|HR/9       |numeric   |
-|AVG        |numeric   |
-|WHIP       |numeric   |
-|BABIP      |numeric   |
-|LOB\%       |numeric   |
-|FIP        |numeric   |
-|E-F        |numeric   |
-|xFIP       |numeric   |
-|ERA-       |numeric   |
-|FIP-       |numeric   |
-|xFIP-      |numeric   |
-|GB/FB      |numeric   |
-|LD\%        |numeric   |
-|GB\%        |numeric   |
-|FB\%        |numeric   |
-|IFFB\%      |numeric   |
-|HR/FB      |numeric   |
-|RS         |numeric   |
-|RS/9       |numeric   |
-|Balls      |numeric   |
-|Strikes    |numeric   |
-|Pitches    |numeric   |
-|WPA        |numeric   |
-|-WPA       |numeric   |
-|+WPA       |numeric   |
-|RE24       |numeric   |
-|REW        |numeric   |
-|pLI        |numeric   |
-|inLI       |numeric   |
-|gmLI       |numeric   |
-|exLI       |numeric   |
-|Pulls      |numeric   |
-|Games      |numeric   |
-|WPA/LI     |numeric   |
-|Clutch     |numeric   |
-|SD         |numeric   |
-|MD         |numeric   |
-|FB\%1       |numeric   |
-|FBv        |numeric   |
-|SL\%        |numeric   |
-|SLv        |numeric   |
-|CT\%        |numeric   |
-|CTv        |numeric   |
-|CB\%        |numeric   |
-|CBv        |numeric   |
-|CH\%        |numeric   |
-|CHv        |numeric   |
-|XX\%        |numeric   |
-|PO\%        |numeric   |
-|wFB        |numeric   |
-|wSL        |numeric   |
-|wCT        |numeric   |
-|wCB        |numeric   |
-|wCH        |numeric   |
-|wFB/C      |numeric   |
-|wSL/C      |numeric   |
-|wCT/C      |numeric   |
-|wCB/C      |numeric   |
-|wCH/C      |numeric   |
-|O-Swing\%   |numeric   |
-|Z-Swing\%   |numeric   |
-|Swing\%     |numeric   |
-|O-Contact\% |numeric   |
-|Z-Contact\% |numeric   |
-|Contact\%   |numeric   |
-|Zone\%      |numeric   |
-|F-Strike\%  |numeric   |
-|SwStr\%     |numeric   |
-|Pull       |numeric   |
-|Cent       |numeric   |
-|Oppo       |numeric   |
-|Soft       |numeric   |
-|Med        |numeric   |
-|Hard       |numeric   |
-|bipCount   |numeric   |
-|Pull\%      |numeric   |
-|Cent\%      |numeric   |
-|Oppo\%      |numeric   |
-|Soft\%      |numeric   |
-|Med\%       |numeric   |
-|Hard\%      |numeric   |
-|tERA       |numeric   |
-|GSv2       |numeric   |
-|Events     |numeric   |
-|gamedate   |character |
-|dh         |integer   |
+A data frame of pitcher game logs.\tabular{ll}{
+   col_name \tab types \cr
+   PlayerName \tab character \cr
+   playerid \tab integer \cr
+   Date \tab character \cr
+   Opp \tab character \cr
+   teamid \tab integer \cr
+   season \tab integer \cr
+   Team \tab character \cr
+   HomeAway \tab character \cr
+   Age \tab integer \cr
+   W \tab numeric \cr
+   L \tab numeric \cr
+   ERA \tab numeric \cr
+   G \tab numeric \cr
+   GS \tab numeric \cr
+   CG \tab numeric \cr
+   ShO \tab numeric \cr
+   SV \tab numeric \cr
+   HLD \tab numeric \cr
+   BS \tab numeric \cr
+   IP \tab numeric \cr
+   TBF \tab numeric \cr
+   H \tab numeric \cr
+   R \tab numeric \cr
+   ER \tab numeric \cr
+   HR \tab numeric \cr
+   BB \tab numeric \cr
+   IBB \tab numeric \cr
+   HBP \tab numeric \cr
+   WP \tab numeric \cr
+   BK \tab numeric \cr
+   SO \tab numeric \cr
+   K/9 \tab numeric \cr
+   BB/9 \tab numeric \cr
+   H/9 \tab numeric \cr
+   K/BB \tab numeric \cr
+   IFH\% \tab numeric \cr
+   BUH\% \tab numeric \cr
+   GB \tab numeric \cr
+   FB \tab numeric \cr
+   LD \tab numeric \cr
+   IFFB \tab numeric \cr
+   IFH \tab numeric \cr
+   BU \tab numeric \cr
+   BUH \tab numeric \cr
+   K\% \tab numeric \cr
+   BB\% \tab numeric \cr
+   K-BB\% \tab numeric \cr
+   SIERA \tab numeric \cr
+   HR/9 \tab numeric \cr
+   AVG \tab numeric \cr
+   WHIP \tab numeric \cr
+   BABIP \tab numeric \cr
+   LOB\% \tab numeric \cr
+   FIP \tab numeric \cr
+   E-F \tab numeric \cr
+   xFIP \tab numeric \cr
+   ERA- \tab numeric \cr
+   FIP- \tab numeric \cr
+   xFIP- \tab numeric \cr
+   GB/FB \tab numeric \cr
+   LD\% \tab numeric \cr
+   GB\% \tab numeric \cr
+   FB\% \tab numeric \cr
+   IFFB\% \tab numeric \cr
+   HR/FB \tab numeric \cr
+   RS \tab numeric \cr
+   RS/9 \tab numeric \cr
+   Balls \tab numeric \cr
+   Strikes \tab numeric \cr
+   Pitches \tab numeric \cr
+   WPA \tab numeric \cr
+   -WPA \tab numeric \cr
+   +WPA \tab numeric \cr
+   RE24 \tab numeric \cr
+   REW \tab numeric \cr
+   pLI \tab numeric \cr
+   inLI \tab numeric \cr
+   gmLI \tab numeric \cr
+   exLI \tab numeric \cr
+   Pulls \tab numeric \cr
+   Games \tab numeric \cr
+   WPA/LI \tab numeric \cr
+   Clutch \tab numeric \cr
+   SD \tab numeric \cr
+   MD \tab numeric \cr
+   FB\%1 \tab numeric \cr
+   FBv \tab numeric \cr
+   SL\% \tab numeric \cr
+   SLv \tab numeric \cr
+   CT\% \tab numeric \cr
+   CTv \tab numeric \cr
+   CB\% \tab numeric \cr
+   CBv \tab numeric \cr
+   CH\% \tab numeric \cr
+   CHv \tab numeric \cr
+   XX\% \tab numeric \cr
+   PO\% \tab numeric \cr
+   wFB \tab numeric \cr
+   wSL \tab numeric \cr
+   wCT \tab numeric \cr
+   wCB \tab numeric \cr
+   wCH \tab numeric \cr
+   wFB/C \tab numeric \cr
+   wSL/C \tab numeric \cr
+   wCT/C \tab numeric \cr
+   wCB/C \tab numeric \cr
+   wCH/C \tab numeric \cr
+   O-Swing\% \tab numeric \cr
+   Z-Swing\% \tab numeric \cr
+   Swing\% \tab numeric \cr
+   O-Contact\% \tab numeric \cr
+   Z-Contact\% \tab numeric \cr
+   Contact\% \tab numeric \cr
+   Zone\% \tab numeric \cr
+   F-Strike\% \tab numeric \cr
+   SwStr\% \tab numeric \cr
+   Pull \tab numeric \cr
+   Cent \tab numeric \cr
+   Oppo \tab numeric \cr
+   Soft \tab numeric \cr
+   Med \tab numeric \cr
+   Hard \tab numeric \cr
+   bipCount \tab numeric \cr
+   Pull\% \tab numeric \cr
+   Cent\% \tab numeric \cr
+   Oppo\% \tab numeric \cr
+   Soft\% \tab numeric \cr
+   Med\% \tab numeric \cr
+   Hard\% \tab numeric \cr
+   tERA \tab numeric \cr
+   GSv2 \tab numeric \cr
+   Events \tab numeric \cr
+   gamedate \tab character \cr
+   dh \tab integer \cr
+}
 }
 \description{
 This function allows you to scrape game logs by year for a pitcher from FanGraphs.com.

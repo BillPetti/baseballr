@@ -54,7 +54,7 @@
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'   fg_milb_batter_game_logs(playerid = "sa917940", year=2018)
+#'   fg_milb_batter_game_logs(playerid = "sa3010868", year=2021)
 #' }
 
 fg_milb_batter_game_logs <- function(playerid, year) {

@@ -1,47 +1,134 @@
-# baseballr 1.0.2
-- Hotfix ```ncaa_schedule_info``` for incorrect game urls. 
+# baseballr 1.1.0
+## ~82 MLB Stats API functions added
+|name                                   |file                               |
+|:--------------------------------------|:----------------------------------|
+|```mlb_all_star_ballots()```           |R/mlb_all_star_ballots.R           |
+|```mlb_all_star_final_vote()```        |R/mlb_all_star_final_vote.R        |
+|```mlb_all_star_write_ins()```         |R/mlb_all_star_write_ins.R         |
+|```mlb_attendance()```                 |R/mlb_attendance.R                 |
+|```mlb_awards()```                     |R/mlb_awards.R                     |
+|```mlb_awards_recipient()```           |R/mlb_awards_recipient.R           |
+|```mlb_baseball_stats()```             |R/mlb_baseball_stats.R             |
+|```mlb_conferences()```                |R/mlb_conferences.R                |
+|```mlb_divisions()```                  |R/mlb_divisions.R                  |
+|```mlb_draft_latest()```               |R/mlb_draft_latest.R               |
+|```mlb_draft_prospects()```            |R/mlb_draft_prospects.R            |
+|```mlb_event_types()```                |R/mlb_event_types.R                |
+|```mlb_fielder_detail_types()```       |R/mlb_fielder_detail_types.R       |
+|```mlb_game_changes()```               |R/mlb_game_changes.R               |
+|```mlb_game_content()```               |R/mlb_game_content.R               |
+|```mlb_game_context_metrics()```       |R/mlb_game_context_metrics.R       |
+|```mlb_game_linescore()```             |R/mlb_game_linescore.R             |
+|```mlb_game_pace()```                  |R/mlb_game_pace.R                  |
+|```mlb_game_status_codes()```          |R/mlb_game_status_codes.R          |
+|```mlb_game_timecodes()```             |R/mlb_game_timecodes.R             |
+|```mlb_game_types()```                 |R/mlb_game_types.R                 |
+|```mlb_game_wp()```                    |R/mlb_game_wp.R                    |
+|```mlb_high_low_stats()```             |R/mlb_high_low_stats.R             |
+|```mlb_high_low_types()```             |R/mlb_high_low_types.R             |
+|```mlb_hit_trajectories()```           |R/mlb_hit_trajectories.R           |
+|```mlb_homerun_derby()```              |R/mlb_homerun_derby.R              |
+|```mlb_homerun_derby_bracket()```      |R/mlb_homerun_derby.R              |
+|```mlb_homerun_derby_players()```      |R/mlb_homerun_derby.R              |
+|```mlb_job_types()```                  |R/mlb_job_types.R                  |
+|```mlb_jobs()```                       |R/mlb_jobs.R                       |
+|```mlb_jobs_datacasters()```           |R/mlb_jobs_datacasters.R           |
+|```mlb_jobs_official_scorers()```      |R/mlb_jobs_official_scorers.R      |
+|```mlb_jobs_umpires()```               |R/mlb_jobs_umpires.R               |
+|```mlb_languages()```                  |R/mlb_languages.R                  |
+|```mlb_league()```                     |R/mlb_league.R                     |
+|```mlb_league_leader_types()```        |R/mlb_league_leader_types.R        |
+|```mlb_logical_events()```             |R/mlb_logical_events.R             |
+|```mlb_metrics()```                    |R/mlb_metrics.R                    |
+|```mlb_pbp_diff()```                   |R/mlb_pbp_diff.R                   |
+|```mlb_people()```                     |R/mlb_people.R                     |
+|```mlb_people_free_agents()```         |R/mlb_people_free_agents.R         |
+|```mlb_pitch_codes()```                |R/mlb_pitch_codes.R                |
+|```mlb_pitch_types()```                |R/mlb_pitch_types.R                |
+|```mlb_player_game_stats()```          |R/mlb_player_game_stats.R          |
+|```mlb_player_game_stats_current()```  |R/mlb_player_game_stats_current.R  |
+|```mlb_player_status_codes()```        |R/mlb_player_status_codes.R        |
+|```mlb_positions()```                  |R/mlb_positions.R                  |
+|```mlb_probables()```                  |R/mlb_probables.R                  |
+|```mlb_review_reasons()```             |R/mlb_review_reasons.R             |
+|```mlb_roster_types()```               |R/mlb_roster_types.R               |
+|```mlb_rosters()```                    |R/mlb_rosters.R                    |
+|```mlb_runner_detail_types()```        |R/mlb_runner_detail_types.R        |
+|```mlb_schedule_event_types()```       |R/mlb_schedule_event_types.R       |
+|```mlb_schedule_games_tied()```        |R/mlb_schedule_games_tied.R        |
+|```mlb_schedule_postseason()```        |R/mlb_schedule_postseason.R        |
+|```mlb_schedule_postseason_series()``` |R/mlb_schedule_postseason_series.R |
+|```mlb_seasons()```                    |R/mlb_seasons.R                    |
+|```mlb_seasons_all()```                |R/mlb_seasons_all.R                |
+|```mlb_situation_codes()```            |R/mlb_situation_codes.R            |
+|```mlb_sky()```                        |R/mlb_sky.R                        |
+|```mlb_sports()```                     |R/mlb_sports.R                     |
+|```mlb_sports_info()```                |R/mlb_sports_info.R                |
+|```mlb_sports_players()```             |R/mlb_sports_players.R             |
+|```mlb_standings()```                  |R/mlb_standings.R                  |
+|```mlb_standings_types()```            |R/mlb_standings_types.R            |
+|```mlb_stat_groups()```                |R/mlb_stat_groups.R                |
+|```mlb_stat_types()```                 |R/mlb_stat_types.R                 |
+|```mlb_stats()```                      |R/mlb_stats.R                      |
+|```mlb_stats_leaders()```              |R/mlb_stats_leaders.R              |
+|```mlb_team_affiliates()```            |R/mlb_team_affiliates.R            |
+|```mlb_team_alumni()```                |R/mlb_team_alumni.R                |
+|```mlb_team_coaches()```               |R/mlb_team_coaches.R               |
+|```mlb_team_history()```               |R/mlb_team_history.R               |
+|```mlb_team_info()```                  |R/mlb_team_info.R                  |
+|```mlb_team_leaders()```               |R/mlb_team_leaders.R               |
+|```mlb_team_personnel()```             |R/mlb_team_personnel.R             |
+|```mlb_team_stats()```                 |R/mlb_team_stats.R                 |
+|```mlb_teams()```                      |R/mlb_teams.R                      |
+|```mlb_teams_stats()```                |R/mlb_teams_stats.R                |
+|```mlb_teams_stats_leaders()```        |R/mlb_teams_stats_leaders.R        |
+|```mlb_venues()```                     |R/mlb_venues.R                     |
+|```mlb_wind_direction_codes()```       |R/mlb_wind_direction_codes.R       |
+
+  * baseballr, as of v1.1.0, is a full MLB Stats API wrapper with access to 85+ endpoints
+  
 
 # baseballr 1.0.1
 - Update ```ncaa_season_id_lu``` for 2022 season. 
 
 # baseballr 1.0.0
 ## Function Naming Convention Change
-|legacy_name                        |new_name                  |file                                |
-|:----------------------------------|:-------------------------|:-----------------------------------|
-|daily_batter_bref                  |bref_daily_batter         |R/bref_daily_batter.R               |
-|daily_pitcher_bref                 |bref_daily_pitcher        |R/bref_daily_pitcher.R              |
-|standings_on_date_bref             |bref_standings_on_date    |R/bref_standings_on_date.R          |
-|team_results_bref                  |bref_team_results         |R/bref_team_results.R               |
-|get_chadwick_lu                    |chadwick_player_lu        |R/chadwick_player_lu.R              |
-|batter_game_logs_fg                |fg_batter_game_logs       |R/fg_batter_game_logs.R             |
-|fg_bat_leaders                     |fg_batter_leaders         |R/fg_batter_players.R               |
-|milb_batter_game_logs_fg           |fg_milb_batter_game_logs  |R/fg_milb_batter_game_logs.R        |
-|milb_pitcher_game_logs_fg          |fg_milb_pitcher_game_logs |R/fg_milb_pitcher_game_logs.R       |
-|pitcher_game_logs_fg               |fg_pitcher_game_logs      |R/fg_pitcher_game_logs.R            |
-|fg_pitch_leaders                   |fg_pitcher_leaders        |R/fg_pitcher_leaders.R              |
-|get_batting_orders                 |mlb_batting_orders        |R/mlb_batting_orders.R              |
-|get_draft_mlb                      |mlb_draft                 |R/mlb_draft.R                       |
-|get_game_info_mlb                  |mlb_game_info             |R/mlb_game_info.R                   |
-|get_game_pks_mlb                   |mlb_game_pks              |R/mlb_game_pks.R                    |
-|get_pbp_mlb                        |mlb_pbp                   |R/mlb_pbp.R                         |
-|get_probables_mlb                  |mlb_probables             |R/mlb_probables.R                   |
-|get_ncaa_baseball_pbp              |ncaa_baseball_pbp         |R/ncaa_baseball_pbp.R               |
-|get_ncaa_baseball_roster           |ncaa_baseball_roster      |R/ncaa_baseball_roster.R            |
-|get_ncaa_game_logs                 |ncaa_game_logs            |R/ncaa_game_logs.R                  |
-|get_ncaa_lineups                   |ncaa_lineups              |R/ncaa_lineups.R                    |
-|get_ncaa_park_factor               |ncaa_park_factor          |R/ncaa_park_factor.R                |
-|get_ncaa_schedule_info             |ncaa_schedule_info        |R/ncaa_schedule_info.R              |
-|school_id_lu                       |ncaa_school_id_lu         |R/ncaa_school_id_lu.R               |
-|get_retrosheet_data                |retrosheet_data           |R/retrosheet_data.R                 |
-|get_game_info_sup_petti            |load_game_info_sup        |R/load_game_info_sup.R              |
-|get_umpire_ids_petti               |load_umpire_ids           |R/load_umpire_ids.R                 |
-|scrape_savant_leaderboards         |statcast_leaderboards     |R/sc_scrape_statcast_leaderboards.R |
-|scrape_statcast_savant             |statcast_search           |R/sc_scrape_statcast.R              |
-|scrape_statcast_savant_batter      |statcast_search_batters   |R/sc_scrape_statcast.R              |
-|scrape_statcast_savant_batter_all  |statcast_search_batters   |R/sc_scrape_statcast.R              |
-|scrape_statcast_savant_pitcher     |statcast_search_pitchers  |R/sc_scrape_statcast.R              |
-|scrape_statcast_savant_pitcher_all |statcast_search_pitchers  |R/sc_scrape_statcast.R              |
-
+|legacy_name                        |new_name                          |file                                |
+|:----------------------------------|:---------------------------------|:-----------------------------------|
+|daily_batter_bref                  |```bref_daily_batter()```         |R/bref_daily_batter.R               |
+|daily_pitcher_bref                 |```bref_daily_pitcher()```        |R/bref_daily_pitcher.R              |
+|standings_on_date_bref             |```bref_standings_on_date()```    |R/bref_standings_on_date.R          |
+|team_results_bref                  |```bref_team_results()```         |R/bref_team_results.R               |
+|get_chadwick_lu                    |```chadwick_player_lu()```        |R/chadwick_player_lu.R              |
+|batter_game_logs_fg                |```fg_batter_game_logs()```       |R/fg_batter_game_logs.R             |
+|fg_bat_leaders                     |```fg_batter_leaders()```         |R/fg_batter_players.R               |
+|milb_batter_game_logs_fg           |```fg_milb_batter_game_logs()```  |R/fg_milb_batter_game_logs.R        |
+|milb_pitcher_game_logs_fg          |```fg_milb_pitcher_game_logs()``` |R/fg_milb_pitcher_game_logs.R       |
+|pitcher_game_logs_fg               |```fg_pitcher_game_logs()```      |R/fg_pitcher_game_logs.R            |
+|fg_pitch_leaders                   |```fg_pitcher_leaders()```        |R/fg_pitcher_leaders.R              |
+|get_batting_orders                 |```mlb_batting_orders()```        |R/mlb_batting_orders.R              |
+|get_draft_mlb                      |```mlb_draft()```                 |R/mlb_draft.R                       |
+|get_game_info_mlb                  |```mlb_game_info()```             |R/mlb_game_info.R                   |
+|get_game_pks_mlb                   |```mlb_game_pks()```              |R/mlb_game_pks.R                    |
+|get_pbp_mlb                        |```mlb_pbp()```                   |R/mlb_pbp.R                         |
+|get_probables_mlb                  |```mlb_probables()```             |R/mlb_probables.R                   |
+|get_ncaa_baseball_pbp              |```ncaa_baseball_pbp()```         |R/ncaa_baseball_pbp.R               |
+|get_ncaa_baseball_roster           |```ncaa_baseball_roster()```      |R/ncaa_baseball_roster.R            |
+|get_ncaa_game_logs                 |```ncaa_game_logs()```            |R/ncaa_game_logs.R                  |
+|get_ncaa_lineups                   |```ncaa_lineups()```              |R/ncaa_lineups.R                    |
+|get_ncaa_park_factor               |```ncaa_park_factor()```          |R/ncaa_park_factor.R                |
+|get_ncaa_schedule_info             |```ncaa_schedule_info()```        |R/ncaa_schedule_info.R              |
+|school_id_lu                       |```ncaa_school_id_lu()```         |R/ncaa_school_id_lu.R               |
+|get_retrosheet_data                |```retrosheet_data()```           |R/retrosheet_data.R                 |
+|get_game_info_sup_petti            |```load_game_info_sup()```        |R/load_game_info_sup.R              |
+|get_umpire_ids_petti               |```load_umpire_ids()```           |R/load_umpire_ids.R                 |
+|scrape_savant_leaderboards         |```statcast_leaderboards()```     |R/sc_scrape_statcast_leaderboards.R |
+|scrape_statcast_savant             |```statcast_search()```           |R/sc_scrape_statcast.R              |
+|scrape_statcast_savant_batter      |```statcast_search_batters()```   |R/sc_scrape_statcast.R              |
+|scrape_statcast_savant_batter_all  |```statcast_search_batters()```   |R/sc_scrape_statcast.R              |
+|scrape_statcast_savant_pitcher     |```statcast_search_pitchers()```  |R/sc_scrape_statcast.R              |
+|scrape_statcast_savant_pitcher_all |```statcast_search_pitchers()```  |R/sc_scrape_statcast.R              |
+``
 * `mlb_schedules()` function added
 * Removed `viz_gb_on_period()` from package. See `data-raw/` for the last updated script.
 * Removed GameDay2 MLB API functions, `batter_boxscore()` and `pitcher_boxscore()`, from package. See `data-raw/` for the last updated script.

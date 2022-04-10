@@ -80,7 +80,7 @@
 #' 17 = Winter League  
 #' @export
 #' @examples \donttest{
-#'   mlb_game_pks("2019-04-29")
+#'   try(mlb_game_pks("2019-04-29"))
 #' }
 
 mlb_game_pks <- function(date,

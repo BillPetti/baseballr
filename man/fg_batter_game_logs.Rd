@@ -210,6 +210,7 @@ A data frame of batter game logs.
 |pfxZ-Contact\% |numeric   |
 |pfxContact\%   |numeric   |
 |pfxZone\%      |numeric   |
+|pfxPace       |numeric   |
 |piCH\%         |numeric   |
 |piCS\%         |numeric   |
 |piCU\%         |numeric   |
