@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,7 +103,7 @@
   </a>
 </li>
 <li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/billpetti/baseballR/">
+  <a class="external-link nav-link" href="https://github.com/billpetti/baseballr/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -116,7 +116,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1><strong>Scrape Batter Performance Data Over a Custom Time Frame</strong></h1>
-      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballR/blob/master/R/bref_daily_batter.R" class="external-link"><code>R/bref_daily_batter.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballr/blob/master/R/bref_daily_batter.R" class="external-link"><code>R/bref_daily_batter.R</code></a></small>
       <div class="d-none name"><code>bref_daily_batter.Rd</code></div>
     </div>
 
@@ -138,45 +138,12 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Returns a data frame of batter performance
-|col_name |types     |
-|:--------|:---------|
-|bbref_id |character |
-|season   |integer   |
-|Name     |character |
-|Age      |numeric   |
-|Level    |character |
-|Team     |character |
-|G        |numeric   |
-|PA       |numeric   |
-|AB       |numeric   |
-|R        |numeric   |
-|H        |numeric   |
-|X1B      |numeric   |
-|X2B      |numeric   |
-|X3B      |numeric   |
-|HR       |numeric   |
-|RBI      |numeric   |
-|BB       |numeric   |
-|IBB      |numeric   |
-|uBB      |numeric   |
-|SO       |numeric   |
-|HBP      |numeric   |
-|SH       |numeric   |
-|SF       |numeric   |
-|GDP      |numeric   |
-|SB       |numeric   |
-|CS       |numeric   |
-|BA       |numeric   |
-|OBP      |numeric   |
-|SLG      |numeric   |
-|OPS      |numeric   |</p>
-    </div>
+    <p>Returns a data frame of batter performance</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>bbref_id</td><td>character</td></tr><tr><td>season</td><td>integer</td></tr><tr><td>Name</td><td>character</td></tr><tr><td>Age</td><td>numeric</td></tr><tr><td>Level</td><td>character</td></tr><tr><td>Team</td><td>character</td></tr><tr><td>G</td><td>numeric</td></tr><tr><td>PA</td><td>numeric</td></tr><tr><td>AB</td><td>numeric</td></tr><tr><td>R</td><td>numeric</td></tr><tr><td>H</td><td>numeric</td></tr><tr><td>X1B</td><td>numeric</td></tr><tr><td>X2B</td><td>numeric</td></tr><tr><td>X3B</td><td>numeric</td></tr><tr><td>HR</td><td>numeric</td></tr><tr><td>RBI</td><td>numeric</td></tr><tr><td>BB</td><td>numeric</td></tr><tr><td>IBB</td><td>numeric</td></tr><tr><td>uBB</td><td>numeric</td></tr><tr><td>SO</td><td>numeric</td></tr><tr><td>HBP</td><td>numeric</td></tr><tr><td>SH</td><td>numeric</td></tr><tr><td>SF</td><td>numeric</td></tr><tr><td>GDP</td><td>numeric</td></tr><tr><td>SB</td><td>numeric</td></tr><tr><td>CS</td><td>numeric</td></tr><tr><td>BA</td><td>numeric</td></tr><tr><td>OBP</td><td>numeric</td></tr><tr><td>SLG</td><td>numeric</td></tr><tr><td>OPS</td><td>numeric</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in">  <span class="fu">bref_daily_batter</span><span class="op">(</span><span class="st">"2015-05-10"</span>, <span class="st">"2015-06-20"</span><span class="op">)</span></span>
+<span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">bref_daily_batter</span><span class="op">(</span><span class="st">"2015-05-10"</span>, <span class="st">"2015-06-20"</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     bbref_id season                  Name Age         Level</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1     547989   2015         Manny Machado  22        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2     554429   2015      Charlie Blackmon  28        Maj-NL</span>
@@ -234,7 +201,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 54    593428   2015          Brandon Belt  27        Maj-NL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 55    502211   2015      Michael Brantley  28        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 56    466988   2015        Hanley Ramirez  31        Maj-AL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57    571506   2015        Alexei Ramírez  33        Maj-AL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57    571506   2015       Alexei RamÃ­rez  33        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 58    488721   2015         Wilmer Flores  23        Maj-NL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 59    456422   2015       Alcides Escobar  28        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 60    605151   2015         Marcell Ozuna  24        Maj-NL</span>
@@ -256,11 +223,11 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 76    621439   2015         Marcus Semien  24        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 77    407781   2015          Billy Butler  29        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 78    452678   2015          Buster Posey  28        Maj-NL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79    465784   2015            José Abreu  28        Maj-AL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79    465784   2015           JosÃ© Abreu  28        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 80    466320   2015           Erick Aybar  31        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 81    408234   2015         Evan Longoria  29        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 82    502239   2015         Robinson Cano  32        Maj-AL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83    456715   2015       Yoenis Céspedes  29        Maj-AL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83    456715   2015      Yoenis CÃ©spedes  29        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 84    594777   2015      Brandon Crawford  28        Maj-NL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 85    430948   2015          Derek Norris  26        Maj-NL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 86    493472   2015        Ender Inciarte  24        Maj-NL</span>
@@ -319,7 +286,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 139   477195   2015            J.J. Hardy  32        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 140   501981   2015           Alex Gordon  31        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 141   434658   2015      Delino DeShields  22        Maj-AL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 142   457477   2015         Yasmany Tomás  24        Maj-NL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 142   457477   2015        Yasmany TomÃ¡s  24        Maj-NL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 143   474443   2015         Jimmy Paredes  26        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 144   407822   2015          Chris Owings  23        Maj-NL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 145   523989   2015           Jose Altuve  25        Maj-AL</span>
@@ -357,12 +324,12 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 177   488862   2015        Pablo Sandoval  28        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 178   457787   2015          Wilson Ramos  27        Maj-NL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 179   462136   2015        Aramis Ramirez  37        Maj-NL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 180   444843   2015         José Iglesias  25        Maj-AL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 180   444843   2015        JosÃ© Iglesias  25        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 181   605227   2015         Justin Turner  30        Maj-NL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 182   474494   2015            Matt Joyce  30        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 183   425902   2015          James McCann  25        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 184   571665   2015         Pedro Alvarez  28        Maj-NL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 185   571666   2015         Leonys Martín  27        Maj-AL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 185   571666   2015        Leonys MartÃ­n  27        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 186   450729   2015         David Peralta  27        Maj-NL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 187   475247   2015           Kurt Suzuki  31        Maj-AL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 188   456071   2015        Randal Grichuk  23        Maj-NL</span>

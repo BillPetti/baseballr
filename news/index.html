@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,7 +103,7 @@
   </a>
 </li>
 <li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/billpetti/baseballR/">
+  <a class="external-link nav-link" href="https://github.com/billpetti/baseballr/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -116,13 +116,182 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/billpetti/baseballR/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/billpetti/baseballr/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="1.0.2" id="baseballr-102">baseballr 1.0.2<a class="anchor" aria-label="anchor" href="#baseballr-102"></a></h2>
-<ul><li>Hotfix <code>ncaa_schedule_info</code> for incorrect game urls.</li>
+<h2 class="pkg-version" data-toc-text="1.1.0" id="baseballr-110">baseballr 1.1.0<a class="anchor" aria-label="anchor" href="#baseballr-110"></a></h2>
+<div class="section level3">
+<h3 id="82-mlb-stats-api-functions-added-1-1-0">~82 MLB Stats API functions added<a class="anchor" aria-label="anchor" href="#82-mlb-stats-api-functions-added-1-1-0"></a></h3>
+<table class="table"><thead><tr class="header"><th align="left">name</th>
+<th align="left">file</th>
+</tr></thead><tbody><tr class="odd"><td align="left"><code><a href="../reference/mlb_all_star_ballots.html">mlb_all_star_ballots()</a></code></td>
+<td align="left">R/mlb_all_star_ballots.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_all_star_final_vote.html">mlb_all_star_final_vote()</a></code></td>
+<td align="left">R/mlb_all_star_final_vote.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_all_star_write_ins.html">mlb_all_star_write_ins()</a></code></td>
+<td align="left">R/mlb_all_star_write_ins.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_attendance.html">mlb_attendance()</a></code></td>
+<td align="left">R/mlb_attendance.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_awards.html">mlb_awards()</a></code></td>
+<td align="left">R/mlb_awards.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_awards_recipient.html">mlb_awards_recipient()</a></code></td>
+<td align="left">R/mlb_awards_recipient.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_baseball_stats.html">mlb_baseball_stats()</a></code></td>
+<td align="left">R/mlb_baseball_stats.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_conferences.html">mlb_conferences()</a></code></td>
+<td align="left">R/mlb_conferences.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_divisions.html">mlb_divisions()</a></code></td>
+<td align="left">R/mlb_divisions.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_draft_latest.html">mlb_draft_latest()</a></code></td>
+<td align="left">R/mlb_draft_latest.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_draft_prospects.html">mlb_draft_prospects()</a></code></td>
+<td align="left">R/mlb_draft_prospects.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_event_types.html">mlb_event_types()</a></code></td>
+<td align="left">R/mlb_event_types.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_fielder_detail_types.html">mlb_fielder_detail_types()</a></code></td>
+<td align="left">R/mlb_fielder_detail_types.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_game_changes.html">mlb_game_changes()</a></code></td>
+<td align="left">R/mlb_game_changes.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_game_content.html">mlb_game_content()</a></code></td>
+<td align="left">R/mlb_game_content.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_game_context_metrics.html">mlb_game_context_metrics()</a></code></td>
+<td align="left">R/mlb_game_context_metrics.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_game_linescore.html">mlb_game_linescore()</a></code></td>
+<td align="left">R/mlb_game_linescore.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_game_pace.html">mlb_game_pace()</a></code></td>
+<td align="left">R/mlb_game_pace.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_game_status_codes.html">mlb_game_status_codes()</a></code></td>
+<td align="left">R/mlb_game_status_codes.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_game_timecodes.html">mlb_game_timecodes()</a></code></td>
+<td align="left">R/mlb_game_timecodes.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_game_types.html">mlb_game_types()</a></code></td>
+<td align="left">R/mlb_game_types.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_game_wp.html">mlb_game_wp()</a></code></td>
+<td align="left">R/mlb_game_wp.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_high_low_stats.html">mlb_high_low_stats()</a></code></td>
+<td align="left">R/mlb_high_low_stats.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_high_low_types.html">mlb_high_low_types()</a></code></td>
+<td align="left">R/mlb_high_low_types.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_hit_trajectories.html">mlb_hit_trajectories()</a></code></td>
+<td align="left">R/mlb_hit_trajectories.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_homerun_derby.html">mlb_homerun_derby()</a></code></td>
+<td align="left">R/mlb_homerun_derby.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_homerun_derby_bracket.html">mlb_homerun_derby_bracket()</a></code></td>
+<td align="left">R/mlb_homerun_derby.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_homerun_derby_players.html">mlb_homerun_derby_players()</a></code></td>
+<td align="left">R/mlb_homerun_derby.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_job_types.html">mlb_job_types()</a></code></td>
+<td align="left">R/mlb_job_types.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_jobs.html">mlb_jobs()</a></code></td>
+<td align="left">R/mlb_jobs.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_jobs_datacasters.html">mlb_jobs_datacasters()</a></code></td>
+<td align="left">R/mlb_jobs_datacasters.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_jobs_official_scorers.html">mlb_jobs_official_scorers()</a></code></td>
+<td align="left">R/mlb_jobs_official_scorers.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_jobs_umpires.html">mlb_jobs_umpires()</a></code></td>
+<td align="left">R/mlb_jobs_umpires.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_languages.html">mlb_languages()</a></code></td>
+<td align="left">R/mlb_languages.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_league.html">mlb_league()</a></code></td>
+<td align="left">R/mlb_league.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_league_leader_types.html">mlb_league_leader_types()</a></code></td>
+<td align="left">R/mlb_league_leader_types.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_logical_events.html">mlb_logical_events()</a></code></td>
+<td align="left">R/mlb_logical_events.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_metrics.html">mlb_metrics()</a></code></td>
+<td align="left">R/mlb_metrics.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_pbp_diff.html">mlb_pbp_diff()</a></code></td>
+<td align="left">R/mlb_pbp_diff.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_people.html">mlb_people()</a></code></td>
+<td align="left">R/mlb_people.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_people_free_agents.html">mlb_people_free_agents()</a></code></td>
+<td align="left">R/mlb_people_free_agents.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_pitch_codes.html">mlb_pitch_codes()</a></code></td>
+<td align="left">R/mlb_pitch_codes.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_pitch_types.html">mlb_pitch_types()</a></code></td>
+<td align="left">R/mlb_pitch_types.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_player_game_stats.html">mlb_player_game_stats()</a></code></td>
+<td align="left">R/mlb_player_game_stats.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_player_game_stats_current.html">mlb_player_game_stats_current()</a></code></td>
+<td align="left">R/mlb_player_game_stats_current.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_player_status_codes.html">mlb_player_status_codes()</a></code></td>
+<td align="left">R/mlb_player_status_codes.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_positions.html">mlb_positions()</a></code></td>
+<td align="left">R/mlb_positions.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_probables.html">mlb_probables()</a></code></td>
+<td align="left">R/mlb_probables.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_review_reasons.html">mlb_review_reasons()</a></code></td>
+<td align="left">R/mlb_review_reasons.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_roster_types.html">mlb_roster_types()</a></code></td>
+<td align="left">R/mlb_roster_types.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_rosters.html">mlb_rosters()</a></code></td>
+<td align="left">R/mlb_rosters.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_runner_detail_types.html">mlb_runner_detail_types()</a></code></td>
+<td align="left">R/mlb_runner_detail_types.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_schedule_event_types.html">mlb_schedule_event_types()</a></code></td>
+<td align="left">R/mlb_schedule_event_types.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_schedule_games_tied.html">mlb_schedule_games_tied()</a></code></td>
+<td align="left">R/mlb_schedule_games_tied.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_schedule_postseason.html">mlb_schedule_postseason()</a></code></td>
+<td align="left">R/mlb_schedule_postseason.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_schedule_postseason_series.html">mlb_schedule_postseason_series()</a></code></td>
+<td align="left">R/mlb_schedule_postseason_series.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_seasons.html">mlb_seasons()</a></code></td>
+<td align="left">R/mlb_seasons.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_seasons_all.html">mlb_seasons_all()</a></code></td>
+<td align="left">R/mlb_seasons_all.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_situation_codes.html">mlb_situation_codes()</a></code></td>
+<td align="left">R/mlb_situation_codes.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_sky.html">mlb_sky()</a></code></td>
+<td align="left">R/mlb_sky.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_sports.html">mlb_sports()</a></code></td>
+<td align="left">R/mlb_sports.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_sports_info.html">mlb_sports_info()</a></code></td>
+<td align="left">R/mlb_sports_info.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_sports_players.html">mlb_sports_players()</a></code></td>
+<td align="left">R/mlb_sports_players.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_standings.html">mlb_standings()</a></code></td>
+<td align="left">R/mlb_standings.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_standings_types.html">mlb_standings_types()</a></code></td>
+<td align="left">R/mlb_standings_types.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_stat_groups.html">mlb_stat_groups()</a></code></td>
+<td align="left">R/mlb_stat_groups.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_stat_types.html">mlb_stat_types()</a></code></td>
+<td align="left">R/mlb_stat_types.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_stats.html">mlb_stats()</a></code></td>
+<td align="left">R/mlb_stats.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_stats_leaders.html">mlb_stats_leaders()</a></code></td>
+<td align="left">R/mlb_stats_leaders.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_team_affiliates.html">mlb_team_affiliates()</a></code></td>
+<td align="left">R/mlb_team_affiliates.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_team_alumni.html">mlb_team_alumni()</a></code></td>
+<td align="left">R/mlb_team_alumni.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_team_coaches.html">mlb_team_coaches()</a></code></td>
+<td align="left">R/mlb_team_coaches.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_team_history.html">mlb_team_history()</a></code></td>
+<td align="left">R/mlb_team_history.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_team_info.html">mlb_team_info()</a></code></td>
+<td align="left">R/mlb_team_info.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_team_leaders.html">mlb_team_leaders()</a></code></td>
+<td align="left">R/mlb_team_leaders.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_team_personnel.html">mlb_team_personnel()</a></code></td>
+<td align="left">R/mlb_team_personnel.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_team_stats.html">mlb_team_stats()</a></code></td>
+<td align="left">R/mlb_team_stats.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_teams.html">mlb_teams()</a></code></td>
+<td align="left">R/mlb_teams.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_teams_stats.html">mlb_teams_stats()</a></code></td>
+<td align="left">R/mlb_teams_stats.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_teams_stats_leaders.html">mlb_teams_stats_leaders()</a></code></td>
+<td align="left">R/mlb_teams_stats_leaders.R</td>
+</tr><tr class="odd"><td align="left"><code><a href="../reference/mlb_venues.html">mlb_venues()</a></code></td>
+<td align="left">R/mlb_venues.R</td>
+</tr><tr class="even"><td align="left"><code><a href="../reference/mlb_wind_direction_codes.html">mlb_wind_direction_codes()</a></code></td>
+<td align="left">R/mlb_wind_direction_codes.R</td>
+</tr></tbody></table><ul><li>baseballr, as of v1.1.0, is a full MLB Stats API wrapper with access to 85+ endpoints</li>
 </ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.1" id="baseballr-101">baseballr 1.0.1<a class="anchor" aria-label="anchor" href="#baseballr-101"></a></h2>
 <ul><li>Update <code>ncaa_season_id_lu</code> for 2022 season.</li>
@@ -131,113 +300,110 @@
 <h2 class="pkg-version" data-toc-text="1.0.0" id="baseballr-100">baseballr 1.0.0<a class="anchor" aria-label="anchor" href="#baseballr-100"></a></h2>
 <div class="section level3">
 <h3 id="function-naming-convention-change-1-0-0">Function Naming Convention Change<a class="anchor" aria-label="anchor" href="#function-naming-convention-change-1-0-0"></a></h3>
-<table class="table"><colgroup><col width="36%"><col width="26%"><col width="37%"></colgroup><thead><tr class="header"><th align="left">legacy_name</th>
+<table class="table"><colgroup><col width="33%"><col width="32%"><col width="34%"></colgroup><thead><tr class="header"><th align="left">legacy_name</th>
 <th align="left">new_name</th>
 <th align="left">file</th>
 </tr></thead><tbody><tr class="odd"><td align="left">daily_batter_bref</td>
-<td align="left">bref_daily_batter</td>
+<td align="left"><code><a href="../reference/bref_daily_batter.html">bref_daily_batter()</a></code></td>
 <td align="left">R/bref_daily_batter.R</td>
 </tr><tr class="even"><td align="left">daily_pitcher_bref</td>
-<td align="left">bref_daily_pitcher</td>
+<td align="left"><code><a href="../reference/bref_daily_pitcher.html">bref_daily_pitcher()</a></code></td>
 <td align="left">R/bref_daily_pitcher.R</td>
 </tr><tr class="odd"><td align="left">standings_on_date_bref</td>
-<td align="left">bref_standings_on_date</td>
+<td align="left"><code><a href="../reference/bref_standings_on_date.html">bref_standings_on_date()</a></code></td>
 <td align="left">R/bref_standings_on_date.R</td>
 </tr><tr class="even"><td align="left">team_results_bref</td>
-<td align="left">bref_team_results</td>
+<td align="left"><code><a href="../reference/bref_team_results.html">bref_team_results()</a></code></td>
 <td align="left">R/bref_team_results.R</td>
 </tr><tr class="odd"><td align="left">get_chadwick_lu</td>
-<td align="left">chadwick_player_lu</td>
+<td align="left"><code><a href="../reference/chadwick_player_lu.html">chadwick_player_lu()</a></code></td>
 <td align="left">R/chadwick_player_lu.R</td>
 </tr><tr class="even"><td align="left">batter_game_logs_fg</td>
-<td align="left">fg_batter_game_logs</td>
+<td align="left"><code><a href="../reference/fg_batter_game_logs.html">fg_batter_game_logs()</a></code></td>
 <td align="left">R/fg_batter_game_logs.R</td>
 </tr><tr class="odd"><td align="left">fg_bat_leaders</td>
-<td align="left">fg_batter_leaders</td>
+<td align="left"><code><a href="../reference/fg_batter_leaders.html">fg_batter_leaders()</a></code></td>
 <td align="left">R/fg_batter_players.R</td>
 </tr><tr class="even"><td align="left">milb_batter_game_logs_fg</td>
-<td align="left">fg_milb_batter_game_logs</td>
+<td align="left"><code><a href="../reference/fg_milb_batter_game_logs.html">fg_milb_batter_game_logs()</a></code></td>
 <td align="left">R/fg_milb_batter_game_logs.R</td>
 </tr><tr class="odd"><td align="left">milb_pitcher_game_logs_fg</td>
-<td align="left">fg_milb_pitcher_game_logs</td>
+<td align="left"><code><a href="../reference/fg_milb_pitcher_game_logs.html">fg_milb_pitcher_game_logs()</a></code></td>
 <td align="left">R/fg_milb_pitcher_game_logs.R</td>
 </tr><tr class="even"><td align="left">pitcher_game_logs_fg</td>
-<td align="left">fg_pitcher_game_logs</td>
+<td align="left"><code><a href="../reference/fg_pitcher_game_logs.html">fg_pitcher_game_logs()</a></code></td>
 <td align="left">R/fg_pitcher_game_logs.R</td>
 </tr><tr class="odd"><td align="left">fg_pitch_leaders</td>
-<td align="left">fg_pitcher_leaders</td>
+<td align="left"><code><a href="../reference/fg_pitcher_leaders.html">fg_pitcher_leaders()</a></code></td>
 <td align="left">R/fg_pitcher_leaders.R</td>
 </tr><tr class="even"><td align="left">get_batting_orders</td>
-<td align="left">mlb_batting_orders</td>
+<td align="left"><code><a href="../reference/mlb_batting_orders.html">mlb_batting_orders()</a></code></td>
 <td align="left">R/mlb_batting_orders.R</td>
 </tr><tr class="odd"><td align="left">get_draft_mlb</td>
-<td align="left">mlb_draft</td>
+<td align="left"><code><a href="../reference/mlb_draft.html">mlb_draft()</a></code></td>
 <td align="left">R/mlb_draft.R</td>
 </tr><tr class="even"><td align="left">get_game_info_mlb</td>
-<td align="left">mlb_game_info</td>
+<td align="left"><code><a href="../reference/mlb_game_info.html">mlb_game_info()</a></code></td>
 <td align="left">R/mlb_game_info.R</td>
 </tr><tr class="odd"><td align="left">get_game_pks_mlb</td>
-<td align="left">mlb_game_pks</td>
+<td align="left"><code><a href="../reference/mlb_game_pks.html">mlb_game_pks()</a></code></td>
 <td align="left">R/mlb_game_pks.R</td>
 </tr><tr class="even"><td align="left">get_pbp_mlb</td>
-<td align="left">mlb_pbp</td>
+<td align="left"><code><a href="../reference/mlb_pbp.html">mlb_pbp()</a></code></td>
 <td align="left">R/mlb_pbp.R</td>
 </tr><tr class="odd"><td align="left">get_probables_mlb</td>
-<td align="left">mlb_probables</td>
+<td align="left"><code><a href="../reference/mlb_probables.html">mlb_probables()</a></code></td>
 <td align="left">R/mlb_probables.R</td>
 </tr><tr class="even"><td align="left">get_ncaa_baseball_pbp</td>
-<td align="left">ncaa_baseball_pbp</td>
+<td align="left"><code><a href="../reference/ncaa_baseball_pbp.html">ncaa_baseball_pbp()</a></code></td>
 <td align="left">R/ncaa_baseball_pbp.R</td>
 </tr><tr class="odd"><td align="left">get_ncaa_baseball_roster</td>
-<td align="left">ncaa_baseball_roster</td>
+<td align="left"><code><a href="../reference/ncaa_baseball_roster.html">ncaa_baseball_roster()</a></code></td>
 <td align="left">R/ncaa_baseball_roster.R</td>
 </tr><tr class="even"><td align="left">get_ncaa_game_logs</td>
-<td align="left">ncaa_game_logs</td>
+<td align="left"><code><a href="../reference/ncaa_game_logs.html">ncaa_game_logs()</a></code></td>
 <td align="left">R/ncaa_game_logs.R</td>
 </tr><tr class="odd"><td align="left">get_ncaa_lineups</td>
-<td align="left">ncaa_lineups</td>
+<td align="left"><code><a href="../reference/ncaa_lineups.html">ncaa_lineups()</a></code></td>
 <td align="left">R/ncaa_lineups.R</td>
 </tr><tr class="even"><td align="left">get_ncaa_park_factor</td>
-<td align="left">ncaa_park_factor</td>
+<td align="left"><code><a href="../reference/ncaa_park_factor.html">ncaa_park_factor()</a></code></td>
 <td align="left">R/ncaa_park_factor.R</td>
 </tr><tr class="odd"><td align="left">get_ncaa_schedule_info</td>
-<td align="left">ncaa_schedule_info</td>
+<td align="left"><code><a href="../reference/ncaa_schedule_info.html">ncaa_schedule_info()</a></code></td>
 <td align="left">R/ncaa_schedule_info.R</td>
 </tr><tr class="even"><td align="left">school_id_lu</td>
-<td align="left">ncaa_school_id_lu</td>
+<td align="left"><code><a href="../reference/ncaa_school_id_lu.html">ncaa_school_id_lu()</a></code></td>
 <td align="left">R/ncaa_school_id_lu.R</td>
 </tr><tr class="odd"><td align="left">get_retrosheet_data</td>
-<td align="left">retrosheet_data</td>
+<td align="left"><code><a href="../reference/retrosheet_data.html">retrosheet_data()</a></code></td>
 <td align="left">R/retrosheet_data.R</td>
 </tr><tr class="even"><td align="left">get_game_info_sup_petti</td>
-<td align="left">load_game_info_sup</td>
+<td align="left"><code><a href="../reference/load_game_info_sup.html">load_game_info_sup()</a></code></td>
 <td align="left">R/load_game_info_sup.R</td>
 </tr><tr class="odd"><td align="left">get_umpire_ids_petti</td>
-<td align="left">load_umpire_ids</td>
+<td align="left"><code><a href="../reference/load_umpire_ids.html">load_umpire_ids()</a></code></td>
 <td align="left">R/load_umpire_ids.R</td>
 </tr><tr class="even"><td align="left">scrape_savant_leaderboards</td>
-<td align="left">statcast_leaderboards</td>
+<td align="left"><code><a href="../reference/statcast_leaderboards.html">statcast_leaderboards()</a></code></td>
 <td align="left">R/sc_scrape_statcast_leaderboards.R</td>
 </tr><tr class="odd"><td align="left">scrape_statcast_savant</td>
-<td align="left">statcast_search</td>
+<td align="left"><code><a href="../reference/statcast_search.html">statcast_search()</a></code></td>
 <td align="left">R/sc_scrape_statcast.R</td>
 </tr><tr class="even"><td align="left">scrape_statcast_savant_batter</td>
-<td align="left">statcast_search_batters</td>
+<td align="left"><code><a href="../reference/statcast_search.html">statcast_search_batters()</a></code></td>
 <td align="left">R/sc_scrape_statcast.R</td>
 </tr><tr class="odd"><td align="left">scrape_statcast_savant_batter_all</td>
-<td align="left">statcast_search_batters</td>
+<td align="left"><code><a href="../reference/statcast_search.html">statcast_search_batters()</a></code></td>
 <td align="left">R/sc_scrape_statcast.R</td>
 </tr><tr class="even"><td align="left">scrape_statcast_savant_pitcher</td>
-<td align="left">statcast_search_pitchers</td>
+<td align="left"><code><a href="../reference/statcast_search.html">statcast_search_pitchers()</a></code></td>
 <td align="left">R/sc_scrape_statcast.R</td>
 </tr><tr class="odd"><td align="left">scrape_statcast_savant_pitcher_all</td>
-<td align="left">statcast_search_pitchers</td>
+<td align="left"><code><a href="../reference/statcast_search.html">statcast_search_pitchers()</a></code></td>
 <td align="left">R/sc_scrape_statcast.R</td>
-</tr></tbody></table><ul><li>
-<code>mlb_schedules()</code> function added</li>
-<li>Removed <code>viz_gb_on_period()</code> from package. See <code>data-raw/</code> for the last updated script.</li>
-<li>Removed GameDay2 MLB API functions, <code>batter_boxscore()</code> and <code>pitcher_boxscore()</code>, from package. See <code>data-raw/</code> for the last updated script.</li>
-</ul></div>
+</tr></tbody></table><p>`<code>*</code>mlb_schedules()<code>function added * Removed</code>viz_gb_on_period()<code>from package. See</code>data-raw/<code>for the last updated script. * Removed GameDay2 MLB API functions,</code>batter_boxscore()<code>and</code>pitcher_boxscore()<code>, from package. See</code>data-raw/` for the last updated script.</p>
+</div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.9.92-93" id="baseballr-0992-93-2021-11-16">baseballr 0.9.92-93 (2021-11-16)<a class="anchor" aria-label="anchor" href="#baseballr-0992-93-2021-11-16"></a></h2>
@@ -937,7 +1103,7 @@ payload %&gt;%
 <p><code>scrape_statcast_savant_batter</code><br><code>scrape_statcast_savant_pitcher</code><br></p>
 <p>New functions in this release:</p>
 <p><code>code_barrel</code> <br></p>
-<p>The research team at Major League Baseball Advanced Media have developed a way to categorize batted balls that on average having a batting average over .500 and slugging over 1.500. The specific coding criteria can be found in comment <a href="https://github.com/billpetti/baseballR/issues/2" class="external-link">#2</a> [here] (<a href="http://tangotiger.com/index.php/site/comments/statcast-lab-barrels#2" class="external-link uri">http://tangotiger.com/index.php/site/comments/statcast-lab-barrels#2</a>).</p>
+<p>The research team at Major League Baseball Advanced Media have developed a way to categorize batted balls that on average having a batting average over .500 and slugging over 1.500. The specific coding criteria can be found in comment <a href="https://github.com/billpetti/baseballr/issues/2" class="external-link">#2</a> [here] (<a href="http://tangotiger.com/index.php/site/comments/statcast-lab-barrels#2" class="external-link uri">http://tangotiger.com/index.php/site/comments/statcast-lab-barrels#2</a>).</p>
 <p>Now, whenver a user scrapes Statcast data using either the <code>scrape_statcast_savant_batter</code> or <code>scrape_statcast_savant_pitcher</code> functions the results will include a column <code>barrel</code>, where if the batted ball matches the barrel criteria it will code as 1, otherwise 0.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">scrape_statcast_savant_batter</span>(<span class="dt">start_date =</span> <span class="st">"2016-04-06"</span>, <span class="dt">end_date =</span> <span class="st">"2016-04-15"</span>, <span class="dt">batterid =</span> <span class="dv">621043</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>

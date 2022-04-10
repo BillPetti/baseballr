@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,7 +103,7 @@
   </a>
 </li>
 <li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/billpetti/baseballR/">
+  <a class="external-link nav-link" href="https://github.com/billpetti/baseballr/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -116,7 +116,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1><strong>Generate run expectancy and related measures from Baseball Savant data</strong></h1>
-      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballR/blob/master/R/metrics_run_expectancy_code.R" class="external-link"><code>R/metrics_run_expectancy_code.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballr/blob/master/R/metrics_run_expectancy_code.R" class="external-link"><code>R/metrics_run_expectancy_code.R</code></a></small>
       <div class="d-none name"><code>run_expectancy_code.Rd</code></div>
     </div>
 
@@ -138,117 +138,7 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Returns a data frame with the following columns
-|col_name                        |types     |
-|:-------------------------------|:---------|
-|pitch_type                      |character |
-|game_date                       |Date      |
-|release_speed                   |numeric   |
-|release_pos_x                   |numeric   |
-|release_pos_z                   |numeric   |
-|player_name                     |character |
-|batter                          |numeric   |
-|pitcher                         |numeric   |
-|events                          |character |
-|description                     |character |
-|spin_dir                        |logical   |
-|spin_rate_deprecated            |logical   |
-|break_angle_deprecated          |logical   |
-|break_length_deprecated         |logical   |
-|zone                            |numeric   |
-|des                             |character |
-|game_type                       |character |
-|stand                           |character |
-|p_throws                        |character |
-|home_team                       |character |
-|away_team                       |character |
-|type                            |character |
-|hit_location                    |integer   |
-|bb_type                         |character |
-|balls                           |integer   |
-|strikes                         |integer   |
-|game_year                       |integer   |
-|pfx_x                           |numeric   |
-|pfx_z                           |numeric   |
-|plate_x                         |numeric   |
-|plate_z                         |numeric   |
-|on_3b                           |numeric   |
-|on_2b                           |numeric   |
-|on_1b                           |numeric   |
-|outs_when_up                    |integer   |
-|inning                          |numeric   |
-|inning_topbot                   |character |
-|hc_x                            |numeric   |
-|hc_y                            |numeric   |
-|tfs_deprecated                  |logical   |
-|tfs_zulu_deprecated             |logical   |
-|fielder_2                       |numeric   |
-|umpire                          |logical   |
-|sv_id                           |character |
-|vx0                             |numeric   |
-|vy0                             |numeric   |
-|vz0                             |numeric   |
-|ax                              |numeric   |
-|ay                              |numeric   |
-|az                              |numeric   |
-|sz_top                          |numeric   |
-|sz_bot                          |numeric   |
-|hit_distance_sc                 |numeric   |
-|launch_speed                    |numeric   |
-|launch_angle                    |numeric   |
-|effective_speed                 |numeric   |
-|release_spin_rate               |numeric   |
-|release_extension               |numeric   |
-|game_pk                         |numeric   |
-|pitcher_1                       |numeric   |
-|fielder_2_1                     |numeric   |
-|fielder_3                       |numeric   |
-|fielder_4                       |numeric   |
-|fielder_5                       |numeric   |
-|fielder_6                       |numeric   |
-|fielder_7                       |numeric   |
-|fielder_8                       |numeric   |
-|fielder_9                       |numeric   |
-|release_pos_y                   |numeric   |
-|estimated_ba_using_speedangle   |numeric   |
-|estimated_woba_using_speedangle |numeric   |
-|woba_value                      |numeric   |
-|woba_denom                      |integer   |
-|babip_value                     |integer   |
-|iso_value                       |integer   |
-|launch_speed_angle              |integer   |
-|at_bat_number                   |numeric   |
-|pitch_number                    |numeric   |
-|pitch_name                      |character |
-|home_score                      |numeric   |
-|away_score                      |numeric   |
-|bat_score                       |numeric   |
-|fld_score                       |numeric   |
-|post_away_score                 |numeric   |
-|post_home_score                 |numeric   |
-|post_bat_score                  |numeric   |
-|post_fld_score                  |numeric   |
-|if_fielding_alignment           |character |
-|of_fielding_alignment           |character |
-|spin_axis                       |numeric   |
-|delta_home_win_exp              |numeric   |
-|delta_run_exp                   |numeric   |
-|final_pitch_game                |numeric   |
-|final_pitch_at_bat              |numeric   |
-|runs_scored_on_pitch            |numeric   |
-|bat_score_after                 |numeric   |
-|final_pitch_inning              |numeric   |
-|bat_score_start_inning          |numeric   |
-|bat_score_end_inning            |numeric   |
-|cum_runs_in_inning              |numeric   |
-|runs_to_end_inning              |numeric   |
-|count_base_out_state            |character |
-|avg_re                          |numeric   |
-|next_count_base_out_state       |character |
-|next_avg_re                     |numeric   |
-|change_re                       |numeric   |
-|re24                            |numeric   |</p>
-    </div>
+    <p>Returns a data frame with the following columns</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>pitch_type</td><td>character</td></tr><tr><td>game_date</td><td>Date</td></tr><tr><td>release_speed</td><td>numeric</td></tr><tr><td>release_pos_x</td><td>numeric</td></tr><tr><td>release_pos_z</td><td>numeric</td></tr><tr><td>player_name</td><td>character</td></tr><tr><td>batter</td><td>numeric</td></tr><tr><td>pitcher</td><td>numeric</td></tr><tr><td>events</td><td>character</td></tr><tr><td>description</td><td>character</td></tr><tr><td>spin_dir</td><td>logical</td></tr><tr><td>spin_rate_deprecated</td><td>logical</td></tr><tr><td>break_angle_deprecated</td><td>logical</td></tr><tr><td>break_length_deprecated</td><td>logical</td></tr><tr><td>zone</td><td>numeric</td></tr><tr><td>des</td><td>character</td></tr><tr><td>game_type</td><td>character</td></tr><tr><td>stand</td><td>character</td></tr><tr><td>p_throws</td><td>character</td></tr><tr><td>home_team</td><td>character</td></tr><tr><td>away_team</td><td>character</td></tr><tr><td>type</td><td>character</td></tr><tr><td>hit_location</td><td>integer</td></tr><tr><td>bb_type</td><td>character</td></tr><tr><td>balls</td><td>integer</td></tr><tr><td>strikes</td><td>integer</td></tr><tr><td>game_year</td><td>integer</td></tr><tr><td>pfx_x</td><td>numeric</td></tr><tr><td>pfx_z</td><td>numeric</td></tr><tr><td>plate_x</td><td>numeric</td></tr><tr><td>plate_z</td><td>numeric</td></tr><tr><td>on_3b</td><td>numeric</td></tr><tr><td>on_2b</td><td>numeric</td></tr><tr><td>on_1b</td><td>numeric</td></tr><tr><td>outs_when_up</td><td>integer</td></tr><tr><td>inning</td><td>numeric</td></tr><tr><td>inning_topbot</td><td>character</td></tr><tr><td>hc_x</td><td>numeric</td></tr><tr><td>hc_y</td><td>numeric</td></tr><tr><td>tfs_deprecated</td><td>logical</td></tr><tr><td>tfs_zulu_deprecated</td><td>logical</td></tr><tr><td>fielder_2</td><td>numeric</td></tr><tr><td>umpire</td><td>logical</td></tr><tr><td>sv_id</td><td>character</td></tr><tr><td>vx0</td><td>numeric</td></tr><tr><td>vy0</td><td>numeric</td></tr><tr><td>vz0</td><td>numeric</td></tr><tr><td>ax</td><td>numeric</td></tr><tr><td>ay</td><td>numeric</td></tr><tr><td>az</td><td>numeric</td></tr><tr><td>sz_top</td><td>numeric</td></tr><tr><td>sz_bot</td><td>numeric</td></tr><tr><td>hit_distance_sc</td><td>numeric</td></tr><tr><td>launch_speed</td><td>numeric</td></tr><tr><td>launch_angle</td><td>numeric</td></tr><tr><td>effective_speed</td><td>numeric</td></tr><tr><td>release_spin_rate</td><td>numeric</td></tr><tr><td>release_extension</td><td>numeric</td></tr><tr><td>game_pk</td><td>numeric</td></tr><tr><td>pitcher_1</td><td>numeric</td></tr><tr><td>fielder_2_1</td><td>numeric</td></tr><tr><td>fielder_3</td><td>numeric</td></tr><tr><td>fielder_4</td><td>numeric</td></tr><tr><td>fielder_5</td><td>numeric</td></tr><tr><td>fielder_6</td><td>numeric</td></tr><tr><td>fielder_7</td><td>numeric</td></tr><tr><td>fielder_8</td><td>numeric</td></tr><tr><td>fielder_9</td><td>numeric</td></tr><tr><td>release_pos_y</td><td>numeric</td></tr><tr><td>estimated_ba_using_speedangle</td><td>numeric</td></tr><tr><td>estimated_woba_using_speedangle</td><td>numeric</td></tr><tr><td>woba_value</td><td>numeric</td></tr><tr><td>woba_denom</td><td>integer</td></tr><tr><td>babip_value</td><td>integer</td></tr><tr><td>iso_value</td><td>integer</td></tr><tr><td>launch_speed_angle</td><td>integer</td></tr><tr><td>at_bat_number</td><td>numeric</td></tr><tr><td>pitch_number</td><td>numeric</td></tr><tr><td>pitch_name</td><td>character</td></tr><tr><td>home_score</td><td>numeric</td></tr><tr><td>away_score</td><td>numeric</td></tr><tr><td>bat_score</td><td>numeric</td></tr><tr><td>fld_score</td><td>numeric</td></tr><tr><td>post_away_score</td><td>numeric</td></tr><tr><td>post_home_score</td><td>numeric</td></tr><tr><td>post_bat_score</td><td>numeric</td></tr><tr><td>post_fld_score</td><td>numeric</td></tr><tr><td>if_fielding_alignment</td><td>character</td></tr><tr><td>of_fielding_alignment</td><td>character</td></tr><tr><td>spin_axis</td><td>numeric</td></tr><tr><td>delta_home_win_exp</td><td>numeric</td></tr><tr><td>delta_run_exp</td><td>numeric</td></tr><tr><td>final_pitch_game</td><td>numeric</td></tr><tr><td>final_pitch_at_bat</td><td>numeric</td></tr><tr><td>runs_scored_on_pitch</td><td>numeric</td></tr><tr><td>bat_score_after</td><td>numeric</td></tr><tr><td>final_pitch_inning</td><td>numeric</td></tr><tr><td>bat_score_start_inning</td><td>numeric</td></tr><tr><td>bat_score_end_inning</td><td>numeric</td></tr><tr><td>cum_runs_in_inning</td><td>numeric</td></tr><tr><td>runs_to_end_inning</td><td>numeric</td></tr><tr><td>count_base_out_state</td><td>character</td></tr><tr><td>avg_re</td><td>numeric</td></tr><tr><td>next_count_base_out_state</td><td>character</td></tr><tr><td>next_avg_re</td><td>numeric</td></tr><tr><td>change_re</td><td>numeric</td></tr><tr><td>re24</td><td>numeric</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>

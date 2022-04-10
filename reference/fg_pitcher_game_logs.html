@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,7 +103,7 @@
   </a>
 </li>
 <li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/billpetti/baseballR/">
+  <a class="external-link nav-link" href="https://github.com/billpetti/baseballr/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -116,7 +116,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1><strong>Scrape Pitcher Game Logs from FanGraphs</strong></h1>
-      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballR/blob/master/R/fg_pitcher_game_logs.R" class="external-link"><code>R/fg_pitcher_game_logs.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballr/blob/master/R/fg_pitcher_game_logs.R" class="external-link"><code>R/fg_pitcher_game_logs.R</code></a></small>
       <div class="d-none name"><code>fg_pitcher_game_logs.Rd</code></div>
     </div>
 
@@ -138,144 +138,7 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A data frame of pitcher game logs.
-|col_name   |types     |
-|:----------|:---------|
-|PlayerName |character |
-|playerid   |integer   |
-|Date       |character |
-|Opp        |character |
-|teamid     |integer   |
-|season     |integer   |
-|Team       |character |
-|HomeAway   |character |
-|Age        |integer   |
-|W          |numeric   |
-|L          |numeric   |
-|ERA        |numeric   |
-|G          |numeric   |
-|GS         |numeric   |
-|CG         |numeric   |
-|ShO        |numeric   |
-|SV         |numeric   |
-|HLD        |numeric   |
-|BS         |numeric   |
-|IP         |numeric   |
-|TBF        |numeric   |
-|H          |numeric   |
-|R          |numeric   |
-|ER         |numeric   |
-|HR         |numeric   |
-|BB         |numeric   |
-|IBB        |numeric   |
-|HBP        |numeric   |
-|WP         |numeric   |
-|BK         |numeric   |
-|SO         |numeric   |
-|K/9        |numeric   |
-|BB/9       |numeric   |
-|H/9        |numeric   |
-|K/BB       |numeric   |
-|IFH%       |numeric   |
-|BUH%       |numeric   |
-|GB         |numeric   |
-|FB         |numeric   |
-|LD         |numeric   |
-|IFFB       |numeric   |
-|IFH        |numeric   |
-|BU         |numeric   |
-|BUH        |numeric   |
-|K%         |numeric   |
-|BB%        |numeric   |
-|K-BB%      |numeric   |
-|SIERA      |numeric   |
-|HR/9       |numeric   |
-|AVG        |numeric   |
-|WHIP       |numeric   |
-|BABIP      |numeric   |
-|LOB%       |numeric   |
-|FIP        |numeric   |
-|E-F        |numeric   |
-|xFIP       |numeric   |
-|ERA-       |numeric   |
-|FIP-       |numeric   |
-|xFIP-      |numeric   |
-|GB/FB      |numeric   |
-|LD%        |numeric   |
-|GB%        |numeric   |
-|FB%        |numeric   |
-|IFFB%      |numeric   |
-|HR/FB      |numeric   |
-|RS         |numeric   |
-|RS/9       |numeric   |
-|Balls      |numeric   |
-|Strikes    |numeric   |
-|Pitches    |numeric   |
-|WPA        |numeric   |
-|-WPA       |numeric   |
-|+WPA       |numeric   |
-|RE24       |numeric   |
-|REW        |numeric   |
-|pLI        |numeric   |
-|inLI       |numeric   |
-|gmLI       |numeric   |
-|exLI       |numeric   |
-|Pulls      |numeric   |
-|Games      |numeric   |
-|WPA/LI     |numeric   |
-|Clutch     |numeric   |
-|SD         |numeric   |
-|MD         |numeric   |
-|FB%1       |numeric   |
-|FBv        |numeric   |
-|SL%        |numeric   |
-|SLv        |numeric   |
-|CT%        |numeric   |
-|CTv        |numeric   |
-|CB%        |numeric   |
-|CBv        |numeric   |
-|CH%        |numeric   |
-|CHv        |numeric   |
-|XX%        |numeric   |
-|PO%        |numeric   |
-|wFB        |numeric   |
-|wSL        |numeric   |
-|wCT        |numeric   |
-|wCB        |numeric   |
-|wCH        |numeric   |
-|wFB/C      |numeric   |
-|wSL/C      |numeric   |
-|wCT/C      |numeric   |
-|wCB/C      |numeric   |
-|wCH/C      |numeric   |
-|O-Swing%   |numeric   |
-|Z-Swing%   |numeric   |
-|Swing%     |numeric   |
-|O-Contact% |numeric   |
-|Z-Contact% |numeric   |
-|Contact%   |numeric   |
-|Zone%      |numeric   |
-|F-Strike%  |numeric   |
-|SwStr%     |numeric   |
-|Pull       |numeric   |
-|Cent       |numeric   |
-|Oppo       |numeric   |
-|Soft       |numeric   |
-|Med        |numeric   |
-|Hard       |numeric   |
-|bipCount   |numeric   |
-|Pull%      |numeric   |
-|Cent%      |numeric   |
-|Oppo%      |numeric   |
-|Soft%      |numeric   |
-|Med%       |numeric   |
-|Hard%      |numeric   |
-|tERA       |numeric   |
-|GSv2       |numeric   |
-|Events     |numeric   |
-|gamedate   |character |
-|dh         |integer   |</p>
-    </div>
+    <p>A data frame of pitcher game logs.</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>PlayerName</td><td>character</td></tr><tr><td>playerid</td><td>integer</td></tr><tr><td>Date</td><td>character</td></tr><tr><td>Opp</td><td>character</td></tr><tr><td>teamid</td><td>integer</td></tr><tr><td>season</td><td>integer</td></tr><tr><td>Team</td><td>character</td></tr><tr><td>HomeAway</td><td>character</td></tr><tr><td>Age</td><td>integer</td></tr><tr><td>W</td><td>numeric</td></tr><tr><td>L</td><td>numeric</td></tr><tr><td>ERA</td><td>numeric</td></tr><tr><td>G</td><td>numeric</td></tr><tr><td>GS</td><td>numeric</td></tr><tr><td>CG</td><td>numeric</td></tr><tr><td>ShO</td><td>numeric</td></tr><tr><td>SV</td><td>numeric</td></tr><tr><td>HLD</td><td>numeric</td></tr><tr><td>BS</td><td>numeric</td></tr><tr><td>IP</td><td>numeric</td></tr><tr><td>TBF</td><td>numeric</td></tr><tr><td>H</td><td>numeric</td></tr><tr><td>R</td><td>numeric</td></tr><tr><td>ER</td><td>numeric</td></tr><tr><td>HR</td><td>numeric</td></tr><tr><td>BB</td><td>numeric</td></tr><tr><td>IBB</td><td>numeric</td></tr><tr><td>HBP</td><td>numeric</td></tr><tr><td>WP</td><td>numeric</td></tr><tr><td>BK</td><td>numeric</td></tr><tr><td>SO</td><td>numeric</td></tr><tr><td>K/9</td><td>numeric</td></tr><tr><td>BB/9</td><td>numeric</td></tr><tr><td>H/9</td><td>numeric</td></tr><tr><td>K/BB</td><td>numeric</td></tr><tr><td>IFH%</td><td>numeric</td></tr><tr><td>BUH%</td><td>numeric</td></tr><tr><td>GB</td><td>numeric</td></tr><tr><td>FB</td><td>numeric</td></tr><tr><td>LD</td><td>numeric</td></tr><tr><td>IFFB</td><td>numeric</td></tr><tr><td>IFH</td><td>numeric</td></tr><tr><td>BU</td><td>numeric</td></tr><tr><td>BUH</td><td>numeric</td></tr><tr><td>K%</td><td>numeric</td></tr><tr><td>BB%</td><td>numeric</td></tr><tr><td>K-BB%</td><td>numeric</td></tr><tr><td>SIERA</td><td>numeric</td></tr><tr><td>HR/9</td><td>numeric</td></tr><tr><td>AVG</td><td>numeric</td></tr><tr><td>WHIP</td><td>numeric</td></tr><tr><td>BABIP</td><td>numeric</td></tr><tr><td>LOB%</td><td>numeric</td></tr><tr><td>FIP</td><td>numeric</td></tr><tr><td>E-F</td><td>numeric</td></tr><tr><td>xFIP</td><td>numeric</td></tr><tr><td>ERA-</td><td>numeric</td></tr><tr><td>FIP-</td><td>numeric</td></tr><tr><td>xFIP-</td><td>numeric</td></tr><tr><td>GB/FB</td><td>numeric</td></tr><tr><td>LD%</td><td>numeric</td></tr><tr><td>GB%</td><td>numeric</td></tr><tr><td>FB%</td><td>numeric</td></tr><tr><td>IFFB%</td><td>numeric</td></tr><tr><td>HR/FB</td><td>numeric</td></tr><tr><td>RS</td><td>numeric</td></tr><tr><td>RS/9</td><td>numeric</td></tr><tr><td>Balls</td><td>numeric</td></tr><tr><td>Strikes</td><td>numeric</td></tr><tr><td>Pitches</td><td>numeric</td></tr><tr><td>WPA</td><td>numeric</td></tr><tr><td>-WPA</td><td>numeric</td></tr><tr><td>+WPA</td><td>numeric</td></tr><tr><td>RE24</td><td>numeric</td></tr><tr><td>REW</td><td>numeric</td></tr><tr><td>pLI</td><td>numeric</td></tr><tr><td>inLI</td><td>numeric</td></tr><tr><td>gmLI</td><td>numeric</td></tr><tr><td>exLI</td><td>numeric</td></tr><tr><td>Pulls</td><td>numeric</td></tr><tr><td>Games</td><td>numeric</td></tr><tr><td>WPA/LI</td><td>numeric</td></tr><tr><td>Clutch</td><td>numeric</td></tr><tr><td>SD</td><td>numeric</td></tr><tr><td>MD</td><td>numeric</td></tr><tr><td>FB%1</td><td>numeric</td></tr><tr><td>FBv</td><td>numeric</td></tr><tr><td>SL%</td><td>numeric</td></tr><tr><td>SLv</td><td>numeric</td></tr><tr><td>CT%</td><td>numeric</td></tr><tr><td>CTv</td><td>numeric</td></tr><tr><td>CB%</td><td>numeric</td></tr><tr><td>CBv</td><td>numeric</td></tr><tr><td>CH%</td><td>numeric</td></tr><tr><td>CHv</td><td>numeric</td></tr><tr><td>XX%</td><td>numeric</td></tr><tr><td>PO%</td><td>numeric</td></tr><tr><td>wFB</td><td>numeric</td></tr><tr><td>wSL</td><td>numeric</td></tr><tr><td>wCT</td><td>numeric</td></tr><tr><td>wCB</td><td>numeric</td></tr><tr><td>wCH</td><td>numeric</td></tr><tr><td>wFB/C</td><td>numeric</td></tr><tr><td>wSL/C</td><td>numeric</td></tr><tr><td>wCT/C</td><td>numeric</td></tr><tr><td>wCB/C</td><td>numeric</td></tr><tr><td>wCH/C</td><td>numeric</td></tr><tr><td>O-Swing%</td><td>numeric</td></tr><tr><td>Z-Swing%</td><td>numeric</td></tr><tr><td>Swing%</td><td>numeric</td></tr><tr><td>O-Contact%</td><td>numeric</td></tr><tr><td>Z-Contact%</td><td>numeric</td></tr><tr><td>Contact%</td><td>numeric</td></tr><tr><td>Zone%</td><td>numeric</td></tr><tr><td>F-Strike%</td><td>numeric</td></tr><tr><td>SwStr%</td><td>numeric</td></tr><tr><td>Pull</td><td>numeric</td></tr><tr><td>Cent</td><td>numeric</td></tr><tr><td>Oppo</td><td>numeric</td></tr><tr><td>Soft</td><td>numeric</td></tr><tr><td>Med</td><td>numeric</td></tr><tr><td>Hard</td><td>numeric</td></tr><tr><td>bipCount</td><td>numeric</td></tr><tr><td>Pull%</td><td>numeric</td></tr><tr><td>Cent%</td><td>numeric</td></tr><tr><td>Oppo%</td><td>numeric</td></tr><tr><td>Soft%</td><td>numeric</td></tr><tr><td>Med%</td><td>numeric</td></tr><tr><td>Hard%</td><td>numeric</td></tr><tr><td>tERA</td><td>numeric</td></tr><tr><td>GSv2</td><td>numeric</td></tr><tr><td>Events</td><td>numeric</td></tr><tr><td>gamedate</td><td>character</td></tr><tr><td>dh</td><td>integer</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>

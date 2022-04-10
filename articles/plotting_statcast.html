@@ -37,7 +37,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -134,7 +134,7 @@
   </a>
 </li>
 <li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/billpetti/baseballR/">
+  <a class="external-link nav-link" href="https://github.com/billpetti/baseballr/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -153,9 +153,9 @@
       <img src="../logo.png" class="logo" alt=""><h1>Plotting Statcast data</h1>
                         <h4 data-toc-skip class="author">Bill Petti</h4>
             
-            <h4 data-toc-skip class="date">2022-02-09</h4>
+            <h4 data-toc-skip class="date">2022-04-10</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballR/blob/master/vignettes/plotting_statcast.Rmd" class="external-link"><code>vignettes/plotting_statcast.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballr/blob/master/vignettes/plotting_statcast.Rmd" class="external-link"><code>vignettes/plotting_statcast.Rmd</code></a></small>
       <div class="d-none name"><code>plotting_statcast.Rmd</code></div>
     </div>
 
@@ -180,12 +180,13 @@
 <div class="section level2">
 <h2 id="scrape-betts-statcast-data-by-pitch-removing-those-with-a-batted-ball-speed-of-0">scrape Betts’ Statcast data, by pitch removing those with a batted ball speed of 0<a class="anchor" aria-label="anchor" href="#scrape-betts-statcast-data-by-pitch-removing-those-with-a-batted-ball-speed-of-0"></a>
 </h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>betts_<span class="dv">15</span> &lt;-<span class="st"> </span><span class="kw">statcast_search</span>(<span class="st">"2015-03-31"</span>, <span class="st">"2015-10-31"</span>, <span class="dt">playerid =</span> betts_id[<span class="dv">1</span>,<span class="dv">1</span>], <span class="dt">player_type =</span> <span class="st">'batter'</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a>betts_<span class="dv">16</span> &lt;-<span class="st"> </span><span class="kw">statcast_search</span>(<span class="st">"2016-03-31"</span>, <span class="st">"2016-10-31"</span>, <span class="dt">playerid =</span> betts_id[<span class="dv">1</span>,<span class="dv">1</span>], <span class="dt">player_type =</span> <span class="st">'batter'</span>)   </span>
-<span id="cb3-3"><a href="#cb3-3"></a>betts &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">bind_rows</span>(betts_<span class="dv">15</span>, betts_<span class="dv">16</span>) <span class="dv">3</span><span class="op">%&gt;%</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">Year =</span> <span class="kw">as.factor</span>(<span class="kw">substr</span>(game_date,<span class="dv">1</span>,<span class="dv">4</span>))) <span class="op">%&gt;%</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> "X"</span>) <span class="op">%&gt;%</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(launch_speed <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">betts_15</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/statcast_search.html">statcast_search</a></span><span class="op">(</span><span class="st">"2015-03-31"</span>, <span class="st">"2015-10-31"</span>, playerid <span class="op">=</span> <span class="va">betts_id</span><span class="op">[</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">]</span>, player_type <span class="op">=</span> <span class="st">'batter'</span><span class="op">)</span>
+<span class="va">betts_16</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/statcast_search.html">statcast_search</a></span><span class="op">(</span><span class="st">"2016-03-31"</span>, <span class="st">"2016-10-31"</span>, playerid <span class="op">=</span> <span class="va">betts_id</span><span class="op">[</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">]</span>, player_type <span class="op">=</span> <span class="st">'batter'</span><span class="op">)</span>   
+<span class="va">betts</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html" class="external-link">bind_rows</a></span><span class="op">(</span><span class="va">betts_15</span>, <span class="va">betts_16</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>Year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr</a></span><span class="op">(</span><span class="va">game_date</span>,<span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">type</span> <span class="op">==</span> <span class="st">"X"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">launch_speed</span> <span class="op">!=</span> <span class="fl">0</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="calculate-average-launch-angles-and-batted-ball-speeds-by-game">calculate average launch angles and batted ball speeds by game<a class="anchor" aria-label="anchor" href="#calculate-average-launch-angles-and-batted-ball-speeds-by-game"></a>
@@ -197,7 +198,7 @@
     `Average Launch Angle` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">launch_angle</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, 
     `Average Batted Ball Speed` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">launch_speed</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu">melt</span><span class="op">(</span>id<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"game_date"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/reshape2/man/melt.html" class="external-link">melt</a></span><span class="op">(</span>id<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"game_date"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>Year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr</a></span><span class="op">(</span><span class="va">game_date</span>,<span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level2">

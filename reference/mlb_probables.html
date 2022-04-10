@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,7 +103,7 @@
   </a>
 </li>
 <li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/billpetti/baseballR/">
+  <a class="external-link nav-link" href="https://github.com/billpetti/baseballr/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -116,7 +116,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1><strong>Retrieve probable starters for a given MLB game</strong></h1>
-      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballR/blob/master/R/mlb_probables.R" class="external-link"><code>R/mlb_probables.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballr/blob/master/R/mlb_probables.R" class="external-link"><code>R/mlb_probables.R</code></a></small>
       <div class="d-none name"><code>mlb_probables.Rd</code></div>
     </div>
 
@@ -137,23 +137,12 @@
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>Returns a data frame that includes probable starting pitchers and
-the home plate umpire for the <code>game_pk</code> requested
-|col_name             |types     |
-|:--------------------|:---------|
-|game_pk              |integer   |
-|game_date            |character |
-|fullName             |character |
-|id                   |integer   |
-|team                 |character |
-|team_id              |integer   |
-|home_plate_full_name |character |
-|home_plate_id        |integer   |</p>
-    </div>
+the home plate umpire for the <code>game_pk</code> requested</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>game_pk</td><td>integer</td></tr><tr><td>game_date</td><td>character</td></tr><tr><td>fullName</td><td>character</td></tr><tr><td>id</td><td>integer</td></tr><tr><td>team</td><td>character</td></tr><tr><td>team_id</td><td>integer</td></tr><tr><td>home_plate_full_name</td><td>character</td></tr><tr><td>home_plate_id</td><td>integer</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in">  <span class="fu">mlb_probables</span><span class="op">(</span><span class="fl">566001</span><span class="op">)</span></span>
+<span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_probables</span><span class="op">(</span><span class="fl">566001</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   game_pk  game_date     fullName     id            team team_id</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  566001 2019-04-29 Tanner Roark 543699 Cincinnati Reds     113</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  566001 2019-04-29 Zack Wheeler 554430   New York Mets     121</span>

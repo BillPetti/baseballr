@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,7 +103,7 @@
   </a>
 </li>
 <li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/billpetti/baseballR/">
+  <a class="external-link nav-link" href="https://github.com/billpetti/baseballr/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -116,7 +116,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1><strong>Download a data frame of supplemental data about MLB games since 2008.</strong></h1>
-      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballR/blob/master/R/load_game_info_sup.R" class="external-link"><code>R/load_game_info_sup.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballr/blob/master/R/load_game_info_sup.R" class="external-link"><code>R/load_game_info_sup.R</code></a></small>
       <div class="d-none name"><code>load_game_info_sup.Rd</code></div>
     </div>
 
@@ -147,65 +147,65 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="fu">load_game_info_sup</span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         game_date game_pk               venue_name venue_id temperature</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     1: 2021-10-03  632234           Nationals Park     3309          85</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     2: 2021-10-03  632240                 PNC Park       31          70</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     3: 2021-10-03  632241              Oracle Park     2395          73</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     4: 2021-10-03  632236         Globe Life Field     5325          84</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     5: 2021-10-03  632239           Yankee Stadium     3313          79</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1: 2022-04-07  663178            Wrigley Field       17          44</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     2: 2022-04-07  662766         Kauffman Stadium        7          47</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     3: 2022-04-07  662021            Busch Stadium     2889          50</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     4: 2022-04-07  662571           Nationals Park     3309          52</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     5: 2022-04-07  661577              Truist Park     4705          63</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ---                                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39217: 2008-03-27  237614         Surprise Stadium     2603          78</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39218: 2008-03-27  237615             Hohokam Park     2507          77</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39219: 2008-03-27  237620           Peoria Stadium     2530          79</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39220: 2008-03-27  237609 Angel Stadium of Anaheim        1          68</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39221: 2008-03-27  237621                AT&amp;T Park     2395          52</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39529: 2008-03-27  237614         Surprise Stadium     2603          78</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39530: 2008-03-27  237615             Hohokam Park     2507          77</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39531: 2008-03-27  237620           Peoria Stadium     2530          79</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39532: 2008-03-27  237609 Angel Stadium of Anaheim        1          68</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39533: 2008-03-27  237621                AT&amp;T Park     2395          52</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        other_weather              wind attendance start_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     1:         Sunny  4 mph, Out To CF     33,986   15:05:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     2:        Cloudy  9 mph, Out To CF     13,011   15:05:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     3:         Sunny  7 mph, Out To RF     36,901   12:06:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     4: Partly Cloudy     9 mph, Varies     28,396   14:07:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     5: Partly Cloudy  7 mph, Out To LF     40,409   15:08:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1:        Cloudy 14 mph, Out To CF     35,112   13:22:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     2:        Cloudy    16 mph, L To R     28,459   15:10:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     3:        Cloudy 20 mph, Out To RF     46,256   15:24:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     4:        Cloudy  4 mph, Out To RF     35,052   20:21:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     5: Partly Cloudy    15 mph, R To L     40,545   20:08:00</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ---                                                      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39217:         Sunny    10 mph, R To L      7,236   12:04:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39218:         Sunny  2 mph, Out To LF     12,782   12:05:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39219:         Sunny    11 mph, R To L      8,411   12:04:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39220: Partly Cloudy  6 mph, Out To CF     38,863   19:06:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39221:         Clear 22 mph, Out To CF     25,720   19:16:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        elapsed_time                    game_id game_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     1:         3:46 2021/10/03/bosmlb-wasmlb-1         R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     2:         2:59 2021/10/03/cinmlb-pitmlb-1         R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     3:         2:56 2021/10/03/sdnmlb-sfnmlb-1         R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     4:         2:54 2021/10/03/clemlb-texmlb-1         R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     5:         3:03 2021/10/03/tbamlb-nyamlb-1         R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ---                                                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39217:         2:59 2008/03/27/kcamlb-texmlb-1         S</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39218:         3:23 2008/03/27/milmlb-chnmlb-1         S</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39219:         3:30 2008/03/27/sdnmlb-seamlb-1         S</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39220:         2:58 2008/03/27/lanmlb-anamlb-1         S</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39221:         2:48 2008/03/27/seamlb-sfnmlb-1         S</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        home_sport_code official_scorer date status_ind home_league_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     1:             mlb       Jason Lee  Att          F            104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     2:             mlb     Evan Pattak  Att          F            104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     3:             mlb       Jim Young  Att          F            104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     4:             mlb    Steve Weller  Att          F            103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     5:             mlb    Howie Karpin  Att          F            103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ---                                                               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39217:             mlb       Rich Rice  Att          F            103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39218:             mlb      Jason Carr  Att         FT            104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39219:             mlb      Jeff Evans  Att         FT            103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39220:             mlb       Ed Munson  Att         FT            103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39221:             mlb   Jim Moorehead  Att          F            104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        gameday_sw</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     1:          P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     2:          P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     3:          P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     4:          P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     5:          P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ---           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39217:          N</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39218:          N</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39219:          N</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39220:          E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39221:          E</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39529:         Sunny    10 mph, R To L      7,236   12:04:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39530:         Sunny  2 mph, Out To LF     12,782   12:05:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39531:         Sunny    11 mph, R To L      8,411   12:04:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39532: Partly Cloudy  6 mph, Out To CF     38,863   19:06:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39533:         Clear 22 mph, Out To CF     25,720   19:16:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             elapsed_time                    game_id game_type</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1:              3:18 2022/04/07/milmlb-chnmlb-1         R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     2:              2:49 2022/04/07/clemlb-kcamlb-1         R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     3:              3:08 2022/04/07/pitmlb-slnmlb-1         R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     4: 3:31 (1:16 delay) 2022/04/07/nynmlb-wasmlb-1         R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     5:              3:01 2022/04/07/cinmlb-atlmlb-1         R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    ---                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39529:              2:59 2008/03/27/kcamlb-texmlb-1         S</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39530:              3:23 2008/03/27/milmlb-chnmlb-1         S</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39531:              3:30 2008/03/27/sdnmlb-seamlb-1         S</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39532:              2:58 2008/03/27/lanmlb-anamlb-1         S</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39533:              2:48 2008/03/27/seamlb-sfnmlb-1         S</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        home_sport_code    official_scorer          date status_ind</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1:             mlb        Allan Spear April 7, 2022          F</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     2:             mlb         Max Utsler April 7, 2022          F</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     3:             mlb       Gary Mueller April 7, 2022          F</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     4:             mlb Benjamin Trittipoe April 7, 2022          F</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     5:             mlb      Guy Curtright April 7, 2022          F</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    ---                                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39529:             mlb          Rich Rice           Att          F</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39530:             mlb         Jason Carr           Att         FT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39531:             mlb         Jeff Evans           Att         FT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39532:             mlb          Ed Munson           Att         FT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39533:             mlb      Jim Moorehead           Att          F</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        home_league_id gameday_sw</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1:            104          P</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     2:            103          P</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     3:            104          P</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     4:            104          P</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     5:            104          P</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    ---                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39529:            103          N</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39530:            104          N</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39531:            103          N</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39532:            103          E</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39533:            104          E</span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

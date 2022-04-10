@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,7 +103,7 @@
   </a>
 </li>
 <li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/billpetti/baseballR/">
+  <a class="external-link nav-link" href="https://github.com/billpetti/baseballr/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -116,7 +116,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1><strong>Get Schedule and Results for NCAA Baseball Teams</strong></h1>
-      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballR/blob/master/R/ncaa_schedule_info.R" class="external-link"><code>R/ncaa_schedule_info.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballr/blob/master/R/ncaa_schedule_info.R" class="external-link"><code>R/ncaa_schedule_info.R</code></a></small>
       <div class="d-none name"><code>ncaa_schedule_info.Rd</code></div>
     </div>
 
@@ -141,135 +141,284 @@ etc.)</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A data frame with the following fields: date, opponent,
 result, score, innings (if more than regulation), and the url
-for the game itself.
-|col_name      |types     |
-|:-------------|:---------|
-|date          |character |
-|opponent      |character |
-|result        |character |
-|score         |character |
-|innings       |character |
-|opponent_slug |character |
-|slug          |character |
-|game_info_url |character |</p>
-    </div>
+for the game itself.</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>date</td><td>character</td></tr><tr><td>opponent</td><td>character</td></tr><tr><td>result</td><td>character</td></tr><tr><td>score</td><td>character</td></tr><tr><td>innings</td><td>character</td></tr><tr><td>opponent_slug</td><td>character</td></tr><tr><td>slug</td><td>character</td></tr><tr><td>game_info_url</td><td>character</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in">  <span class="fu">ncaa_schedule_info</span><span class="op">(</span>teamid <span class="op">=</span> <span class="fl">736</span>, year <span class="op">=</span> <span class="fl">2022</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          date                opponent result score innings</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  02/18/2022            Oklahoma St.   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  02/19/2022            Oklahoma St.   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  02/20/2022            Oklahoma St.   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  02/22/2022              North Ala.   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  02/23/2022              Evansville   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  02/25/2022         Army West Point   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  02/26/2022         Army West Point   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  02/27/2022         Army West Point   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  03/01/2022            Central Ark.   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 03/04/2022                @ Hawaii   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 03/05/2022                @ Hawaii   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 03/05/2022                @ Hawaii   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 03/06/2022                @ Hawaii   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 03/11/2022                  Wagner   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 03/12/2022                  Wagner   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 03/13/2022                  Wagner   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 03/15/2022                Michigan   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 03/18/2022                Missouri   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 03/19/2022                Missouri   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 03/20/2022                Missouri   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 03/22/2022  Belmont @Nashville, TN   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 03/24/2022        @ South Carolina   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 03/25/2022        @ South Carolina   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 03/26/2022        @ South Carolina   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25 03/29/2022 Lipscomb @Nashville, TN   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26 04/01/2022               Tennessee   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27 04/02/2022               Tennessee   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 04/03/2022               Tennessee   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29 04/05/2022             Austin Peay   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30 04/08/2022                @ Auburn   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31 04/09/2022                @ Auburn   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32 04/10/2022                @ Auburn   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33 04/12/2022             Western Ky.   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34 04/15/2022                 Florida   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35 04/16/2022                 Florida   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36 04/17/2022                 Florida   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37 04/19/2022          Tennessee Tech   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38 04/22/2022              @ Kentucky   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39 04/23/2022              @ Kentucky   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40 04/24/2022              @ Kentucky   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41 04/28/2022               Texas A&amp;M   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42 04/29/2022               Texas A&amp;M   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43 04/30/2022               Texas A&amp;M   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44 05/03/2022              Louisville   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45 05/06/2022               @ Georgia   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46 05/07/2022               @ Georgia   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47 05/08/2022               @ Georgia   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48 05/10/2022             Indiana St.   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49 05/13/2022              @ Arkansas   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50 05/14/2022              @ Arkansas   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51 05/15/2022              @ Arkansas   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52 05/17/2022            Middle Tenn.   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53 05/19/2022                     LSU   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54 05/20/2022                     LSU   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55 05/21/2022                     LSU   &lt;NA&gt;  &lt;NA&gt;    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    opponent_slug slug game_info_url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  /teams/526514 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  /teams/526514 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  /teams/526514 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  /teams/526337 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  /teams/526405 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  /teams/526289 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  /teams/526289 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  /teams/526289 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  /teams/526316 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 /teams/526425 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 /teams/526425 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 /teams/526425 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 /teams/526425 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 /teams/526299 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 /teams/526299 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 /teams/526299 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 /teams/526472 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 /teams/526478 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 /teams/526478 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 /teams/526478 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 /teams/526331 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 /teams/526554 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 /teams/526554 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 /teams/526554 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25 /teams/526334 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26 /teams/526572 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27 /teams/526572 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 /teams/526572 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29 /teams/526353 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30 /teams/526352 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31 /teams/526352 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32 /teams/526352 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33 /teams/526306 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34 /teams/526412 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35 /teams/526412 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36 /teams/526412 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37 /teams/526571 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38 /teams/526445 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39 /teams/526445 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40 /teams/526445 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41 /teams/526277 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42 /teams/526277 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43 /teams/526277 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44 /teams/526455 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45 /teams/526420 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46 /teams/526420 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47 /teams/526420 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48 /teams/526433 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49 /teams/526350 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50 /teams/526350 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51 /teams/526350 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52 /teams/526473 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53 /teams/526453 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54 /teams/526453 &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55 /teams/526453 &lt;NA&gt;          &lt;NA&gt;</span>
+<span class="r-in">  <span class="fu">ncaa_schedule_info</span><span class="op">(</span>teamid <span class="op">=</span> <span class="fl">736</span>, year <span class="op">=</span> <span class="fl">2021</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          date</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  02/22/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  02/22/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  02/24/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  02/26/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  02/27/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  02/28/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  02/28/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  03/05/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  03/06/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 03/07/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 03/09/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 03/13/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 03/13/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 03/14/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 03/16/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 03/19/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 03/20/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 03/21/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 03/23/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 03/25/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 03/26/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 03/27/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 03/30/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 04/01/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 04/02/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 04/03/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 04/06/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 04/08/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29 04/09/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30 04/10/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31 04/13/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32 04/16/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 04/17/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34 04/18/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35 04/20/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36 04/23/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37 04/24/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38 04/25/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39 04/30/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40 05/01/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41 05/02/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42 05/04/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43 05/07/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44 05/08/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45 05/11/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46 05/14/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47 05/15/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48 05/16/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49 05/18/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50 05/20/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51 05/21/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52 05/22/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53 05/26/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54 05/27/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55 05/28/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56 06/04/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57 06/05/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58 06/06/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59 06/11/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60 06/12/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61 06/19/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62 06/21/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63 06/23/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64 06/25/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65 06/28/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66 06/29/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67 06/30/2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                       opponent</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                   Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                   Wright St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                  Western Ky.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                  Georgia St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                                  Georgia St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                                  Georgia St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                                                  Georgia St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                                                          UIC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                                                          UIC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                                                         UIC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                                                     Memphis</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                                              @ Oklahoma St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                                              @ Oklahoma St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                                              @ Oklahoma St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                                                     Belmont</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                                              South Carolina</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17                                                              South Carolina</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                                              South Carolina</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19                                                                    Lipscomb</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20                                                                  @ Missouri</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21                                                                  @ Missouri</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22                                                                  @ Missouri</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23                                                              Tennessee Tech</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24                                                                       @ LSU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25                                                                       @ LSU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26                                                                       @ LSU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27                                                                   UT Martin</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28                                                                     Georgia</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29                                                                     Georgia</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30                                                                     Georgia</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31                                                                 Eastern Ky.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32                                                                 @ Tennessee</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33                                                                 @ Tennessee</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34                                                                 @ Tennessee</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35                                                                 Austin Peay</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36                                                             Mississippi St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37                                                             Mississippi St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38                                                             Mississippi St.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39                                                                   @ Florida</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40                                                                   @ Florida</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41                                                                   @ Florida</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42                                                                @ Louisville</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43                                                                     Alabama</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44                                                                     Alabama</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45                                                                  North Ala.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46                                                                  @ Ole Miss</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47                                                                  @ Ole Miss</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48                                                                  @ Ole Miss</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49                                                                         FIU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50                                                                    Kentucky</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51                                                                    Kentucky</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52                                                                    Kentucky</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53                    #5 Ole Miss @Hoover, AL (2021 SEC Baseball Championship)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54                    #1 Arkansas @Hoover, AL (2021 SEC Baseball Championship)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55                    #5 Ole Miss @Hoover, AL (2021 SEC Baseball Championship)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56                     Presbyterian 2021 NCAA Division I Baseball Championship</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57                     Georgia Tech 2021 NCAA Division I Baseball Championship</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58 Georgia Tech @Nashville, Tenn. (2021 NCAA Division I Baseball Championship)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59                #13 East Carolina 2021 NCAA Division I Baseball Championship</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60                #13 East Carolina 2021 NCAA Division I Baseball Championship</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61          #5 Arizona @Omaha, NE (2021 NCAA Division I Baseball Championship)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62            NC State @Omaha, NE (2021 NCAA Division I Baseball Championship)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63         #9 Stanford @Omaha, NE (2021 NCAA Division I Baseball Championship)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64            NC State @Omaha, NE (2021 NCAA Division I Baseball Championship)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65  #7 Mississippi St. @Omaha, NE (2021 NCAA Division I Baseball Championship)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66  #7 Mississippi St. @Omaha, NE (2021 NCAA Division I Baseball Championship)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67  #7 Mississippi St. @Omaha, NE (2021 NCAA Division I Baseball Championship)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    result score innings opponent_slug                        slug</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       W  14-1    &lt;NA&gt; /teams/508926 /contests/2016138/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2       W   1-0    &lt;NA&gt; /teams/508926 /contests/2016254/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3       W  12-1    &lt;NA&gt; /teams/508920 /contests/2016509/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4       L   2-4    &lt;NA&gt; /teams/509035 /contests/2029315/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5       W   5-4    &lt;NA&gt; /teams/509035 /contests/2029324/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6       W  12-2    &lt;NA&gt; /teams/509035 /contests/2029321/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7       W  17-6    &lt;NA&gt; /teams/509035 /contests/2040062/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8       W  15-0    &lt;NA&gt; /teams/509049 /contests/2017139/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9       W   5-2    &lt;NA&gt; /teams/509049 /contests/2017266/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10      W   4-2    &lt;NA&gt; /teams/509049 /contests/2017490/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11      W  10-4    &lt;NA&gt; /teams/509084 /contests/2040065/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12      W   5-0    &lt;NA&gt; /teams/509131 /contests/2059284/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13      W  18-4    &lt;NA&gt; /teams/509131 /contests/2017873/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14      L  6-10    &lt;NA&gt; /teams/509131 /contests/2018101/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15      W   4-1    &lt;NA&gt; /teams/508946 /contests/2034116/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16      W   3-2    &lt;NA&gt; /teams/509171 /contests/2018391/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17      W   5-0    &lt;NA&gt; /teams/509171 /contests/2018522/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18      L   5-6    &lt;NA&gt; /teams/509171 /contests/2018775/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19      W  11-3    &lt;NA&gt; /teams/508949 /contests/2034388/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20      W  10-2    &lt;NA&gt; /teams/509095 /contests/2019457/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21      W  11-3    &lt;NA&gt; /teams/509095 /contests/2019064/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22      W   3-1    &lt;NA&gt; /teams/509095 /contests/2019210/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23      W  12-5    &lt;NA&gt; /teams/509188 /contests/2030683/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24      W  13-1    &lt;NA&gt; /teams/509070 /contests/2019843/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25      W  11-2    &lt;NA&gt; /teams/509070 /contests/2020053/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26      W   5-4    &lt;NA&gt; /teams/509070 /contests/2020238/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27      W   5-4    &lt;NA&gt; /teams/509190 /contests/2036430/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28      L  2-14    &lt;NA&gt; /teams/509037 /contests/2020459/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29      W   5-2    &lt;NA&gt; /teams/509037 /contests/2020609/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30      L   1-9    &lt;NA&gt; /teams/509037 /contests/2020874/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31      W   6-4    &lt;NA&gt; /teams/509019 /contests/2021087/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32      W   5-0    &lt;NA&gt; /teams/509189 /contests/2021197/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33      L   4-8    &lt;NA&gt; /teams/509189 /contests/2021341/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34      W  10-4    &lt;NA&gt; /teams/509189 /contests/2021594/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35      W   7-0    &lt;NA&gt; /teams/508968 /contests/2039445/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36      W   6-2    &lt;NA&gt; /teams/509092 /contests/2021886/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37      L   4-7    &lt;NA&gt; /teams/509092 /contests/2022014/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38      W   7-4    &lt;NA&gt; /teams/509092 /contests/2022255/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39      W  11-7    &lt;NA&gt; /teams/509028 /contests/2022530/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40      L  8-11    &lt;NA&gt; /teams/509028 /contests/2022663/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41      L   3-5    &lt;NA&gt; /teams/509028 /contests/2022899/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42      L   2-7    &lt;NA&gt; /teams/509072 /contests/2023021/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43      W   9-6    &lt;NA&gt; /teams/508957 /contests/2023105/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44      W   6-2    &lt;NA&gt; /teams/508957 /contests/2023227/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45      W   3-2    &lt;NA&gt; /teams/508952 /contests/2023529/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46      L   1-3    &lt;NA&gt; /teams/509094 /contests/2023568/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47      W  13-2    &lt;NA&gt; /teams/509094 /contests/2023654/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48      L 10-13    &lt;NA&gt; /teams/509094 /contests/2023764/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49      W  20-4    &lt;NA&gt; /teams/509026 /contests/2040067/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50      W   4-2    &lt;NA&gt; /teams/509062 /contests/2023870/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51      W   8-2    &lt;NA&gt; /teams/509062 /contests/2023934/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52      L   5-7    &lt;NA&gt; /teams/509062 /contests/2024015/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53      W   5-4    &lt;NA&gt; /teams/509094 /contests/2080523/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54      L   4-6    &lt;NA&gt; /teams/508965 /contests/2080432/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55      L   1-4    &lt;NA&gt; /teams/509094 /contests/2080431/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56      W  10-0    &lt;NA&gt; /teams/508939 /contests/2081146/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57      W   4-3    &lt;NA&gt; /teams/509036 /contests/2081147/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58      W 14-11      11 /teams/509036 /contests/2081150/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59      W   2-0    &lt;NA&gt; /teams/509016 /contests/2081341/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60      W   4-1    &lt;NA&gt; /teams/509016 /contests/2081349/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61      W   7-6      12 /teams/508963 /contests/2081478/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62      L   0-1    &lt;NA&gt; /teams/509118 /contests/2081479/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63      W   6-5    &lt;NA&gt; /teams/509184 /contests/2081481/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64      W   3-1    &lt;NA&gt; /teams/509118 /contests/2081482/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65      W   8-2    &lt;NA&gt; /teams/509092 /contests/2075418/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66      L  2-13    &lt;NA&gt; /teams/509092 /contests/2081578/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67      L   0-9    &lt;NA&gt; /teams/509092 /contests/2081579/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                        game_info_url</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  https://stats.ncaa.org/contests/2016138/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  https://stats.ncaa.org/contests/2016254/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  https://stats.ncaa.org/contests/2016509/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  https://stats.ncaa.org/contests/2029315/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  https://stats.ncaa.org/contests/2029324/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  https://stats.ncaa.org/contests/2029321/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  https://stats.ncaa.org/contests/2040062/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  https://stats.ncaa.org/contests/2017139/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  https://stats.ncaa.org/contests/2017266/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 https://stats.ncaa.org/contests/2017490/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 https://stats.ncaa.org/contests/2040065/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 https://stats.ncaa.org/contests/2059284/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 https://stats.ncaa.org/contests/2017873/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 https://stats.ncaa.org/contests/2018101/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 https://stats.ncaa.org/contests/2034116/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 https://stats.ncaa.org/contests/2018391/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 https://stats.ncaa.org/contests/2018522/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 https://stats.ncaa.org/contests/2018775/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 https://stats.ncaa.org/contests/2034388/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 https://stats.ncaa.org/contests/2019457/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 https://stats.ncaa.org/contests/2019064/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 https://stats.ncaa.org/contests/2019210/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 https://stats.ncaa.org/contests/2030683/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 https://stats.ncaa.org/contests/2019843/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 https://stats.ncaa.org/contests/2020053/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 https://stats.ncaa.org/contests/2020238/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 https://stats.ncaa.org/contests/2036430/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 https://stats.ncaa.org/contests/2020459/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29 https://stats.ncaa.org/contests/2020609/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30 https://stats.ncaa.org/contests/2020874/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31 https://stats.ncaa.org/contests/2021087/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32 https://stats.ncaa.org/contests/2021197/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 https://stats.ncaa.org/contests/2021341/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34 https://stats.ncaa.org/contests/2021594/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35 https://stats.ncaa.org/contests/2039445/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36 https://stats.ncaa.org/contests/2021886/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37 https://stats.ncaa.org/contests/2022014/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38 https://stats.ncaa.org/contests/2022255/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39 https://stats.ncaa.org/contests/2022530/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40 https://stats.ncaa.org/contests/2022663/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41 https://stats.ncaa.org/contests/2022899/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42 https://stats.ncaa.org/contests/2023021/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43 https://stats.ncaa.org/contests/2023105/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44 https://stats.ncaa.org/contests/2023227/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45 https://stats.ncaa.org/contests/2023529/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46 https://stats.ncaa.org/contests/2023568/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47 https://stats.ncaa.org/contests/2023654/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48 https://stats.ncaa.org/contests/2023764/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49 https://stats.ncaa.org/contests/2040067/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50 https://stats.ncaa.org/contests/2023870/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51 https://stats.ncaa.org/contests/2023934/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52 https://stats.ncaa.org/contests/2024015/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53 https://stats.ncaa.org/contests/2080523/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54 https://stats.ncaa.org/contests/2080432/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55 https://stats.ncaa.org/contests/2080431/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56 https://stats.ncaa.org/contests/2081146/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57 https://stats.ncaa.org/contests/2081147/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58 https://stats.ncaa.org/contests/2081150/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59 https://stats.ncaa.org/contests/2081341/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60 https://stats.ncaa.org/contests/2081349/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61 https://stats.ncaa.org/contests/2081478/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62 https://stats.ncaa.org/contests/2081479/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63 https://stats.ncaa.org/contests/2081481/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64 https://stats.ncaa.org/contests/2081482/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65 https://stats.ncaa.org/contests/2075418/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66 https://stats.ncaa.org/contests/2081578/box_score</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67 https://stats.ncaa.org/contests/2081579/box_score</span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

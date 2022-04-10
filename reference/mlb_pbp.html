@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,7 +103,7 @@
   </a>
 </li>
 <li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/billpetti/baseballR/">
+  <a class="external-link nav-link" href="https://github.com/billpetti/baseballr/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -116,7 +116,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1><strong>Acquire pitch-by-pitch data for Major and Minor League games</strong></h1>
-      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballR/blob/master/R/mlb_pbp.R" class="external-link"><code>R/mlb_pbp.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballr/blob/master/R/mlb_pbp.R" class="external-link"><code>R/mlb_pbp.R</code></a></small>
       <div class="d-none name"><code>mlb_pbp.Rd</code></div>
     </div>
 
@@ -149,21 +149,21 @@ Both major and minor league pitch-by-pitch data can be pulled with this function
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in">  <span class="fu">mlb_pbp</span><span class="op">(</span>game_pk <span class="op">=</span> <span class="fl">575156</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 368 × 143</span></span>
+<span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_pbp</span><span class="op">(</span>game_pk <span class="op">=</span> <span class="fl">632970</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 336 × 145</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    game_pk game_date  index startTime       endTime isPitch type  playId</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>  <span style="text-decoration: underline;">575</span>156 2019-06-01     5 2019-06-01T15:… 2019-0… TRUE    pitch 05751…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>  <span style="text-decoration: underline;">575</span>156 2019-06-01     4 2019-06-01T15:… 2019-0… TRUE    pitch 05751…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>  <span style="text-decoration: underline;">575</span>156 2019-06-01     3 2019-06-01T15:… 2019-0… TRUE    pitch 05751…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>  <span style="text-decoration: underline;">575</span>156 2019-06-01     2 2019-06-01T15:… 2019-0… TRUE    pitch 05751…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">575</span>156 2019-06-01     1 2019-06-01T15:… 2019-0… TRUE    pitch 05751…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">575</span>156 2019-06-01     0 2019-06-01T15:… 2019-0… TRUE    pitch 05751…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">575</span>156 2019-06-01     4 2019-06-01T15:… 2019-0… TRUE    pitch 05751…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">575</span>156 2019-06-01     3 2019-06-01T15:… 2019-0… TRUE    pitch 05751…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">575</span>156 2019-06-01     2 2019-06-01T15:… 2019-0… TRUE    pitch 05751…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">575</span>156 2019-06-01     1 2019-06-01T15:… 2019-0… TRUE    pitch 05751…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 358 more rows, and 135 more variables: pitchNumber &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>  <span style="text-decoration: underline;">632</span>970 2021-08-08     3 2021-08-09T02:… 2021-0… TRUE    pitch 932a8…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>  <span style="text-decoration: underline;">632</span>970 2021-08-08     2 2021-08-09T02:… 2021-0… TRUE    pitch e9403…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>  <span style="text-decoration: underline;">632</span>970 2021-08-08     1 2021-08-09T02:… 2021-0… TRUE    pitch 01e5d…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>  <span style="text-decoration: underline;">632</span>970 2021-08-08     0 2021-08-09T02:… <span style="color: #BB0000;">NA</span>      FALSE   acti… <span style="color: #BB0000;">NA</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">632</span>970 2021-08-08     5 2021-08-09T02:… 2021-0… TRUE    pitch f0450…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">632</span>970 2021-08-08     4 2021-08-09T02:… 2021-0… TRUE    pitch b4c15…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">632</span>970 2021-08-08     3 2021-08-09T02:… 2021-0… TRUE    pitch e274e…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">632</span>970 2021-08-08     2 2021-08-09T02:… 2021-0… TRUE    pitch d5dc0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">632</span>970 2021-08-08     1 2021-08-09T02:… 2021-0… TRUE    pitch ddbcc…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">632</span>970 2021-08-08     0 2021-08-09T02:… 2021-0… TRUE    pitch 69a40…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 326 more rows, and 137 more variables: pitchNumber &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   details.description &lt;chr&gt;, details.event &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   details.awayScore &lt;int&gt;, details.homeScore &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   details.isScoringPlay &lt;lgl&gt;, details.hasReview &lt;lgl&gt;,</span></span>

@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,7 +103,7 @@
   </a>
 </li>
 <li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/billpetti/baseballR/">
+  <a class="external-link nav-link" href="https://github.com/billpetti/baseballr/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -116,7 +116,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1><strong>Scrape Pitcher Leaderboards from FanGraphs</strong></h1>
-      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballR/blob/master/R/fg_pitcher_leaders.R" class="external-link"><code>R/fg_pitcher_leaders.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballr/blob/master/R/fg_pitcher_leaders.R" class="external-link"><code>R/fg_pitcher_leaders.R</code></a></small>
       <div class="d-none name"><code>fg_pitcher_leaders.Rd</code></div>
     </div>
 
@@ -153,313 +153,7 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A data frame of pitcher data.
-|col_name           |types     |
-|:------------------|:---------|
-|playerid           |character |
-|#                  |character |
-|Season             |character |
-|Name               |character |
-|Team               |character |
-|Age                |numeric   |
-|W                  |numeric   |
-|L                  |numeric   |
-|ERA                |numeric   |
-|G                  |numeric   |
-|GS                 |numeric   |
-|CG                 |numeric   |
-|ShO                |numeric   |
-|SV                 |numeric   |
-|BS                 |numeric   |
-|IP                 |numeric   |
-|TBF                |numeric   |
-|H                  |numeric   |
-|R                  |numeric   |
-|ER                 |numeric   |
-|HR                 |numeric   |
-|BB                 |numeric   |
-|IBB                |numeric   |
-|HBP                |numeric   |
-|WP                 |numeric   |
-|BK                 |numeric   |
-|SO                 |numeric   |
-|GB                 |numeric   |
-|FB                 |numeric   |
-|LD                 |numeric   |
-|IFFB               |numeric   |
-|Balls              |numeric   |
-|Strikes            |numeric   |
-|Pitches            |numeric   |
-|RS                 |numeric   |
-|IFH                |numeric   |
-|BU                 |numeric   |
-|BUH                |numeric   |
-|K_9                |numeric   |
-|BB_9               |numeric   |
-|K_BB               |numeric   |
-|H_9                |numeric   |
-|HR_9               |numeric   |
-|AVG                |numeric   |
-|WHIP               |numeric   |
-|BABIP              |numeric   |
-|LOB_pct            |numeric   |
-|FIP                |numeric   |
-|GB_FB              |numeric   |
-|LD_pct             |numeric   |
-|GB_pct             |numeric   |
-|FB_pct             |numeric   |
-|IFFB_pct           |numeric   |
-|HR_FB              |numeric   |
-|IFH_pct            |numeric   |
-|BUH_pct            |numeric   |
-|Starting           |numeric   |
-|Start_IP           |numeric   |
-|Relieving          |numeric   |
-|Relief_IP          |numeric   |
-|RAR                |numeric   |
-|WAR                |numeric   |
-|Dollars            |numeric   |
-|tERA               |numeric   |
-|xFIP               |numeric   |
-|WPA                |numeric   |
-|WPA_minus          |numeric   |
-|WPA_plus           |numeric   |
-|RE24               |numeric   |
-|REW                |numeric   |
-|pLI                |numeric   |
-|inLI               |numeric   |
-|gmLI               |numeric   |
-|exLI               |numeric   |
-|Pulls              |numeric   |
-|WPA_LI             |numeric   |
-|Clutch             |numeric   |
-|FBall_pct          |numeric   |
-|FBv                |numeric   |
-|SL_pct             |numeric   |
-|SLv                |numeric   |
-|CT_pct             |numeric   |
-|CTv                |numeric   |
-|CB_pct             |numeric   |
-|CBv                |numeric   |
-|CH_pct             |numeric   |
-|CHv                |numeric   |
-|SF_pct             |numeric   |
-|SFv                |numeric   |
-|KN_pct             |numeric   |
-|KNv                |numeric   |
-|XX_pct             |numeric   |
-|PO_pct             |numeric   |
-|wFB                |numeric   |
-|wSL                |numeric   |
-|wCT                |numeric   |
-|wCB                |numeric   |
-|wCH                |numeric   |
-|wSF                |numeric   |
-|wKN                |numeric   |
-|wFB_C              |numeric   |
-|wSL_C              |numeric   |
-|wCT_C              |numeric   |
-|wCB_C              |numeric   |
-|wCH_C              |numeric   |
-|wSF_C              |numeric   |
-|wKN_C              |numeric   |
-|O-Swing_pct        |numeric   |
-|Z-Swing_pct        |numeric   |
-|Swing_pct          |numeric   |
-|O-Contact_pct      |numeric   |
-|Z-Contact_pct      |numeric   |
-|Contact_pct        |numeric   |
-|Zone_pct           |numeric   |
-|F-Strike_pct       |numeric   |
-|SwStr_pct          |numeric   |
-|HLD                |numeric   |
-|SD                 |numeric   |
-|MD                 |numeric   |
-|ERA-               |numeric   |
-|FIP-               |numeric   |
-|xFIP-              |numeric   |
-|K_pct              |numeric   |
-|BB_pct             |numeric   |
-|SIERA              |numeric   |
-|RS_9               |numeric   |
-|E-F                |numeric   |
-|FA_pct (sc)        |numeric   |
-|FT_pct (sc)        |numeric   |
-|FC_pct (sc)        |numeric   |
-|FS_pct (sc)        |numeric   |
-|FO_pct (sc)        |numeric   |
-|SI_pct (sc)        |numeric   |
-|SL_pct (sc)        |numeric   |
-|CU_pct (sc)        |numeric   |
-|KC_pct (sc)        |numeric   |
-|EP_pct (sc)        |numeric   |
-|CH_pct (sc)        |numeric   |
-|SC_pct (sc)        |numeric   |
-|KN_pct (sc)        |numeric   |
-|UN_pct (sc)        |numeric   |
-|vFA (sc)           |numeric   |
-|vFT (sc)           |numeric   |
-|vFC (sc)           |numeric   |
-|vFS (sc)           |numeric   |
-|vFO (sc)           |numeric   |
-|vSI (sc)           |numeric   |
-|vSL (sc)           |numeric   |
-|vCU (sc)           |numeric   |
-|vKC (sc)           |numeric   |
-|vEP (sc)           |numeric   |
-|vCH (sc)           |numeric   |
-|vSC (sc)           |numeric   |
-|vKN (sc)           |numeric   |
-|FA-X (sc)          |numeric   |
-|FT-X (sc)          |numeric   |
-|FC-X (sc)          |numeric   |
-|FS-X (sc)          |numeric   |
-|FO-X (sc)          |numeric   |
-|SI-X (sc)          |numeric   |
-|SL-X (sc)          |numeric   |
-|CU-X (sc)          |numeric   |
-|KC-X (sc)          |numeric   |
-|EP-X (sc)          |numeric   |
-|CH-X (sc)          |numeric   |
-|SC-X (sc)          |numeric   |
-|KN-X (sc)          |numeric   |
-|FA-Z (sc)          |numeric   |
-|FT-Z (sc)          |numeric   |
-|FC-Z (sc)          |numeric   |
-|FS-Z (sc)          |numeric   |
-|FO-Z (sc)          |numeric   |
-|SI-Z (sc)          |numeric   |
-|SL-Z (sc)          |numeric   |
-|CU-Z (sc)          |numeric   |
-|KC-Z (sc)          |numeric   |
-|EP-Z (sc)          |numeric   |
-|CH-Z (sc)          |numeric   |
-|SC-Z (sc)          |numeric   |
-|KN-Z (sc)          |numeric   |
-|wFA (sc)           |numeric   |
-|wFT (sc)           |numeric   |
-|wFC (sc)           |numeric   |
-|wFS (sc)           |numeric   |
-|wFO (sc)           |numeric   |
-|wSI (sc)           |numeric   |
-|wSL (sc)           |numeric   |
-|wCU (sc)           |numeric   |
-|wKC (sc)           |numeric   |
-|wEP (sc)           |numeric   |
-|wCH (sc)           |numeric   |
-|wSC (sc)           |numeric   |
-|wKN (sc)           |numeric   |
-|wFA_C (sc)         |numeric   |
-|wFT_C (sc)         |numeric   |
-|wFC_C (sc)         |numeric   |
-|wFS_C (sc)         |numeric   |
-|wFO_C (sc)         |numeric   |
-|wSI_C (sc)         |numeric   |
-|wSL_C (sc)         |numeric   |
-|wCU_C (sc)         |numeric   |
-|wKC_C (sc)         |numeric   |
-|wEP_C (sc)         |numeric   |
-|wCH_C (sc)         |numeric   |
-|wSC_C (sc)         |numeric   |
-|wKN_C (sc)         |numeric   |
-|O-Swing_pct (sc)   |numeric   |
-|Z-Swing_pct (sc)   |numeric   |
-|Swing_pct (sc)     |numeric   |
-|O-Contact_pct (sc) |numeric   |
-|Z-Contact_pct (sc) |numeric   |
-|Contact_pct (sc)   |numeric   |
-|Zone_pct (sc)      |numeric   |
-|Pace               |numeric   |
-|RA9-WAR            |numeric   |
-|BIP-Wins           |numeric   |
-|LOB-Wins           |numeric   |
-|FDP-Wins           |numeric   |
-|AgeRng             |numeric   |
-|K-BB_pct           |numeric   |
-|Pull_pct           |numeric   |
-|Cent_pct           |numeric   |
-|Oppo_pct           |numeric   |
-|Soft_pct           |numeric   |
-|Med_pct            |numeric   |
-|Hard_pct           |numeric   |
-|kwERA              |numeric   |
-|TTO_pct            |numeric   |
-|CH_pct_pi          |numeric   |
-|CS_pct_pi          |numeric   |
-|CU_pct_pi          |numeric   |
-|FA_pct_pi          |numeric   |
-|FC_pct_pi          |numeric   |
-|FS_pct_pi          |numeric   |
-|KN_pct_pi          |numeric   |
-|SB_pct_pi          |numeric   |
-|SI_pct_pi          |numeric   |
-|SL_pct_pi          |numeric   |
-|XX_pct_pi          |numeric   |
-|vCH_pi             |numeric   |
-|vCS_pi             |numeric   |
-|vCU_pi             |numeric   |
-|vFA_pi             |numeric   |
-|vFC_pi             |numeric   |
-|vFS_pi             |numeric   |
-|vKN_pi             |numeric   |
-|vSB_pi             |numeric   |
-|vSI_pi             |numeric   |
-|vSL_pi             |numeric   |
-|vXX_pi             |numeric   |
-|CH-X_pi            |numeric   |
-|CS-X_pi            |numeric   |
-|CU-X_pi            |numeric   |
-|FA-X_pi            |numeric   |
-|FC-X_pi            |numeric   |
-|FS-X_pi            |numeric   |
-|KN-X_pi            |numeric   |
-|SB-X_pi            |numeric   |
-|SI-X_pi            |numeric   |
-|SL-X_pi            |numeric   |
-|XX-X_pi            |numeric   |
-|CH-Z_pi            |numeric   |
-|CS-Z_pi            |numeric   |
-|CU-Z_pi            |numeric   |
-|FA-Z_pi            |numeric   |
-|FC-Z_pi            |numeric   |
-|FS-Z_pi            |numeric   |
-|KN-Z_pi            |numeric   |
-|SB-Z_pi            |numeric   |
-|SI-Z_pi            |numeric   |
-|SL-Z_pi            |numeric   |
-|XX-Z_pi            |numeric   |
-|wCH_pi             |numeric   |
-|wCS_pi             |numeric   |
-|wCU_pi             |numeric   |
-|wFA_pi             |numeric   |
-|wFC_pi             |numeric   |
-|wFS_pi             |numeric   |
-|wKN_pi             |numeric   |
-|wSB_pi             |numeric   |
-|wSI_pi             |numeric   |
-|wSL_pi             |numeric   |
-|wXX_pi             |numeric   |
-|wCH_C_pi           |numeric   |
-|wCS_C_pi           |numeric   |
-|wCU_C_pi           |numeric   |
-|wFA_C_pi           |numeric   |
-|wFC_C_pi           |numeric   |
-|wFS_C_pi           |numeric   |
-|wKN_C_pi           |numeric   |
-|wSB_C_pi           |numeric   |
-|wSI_C_pi           |numeric   |
-|wSL_C_pi           |numeric   |
-|wXX_C_pi           |numeric   |
-|O-Swing_pct_pi     |numeric   |
-|Z-Swing_pct_pi     |numeric   |
-|Swing_pct_pi       |numeric   |
-|O-Contact_pct_pi   |numeric   |
-|Z-Contact_pct_pi   |numeric   |
-|Contact_pct_pi     |numeric   |
-|Zone_pct_pi        |numeric   |
-|Pace_pi            |numeric   |
-|Dol                |numeric   |</p>
-    </div>
+    <p>A data frame of pitcher data.</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>playerid</td><td>character</td></tr><tr><td>#</td><td>character</td></tr><tr><td>Season</td><td>character</td></tr><tr><td>Name</td><td>character</td></tr><tr><td>Team</td><td>character</td></tr><tr><td>Age</td><td>numeric</td></tr><tr><td>W</td><td>numeric</td></tr><tr><td>L</td><td>numeric</td></tr><tr><td>ERA</td><td>numeric</td></tr><tr><td>G</td><td>numeric</td></tr><tr><td>GS</td><td>numeric</td></tr><tr><td>CG</td><td>numeric</td></tr><tr><td>ShO</td><td>numeric</td></tr><tr><td>SV</td><td>numeric</td></tr><tr><td>BS</td><td>numeric</td></tr><tr><td>IP</td><td>numeric</td></tr><tr><td>TBF</td><td>numeric</td></tr><tr><td>H</td><td>numeric</td></tr><tr><td>R</td><td>numeric</td></tr><tr><td>ER</td><td>numeric</td></tr><tr><td>HR</td><td>numeric</td></tr><tr><td>BB</td><td>numeric</td></tr><tr><td>IBB</td><td>numeric</td></tr><tr><td>HBP</td><td>numeric</td></tr><tr><td>WP</td><td>numeric</td></tr><tr><td>BK</td><td>numeric</td></tr><tr><td>SO</td><td>numeric</td></tr><tr><td>GB</td><td>numeric</td></tr><tr><td>FB</td><td>numeric</td></tr><tr><td>LD</td><td>numeric</td></tr><tr><td>IFFB</td><td>numeric</td></tr><tr><td>Balls</td><td>numeric</td></tr><tr><td>Strikes</td><td>numeric</td></tr><tr><td>Pitches</td><td>numeric</td></tr><tr><td>RS</td><td>numeric</td></tr><tr><td>IFH</td><td>numeric</td></tr><tr><td>BU</td><td>numeric</td></tr><tr><td>BUH</td><td>numeric</td></tr><tr><td>K_9</td><td>numeric</td></tr><tr><td>BB_9</td><td>numeric</td></tr><tr><td>K_BB</td><td>numeric</td></tr><tr><td>H_9</td><td>numeric</td></tr><tr><td>HR_9</td><td>numeric</td></tr><tr><td>AVG</td><td>numeric</td></tr><tr><td>WHIP</td><td>numeric</td></tr><tr><td>BABIP</td><td>numeric</td></tr><tr><td>LOB_pct</td><td>numeric</td></tr><tr><td>FIP</td><td>numeric</td></tr><tr><td>GB_FB</td><td>numeric</td></tr><tr><td>LD_pct</td><td>numeric</td></tr><tr><td>GB_pct</td><td>numeric</td></tr><tr><td>FB_pct</td><td>numeric</td></tr><tr><td>IFFB_pct</td><td>numeric</td></tr><tr><td>HR_FB</td><td>numeric</td></tr><tr><td>IFH_pct</td><td>numeric</td></tr><tr><td>BUH_pct</td><td>numeric</td></tr><tr><td>Starting</td><td>numeric</td></tr><tr><td>Start_IP</td><td>numeric</td></tr><tr><td>Relieving</td><td>numeric</td></tr><tr><td>Relief_IP</td><td>numeric</td></tr><tr><td>RAR</td><td>numeric</td></tr><tr><td>WAR</td><td>numeric</td></tr><tr><td>Dollars</td><td>numeric</td></tr><tr><td>tERA</td><td>numeric</td></tr><tr><td>xFIP</td><td>numeric</td></tr><tr><td>WPA</td><td>numeric</td></tr><tr><td>WPA_minus</td><td>numeric</td></tr><tr><td>WPA_plus</td><td>numeric</td></tr><tr><td>RE24</td><td>numeric</td></tr><tr><td>REW</td><td>numeric</td></tr><tr><td>pLI</td><td>numeric</td></tr><tr><td>inLI</td><td>numeric</td></tr><tr><td>gmLI</td><td>numeric</td></tr><tr><td>exLI</td><td>numeric</td></tr><tr><td>Pulls</td><td>numeric</td></tr><tr><td>WPA_LI</td><td>numeric</td></tr><tr><td>Clutch</td><td>numeric</td></tr><tr><td>FBall_pct</td><td>numeric</td></tr><tr><td>FBv</td><td>numeric</td></tr><tr><td>SL_pct</td><td>numeric</td></tr><tr><td>SLv</td><td>numeric</td></tr><tr><td>CT_pct</td><td>numeric</td></tr><tr><td>CTv</td><td>numeric</td></tr><tr><td>CB_pct</td><td>numeric</td></tr><tr><td>CBv</td><td>numeric</td></tr><tr><td>CH_pct</td><td>numeric</td></tr><tr><td>CHv</td><td>numeric</td></tr><tr><td>SF_pct</td><td>numeric</td></tr><tr><td>SFv</td><td>numeric</td></tr><tr><td>KN_pct</td><td>numeric</td></tr><tr><td>KNv</td><td>numeric</td></tr><tr><td>XX_pct</td><td>numeric</td></tr><tr><td>PO_pct</td><td>numeric</td></tr><tr><td>wFB</td><td>numeric</td></tr><tr><td>wSL</td><td>numeric</td></tr><tr><td>wCT</td><td>numeric</td></tr><tr><td>wCB</td><td>numeric</td></tr><tr><td>wCH</td><td>numeric</td></tr><tr><td>wSF</td><td>numeric</td></tr><tr><td>wKN</td><td>numeric</td></tr><tr><td>wFB_C</td><td>numeric</td></tr><tr><td>wSL_C</td><td>numeric</td></tr><tr><td>wCT_C</td><td>numeric</td></tr><tr><td>wCB_C</td><td>numeric</td></tr><tr><td>wCH_C</td><td>numeric</td></tr><tr><td>wSF_C</td><td>numeric</td></tr><tr><td>wKN_C</td><td>numeric</td></tr><tr><td>O-Swing_pct</td><td>numeric</td></tr><tr><td>Z-Swing_pct</td><td>numeric</td></tr><tr><td>Swing_pct</td><td>numeric</td></tr><tr><td>O-Contact_pct</td><td>numeric</td></tr><tr><td>Z-Contact_pct</td><td>numeric</td></tr><tr><td>Contact_pct</td><td>numeric</td></tr><tr><td>Zone_pct</td><td>numeric</td></tr><tr><td>F-Strike_pct</td><td>numeric</td></tr><tr><td>SwStr_pct</td><td>numeric</td></tr><tr><td>HLD</td><td>numeric</td></tr><tr><td>SD</td><td>numeric</td></tr><tr><td>MD</td><td>numeric</td></tr><tr><td>ERA-</td><td>numeric</td></tr><tr><td>FIP-</td><td>numeric</td></tr><tr><td>xFIP-</td><td>numeric</td></tr><tr><td>K_pct</td><td>numeric</td></tr><tr><td>BB_pct</td><td>numeric</td></tr><tr><td>SIERA</td><td>numeric</td></tr><tr><td>RS_9</td><td>numeric</td></tr><tr><td>E-F</td><td>numeric</td></tr><tr><td>FA_pct (sc)</td><td>numeric</td></tr><tr><td>FT_pct (sc)</td><td>numeric</td></tr><tr><td>FC_pct (sc)</td><td>numeric</td></tr><tr><td>FS_pct (sc)</td><td>numeric</td></tr><tr><td>FO_pct (sc)</td><td>numeric</td></tr><tr><td>SI_pct (sc)</td><td>numeric</td></tr><tr><td>SL_pct (sc)</td><td>numeric</td></tr><tr><td>CU_pct (sc)</td><td>numeric</td></tr><tr><td>KC_pct (sc)</td><td>numeric</td></tr><tr><td>EP_pct (sc)</td><td>numeric</td></tr><tr><td>CH_pct (sc)</td><td>numeric</td></tr><tr><td>SC_pct (sc)</td><td>numeric</td></tr><tr><td>KN_pct (sc)</td><td>numeric</td></tr><tr><td>UN_pct (sc)</td><td>numeric</td></tr><tr><td>vFA (sc)</td><td>numeric</td></tr><tr><td>vFT (sc)</td><td>numeric</td></tr><tr><td>vFC (sc)</td><td>numeric</td></tr><tr><td>vFS (sc)</td><td>numeric</td></tr><tr><td>vFO (sc)</td><td>numeric</td></tr><tr><td>vSI (sc)</td><td>numeric</td></tr><tr><td>vSL (sc)</td><td>numeric</td></tr><tr><td>vCU (sc)</td><td>numeric</td></tr><tr><td>vKC (sc)</td><td>numeric</td></tr><tr><td>vEP (sc)</td><td>numeric</td></tr><tr><td>vCH (sc)</td><td>numeric</td></tr><tr><td>vSC (sc)</td><td>numeric</td></tr><tr><td>vKN (sc)</td><td>numeric</td></tr><tr><td>FA-X (sc)</td><td>numeric</td></tr><tr><td>FT-X (sc)</td><td>numeric</td></tr><tr><td>FC-X (sc)</td><td>numeric</td></tr><tr><td>FS-X (sc)</td><td>numeric</td></tr><tr><td>FO-X (sc)</td><td>numeric</td></tr><tr><td>SI-X (sc)</td><td>numeric</td></tr><tr><td>SL-X (sc)</td><td>numeric</td></tr><tr><td>CU-X (sc)</td><td>numeric</td></tr><tr><td>KC-X (sc)</td><td>numeric</td></tr><tr><td>EP-X (sc)</td><td>numeric</td></tr><tr><td>CH-X (sc)</td><td>numeric</td></tr><tr><td>SC-X (sc)</td><td>numeric</td></tr><tr><td>KN-X (sc)</td><td>numeric</td></tr><tr><td>FA-Z (sc)</td><td>numeric</td></tr><tr><td>FT-Z (sc)</td><td>numeric</td></tr><tr><td>FC-Z (sc)</td><td>numeric</td></tr><tr><td>FS-Z (sc)</td><td>numeric</td></tr><tr><td>FO-Z (sc)</td><td>numeric</td></tr><tr><td>SI-Z (sc)</td><td>numeric</td></tr><tr><td>SL-Z (sc)</td><td>numeric</td></tr><tr><td>CU-Z (sc)</td><td>numeric</td></tr><tr><td>KC-Z (sc)</td><td>numeric</td></tr><tr><td>EP-Z (sc)</td><td>numeric</td></tr><tr><td>CH-Z (sc)</td><td>numeric</td></tr><tr><td>SC-Z (sc)</td><td>numeric</td></tr><tr><td>KN-Z (sc)</td><td>numeric</td></tr><tr><td>wFA (sc)</td><td>numeric</td></tr><tr><td>wFT (sc)</td><td>numeric</td></tr><tr><td>wFC (sc)</td><td>numeric</td></tr><tr><td>wFS (sc)</td><td>numeric</td></tr><tr><td>wFO (sc)</td><td>numeric</td></tr><tr><td>wSI (sc)</td><td>numeric</td></tr><tr><td>wSL (sc)</td><td>numeric</td></tr><tr><td>wCU (sc)</td><td>numeric</td></tr><tr><td>wKC (sc)</td><td>numeric</td></tr><tr><td>wEP (sc)</td><td>numeric</td></tr><tr><td>wCH (sc)</td><td>numeric</td></tr><tr><td>wSC (sc)</td><td>numeric</td></tr><tr><td>wKN (sc)</td><td>numeric</td></tr><tr><td>wFA_C (sc)</td><td>numeric</td></tr><tr><td>wFT_C (sc)</td><td>numeric</td></tr><tr><td>wFC_C (sc)</td><td>numeric</td></tr><tr><td>wFS_C (sc)</td><td>numeric</td></tr><tr><td>wFO_C (sc)</td><td>numeric</td></tr><tr><td>wSI_C (sc)</td><td>numeric</td></tr><tr><td>wSL_C (sc)</td><td>numeric</td></tr><tr><td>wCU_C (sc)</td><td>numeric</td></tr><tr><td>wKC_C (sc)</td><td>numeric</td></tr><tr><td>wEP_C (sc)</td><td>numeric</td></tr><tr><td>wCH_C (sc)</td><td>numeric</td></tr><tr><td>wSC_C (sc)</td><td>numeric</td></tr><tr><td>wKN_C (sc)</td><td>numeric</td></tr><tr><td>O-Swing_pct (sc)</td><td>numeric</td></tr><tr><td>Z-Swing_pct (sc)</td><td>numeric</td></tr><tr><td>Swing_pct (sc)</td><td>numeric</td></tr><tr><td>O-Contact_pct (sc)</td><td>numeric</td></tr><tr><td>Z-Contact_pct (sc)</td><td>numeric</td></tr><tr><td>Contact_pct (sc)</td><td>numeric</td></tr><tr><td>Zone_pct (sc)</td><td>numeric</td></tr><tr><td>Pace</td><td>numeric</td></tr><tr><td>RA9-WAR</td><td>numeric</td></tr><tr><td>BIP-Wins</td><td>numeric</td></tr><tr><td>LOB-Wins</td><td>numeric</td></tr><tr><td>FDP-Wins</td><td>numeric</td></tr><tr><td>AgeRng</td><td>numeric</td></tr><tr><td>K-BB_pct</td><td>numeric</td></tr><tr><td>Pull_pct</td><td>numeric</td></tr><tr><td>Cent_pct</td><td>numeric</td></tr><tr><td>Oppo_pct</td><td>numeric</td></tr><tr><td>Soft_pct</td><td>numeric</td></tr><tr><td>Med_pct</td><td>numeric</td></tr><tr><td>Hard_pct</td><td>numeric</td></tr><tr><td>kwERA</td><td>numeric</td></tr><tr><td>TTO_pct</td><td>numeric</td></tr><tr><td>CH_pct_pi</td><td>numeric</td></tr><tr><td>CS_pct_pi</td><td>numeric</td></tr><tr><td>CU_pct_pi</td><td>numeric</td></tr><tr><td>FA_pct_pi</td><td>numeric</td></tr><tr><td>FC_pct_pi</td><td>numeric</td></tr><tr><td>FS_pct_pi</td><td>numeric</td></tr><tr><td>KN_pct_pi</td><td>numeric</td></tr><tr><td>SB_pct_pi</td><td>numeric</td></tr><tr><td>SI_pct_pi</td><td>numeric</td></tr><tr><td>SL_pct_pi</td><td>numeric</td></tr><tr><td>XX_pct_pi</td><td>numeric</td></tr><tr><td>vCH_pi</td><td>numeric</td></tr><tr><td>vCS_pi</td><td>numeric</td></tr><tr><td>vCU_pi</td><td>numeric</td></tr><tr><td>vFA_pi</td><td>numeric</td></tr><tr><td>vFC_pi</td><td>numeric</td></tr><tr><td>vFS_pi</td><td>numeric</td></tr><tr><td>vKN_pi</td><td>numeric</td></tr><tr><td>vSB_pi</td><td>numeric</td></tr><tr><td>vSI_pi</td><td>numeric</td></tr><tr><td>vSL_pi</td><td>numeric</td></tr><tr><td>vXX_pi</td><td>numeric</td></tr><tr><td>CH-X_pi</td><td>numeric</td></tr><tr><td>CS-X_pi</td><td>numeric</td></tr><tr><td>CU-X_pi</td><td>numeric</td></tr><tr><td>FA-X_pi</td><td>numeric</td></tr><tr><td>FC-X_pi</td><td>numeric</td></tr><tr><td>FS-X_pi</td><td>numeric</td></tr><tr><td>KN-X_pi</td><td>numeric</td></tr><tr><td>SB-X_pi</td><td>numeric</td></tr><tr><td>SI-X_pi</td><td>numeric</td></tr><tr><td>SL-X_pi</td><td>numeric</td></tr><tr><td>XX-X_pi</td><td>numeric</td></tr><tr><td>CH-Z_pi</td><td>numeric</td></tr><tr><td>CS-Z_pi</td><td>numeric</td></tr><tr><td>CU-Z_pi</td><td>numeric</td></tr><tr><td>FA-Z_pi</td><td>numeric</td></tr><tr><td>FC-Z_pi</td><td>numeric</td></tr><tr><td>FS-Z_pi</td><td>numeric</td></tr><tr><td>KN-Z_pi</td><td>numeric</td></tr><tr><td>SB-Z_pi</td><td>numeric</td></tr><tr><td>SI-Z_pi</td><td>numeric</td></tr><tr><td>SL-Z_pi</td><td>numeric</td></tr><tr><td>XX-Z_pi</td><td>numeric</td></tr><tr><td>wCH_pi</td><td>numeric</td></tr><tr><td>wCS_pi</td><td>numeric</td></tr><tr><td>wCU_pi</td><td>numeric</td></tr><tr><td>wFA_pi</td><td>numeric</td></tr><tr><td>wFC_pi</td><td>numeric</td></tr><tr><td>wFS_pi</td><td>numeric</td></tr><tr><td>wKN_pi</td><td>numeric</td></tr><tr><td>wSB_pi</td><td>numeric</td></tr><tr><td>wSI_pi</td><td>numeric</td></tr><tr><td>wSL_pi</td><td>numeric</td></tr><tr><td>wXX_pi</td><td>numeric</td></tr><tr><td>wCH_C_pi</td><td>numeric</td></tr><tr><td>wCS_C_pi</td><td>numeric</td></tr><tr><td>wCU_C_pi</td><td>numeric</td></tr><tr><td>wFA_C_pi</td><td>numeric</td></tr><tr><td>wFC_C_pi</td><td>numeric</td></tr><tr><td>wFS_C_pi</td><td>numeric</td></tr><tr><td>wKN_C_pi</td><td>numeric</td></tr><tr><td>wSB_C_pi</td><td>numeric</td></tr><tr><td>wSI_C_pi</td><td>numeric</td></tr><tr><td>wSL_C_pi</td><td>numeric</td></tr><tr><td>wXX_C_pi</td><td>numeric</td></tr><tr><td>O-Swing_pct_pi</td><td>numeric</td></tr><tr><td>Z-Swing_pct_pi</td><td>numeric</td></tr><tr><td>Swing_pct_pi</td><td>numeric</td></tr><tr><td>O-Contact_pct_pi</td><td>numeric</td></tr><tr><td>Z-Contact_pct_pi</td><td>numeric</td></tr><tr><td>Contact_pct_pi</td><td>numeric</td></tr><tr><td>Zone_pct_pi</td><td>numeric</td></tr><tr><td>Pace_pi</td><td>numeric</td></tr><tr><td>Dol</td><td>numeric</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
@@ -1479,7 +1173,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 21   88   78    81  25.8   10.2  3.35 4.82  0.28        19.4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 22   85   75    79  25.0    5.7  3.19 3.78  0.42        45.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 23   82  100    99  19.3    5.2  3.97 4.80 -0.82        43.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24   86   91    98  21.4    6.6  3.90 3.77 -0.26        36.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24   86   91    98  21.4    6.6  3.90 3.77 -0.26        36.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 25   85   77    87  20.5    5.1  3.62 3.62  0.18        51.4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 26   89  101   100  20.1    7.6  4.02 5.96 -0.49        58.3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 27   88   84    81  26.5    9.1  3.38 4.97  0.19         3.1</span>
@@ -1492,7 +1186,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 34   91   94    82  23.1    7.0  3.38 4.37 -0.19        12.7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 35   87   97   105  18.2    8.5  4.35 5.21 -0.27        14.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 36   92  120   124  20.9    9.1  4.50 5.28 -1.19          NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37   94  121   121  17.2    4.9  4.48 4.90 -1.01        30.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37   94  121   121  17.2    4.9  4.48 4.90 -1.01        30.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 38   94   87    92  21.1    6.3  3.82 4.08  0.20        57.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 39   88   70    66  29.6    5.9  2.74 4.66  0.79        33.9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 40   91   86    86  24.4    7.0  3.45 4.45  0.17        31.4</span>
@@ -1555,7 +1249,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7           NA          NA          NA          NA        16.4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8         21.8          NA          NA          NA          NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9         22.9         2.8          NA          NA          NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10        31.3        20.6          NA          NA          NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10        31.2        20.6          NA          NA          NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 11          NA         1.6          NA          NA          NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 12         8.5          NA          NA          NA          NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 13        25.3          NA          NA          NA          NA</span>
@@ -1582,7 +1276,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 34          NA          NA          NA          NA        33.9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 35          NA          NA          NA          NA        37.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 36          NA        10.8          NA          NA        61.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37        11.2        41.0         3.5          NA          NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37        11.3        41.0         3.5          NA          NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 38         9.9          NA          NA          NA          NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 39        21.6          NA          NA          NA          NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 40        21.2        11.8          NA          NA          NA</span>
@@ -1645,7 +1339,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7         21.3         0.9         7.1          NA         3.7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8         15.0        11.9          NA          NA        12.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9         16.8        13.2          NA          NA         7.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10          NA         9.5          NA          NA         2.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10          NA         9.6          NA          NA         2.7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 11        17.9         8.1          NA          NA        13.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 12        31.5        17.0          NA          NA         2.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 13          NA        25.8          NA          NA        17.3</span>
@@ -1665,7 +1359,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 27        32.6         0.1          NA          NA        20.4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 28        19.6          NA          NA          NA        27.9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 29        31.9        11.7          NA          NA         5.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30        10.3         0.3          NA          NA        16.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30        10.3         0.3          NA          NA        16.7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 31         9.3         3.7          NA          NA        18.7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 32        26.8        15.5          NA          NA         4.8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 33        21.3         7.1          NA          NA          NA</span>
@@ -1825,7 +1519,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7        NA       NA     95.5     87.1     82.5     81.4       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8        NA       NA       NA     89.5     83.7       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9        NA       NA       NA     85.9     81.2       NA       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10       NA       NA       NA       NA     78.2       NA       NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10       NA       NA       NA       NA     78.1       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 11       NA       NA       NA     86.0     79.5       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 12       NA       NA       NA     86.2     76.4       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 13       NA       NA       NA       NA     85.1       NA       NA</span>
@@ -1845,7 +1539,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 27       NA       NA       NA     84.9     77.5       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 28     81.5       NA       NA     78.8       NA       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 29       NA       NA       NA     87.2     78.6       NA       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30       NA       NA       NA     83.0     74.9       NA       NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30       NA       NA       NA     83.0     76.4       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 31       NA       NA       NA     84.9     79.5       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 32       NA       NA     92.8     88.3     82.7       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 33     87.5       NA     91.2     83.6     76.5       NA       NA</span>
@@ -1867,7 +1561,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 49       NA       NA       NA       NA     71.2       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 50       NA       NA       NA     85.0     80.7       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 51       NA       NA     89.2       NA       NA     80.2       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52       NA       NA       NA       NA     72.7       NA       NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52       NA       NA       NA       NA     72.8       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 53       NA       NA       NA       NA       NA       NA     64.4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 54       NA       NA       NA       NA       NA     78.2       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 55       NA       NA     88.2       NA     77.7       NA       NA</span>
@@ -2025,7 +1719,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 27        NA        NA      -0.3      -1.8        NA        NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 28        NA        NA      -5.7        NA        NA        NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 29        NA        NA       3.3       3.6        NA        NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30        NA        NA       1.7       1.6        NA        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30        NA        NA       1.7       2.3        NA        NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 31        NA        NA       1.2       3.3        NA        NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 32        NA      -7.3       3.1      10.3        NA        NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 33        NA      -8.9       1.8       4.3        NA        NA</span>
@@ -2205,7 +1899,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 27        NA        NA        NA       1.6      -1.6        NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 28      -0.8        NA        NA      -2.6        NA        NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 29        NA        NA        NA       5.3      -4.9        NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30        NA        NA        NA       1.8       0.0        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30        NA        NA        NA       1.8      -1.0        NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 31        NA        NA        NA       2.3      -7.1        NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 32        NA        NA       6.4       2.8      -1.4        NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 33       2.7        NA       6.1       2.1      -4.0        NA</span>
@@ -2268,14 +1962,14 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>    EP-Z (sc) CH-Z (sc) SC-Z (sc) KN-Z (sc) wFA (sc) wFT (sc) wFC (sc)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1       -7.7       1.3        NA        NA     21.2      1.7       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2         NA       2.2        NA        NA      2.8       NA       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         NA       9.1        NA        NA     26.8     -2.3       NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3         NA       9.1        NA        NA     26.9     -2.3       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4         NA       5.9        NA        NA      8.0     10.6      1.5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5         NA       5.7        NA        NA     -5.7     22.4      2.9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6         NA       3.6        NA        NA     20.5      1.2       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7         NA       4.6        NA        NA     14.6       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8         NA       5.2        NA        NA      7.2     11.5       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9         NA       5.7        NA        NA      4.0     11.7      1.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10        NA       4.4        NA        NA      7.2     15.2     -2.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10        NA       4.4        NA        NA      7.1     15.2     -2.5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 11        NA       1.3        NA        NA     22.4       NA      0.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 12        NA       5.2        NA        NA     19.9     -3.2       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 13        NA       2.6        NA        NA    -14.6     11.4       NA</span>
@@ -2289,7 +1983,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 21        NA       5.8        NA        NA     -1.8     -9.1      1.4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 22        NA       3.9        NA        NA      5.7       NA      4.8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 23        NA       7.0        NA        NA      9.4     -8.8       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24        NA        NA        NA        NA      4.1      5.9      2.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24        NA        NA        NA        NA      4.0      5.9      2.7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 25        NA       7.4        NA        NA     -1.2     -3.1       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 26        NA       4.6        NA        NA      9.8       NA      0.7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 27        NA       4.0        NA        NA      2.1     -5.1       NA</span>
@@ -2302,7 +1996,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 34        NA      -0.6        NA        NA     -7.0       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 35        NA       1.5        NA        NA     -4.7       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 36        NA       6.5       1.3        NA       NA       NA     -4.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37        NA        NA        NA        NA     -0.3      0.4     11.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37        NA        NA        NA        NA     -0.2      0.4     11.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 38        NA       5.8        NA        NA     18.9     -3.0       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 39        NA       2.0        NA        NA     -3.7      3.9       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 40        NA       6.1        NA        NA      0.8     -3.2      2.1</span>
@@ -2317,10 +2011,10 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 49        NA       4.0        NA        NA      4.7     -7.0     -4.5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 50        NA       3.1        NA        NA    -14.9     10.2       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 51        NA       1.6        NA        NA       NA      2.5       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52        NA       4.7        NA        NA     -1.1     -2.6      1.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52        NA       4.7        NA        NA     -1.1     -2.3      1.3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 53       0.9        NA        NA       1.8     -3.7       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 54        NA       4.7        NA        NA     -5.3     -5.5      2.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55        NA       5.5        NA        NA     -3.0       NA     -3.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55        NA       5.5        NA        NA     -3.3       NA     -3.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 56        NA       1.5        NA        NA     -1.1       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 57        NA       4.1        NA        NA      2.9     -3.2       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 58        NA       3.2        NA        NA      4.7      1.6       NA</span>
@@ -2379,7 +2073,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 21       NA       NA       NA     24.4       NA       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 22       NA       NA      4.2       NA      1.9       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 23       NA       NA       NA      3.0     -2.6       NA       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24      0.6       NA       NA     -4.3     -1.5       NA       NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24      0.7       NA       NA     -4.3     -1.5       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 25       NA       NA       NA       NA     13.3       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 26       NA       NA       NA       NA      1.3       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 27       NA       NA       NA     23.8     -0.2       NA       NA</span>
@@ -2407,7 +2101,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 49       NA       NA       NA       NA      1.8       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 50       NA       NA       NA      8.0      1.0       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 51       NA       NA      1.5       NA       NA      5.4       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52       NA       NA       NA       NA      7.8       NA       NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52       NA       NA       NA       NA      7.5       NA       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 53       NA       NA       NA       NA       NA       NA     -1.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 54       NA       NA       NA       NA       NA      3.2       NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 55       NA       NA      8.4       NA      1.7       NA       NA</span>
@@ -2482,7 +2176,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 34      5.3       NA       NA      -1.82         NA         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 35     10.9       NA       NA      -1.01         NA         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 36     -5.2     -0.1       NA         NA         NA      -1.20</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37       NA       NA       NA      -0.03       0.13       0.94</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37       NA       NA       NA      -0.02       0.12       0.94</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 38     -4.0       NA       NA       1.17      -1.09         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 39     11.5       NA       NA      -0.39       0.65         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 40     17.8       NA       NA       0.07      -0.45       0.54</span>
@@ -2497,10 +2191,10 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 49      3.8       NA       NA       0.64      -1.02      -0.81</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 50      9.2       NA       NA      -2.32       0.83         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 51      0.2       NA       NA         NA       0.45         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52      0.1       NA       NA      -0.11      -4.02       0.10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52      0.1       NA       NA      -0.11      -3.53       0.10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 53       NA       NA     11.7      -1.04         NA         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 54     -3.2       NA       NA      -0.64      -1.00       0.42</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55     10.5       NA       NA      -3.67         NA      -1.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55     10.5       NA       NA      -4.08         NA      -1.15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 56     -2.2       NA       NA      -1.65         NA         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 57     -1.5       NA       NA       0.21      -0.51         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 58     -0.7       NA       NA       0.48       0.19         NA</span>
@@ -2538,14 +2232,14 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>    wFS_C (sc) wFO_C (sc) wSI_C (sc) wSL_C (sc) wCU_C (sc) wKC_C (sc)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1          NA         NA         NA       2.97      -0.23         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2          NA         NA       1.98       2.51       1.44         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3          NA         NA         NA       1.97       2.84         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3          NA         NA         NA       1.96       2.84         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4          NA         NA         NA         NA         NA       0.67</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5          NA         NA         NA       2.41         NA         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6          NA         NA         NA       1.14       0.10         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7          NA         NA       1.88       1.21      -7.27      -0.73</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8          NA         NA         NA       1.48       1.44         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9          NA         NA         NA       1.96       1.28         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10         NA         NA         NA         NA       0.38         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10         NA         NA         NA         NA       0.36         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 11         NA         NA         NA       1.97      -0.09         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 12         NA         NA         NA       1.81       0.33         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 13         NA         NA         NA         NA       1.46         NA</span>
@@ -2565,7 +2259,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 27         NA         NA         NA       2.45      -4.00         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 28      20.81         NA         NA       0.93         NA         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 29         NA         NA         NA       0.18      -1.14         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30         NA         NA         NA      -1.52       7.73         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30         NA         NA         NA      -1.52       8.98         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 31         NA         NA         NA      -0.06      -1.35         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 32         NA         NA      -0.64       1.90       3.12         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 33       1.49         NA      -2.46       1.91      -0.20         NA</span>
@@ -2587,7 +2281,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 49         NA         NA         NA         NA       0.74         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 50         NA         NA         NA       1.35       0.73         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 51         NA         NA       0.13         NA         NA       0.84</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52         NA         NA         NA         NA       1.02         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52         NA         NA         NA         NA       0.99         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 53         NA         NA         NA         NA         NA         NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 54         NA         NA         NA         NA         NA       0.50</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 55         NA         NA       0.50         NA       0.86         NA</span>
@@ -2655,7 +2349,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 27         NA       0.53         NA         NA             30.5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 28         NA       1.07         NA         NA             32.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 29         NA      -3.42         NA         NA             23.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30         NA      -0.35         NA         NA             31.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30         NA      -0.36         NA         NA             31.9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 31         NA       2.57         NA         NA             30.8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 32         NA       0.83         NA         NA             33.7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 33         NA         NA         NA         NA             36.6</span>
@@ -2677,7 +2371,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 49         NA       0.64         NA         NA             26.5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 50         NA       1.49         NA         NA             35.3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 51         NA       0.04         NA         NA             26.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52         NA       0.04         NA         NA             30.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52         NA       0.04         NA         NA             30.8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 53      -1.44         NA         NA       0.41             27.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 54         NA      -0.45         NA         NA             30.9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 55         NA       1.88         NA         NA             28.9</span>
@@ -2739,7 +2433,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 21             59.8           42.8               42.8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 22             64.1           45.3               55.3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 23             67.3           50.9               69.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24             67.0           48.3               64.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24             67.0           48.3               64.8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 25             63.3           46.6               58.8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 26             68.1           50.5               66.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 27             60.4           44.0               42.0</span>
@@ -2767,7 +2461,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 49             65.8           47.9               82.4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 50             60.8           46.3               64.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 51             61.3           44.8               65.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52             64.4           47.8               63.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52             64.4           47.8               63.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 53             67.9           49.1               73.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 54             63.7           45.5               53.4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 55             57.0           43.3               64.9</span>
@@ -2806,95 +2500,95 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 88             65.5           48.0               67.7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 89             64.3           45.6               63.7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Z-Contact_pct (sc) Contact_pct (sc) Zone_pct (sc) Pace RA9-WAR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                85.2             74.9          47.2 22.9     9.4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                85.2             76.2          51.8 22.7     9.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                79.0             68.9          52.4 22.4     7.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                81.7             76.5          57.8 26.0     7.4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                88.9             76.6          44.2 19.9     7.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                83.4             75.2          52.2 19.6     5.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                88.3             78.8          53.4 20.8     4.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                82.2             75.7          54.8 20.1     4.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                88.3             79.1          51.8 23.9     6.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10               87.9             81.1          58.2 22.0     5.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11               78.2             72.1          58.1 21.3     6.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12               85.7             75.0          50.6 23.1     5.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13               87.1             77.3          51.1 20.3     3.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14               87.1             81.0          55.8 21.1     4.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15               86.1             80.7          48.7 21.9     3.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16               85.4             78.5          52.1 22.4     3.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17               82.6             80.1          52.1 21.7     4.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18               91.3             79.8          51.6 22.8     2.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19               83.4             72.4          51.0 21.6     4.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20               84.1             74.2          50.4 21.7     2.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21               85.0             71.0          47.9 21.0     2.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22               87.5             77.0          47.6 22.5     3.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23               87.6             83.1          56.5 20.5     4.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24               85.4             78.7          48.6 21.1     3.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25               89.5             80.0          50.9 22.5     4.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26               85.9             80.8          55.2 19.2     2.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27               83.0             67.3          45.0 20.8     2.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28               78.1             70.1          52.2 18.2     3.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29               89.5             84.3          46.8 22.7     4.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30               86.3             79.5          50.3 20.2     4.4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31               83.3             76.2          52.1 20.6     3.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32               84.6             74.5          54.6 23.9     4.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33               87.2             76.7          48.9 25.0     2.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34               88.4             77.0          46.2 22.8     3.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35               86.8             79.1          51.5 24.7     3.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36               84.4             80.6          55.1 21.1     2.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37               90.9             86.1          51.8 18.5     3.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38               87.0             81.9          51.8 21.3     3.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39               84.9             73.0          49.7 23.5     4.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40               83.8             73.4          51.9 20.7     4.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41               88.4             75.5          50.9 22.7     3.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42               89.6             83.1          56.0 18.6     3.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43               93.0             84.5          52.1 18.5     1.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44               85.3             79.3          50.1 24.2     2.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45               93.8             86.2          51.9 19.5     3.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46               85.7             77.1          51.6 20.9     1.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47               84.5             77.2          52.9 20.3     2.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48               86.5             77.6          47.7 20.2     2.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49               91.4             89.1          54.5 15.9     2.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50               89.6             78.6          43.4 22.6     3.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51               88.2             81.8          52.2 20.4     2.4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52               85.4             78.4          50.6 22.6     3.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53               84.5             81.6          54.1 17.9     3.4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54               84.2             72.6          44.4 23.1     1.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55               88.9             81.1          51.2 19.0     2.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56               86.5             78.4          47.6 20.5     1.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57               84.9             76.4          49.8 21.1     2.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58               86.8             80.3          53.8 20.4     1.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59               87.9             76.8          51.2 20.9     2.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60               90.9             83.4          50.3 19.7     1.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61               88.3             80.5          50.0 19.5     2.4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62               87.2             78.7          52.6 23.4     1.4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63               91.1             86.7          53.6 17.9     0.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64               90.0             86.5          59.1 21.6     1.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65               85.9             80.1          49.3 20.2     1.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66               88.4             81.5          52.6 23.0     2.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67               92.3             87.5          53.6 23.3     1.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68               84.9             77.6          50.7 22.8    -0.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69               88.2             82.7          53.5 21.8     1.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70               89.4             81.8          51.3 20.8    -1.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71               85.1             76.2          54.1 23.5     1.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72               91.8             89.2          60.6 22.1     2.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73               89.8             80.7          46.1 17.5     2.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74               87.6             79.8          48.6 20.5    -0.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75               88.6             78.4          49.5 21.6     1.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76               86.4             79.0          53.0 18.4     0.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77               84.5             81.1          54.4 20.0     1.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78               89.2             82.1          52.5 20.6     1.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79               83.4             77.2          52.8 22.2     1.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80               86.4             81.1          52.4 19.8     0.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81               88.4             80.1          51.2 24.2     1.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82               90.6             84.8          52.6 20.3     0.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83               87.8             81.7          52.6 21.9     0.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84               87.1             80.5          54.3 21.9     0.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85               85.3             79.2          52.4 21.6     1.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86               88.6             84.3          52.3 21.4     1.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87               89.7             82.8          50.8 24.7     0.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88               85.4             80.0          50.7 21.0    -1.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89               87.3             79.9          48.8 21.6    -1.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                85.2             74.9          47.2 23.8     9.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                85.2             76.2          51.8 23.5     9.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                79.0             68.9          52.3 23.2     7.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                81.7             76.5          57.8 26.7     7.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                88.9             76.6          44.2 21.2     7.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                83.4             75.2          52.2 20.8     5.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7                88.3             78.8          53.4 21.9     4.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                82.2             75.7          54.8 21.5     4.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9                88.3             79.1          51.8 24.8     6.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10               87.9             81.1          58.2 23.0     5.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11               78.2             72.1          58.1 21.9     6.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12               85.7             75.0          50.6 24.1     5.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13               87.1             77.3          51.1 21.2     3.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14               87.1             81.0          55.8 21.9     4.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15               86.1             80.7          48.7 22.6     3.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16               85.4             78.5          52.1 23.2     3.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17               82.6             80.1          52.1 22.8     4.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18               91.3             79.8          51.6 23.9     2.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19               83.4             72.4          51.0 22.5     4.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20               84.1             74.2          50.4 22.9     2.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21               85.0             71.0          47.9 22.1     2.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22               87.5             77.0          47.6 22.9     3.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23               87.6             83.1          56.5 21.9     4.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24               85.4             78.7          48.6 22.1     3.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25               89.5             80.0          50.9 23.8     4.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26               85.9             80.8          55.2 20.5     2.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27               83.0             67.3          45.0 22.1     2.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28               78.1             70.1          52.2 19.4     3.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29               89.5             84.3          46.8 24.0     4.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30               86.3             79.5          50.3 21.1     4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31               83.3             76.2          52.1 21.7     3.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32               84.6             74.5          54.6 24.8     4.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33               87.2             76.7          48.9 25.9     2.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34               88.4             77.0          46.2 23.5     3.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35               86.8             79.1          51.5 25.5     3.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36               84.4             80.6          55.1 21.5     2.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37               90.9             86.1          51.8 19.8     3.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38               87.0             81.9          51.8 22.3     3.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39               84.9             73.0          49.7 24.2     4.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40               83.8             73.4          51.9 21.8     4.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41               88.4             75.5          50.9 23.6     3.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42               89.6             83.1          56.0 20.3     3.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43               93.0             84.5          52.1 20.0     1.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44               85.3             79.3          50.1 25.2     2.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45               93.8             86.2          51.9 21.0     3.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46               85.7             77.1          51.6 22.0     1.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47               84.5             77.2          52.9 21.6     2.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48               86.5             77.6          47.7 21.8     2.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49               91.4             89.1          54.5 18.0     2.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50               89.6             78.6          43.4 23.7     3.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51               88.2             81.8          52.2 21.6     2.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52               85.5             78.4          50.6 24.0     3.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53               84.5             81.6          54.1 19.3     3.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54               84.2             72.6          44.4 23.8     1.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55               88.9             81.1          51.2 19.9     2.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56               86.5             78.4          47.6 21.4     1.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57               84.9             76.4          49.8 22.2     2.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58               86.8             80.3          53.8 21.7     1.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59               87.9             76.8          51.2 21.7     2.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60               90.9             83.4          50.3 21.2     1.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61               88.3             80.5          50.0 20.9     2.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62               87.2             78.7          52.6 24.7     1.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63               91.1             86.7          53.6 19.4     0.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64               90.0             86.5          59.1 23.3     1.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65               85.9             80.1          49.3 21.6     1.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66               88.4             81.5          52.6 23.9     2.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67               92.3             87.5          53.6 25.0     1.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68               84.9             77.6          50.7 23.7    -0.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69               88.2             82.7          53.5 23.0     1.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70               89.4             81.8          51.3 22.0    -1.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71               85.1             76.2          54.1 24.6     1.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72               91.8             89.2          60.6 23.7     2.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73               89.8             80.7          46.1 19.2     2.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74               87.6             79.8          48.6 22.0    -0.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75               88.6             78.4          49.5 22.6     1.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76               86.4             79.0          53.0 19.6     0.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77               84.5             81.1          54.4 21.1     1.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78               89.2             82.1          52.5 21.8     1.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79               83.4             77.2          52.8 23.3     1.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80               86.4             81.1          52.4 21.4     0.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81               88.4             80.1          51.2 25.4     1.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82               90.6             84.8          52.6 21.7     0.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83               87.8             81.7          52.6 23.0     0.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84               87.1             80.5          54.3 23.3     0.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 85               85.3             79.2          52.4 23.0     1.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 86               88.6             84.3          52.3 22.6     1.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 87               89.7             82.8          50.8 25.6     0.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 88               85.4             80.0          50.7 22.6    -1.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 89               87.3             79.9          48.8 22.6    -1.3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    BIP-Wins LOB-Wins FDP-Wins AgeRng K-BB_pct Pull_pct Cent_pct</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1       4.0      0.1      4.1     NA     19.0     38.6     36.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2       2.9     -0.8      2.1     NA     21.6     34.3     37.8</span>

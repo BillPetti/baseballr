@@ -12,7 +12,7 @@ via the MLB api http://statsapi.mlb.com/api/"><meta property="og:image" content=
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -105,7 +105,7 @@ via the MLB api http://statsapi.mlb.com/api/"><meta property="og:image" content=
   </a>
 </li>
 <li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/billpetti/baseballR/">
+  <a class="external-link nav-link" href="https://github.com/billpetti/baseballr/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -118,7 +118,7 @@ via the MLB api http://statsapi.mlb.com/api/"><meta property="og:image" content=
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1><strong>Get MLB Game Info by Date and Level</strong></h1>
-      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballR/blob/master/R/mlb_game_pks.R" class="external-link"><code>R/mlb_game_pks.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballr/blob/master/R/mlb_game_pks.R" class="external-link"><code>R/mlb_game_pks.R</code></a></small>
       <div class="d-none name"><code>mlb_game_pks.Rd</code></div>
     </div>
 
@@ -143,64 +143,7 @@ desired. See below for a reference of level ids.</p></dd>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>Returns a data frame that includes game_pk values and additional
-information for games scheduled or played
-|col_name                       |types     |
-|:------------------------------|:---------|
-|game_pk                        |integer   |
-|link                           |character |
-|gameType                       |character |
-|season                         |character |
-|gameDate                       |character |
-|officialDate                   |character |
-|isTie                          |logical   |
-|gameNumber                     |integer   |
-|publicFacing                   |logical   |
-|doubleHeader                   |character |
-|gamedayType                    |character |
-|tiebreaker                     |character |
-|calendarEventID                |character |
-|seasonDisplay                  |character |
-|dayNight                       |character |
-|scheduledInnings               |integer   |
-|reverseHomeAwayStatus          |logical   |
-|inningBreakLength              |integer   |
-|gamesInSeries                  |integer   |
-|seriesGameNumber               |integer   |
-|seriesDescription              |character |
-|recordSource                   |character |
-|ifNecessary                    |character |
-|ifNecessaryDescription         |character |
-|status.abstractGameState       |character |
-|status.codedGameState          |character |
-|status.detailedState           |character |
-|status.statusCode              |character |
-|status.startTimeTBD            |logical   |
-|status.abstractGameCode        |character |
-|teams.away.score               |integer   |
-|teams.away.isWinner            |logical   |
-|teams.away.splitSquad          |logical   |
-|teams.away.seriesNumber        |integer   |
-|teams.away.leagueRecord.wins   |integer   |
-|teams.away.leagueRecord.losses |integer   |
-|teams.away.leagueRecord.pct    |character |
-|teams.away.team.id             |integer   |
-|teams.away.team.name           |character |
-|teams.away.team.link           |character |
-|teams.home.score               |integer   |
-|teams.home.isWinner            |logical   |
-|teams.home.splitSquad          |logical   |
-|teams.home.seriesNumber        |integer   |
-|teams.home.leagueRecord.wins   |integer   |
-|teams.home.leagueRecord.losses |integer   |
-|teams.home.leagueRecord.pct    |character |
-|teams.home.team.id             |integer   |
-|teams.home.team.name           |character |
-|teams.home.team.link           |character |
-|venue.id                       |integer   |
-|venue.name                     |character |
-|venue.link                     |character |
-|content.link                   |character |</p>
-    </div>
+information for games scheduled or played</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>game_pk</td><td>integer</td></tr><tr><td>link</td><td>character</td></tr><tr><td>gameType</td><td>character</td></tr><tr><td>season</td><td>character</td></tr><tr><td>gameDate</td><td>character</td></tr><tr><td>officialDate</td><td>character</td></tr><tr><td>isTie</td><td>logical</td></tr><tr><td>gameNumber</td><td>integer</td></tr><tr><td>publicFacing</td><td>logical</td></tr><tr><td>doubleHeader</td><td>character</td></tr><tr><td>gamedayType</td><td>character</td></tr><tr><td>tiebreaker</td><td>character</td></tr><tr><td>calendarEventID</td><td>character</td></tr><tr><td>seasonDisplay</td><td>character</td></tr><tr><td>dayNight</td><td>character</td></tr><tr><td>scheduledInnings</td><td>integer</td></tr><tr><td>reverseHomeAwayStatus</td><td>logical</td></tr><tr><td>inningBreakLength</td><td>integer</td></tr><tr><td>gamesInSeries</td><td>integer</td></tr><tr><td>seriesGameNumber</td><td>integer</td></tr><tr><td>seriesDescription</td><td>character</td></tr><tr><td>recordSource</td><td>character</td></tr><tr><td>ifNecessary</td><td>character</td></tr><tr><td>ifNecessaryDescription</td><td>character</td></tr><tr><td>status.abstractGameState</td><td>character</td></tr><tr><td>status.codedGameState</td><td>character</td></tr><tr><td>status.detailedState</td><td>character</td></tr><tr><td>status.statusCode</td><td>character</td></tr><tr><td>status.startTimeTBD</td><td>logical</td></tr><tr><td>status.abstractGameCode</td><td>character</td></tr><tr><td>teams.away.score</td><td>integer</td></tr><tr><td>teams.away.isWinner</td><td>logical</td></tr><tr><td>teams.away.splitSquad</td><td>logical</td></tr><tr><td>teams.away.seriesNumber</td><td>integer</td></tr><tr><td>teams.away.leagueRecord.wins</td><td>integer</td></tr><tr><td>teams.away.leagueRecord.losses</td><td>integer</td></tr><tr><td>teams.away.leagueRecord.pct</td><td>character</td></tr><tr><td>teams.away.team.id</td><td>integer</td></tr><tr><td>teams.away.team.name</td><td>character</td></tr><tr><td>teams.away.team.link</td><td>character</td></tr><tr><td>teams.home.score</td><td>integer</td></tr><tr><td>teams.home.isWinner</td><td>logical</td></tr><tr><td>teams.home.splitSquad</td><td>logical</td></tr><tr><td>teams.home.seriesNumber</td><td>integer</td></tr><tr><td>teams.home.leagueRecord.wins</td><td>integer</td></tr><tr><td>teams.home.leagueRecord.losses</td><td>integer</td></tr><tr><td>teams.home.leagueRecord.pct</td><td>character</td></tr><tr><td>teams.home.team.id</td><td>integer</td></tr><tr><td>teams.home.team.name</td><td>character</td></tr><tr><td>teams.home.team.link</td><td>character</td></tr><tr><td>venue.id</td><td>integer</td></tr><tr><td>venue.name</td><td>character</td></tr><tr><td>venue.link</td><td>character</td></tr><tr><td>content.link</td><td>character</td></tr></table></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Level IDs:</p>
@@ -219,7 +162,7 @@ information for games scheduled or played
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in">  <span class="fu">mlb_game_pks</span><span class="op">(</span><span class="st">"2019-04-29"</span><span class="op">)</span></span>
+<span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_game_pks</span><span class="op">(</span><span class="st">"2019-04-29"</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   game_pk                            link gameType season</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  565909 /api/v1.1/game/565909/feed/live        R   2019</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  566001 /api/v1.1/game/566001/feed/live        R   2019</span>
