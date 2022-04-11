@@ -9,9 +9,9 @@
 edge_code <- function(df, height_var_name = "b_height") {
   
   if (height_var_name == "b_height") {
-    if (class(df$px) == "factor") {df$px <- as.numeric(levels(df$px))[df$px]}
-    if (class(df$pz) == "factor") {df$pz <- as.numeric(levels(df$pz))[df$pz]}
-    if (class(df$b_height) == "factor") {df$b_height <- as.numeric(levels(df$b_height))[df$b_height]}
+    if (is.factor(df$px)) {df$px <- as.numeric(levels(df$px))[df$px]}
+    if (is.factor(df$pz)) {df$pz <- as.numeric(levels(df$pz))[df$pz]}
+    if (is.factor(df$b_height)) {df$b_height <- as.numeric(levels(df$b_height))[df$b_height]}
     f <- as.numeric(lapply(strsplit(df$b_height, "-"), function(x) x[1])) * 12
     i <- as.numeric(lapply(strsplit(df$b_height, "-"), function(x) x[2]))
     df$b_height_inch <- f+i
@@ -34,8 +34,8 @@ edge_code <- function(df, height_var_name = "b_height") {
     
   } else {
     
-    if (class(df$px) == "factor") {df$px <- as.numeric(levels(df$px))[df$px]}
-    if (class(df$pz) == "factor") {df$pz <- as.numeric(levels(df$pz))[df$pz]}
+    if (is.factor(df$px)) {df$px <- as.numeric(levels(df$px))[df$px]}
+    if (is.factor(df$pz)) {df$pz <- as.numeric(levels(df$pz))[df$pz]}
     df$b_height_inch <- df$Height
     df$called_pitch <- ifelse(grepl("Called|Ball",
                                     df$description,
