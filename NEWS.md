@@ -1,5 +1,3 @@
-# baseballr (development version)
-
 # baseballr 1.1.0
 ## ~82 MLB Stats API functions added
 |name                                   |file                               |
@@ -542,7 +540,7 @@ We also had some great contributions by others that I've added into this release
 
 [Sam Boysel](https://github.com/sboysel) updated the park factors function so that it now includes the new columns added by FanGraphs (5-year, 3-year, 1-year park factors) and ensures the column names are correct
 
-## Updgrades
+## Upgrades
 
 `fg_bat_leaders()`
 
