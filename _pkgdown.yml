@@ -160,7 +160,7 @@ reference:
       - starts_with("mlb_baseball")
       - starts_with("mlb_event")
       - starts_with("mlb_fielder")
-      - starts_with("mlb_high_low")
+      - starts_with("mlb_high_low_types")
       - starts_with("mlb_hit")
       - starts_with("mlb_game_types")
       - starts_with("mlb_job_types")
