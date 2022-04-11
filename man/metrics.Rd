@@ -6,7 +6,7 @@
 \description{
 \describe{
 \item{\code{fip_plus()}:}{ Calculate FIP and related metrics for any set of data.}
-\item{\code{woba_plus()}}{ Calcuate wOBA and related metrics for any set of data.}
+\item{\code{woba_plus()}}{ Calculate wOBA and related metrics for any set of data.}
 \item{\code{team_consistency()}}{ Calculate Team-level Consistency.}
 \item{\code{label_statcast_imputed_data()}}{ Label Statcast data as imputed.}
 \item{\code{run_expectancy_code()}}{ Generate run expectancy and related measures from Baseball Savant data.}
@@ -22,7 +22,7 @@
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Calcuate wOBA and related metrics for any set of data}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  woba_plus(df)
+\subsection{\strong{Calculate wOBA and related metrics for any set of data}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  woba_plus(df)
 }\if{html}{\out{</div>}}
 }
 

@@ -1,7 +1,7 @@
 #' @rdname fg_milb_batter_game_logs
 #' @title **Scrape MiLB game logs for batters from FanGraphs**
 #' @description This function allows you to scrape MiLB game logs for individual batters from FanGraphs.
-#' @param playerid The batter's minor leauge ID from FanGraphs.
+#' @param playerid The batter's minor league ID from FanGraphs.
 #' @param year The season for which game logs should be returned.
 #' @return Returns a data frame of Minor League batter game logs.
 #'  |col_name       |types     |

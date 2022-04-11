@@ -329,6 +329,8 @@ reference:
   - title: Utilities
   - subtitle: Internal utilities of baseballr
     contents:
+      - '`most_recent_mlb_season`'
+      - '`most_recent_ncaa_baseball_season`'
       - '`csv_from_url`'
       - '`rds_from_url`'
       - '`progressively`'

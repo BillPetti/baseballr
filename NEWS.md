@@ -178,7 +178,7 @@ get_ncaa_park_factor(736, c(2015:2019),type = "division")
 
 - [Shane Piesik](https://github.com/shanepiesik) made some changes to the `scrape_statcast_savant` function. The function should now be easier to use in a loop or map when combining payloads, and more importantly the data should read in faster thanks to swapping in `vroom`.
 
-- The `master_ncaa_team_lu` was updated by Robert Frey. For some reason, the NCAA website that had the 2019 Division 1 information has dissappeared, and when I rebuilt the table at the begining of 2020 it led to tons of `NA` values for those teams that year. Thanks to Robert for manually fixing.
+- The `master_ncaa_team_lu` was updated by Robert Frey. For some reason, the NCAA website that had the 2019 Division 1 information has disappeared, and when I rebuilt the table at the beginning of 2020 it led to tons of `NA` values for those teams that year. Thanks to Robert for manually fixing.
 
 ## Other
 
@@ -256,13 +256,13 @@ Let's say you interested in the Gwinnett Stripers versus the Charlotte Knights:
 payload <- get_pbp_mlb(575589)
 ```
 
-The function will return a data frame with 131 columns. Data availability will vary depending on the park and the league level, as most sensor data is not availble in minor league parks via this API. Also note that the column names have mostly been left as-is and there are likely duplicate columns in terms of the information they provide. I plan to clean the output up down the road, but for now I am leaving the majority as-is.
+The function will return a data frame with 131 columns. Data availability will vary depending on the park and the league level, as most sensor data is not available in minor league parks via this API. Also note that the column names have mostly been left as-is and there are likely duplicate columns in terms of the information they provide. I plan to clean the output up down the road, but for now I am leaving the majority as-is.
 
-Some of the colums of interest at the minor league level are:
+Some of the columns of interest at the minor league level are:
 
 - `pitchNumber` and `atBatIndex`: the pitch number within a given plate appearance and the plate appearance within a given game.
 - `pitchData.coordinates.x` and `pitchData.coordinates.y`: the x,z coordinates of the pitch as it crosses the plate. As far as I can tell, these are the pixel coordinates for a location that a stringer manually plots and likely need to be transformed and rotated to get a view of the pitch as it crosses the plate. I am working on figuring out an easy transformation to get them on the same scale as the MLB coordinates, but they appear different by park. I do believe you can multiple both by -1 and that will at least allow you to orient the coordinates correctly (i.e. catcher's view)
-- `details.call.code`, `details.call.description`, `result.event`, `result.eventType`, and `result.description`: these are similar to what we find with Statcast data--codes and detailed desriptions for what happened on a pitch or at the end of a plate appearance.
+- `details.call.code`, `details.call.description`, `result.event`, `result.eventType`, and `result.description`: these are similar to what we find with Statcast data--codes and detailed descriptions for what happened on a pitch or at the end of a plate appearance.
 - `count.` variables that tell you how many balls, strikes, and outs before and after the pitch.
 - `batter.id` and `pitcher.id`
 - `matchup.batSide.code ` and `matchup.pitchHand.code`: handedness of the batter and pitcher.
@@ -305,7 +305,7 @@ fg_pitch_leaders(2018,2018, pitcher_type = "sta") %>% slice (1:10) %>% .[,1:10]
 
 The `scrape_statcast_leaderboards()` function can be used to access all of the leaderboards available from [BaseballSavant](https://baseballsavant.mlb.com) as csv downloads. The function isn't doing anything too sophisticated; it simply builds the appropriate url for the csv download based on a series of parameters and then reads the csv into `R`.
 
-Users specificy which leaderboard they want to download using the `leaderboard` argument. The following are currently available:
+Users specify which leaderboard they want to download using the `leaderboard` argument. The following are currently available:
 
 - `exit_velocity_barrels`
 - `expected_statistics`
@@ -349,7 +349,7 @@ payload %>%
 `milb_batter_game_logs_fg()`
 `milb_pitcher_game_logs_fg()`
 
-These functions were contributed by [Mat Adams](https://github.com/matawith1t), and they are similar to the game log functions included in an earlier release except that they will return minor league game logs for the player specified. The functions take only two arguments: `playerid` and `year`. The `playerid` is the minor league ID assigned by FanGrapsh. This can be found in the url slug for a minor league player's page. 
+These functions were contributed by [Mat Adams](https://github.com/matawith1t), and they are similar to the game log functions included in an earlier release except that they will return minor league game logs for the player specified. The functions take only two arguments: `playerid` and `year`. The `playerid` is the minor league ID assigned by FanGraphs. This can be found in the url slug for a minor league player's page. 
 
 For example, here is the url for Vladimir Guerrero Jr.'s minor league game logs: https://www.fangraphs.com/statsd.aspx?playerid=sa920245&position=3B&gds=&gde=
 
@@ -371,7 +371,7 @@ milb_batter_game_logs_fg(playerid = "sa920245", year = 2017) %>% slice(1:10)
 10 Vladimir Guerrero Jr.       sa920245 2017-04-15  TOR   (A)  CLE .333 1  3  4 1
 ```
 
-## Updgrades
+## Upgrades
 
 `ncaa_scrape()`
 - Updated to allow scraping of data for the 2019 season.
@@ -681,12 +681,12 @@ URL read and payload aquired successfully.
  
 The latest release of the [`baseballr`](https://billpetti.github.io/baseballr/) package for `R` includes a number of enhancements and bug fixes.
 
-In terms of new functions, `statline_from_statcast` allows users to take raw pitch-by-pitch data from Statcast/PITCHf/x and calculate aggregated, statline-like output. Examples include count data such as number of singles, doubles, etc., as well as rate metrics like Slugging and wOBA on swings or contact.
+In terms of new functions, `statline_from_statcast` allows users to take raw pitch-by-pitch data from Statcast/PITCHf/x and calculate aggregated, stat line-like output. Examples include count data such as number of singles, doubles, etc., as well as rate metrics like Slugging and wOBA on swings or contact.
 
 The function only has two arguments:
 
-* `df`: a dataframe that includes pitch-by-pitch information. The function assumes the following columns are present: `events`, `description`, `game_date`, and `type`.
-* `base`: base indicates what the denomincator should be for the rate stats that are calculated. The function defaults to "swings", but you can also choose to use "contact"
+* `df`: a data frame that includes pitch-by-pitch information. The function assumes the following columns are present: `events`, `description`, `game_date`, and `type`.
+* `base`: base indicates what the denominator should be for the rate stats that are calculated. The function defaults to "swings", but you can also choose to use "contact"
 
 Here is an example using all data from the week of 2017-09-04. Here, we want to see a statline for all hitters based on swings:
 
@@ -826,7 +826,7 @@ New functions in this release:
 
 The research team at Major League Baseball Advanced Media have developed a way to categorize batted balls that on average having a batting average over .500 and slugging over 1.500. The specific coding criteria can be found in comment #2 [here] (http://tangotiger.com/index.php/site/comments/statcast-lab-barrels#2). 
 
-Now, whenver a user scrapes Statcast data using either the `scrape_statcast_savant_batter` or `scrape_statcast_savant_pitcher` functions the results will include a column `barrel`, where if the batted ball matches the barrel criteria it will code as 1, otherwise 0.
+Now, whenever a user scrapes Statcast data using either the `scrape_statcast_savant_batter` or `scrape_statcast_savant_pitcher` functions the results will include a column `barrel`, where if the batted ball matches the barrel criteria it will code as 1, otherwise 0.
 
 Example:
 
@@ -878,7 +878,7 @@ Example:
 31 2016-04-06 Carlos Correa             228    113.39     -2.18
 ```
 
-Since the savant functions require users to pass a valid MLBAMID, a lookup function is included that leverages the Chadwich public register. Users provide a text string and only those players with that string present in their last name will be returned.
+Since the savant functions require users to pass a valid MLBAMID, a lookup function is included that leverages the Chadwick public register. Users provide a text string and only those players with that string present in their last name will be returned.
 
 Here is an example where the user is looking for players with the last name "Seager":
 
@@ -1000,7 +1000,7 @@ $`NL East`
 
 Functions added to this release:
 
-`edge_scrape_split()`: This function builds of off `edge_scrape()` and adds the ability to view the data split by batter and pitcher handedness. As with `edge_scrape()`, the function returns a dataframe grouped by either pitchers or batters and the percentge of pitches in each of the various Edge zones, but adds in handedness.
+`edge_scrape_split()`: This function builds of off `edge_scrape()` and adds the ability to view the data split by batter and pitcher handedness. As with `edge_scrape()`, the function returns a data frame grouped by either pitchers or batters and the percentage of pitches in each of the various Edge zones, but adds in handedness.
 
 Example (Edge% splits by batters with handedness):
 
@@ -1047,7 +1047,7 @@ Example:
 10   2015    Zack Greinke 32.2 1.93 27   7   1  2 3.01        0.240            0.274
 ```
 
-`edge_scrape()`: This function allows the user to scrape PITCHf/x data from the GameDay application using Carson Sievert's [pitchRx](https://github.com/cpsievert/pitchRx) package and to calculate metrics associated with [Edge%](https://billpetti.shinyapps.io/edge_shiny/). The function returns a data.frame grouped by either pitchers or batters and the percentge of pitches in each of the various Edge zones.
+`edge_scrape()`: This function allows the user to scrape PITCHf/x data from the GameDay application using Carson Sievert's [pitchRx](https://github.com/cpsievert/pitchRx) package and to calculate metrics associated with [Edge%](https://billpetti.shinyapps.io/edge_shiny/). The function returns a data.frame grouped by either pitchers or batters and the percentage of pitches in each of the various Edge zones.
 
 Example (pitchers):
 

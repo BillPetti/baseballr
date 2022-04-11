@@ -6,7 +6,7 @@
 \usage{
 retrosheet_data(
   path_to_directory,
-  years_to_acquire = 2018,
+  years_to_acquire = most_recent_mlb_season(),
   sequence_years = FALSE
 )
 }
@@ -14,11 +14,11 @@ retrosheet_data(
 \item{path_to_directory}{A file path that either 1) creates a new directory
 or 2) a path to an existing directory}
 
-\item{years_to_acquire}{The sesons to collect. Single, multiple, and
-sequential years can be passed. If passing multiple years, encolse in a
-vector (i.e. c(2017,2018)). Defaults to 2018.}
+\item{years_to_acquire}{The seasons to collect. Single, multiple, and
+sequential years can be passed. If passing multiple years, enclose in a
+vector (i.e. c(2017,2018)). Defaults to \code{most_recent_mlb_season()}.}
 
-\item{sequence_years}{If the seasons passed in the years_to_acquire paramter
+\item{sequence_years}{If the seasons passed in the years_to_acquire parameter
 should be sequenced so that the function returns all years including and
 between the vector passed, set the argument to TRUE. Defaults to FALSE.}
 }

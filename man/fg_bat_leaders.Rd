@@ -13,7 +13,7 @@ fg_bat_leaders(x, y, league = "all", qual = "y", ind = 1, exc_p = TRUE)
 
 \item{league}{Option for limiting results to different leagues or overall results. Options are "al", "nl", or "all".}
 
-\item{qual}{Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimumm number of plate appearaces/innings pitched, use the number desired. Defaults to "y".}
+\item{qual}{Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimum number of plate appearaces/innings pitched, use the number desired. Defaults to "y".}
 
 \item{ind}{Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.}
 

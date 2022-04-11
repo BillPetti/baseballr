@@ -7,7 +7,7 @@
 milb_pitcher_game_logs_fg(playerid, year)
 }
 \arguments{
-\item{playerid}{The pitcher's minor leauge ID from FanGraphs.com.}
+\item{playerid}{The pitcher's minor league ID from FanGraphs.com.}
 
 \item{year}{The season for which game logs should be returned.}
 }

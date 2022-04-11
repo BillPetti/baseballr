@@ -55,8 +55,94 @@ rds_from_url <- function(url) {
   return(load)
 }
 
+# The function `message_completed` to create the green "...completed" message
+# only exists to hide the option `in_builder` in dots
+message_completed <- function(x, in_builder = FALSE) {
+  if (isFALSE(in_builder)) {
+    str <- paste0(my_time(), " | ", x)
+    cli::cli_alert_success("{{.field {str}}}")
+  } else if (in_builder) {
+    cli::cli_alert_success("{my_time()} | {x}")
+  }
+}
+
+user_message <- function(x, type) {
+  if (type == "done") {
+    cli::cli_alert_success("{my_time()} | {x}")
+  } else if (type == "todo") {
+    cli::cli_ul("{my_time()} | {x}")
+  } else if (type == "info") {
+    cli::cli_alert_info("{my_time()} | {x}")
+  } else if (type == "oops") {
+    cli::cli_alert_danger("{my_time()} | {x}")
+  }
+}
+
+my_time <- function() strftime(Sys.time(), format = "%H:%M:%S")
+
+rule_header <- function(x) {
+  rlang::inform(
+    cli::rule(
+      left = ifelse(is_installed("crayon"), crayon::bold(x), glue::glue("\033[1m{x}\033[22m")),
+      right = paste0("baseballr version ", utils::packageVersion("baseballr")),
+      width = getOption("width")
+    )
+  )
+}
+
+rule_footer <- function(x) {
+  rlang::inform(
+    cli::rule(
+      left = ifelse(is_installed("crayon"), crayon::bold(x), glue::glue("\033[1m{x}\033[22m")),
+      width = getOption("width")
+    )
+  )
+}
+
+#' @import rvest
+check_status <- function(res) {
+  x = httr::status_code(res)
+  if(x != 200) stop("The API returned an error", call. = FALSE)
+}
+
+#' @importFrom magrittr %>%
+#' @usage lhs \%>\% rhs
+NULL
+
+#' @import utils
+utils::globalVariables(c("where"))
 
 
+#' @importFrom Rcpp getRcppVersion
+#' @importFrom RcppParallel defaultNumThreads
+NULL
+
+`%c%` <- function(x,y){
+  ifelse(!is.na(x),x,y)
+}
+
+
+#' @title
+#' **Most Recent NCAA Baseball Season**
+#' @export
+most_recent_ncaa_baseball_season <- function() {
+  dplyr::if_else(
+    as.double(substr(Sys.Date(), 6, 7)) >= 3,
+    as.double(substr(Sys.Date(), 1, 4)),
+    as.double(substr(Sys.Date(), 1, 4)-1)
+  )
+}
+
+#' @title
+#' **Most Recent MLB Season**
+#' @export
+most_recent_mlb_season <- function() {
+  dplyr::if_else(
+    as.double(substr(Sys.Date(), 6, 7)) >= 3,
+    as.double(substr(Sys.Date(), 1, 4)),
+    as.double(substr(Sys.Date(), 1, 4)-1)
+  )
+}
 # Functions for custom class
 # turn a data.frame into a tibble/baseballr_data
 make_baseballr_data <- function(df,type,timestamp){
@@ -83,3 +169,27 @@ print.baseballr_data <- function(x,...) {
   NextMethod(print,x)
   invisible(x)
 }
+
+# rbindlist but maintain attributes of last file
+rbindlist_with_attrs <- function(dflist){
+  
+  baseballr_timestamp <- attr(dflist[[length(dflist)]], "baseballr_timestamp")
+  baseballr_type <- attr(dflist[[length(dflist)]], "baseballr_type")
+  out <- data.table::rbindlist(dflist, use.names = TRUE, fill = TRUE)
+  attr(out,"baseballr_timestamp") <- baseballr_timestamp
+  attr(out,"baseballr_type") <- baseballr_type
+  out
+}
+
+#' @importFrom magrittr %>%
+#' @usage lhs \%>\% rhs
+NULL
+
+#' @import utils
+utils::globalVariables(c("where"))
+
+
+
+#' @keywords internal
+"_PACKAGE"
+

@@ -20,7 +20,7 @@ fg_pitcher_leaders(
 
 \item{league}{Option for limiting results to different leagues or overall results. Options are "al", "nl", or "all".}
 
-\item{qual}{Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimumm number of plate appearaces/innings pitched, use the number desired. Defaults to "y".}
+\item{qual}{Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimum number of plate appearaces/innings pitched, use the number desired. Defaults to "y".}
 
 \item{pitcher_type}{Whether you want only starting pitchers, relievers, or all pitchers that meet the criteria specified in the qual argument. Options include "pit", "sta", "rel".}
 

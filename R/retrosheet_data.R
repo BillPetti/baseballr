@@ -8,10 +8,10 @@
 #' ```
 #' @param path_to_directory A file path that either 1) creates a new directory
 #' or 2) a path to an existing directory
-#' @param years_to_acquire The sesons to collect. Single, multiple, and
-#' sequential years can be passed. If passing multiple years, encolse in a
-#' vector (i.e. c(2017,2018)). Defaults to 2018.
-#' @param sequence_years If the seasons passed in the years_to_acquire paramter
+#' @param years_to_acquire The seasons to collect. Single, multiple, and
+#' sequential years can be passed. If passing multiple years, enclose in a
+#' vector (i.e. c(2017,2018)). Defaults to ```most_recent_mlb_season()```.
+#' @param sequence_years If the seasons passed in the years_to_acquire parameter
 #' should be sequenced so that the function returns all years including and
 #' between the vector passed, set the argument to TRUE. Defaults to FALSE.
 #' @return Returns two csv files to the unzipped directory: 1) a combined csv
@@ -24,27 +24,23 @@
 #' @export
 
 retrosheet_data <- function(path_to_directory,
-                                years_to_acquire = 2018,
-                                sequence_years = FALSE){
-
+                            years_to_acquire = most_recent_mlb_season(),
+                            sequence_years = FALSE){
+  # create a record for the starting working directory
+  old_wd <- getwd()
   if(dir.exists(path_to_directory) == FALSE) {
 
     dir.create(path_to_directory)
-
+    
     # setwd
-
     setwd(path_to_directory)
-
+    
     # create folders
-
     dir.create(paste0(path_to_directory, "/download.folder"))
     dir.create(paste0(path_to_directory, "/download.folder/unzipped"))
     dir.create(paste0(path_to_directory, "/download.folder/zipped"))
-
   } else {
-
     # setwd
-
     setwd(path_to_directory)
   }
 
@@ -63,6 +59,8 @@ retrosheet_data <- function(path_to_directory,
   purrr::map(.x = years,
              ~acquire_parse_restrosheet_event(season = .x,
                                               wd = path_to_directory))
+  # reset to starting working directory
+  setwd(old_wd)
 }
 #' @rdname get_retrosheet_data
 #' @title **(legacy) Get, Parse, and Format Retrosheet Event and Roster Files**

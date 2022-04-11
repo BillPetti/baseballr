@@ -5,7 +5,7 @@
 #' @param x First season for which you want data.
 #' @param y Last season for which you want data. If multiple years selected, data returned will be aggregate data for the date range. If y = x, function will return single-season data.
 #' @param league Option for limiting results to different leagues or overall results. Options are "al", "nl", or "all".
-#' @param qual Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimumm number of plate appearaces/innings pitched, use the number desired. Defaults to "y".
+#' @param qual Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimum number of plate appearaces/innings pitched, use the number desired. Defaults to "y".
 #' @param ind Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.
 #' @return A data frame of pitcher data.
 #'  |col_name           |types     |

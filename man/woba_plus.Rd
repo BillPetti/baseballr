@@ -2,12 +2,12 @@
 % Please edit documentation in R/metrics_woba_plus.R
 \name{woba_plus}
 \alias{woba_plus}
-\title{\strong{Calcuate wOBA and related metrics for any set of data}}
+\title{\strong{Calculate wOBA and related metrics for any set of data}}
 \usage{
 woba_plus(df)
 }
 \arguments{
-\item{df}{A data frame of statistics that includes, at a minimum, the following columns: uBB (unintentional walks), HBP (Hit By Pitch), X1B (singles), X2B (doubles), X3B (triples), HR (home runs), AB (at-bats), SH (sacrafice hits), SO (strike outs), and season.}
+\item{df}{A data frame of statistics that includes, at a minimum, the following columns: uBB (unintentional walks), HBP (Hit By Pitch), X1B (singles), X2B (doubles), X3B (triples), HR (home runs), AB (at-bats), SH (sacrifice hits), SO (strike outs), and season.}
 }
 \description{
 This function allows you to calculate wOBA for any given set of data, provided the right variables are in the data set. The function currently returns both wOBA per plate appearance on wOBA per instance of fair contact.

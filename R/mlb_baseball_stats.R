@@ -30,8 +30,7 @@ mlb_baseball_stats <- function(){
           stat_name = .data$name,
           stat_lookup_param = .data$lookup_param,
           stat_label = .data$label,
-          stat_group = .data$stat_groups_displayName
-        ) %>%
+          stat_group = .data$stat_groups_displayName) %>%
         make_baseballr_data("MLB Baseball Stats data from MLB.com",Sys.time())
     },
     error = function(e) {

@@ -27,15 +27,15 @@ ggspraychart(
 
 \item{fill_value}{The categorical variable that you want the geom_points to base the fill on. Pass as a string. If left blank, defaults to blue.}
 
-\item{fill_palette}{An object containing a customer palette to be used with ggplto2::scale_fill_manual.}
+\item{fill_palette}{An object containing a customer palette to be used with ggplot2::scale_fill_manual.}
 
-\item{fill_legend_title}{A string containing a custom legend title to be used with ggplto2::scale_fill_manual.}
+\item{fill_legend_title}{A string containing a custom legend title to be used with ggplot2::scale_fill_manual.}
 
 \item{density}{Chooses between a 2d density plot or a point plot. Defaults to FALSE.}
 
 \item{bin_size}{Size of bins used when building a density plot. Defaults to 15.}
 
-\item{point_alpha}{Alpha value whenever geom_point is used. Deaults to .75. Recommend .3 for density plots. To remove points on density points set use point_alpha = 0.}
+\item{point_alpha}{Alpha value whenever geom_point is used. Defaults to .75. Recommend .3 for density plots. To remove points on density points set use point_alpha = 0.}
 
 \item{point_size}{Set the size of geom_point if used.}
 
