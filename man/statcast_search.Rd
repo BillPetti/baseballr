@@ -49,7 +49,7 @@ Default is \code{batter}}
 Data returned as a data frame
 }
 \description{
-This function allows you to query Statcast data as provided on \url{http://baseballsavant.mlb.com}
+This function allows you to query Statcast data as provided on \url{https://baseballsavant.mlb.com}
 }
 \examples{
 \donttest{

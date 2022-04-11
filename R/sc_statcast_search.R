@@ -1,6 +1,6 @@
 #' @title **Query Statcast by Date Range and Players**
 #'
-#' @description This function allows you to query Statcast data as provided on \url{http://baseballsavant.mlb.com}
+#' @description This function allows you to query Statcast data as provided on \url{https://baseballsavant.mlb.com}
 #' @return Data returned as a data frame
 #' @param start_date Date of first game for which you want data.
 #' Format must be in YYYY-MM-DD format.
