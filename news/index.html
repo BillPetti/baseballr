@@ -884,7 +884,7 @@ payload %&gt;%
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.3" id="baseballr-033-2017-05-08">baseballr 0.3.3 (2017-05-08)<a class="anchor" aria-label="anchor" href="#baseballr-033-2017-05-08"></a></h2>
-<p>The latest release of the <a href="https://billpetti.github.io/baseballr/" class="external-link"><code>baseballr</code></a> package for <code>R</code> includes a number of enhancement to acquiring data from <a href="http://baseballsavant.com" class="external-link">Baseball Savant</a> as well as minor grammatical clean up in the documentation.</p>
+<p>The latest release of the <a href="https://billpetti.github.io/baseballr/" class="external-link"><code>baseballr</code></a> package for <code>R</code> includes a number of enhancement to acquiring data from <a href="https://baseballsavant.mlb.com" class="external-link">Baseball Savant</a> as well as minor grammatical clean up in the documentation.</p>
 <p>Previous functions <code>scrape_statcast_savant_batter</code> and <code>scrape_statcast_savant_pitcher</code> allowed for the acquistion of data from baseballsavant.com for a given player over a user-determined time frame. However, this is somewhat inefficient if you want to acquire data on all players over a given time frame.</p>
 <p>Two new functions have been added, <code>scrape_statcast_savant_batter_all</code> and <code>scrape_statcast_savant_pitcher_all</code>, that allow a user to acquire data for either all pitchers or all hitters over a given time frame.</p>
 <p>Both functions take only two arguments:</p>
@@ -1212,7 +1212,7 @@ payload %&gt;%
 <span id="cb22-11"><a href="#cb22-11"></a><span class="dv">9</span>      L      <span class="dv">6-5</span>     <span class="ot">NA</span>    <span class="ot">NA</span>        <span class="op">&lt;</span><span class="ot">NA</span><span class="op">&gt;</span></span>
 <span id="cb22-12"><a href="#cb22-12"></a><span class="dv">10</span>     L      <span class="dv">6-3</span> <span class="fl">-1.539</span> <span class="fl">1.525</span> Out of Zone</span></code></pre></div>
 <p>Functions updated for this release:</p>
-<p><code>standings_on_date_bref</code>: <a href="https://github.com/JonathanBob" class="external-link">JonathanBob</a> updated this funtion to allow for records to be returned for the given date or from that date forward. Also, users can input a full date string instead of three separate arguments for the day, month, and year. Users can also choose to pull records for the AL and NL overall, not just for a given division.</p>
+<p><code>standings_on_date_bref</code>: Updated this function to allow for records to be returned for the given date or from that date forward. Also, users can input a full date string instead of three separate arguments for the day, month, and year. Users can also choose to pull records for the AL and NL overall, not just for a given division.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">standings_on_date_bref</span>(<span class="st">"2015-08-01"</span>, <span class="st">"NL East"</span>, <span class="dt">from =</span> <span class="ot">FALSE</span>)</span>
 <span id="cb23-2"><a href="#cb23-2"></a><span class="op">$</span><span class="st">`</span><span class="dt">NL East</span><span class="st">`</span></span>
