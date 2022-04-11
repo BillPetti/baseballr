@@ -55,6 +55,17 @@ rds_from_url <- function(url) {
   return(load)
 }
 
+
+# check if a package is installed
+is_installed <- function(pkg) requireNamespace(pkg, quietly = TRUE)
+# custom mode function from https://stackoverflow.com/questions/2547402/is-there-a-built-in-function-for-finding-the-mode/8189441
+custom_mode <- function(x, na.rm = TRUE) {
+  if (na.rm) {
+    x <- x[!is.na(x)]
+  }
+  ux <- unique(x)
+  return(ux[which.max(tabulate(match(x, ux)))])
+}
 # The function `message_completed` to create the green "...completed" message
 # only exists to hide the option `in_builder` in dots
 message_completed <- function(x, in_builder = FALSE) {
