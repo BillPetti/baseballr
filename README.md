@@ -5,12 +5,14 @@
 
 <!-- badges: start -->
 
-![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)
-![R-CMD-check](https://img.shields.io/github/workflow/status/BillPetti/baseballr/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=blue&style=for-the-badge)
-![Contributors](https://img.shields.io/github/contributors/BillPetti/baseballr?style=for-the-badge)
-![Version-Number](https://img.shields.io/github/r-package/v/BillPetti/baseballr?label=baseballr&logo=R&style=for-the-badge)
-[![Twitter
-Follow](https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge)](https://twitter.com/BillPetti)
+[![CRAN
+version](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=CRAN%20version&prefix=v&query=%24.Version&url=https%3A%2F%2Fcrandb.r-pkg.org%2Fbaseballr)](https://CRAN.R-project.org/package=baseballr)
+[![CRAN
+downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=Downloads&query=%24%5B0%5D.downloads&url=https%3A%2F%2Fcranlogs.r-pkg.org%2Fdownloads%2Ftotal%2F2021-10-26%3Alast-day%2Fbaseballr)](https://CRAN.R-project.org/package=baseballr)
+[![Version-Number](https://img.shields.io/github/r-package/v/BillPetti/baseballr?label=baseballr&logo=R&style=for-the-badge)](https://github.com/BillPetti/baseballr/)
+[![R-CMD-check](https://img.shields.io/github/workflow/status/BillPetti/baseballr/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=white&style=for-the-badge)](https://github.com/BillPetti/baseballr/actions/workflows/R-CMD-check.yaml)
+[![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)](https://github.com/BillPetti/baseballr/)
+[![Contributors](https://img.shields.io/github/contributors/BillPetti/baseballr?style=for-the-badge)](https://github.com/BillPetti/baseballr/graphs/contributors)
 <!-- badges: end -->
 
 `baseballr` is a package written for R focused on baseball analysis. It
@@ -26,7 +28,14 @@ You can read more about some of the functions and how to use them at its
 [Hardball Times
 article](https://tht.fangraphs.com/developing-the-baseballr-package-for-r/).
 
-## **Installation**
+## Installation
+
+You can install the CRAN version of
+[**`baseballr`**](https://CRAN.R-project.org/package=baseballr) with:
+
+``` r
+install.packages("baseballr")
+```
 
 You can install the released version of
 [**`baseballr`**](https://github.com/BillPetti/baseballr) from
@@ -74,7 +83,7 @@ bref_standings_on_date("2015-08-01", "NL East", from = FALSE)
 
     ## -- MLB Standings on Date data from baseball-reference.com --- baseballr 1.1.0 --
 
-    ## i Data updated: 2022-04-11 10:30:18 EDT
+    ## i Data updated: 2022-04-11 16:26:56 EDT
 
     ## # A tibble: 5 x 8
     ##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`
@@ -191,7 +200,7 @@ bref_daily_pitcher("2015-04-05", "2015-04-30") %>%
 
     ## -- MLB Daily Pitcher data from baseball-reference.com ------- baseballr 1.1.0 --
 
-    ## i Data updated: 2022-04-11 10:30:33 EDT
+    ## i Data updated: 2022-04-11 16:27:11 EDT
 
     ## # A tibble: 10 x 11
     ##    season Name               IP   ERA    SO   uBB   HBP    HR   FIP wOBA_against
