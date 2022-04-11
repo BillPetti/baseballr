@@ -122,8 +122,10 @@ mlb_high_low_stats <- function(
   game_type = NULL, 
   stat_group = NULL,
   limit = NULL
-  ) {
+) {
   org_type <- tolower(org_type)
+  
+  mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/highLow/{org_type}"))
   query_params <- list(
     season = season, 
     sortStat = sort_stat,
@@ -134,32 +136,42 @@ mlb_high_low_stats <- function(
     limit = limit
   )
   
-  mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/highLow/{org_type}"))
-  
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  resp <- mlb_endpoint %>% 
-    mlb_api_call() %>% 
-    jsonlite::toJSON() %>% 
-    jsonlite::fromJSON(flatten = TRUE)
-  high_low_results <- resp$highLowResults %>% 
-    as.data.frame() %>% 
-    dplyr::select(-.data$season)
-  high_low_results_splits <- high_low_results %>% 
-    tidyr::unnest(.data$splits) %>% 
-    janitor::clean_names() %>% 
-    dplyr::select(
-      -.data$exemptions,
-      -.data$splits_tied_with_offset,
-      -.data$splits_tied_with_limit, 
-      -.data$sort_stat_stat_groups,
-      -.data$sort_stat_high_low_types,
-      -.data$sort_stat_org_types,
-      -.data$sort_stat_streak_levels) %>% 
-    dplyr::rename(
-      game_number = .data$game_game_number,
-      game_pk = .data$game_game_pk) %>% 
-    dplyr::mutate(
-      season = as.integer(.data$season))
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>% 
+        mlb_api_call() %>% 
+        jsonlite::toJSON() %>% 
+        jsonlite::fromJSON(flatten = TRUE)
+      high_low_results <- resp$highLowResults %>% 
+        as.data.frame() %>% 
+        dplyr::select(-.data$season)
+      high_low_results_splits <- high_low_results %>% 
+        tidyr::unnest(.data$splits) %>% 
+        janitor::clean_names() %>% 
+        dplyr::select(
+          -.data$exemptions,
+          -.data$splits_tied_with_offset,
+          -.data$splits_tied_with_limit, 
+          -.data$sort_stat_stat_groups,
+          -.data$sort_stat_high_low_types,
+          -.data$sort_stat_org_types,
+          -.data$sort_stat_streak_levels) %>% 
+        dplyr::rename(
+          game_number = .data$game_game_number,
+          game_pk = .data$game_game_pk) %>% 
+        dplyr::mutate(
+          season = as.integer(.data$season)) %>%
+        make_baseballr_data("MLB High Low Stats data from MLB.com",Sys.time())
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(high_low_results_splits)
 }

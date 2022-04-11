@@ -1,3 +1,5 @@
+# baseballr (development version)
+
 # baseballr 1.1.0
 ## ~82 MLB Stats API functions added
 |name                                   |file                               |

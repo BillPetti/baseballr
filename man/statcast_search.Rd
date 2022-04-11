@@ -53,13 +53,19 @@ This function allows you to query Statcast data as provided on \url{http://baseb
 }
 \examples{
 \donttest{
-  correa <- statcast_search(start_date = "2016-04-06",
-    end_date = "2016-04-15", playerid = 621043, player_type = 'batter')
-
-  noah <- statcast_search(start_date = "2016-04-06",
-    end_date = "2016-04-15", playerid = 592789, player_type = 'pitcher')
-
-  daily <- statcast_search(start_date = "2016-04-06", end_date = "2016-04-06")
+  ### Correa
+  try(statcast_search(start_date = "2016-04-06",
+                      end_date = "2016-04-15", 
+                      playerid = 621043, 
+                      player_type = 'batter'))
+  ### Noah
+  try(statcast_search(start_date = "2016-04-06",
+                      end_date = "2016-04-15", 
+                      playerid = 592789, 
+                      player_type = 'pitcher'))
+  ### Daily
+  try(statcast_search(start_date = "2016-04-06", 
+                      end_date = "2016-04-06"))
 }
 \donttest{
   correa <- statcast_search_batters(start_date = "2016-04-06",

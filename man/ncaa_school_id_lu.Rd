@@ -25,6 +25,6 @@ This function allows the user to look up the \code{school_id} needed for the \co
 }
 \examples{
 \donttest{
-  ncaa_school_id_lu("Van")
+  try(ncaa_school_id_lu("Van"))
 }
 }

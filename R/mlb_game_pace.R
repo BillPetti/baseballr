@@ -71,16 +71,17 @@
 #'   try(mlb_game_pace(season = 2021, start_date = "09/14/2021", end_date = "09/16/2021"))
 #' }
 
-mlb_game_pace <- function(
-  season, 
-  league_ids = NULL, 
-  sport_ids = NULL, 
-  team_ids = NULL,
-  game_type = NULL, 
-  venue_ids = NULL,  
-  org_type = NULL,
-  start_date = NULL,
-  end_date = NULL) {
+mlb_game_pace <- function(season, 
+                          league_ids = NULL, 
+                          sport_ids = NULL, 
+                          team_ids = NULL,
+                          game_type = NULL, 
+                          venue_ids = NULL,  
+                          org_type = NULL,
+                          start_date = NULL,
+                          end_date = NULL) {
+  
+  mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/gamePace"))
   query_params <- list(
     season = season, 
     leagueId = league_ids,
@@ -92,16 +93,26 @@ mlb_game_pace <- function(
     startDate = start_date,
     endDate = end_date
   )
-  mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/gamePace"))
-  
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
-  resp <- mlb_endpoint %>% 
-    mlb_api_call() %>% 
-    jsonlite::toJSON() %>% 
-    jsonlite::fromJSON(flatten = TRUE)
-  game_pace <- resp$sports %>% 
-    as.data.frame() %>% 
-    janitor::clean_names()
   
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>% 
+        mlb_api_call() %>% 
+        jsonlite::toJSON() %>% 
+        jsonlite::fromJSON(flatten = TRUE)
+      game_pace <- resp$sports %>% 
+        as.data.frame() %>% 
+        janitor::clean_names() %>%
+        make_baseballr_data("MLB Game Pace data from MLB.com",Sys.time())
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(game_pace)
 }

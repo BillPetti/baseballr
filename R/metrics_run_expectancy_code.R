@@ -119,7 +119,7 @@
 #' @examples \donttest{
 #'   df <- statcast_search(start_date = "2016-04-06", end_date = "2016-04-15", 
 #'                         playerid = 621043, player_type = 'batter') 
-#'   run_expectancy_code(df, level = "plate appearances")
+#'   try(run_expectancy_code(df, level = "plate appearances"))
 #' }
 
 run_expectancy_code <- function(df, level = "plate appearance"){

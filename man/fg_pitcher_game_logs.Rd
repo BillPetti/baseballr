@@ -155,6 +155,6 @@ This function allows you to scrape game logs by year for a pitcher from FanGraph
 }
 \examples{
 \donttest{
-  fg_pitcher_game_logs(playerid = 104, year = 2006)
+  try(fg_pitcher_game_logs(playerid = 104, year = 2006))
 }
 }

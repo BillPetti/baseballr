@@ -25,6 +25,6 @@ Function returns a data frame with various columns, including:
 }
 \examples{
 \donttest{
-  load_game_info_sup()
+  try(load_game_info_sup())
 }
 }

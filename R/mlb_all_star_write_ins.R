@@ -76,7 +76,8 @@ mlb_all_star_write_ins <- function(league_id = NULL,
           league_id = as.numeric(league_id),
           season = as.numeric(season)) %>% 
         dplyr::rename(
-          player_id = .data$id)
+          player_id = .data$id) %>%
+        make_baseballr_data("MLB All-Star Write-Ins data from MLB.com",Sys.time())
       
     },
     error = function(e) {

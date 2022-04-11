@@ -61,6 +61,6 @@ A data frame of baseball players and the various IDs associated with them in dif
 }
 \examples{
 \donttest{
-  chadwick_player_lu()
+  try(chadwick_player_lu())
 }
 }

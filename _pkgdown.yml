@@ -62,6 +62,8 @@ navbar:
         href: reference/index.html
       - text: "MLB"
         href: reference/mlb.html
+      - text: "MLB Awards"
+        href: reference/mlb_award.html
       - text: "Statcast"
         href: reference/statcast.html
       - text: "Retrosheet"
@@ -113,6 +115,8 @@ navbar:
         href: https://BenHowell71.github.io/fastRhockey/
       - text: worldfootballR
         href: https://jaseziv.github.io/worldfootballR/
+      - text: chessR
+        href: https://jaseziv.github.io/chessR/
       - text: baseballr
         href: https://BillPetti.github.io/baseballr/
       - text: cfbplotR
@@ -157,6 +161,7 @@ reference:
       - starts_with("mlb_event")
       - starts_with("mlb_fielder")
       - starts_with("mlb_high_low")
+      - starts_with("mlb_hit")
       - starts_with("mlb_game_types")
       - starts_with("mlb_job_types")
       - starts_with("mlb_league_leader")
@@ -169,6 +174,7 @@ reference:
       - starts_with("mlb_roster_types")
       - starts_with("mlb_runner")
       - starts_with("mlb_schedule_event")
+      - starts_with("mlb_season")
       - starts_with("mlb_situation")
       - starts_with("mlb_sky")
       - starts_with("mlb_standings_types")
@@ -181,18 +187,30 @@ reference:
     contents:
       - starts_with("mlb_game")
       - starts_with("mlb_pbp")
+      - starts_with("mlb_prob")
+      - starts_with("mlb_batt")
+      - starts_with("mlb_schedule")
+      - starts_with("mlb_venue")
   - title: MLB Stats Game
   - subtitle: MLB Stats Player Data Functions
     desc: Functions exported by baseballr to access MLB Stats Player Data
     contents:
       - starts_with("mlb_player")
       - starts_with("mlb_people")
+      - starts_with("mlb_high_low_stats")
+      - starts_with("mlb_stats")
   - title: MLB Stats Team
   - subtitle: MLB Stats Team Data Functions
     desc: Functions exported by baseballr to access MLB Stats Team Data
     contents:
       - starts_with("mlb_team_")
       - starts_with("mlb_teams")
+      - starts_with("mlb_rosters")
+  - title: MLB Stats Standings
+  - subtitle: MLB Stats Standings Data Functions
+    desc: Functions exported by baseballr to access MLB Stats Standings Data
+    contents:
+      - starts_with("mlb_standings")
   - title: MLB Stats League
   - subtitle: MLB Stats League Data Functions
     desc: Functions exported by baseballr to access MLB Stats League Data
@@ -210,7 +228,8 @@ reference:
   - subtitle: MLB Stats Awards Data Functions
     desc: Functions exported by baseballr to access MLB Stats Awards Data
     contents:
-      - starts_with("mlb_award")
+      - '`mlb_award`''
+      - starts_with("mlb_awards")
       - starts_with("mlb_all")
       - starts_with("mlb_home")
   - title: MLB Stats Jobs
@@ -219,11 +238,10 @@ reference:
     contents:
       - starts_with("mlb_job")
   - title: MLB Stats
-  - subtitle: MLB Stats Data Functions
+  - subtitle: MLB Stats Misc Functions
     desc: Functions exported by baseballr to access MLB Stats Data
     contents:
       - '`mlb`'
-      - starts_with("mlb_")
   - title: Baseball Savant
   - subtitle: Baseball Savant MLB Data Functions
     desc: Functions exported by baseballr to access Baseball Savant MLB Data

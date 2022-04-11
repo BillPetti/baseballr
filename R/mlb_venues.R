@@ -26,11 +26,24 @@ mlb_venues <- function(venue_ids = NULL, sport_ids = NULL, season = NULL){
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  
-  venues <- resp$venues
-  colnames(venues) <- c("venue_id", "venue_name", "venue_link","active")
-  
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      
+      venues <- resp$venues
+      colnames(venues) <- c("venue_id", "venue_name", "venue_link","active")
+      venues <- venues %>%
+        make_baseballr_data("MLB Venues data from MLB.com",Sys.time())
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(venues)
 }

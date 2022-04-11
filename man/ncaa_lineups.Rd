@@ -26,6 +26,6 @@ Returns a data frame of each school's starting lineup and starting pitcher\tabul
 }
 \examples{
 \donttest{
-  ncaa_lineups(game_info_url="https://stats.ncaa.org/game/index/4587474?org_id=528",year=2018)
+  try(ncaa_lineups(game_info_url="https://stats.ncaa.org/game/index/4587474?org_id=528",year=2018))
 }
 }

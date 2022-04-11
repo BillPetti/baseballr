@@ -60,7 +60,7 @@
 #' 99 = RF - Close to Line 
 #' @export
 #' @examples \donttest{
-#'   statcast_leaderboards(leaderboard = "exit_velocity_barrels", year = 2018)
+#'   try(statcast_leaderboards(leaderboard = "exit_velocity_barrels", year = 2018))
 #' }
 
 statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
@@ -378,7 +378,8 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
   }
 
   payload <- payload %>%
-    dplyr::select(.data$year, tidyr::everything())
+    dplyr::select(.data$year, tidyr::everything()) %>%
+    make_baseballr_data("MLB Baseball Savant Statcast Leaderboards data from baseballsavant.mlb.com",Sys.time())
 
   return(payload)
 }

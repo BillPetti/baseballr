@@ -109,6 +109,6 @@ oaa_roles argument:
 }
 \examples{
 \donttest{
-  statcast_leaderboards(leaderboard = "exit_velocity_barrels", year = 2018)
+  try(statcast_leaderboards(leaderboard = "exit_velocity_barrels", year = 2018))
 }
 }

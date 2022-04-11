@@ -23,11 +23,9 @@
 #' @examples \donttest{
 #'   try(mlb_divisions(sport_id = 1))
 #' }
-mlb_divisions <- function(
-  division_id = NULL,
-  league_id = NULL,
-  sport_id = NULL
-){
+mlb_divisions <- function(division_id = NULL,
+                          league_id = NULL,
+                          sport_id = NULL){
   
   mlb_endpoint <- mlb_stats_endpoint("v1/divisions")
   query_params <- list(
@@ -38,18 +36,30 @@ mlb_divisions <- function(
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  divisions <- jsonlite::fromJSON(jsonlite::toJSON(resp$divisions), flatten = TRUE)  %>% 
-    janitor::clean_names() %>% 
-    as.data.frame() %>% 
-    dplyr::rename(
-      division_id = .data$id,
-      division_name = .data$name,
-      division_name_short = .data$name_short,
-      division_link = .data$link,
-      division_abbreviation = .data$abbreviation)
-  
+  tryCatch(
+    expr = {
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      divisions <- jsonlite::fromJSON(jsonlite::toJSON(resp$divisions), flatten = TRUE)  %>% 
+        janitor::clean_names() %>% 
+        as.data.frame() %>% 
+        dplyr::rename(
+          division_id = .data$id,
+          division_name = .data$name,
+          division_name_short = .data$name_short,
+          division_link = .data$link,
+          division_abbreviation = .data$abbreviation) %>%
+        make_baseballr_data("MLB Divisions data from MLB.com",Sys.time())
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(divisions)
 }
 

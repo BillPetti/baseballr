@@ -84,18 +84,27 @@
 mlb_draft <- function(year) {
 
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/draft/{year}"))
-
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-
-  draft_table <- resp$drafts$rounds$picks
-
-  draft_table <- draft_table %>%
-    dplyr::bind_rows()
-  draft_table <- jsonlite::fromJSON(jsonlite::toJSON(draft_table), flatten = TRUE) %>%
-    janitor::clean_names()
-  
-
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      
+      draft_table <- resp$drafts$rounds$picks
+      
+      draft_table <- draft_table %>%
+        dplyr::bind_rows()
+      draft_table <- jsonlite::fromJSON(jsonlite::toJSON(draft_table), flatten = TRUE) %>%
+        janitor::clean_names() %>%
+        make_baseballr_data("MLB Draft data from MLB.com",Sys.time())
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(draft_table)
 }
 

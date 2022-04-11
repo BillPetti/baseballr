@@ -116,18 +116,29 @@
 #' }
 
 mlb_schedule <- function(season = 2019, level_ids = '1'){
-
+  
   api_call <- paste0("http://statsapi.mlb.com/api/v1/schedule?language=en",
                      "&sportId=", level_ids, 
                      "&season=", season)
-
-  payload <- jsonlite::fromJSON(api_call, flatten = TRUE)
-
-  games <- payload$dates %>% 
-    tidyr::unnest(.data$games) %>%
-    as.data.frame() %>%
-    janitor::clean_names()
-
+  
+  tryCatch(
+    expr={
+      payload <- jsonlite::fromJSON(api_call, flatten = TRUE)
+      
+      games <- payload$dates %>% 
+        tidyr::unnest(.data$games) %>%
+        as.data.frame() %>%
+        janitor::clean_names() %>%
+        make_baseballr_data("MLB Schedule data from MLB.com",Sys.time())
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(games)
-
 }

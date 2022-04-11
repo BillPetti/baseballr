@@ -41,6 +41,9 @@ ggspraychart(
 
 \item{frame}{Variable to use as the frame argument if using gganimate to create animated plots. For density plots be sure your variable is a factor.}
 }
+\value{
+A plot of the spraychart for the supplied dataset
+}
 \description{
 This function allows you to create spray charts with ggplots given a data frame with batted ball location coordinates.
 }

@@ -108,18 +108,19 @@
 #' }
 mlb_player_game_stats_current <- function(person_id = NULL){
   
-
+  
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/people/{person_id}/stats/game/current"))
   query_params <- list()
-
+  
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
-
+  
   tryCatch(
     expr = {
       resp <- mlb_endpoint %>%
         mlb_api_call()
       stats <- jsonlite::fromJSON(jsonlite::toJSON(resp$stats), flatten=TRUE) %>% 
-        as.data.frame()
+        as.data.frame() %>%
+        make_baseballr_data("MLB Player Game Stats - Current Game data from MLB.com",Sys.time())
       if(length(stats)>0){
         stats <- stats %>%
           tidyr::unnest(.data$splits) %>% 
@@ -127,7 +128,8 @@ mlb_player_game_stats_current <- function(person_id = NULL){
           as.data.frame() %>% 
           dplyr::select(-.data$exemptions) %>% 
           dplyr::mutate(
-            player_id = person_id)
+            player_id = person_id) %>%
+          make_baseballr_data("MLB Player Game Stats - Current Game data from MLB.com",Sys.time())
       }
     },
     error = function(e) {

@@ -54,12 +54,12 @@
 #' @import rvest
 #' @export
 #' @examples \donttest{
-#'   ncaa_game_logs(player_id = 2113782, year = 2021, type = "pitching", span = "game")
-#'   ncaa_game_logs(player_id = 1879650, year = 2019, type = "batting", span="career")
+#'   try(ncaa_game_logs(player_id = 2113782, year = 2021, type = "pitching", span = "game"))
+#'   try(ncaa_game_logs(player_id = 1879650, year = 2019, type = "batting", span = "career"))
 #' }
 
 ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
-
+  
   year_id <- baseballr::ncaa_season_id_lu %>% 
     dplyr::filter(.data$season == year) %>% 
     dplyr::select(.data$id)
@@ -69,169 +69,182 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
   pitching_id <- baseballr::ncaa_season_id_lu %>% 
     dplyr::filter(.data$season == year) %>% 
     dplyr::select(.data$pitching_id)
-
-  if (type == "batting") {
-
-    batting_url <- paste0("https://stats.ncaa.org/player/index?id=", year_id,"&stats_player_seq=", player_id,"&year_stat_category_id=", batting_id)
-    
-    batting_payload <- batting_url %>% 
-      xml2::read_html()
-    
-    player_name <- ((batting_payload %>% 
-                       rvest::html_elements("select"))[3] %>% 
-                      rvest::html_elements(xpath="//option[@selected]") %>% 
-                      rvest::html_text())[3]
-  } else {
-
-    pitching_url <- paste0("https://stats.ncaa.org/player/index?id=", year_id,"&stats_player_seq=", player_id,"&year_stat_category_id=", pitching_id)
-    
-    pitching_payload <- pitching_url %>% 
-      xml2::read_html()
-    
-    player_name <- ((pitching_payload %>% 
-      rvest::html_elements("select"))[3] %>% 
-      rvest::html_elements(xpath="//option[@selected]") %>% 
-      rvest::html_text())[3]
-  }
   
-  if (span == 'game') {
-
-    if (type == "batting") {
-
-      payload_df <- ((batting_payload %>%
-        rvest::html_elements("table"))[5] %>%
-        rvest::html_table() %>%
-        as.data.frame())
-
-      colnames(payload_df) <- payload_df[2,]
-
-      payload_df <- payload_df[-c(1:2),]
-      batting_cols <- c("Date", "Opponent", "Result",
-                        "G", "R", "AB", "H", "2B", "3B", "TB", "HR", "RBI",
-                        "BB", "HBP", "SF", "SH", "K", "DP", "CS", "Picked",
-                        "SB", "IBB", "RBI2out")
-      payload_df <- payload_df %>% 
-        dplyr::select(batting_cols)
-      
-      payload_df <- payload_df %>%
-        dplyr::mutate_at(vars(.data$G:.data$RBI2out), extract_numeric)
-
-      if('OPP DP' %in% colnames(payload_df) == TRUE) {
-
-        payload_df <- payload_df %>%
-          dplyr::rename(DP = -.data$`OPP DP`)
+  tryCatch(
+    expr={
+      if (type == "batting") {
+        
+        batting_url <- paste0("https://stats.ncaa.org/player/index?id=", year_id,"&stats_player_seq=", player_id,"&year_stat_category_id=", batting_id)
+        
+        batting_payload <- batting_url %>% 
+          xml2::read_html()
+        
+        player_name <- ((batting_payload %>% 
+                           rvest::html_elements("select"))[3] %>% 
+                          rvest::html_elements(xpath="//option[@selected]") %>% 
+                          rvest::html_text())[3]
+      } else {
+        
+        pitching_url <- paste0("https://stats.ncaa.org/player/index?id=", year_id,"&stats_player_seq=", player_id,"&year_stat_category_id=", pitching_id)
+        
+        pitching_payload <- pitching_url %>% 
+          xml2::read_html()
+        
+        player_name <- ((pitching_payload %>% 
+                           rvest::html_elements("select"))[3] %>% 
+                          rvest::html_elements(xpath="//option[@selected]") %>% 
+                          rvest::html_text())[3]
       }
-
-      cols_to_num <- c("G", "R", "AB", "H", "2B", "3B", "TB", "HR", "RBI",
-                       "BB", "HBP", "SF", "SH", "K", "DP", "CS", "Picked",
-                       "SB", "IBB", "RBI2out")
-      suppressWarnings(
-        payload_df <- payload_df %>%
-          dplyr::mutate_at(cols_to_num, as.numeric)
-      )
-      payload_df <- payload_df %>%
-        dplyr::mutate(
-          player_id = player_id,
-          player_name = player_name) %>%
-        dplyr::select(.data$player_id, .data$player_name, tidyr::everything())
       
-    } else {
-
-      payload_df <- ((pitching_payload %>%
-        rvest::html_elements("table"))[5] %>%
-        rvest::html_table() %>%
-        as.data.frame())
-
-      colnames(payload_df) <- payload_df[2,]
-
-      payload_df <- payload_df[-c(1:2),]
-
-      if('OPP DP' %in% colnames(payload_df) == TRUE) {
-
+      if (span == 'game') {
+        
+        if (type == "batting") {
+          
+          payload_df <- ((batting_payload %>%
+                            rvest::html_elements("table"))[5] %>%
+                           rvest::html_table() %>%
+                           as.data.frame())
+          
+          colnames(payload_df) <- payload_df[2,]
+          
+          payload_df <- payload_df[-c(1:2),]
+          batting_cols <- c("Date", "Opponent", "Result",
+                            "G", "R", "AB", "H", "2B", "3B", "TB", "HR", "RBI",
+                            "BB", "HBP", "SF", "SH", "K", "DP", "CS", "Picked",
+                            "SB", "IBB", "RBI2out")
+          payload_df <- payload_df %>% 
+            dplyr::select(batting_cols)
+          
+          payload_df <- payload_df %>%
+            dplyr::mutate_at(vars(.data$G:.data$RBI2out), extract_numeric)
+          
+          if('OPP DP' %in% colnames(payload_df) == TRUE) {
+            
+            payload_df <- payload_df %>%
+              dplyr::rename(DP = -.data$`OPP DP`)
+          }
+          
+          cols_to_num <- c("G", "R", "AB", "H", "2B", "3B", "TB", "HR", "RBI",
+                           "BB", "HBP", "SF", "SH", "K", "DP", "CS", "Picked",
+                           "SB", "IBB", "RBI2out")
+          suppressWarnings(
+            payload_df <- payload_df %>%
+              dplyr::mutate_at(cols_to_num, as.numeric)
+          )
+          payload_df <- payload_df %>%
+            dplyr::mutate(
+              player_id = player_id,
+              player_name = player_name) %>%
+            dplyr::select(.data$player_id, .data$player_name, tidyr::everything())
+          
+        } else {
+          
+          payload_df <- ((pitching_payload %>%
+                            rvest::html_elements("table"))[5] %>%
+                           rvest::html_table() %>%
+                           as.data.frame())
+          
+          colnames(payload_df) <- payload_df[2,]
+          
+          payload_df <- payload_df[-c(1:2),]
+          
+          if('OPP DP' %in% colnames(payload_df) == TRUE) {
+            
+            payload_df <- payload_df %>%
+              dplyr::rename(DP = .data$`OPP DP`)
+          }
+          
+          cols_to_num <- c("G", "App", "GS", "IP", "CG", "H", "R", "ER", "BB", "SO", "SHO", "BF", "P-OAB", "2B-A", "3B-A", "Bk", "HR-A", "WP", "HB", "IBB", "Inh Run", "Inh Run Score", "SHA", "SFA", "Pitches", "GO", "FO", "W", "L", "SV", "OrdAppeared", "KL")
+          suppressWarnings(
+            payload_df <- payload_df %>%
+              dplyr::mutate_at(cols_to_num, as.numeric)
+          )
+        }
+        
         payload_df <- payload_df %>%
-          dplyr::rename(DP = .data$`OPP DP`)
+          dplyr::mutate(
+            player_id = player_id,
+            player_name = player_name) %>%
+          dplyr::select(.data$player_id, .data$player_name, tidyr::everything())
+        
+      } else {
+        
+        if(type == 'batting') {
+          
+          payload_df <- ((batting_payload %>%
+                            rvest::html_elements('table'))[3] %>%
+                           rvest::html_table() %>%
+                           as.data.frame())[-1,]
+          
+          colnames(payload_df) <- payload_df[1,]
+          
+          payload_df <- payload_df[-1,]
+          
+          if('OPP DP' %in% colnames(payload_df) == TRUE) {
+            
+            payload_df <- payload_df %>%
+              dplyr::rename(DP = .data$`OPP DP`)
+          }
+          
+          payload_df <- payload_df %>%
+            dplyr::select(
+              .data$Year, .data$Team, .data$GP, .data$BA, .data$G, .data$OBPct,
+              .data$SlgPct, .data$R, .data$AB, .data$H, .data$`2B`, .data$`3B`,
+              .data$TB, .data$HR, .data$RBI, .data$BB, .data$HBP, .data$SF, .data$SH,
+              .data$K, .data$DP, .data$CS, .data$Picked, .data$SB, .data$RBI2out)
+          
+          payload_df <- payload_df %>%
+            dplyr::mutate(
+              player_id = player_id,
+              player_name = player_name) %>%
+            dplyr::select(.data$Year, .data$player_id, .data$player_name, tidyr::everything())
+          
+        } 
+        else {
+          
+          payload_df <- ((pitching_payload %>%
+                            rvest::html_elements('table'))[3] %>%
+                           rvest::html_table() %>%
+                           as.data.frame())[-1,]
+          
+          colnames(payload_df) <- payload_df[1,]
+          
+          payload_df <- payload_df[-1,]
+          
+          payload_df <- payload_df %>%
+            dplyr::select(
+              .data$Year,.data$Team,.data$GP,.data$G,
+              .data$App,.data$GS,.data$ERA,.data$IP,.data$CG,.data$H,
+              .data$R,.data$ER,.data$BB,.data$SO,.data$SHO,.data$BF,
+              .data$`P-OAB`,.data$`2B-A`,.data$`3B-A`,.data$Bk,
+              .data$`HR-A`,.data$WP,.data$HB,.data$IBB,
+              .data$`Inh Run`,.data$`Inh Run Score`,
+              .data$SHA,.data$SFA,.data$Pitches,.data$GO,.data$FO,
+              .data$W,.data$L,.data$SV,.data$KL, tidyr::everything())
+          
+          
+          payload_df <- payload_df %>%
+            dplyr::mutate(
+              player_id = player_id,
+              player_name = player_name) %>%
+            dplyr::select(.data$Year, .data$player_id, .data$player_name, tidyr::everything())
+        }
+        
       }
-
-      cols_to_num <- c("G", "App", "GS", "IP", "CG", "H", "R", "ER", "BB", "SO", "SHO", "BF", "P-OAB", "2B-A", "3B-A", "Bk", "HR-A", "WP", "HB", "IBB", "Inh Run", "Inh Run Score", "SHA", "SFA", "Pitches", "GO", "FO", "W", "L", "SV", "OrdAppeared", "KL")
-      suppressWarnings(
-        payload_df <- payload_df %>%
-          dplyr::mutate_at(cols_to_num, as.numeric)
-      )
+      payload_df <- payload_df %>%
+        make_baseballr_data("NCAA Baseball Game Logs data from stats.ncaa.org",Sys.time())
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
     }
-    
-    payload_df <- payload_df %>%
-      dplyr::mutate(
-        player_id = player_id,
-        player_name = player_name) %>%
-      dplyr::select(.data$player_id, .data$player_name, tidyr::everything())
-    
-  } else {
-
-    if(type == 'batting') {
-
-      payload_df <- ((batting_payload %>%
-        rvest::html_elements('table'))[3] %>%
-        rvest::html_table() %>%
-        as.data.frame())[-1,]
-
-      colnames(payload_df) <- payload_df[1,]
-
-      payload_df <- payload_df[-1,]
-
-      if('OPP DP' %in% colnames(payload_df) == TRUE) {
-
-        payload_df <- payload_df %>%
-          dplyr::rename(DP = .data$`OPP DP`)
-      }
-
-      payload_df <- payload_df %>%
-        dplyr::select(
-          .data$Year, .data$Team, .data$GP, .data$BA, .data$G, .data$OBPct,
-          .data$SlgPct, .data$R, .data$AB, .data$H, .data$`2B`, .data$`3B`,
-          .data$TB, .data$HR, .data$RBI, .data$BB, .data$HBP, .data$SF, .data$SH,
-          .data$K, .data$DP, .data$CS, .data$Picked, .data$SB, .data$RBI2out)
-
-      payload_df <- payload_df %>%
-        dplyr::mutate(
-          player_id = player_id,
-          player_name = player_name) %>%
-        dplyr::select(.data$Year, .data$player_id, .data$player_name, tidyr::everything())
-
-    } 
-    else {
-
-      payload_df <- ((pitching_payload %>%
-        rvest::html_elements('table'))[3] %>%
-        rvest::html_table() %>%
-        as.data.frame())[-1,]
-
-      colnames(payload_df) <- payload_df[1,]
-
-      payload_df <- payload_df[-1,]
-
-      payload_df <- payload_df %>%
-        dplyr::select(
-          .data$Year,.data$Team,.data$GP,.data$G,
-          .data$App,.data$GS,.data$ERA,.data$IP,.data$CG,.data$H,
-          .data$R,.data$ER,.data$BB,.data$SO,.data$SHO,.data$BF,
-          .data$`P-OAB`,.data$`2B-A`,.data$`3B-A`,.data$Bk,
-          .data$`HR-A`,.data$WP,.data$HB,.data$IBB,
-          .data$`Inh Run`,.data$`Inh Run Score`,
-          .data$SHA,.data$SFA,.data$Pitches,.data$GO,.data$FO,
-          .data$W,.data$L,.data$SV,.data$KL, tidyr::everything())
-
-      
-      payload_df <- payload_df %>%
-        dplyr::mutate(
-          player_id = player_id,
-          player_name = player_name) %>%
-        dplyr::select(.data$Year, .data$player_id, .data$player_name, tidyr::everything())
-    }
-
-  }
-
+  )
   return(payload_df)
-
+  
 }
 #' @rdname get_ncaa_game_logs
 #' @title **(legacy) Get NCAA Baseball Game Logs**

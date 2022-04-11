@@ -109,37 +109,49 @@
 mlb_game_linescore <- function(game_pk) {
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1.1/game/{game_pk}/feed/live"))
   
-  payload <- mlb_endpoint %>% 
-    mlb_api_call() %>% 
-    jsonlite::toJSON() %>% 
-    jsonlite::fromJSON(flatten = TRUE)
-  home_team <- unlist(payload$gameData$teams$home) %>% 
-    dplyr::bind_rows() %>% 
-    janitor::clean_names() %>%
-    dplyr::select(-starts_with("spring_venue"), 
-                  -starts_with("spring_league"))
-  away_team <- unlist(payload$gameData$teams$away) %>% 
-    dplyr::bind_rows() %>% 
-    janitor::clean_names() %>%
-    dplyr::select(-starts_with("spring_venue"), 
-                  -starts_with("spring_league"))
-  colnames(home_team) <- paste0("home_team_", colnames(home_team))
-  colnames(away_team) <- paste0("away_team_", colnames(away_team))
-  
-  teams <- home_team %>% 
-    dplyr::bind_cols(away_team)
-  linescore <- payload$liveData$linescore$innings 
-  
-  linescore_table <- linescore %>% 
-    dplyr::bind_cols(teams) %>% 
-    janitor::clean_names() %>% 
-    dplyr::mutate(
-      game_pk = game_pk) %>% 
-    dplyr::select(
-      .data$game_pk, 
-      .data$home_team_id, .data$home_team_name,
-      .data$away_team_id, .data$away_team_name,
-      tidyr::everything())
+  tryCatch(
+    expr={
+      payload <- mlb_endpoint %>% 
+        mlb_api_call() %>% 
+        jsonlite::toJSON() %>% 
+        jsonlite::fromJSON(flatten = TRUE)
+      home_team <- unlist(payload$gameData$teams$home) %>% 
+        dplyr::bind_rows() %>% 
+        janitor::clean_names() %>%
+        dplyr::select(-starts_with("spring_venue"), 
+                      -starts_with("spring_league"))
+      away_team <- unlist(payload$gameData$teams$away) %>% 
+        dplyr::bind_rows() %>% 
+        janitor::clean_names() %>%
+        dplyr::select(-starts_with("spring_venue"), 
+                      -starts_with("spring_league"))
+      colnames(home_team) <- paste0("home_team_", colnames(home_team))
+      colnames(away_team) <- paste0("away_team_", colnames(away_team))
+      
+      teams <- home_team %>% 
+        dplyr::bind_cols(away_team)
+      linescore <- payload$liveData$linescore$innings 
+      
+      linescore_table <- linescore %>% 
+        dplyr::bind_cols(teams) %>% 
+        janitor::clean_names() %>% 
+        dplyr::mutate(
+          game_pk = game_pk) %>% 
+        dplyr::select(
+          .data$game_pk, 
+          .data$home_team_id, .data$home_team_name,
+          .data$away_team_id, .data$away_team_name,
+          tidyr::everything()) %>%
+        make_baseballr_data("MLB Game Linescore data from MLB.com",Sys.time())
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   
   return(linescore_table)
 }

@@ -18,15 +18,26 @@ mlb_fielder_detail_types <- function(){
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  fielder_detail_types <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  %>% 
-    janitor::clean_names() %>% 
-    as.data.frame()
-  fielder_detail_types$names <- lapply(fielder_detail_types$names, function(x){
-      data.frame(names = ifelse(!is.character(x),NA_character_,x))}) %>% 
-    dplyr::bind_rows()
-    
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      fielder_detail_types <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  %>% 
+        janitor::clean_names() %>% 
+        as.data.frame()
+      fielder_detail_types$names <- lapply(fielder_detail_types$names, function(x){
+        data.frame(names = ifelse(!is.character(x),NA_character_,x))}) %>% 
+        dplyr::bind_rows() %>%
+        make_baseballr_data("MLB Fielder Detail data from MLB.com",Sys.time())
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(fielder_detail_types)
 }
 

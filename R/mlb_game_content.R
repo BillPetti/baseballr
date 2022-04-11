@@ -32,21 +32,32 @@
 #' }
 
 mlb_game_content <- function(game_pk) {
-
+  
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/game/{game_pk}/content"))
   query_params <- list()
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
-  
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  media <- resp$media
-  epg <- media$epg %>% 
-    tidyr::unnest(.data$items) %>% 
-    as.data.frame() %>% 
-    janitor::clean_names() %>% 
-    dplyr::rename(
-      epg_id =.data$id
-    )
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      media <- resp$media
+      epg <- media$epg %>% 
+        tidyr::unnest(.data$items) %>% 
+        as.data.frame() %>% 
+        janitor::clean_names() %>% 
+        dplyr::rename(
+          epg_id =.data$id
+        ) %>%
+        make_baseballr_data("MLB Game Content data from MLB.com",Sys.time())
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   
   return(epg)
 }

@@ -15,6 +15,6 @@ This function allows you to calculate FIP and related metrics for any given set 
 \examples{
 \donttest{
   df <- bref_daily_pitcher("2015-04-05", "2015-04-30")
-  fip_plus(df)
+  try(fip_plus(df))
 }
 }

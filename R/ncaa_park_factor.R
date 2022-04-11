@@ -26,7 +26,7 @@
 #' @importFrom janitor adorn_totals
 #' @export
 #' @examples \donttest{
-#'   ncaa_park_factor(teamid = 736, years = c(2017:2019), type = "conference")
+#'   try(ncaa_park_factor(teamid = 736, years = c(2017:2019), type = "conference"))
 #' }
 
 ncaa_park_factor <- function(teamid, years, type = "conference") {
@@ -61,7 +61,6 @@ ncaa_park_factor <- function(teamid, years, type = "conference") {
     return("Please select only years between 2013 and 2020")
   }
   
-  message('Acquiring game data and calculating park factors. Please be patient...')
   
   if (y == 1) {
     df = suppressWarnings(baseballr::ncaa_schedule_info(teamid = teamid, year = years))
