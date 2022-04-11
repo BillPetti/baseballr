@@ -74,7 +74,7 @@ information for games scheduled or played\tabular{ll}{
 }
 \description{
 Find game_pk values for professional baseball games (major and minor leagues)
-via the MLB api \url{http://statsapi.mlb.com/api/}
+via the MLB api \url{https://www.mlb.com/}
 }
 \details{
 Level IDs:
