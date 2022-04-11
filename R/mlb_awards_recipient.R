@@ -36,13 +36,25 @@ mlb_awards_recipient <- function(award_id = NULL, sport_id = NULL, league_id = N
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  awards <- jsonlite::fromJSON(jsonlite::toJSON(resp$awards), flatten = TRUE)  %>% 
-    janitor::clean_names() %>% 
-    dplyr::rename(
-      award_id = .data$id,
-      award_name = .data$name)
-  
+  tryCatch(
+    expr = {
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      awards <- jsonlite::fromJSON(jsonlite::toJSON(resp$awards), flatten = TRUE)  %>% 
+        janitor::clean_names() %>% 
+        dplyr::rename(
+          award_id = .data$id,
+          award_name = .data$name) %>%
+        make_baseballr_data("MLB Awards Recipient data from MLB.com",Sys.time())
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(awards)
 }

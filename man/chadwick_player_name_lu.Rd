@@ -30,7 +30,7 @@ This function allows you to query the Chadwick Bureau's public register of baseb
 }
 \examples{
 \donttest{
-  playername_lookup(4885)
-  playername_lookup("kaaihki01")
+  try(playername_lookup(4885))
+  try(playername_lookup("kaaihki01"))
 }
 }

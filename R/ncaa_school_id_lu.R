@@ -13,7 +13,7 @@
 #'  |conference_id |numeric   |
 #' @export
 #' @examples \donttest{
-#'   ncaa_school_id_lu("Van")
+#'   try(ncaa_school_id_lu("Van"))
 #' }
 
 ncaa_school_id_lu <- function(school_name = NULL) {

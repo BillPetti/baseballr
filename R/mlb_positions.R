@@ -24,26 +24,39 @@ mlb_positions <- function(){
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  positions <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  %>% 
-    janitor::clean_names() %>% 
-    as.data.frame() %>% 
-    dplyr::rename(
-      position_short_name = .data$short_name,
-      position_full_name = .data$full_name,
-      position_abbreviation = .data$abbrev,
-      position_code = .data$code,
-      position_type = .data$type,
-      position_formal_name = .data$formal_name,
-      position_display_name = .data$display_name) %>% 
-    dplyr::select(c(
-      "position_short_name", "position_full_name",
-      "position_abbreviation", "position_code", 
-      "position_type", "position_formal_name",
-      "position_display_name", "outfield", "game_position",
-      "pitcher", "fielder"
-    ))
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      positions <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  %>% 
+        janitor::clean_names() %>% 
+        as.data.frame() %>% 
+        dplyr::rename(
+          position_short_name = .data$short_name,
+          position_full_name = .data$full_name,
+          position_abbreviation = .data$abbrev,
+          position_code = .data$code,
+          position_type = .data$type,
+          position_formal_name = .data$formal_name,
+          position_display_name = .data$display_name) %>% 
+        dplyr::select(c(
+          "position_short_name", "position_full_name",
+          "position_abbreviation", "position_code", 
+          "position_type", "position_formal_name",
+          "position_display_name", "outfield", "game_position",
+          "pitcher", "fielder"
+        )) %>%
+        make_baseballr_data("MLB Positions data from MLB.com",Sys.time())
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   
   return(positions)
 }

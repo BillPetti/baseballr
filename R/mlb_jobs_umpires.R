@@ -16,8 +16,8 @@
 #'   try(mlb_jobs_umpires(sport_id=1))
 #' }
 mlb_jobs_umpires <- function(
-                     sport_id = NULL,
-                     date = NULL){
+  sport_id = NULL,
+  date = NULL){
   
   mlb_endpoint <- mlb_stats_endpoint("v1/jobs/umpires")
   query_params <- list(
@@ -27,13 +27,25 @@ mlb_jobs_umpires <- function(
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  jobs <- jsonlite::fromJSON(jsonlite::toJSON(resp$roster), flatten = TRUE)  %>% 
-    janitor::clean_names() %>% 
-    as.data.frame() %>% 
-    dplyr::rename(
-      job_code = .data$job_id)
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      jobs <- jsonlite::fromJSON(jsonlite::toJSON(resp$roster), flatten = TRUE)  %>% 
+        janitor::clean_names() %>% 
+        as.data.frame() %>% 
+        dplyr::rename(
+          job_code = .data$job_id) %>%
+        make_baseballr_data("MLB Jobs Umpires data from MLB.com",Sys.time())
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   
   return(jobs)
 }

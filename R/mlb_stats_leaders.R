@@ -87,8 +87,7 @@ mlb_stats_leaders <- function(leader_categories = NULL,
                               start_date = NULL,
                               end_date = NULL,
                               stat_type = NULL,
-                              limit = 1000
-                              ){
+                              limit = 1000){
   
   sport_id <- paste(sport_id, collapse = ',')
   mlb_endpoint <- mlb_stats_endpoint("v1/stats/leaders")
@@ -110,15 +109,27 @@ mlb_stats_leaders <- function(leader_categories = NULL,
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  stats_leaders <- jsonlite::fromJSON(jsonlite::toJSON(resp[['leagueLeaders']]), flatten = TRUE)  
-  stats_leaders$season <- NULL
-  stats_leaders <- stats_leaders %>% 
-    tidyr::unnest(.data$leaders) %>% 
-    janitor::clean_names()  %>% 
-    as.data.frame() 
-  
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      stats_leaders <- jsonlite::fromJSON(jsonlite::toJSON(resp[['leagueLeaders']]), flatten = TRUE)  
+      stats_leaders$season <- NULL
+      stats_leaders <- stats_leaders %>% 
+        tidyr::unnest(.data$leaders) %>% 
+        janitor::clean_names()  %>% 
+        as.data.frame() %>%
+        make_baseballr_data("MLB Stats Leaders data from MLB.com",Sys.time())
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(stats_leaders)
 }
 

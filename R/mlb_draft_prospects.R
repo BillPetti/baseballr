@@ -109,16 +109,25 @@
 #'   try(mlb_draft_prospects(year = 2020))
 #' }
 mlb_draft_prospects <- function(year) {
-
+  
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/draft/prospects/{year}"))
-
-  resp <- mlb_endpoint %>%
-    mlb_api_call()
-
-  draft_prospects <- jsonlite::fromJSON(jsonlite::toJSON(resp$prospects), flatten = TRUE)  %>%
-    janitor::clean_names() %>%
-    as.data.frame()
-
-
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>%
+        mlb_api_call()
+      
+      draft_prospects <- jsonlite::fromJSON(jsonlite::toJSON(resp$prospects), flatten = TRUE)  %>%
+        janitor::clean_names() %>%
+        as.data.frame() %>%
+        make_baseballr_data("MLB Draft Prospects data from MLB.com",Sys.time())
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(draft_prospects)
 }

@@ -19,9 +19,8 @@
 #'   try(mlb_conferences())
 #'   try(mlb_conferences(conference_id =  301, season = 2020))
 #' }
-mlb_conferences <- function(
-  conference_id = NULL,
-  season = NULL){
+mlb_conferences <- function(conference_id = NULL,
+                            season = NULL){
   
   mlb_endpoint <- mlb_stats_endpoint("v1/conferences")
   query_params <- list(
@@ -31,15 +30,27 @@ mlb_conferences <- function(
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  conferences <- jsonlite::fromJSON(jsonlite::toJSON(resp$conferences), flatten = TRUE)  %>% 
-    janitor::clean_names() %>% 
-    dplyr::rename(
-      conference_id = .data$id,
-      conference_name = .data$name,
-      conference_abbreviation = .data$abbreviation,
-      conference_name_short = .data$name_short)
+  tryCatch(
+    expr = {
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      conferences <- jsonlite::fromJSON(jsonlite::toJSON(resp$conferences), flatten = TRUE)  %>% 
+        janitor::clean_names() %>% 
+        dplyr::rename(
+          conference_id = .data$id,
+          conference_name = .data$name,
+          conference_abbreviation = .data$abbreviation,
+          conference_name_short = .data$name_short) %>%
+        make_baseballr_data("MLB Conferences data from MLB.com",Sys.time())
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(conferences)
 }
 

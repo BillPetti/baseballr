@@ -32,6 +32,6 @@ for the game itself.\tabular{ll}{
 }
 \examples{
 \donttest{
-  ncaa_schedule_info(teamid = 736, year = 2021)
+  try(ncaa_schedule_info(teamid = 736, year = 2021))
 }
 }

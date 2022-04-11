@@ -89,42 +89,51 @@ mlb_game_context_metrics <- function(
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint,
                                    query = query_params)
-  
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()  
-  
-  game <- resp$game  %>% 
-    jsonlite::toJSON() %>% 
-    jsonlite::fromJSON(flatten = TRUE) %>% 
-    as.data.frame() 
-  
-  awayWinProbability <- data.frame(away_win_probability = resp$awayWinProbability)
-  homeWinProbability <- data.frame(home_win_probability = resp$homeWinProbability)
-  
-  if(length(resp$rightFieldSacFlyProbability)>0){
-    leftFieldSacFly <- resp$leftFieldSacFlyProbability %>% 
-      as.data.frame() 
-    
-    centerFieldSacFly <- resp$centerFieldSacFlyProbability %>% 
-      as.data.frame() 
-    
-    
-    rightFieldSacFly <- resp$rightFieldSacFlyProbability %>% 
-      as.data.frame() 
-    context_metrics <- dplyr::bind_cols(game, 
-                                        leftFieldSacFly, 
-                                        centerFieldSacFly, 
-                                        rightFieldSacFly,
-                                        homeWinProbability,
-                                        awayWinProbability)
-  }else{
-    context_metrics <- dplyr::bind_cols(game, 
-                                        homeWinProbability,
-                                        awayWinProbability)
-  }
-  context_metrics <- context_metrics %>% 
-    janitor::clean_names()
-  
-  
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()  
+      
+      game <- resp$game  %>% 
+        jsonlite::toJSON() %>% 
+        jsonlite::fromJSON(flatten = TRUE) %>% 
+        as.data.frame() 
+      
+      awayWinProbability <- data.frame(away_win_probability = resp$awayWinProbability)
+      homeWinProbability <- data.frame(home_win_probability = resp$homeWinProbability)
+      
+      if(length(resp$rightFieldSacFlyProbability)>0){
+        leftFieldSacFly <- resp$leftFieldSacFlyProbability %>% 
+          as.data.frame() 
+        
+        centerFieldSacFly <- resp$centerFieldSacFlyProbability %>% 
+          as.data.frame() 
+        
+        
+        rightFieldSacFly <- resp$rightFieldSacFlyProbability %>% 
+          as.data.frame() 
+        context_metrics <- dplyr::bind_cols(game, 
+                                            leftFieldSacFly, 
+                                            centerFieldSacFly, 
+                                            rightFieldSacFly,
+                                            homeWinProbability,
+                                            awayWinProbability)
+      }else{
+        context_metrics <- dplyr::bind_cols(game, 
+                                            homeWinProbability,
+                                            awayWinProbability)
+      }
+      context_metrics <- context_metrics %>% 
+        janitor::clean_names() %>%
+        make_baseballr_data("MLB Game Context Metrics data from MLB.com",Sys.time())
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(context_metrics)
 }

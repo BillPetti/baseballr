@@ -59,14 +59,27 @@ mlb_team_affiliates <- function(
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  teams <- jsonlite::fromJSON(jsonlite::toJSON(resp$teams),flatten = TRUE) %>% 
-    janitor::clean_names() %>% 
-    as.data.frame() %>% 
-    dplyr::rename(
-      team_id = .data$id,
-      team_full_name = .data$name,
-      team_abbreviation = .data$abbreviation)
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      teams <- jsonlite::fromJSON(jsonlite::toJSON(resp$teams),flatten = TRUE) %>% 
+        janitor::clean_names() %>% 
+        as.data.frame() %>% 
+        dplyr::rename(
+          team_id = .data$id,
+          team_full_name = .data$name,
+          team_abbreviation = .data$abbreviation) %>%
+        make_baseballr_data("MLB Team Affiliates data from MLB.com",Sys.time())
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(teams)
 }

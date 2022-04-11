@@ -91,13 +91,27 @@ mlb_standings <- function(
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      
+      standings <- jsonlite::fromJSON(jsonlite::toJSON(resp$records), flatten = TRUE) %>% 
+        tidyr::unnest(.data$teamRecords, names_sep = "_") %>% 
+        janitor::clean_names() %>% 
+        as.data.frame() %>%
+        make_baseballr_data("MLB Standings data from MLB.com",Sys.time())
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   
-  standings <- jsonlite::fromJSON(jsonlite::toJSON(resp$records), flatten = TRUE) %>% 
-    tidyr::unnest(.data$teamRecords, names_sep = "_") %>% 
-    janitor::clean_names() %>% 
-    as.data.frame()
   # split_standings <- purrr::map_df(1:length(standings$teamRecords_records.splitRecords),
   #                                  function(x){
   #                                    standings$teamRecords_records.splitRecords[[x]] %>% 

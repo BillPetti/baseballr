@@ -103,10 +103,10 @@
 #' }
 
 mlb_schedule_postseason_series <- function(season = 2021,
-                                    game_type = NULL,
-                                    series_number = NULL,
-                                    sport_id = 1,
-                                    team_id = NULL){
+                                           game_type = NULL,
+                                           series_number = NULL,
+                                           sport_id = 1,
+                                           team_id = NULL){
   mlb_endpoint <- mlb_stats_endpoint("v1/schedule/postseason/series")
   query_params <- list(
     season = season, 
@@ -121,23 +121,24 @@ mlb_schedule_postseason_series <- function(season = 2021,
   
   tryCatch(
     expr = {
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-
-  games <- jsonlite::fromJSON(jsonlite::toJSON(resp$series),flatten = TRUE) %>% 
-    tidyr::unnest(.data$games) %>%
-    as.data.frame() %>%
-    janitor::clean_names()
-  
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      
+      games <- jsonlite::fromJSON(jsonlite::toJSON(resp$series),flatten = TRUE) %>% 
+        tidyr::unnest(.data$games) %>%
+        as.data.frame() %>%
+        janitor::clean_names() %>%
+        make_baseballr_data("MLB Schedule - Post-season Series data from MLB.com",Sys.time())
+      
     },
-  error = function(e) {
-    message(glue::glue("{Sys.time()}: Invalid arguments or no MLB postseason series schedule data available!"))
-  },
-  warning = function(w) {
-  },
-  finally = {
-  }
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no MLB postseason series schedule data available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
   )
   return(games)
-
+  
 }

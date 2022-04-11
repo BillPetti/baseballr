@@ -15,13 +15,19 @@
 #' @export
 #' @examples
 #' \donttest{
-#'   correa <- statcast_search(start_date = "2016-04-06",
-#'     end_date = "2016-04-15", playerid = 621043, player_type = 'batter')
-#'
-#'   noah <- statcast_search(start_date = "2016-04-06",
-#'     end_date = "2016-04-15", playerid = 592789, player_type = 'pitcher')
-#'
-#'   daily <- statcast_search(start_date = "2016-04-06", end_date = "2016-04-06")
+#'   ### Correa
+#'   try(statcast_search(start_date = "2016-04-06",
+#'                       end_date = "2016-04-15", 
+#'                       playerid = 621043, 
+#'                       player_type = 'batter'))
+#'   ### Noah
+#'   try(statcast_search(start_date = "2016-04-06",
+#'                       end_date = "2016-04-15", 
+#'                       playerid = 592789, 
+#'                       player_type = 'pitcher'))
+#'   ### Daily
+#'   try(statcast_search(start_date = "2016-04-06", 
+#'                       end_date = "2016-04-06"))
 #' }
 
 statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
@@ -140,8 +146,9 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
                         "fld_score", "post_away_score", "post_home_score", "post_bat_score",
                         "post_fld_score", "if_fielding_alignment", "of_fielding_alignment",
                         "spin_axis", "delta_home_win_exp", "delta_run_exp")
-
-    return(process_statcast_payload(payload))
+    payload <- process_statcast_payload(payload) %>%
+      make_baseballr_data("MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com",Sys.time())
+    return(payload)
   } else {
     warning("No valid data found")
 
@@ -165,6 +172,8 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
                         "fld_score", "post_away_score", "post_home_score", "post_bat_score",
                         "post_fld_score", "if_fielding_alignment", "of_fielding_alignment",
                         "spin_axis", "delta_home_win_exp", "delta_run_exp")
+    payload <- payload %>%
+      make_baseballr_data("MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com",Sys.time())
     return(payload)
   }
 }

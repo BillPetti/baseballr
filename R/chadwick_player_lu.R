@@ -45,12 +45,14 @@
 #'   |mlb_umpired_last  |integer   |
 #' @export
 #' @examples \donttest{
-#'   chadwick_player_lu()
+#'   try(chadwick_player_lu())
 #' }
 chadwick_player_lu <- function() {
   suppressWarnings(
     df <- csv_from_url("https://raw.githubusercontent.com/chadwickbureau/register/master/data/people.csv")
   )
+  df <- df %>%
+    make_baseballr_data("Player Lookup from the Chadwick Bureau's public register of baseball players",Sys.time())
   return(df)
 }
 #' @rdname chadwick_player_lu

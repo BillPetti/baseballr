@@ -34,6 +34,6 @@ IDs and urls for each player (if available)\tabular{ll}{
 }
 \examples{
 \donttest{
-  ncaa_baseball_roster(teamid = 104, team_year = 2021)
+  try(ncaa_baseball_roster(teamid = 104, team_year = 2021))
 }
 }

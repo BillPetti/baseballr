@@ -15,15 +15,28 @@ mlb_schedule_event_types <- function(){
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  schedule_event_types <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  %>% 
-    janitor::clean_names() %>% 
-    as.data.frame() %>% 
-    dplyr::rename(
-      schedule_event_type_code = .data$code,
-      schedule_event_type_name = .data$name
-    )
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      schedule_event_types <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  %>% 
+        janitor::clean_names() %>% 
+        as.data.frame() %>% 
+        dplyr::rename(
+          schedule_event_type_code = .data$code,
+          schedule_event_type_name = .data$name
+        ) %>%
+        make_baseballr_data("MLB Schedule Event Types data from MLB.com",Sys.time())
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   
   return(schedule_event_types)
 }

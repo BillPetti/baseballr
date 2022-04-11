@@ -76,7 +76,7 @@ print.baseballr_data <- function(x,...) {
   
   if(!is.null(attr(x,'baseballr_timestamp'))) {
     cli::cli_alert_info(
-      "Data loaded: {.field {format(attr(x,'baseballr_timestamp'), tz = Sys.timezone(), usetz = TRUE)}}"
+      "Data updated: {.field {format(attr(x,'baseballr_timestamp'), tz = Sys.timezone(), usetz = TRUE)}}"
     )
   }
   

@@ -53,20 +53,21 @@
 #' }
 mlb_people <- function(person_ids = NULL){
   person_ids <- paste(person_ids, collapse = ',')
-
+  
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/people/"))
   query_params <- list(
     personIds = person_ids
   )
-
+  
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
-
+  
   tryCatch(
     expr = {
       resp <- mlb_endpoint %>%
         mlb_api_call()
       people <- jsonlite::fromJSON(jsonlite::toJSON(resp$people), flatten=TRUE) %>%
-        janitor::clean_names()
+        janitor::clean_names() %>%
+        make_baseballr_data("MLB People data from MLB.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))

@@ -18,8 +18,8 @@
 #'  |key_fangraphs    |integer   |
 #' @export
 #' @examples \donttest{
-#'   playername_lookup(4885)
-#'   playername_lookup("kaaihki01")
+#'   try(playername_lookup(4885))
+#'   try(playername_lookup("kaaihki01"))
 #' }
 
 playername_lookup <- function(id) {
@@ -32,5 +32,7 @@ playername_lookup <- function(id) {
     dplyr::select(.data$name_first, .data$name_last, .data$name_given, .data$name_suffix,
                   .data$name_nick, .data$birth_year, .data$mlb_played_first, .data$key_mlbam, 
                   .data$key_retro, .data$key_bbref, .data$key_fangraphs)
-  x
+  x <- x %>%
+    make_baseballr_data("Player Name Lookup from the Chadwick Bureau's public register of baseball players",Sys.time())
+  return(x)
 }

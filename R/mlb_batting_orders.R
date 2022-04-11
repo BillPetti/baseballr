@@ -25,68 +25,85 @@
 
 mlb_batting_orders <- function (game_pk,
                                 type = "starting") {
-
-  api_call <- paste0("http://statsapi.mlb.com/api/v1.1/game/",
-                     game_pk, "/feed/live")
-  list <- jsonlite::fromJSON(api_call, flatten = TRUE)
-  home_team <- tibble::tibble(
-    homeTeam = list$gameData$teams$home$name,
-    homeTeamId = list$gameData$teams$home$id)
+  mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1.1/game/{game_pk}/feed/live"))
+  query_params <- list()
   
-  away_team <- tibble::tibble(
-    awayTeam = list$gameData$teams$away$name,
-    awayTeamId = list$gameData$teams$away$id)
+  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  home_players <- tibble::tibble(
-    playerid = names(list[["liveData"]][["boxscore"]][["teams"]][["home"]][["players"]]))
-
-  away_players <- tibble::tibble(
-    playerid = names(list[["liveData"]][["boxscore"]][["teams"]][["away"]][["players"]]))
-
-  home_players <- unique(home_players$playerid)
-  home_players <- purrr::map_df(home_players, function(x){
-    helper_players(list = list, team = "home", playerid = x)
-  })
-  
-  home_players <- home_players %>%
-    dplyr::mutate(
-      batting_order = as.character(.data$batting_order),
-      batting_position_num = as.character(.data$batting_position_num))
-  
-
-  home_players <- dplyr::bind_rows(home_players) %>%
-    dplyr::mutate(
-      team = "home",
-      teamName = home_team$homeTeam,
-      teamID = home_team$homeTeamId) %>%
-    dplyr::arrange(.data$batting_order)
-  away_players <- unique(away_players$playerid)
-  away_players <- purrr::map_df(away_players, function(x){
-    helper_players(list = list, team = "away", playerid = x)
-  })
-
-  away_players <- away_players %>%
-    dplyr::mutate(
-      batting_order = as.character(.data$batting_order),
-      batting_position_num = as.character(.data$batting_position_num))
-
-  away_players <- dplyr::bind_rows(away_players) %>%
-    dplyr::mutate(
-      team = "away",
-      teamName = away_team$awayTeam,
-      teamID = away_team$awayTeamId) %>%
-    dplyr::arrange(.data$batting_order)
-  
-  final_batting_order_table <- dplyr::bind_rows(away_players, home_players) %>%
-    dplyr::select(-.data$link, -.data$code, -.data$name, -.data$type) %>%
-    dplyr::arrange(.data$team, .data$batting_order, .data$batting_position_num) %>%
-    dplyr::filter(!is.na(.data$batting_order))
-
-  if (type == "starting") {
-    final_batting_order_table <- final_batting_order_table %>%
-      dplyr::filter(.data$batting_position_num == 0)
-  }
-
+  tryCatch(
+    expr = {
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      list <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)
+      home_team <- tibble::tibble(
+        homeTeam = list$gameData$teams$home$name,
+        homeTeamId = list$gameData$teams$home$id)
+      
+      away_team <- tibble::tibble(
+        awayTeam = list$gameData$teams$away$name,
+        awayTeamId = list$gameData$teams$away$id)
+      
+      home_players <- tibble::tibble(
+        playerid = names(list[["liveData"]][["boxscore"]][["teams"]][["home"]][["players"]]))
+      
+      away_players <- tibble::tibble(
+        playerid = names(list[["liveData"]][["boxscore"]][["teams"]][["away"]][["players"]]))
+      
+      home_players <- unique(home_players$playerid)
+      home_players <- purrr::map_df(home_players, function(x){
+        helper_players(list = list, team = "home", playerid = x)
+      })
+      
+      home_players <- home_players %>%
+        dplyr::mutate(
+          batting_order = as.character(.data$batting_order),
+          batting_position_num = as.character(.data$batting_position_num))
+      
+      
+      home_players <- dplyr::bind_rows(home_players) %>%
+        dplyr::mutate(
+          team = "home",
+          teamName = home_team$homeTeam,
+          teamID = home_team$homeTeamId) %>%
+        dplyr::arrange(.data$batting_order)
+      away_players <- unique(away_players$playerid)
+      away_players <- purrr::map_df(away_players, function(x){
+        helper_players(list = list, team = "away", playerid = x)
+      })
+      
+      away_players <- away_players %>%
+        dplyr::mutate(
+          batting_order = as.character(.data$batting_order),
+          batting_position_num = as.character(.data$batting_position_num))
+      
+      away_players <- dplyr::bind_rows(away_players) %>%
+        dplyr::mutate(
+          team = "away",
+          teamName = away_team$awayTeam,
+          teamID = away_team$awayTeamId) %>%
+        dplyr::arrange(.data$batting_order)
+      
+      final_batting_order_table <- dplyr::bind_rows(away_players, home_players) %>%
+        dplyr::select(-.data$link, -.data$code, -.data$name, -.data$type) %>%
+        dplyr::arrange(.data$team, .data$batting_order, .data$batting_position_num) %>%
+        dplyr::filter(!is.na(.data$batting_order)) %>%
+        make_baseballr_data("MLB Game Batting Order data from MLB.com",Sys.time())
+      
+      if (type == "starting") {
+        final_batting_order_table <- final_batting_order_table %>%
+          dplyr::filter(.data$batting_position_num == 0) %>%
+          make_baseballr_data("MLB Game Starting Batting Order data from MLB.com",Sys.time())
+      }
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(final_batting_order_table)
 }
 

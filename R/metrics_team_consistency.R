@@ -12,7 +12,7 @@
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'   team_consistency(year=2021)
+#'   try(team_consistency(year=2021))
 #' }
 
 team_consistency <- function(year) {

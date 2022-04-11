@@ -35,10 +35,9 @@
 #' @examples \donttest{
 #'   try(mlb_team_history(team_ids = 147))
 #' }
-mlb_team_history <- function(
-  team_ids = NULL, 
-  start_season = NULL, 
-  end_season = NULL){
+mlb_team_history <- function(team_ids = NULL, 
+                             start_season = NULL, 
+                             end_season = NULL){
   team_ids <- paste(team_ids, collapse = ',')
   mlb_endpoint <- mlb_stats_endpoint("v1/teams/history")
   query_params <- list(
@@ -49,13 +48,26 @@ mlb_team_history <- function(
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  teams <- jsonlite::fromJSON(jsonlite::toJSON(resp$teams),flatten = TRUE) %>% 
-    janitor::clean_names() %>% 
-    dplyr::rename(
-      team_id = .data$id,
-      team_full_name = .data$name,
-      team_abbreviation = .data$abbreviation)
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      teams <- jsonlite::fromJSON(jsonlite::toJSON(resp$teams),flatten = TRUE) %>% 
+        janitor::clean_names() %>% 
+        dplyr::rename(
+          team_id = .data$id,
+          team_full_name = .data$name,
+          team_abbreviation = .data$abbreviation) %>%
+        make_baseballr_data("MLB Team History data from MLB.com",Sys.time())
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(teams)
 }

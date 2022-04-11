@@ -43,7 +43,7 @@ This function allows you to scrape schedule and results for a major league team 
 }
 \examples{
 \donttest{
-  bref_team_results("NYM", 2015)
-  bref_team_results(Tm="TBR", year=2008)
+  try(bref_team_results("NYM", 2015))
+  try(bref_team_results(Tm="TBR", year=2008))
 }
 }

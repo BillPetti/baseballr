@@ -21,6 +21,6 @@ Function returns a data frame with the following columns:
 }
 \examples{
 \donttest{
-  load_umpire_ids()
+  try(load_umpire_ids())
 }
 }

@@ -30,6 +30,6 @@ Scrape historical FanGraphs Guts! table, wOBA, FIP coefficients and constants
 }
 \examples{
 \donttest{
-  fg_guts()
+  try(fg_guts())
 }
 }

@@ -20,7 +20,7 @@
 #'   |fangraphs_id     |integer   |
 #' @export
 #' @examples \donttest{
-#'   playerid_lookup("Garcia", "Karim")
+#'   try(playerid_lookup("Garcia", "Karim"))
 #' }
 
 playerid_lookup <- function(last_name = NULL, first_name = NULL) {
@@ -31,6 +31,8 @@ playerid_lookup <- function(last_name = NULL, first_name = NULL) {
 
     names(x) <- c("first_name", "last_name", "given_name", "name_suffix", "nick_name", "birth_year", "mlb_played_first", "mlbam_id", "retrosheet_id", "bbref_id", "fangraphs_id")
 	
+    x <- x %>%
+      make_baseballr_data("Player ID Lookup from the Chadwick Bureau's public register of baseball players",Sys.time())
     return(x)
 	
   }
@@ -49,6 +51,8 @@ playerid_lookup <- function(last_name = NULL, first_name = NULL) {
         as.character() %>% 
         as.numeric()
     )
+    x <- x %>%
+      make_baseballr_data("Player ID Lookup from the Chadwick Bureau's public register of baseball players",Sys.time())
     return(x)
   }
 }

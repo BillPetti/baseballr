@@ -54,9 +54,9 @@ This function allows you to scrape park factors by handedness from FanGraphs.com
 }
 \examples{
 \donttest{
-  fg_park(2013)
+  try(fg_park(2013))
 }
 \donttest{
-  fg_park_hand(2013)
+  try(fg_park_hand(2013))
 }
 }

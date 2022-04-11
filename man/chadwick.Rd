@@ -9,6 +9,8 @@
 \item{\code{playername_lookup()}:}{ Look up Baseball Player Name.}
 \item{\code{playerid_lookup()}:}{ Look up Baseball Player IDs.}
 }
+}
+\details{
 \subsection{\strong{Directly download the Chadwick Bureau's public register of baseball players.}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  chadwick_player_lu()
 }\if{html}{\out{</div>}}
 }

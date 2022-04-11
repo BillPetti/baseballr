@@ -18,6 +18,6 @@ Returns a tibble with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_wind_direction_codes()
+  try(mlb_wind_direction_codes())
 }
 }

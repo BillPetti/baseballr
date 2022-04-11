@@ -15,7 +15,9 @@ Follow](https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40Bill
 
 `baseballr` is a package written for R focused on baseball analysis. It
 includes functions for scraping various data from websites, such as
-FanGraphs.com, Baseball-Reference.com, and baseballsavant.com. It also
+[FanGraphs.com](https://www.fangraphs.com/),
+[Baseball-Reference.com](https://www.baseball-reference.com/), and
+[baseballsavant.mlb.com](https://baseballsavant.mlb.com/). It also
 includes functions for calculating metrics, such as wOBA, FIP, and
 team-level consistency over custom time frames.
 
@@ -70,6 +72,10 @@ library(dplyr)
 bref_standings_on_date("2015-08-01", "NL East", from = FALSE)
 ```
 
+    ## -- MLB Standings on Date data from baseball-reference.com --- baseballr 1.1.0 --
+
+    ## i Data updated: 2022-04-11 09:07:32 EDT
+
     ## # A tibble: 5 x 8
     ##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`
     ##   <chr> <int> <int>  <dbl> <chr> <int> <int>      <dbl>
@@ -120,10 +126,10 @@ data %>%
     ## $ GDP      <dbl> 5, 9, 6, 1, 1, 4, 2, 2, 9, 7, 5, 1, 4, 8, 1, 2, 3, 10, 5, 4, ~
     ## $ SB       <dbl> 6, 8, 11, 9, 2, 10, 0, 0, 0, 3, 3, 4, 5, 4, 24, 2, 1, 0, 6, 0~
     ## $ CS       <dbl> 4, 0, 4, 4, 0, 2, 0, 0, 0, 1, 0, 1, 3, 2, 7, 2, 3, 0, 2, 0, 0~
-    ## $ BA       <dbl> 0.278, 0.286, 0.332, 0.322, 0.336, 0.353, 0.226, 0.281, 0.325~
+    ## $ BA       <dbl> 0.279, 0.286, 0.332, 0.322, 0.337, 0.353, 0.226, 0.281, 0.325~
     ## $ OBP      <dbl> 0.353, 0.326, 0.364, 0.392, 0.456, 0.395, 0.282, 0.341, 0.377~
     ## $ SLG      <dbl> 0.485, 0.387, 0.508, 0.448, 0.540, 0.558, 0.423, 0.506, 0.528~
-    ## $ OPS      <dbl> 0.839, 0.713, 0.872, 0.840, 0.996, 0.953, 0.704, 0.847, 0.906~
+    ## $ OPS      <dbl> 0.839, 0.713, 0.872, 0.840, 0.996, 0.953, 0.705, 0.848, 0.906~
 
 In terms of metric calculation, the package allows the user to calculate
 the consistency of team scoring and run prevention for any year using
@@ -167,7 +173,7 @@ data %>%
     ## Columns: 6
     ## $ Name     <chr> "Edwin Encarnacion", "Bryce Harper", "David Ortiz", "Joey Vot~
     ## $ Team     <chr> "Toronto", "Washington", "Boston", "Cincinnati", "Baltimore",~
-    ## $ season   <chr> "2015", "2015", "2015", "2015", "2015", "2015", "2015", "2015~
+    ## $ season   <int> 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2~
     ## $ PA       <dbl> 216, 248, 213, 251, 253, 260, 245, 255, 223, 241, 223, 259, 2~
     ## $ wOBA     <dbl> 0.490, 0.450, 0.449, 0.445, 0.434, 0.430, 0.430, 0.422, 0.410~
     ## $ wOBA_CON <dbl> 0.555, 0.529, 0.541, 0.543, 0.617, 0.495, 0.481, 0.494, 0.459~
@@ -183,28 +189,24 @@ bref_daily_pitcher("2015-04-05", "2015-04-30") %>%
   head(10)
 ```
 
-    ##    season            Name   IP  ERA SO uBB HBP HR  FIP wOBA_against
-    ## 1    2015    Johnny Cueto 37.0 1.95 38   4   2  3 2.62        0.210
-    ## 2    2015  Dallas Keuchel 37.0 0.73 22  11   0  0 2.84        0.169
-    ## 3    2015      Sonny Gray 36.1 1.98 25   6   1  1 2.69        0.218
-    ## 4    2015      Mike Leake 35.2 3.03 25   7   0  5 4.16        0.240
-    ## 5    2015 Felix Hernandez 34.2 1.82 36   6   3  1 2.20        0.225
-    ## 6    2015    Corey Kluber 34.0 4.24 36   5   2  2 2.40        0.295
-    ## 7    2015   Jake Odorizzi 33.2 2.41 26   8   1  0 2.38        0.213
-    ## 8    2015 Josh Collmenter 32.2 2.76 16   3   0  1 2.82        0.290
-    ## 9    2015   Bartolo Colon 32.2 3.31 25   1   0  4 3.29        0.280
-    ## 10   2015    Zack Greinke 32.2 1.93 27   7   1  2 3.01        0.240
-    ##    wOBA_CON_against
-    ## 1             0.276
-    ## 2             0.151
-    ## 3             0.239
-    ## 4             0.281
-    ## 5             0.272
-    ## 6             0.391
-    ## 7             0.228
-    ## 8             0.330
-    ## 9             0.357
-    ## 10            0.274
+    ## -- MLB Daily Pitcher data from baseball-reference.com ------- baseballr 1.1.0 --
+
+    ## i Data updated: 2022-04-11 09:07:47 EDT
+
+    ## # A tibble: 10 x 11
+    ##    season Name               IP   ERA    SO   uBB   HBP    HR   FIP wOBA_against
+    ##     <int> <chr>           <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>        <dbl>
+    ##  1   2015 Johnny Cueto     37    1.95    38     4     2     3  2.62        0.21 
+    ##  2   2015 Dallas Keuchel   37    0.73    22    11     0     0  2.84        0.169
+    ##  3   2015 Sonny Gray       36.1  1.98    25     6     1     1  2.69        0.218
+    ##  4   2015 Mike Leake       35.2  3.03    25     7     0     5  4.16        0.24 
+    ##  5   2015 Felix Hernandez  34.2  1.82    36     6     3     1  2.2         0.225
+    ##  6   2015 Corey Kluber     34    4.24    36     5     2     2  2.4         0.295
+    ##  7   2015 Jake Odorizzi    33.2  2.41    26     8     1     0  2.38        0.213
+    ##  8   2015 Josh Collmenter  32.2  2.76    16     3     0     1  2.82        0.29 
+    ##  9   2015 Bartolo Colon    32.2  3.31    25     1     0     4  3.29        0.28 
+    ## 10   2015 Zack Greinke     32.2  1.93    27     7     1     2  3.01        0.24 
+    ## # ... with 1 more variable: wOBA_CON_against <dbl>
 
 ## **Issues**
 

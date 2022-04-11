@@ -25,7 +25,7 @@ pacman::p_load(dplyr)
 
 `baseballr` is a package written for R focused on baseball analysis. It
 includes functions for scraping various data from websites, such as
-FanGraphs.com, Baseball-Reference.com, and baseballsavant.com. It also
+[FanGraphs.com](https://www.fangraphs.com/), [Baseball-Reference.com](https://www.baseball-reference.com/), and [baseballsavant.mlb.com](https://baseballsavant.mlb.com/). It also
 includes functions for calculating metrics, such as wOBA, FIP, and
 team-level consistency over custom time frames.
 

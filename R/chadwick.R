@@ -7,6 +7,7 @@
 #'   \item{```playername_lookup()```:}{ Look up Baseball Player Name.}
 #'   \item{```playerid_lookup()```:}{ Look up Baseball Player IDs.}
 #' }
+#' @details
 #' ### **Directly download the Chadwick Bureau's public register of baseball players.**
 #' ```r
 #'   chadwick_player_lu()

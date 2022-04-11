@@ -17,8 +17,7 @@
 #'   try(mlb_team_personnel(team_id = 137, date = "08/28/2016"))
 #' }
 mlb_team_personnel <- function(team_id = NULL,
-                           date = NULL){
-  
+                               date = NULL){
   
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/teams/{team_id}/personnel"))
   query_params <- list(
@@ -27,15 +26,26 @@ mlb_team_personnel <- function(team_id = NULL,
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  team_personnel <- jsonlite::fromJSON(jsonlite::toJSON(resp[['roster']]), flatten = TRUE)  
-  team_personnel$season <- NULL
-  team_personnel <- team_personnel %>% 
-    janitor::clean_names() %>% 
-    as.data.frame()
-  
-  
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      team_personnel <- jsonlite::fromJSON(jsonlite::toJSON(resp[['roster']]), flatten = TRUE)  
+      team_personnel$season <- NULL
+      team_personnel <- team_personnel %>% 
+        janitor::clean_names() %>% 
+        as.data.frame() %>%
+        make_baseballr_data("MLB Team Personnel data from MLB.com",Sys.time())
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(team_personnel)
 }
 

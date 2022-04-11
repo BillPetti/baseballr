@@ -82,11 +82,23 @@ mlb_attendance <- function(
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  records <- jsonlite::fromJSON(jsonlite::toJSON(resp$records), flatten = TRUE)  %>% 
-    janitor::clean_names()
-  
+  tryCatch(
+    expr = {
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      records <- jsonlite::fromJSON(jsonlite::toJSON(resp$records), flatten = TRUE)  %>% 
+        janitor::clean_names() %>%
+        make_baseballr_data("MLB Attendance data from MLB.com",Sys.time())
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   
   return(records)
 }

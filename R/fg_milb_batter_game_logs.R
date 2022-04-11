@@ -54,52 +54,65 @@
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'   fg_milb_batter_game_logs(playerid = "sa3010868", year=2021)
+#'   try(fg_milb_batter_game_logs(playerid = "sa3010868", year=2021))
 #' }
 
 fg_milb_batter_game_logs <- function(playerid, year) {
-    
-    # url for standard game log table
-    url_basic <- paste0("http://www.fangraphs.com/statsd-legacy.aspx?playerid=",
-                        playerid,
-                        "&season=",
-                        year,
-                        "&position=PB","&type=-1")
-    # CDN API game-log
-    url <- paste0("https://cdn.fangraphs.com/api/players/game-log?position=&type=-1&&gds=&gde=&z=1637230004112&playerid=",
-                  playerid,
-                  "&season=",
-                  year)
-    
-    res <- httr::RETRY("GET", url)
-    
-    resp <- res %>% 
-      httr::content(as = "text", encoding = "UTF-8")
-    
-    payload <- jsonlite::fromJSON(resp)[['minor']] %>% 
-      as.data.frame()
-    # remove averages/totals column
-    payload <- payload[-1,]
-    # separate Team column into Team & MiLB level
-    suppressWarnings(
+  tryCatch(
+    expr={
+      
+      # url for standard game log table
+      url_basic <- paste0("http://www.fangraphs.com/statsd-legacy.aspx?playerid=",
+                          playerid,
+                          "&season=",
+                          year,
+                          "&position=PB","&type=-1")
+      # CDN API game-log
+      url <- paste0("https://cdn.fangraphs.com/api/players/game-log?position=&type=-1&&gds=&gde=&z=1637230004112&playerid=",
+                    playerid,
+                    "&season=",
+                    year)
+      
+      res <- httr::RETRY("GET", url)
+      
+      resp <- res %>% 
+        httr::content(as = "text", encoding = "UTF-8")
+      
+      payload <- jsonlite::fromJSON(resp)[['minor']] %>% 
+        as.data.frame()
+      # remove averages/totals column
+      payload <- payload[-1,]
+      # separate Team column into Team & MiLB level
+      suppressWarnings(
+        payload <- payload %>%
+          tidyr::separate(.data$Team, into = c("Team","Level"),sep=" ")
+      )
+      # extract player name
+      player_name <- url_basic %>% 
+        xml2::read_html() %>%
+        rvest::html_elements("h1") %>%
+        rvest::html_text()
+      
+      # add playerid to payload
       payload <- payload %>%
-        tidyr::separate(.data$Team, into = c("Team","Level"),sep=" ")
-    )
-    # extract player name
-    player_name <- url_basic %>% 
-      xml2::read_html() %>%
-      rvest::html_elements("h1") %>%
-      rvest::html_text()
-    
-    # add playerid to payload
-    payload <- payload %>%
-      dplyr::mutate(
-        player_name = player_name,
-        minor_playerid = playerid) %>%
-      dplyr::select(.data$player_name, .data$minor_playerid, tidyr::everything())
-    
-    return(payload)
-}
+        dplyr::mutate(
+          player_name = player_name,
+          minor_playerid = playerid) %>%
+        dplyr::select(.data$player_name, .data$minor_playerid, tidyr::everything())
+      
+      payload <- payload %>%
+        make_baseballr_data("MiLB Batter Game Logs data from FanGraphs.com",Sys.time())
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no MiLB batter game logs data available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
+  return(payload)
+}  
 
 
 #' @rdname milb_batter_game_logs_fg

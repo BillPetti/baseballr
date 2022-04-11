@@ -67,6 +67,6 @@ This function allows you to scrape basic pitcher statistics over a custom time f
 }
 \examples{
 \donttest{
-  bref_daily_pitcher("2015-05-10", "2015-06-20")
+  try(bref_daily_pitcher("2015-05-10", "2015-06-20"))
 }
 }

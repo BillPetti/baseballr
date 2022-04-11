@@ -126,7 +126,9 @@ mlb_schedule_postseason <- function(season = 2021,
   games <- jsonlite::fromJSON(jsonlite::toJSON(resp$dates),flatten = TRUE) %>% 
     tidyr::unnest(.data$games) %>%
     as.data.frame() %>%
-    janitor::clean_names()
+    janitor::clean_names() %>%
+    make_baseballr_data("MLB Schedule - Post-season data from MLB.com",Sys.time())
+  
   
     },
   error = function(e) {

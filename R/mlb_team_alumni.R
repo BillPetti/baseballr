@@ -50,14 +50,14 @@
 #'    |bat_side_description          |character |
 #'    |pitch_hand_code               |character |
 #'    |pitch_hand_description        |character |
-  
+
 #' @export
 #' @examples \donttest{
 #'   try(mlb_team_alumni(team_id = 137, stat_group = 'hitting', season = 2021))
 #' }
 mlb_team_alumni <- function(team_id = NULL,
-                           stat_group = NULL,
-                           season = NULL){
+                            stat_group = NULL,
+                            season = NULL){
   
   
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/teams/{team_id}/alumni"))
@@ -68,18 +68,29 @@ mlb_team_alumni <- function(team_id = NULL,
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  team_alumni <- jsonlite::fromJSON(jsonlite::toJSON(resp[['people']]), flatten = TRUE)  
-  team_alumni$season <- NULL
-  team_alumni <- team_alumni %>% 
-    janitor::clean_names() %>% 
-    as.data.frame()  %>% 
-    dplyr::rename(
-      player_id = .data$id,
-      player_full_name = .data$full_name)
-  
-  
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      team_alumni <- jsonlite::fromJSON(jsonlite::toJSON(resp[['people']]), flatten = TRUE)  
+      team_alumni$season <- NULL
+      team_alumni <- team_alumni %>% 
+        janitor::clean_names() %>% 
+        as.data.frame()  %>% 
+        dplyr::rename(
+          player_id = .data$id,
+          player_full_name = .data$full_name) %>%
+        make_baseballr_data("MLB Team Alumni data from MLB.com",Sys.time())
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   return(team_alumni)
 }
 

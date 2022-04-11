@@ -109,12 +109,12 @@
 mlb_player_game_stats <- function(person_id = NULL,
                                   game_pk = NULL){
   
-
+  
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/people/{person_id}/stats/game/{game_pk}"))
   query_params <- list()
-
+  
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
-
+  
   tryCatch(
     expr = {
       resp <- mlb_endpoint %>%
@@ -128,7 +128,9 @@ mlb_player_game_stats <- function(person_id = NULL,
           player_id = person_id,
           game_pk = game_pk
         )
-      colnames(stats)<-gsub("stat_", "", colnames(stats))
+      colnames(stats)<-gsub("stat_", "", colnames(stats)) %>%
+        make_baseballr_data("MLB Player Game Stats data from MLB.com",Sys.time())
+      
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
@@ -140,3 +142,4 @@ mlb_player_game_stats <- function(person_id = NULL,
   )
   return(stats)
 }
+

@@ -20,27 +20,36 @@
 #'   try(mlb_game_wp(game_pk = 531060))
 #' }
 
-mlb_game_wp <- function(
-  game_pk, 
-  timecode = NULL) {
+mlb_game_wp <- function(game_pk, 
+                        timecode = NULL) {
   
+  mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/game/{game_pk}/winProbability"))
   query_params <- list(  
     timecode = timecode,
     fields = "atBatIndex,homeTeamWinProbability,awayTeamWinProbability,homeTeamWinProbabilityAdded,leverageIndex"
   )
-  mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/game/{game_pk}/winProbability"))
+  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint,
-                                   query = query_params)
-  
-  resp <- mlb_endpoint %>% 
-    mlb_api_call() 
-  
-  wp <- resp %>% 
-    jsonlite::toJSON() %>% 
-    jsonlite::fromJSON(flatten = TRUE) %>% 
-    as.data.frame() %>% 
-    janitor::clean_names()
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>% 
+        mlb_api_call() 
+      
+      wp <- resp %>% 
+        jsonlite::toJSON() %>% 
+        jsonlite::fromJSON(flatten = TRUE) %>% 
+        as.data.frame() %>% 
+        janitor::clean_names() %>%
+        make_baseballr_data("MLB Game Win Probability data from MLB.com",Sys.time())
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   
   return(wp)
 }

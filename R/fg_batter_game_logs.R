@@ -287,8 +287,8 @@
 #' @import rvest
 #' @export
 #' @examples \donttest{
-#'   fg_batter_game_logs(playerid = 6184, year = 2017)
-#'  }
+#'   try(fg_batter_game_logs(playerid = 6184, year = 2017))
+#' }
 
 fg_batter_game_logs <- function(playerid, year = 2017) {
 
@@ -296,7 +296,8 @@ fg_batter_game_logs <- function(playerid, year = 2017) {
                 playerid,
                 "&position=&type=0&gds=&gde=&z=1637143594112&season=",
                 year)
-  
+  tryCatch(
+    expr = {
   res <- httr::RETRY("GET", url)
   
   resp <- res %>% 
@@ -309,7 +310,18 @@ fg_batter_game_logs <- function(playerid, year = 2017) {
     dplyr::mutate(
       Date = stringr::str_extract(.data$Date,"(?<=>).+(?=<)")) %>% 
     dplyr::select(.data$PlayerName, .data$playerid, tidyr::everything())
-    
+  
+  payload <- payload %>%
+    make_baseballr_data("MLB Batter Game Logs data from FanGraphs.com",Sys.time())
+    },
+  error = function(e) {
+    message(glue::glue("{Sys.time()}: Invalid arguments or no batter game logs data available!"))
+  },
+  warning = function(w) {
+  },
+  finally = {
+  }
+  )
   return(payload)
 }
 

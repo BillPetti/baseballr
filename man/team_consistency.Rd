@@ -24,6 +24,6 @@ This function allows you to calculate team-level consistency in run scoring and 
 }
 \examples{
 \donttest{
-  team_consistency(year=2021)
+  try(team_consistency(year=2021))
 }
 }

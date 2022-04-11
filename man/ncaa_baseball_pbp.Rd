@@ -30,6 +30,6 @@ A data frame with play-by-play data for an individual game.\tabular{ll}{
 \examples{
 \donttest{
   x <- ncaa_schedule_info(736, 2021)$game_info_url[2]
-  ncaa_baseball_pbp(game_info_url = x)
+  try(ncaa_baseball_pbp(game_info_url = x))
 }
 }

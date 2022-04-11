@@ -70,15 +70,28 @@ mlb_team_stats <- function(team_id = NULL,
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  stats_leaders <- jsonlite::fromJSON(jsonlite::toJSON(resp[['stats']]), flatten = TRUE)  
-  stats_leaders$season <- NULL
-  stats <- stats_leaders %>% 
-    tidyr::unnest(.data$splits) %>% 
-    janitor::clean_names()  %>% 
-    as.data.frame() %>% 
-    dplyr::select(-.data$exemptions)
+  tryCatch(
+    expr={
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      stats_leaders <- jsonlite::fromJSON(jsonlite::toJSON(resp[['stats']]), flatten = TRUE)  
+      stats_leaders$season <- NULL
+      stats <- stats_leaders %>% 
+        tidyr::unnest(.data$splits) %>% 
+        janitor::clean_names()  %>% 
+        as.data.frame() %>% 
+        dplyr::select(-.data$exemptions) %>%
+        make_baseballr_data("MLB Team Stats data from MLB.com",Sys.time())
+      
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
+  )
   colnames(stats)<-gsub("stat_", "", colnames(stats))
   return(stats)
 }
