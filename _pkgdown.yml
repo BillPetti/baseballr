@@ -185,6 +185,7 @@ reference:
   - subtitle: MLB Stats Game Data Functions
     desc: Functions exported by baseballr to access MLB Stats Game Data
     contents:
+      - starts_with("mlb_attendance") 
       - starts_with("mlb_game")
       - starts_with("mlb_pbp")
       - starts_with("mlb_prob")
