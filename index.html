@@ -167,24 +167,26 @@
 <p><code>baseballr</code> is a package written for R focused on baseball analysis. It includes functions for scraping various data from websites, such as <a href="https://www.fangraphs.com/" class="external-link">FanGraphs.com</a>, <a href="https://www.baseball-reference.com/" class="external-link">Baseball-Reference.com</a>, and <a href="https://baseballsavant.mlb.com/" class="external-link">baseballsavant.mlb.com</a>. It also includes functions for calculating metrics, such as wOBA, FIP, and team-level consistency over custom time frames.</p>
 <p>You can read more about some of the functions and how to use them at its <a href="https://billpetti.github.io/baseballr/" class="external-link">official site</a> as well as this <a href="https://tht.fangraphs.com/developing-the-baseballr-package-for-r/" class="external-link">Hardball Times article</a>.</p>
 <div class="section level2">
-<h2 id="installation">
-<strong>Installation</strong><a class="anchor" aria-label="anchor" href="#installation"></a>
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the released version of <a href="https://github.com/BillPetti/baseballr" class="external-link"><strong><code>baseballr</code></strong></a> from <a href="https://github.com/BillPetti/baseballr" class="external-link">GitHub</a> with:</p>
+<p>You can install the CRAN version of <a href="https://CRAN.R-project.org/package=baseballr" class="external-link"><strong><code>baseballr</code></strong></a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"baseballr"</span><span class="op">)</span></code></pre></div>
+<p>You can install the released version of <a href="https://github.com/BillPetti/baseballr" class="external-link"><strong><code>baseballr</code></strong></a> from <a href="https://github.com/BillPetti/baseballr" class="external-link">GitHub</a> with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># You can install using the pacman package using the following code:</span>
 <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">'pacman'</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'pacman'</span><span class="op">)</span>
 <span class="op">}</span>
 <span class="fu">pacman</span><span class="fu">::</span><span class="fu">p_load_current_gh</span><span class="op">(</span><span class="st">"BillPetti/baseballr"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Alternatively, using the devtools package:</span>
 <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">'devtools'</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span>
 <span class="op">}</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span>repo <span class="op">=</span> <span class="st">"BillPetti/baseballr"</span><span class="op">)</span></code></pre></div>
 <p>For experimental functions in development, you can install the <a href="https://github.com/BillPetti/baseballr/tree/development_branch" class="external-link">development branch</a>:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"BillPetti/baseballr"</span>, ref <span class="op">=</span> <span class="st">"development_branch"</span><span class="op">)</span></code></pre></div>
 </div>
@@ -194,119 +196,119 @@
 </h2>
 <p>The package consists of two main sets of functions: data acquisition and metric calculation.</p>
 <p>For example, if you want to see the standings for a specific MLB division on a given date, you can use the <code><a href="reference/bref_standings_on_date.html">bref_standings_on_date()</a></code> function. Just pass the year, month, day, and division you want:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://billpetti.github.io/baseballr/" class="external-link">baseballr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
 <span class="fu"><a href="reference/bref_standings_on_date.html">bref_standings_on_date</a></span><span class="op">(</span><span class="st">"2015-08-01"</span>, <span class="st">"NL East"</span>, from <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">## -- MLB Standings on Date data from baseball-reference.com --- baseballr 1.1.0 --</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="co">## i Data updated: 2022-04-11 10:30:18 EDT</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="co">## # A tibble: 5 x 8</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="co">##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="co">##   &lt;chr&gt; &lt;int&gt; &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt;      &lt;dbl&gt;</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="co">## 1 WSN      54    48  0.529 --      422   391      0.535</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="co">## 2 NYM      54    50  0.519 1.0     368   373      0.494</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="co">## 3 ATL      46    58  0.442 9.0     379   449      0.423</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="co">## 4 MIA      42    62  0.404 13.0    370   408      0.455</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a><span class="co">## 5 PHI      41    64  0.39  14.5    386   511      0.374</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">## -- MLB Standings on Date data from baseball-reference.com --- baseballr 1.1.0 --</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co">## i Data updated: 2022-04-11 16:26:56 EDT</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">## # A tibble: 5 x 8</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">##   &lt;chr&gt; &lt;int&gt; &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt;      &lt;dbl&gt;</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co">## 1 WSN      54    48  0.529 --      422   391      0.535</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co">## 2 NYM      54    50  0.519 1.0     368   373      0.494</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co">## 3 ATL      46    58  0.442 9.0     379   449      0.423</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co">## 4 MIA      42    62  0.404 13.0    370   408      0.455</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="co">## 5 PHI      41    64  0.39  14.5    386   511      0.374</span></span></code></pre></div>
 <p>Right now the function works as far as back as 1994, which is when both leagues split into three divisions.</p>
 <p>You can also pull data for all hitters over a specific date range. Here are the results for all hitters from August 1st through October 3rd during the 2015 season:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bref_daily_batter.html">bref_daily_batter</a></span><span class="op">(</span><span class="st">"2015-08-01"</span>, <span class="st">"2015-10-03"</span><span class="op">)</span> 
 <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">## Rows: 764</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="co">## Columns: 30</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="co">## $ bbref_id &lt;chr&gt; "547989", "554429", "542436", "571431", "501303", "346793", "~</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co">## $ season   &lt;int&gt; 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2~</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="co">## $ Name     &lt;chr&gt; "Manny Machado", "Matt Duffy", "Jose Altuve", "Adam Eaton", "~</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="co">## $ Age      &lt;dbl&gt; 22, 24, 25, 26, 32, 21, 27, 28, 36, 28, 29, 29, 27, 29, 27, 2~</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="co">## $ Level    &lt;chr&gt; "Maj-AL", "Maj-NL", "Maj-AL", "Maj-AL", "Maj-AL", "Maj-AL", "~</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="co">## $ Team     &lt;chr&gt; "Baltimore", "San Francisco", "Houston", "Chicago", "Texas", ~</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="co">## $ G        &lt;dbl&gt; 59, 59, 57, 58, 58, 58, 59, 58, 59, 57, 55, 57, 57, 58, 56, 5~</span></span>
-<span id="cb7-10"><a href="#cb7-10"></a><span class="co">## $ PA       &lt;dbl&gt; 266, 264, 262, 262, 260, 259, 259, 258, 257, 257, 255, 255, 2~</span></span>
-<span id="cb7-11"><a href="#cb7-11"></a><span class="co">## $ AB       &lt;dbl&gt; 237, 248, 244, 230, 211, 224, 239, 235, 231, 233, 213, 218, 2~</span></span>
-<span id="cb7-12"><a href="#cb7-12"></a><span class="co">## $ R        &lt;dbl&gt; 36, 33, 30, 37, 48, 35, 32, 29, 37, 27, 50, 37, 36, 25, 38, 4~</span></span>
-<span id="cb7-13"><a href="#cb7-13"></a><span class="co">## $ H        &lt;dbl&gt; 66, 71, 81, 74, 71, 79, 54, 66, 75, 48, 65, 56, 61, 51, 78, 5~</span></span>
-<span id="cb7-14"><a href="#cb7-14"></a><span class="co">## $ X1B      &lt;dbl&gt; 43, 54, 53, 56, 47, 51, 34, 37, 48, 30, 34, 32, 35, 33, 66, 2~</span></span>
-<span id="cb7-15"><a href="#cb7-15"></a><span class="co">## $ X2B      &lt;dbl&gt; 10, 12, 19, 12, 14, 17, 6, 17, 16, 11, 13, 13, 15, 10, 7, 13,~</span></span>
-<span id="cb7-16"><a href="#cb7-16"></a><span class="co">## $ X3B      &lt;dbl&gt; 0, 2, 3, 1, 1, 4, 1, 0, 2, 1, 2, 4, 0, 1, 3, 0, 4, 0, 1, 1, 0~</span></span>
-<span id="cb7-17"><a href="#cb7-17"></a><span class="co">## $ HR       &lt;dbl&gt; 13, 3, 6, 5, 9, 7, 13, 12, 9, 6, 16, 7, 11, 7, 2, 20, 9, 8, 8~</span></span>
-<span id="cb7-18"><a href="#cb7-18"></a><span class="co">## $ RBI      &lt;dbl&gt; 32, 30, 18, 31, 34, 32, 27, 40, 53, 21, 50, 19, 31, 39, 23, 4~</span></span>
-<span id="cb7-19"><a href="#cb7-19"></a><span class="co">## $ BB       &lt;dbl&gt; 26, 15, 10, 23, 39, 18, 16, 17, 21, 21, 34, 33, 21, 39, 12, 3~</span></span>
-<span id="cb7-20"><a href="#cb7-20"></a><span class="co">## $ IBB      &lt;dbl&gt; 1, 0, 1, 1, 1, 0, 0, 6, 1, 1, 0, 1, 1, 5, 0, 4, 3, 3, 7, 2, 2~</span></span>
-<span id="cb7-21"><a href="#cb7-21"></a><span class="co">## $ uBB      &lt;dbl&gt; 25, 15, 9, 22, 38, 18, 16, 11, 20, 20, 34, 32, 20, 34, 12, 35~</span></span>
-<span id="cb7-22"><a href="#cb7-22"></a><span class="co">## $ SO       &lt;dbl&gt; 42, 35, 28, 55, 51, 38, 68, 56, 29, 53, 46, 62, 41, 48, 27, 7~</span></span>
-<span id="cb7-23"><a href="#cb7-23"></a><span class="co">## $ HBP      &lt;dbl&gt; 2, 0, 4, 5, 8, 1, 3, 5, 1, 1, 2, 3, 3, 1, 1, 6, 1, 3, 4, 1, 0~</span></span>
-<span id="cb7-24"><a href="#cb7-24"></a><span class="co">## $ SH       &lt;dbl&gt; 0, 0, 1, 2, 1, 11, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, ~</span></span>
-<span id="cb7-25"><a href="#cb7-25"></a><span class="co">## $ SF       &lt;dbl&gt; 1, 1, 3, 2, 1, 5, 1, 1, 4, 2, 5, 1, 2, 2, 3, 0, 3, 2, 3, 4, 3~</span></span>
-<span id="cb7-26"><a href="#cb7-26"></a><span class="co">## $ GDP      &lt;dbl&gt; 5, 9, 6, 1, 1, 4, 2, 2, 9, 7, 5, 1, 4, 8, 1, 2, 3, 10, 5, 4, ~</span></span>
-<span id="cb7-27"><a href="#cb7-27"></a><span class="co">## $ SB       &lt;dbl&gt; 6, 8, 11, 9, 2, 10, 0, 0, 0, 3, 3, 4, 5, 4, 24, 2, 1, 0, 6, 0~</span></span>
-<span id="cb7-28"><a href="#cb7-28"></a><span class="co">## $ CS       &lt;dbl&gt; 4, 0, 4, 4, 0, 2, 0, 0, 0, 1, 0, 1, 3, 2, 7, 2, 3, 0, 2, 0, 0~</span></span>
-<span id="cb7-29"><a href="#cb7-29"></a><span class="co">## $ BA       &lt;dbl&gt; 0.279, 0.286, 0.332, 0.322, 0.337, 0.353, 0.226, 0.281, 0.325~</span></span>
-<span id="cb7-30"><a href="#cb7-30"></a><span class="co">## $ OBP      &lt;dbl&gt; 0.353, 0.326, 0.364, 0.392, 0.456, 0.395, 0.282, 0.341, 0.377~</span></span>
-<span id="cb7-31"><a href="#cb7-31"></a><span class="co">## $ SLG      &lt;dbl&gt; 0.485, 0.387, 0.508, 0.448, 0.540, 0.558, 0.423, 0.506, 0.528~</span></span>
-<span id="cb7-32"><a href="#cb7-32"></a><span class="co">## $ OPS      &lt;dbl&gt; 0.839, 0.713, 0.872, 0.840, 0.996, 0.953, 0.705, 0.848, 0.906~</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">## Rows: 764</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="co">## Columns: 30</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co">## $ bbref_id &lt;chr&gt; "547989", "554429", "542436", "571431", "501303", "346793", "~</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">## $ season   &lt;int&gt; 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2~</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co">## $ Name     &lt;chr&gt; "Manny Machado", "Matt Duffy", "Jose Altuve", "Adam Eaton", "~</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">## $ Age      &lt;dbl&gt; 22, 24, 25, 26, 32, 21, 27, 28, 36, 28, 29, 29, 27, 29, 27, 2~</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">## $ Level    &lt;chr&gt; "Maj-AL", "Maj-NL", "Maj-AL", "Maj-AL", "Maj-AL", "Maj-AL", "~</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">## $ Team     &lt;chr&gt; "Baltimore", "San Francisco", "Houston", "Chicago", "Texas", ~</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="co">## $ G        &lt;dbl&gt; 59, 59, 57, 58, 58, 58, 59, 58, 59, 57, 55, 57, 57, 58, 56, 5~</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="co">## $ PA       &lt;dbl&gt; 266, 264, 262, 262, 260, 259, 259, 258, 257, 257, 255, 255, 2~</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="co">## $ AB       &lt;dbl&gt; 237, 248, 244, 230, 211, 224, 239, 235, 231, 233, 213, 218, 2~</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="co">## $ R        &lt;dbl&gt; 36, 33, 30, 37, 48, 35, 32, 29, 37, 27, 50, 37, 36, 25, 38, 4~</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="co">## $ H        &lt;dbl&gt; 66, 71, 81, 74, 71, 79, 54, 66, 75, 48, 65, 56, 61, 51, 78, 5~</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a><span class="co">## $ X1B      &lt;dbl&gt; 43, 54, 53, 56, 47, 51, 34, 37, 48, 30, 34, 32, 35, 33, 66, 2~</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="co">## $ X2B      &lt;dbl&gt; 10, 12, 19, 12, 14, 17, 6, 17, 16, 11, 13, 13, 15, 10, 7, 13,~</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a><span class="co">## $ X3B      &lt;dbl&gt; 0, 2, 3, 1, 1, 4, 1, 0, 2, 1, 2, 4, 0, 1, 3, 0, 4, 0, 1, 1, 0~</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="co">## $ HR       &lt;dbl&gt; 13, 3, 6, 5, 9, 7, 13, 12, 9, 6, 16, 7, 11, 7, 2, 20, 9, 8, 8~</span></span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="co">## $ RBI      &lt;dbl&gt; 32, 30, 18, 31, 34, 32, 27, 40, 53, 21, 50, 19, 31, 39, 23, 4~</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="co">## $ BB       &lt;dbl&gt; 26, 15, 10, 23, 39, 18, 16, 17, 21, 21, 34, 33, 21, 39, 12, 3~</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a><span class="co">## $ IBB      &lt;dbl&gt; 1, 0, 1, 1, 1, 0, 0, 6, 1, 1, 0, 1, 1, 5, 0, 4, 3, 3, 7, 2, 2~</span></span>
+<span id="cb8-21"><a href="#cb8-21"></a><span class="co">## $ uBB      &lt;dbl&gt; 25, 15, 9, 22, 38, 18, 16, 11, 20, 20, 34, 32, 20, 34, 12, 35~</span></span>
+<span id="cb8-22"><a href="#cb8-22"></a><span class="co">## $ SO       &lt;dbl&gt; 42, 35, 28, 55, 51, 38, 68, 56, 29, 53, 46, 62, 41, 48, 27, 7~</span></span>
+<span id="cb8-23"><a href="#cb8-23"></a><span class="co">## $ HBP      &lt;dbl&gt; 2, 0, 4, 5, 8, 1, 3, 5, 1, 1, 2, 3, 3, 1, 1, 6, 1, 3, 4, 1, 0~</span></span>
+<span id="cb8-24"><a href="#cb8-24"></a><span class="co">## $ SH       &lt;dbl&gt; 0, 0, 1, 2, 1, 11, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, ~</span></span>
+<span id="cb8-25"><a href="#cb8-25"></a><span class="co">## $ SF       &lt;dbl&gt; 1, 1, 3, 2, 1, 5, 1, 1, 4, 2, 5, 1, 2, 2, 3, 0, 3, 2, 3, 4, 3~</span></span>
+<span id="cb8-26"><a href="#cb8-26"></a><span class="co">## $ GDP      &lt;dbl&gt; 5, 9, 6, 1, 1, 4, 2, 2, 9, 7, 5, 1, 4, 8, 1, 2, 3, 10, 5, 4, ~</span></span>
+<span id="cb8-27"><a href="#cb8-27"></a><span class="co">## $ SB       &lt;dbl&gt; 6, 8, 11, 9, 2, 10, 0, 0, 0, 3, 3, 4, 5, 4, 24, 2, 1, 0, 6, 0~</span></span>
+<span id="cb8-28"><a href="#cb8-28"></a><span class="co">## $ CS       &lt;dbl&gt; 4, 0, 4, 4, 0, 2, 0, 0, 0, 1, 0, 1, 3, 2, 7, 2, 3, 0, 2, 0, 0~</span></span>
+<span id="cb8-29"><a href="#cb8-29"></a><span class="co">## $ BA       &lt;dbl&gt; 0.279, 0.286, 0.332, 0.322, 0.337, 0.353, 0.226, 0.281, 0.325~</span></span>
+<span id="cb8-30"><a href="#cb8-30"></a><span class="co">## $ OBP      &lt;dbl&gt; 0.353, 0.326, 0.364, 0.392, 0.456, 0.395, 0.282, 0.341, 0.377~</span></span>
+<span id="cb8-31"><a href="#cb8-31"></a><span class="co">## $ SLG      &lt;dbl&gt; 0.485, 0.387, 0.508, 0.448, 0.540, 0.558, 0.423, 0.506, 0.528~</span></span>
+<span id="cb8-32"><a href="#cb8-32"></a><span class="co">## $ OPS      &lt;dbl&gt; 0.839, 0.713, 0.872, 0.840, 0.996, 0.953, 0.705, 0.848, 0.906~</span></span></code></pre></div>
 <p>In terms of metric calculation, the package allows the user to calculate the consistency of team scoring and run prevention for any year using <code><a href="reference/team_consistency.html">team_consistency()</a></code>:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/team_consistency.html">team_consistency</a></span><span class="op">(</span><span class="fl">2015</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">## # A tibble: 30 x 5</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="co">##    Team  Con_R Con_RA Con_R_Ptile Con_RA_Ptile</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="co">##    &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co">##  1 ARI    0.37   0.36          17           15</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="co">##  2 ATL    0.41   0.4           88           63</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="co">##  3 BAL    0.4    0.38          70           42</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co">##  4 BOS    0.39   0.4           52           63</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="co">##  5 CHC    0.38   0.41          30           85</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="co">##  6 CHW    0.39   0.4           52           63</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="co">##  7 CIN    0.41   0.36          88           15</span></span>
-<span id="cb9-11"><a href="#cb9-11"></a><span class="co">##  8 CLE    0.41   0.4           88           63</span></span>
-<span id="cb9-12"><a href="#cb9-12"></a><span class="co">##  9 COL    0.35   0.34           7            3</span></span>
-<span id="cb9-13"><a href="#cb9-13"></a><span class="co">## 10 DET    0.39   0.38          52           42</span></span>
-<span id="cb9-14"><a href="#cb9-14"></a><span class="co">## # ... with 20 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">## # A tibble: 30 x 5</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="co">##    Team  Con_R Con_RA Con_R_Ptile Con_RA_Ptile</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co">##    &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co">##  1 ARI    0.37   0.36          17           15</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="co">##  2 ATL    0.41   0.4           88           63</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co">##  3 BAL    0.4    0.38          70           42</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co">##  4 BOS    0.39   0.4           52           63</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="co">##  5 CHC    0.38   0.41          30           85</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="co">##  6 CHW    0.39   0.4           52           63</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="co">##  7 CIN    0.41   0.36          88           15</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="co">##  8 CLE    0.41   0.4           88           63</span></span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="co">##  9 COL    0.35   0.34           7            3</span></span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="co">## 10 DET    0.39   0.38          52           42</span></span>
+<span id="cb10-14"><a href="#cb10-14"></a><span class="co">## # ... with 20 more rows</span></span></code></pre></div>
 <p>You can also calculate wOBA per plate appearance and wOBA on contact for any set of data over any date range, provided you have the data available.</p>
 <p>Simply pass the proper data frame to <code>woba_plus</code>:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">PA</span> <span class="op">&gt;</span> <span class="fl">200</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="va">woba_plus</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">wOBA</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">Team</span>, <span class="va">season</span>, <span class="va">PA</span>, <span class="va">wOBA</span>, <span class="va">wOBA_CON</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">## Rows: 117</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="co">## Columns: 6</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="co">## $ Name     &lt;chr&gt; "Edwin Encarnacion", "Bryce Harper", "David Ortiz", "Joey Vot~</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="co">## $ Team     &lt;chr&gt; "Toronto", "Washington", "Boston", "Cincinnati", "Baltimore",~</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a><span class="co">## $ season   &lt;int&gt; 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2~</span></span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="co">## $ PA       &lt;dbl&gt; 216, 248, 213, 251, 253, 260, 245, 255, 223, 241, 223, 259, 2~</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a><span class="co">## $ wOBA     &lt;dbl&gt; 0.490, 0.450, 0.449, 0.445, 0.434, 0.430, 0.430, 0.422, 0.410~</span></span>
-<span id="cb11-8"><a href="#cb11-8"></a><span class="co">## $ wOBA_CON &lt;dbl&gt; 0.555, 0.529, 0.541, 0.543, 0.617, 0.495, 0.481, 0.494, 0.459~</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">## Rows: 117</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="co">## Columns: 6</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="co">## $ Name     &lt;chr&gt; "Edwin Encarnacion", "Bryce Harper", "David Ortiz", "Joey Vot~</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="co">## $ Team     &lt;chr&gt; "Toronto", "Washington", "Boston", "Cincinnati", "Baltimore",~</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="co">## $ season   &lt;int&gt; 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2~</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="co">## $ PA       &lt;dbl&gt; 216, 248, 213, 251, 253, 260, 245, 255, 223, 241, 223, 259, 2~</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="co">## $ wOBA     &lt;dbl&gt; 0.490, 0.450, 0.449, 0.445, 0.434, 0.430, 0.430, 0.422, 0.410~</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a><span class="co">## $ wOBA_CON &lt;dbl&gt; 0.555, 0.529, 0.541, 0.543, 0.617, 0.495, 0.481, 0.494, 0.459~</span></span></code></pre></div>
 <p>You can also generate these wOBA-based stats, as well as FIP, for pitchers using the <code><a href="reference/fip_plus.html">fip_plus()</a></code> function:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/bref_daily_pitcher.html">bref_daily_pitcher</a></span><span class="op">(</span><span class="st">"2015-04-05"</span>, <span class="st">"2015-04-30"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="reference/fip_plus.html">fip_plus</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">season</span>, <span class="va">Name</span>, <span class="va">IP</span>, <span class="va">ERA</span>, <span class="va">SO</span>, <span class="va">uBB</span>, <span class="va">HBP</span>, <span class="va">HR</span>, <span class="va">FIP</span>, <span class="va">wOBA_against</span>, <span class="va">wOBA_CON_against</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">IP</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">## -- MLB Daily Pitcher data from baseball-reference.com ------- baseballr 1.1.0 --</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="co">## i Data updated: 2022-04-11 10:30:33 EDT</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a></span>
-<span id="cb13-5"><a href="#cb13-5"></a><span class="co">## # A tibble: 10 x 11</span></span>
-<span id="cb13-6"><a href="#cb13-6"></a><span class="co">##    season Name               IP   ERA    SO   uBB   HBP    HR   FIP wOBA_against</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a><span class="co">##     &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;        &lt;dbl&gt;</span></span>
-<span id="cb13-8"><a href="#cb13-8"></a><span class="co">##  1   2015 Johnny Cueto     37    1.95    38     4     2     3  2.62        0.21 </span></span>
-<span id="cb13-9"><a href="#cb13-9"></a><span class="co">##  2   2015 Dallas Keuchel   37    0.73    22    11     0     0  2.84        0.169</span></span>
-<span id="cb13-10"><a href="#cb13-10"></a><span class="co">##  3   2015 Sonny Gray       36.1  1.98    25     6     1     1  2.69        0.218</span></span>
-<span id="cb13-11"><a href="#cb13-11"></a><span class="co">##  4   2015 Mike Leake       35.2  3.03    25     7     0     5  4.16        0.24 </span></span>
-<span id="cb13-12"><a href="#cb13-12"></a><span class="co">##  5   2015 Felix Hernandez  34.2  1.82    36     6     3     1  2.2         0.225</span></span>
-<span id="cb13-13"><a href="#cb13-13"></a><span class="co">##  6   2015 Corey Kluber     34    4.24    36     5     2     2  2.4         0.295</span></span>
-<span id="cb13-14"><a href="#cb13-14"></a><span class="co">##  7   2015 Jake Odorizzi    33.2  2.41    26     8     1     0  2.38        0.213</span></span>
-<span id="cb13-15"><a href="#cb13-15"></a><span class="co">##  8   2015 Josh Collmenter  32.2  2.76    16     3     0     1  2.82        0.29 </span></span>
-<span id="cb13-16"><a href="#cb13-16"></a><span class="co">##  9   2015 Bartolo Colon    32.2  3.31    25     1     0     4  3.29        0.28 </span></span>
-<span id="cb13-17"><a href="#cb13-17"></a><span class="co">## 10   2015 Zack Greinke     32.2  1.93    27     7     1     2  3.01        0.24 </span></span>
-<span id="cb13-18"><a href="#cb13-18"></a><span class="co">## # ... with 1 more variable: wOBA_CON_against &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co">## -- MLB Daily Pitcher data from baseball-reference.com ------- baseballr 1.1.0 --</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="co">## i Data updated: 2022-04-11 16:27:11 EDT</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="co">## # A tibble: 10 x 11</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="co">##    season Name               IP   ERA    SO   uBB   HBP    HR   FIP wOBA_against</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="co">##     &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;        &lt;dbl&gt;</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a><span class="co">##  1   2015 Johnny Cueto     37    1.95    38     4     2     3  2.62        0.21 </span></span>
+<span id="cb14-9"><a href="#cb14-9"></a><span class="co">##  2   2015 Dallas Keuchel   37    0.73    22    11     0     0  2.84        0.169</span></span>
+<span id="cb14-10"><a href="#cb14-10"></a><span class="co">##  3   2015 Sonny Gray       36.1  1.98    25     6     1     1  2.69        0.218</span></span>
+<span id="cb14-11"><a href="#cb14-11"></a><span class="co">##  4   2015 Mike Leake       35.2  3.03    25     7     0     5  4.16        0.24 </span></span>
+<span id="cb14-12"><a href="#cb14-12"></a><span class="co">##  5   2015 Felix Hernandez  34.2  1.82    36     6     3     1  2.2         0.225</span></span>
+<span id="cb14-13"><a href="#cb14-13"></a><span class="co">##  6   2015 Corey Kluber     34    4.24    36     5     2     2  2.4         0.295</span></span>
+<span id="cb14-14"><a href="#cb14-14"></a><span class="co">##  7   2015 Jake Odorizzi    33.2  2.41    26     8     1     0  2.38        0.213</span></span>
+<span id="cb14-15"><a href="#cb14-15"></a><span class="co">##  8   2015 Josh Collmenter  32.2  2.76    16     3     0     1  2.82        0.29 </span></span>
+<span id="cb14-16"><a href="#cb14-16"></a><span class="co">##  9   2015 Bartolo Colon    32.2  3.31    25     1     0     4  3.29        0.28 </span></span>
+<span id="cb14-17"><a href="#cb14-17"></a><span class="co">## 10   2015 Zack Greinke     32.2  1.93    27     7     1     2  3.01        0.24 </span></span>
+<span id="cb14-18"><a href="#cb14-18"></a><span class="co">## # ... with 1 more variable: wOBA_CON_against &lt;dbl&gt;</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="issues">
@@ -357,12 +359,12 @@
 </h2>
 <p>To cite the <a href="https://billpetti.github.io/baseballr/" class="external-link"><strong><code>baseballr</code></strong></a> R package in publications, use:</p>
 <p>BibTex Citation</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb14-1"><a href="#cb14-1"></a><span class="va">@misc</span>{<span class="ot">petti_gilani_2021</span>,</span>
-<span id="cb14-2"><a href="#cb14-2"></a>  <span class="dt">author</span> = {Bill Petti and Saiem Gilani},</span>
-<span id="cb14-3"><a href="#cb14-3"></a>  <span class="dt">title</span> = {baseballr: The SportsDataverse's R Package for Baseball Data.},</span>
-<span id="cb14-4"><a href="#cb14-4"></a>  <span class="dt">url</span> = {https://billpetti.github.io/baseballr/},</span>
-<span id="cb14-5"><a href="#cb14-5"></a>  <span class="dt">year</span> = {2021}</span>
-<span id="cb14-6"><a href="#cb14-6"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb15-1"><a href="#cb15-1"></a><span class="va">@misc</span>{<span class="ot">petti_gilani_2021</span>,</span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="dt">author</span> = {Bill Petti and Saiem Gilani},</span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="dt">title</span> = {baseballr: The SportsDataverse's R Package for Baseball Data.},</span>
+<span id="cb15-4"><a href="#cb15-4"></a>  <span class="dt">url</span> = {https://billpetti.github.io/baseballr/},</span>
+<span id="cb15-5"><a href="#cb15-5"></a>  <span class="dt">year</span> = {2021}</span>
+<span id="cb15-6"><a href="#cb15-6"></a>}</span></code></pre></div>
 </div>
 </div>
 
@@ -406,7 +408,12 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://twitter.com/BillPetti" class="external-link"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&amp;label=%40BillPetti&amp;logo=twitter&amp;style=for-the-badge" alt="Twitter Follow"></a></li>
+<li><a href="https://CRAN.R-project.org/package=baseballr" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&amp;color=success&amp;label=CRAN%20version&amp;prefix=v&amp;query=%24.Version&amp;url=https%3A%2F%2Fcrandb.r-pkg.org%2Fbaseballr" alt="CRAN version"></a></li>
+<li><a href="https://CRAN.R-project.org/package=baseballr" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&amp;color=success&amp;label=Downloads&amp;query=%24%5B0%5D.downloads&amp;url=https%3A%2F%2Fcranlogs.r-pkg.org%2Fdownloads%2Ftotal%2F2021-10-26%3Alast-day%2Fbaseballr" alt="CRAN downloads"></a></li>
+<li><a href="https://github.com/BillPetti/baseballr/" class="external-link"><img src="https://img.shields.io/github/r-package/v/BillPetti/baseballr?label=baseballr&amp;logo=R&amp;style=for-the-badge" alt="Version-Number"></a></li>
+<li><a href="https://github.com/BillPetti/baseballr/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://img.shields.io/github/workflow/status/BillPetti/baseballr/R-CMD-check?label=R-CMD-Check&amp;logo=R&amp;logoColor=white&amp;style=for-the-badge" alt="R-CMD-check"></a></li>
+<li><a href="https://github.com/BillPetti/baseballr/" class="external-link"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&amp;logo=github" alt="Lifecycle:maturing"></a></li>
+<li><a href="https://github.com/BillPetti/baseballr/graphs/contributors" class="external-link"><img src="https://img.shields.io/github/contributors/BillPetti/baseballr?style=for-the-badge" alt="Contributors"></a></li>
 </ul>
 </div>
 
