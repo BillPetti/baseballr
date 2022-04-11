@@ -228,7 +228,7 @@ reference:
   - subtitle: MLB Stats Awards Data Functions
     desc: Functions exported by baseballr to access MLB Stats Awards Data
     contents:
-      - '`mlb_award`''
+      - '`mlb_award`'
       - starts_with("mlb_awards")
       - starts_with("mlb_all")
       - starts_with("mlb_home")
