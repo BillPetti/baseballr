@@ -450,7 +450,7 @@ get_ncaa_park_factor(736, c(2015:2019),type = "division")
 <div class="section level3">
 <h3 id="fixes-and-updates-0-8">Fixes and Updates<a class="anchor" aria-label="anchor" href="#fixes-and-updates-0-8"></a></h3>
 <ul><li><p><a href="https://github.com/shanepiesik" class="external-link">Shane Piesik</a> made some changes to the <code>scrape_statcast_savant</code> function. The function should now be easier to use in a loop or map when combining payloads, and more importantly the data should read in faster thanks to swapping in <code>vroom</code>.</p></li>
-<li><p>The <code>master_ncaa_team_lu</code> was updated by Robert Frey. For some reason, the NCAA website that had the 2019 Division 1 information has dissappeared, and when I rebuilt the table at the begining of 2020 it led to tons of <code>NA</code> values for those teams that year. Thanks to Robert for manually fixing.</p></li>
+<li><p>The <code>master_ncaa_team_lu</code> was updated by Robert Frey. For some reason, the NCAA website that had the 2019 Division 1 information has disappeared, and when I rebuilt the table at the beginning of 2020 it led to tons of <code>NA</code> values for those teams that year. Thanks to Robert for manually fixing.</p></li>
 </ul></div>
 <div class="section level3">
 <h3 id="other-0-8">Other<a class="anchor" aria-label="anchor" href="#other-0-8"></a></h3>
@@ -521,14 +521,14 @@ games %&gt;%
 <p>Once you have the <code>game_pk</code> IDs grabbing the pbp data is very simple. All you need to do is pass the <code>game_pk</code> of interest to the <code>get_pbp_mlb</code> function.</p>
 <p>Let’s say you interested in the Gwinnett Stripers versus the Charlotte Knights:</p>
 <pre><code><span class="va">payload</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_pbp_mlb.html">get_pbp_mlb</a></span><span class="op">(</span><span class="fl">575589</span><span class="op">)</span></code></pre>
-<p>The function will return a data frame with 131 columns. Data availability will vary depending on the park and the league level, as most sensor data is not availble in minor league parks via this API. Also note that the column names have mostly been left as-is and there are likely duplicate columns in terms of the information they provide. I plan to clean the output up down the road, but for now I am leaving the majority as-is.</p>
-<p>Some of the colums of interest at the minor league level are:</p>
+<p>The function will return a data frame with 131 columns. Data availability will vary depending on the park and the league level, as most sensor data is not available in minor league parks via this API. Also note that the column names have mostly been left as-is and there are likely duplicate columns in terms of the information they provide. I plan to clean the output up down the road, but for now I am leaving the majority as-is.</p>
+<p>Some of the columns of interest at the minor league level are:</p>
 <ul><li>
 <code>pitchNumber</code> and <code>atBatIndex</code>: the pitch number within a given plate appearance and the plate appearance within a given game.</li>
 <li>
 <code>pitchData.coordinates.x</code> and <code>pitchData.coordinates.y</code>: the x,z coordinates of the pitch as it crosses the plate. As far as I can tell, these are the pixel coordinates for a location that a stringer manually plots and likely need to be transformed and rotated to get a view of the pitch as it crosses the plate. I am working on figuring out an easy transformation to get them on the same scale as the MLB coordinates, but they appear different by park. I do believe you can multiple both by -1 and that will at least allow you to orient the coordinates correctly (i.e. catcher’s view)</li>
 <li>
-<code>details.call.code</code>, <code>details.call.description</code>, <code>result.event</code>, <code>result.eventType</code>, and <code>result.description</code>: these are similar to what we find with Statcast data–codes and detailed desriptions for what happened on a pitch or at the end of a plate appearance.</li>
+<code>details.call.code</code>, <code>details.call.description</code>, <code>result.event</code>, <code>result.eventType</code>, and <code>result.description</code>: these are similar to what we find with Statcast data–codes and detailed descriptions for what happened on a pitch or at the end of a plate appearance.</li>
 <li>
 <code>count.</code> variables that tell you how many balls, strikes, and outs before and after the pitch.</li>
 <li>
@@ -570,7 +570,7 @@ games %&gt;%
 10    13125    2018 10      Gerrit Cole    Astros  27 15  5 2.88 32</code></pre>
 <p><code>scrape_statcast_leaderboards()</code></p>
 <p>The <code>scrape_statcast_leaderboards()</code> function can be used to access all of the leaderboards available from <a href="https://baseballsavant.mlb.com" class="external-link">BaseballSavant</a> as csv downloads. The function isn’t doing anything too sophisticated; it simply builds the appropriate url for the csv download based on a series of parameters and then reads the csv into <code>R</code>.</p>
-<p>Users specificy which leaderboard they want to download using the <code>leaderboard</code> argument. The following are currently available:</p>
+<p>Users specify which leaderboard they want to download using the <code>leaderboard</code> argument. The following are currently available:</p>
 <ul><li><code>exit_velocity_barrels</code></li>
 <li><code>expected_statistics</code></li>
 <li><code>pitch_arsenal</code></li>
@@ -605,7 +605,7 @@ payload %&gt;%
 10  2018 Scherzer    866 0.252    0.246                    0.006
 # ... with 264 more rows</code></pre>
 <p><code><a href="../reference/milb_batter_game_logs_fg.html">milb_batter_game_logs_fg()</a></code> <code><a href="../reference/milb_pitcher_game_logs_fg.html">milb_pitcher_game_logs_fg()</a></code></p>
-<p>These functions were contributed by <a href="https://github.com/matawith1t" class="external-link">Mat Adams</a>, and they are similar to the game log functions included in an earlier release except that they will return minor league game logs for the player specified. The functions take only two arguments: <code>playerid</code> and <code>year</code>. The <code>playerid</code> is the minor league ID assigned by FanGrapsh. This can be found in the url slug for a minor league player’s page.</p>
+<p>These functions were contributed by <a href="https://github.com/matawith1t" class="external-link">Mat Adams</a>, and they are similar to the game log functions included in an earlier release except that they will return minor league game logs for the player specified. The functions take only two arguments: <code>playerid</code> and <code>year</code>. The <code>playerid</code> is the minor league ID assigned by FanGraphs. This can be found in the url slug for a minor league player’s page.</p>
 <p>For example, here is the url for Vladimir Guerrero Jr.’s minor league game logs: <a href="https://www.fangraphs.com/statsd.aspx?playerid=sa920245&amp;position=3B&amp;gds=&amp;gde=" class="external-link uri">https://www.fangraphs.com/statsd.aspx?playerid=sa920245&amp;position=3B&amp;gds=&amp;gde=</a></p>
 <p>You will see the <code>playerid=</code> portion of the url, and the actual ID follows (i.e. sa920245).</p>
 <pre><code>milb_batter_game_logs_fg(playerid = "sa920245", year = 2017) %&gt;% slice(1:10)
@@ -623,7 +623,7 @@ payload %&gt;%
 10 Vladimir Guerrero Jr.       sa920245 2017-04-15  TOR   (A)  CLE .333 1  3  4 1</code></pre>
 </div>
 <div class="section level3">
-<h3 id="updgrades-0-4">Updgrades<a class="anchor" aria-label="anchor" href="#updgrades-0-4"></a></h3>
+<h3 id="upgrades-0-4">Upgrades<a class="anchor" aria-label="anchor" href="#upgrades-0-4"></a></h3>
 <p><code><a href="../reference/ncaa_scrape.html">ncaa_scrape()</a></code> - Updated to allow scraping of data for the 2019 season.</p>
 <p><code><a href="../reference/edge_code.html">edge_code()</a></code> - Changes made to make function more compatible with <a href="https://baseballsavant.mlb.com" class="external-link">BaseballSavant</a> data. ## Bug Fixes</p>
 <p><code><a href="../reference/fg_bat_leaders.html">fg_bat_leaders()</a></code> - <code>playerid</code> now returned as part of the data returned.</p>
@@ -997,12 +997,12 @@ payload %&gt;%
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.2" id="baseballr-032-2017-09-12">baseballr 0.3.2 (2017-09-12)<a class="anchor" aria-label="anchor" href="#baseballr-032-2017-09-12"></a></h2>
 <p>The latest release of the <a href="https://billpetti.github.io/baseballr/" class="external-link"><code>baseballr</code></a> package for <code>R</code> includes a number of enhancements and bug fixes.</p>
-<p>In terms of new functions, <code>statline_from_statcast</code> allows users to take raw pitch-by-pitch data from Statcast/PITCHf/x and calculate aggregated, statline-like output. Examples include count data such as number of singles, doubles, etc., as well as rate metrics like Slugging and wOBA on swings or contact.</p>
+<p>In terms of new functions, <code>statline_from_statcast</code> allows users to take raw pitch-by-pitch data from Statcast/PITCHf/x and calculate aggregated, stat line-like output. Examples include count data such as number of singles, doubles, etc., as well as rate metrics like Slugging and wOBA on swings or contact.</p>
 <p>The function only has two arguments:</p>
 <ul><li>
-<code>df</code>: a dataframe that includes pitch-by-pitch information. The function assumes the following columns are present: <code>events</code>, <code>description</code>, <code>game_date</code>, and <code>type</code>.</li>
+<code>df</code>: a data frame that includes pitch-by-pitch information. The function assumes the following columns are present: <code>events</code>, <code>description</code>, <code>game_date</code>, and <code>type</code>.</li>
 <li>
-<code>base</code>: base indicates what the denomincator should be for the rate stats that are calculated. The function defaults to “swings”, but you can also choose to use “contact”</li>
+<code>base</code>: base indicates what the denominator should be for the rate stats that are calculated. The function defaults to “swings”, but you can also choose to use “contact”</li>
 </ul><p>Here is an example using all data from the week of 2017-09-04. Here, we want to see a statline for all hitters based on swings:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>test &lt;-<span class="st"> </span><span class="kw">scrape_statcast_savant_batter_all</span>(<span class="st">"2017-09-04"</span>, <span class="st">"2017-09-10"</span>)</span>
 <span id="cb12-2"><a href="#cb12-2"></a></span>
@@ -1109,7 +1109,7 @@ payload %&gt;%
 <p>New functions in this release:</p>
 <p><code>code_barrel</code> <br></p>
 <p>The research team at Major League Baseball Advanced Media have developed a way to categorize batted balls that on average having a batting average over .500 and slugging over 1.500. The specific coding criteria can be found in comment <a href="https://github.com/billpetti/baseballr/issues/2" class="external-link">#2</a> [here] (<a href="http://tangotiger.com/index.php/site/comments/statcast-lab-barrels#2" class="external-link uri">http://tangotiger.com/index.php/site/comments/statcast-lab-barrels#2</a>).</p>
-<p>Now, whenver a user scrapes Statcast data using either the <code>scrape_statcast_savant_batter</code> or <code>scrape_statcast_savant_pitcher</code> functions the results will include a column <code>barrel</code>, where if the batted ball matches the barrel criteria it will code as 1, otherwise 0.</p>
+<p>Now, whenever a user scrapes Statcast data using either the <code>scrape_statcast_savant_batter</code> or <code>scrape_statcast_savant_pitcher</code> functions the results will include a column <code>barrel</code>, where if the batted ball matches the barrel criteria it will code as 1, otherwise 0.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">scrape_statcast_savant_batter</span>(<span class="dt">start_date =</span> <span class="st">"2016-04-06"</span>, <span class="dt">end_date =</span> <span class="st">"2016-04-15"</span>, <span class="dt">batterid =</span> <span class="dv">621043</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb17-2"><a href="#cb17-2"></a><span class="op">+</span><span class="st">     </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> "X"</span>) <span class="op">%&gt;%</span></span>
@@ -1146,7 +1146,7 @@ payload %&gt;%
 <span id="cb18-11"><a href="#cb18-11"></a><span class="dv">29</span> <span class="dv">2016-04-06</span> Carlos Correa             <span class="dv">189</span>    <span class="fl">105.20</span>      <span class="fl">0.11</span></span>
 <span id="cb18-12"><a href="#cb18-12"></a><span class="dv">30</span> <span class="dv">2016-04-06</span> Carlos Correa             <span class="dv">462</span>    <span class="fl">113.55</span>     <span class="fl">23.76</span></span>
 <span id="cb18-13"><a href="#cb18-13"></a><span class="dv">31</span> <span class="dv">2016-04-06</span> Carlos Correa             <span class="dv">228</span>    <span class="fl">113.39</span>     <span class="fl">-2.18</span></span></code></pre></div>
-<p>Since the savant functions require users to pass a valid MLBAMID, a lookup function is included that leverages the Chadwich public register. Users provide a text string and only those players with that string present in their last name will be returned.</p>
+<p>Since the savant functions require users to pass a valid MLBAMID, a lookup function is included that leverages the Chadwick public register. Users provide a text string and only those players with that string present in their last name will be returned.</p>
 <p>Here is an example where the user is looking for players with the last name “Seager”:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">playerid_lookup</span>(<span class="st">"Seager"</span>)</span>
 <span id="cb19-2"><a href="#cb19-2"></a>[<span class="dv">1</span>] <span class="st">"Be patient, this may take a few seconds..."</span></span>
@@ -1235,7 +1235,7 @@ payload %&gt;%
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.2" id="baseballr-012-2016-03-07">baseballr 0.1.2 (2016-03-07)<a class="anchor" aria-label="anchor" href="#baseballr-012-2016-03-07"></a></h2>
 <p>Functions added to this release:</p>
-<p><code><a href="../reference/edge_scrape_split.html">edge_scrape_split()</a></code>: This function builds of off <code><a href="../reference/edge_scrape.html">edge_scrape()</a></code> and adds the ability to view the data split by batter and pitcher handedness. As with <code><a href="../reference/edge_scrape.html">edge_scrape()</a></code>, the function returns a dataframe grouped by either pitchers or batters and the percentge of pitches in each of the various Edge zones, but adds in handedness.</p>
+<p><code><a href="../reference/edge_scrape_split.html">edge_scrape_split()</a></code>: This function builds of off <code><a href="../reference/edge_scrape.html">edge_scrape()</a></code> and adds the ability to view the data split by batter and pitcher handedness. As with <code><a href="../reference/edge_scrape.html">edge_scrape()</a></code>, the function returns a data frame grouped by either pitchers or batters and the percentage of pitches in each of the various Edge zones, but adds in handedness.</p>
 <p>Example (Edge% splits by batters with handedness):</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">edge_scrape_split</span>(<span class="st">"2015-04-05"</span>, <span class="st">"2015-04-05"</span>, <span class="st">"batter"</span>) <span class="op">%&gt;%</span><span class="st"> </span>.[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">9</span><span class="op">:</span><span class="dv">14</span>)]</span>
 <span id="cb24-2"><a href="#cb24-2"></a></span>
@@ -1270,7 +1270,7 @@ payload %&gt;%
 <span id="cb25-10"><a href="#cb25-10"></a><span class="dv">8</span>    <span class="dv">2015</span> Josh Collmenter <span class="fl">32.2</span> <span class="fl">2.76</span> <span class="dv">16</span>   <span class="dv">3</span>   <span class="dv">0</span>  <span class="dv">1</span> <span class="fl">2.82</span>        <span class="fl">0.290</span>            <span class="fl">0.330</span></span>
 <span id="cb25-11"><a href="#cb25-11"></a><span class="dv">9</span>    <span class="dv">2015</span>   Bartolo Colon <span class="fl">32.2</span> <span class="fl">3.31</span> <span class="dv">25</span>   <span class="dv">1</span>   <span class="dv">0</span>  <span class="dv">4</span> <span class="fl">3.29</span>        <span class="fl">0.280</span>            <span class="fl">0.357</span></span>
 <span id="cb25-12"><a href="#cb25-12"></a><span class="dv">10</span>   <span class="dv">2015</span>    Zack Greinke <span class="fl">32.2</span> <span class="fl">1.93</span> <span class="dv">27</span>   <span class="dv">7</span>   <span class="dv">1</span>  <span class="dv">2</span> <span class="fl">3.01</span>        <span class="fl">0.240</span>            <span class="fl">0.274</span></span></code></pre></div>
-<p><code><a href="../reference/edge_scrape.html">edge_scrape()</a></code>: This function allows the user to scrape PITCHf/x data from the GameDay application using Carson Sievert’s <a href="https://github.com/cpsievert/pitchRx" class="external-link">pitchRx</a> package and to calculate metrics associated with <a href="https://billpetti.shinyapps.io/edge_shiny/" class="external-link">Edge%</a>. The function returns a data.frame grouped by either pitchers or batters and the percentge of pitches in each of the various Edge zones.</p>
+<p><code><a href="../reference/edge_scrape.html">edge_scrape()</a></code>: This function allows the user to scrape PITCHf/x data from the GameDay application using Carson Sievert’s <a href="https://github.com/cpsievert/pitchRx" class="external-link">pitchRx</a> package and to calculate metrics associated with <a href="https://billpetti.shinyapps.io/edge_shiny/" class="external-link">Edge%</a>. The function returns a data.frame grouped by either pitchers or batters and the percentage of pitches in each of the various Edge zones.</p>
 <p>Example (pitchers):</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">edge_scrape</span>(<span class="st">"2015-04-06"</span>, <span class="st">"2015-04-07"</span>, <span class="st">"pitcher"</span>) <span class="op">%&gt;%</span><span class="st"> </span>.[, <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dv">7</span><span class="op">:</span><span class="dv">12</span>)] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">10</span>)</span>
 <span id="cb26-2"><a href="#cb26-2"></a>     pitcher_name pitcher All_pitches Upper_Edge Lower_Edge Inside_Edge Outside_Edge Heart Out_of_Zone</span>

@@ -130,7 +130,7 @@
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">retrosheet_data</span><span class="op">(</span>
   <span class="va">path_to_directory</span>,
-  years_to_acquire <span class="op">=</span> <span class="fl">2018</span>,
+  years_to_acquire <span class="op">=</span> <span class="fu"><a href="most_recent_mlb_season.html">most_recent_mlb_season</a></span><span class="op">(</span><span class="op">)</span>,
   sequence_years <span class="op">=</span> <span class="cn">FALSE</span>
 <span class="op">)</span></code></pre></div>
     </div>
@@ -141,11 +141,11 @@
 <dd><p>A file path that either 1) creates a new directory
 or 2) a path to an existing directory</p></dd>
 <dt>years_to_acquire</dt>
-<dd><p>The sesons to collect. Single, multiple, and
-sequential years can be passed. If passing multiple years, encolse in a
-vector (i.e. c(2017,2018)). Defaults to 2018.</p></dd>
+<dd><p>The seasons to collect. Single, multiple, and
+sequential years can be passed. If passing multiple years, enclose in a
+vector (i.e. c(2017,2018)). Defaults to <code><a href="most_recent_mlb_season.html">most_recent_mlb_season()</a></code>.</p></dd>
 <dt>sequence_years</dt>
-<dd><p>If the seasons passed in the years_to_acquire paramter
+<dd><p>If the seasons passed in the years_to_acquire parameter
 should be sequenced so that the function returns all years including and
 between the vector passed, set the argument to TRUE. Defaults to FALSE.</p></dd>
 </dl></div>

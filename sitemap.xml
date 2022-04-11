@@ -28,6 +28,9 @@
     <loc>/news/index.html</loc>
   </url>
   <url>
+    <loc>/reference/baseballr-package.html</loc>
+  </url>
+  <url>
     <loc>/reference/batter_game_logs_fg.html</loc>
   </url>
   <url>
@@ -461,6 +464,12 @@
   </url>
   <url>
     <loc>/reference/mlb_wind_direction_codes.html</loc>
+  </url>
+  <url>
+    <loc>/reference/most_recent_mlb_season.html</loc>
+  </url>
+  <url>
+    <loc>/reference/most_recent_ncaa_baseball_season.html</loc>
   </url>
   <url>
     <loc>/reference/ncaa.html</loc>
