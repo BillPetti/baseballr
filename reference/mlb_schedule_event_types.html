@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -137,26 +139,30 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_schedule_event_types</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    schedule_event_type_code           schedule_event_type_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                         A             All-Star Weekend Event</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                         T                         Team Event</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                         E                         Exhibition</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                         Z                   Postseason Games</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                         Y              Spring Training Games</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                         W         Pitchers &amp; Catchers Report</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                         X                 Full Squad Reports</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                         H                         STH Events</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                         B                     Ballpark Tours</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                        I                    Important Dates</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                        O                              Other</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                        C                    Cultural Events</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                        D               Tracking Data Events</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                        F                           Festival</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                        K                      Kids &amp; Family</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                        M                              Music</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                        P  Promotion Logo - Background Image</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                        Q Promotion Logo - Single Date Image</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                        S                       Studio Event</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Schedule Event Types data from MLB.com ─────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:28 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 19 × 2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    schedule_event_type_code schedule_event_type_name          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> A                        All-Star Weekend Event            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> T                        Team Event                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> E                        Exhibition                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Z                        Postseason Games                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Y                        Spring Training Games             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> W                        Pitchers &amp; Catchers Report        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> X                        Full Squad Reports                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> H                        STH Events                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> B                        Ballpark Tours                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> I                        Important Dates                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> O                        Other                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> C                        Cultural Events                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> D                        Tracking Data Events              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> F                        Festival                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> K                        Kids &amp; Family                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> M                        Music                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> P                        Promotion Logo - Background Image </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">18</span> Q                        Promotion Logo - Single Date Image</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">19</span> S                        Studio Event                      </span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

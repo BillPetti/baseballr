@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -173,6 +175,8 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_high_low_stats</span><span class="op">(</span>org_type <span class="op">=</span> <span class="st">'Team'</span>, season <span class="op">=</span> <span class="fl">2020</span>, sort_stat <span class="op">=</span> <span class="st">'atBats'</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB High Low Stats data from MLB.com ───────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:01 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 20 × 32</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    total_splits season date      is_home  rank game_innings stat_at_bats</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>

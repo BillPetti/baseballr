@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -142,70 +144,19 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_draft_latest</span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2020</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   bis_player_id pick_round pick_number round_pick_number rank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        790203       CB-B          66                 6   51</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   pick_value signing_bonus            home_city home_state home_country</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1    1003300       1196500 North Richland Hills      Texas          USA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             scouting_report school_name school_school_class</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 https://atmlb.com/3fh9KkE  Texas Tech              4YR JR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   school_country school_state</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1            USA           TX</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          blurb</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Beeter has had as many elbow operations as quality starts (two) in college, yet he pitched so well this spring that some scouts think he belongs in the first round. He blew out his elbow during fall practice before what would have been his first season at Texas Tech, having Tommy John surgery in December 2017 and an arthroscopic procedure seven months later. He led the Red Raiders' 2019 College World Series semifinalists with eight saves as a redshirt freshman, then really opened eyes with nearly twice as many strikeouts (33) as baserunners (18) in 21 innings in 2020. Beeter added rather than lost velocity as he worked longer stints this year, sitting at 93-96 mph and peaking at 98 with his fastball. He has a pair of power breaking balls, a wipeout curveball in the low 80s and a slider in the mid-80s that some evaluators believe is even better. He even flashes at least a solid changeup, though he doesn't turn to his fourth option very often. Employing an overhand delivery that creates deception and steep downhill plane, Beeter tunnels his pitches extremely well. Scouts can't figure out how he went from averaging 8.7 walks per nine innings as a reliever to 1.7 as a starter without any significant mechanical changes. His lack of track record is worrisome but it's hard to argue with the quality stuff and strikes he unleashed this spring.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                            headshot_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:silo:current.png/w_120,q_auto:best/v1/people/690925/headshot/draft/current</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   person_id person_full_name           person_link person_first_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1    690925   Clayton Beeter /api/v1/people/690925           Clayton</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   person_last_name person_primary_number person_birth_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           Beeter                    93        1998-10-09</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   person_current_age person_birth_city person_birth_state_province</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                 23        Fort Worth                          TX</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   person_birth_country person_height person_weight person_active</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                  USA         6' 2"           220          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   person_primary_position_code person_primary_position_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                            1                      Pitcher</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   person_primary_position_type person_primary_position_abbreviation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                      Pitcher                                    P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   person_use_name person_middle_name person_boxscore_name person_gender</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         Clayton             Howard               Beeter             M</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   person_is_player person_is_verified person_draft_year</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1             TRUE               TRUE              2020</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   person_bat_side_code person_bat_side_description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                    R                       Right</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   person_pitch_hand_code person_pitch_hand_description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                      R                         Right</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   person_name_first_last      person_name_slug person_first_last_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         Clayton Beeter clayton-beeter-690925         Clayton Beeter</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   person_last_first_name person_last_init_name person_init_last_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        Beeter, Clayton             Beeter, C              C Beeter</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    person_full_fml_name   person_full_lfm_name person_strike_zone_top</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Clayton Howard Beeter Beeter, Clayton Howard                  3.467</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   person_strike_zone_bottom team_spring_league_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                     1.589                   114</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   team_spring_league_name team_spring_league_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           Cactus League      /api/v1/league/114</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   team_spring_league_abbreviation team_all_star_status team_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                              CL                    N     119</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             team_name         team_link team_season team_venue_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Los Angeles Dodgers /api/v1/teams/119        2022            22</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   team_venue_name   team_venue_link team_spring_venue_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  Dodger Stadium /api/v1/venues/22                 3809</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   team_spring_venue_link team_team_code team_file_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1    /api/v1/venues/3809            lan             la</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   team_abbreviation team_team_name team_location_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1               LAD        Dodgers        Los Angeles</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   team_first_year_of_play team_league_id team_league_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                    1884            104  National League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     team_league_link team_division_id   team_division_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 /api/v1/league/104              203 National League West</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      team_division_link team_sport_id  team_sport_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 /api/v1/divisions/203             1 /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         team_sport_name team_short_name team_franchise_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Major League Baseball      LA Dodgers         Los Angeles</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   team_club_name team_active draft_type_code draft_type_description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        Dodgers        TRUE              JR     June Amateur Draft</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   is_drafted is_pass year</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1       TRUE   FALSE 2020</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Draft (Latest) data from MLB.com ───────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:03:42 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 94</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   bis_player_id pick_round pick_number round_pick_numb…  rank pick_value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>        <span style="text-decoration: underline;">790</span>203 CB-B                66                6    51 1003300   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 88 more variables: signing_bonus &lt;chr&gt;, home_city &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_state &lt;chr&gt;, home_country &lt;chr&gt;, scouting_report &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   school_name &lt;chr&gt;, school_school_class &lt;chr&gt;, school_country &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   school_state &lt;chr&gt;, blurb &lt;chr&gt;, headshot_link &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   person_id &lt;int&gt;, person_full_name &lt;chr&gt;, person_link &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   person_first_name &lt;chr&gt;, person_last_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   person_primary_number &lt;chr&gt;, person_birth_date &lt;chr&gt;, …</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

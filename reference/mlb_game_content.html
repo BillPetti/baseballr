@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -142,51 +144,24 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_game_content</span><span class="op">(</span>game_pk <span class="op">=</span> <span class="fl">566001</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         title    epg_id                           content_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1       MLBTV 235400209 42e345a5-710e-4f20-b0e2-1b4daa18e2b7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2       MLBTV 248974095 b714b05a-a109-4775-856d-90e4f06b3535</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 MLBTV-Audio 258483938                                 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 MLBTV-Audio 235400209                                 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 MLBTV-Audio 248974095                                 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6       Audio 258483938 17836bad-78c4-4c9c-950e-6328422ae2cb</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7       Audio 207658015 44a421fc-9552-4f4f-a871-705d1a4f1a73</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8       Audio 166502509 e4861b50-0ea7-4c7c-bcce-a02e93546f95</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                               media_id   media_state media_feed_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 9f0ceb23-0401-46fc-bcf9-fd41a3463ef2 MEDIA_ARCHIVE            HOME</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 1bb41a24-2e1e-4d5c-94ad-d75bfee50cd3 MEDIA_ARCHIVE            AWAY</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                 &lt;NA&gt;          &lt;NA&gt;            HOME</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                 &lt;NA&gt;          &lt;NA&gt;            HOME</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                 &lt;NA&gt;          &lt;NA&gt;            AWAY</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 c056171e-57e8-4099-8ea5-cb67e54ec253 MEDIA_ARCHIVE            &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 bf452ce1-0a7a-4f21-8dd0-08d6108b9849 MEDIA_ARCHIVE            &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 42aec67b-ed12-4d28-98e9-92863b83cde9 MEDIA_ARCHIVE            &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   media_feed_sub_type call_letters fox_auth_required tbs_auth_required</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                 121          SNY             FALSE             FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                 113          FSO             FALSE             FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                &lt;NA&gt;         &lt;NA&gt;                NA                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                &lt;NA&gt;         &lt;NA&gt;                NA                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                &lt;NA&gt;         &lt;NA&gt;                NA                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                 121    ESPN-1050                NA                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                 113          WLW                NA                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                 121     WCBS 880                NA                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   espn_auth_required fs1auth_required mlbn_auth_required free_game type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1              FALSE            FALSE              FALSE     FALSE &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2              FALSE            FALSE              FALSE     FALSE &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                 NA               NA                 NA        NA     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                 NA               NA                 NA        NA     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                 NA               NA                 NA        NA     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                 NA               NA                 NA        NA HOME</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                 NA               NA                 NA        NA AWAY</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                 NA               NA                 NA        NA HOME</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   description rendition_name language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        &lt;NA&gt;           &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2        &lt;NA&gt;           &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                  ES</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4         SNY        English       EN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5        PARK  Natural Sound       EN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6        &lt;NA&gt;           &lt;NA&gt;       es</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7        &lt;NA&gt;           &lt;NA&gt;       en</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8        &lt;NA&gt;           &lt;NA&gt;       en</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Game Content data from MLB.com ─────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:03:51 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8 × 18</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   title          epg_id content_id  media_id media_state media_feed_type</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> MLBTV       235<span style="text-decoration: underline;">400</span>209 42e345a5-7… 9f0ceb2… MEDIA_ARCH… HOME           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> MLBTV       248<span style="text-decoration: underline;">974</span>095 b714b05a-a… 1bb41a2… MEDIA_ARCH… AWAY           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> MLBTV-Audio 258<span style="text-decoration: underline;">483</span>938 <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>          HOME           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> MLBTV-Audio 235<span style="text-decoration: underline;">400</span>209 <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>          HOME           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> MLBTV-Audio 248<span style="text-decoration: underline;">974</span>095 <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span>          AWAY           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> Audio       258<span style="text-decoration: underline;">483</span>938 17836bad-7… c056171… MEDIA_ARCH… <span style="color: #BB0000;">NA</span>             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> Audio       207<span style="text-decoration: underline;">658</span>015 44a421fc-9… bf452ce… MEDIA_ARCH… <span style="color: #BB0000;">NA</span>             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span> Audio       166<span style="text-decoration: underline;">502</span>509 e4861b50-0… 42aec67… MEDIA_ARCH… <span style="color: #BB0000;">NA</span>             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 12 more variables: media_feed_sub_type &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   call_letters &lt;chr&gt;, fox_auth_required &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   tbs_auth_required &lt;lgl&gt;, espn_auth_required &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   fs1auth_required &lt;lgl&gt;, mlbn_auth_required &lt;lgl&gt;, free_game &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   type &lt;chr&gt;, description &lt;chr&gt;, rendition_name &lt;chr&gt;, language &lt;chr&gt;</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

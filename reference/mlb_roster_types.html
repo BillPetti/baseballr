@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -137,26 +139,20 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_roster_types</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                          roster_type_description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                       40 man roster for a team</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Full roster including active and inactive players for a season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3              Full roster including active and inactive players</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                            Non-Roster Invitees</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                       Active roster for a team</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                     All Time roster for a team</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                         Depth chart for a team</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                         Roster for day of game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                        Coach roster for a team</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   roster_type_lookup_name roster_type_parameter</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                   40man                 40Man</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2              fullSeason            fullSeason</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                    full            fullRoster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4       nonRosterInvitees     nonRosterInvitees</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                  active                active</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                 alltime               allTime</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                  active            depthChart</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                  active               gameday</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                  active                 coach</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Roster Types data from MLB.com ─────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:22 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   roster_type_description              roster_type_loo… roster_type_par…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 40 man roster for a team             40man            40Man           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Full roster including active and in… fullSeason       fullSeason      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Full roster including active and in… full             fullRoster      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> Non-Roster Invitees                  nonRosterInvite… nonRosterInvite…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> Active roster for a team             active           active          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> All Time roster for a team           alltime          allTime         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> Depth chart for a team               active           depthChart      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span> Roster for day of game               active           gameday         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">9</span> Coach roster for a team              active           coach           </span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

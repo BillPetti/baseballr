@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -141,16 +143,24 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in">  <span class="fu">playername_lookup</span><span class="op">(</span><span class="fl">4885</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    name_first name_last  name_given name_suffix  name_nick birth_year</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:      Nyjer    Morgan Nyjer Jamid             Tony Plush       1980</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    mlb_played_first key_mlbam key_retro key_bbref key_fangraphs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:             2007    460579  morgn001 morgany01          4885</span>
-<span class="r-in">  <span class="fu">playername_lookup</span><span class="op">(</span><span class="st">"kaaihki01"</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    name_first name_last name_given name_suffix name_nick birth_year</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:       Kila  Ka'aihue Micah Kila                             1984</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    mlb_played_first key_mlbam key_retro key_bbref key_fangraphs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:             2008    451500  kaaik001 kaaihki01          4707</span>
+<span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">playername_lookup</span><span class="op">(</span><span class="fl">4885</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Player Name Lookup from the Chadwick Bureau's public register of base</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:02:58 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 11</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   name_first name_last name_given  name_suffix name_nick  birth_year</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Nyjer      Morgan    Nyjer Jamid <span style="color: #949494;">""</span>          Tony Plush       <span style="text-decoration: underline;">1</span>980</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 5 more variables: mlb_played_first &lt;int&gt;, key_mlbam &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   key_retro &lt;chr&gt;, key_bbref &lt;chr&gt;, key_fangraphs &lt;int&gt;</span></span>
+<span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">playername_lookup</span><span class="op">(</span><span class="st">"kaaihki01"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Player Name Lookup from the Chadwick Bureau's public register of base</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:03:01 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 11</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   name_first name_last name_given name_suffix name_nick birth_year</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Kila       Ka'aihue  Micah Kila <span style="color: #949494;">""</span>          <span style="color: #949494;">""</span>              <span style="text-decoration: underline;">1</span>984</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 5 more variables: mlb_played_first &lt;int&gt;, key_mlbam &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   key_retro &lt;chr&gt;, key_bbref &lt;chr&gt;, key_fangraphs &lt;int&gt;</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

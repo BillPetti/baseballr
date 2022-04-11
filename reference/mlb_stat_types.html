@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -137,63 +139,22 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_stat_types</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               stat_type_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                  projected</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2               projectedRos</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                 yearByYear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4         yearByYearAdvanced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5         yearByYearPlayoffs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                     season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                   standard</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                   advanced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                     career</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10       careerRegularSeason</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11            careerAdvanced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12            seasonAdvanced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13          careerStatSplits</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14            careerPlayoffs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                   gameLog</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                   playLog</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                  pitchLog</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                 metricLog</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19            metricAverages</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20              pitchArsenal</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21          outsAboveAverage</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22        expectedStatistics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23              sabermetrics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24                sprayChart</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                  tracking</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26                  vsPlayer</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27             vsPlayerTotal</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28                vsPlayer5Y</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29                    vsTeam</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30                  vsTeam5Y</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31               vsTeamTotal</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32                lastXGames</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33               byDateRange</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34       byDateRangeAdvanced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35                   byMonth</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36           byMonthPlayoffs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37               byDayOfWeek</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38       byDayOfWeekPlayoffs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39               homeAndAway</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40       homeAndAwayPlayoffs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41                   winLoss</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42           winLossPlayoffs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43                  rankings</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44            rankingsByYear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45         statsSingleSeason</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46 statsSingleSeasonAdvanced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47              hotColdZones</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48            availableStats</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49            opponentsFaced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50             gameTypeStats</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51            firstYearStats</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52             lastYearStats</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53                statSplits</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54        statSplitsAdvanced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55               atGameStart</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56               vsOpponents</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Stat Types data from MLB.com ───────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:35 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 56 × 1</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    stat_type_name     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> projected          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> projectedRos       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> yearByYear         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> yearByYearAdvanced </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> yearByYearPlayoffs </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> season             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> standard           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> advanced           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> career             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> careerRegularSeason</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 46 more rows</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -145,67 +147,27 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in">  <span class="fu">load_game_info_sup</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         game_date game_pk               venue_name venue_id temperature</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     1: 2022-04-07  663178            Wrigley Field       17          44</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     2: 2022-04-07  662766         Kauffman Stadium        7          47</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     3: 2022-04-07  662021            Busch Stadium     2889          50</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     4: 2022-04-07  662571           Nationals Park     3309          52</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     5: 2022-04-07  661577              Truist Park     4705          63</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ---                                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39529: 2008-03-27  237614         Surprise Stadium     2603          78</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39530: 2008-03-27  237615             Hohokam Park     2507          77</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39531: 2008-03-27  237620           Peoria Stadium     2530          79</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39532: 2008-03-27  237609 Angel Stadium of Anaheim        1          68</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39533: 2008-03-27  237621                AT&amp;T Park     2395          52</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        other_weather              wind attendance start_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     1:        Cloudy 14 mph, Out To CF     35,112   13:22:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     2:        Cloudy    16 mph, L To R     28,459   15:10:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     3:        Cloudy 20 mph, Out To RF     46,256   15:24:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     4:        Cloudy  4 mph, Out To RF     35,052   20:21:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     5: Partly Cloudy    15 mph, R To L     40,545   20:08:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ---                                                      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39529:         Sunny    10 mph, R To L      7,236   12:04:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39530:         Sunny  2 mph, Out To LF     12,782   12:05:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39531:         Sunny    11 mph, R To L      8,411   12:04:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39532: Partly Cloudy  6 mph, Out To CF     38,863   19:06:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39533:         Clear 22 mph, Out To CF     25,720   19:16:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             elapsed_time                    game_id game_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     1:              3:18 2022/04/07/milmlb-chnmlb-1         R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     2:              2:49 2022/04/07/clemlb-kcamlb-1         R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     3:              3:08 2022/04/07/pitmlb-slnmlb-1         R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     4: 3:31 (1:16 delay) 2022/04/07/nynmlb-wasmlb-1         R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     5:              3:01 2022/04/07/cinmlb-atlmlb-1         R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ---                                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39529:              2:59 2008/03/27/kcamlb-texmlb-1         S</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39530:              3:23 2008/03/27/milmlb-chnmlb-1         S</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39531:              3:30 2008/03/27/sdnmlb-seamlb-1         S</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39532:              2:58 2008/03/27/lanmlb-anamlb-1         S</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39533:              2:48 2008/03/27/seamlb-sfnmlb-1         S</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        home_sport_code    official_scorer          date status_ind</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     1:             mlb        Allan Spear April 7, 2022          F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     2:             mlb         Max Utsler April 7, 2022          F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     3:             mlb       Gary Mueller April 7, 2022          F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     4:             mlb Benjamin Trittipoe April 7, 2022          F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     5:             mlb      Guy Curtright April 7, 2022          F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ---                                                            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39529:             mlb          Rich Rice           Att          F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39530:             mlb         Jason Carr           Att         FT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39531:             mlb         Jeff Evans           Att         FT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39532:             mlb          Ed Munson           Att         FT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39533:             mlb      Jim Moorehead           Att          F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        home_league_id gameday_sw</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     1:            104          P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     2:            103          P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     3:            104          P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     4:            104          P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     5:            104          P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ---                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39529:            103          N</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39530:            104          N</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39531:            103          N</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39532:            103          E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39533:            104          E</span>
+<span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">load_game_info_sup</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Supplementary MLB Game Info data from baseballr-data repository ─────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:03:30 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 39,575 × 18</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    game_date  game_pk venue_name      venue_id temperature other_weather</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2022-04-10  <span style="text-decoration: underline;">661</span>129 Citizens Bank …     <span style="text-decoration: underline;">2</span>681          48 Cloudy       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2022-04-10  <span style="text-decoration: underline;">661</span>916 Tropicana Field       12          72 Dome         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2022-04-10  <span style="text-decoration: underline;">662</span>887 Comerica Park       <span style="text-decoration: underline;">2</span>394          48 Sunny        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2022-04-10  <span style="text-decoration: underline;">662</span>570 Nationals Park      <span style="text-decoration: underline;">3</span>309          47 Overcast     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2022-04-10  <span style="text-decoration: underline;">661</span>573 Truist Park         <span style="text-decoration: underline;">4</span>705          68 Sunny        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2022-04-10  <span style="text-decoration: underline;">661</span>802 Rogers Centre         14          68 Roof Closed  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2022-04-10  <span style="text-decoration: underline;">662</span>755 Kauffman Stadi…        7          75 Partly Cloudy</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2022-04-10  <span style="text-decoration: underline;">661</span>738 Target Field        <span style="text-decoration: underline;">3</span>312          53 Cloudy       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2022-04-10  <span style="text-decoration: underline;">662</span>019 Busch Stadium       <span style="text-decoration: underline;">2</span>889          70 Sunny        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2022-04-10  <span style="text-decoration: underline;">663</span>204 Wrigley Field         17          54 Partly Cloudy</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 39,565 more rows, and 12 more variables: wind &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   attendance &lt;chr&gt;, start_time &lt;chr&gt;, elapsed_time &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   game_id &lt;chr&gt;, game_type &lt;chr&gt;, home_sport_code &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   official_scorer &lt;chr&gt;, date &lt;chr&gt;, status_ind &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_league_id &lt;int&gt;, gameday_sw &lt;chr&gt;</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

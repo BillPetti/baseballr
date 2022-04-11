@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -137,22 +139,39 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_fielder_detail_types</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               stat_name code          names error chance</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1              f_assist    A         assist FALSE   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2           f_assist_of  FOF outfieldAssist FALSE  FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3        f_fielded_ball &lt;NA&gt;           &lt;NA&gt; FALSE  FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4          f_deflection &lt;NA&gt;           &lt;NA&gt; FALSE  FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5              f_putout   PO         putout FALSE   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6               f_touch &lt;NA&gt;           &lt;NA&gt; FALSE  FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7               f_error    E          error  TRUE   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8      f_fielding_error &lt;NA&gt;           &lt;NA&gt;  TRUE   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9          f_foul_error &lt;NA&gt;           &lt;NA&gt;  TRUE   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 f_error_dropped_ball &lt;NA&gt;           &lt;NA&gt;  TRUE   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11       f_interference &lt;NA&gt;           &lt;NA&gt;  TRUE   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12     f_throwing_error &lt;NA&gt;           &lt;NA&gt;  TRUE   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13     c_catcher_interf &lt;NA&gt;           &lt;NA&gt;  TRUE  FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14        t_double_play &lt;NA&gt;           &lt;NA&gt; FALSE  FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15        t_triple_play &lt;NA&gt;           &lt;NA&gt; FALSE  FALSE</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>corrupt data frame: columns will be truncated or padded with NAs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               stat_name code</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1              f_assist    A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2           f_assist_of  FOF</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3        f_fielded_ball &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4          f_deflection &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5              f_putout   PO</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6               f_touch &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7               f_error    E</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8      f_fielding_error &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9          f_foul_error &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 f_error_dropped_ball &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11       f_interference &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12     f_throwing_error &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13     c_catcher_interf &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14        t_double_play &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15        t_triple_play &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                      names error chance</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                 \033[38;5;246m# A tibble: 15 × 1\033[39m FALSE   TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                           names          FALSE  FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3      \033[3m\033[38;5;246m&lt;chr&gt;\033[39m\033[23m          FALSE  FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                  \033[38;5;250m 1\033[39m assist         FALSE  FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                  \033[38;5;250m 2\033[39m outfieldAssist FALSE   TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  \033[38;5;250m 3\033[39m \033[31mNA\033[39m             FALSE  FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  \033[38;5;250m 4\033[39m \033[31mNA\033[39m              TRUE   TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                  \033[38;5;250m 5\033[39m putout          TRUE   TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  \033[38;5;250m 6\033[39m \033[31mNA\033[39m              TRUE   TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                 \033[38;5;250m 7\033[39m error           TRUE   TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 \033[38;5;250m 8\033[39m \033[31mNA\033[39m              TRUE   TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 \033[38;5;250m 9\033[39m \033[31mNA\033[39m              TRUE   TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 \033[38;5;250m10\033[39m \033[31mNA\033[39m              TRUE  FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 \033[38;5;250m11\033[39m \033[31mNA\033[39m             FALSE  FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 \033[38;5;250m12\033[39m \033[31mNA\033[39m             FALSE  FALSE</span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

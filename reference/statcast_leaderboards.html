@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -234,55 +236,28 @@ position categories.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in">  <span class="fu">statcast_leaderboards</span><span class="op">(</span>leaderboard <span class="op">=</span> <span class="st">"exit_velocity_barrels"</span>, year <span class="op">=</span> <span class="fl">2018</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      year      last_name first_name player_id attempts avg_hit_angle</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1: 2018          Gallo       Joey    608336      293          21.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2: 2018          Davis      Khris    501981      408          18.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3: 2018       Martinez       J.D.    502110      430          10.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4: 2018          Betts     Mookie    605141      434          18.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5: 2018          Trout       Mike    545361      351          18.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 134: 2018          Smith     Mallex    605480      391           3.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 135: 2018          Duffy       Matt    622110      413           4.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 136: 2018          Rojas     Miguel    500743      426           9.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 137: 2018       Hamilton      Billy    571740      377          15.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 138: 2018 Strange-Gordon        Dee    543829      490           5.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      anglesweetspotpercent max_hit_speed avg_hit_speed fbld   gb</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1:                  37.5         117.5          94.3 99.9 86.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2:                  37.7         112.8          92.5 97.2 87.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3:                  40.0         116.7          93.0 96.7 89.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4:                  39.4         110.6          92.2 95.8 88.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5:                  41.3         118.0          91.2 95.9 85.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 134:                  32.2         104.7          85.8 89.4 83.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 135:                  33.7         104.9          86.8 90.0 85.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 136:                  35.2         106.6          84.7 87.1 84.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 137:                  36.9         101.9          80.5 83.0 79.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 138:                  30.2         104.7          83.2 85.1 82.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      max_distance avg_distance avg_hr_distance ev95plus ev95per-swing</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1:          495          228             410      145          12.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2:          438          212             405      195          15.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3:          443          185             398      226          17.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4:          452          209             400      218          23.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5:          459          213             407      162          16.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 134:          412          146             393       90           8.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 135:          410          136             402      116          11.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 136:          431          147             390      101          10.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 137:          392          162             375       32           3.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 138:          386          133             365       61           5.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      ev95percent barrels brl_percent brl_pa</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1:        49.5      66        22.5   11.4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2:        47.8      70        17.2   10.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3:        52.6      69        16.0   10.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4:        50.2      61        14.1    9.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5:        46.2      58        16.5    9.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 134:        23.0       6         1.5    1.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 135:        28.1       5         1.2    0.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 136:        23.7       4         0.9    0.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 137:         8.5       2         0.5    0.4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 138:        12.4       1         0.2    0.2</span>
+<span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">statcast_leaderboards</span><span class="op">(</span>leaderboard <span class="op">=</span> <span class="st">"exit_velocity_barrels"</span>, year <span class="op">=</span> <span class="fl">2018</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Baseball Savant Statcast Leaderboards data from baseballsavant.ml</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:05:20 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 138 × 20</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     year last_name first_name player_id attempts avg_hit_angle</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>  <span style="text-decoration: underline;">2</span>018 Gallo     Joey          <span style="text-decoration: underline;">608</span>336      293          21.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>  <span style="text-decoration: underline;">2</span>018 Davis     Khris         <span style="text-decoration: underline;">501</span>981      408          18.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>  <span style="text-decoration: underline;">2</span>018 Martinez  J.D.          <span style="text-decoration: underline;">502</span>110      430          10.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>  <span style="text-decoration: underline;">2</span>018 Betts     Mookie        <span style="text-decoration: underline;">605</span>141      434          18.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">2</span>018 Trout     Mike          <span style="text-decoration: underline;">545</span>361      351          18.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">2</span>018 Hernández Teoscar       <span style="text-decoration: underline;">606</span>192      316          17  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">2</span>018 Cruz      Nelson        <span style="text-decoration: underline;">443</span>558      400          12.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">2</span>018 Stanton   Giancarlo     <span style="text-decoration: underline;">519</span>317      416          11.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">2</span>018 Yelich    Christian     <span style="text-decoration: underline;">592</span>885      441           5  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">2</span>018 Báez      Javier        <span style="text-decoration: underline;">595</span>879      444           9.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 128 more rows, and 14 more variables:</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   anglesweetspotpercent &lt;dbl&gt;, max_hit_speed &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   avg_hit_speed &lt;dbl&gt;, fbld &lt;dbl&gt;, gb &lt;dbl&gt;, max_distance &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   avg_distance &lt;int&gt;, avg_hr_distance &lt;int&gt;, ev95plus &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `ev95per-swing` &lt;dbl&gt;, ev95percent &lt;dbl&gt;, barrels &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   brl_percent &lt;dbl&gt;, brl_pa &lt;dbl&gt;</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

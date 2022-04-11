@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -139,139 +141,29 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in">  <span class="fu">chadwick_player_lu</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         key_person                             key_uuid key_mlbam</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:   663ecca1 663ecca1-6b4e-4a11-9494-1caa6d6b2d13    439524</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:   3e8b4a3e 3e8b4a3e-0866-4402-ad11-1905dd9022dd        NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:   8e7b24b0 8e7b24b0-6dec-40b2-b895-8685e02e3d3b        NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:   aaf20538 aaf20538-b53e-4d63-a3e0-e9e81fbd590c        NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:   34c63185 34c63185-85a0-4369-ac23-51f54392566a        NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435343:   933c847e 933c847e-f306-4c0b-b888-e8ec93ff44f7        NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435344:   3135b811 3135b811-ec4b-40d8-af40-ca0adc33a219        NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435345:   b0678f4c b0678f4c-cc46-4396-b2d3-980b93f2575c    666557</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435346:   27f57a23 27f57a23-2441-4bae-8b26-6e792a62d868        NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435347:   ff617bd4 ff617bd4-3933-43e3-95cc-bef5ea74ed41        NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         key_retro key_bbref key_bbref_minors key_fangraphs key_npb</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:                         thoen-001eve            NA      NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:                         ahara-000sco            NA      NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:                         ahease001---            NA      NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:                         aaberg001alf            NA      NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:                         aadlan001kir            NA      NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435343:                         zywici000jos            NA      NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435344:                         zywick000bob            NA      NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435345:                         zywick000bra            NA      NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435346:                         zyzda-000nat            NA      NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435347:                                                 NA      NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         key_sr_nfl key_sr_nba key_sr_nhl key_findagrave name_last</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:                                              NA   't Hoen</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:                                              NA    A'Hara</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:                                              NA   A'Heasy</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:                                              NA    Aaberg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:                                              NA   Aadland</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435343:                                              NA  Zywiciel</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435344:                                              NA   Zywicki</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435345:                                              NA   Zywicki</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435346:                                              NA     Zyzda</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435347:                                              NA     Zyzyk</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         name_first              name_given name_suffix name_matrilineal</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1: Evert Jean Evert Jean Axel Charles                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:      Scott                   Scott                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:                                                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:         Al          Alfred Bernard                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:       Kirk              Kirk Allan                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435343:     Joseph                  Joseph                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435344:      Bobby                   Bobby                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435345:    Brandon                 Brandon                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435346:       Nate                    Nate                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435347:     Stormy                  Stormy                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         name_nick birth_year birth_month birth_day death_year</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:     E. J.       1975          11         8         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:                   NA          NA        NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:                   NA          NA        NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:                 1911           5         5       1976</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:                 1958           7        14         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435343:                   NA          NA        NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435344:                   NA          NA        NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435345:                 1993           1         8         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435346:                   NA          NA        NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435347:                   NA          NA        NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         death_month death_day pro_played_first pro_played_last</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:          NA        NA             1996            2007</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:          NA        NA               NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:          NA        NA             1901            1901</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:          11        12             1936            1936</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:          NA        NA             1978            1978</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435343:          NA        NA               NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435344:          NA        NA               NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435345:          NA        NA             2015            2015</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435346:          NA        NA               NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435347:          NA        NA               NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         mlb_played_first mlb_played_last col_played_first</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:               NA              NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:               NA              NA             2008</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:               NA              NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:               NA              NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:               NA              NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435343:               NA              NA             2018</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435344:               NA              NA             2016</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435345:               NA              NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435346:               NA              NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435347:               NA              NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         col_played_last pro_managed_first pro_managed_last</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:              NA                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:            2011                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:              NA                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:              NA                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:              NA                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435343:            2019                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435344:            2019                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435345:              NA                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435346:              NA                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435347:              NA                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         mlb_managed_first mlb_managed_last col_managed_first</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:                NA               NA                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:                NA               NA                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:                NA               NA                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:                NA               NA                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:                NA               NA                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435343:                NA               NA                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435344:                NA               NA                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435345:                NA               NA                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435346:                NA               NA                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435347:                NA               NA                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         col_managed_last pro_umpired_first pro_umpired_last</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:               NA                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:               NA                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:               NA                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:               NA                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:               NA                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435343:               NA                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435344:               NA                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435345:               NA                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435346:               NA                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435347:               NA                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         mlb_umpired_first mlb_umpired_last</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      1:                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      2:                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3:                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      4:                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      5:                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435343:                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435344:                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435345:                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435346:                NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 435347:                NA               NA</span>
+<span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">chadwick_player_lu</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Player Lookup from the Chadwick Bureau's public register of baseball </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:02:54 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 435,347 × 40</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    key_person key_uuid    key_mlbam key_retro key_bbref key_bbref_minors</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 663ecca1   663ecca1-6…    <span style="text-decoration: underline;">439</span>524 <span style="color: #949494;">""</span>        <span style="color: #949494;">""</span>        thoen-001eve    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 3e8b4a3e   3e8b4a3e-0…        <span style="color: #BB0000;">NA</span> <span style="color: #949494;">""</span>        <span style="color: #949494;">""</span>        ahara-000sco    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 8e7b24b0   8e7b24b0-6…        <span style="color: #BB0000;">NA</span> <span style="color: #949494;">""</span>        <span style="color: #949494;">""</span>        ahease001---    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> aaf20538   aaf20538-b…        <span style="color: #BB0000;">NA</span> <span style="color: #949494;">""</span>        <span style="color: #949494;">""</span>        aaberg001alf    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 34c63185   34c63185-8…        <span style="color: #BB0000;">NA</span> <span style="color: #949494;">""</span>        <span style="color: #949494;">""</span>        aadlan001kir    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> a1f1855b   a1f1855b-c…        <span style="color: #BB0000;">NA</span> <span style="color: #949494;">""</span>        <span style="color: #949494;">""</span>        aaker-000zac    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2f06a161   2f06a161-2…        <span style="color: #BB0000;">NA</span> <span style="color: #949494;">""</span>        <span style="color: #949494;">""</span>        aakhus001zac    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 754d5b99   754d5b99-f…    <span style="text-decoration: underline;">444</span>058 <span style="color: #949494;">""</span>        <span style="color: #949494;">""</span>        aalber001bra    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 735c68ec   735c68ec-1…        <span style="color: #BB0000;">NA</span> <span style="color: #949494;">""</span>        <span style="color: #949494;">""</span>        aamold000ryl    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> cbcc7093   cbcc7093-0…        <span style="color: #BB0000;">NA</span> <span style="color: #949494;">""</span>        <span style="color: #949494;">""</span>        aander000bri    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 435,337 more rows, and 34 more variables: key_fangraphs &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   key_npb &lt;int&gt;, key_sr_nfl &lt;chr&gt;, key_sr_nba &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   key_sr_nhl &lt;chr&gt;, key_findagrave &lt;int&gt;, name_last &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   name_first &lt;chr&gt;, name_given &lt;chr&gt;, name_suffix &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   name_matrilineal &lt;chr&gt;, name_nick &lt;chr&gt;, birth_year &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   birth_month &lt;int&gt;, birth_day &lt;int&gt;, death_year &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   death_month &lt;int&gt;, death_day &lt;int&gt;, pro_played_first &lt;int&gt;, …</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

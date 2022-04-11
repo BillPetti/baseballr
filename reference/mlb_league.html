@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -146,121 +148,22 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_league</span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2021</span>, sport_id <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   league_id       league_name        league_link league_abbreviation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1       103   American League /api/v1/league/103                  AL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2       104   National League /api/v1/league/104                  NL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3       114     Cactus League /api/v1/league/114                  CL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4       115 Grapefruit League /api/v1/league/115                  GL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   league_name_short league_season_state league_has_wild_card</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1          American           offseason                 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2          National           offseason                 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3            Cactus           offseason                FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4        Grapefruit           offseason                FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   league_has_split_season league_num_games league_has_playoff_points</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                   FALSE              162                     FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                   FALSE              162                     FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                   FALSE               NA                     FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                   FALSE               NA                     FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   league_num_teams league_num_wildcard_teams league_season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1               15                         2          2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2               15                         2          2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3               NA                        NA          2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4               NA                        NA          2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   league_org_code league_conferences_in_use league_divisions_in_use</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1              AL                     FALSE                    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2              NL                     FALSE                    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3              CL                     FALSE                   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4              GL                     FALSE                   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   league_sort_order league_active season_date_info_season_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                21          TRUE                       2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                31          TRUE                       2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                51          TRUE                       2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                52          TRUE                       2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_date_info_pre_season_start_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                             2021-01-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                             2021-01-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                             2021-02-28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                             2021-02-28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_date_info_pre_season_end_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                           2021-02-27</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                           2021-02-27</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                           2021-03-30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                           2021-03-30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_date_info_season_start_date season_date_info_spring_start_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                         2021-02-28                         2021-02-28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                         2021-02-28                         2021-02-28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                         2021-02-28                         2021-02-28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                         2021-02-28                         2021-02-28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_date_info_spring_end_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                       2021-03-30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                       2021-03-30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                       2021-03-30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                       2021-03-30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_date_info_regular_season_start_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                 2021-04-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                 2021-04-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_date_info_last_date1st_half season_date_info_all_star_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                         2021-07-11                     2021-07-13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                         2021-07-11                     2021-07-13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                               &lt;NA&gt;                           &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                               &lt;NA&gt;                           &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_date_info_first_date2nd_half</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                          2021-07-15</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                          2021-07-15</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_date_info_regular_season_end_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                               2021-10-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                               2021-10-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_date_info_post_season_start_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                              2021-10-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                              2021-10-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_date_info_post_season_end_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                            2021-11-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                            2021-11-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_date_info_season_end_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                       2021-11-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                       2021-11-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                             &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                             &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_date_info_offseason_start_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                            2021-11-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                            2021-11-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_date_info_off_season_end_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                           2021-12-31</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                           2021-12-31</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                           2021-12-21</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                           2021-12-21</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_date_info_season_level_gameday_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                          P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                          P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                          F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                          F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_date_info_game_level_gameday_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                        P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                        P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                        F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                        F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_date_info_qualifier_plate_appearances</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                          3.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                          3.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_date_info_qualifier_outs_pitched sport_id       sport_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                       3        1 /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                       3        1 /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                      NA        1 /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                      NA        1 /api/v1/sports/1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB League data from MLB.com ───────────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:09 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4 × 40</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   league_id league_name    league_link league_abbrevia… league_name_sho…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>       103 American Leag… /api/v1/le… AL               American        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>       104 National Leag… /api/v1/le… NL               National        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>       114 Cactus League  /api/v1/le… CL               Cactus          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>       115 Grapefruit Le… /api/v1/le… GL               Grapefruit      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 35 more variables: league_season_state &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   league_has_wild_card &lt;lgl&gt;, league_has_split_season &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   league_num_games &lt;int&gt;, league_has_playoff_points &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   league_num_teams &lt;int&gt;, league_num_wildcard_teams &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   league_season &lt;chr&gt;, league_org_code &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   league_conferences_in_use &lt;lgl&gt;, league_divisions_in_use &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   league_sort_order &lt;int&gt;, league_active &lt;lgl&gt;, …</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

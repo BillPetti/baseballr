@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -159,22 +161,19 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_team_stats</span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">137</span>, stat_type <span class="op">=</span> <span class="st">'season'</span>, stat_group <span class="op">=</span> <span class="st">'hitting'</span>, season <span class="op">=</span> <span class="fl">2021</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season games_played ground_outs air_outs runs doubles triples</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   2021          162        1304     1403  804     271      25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   home_runs strike_outs base_on_balls intentional_walks hits</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1       241        1461           602                45 1360</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   hit_by_pitch  avg at_bats  obp  slg  ops caught_stealing stolen_bases</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           64 .249    5462 .329 .440 .769              14           66</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   stolen_base_percentage ground_into_double_play number_of_pitches</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                   .825                     117             24617</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   plate_appearances total_bases rbi left_on_base sac_bunts sac_flies</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1              6196        2404 768         1138        36        30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   babip ground_outs_to_airouts catchers_interference</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  .295                   0.93                     2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   at_bats_per_home_run team_id            team_name         team_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                22.66     137 San Francisco Giants /api/v1/teams/137</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   type_display_name group_display_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1            season            hitting</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Team Stats data from MLB.com ───────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:41 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 38</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   season games_played ground_outs air_outs  runs doubles triples</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 2021            162        <span style="text-decoration: underline;">1</span>304     <span style="text-decoration: underline;">1</span>403   804     271      25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 31 more variables: home_runs &lt;int&gt;, strike_outs &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   base_on_balls &lt;int&gt;, intentional_walks &lt;int&gt;, hits &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   hit_by_pitch &lt;int&gt;, avg &lt;chr&gt;, at_bats &lt;int&gt;, obp &lt;chr&gt;, slg &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ops &lt;chr&gt;, caught_stealing &lt;int&gt;, stolen_bases &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   stolen_base_percentage &lt;chr&gt;, ground_into_double_play &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   number_of_pitches &lt;int&gt;, plate_appearances &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   total_bases &lt;int&gt;, rbi &lt;int&gt;, left_on_base &lt;int&gt;, …</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

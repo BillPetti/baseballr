@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -144,52 +146,19 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_game_context_metrics</span><span class="op">(</span>game_pk <span class="op">=</span> <span class="fl">531060</span>, timecode <span class="op">=</span> <span class="st">"20180803_182458"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   game_pk                            link game_type season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  531060 /api/v1.1/game/531060/feed/live         R   2018</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              game_date official_date status_abstract_game_state</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2018-08-03T18:20:00Z    2018-08-03                      Final</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   status_coded_game_state status_detailed_state status_status_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                       F                 Final                  F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   status_start_time_tbd status_abstract_game_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                 FALSE                         F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams_away_league_record_wins teams_away_league_record_losses</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                            43                              69</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams_away_league_record_pct teams_away_score teams_away_team_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                         .384                4                135</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams_away_team_name teams_away_team_link teams_away_is_winner</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     San Diego Padres    /api/v1/teams/135                FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams_away_probable_pitcher_id teams_away_probable_pitcher_full_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                         475115                            Tyson Ross</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams_away_probable_pitcher_link teams_away_split_squad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1            /api/v1/people/475115                  FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams_away_series_number teams_home_league_record_wins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                       36                            63</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams_home_league_record_losses teams_home_league_record_pct</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                              46                         .578</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams_home_score teams_home_team_id teams_home_team_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                5                112         Chicago Cubs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams_home_team_link teams_home_is_winner</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1    /api/v1/teams/112                 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams_home_probable_pitcher_id teams_home_probable_pitcher_full_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                         500779                         Jose Quintana</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams_home_probable_pitcher_link teams_home_split_squad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1            /api/v1/people/500779                  FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams_home_series_number venue_id    venue_name        venue_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                       36       17 Wrigley Field /api/v1/venues/17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                        link_1 is_tie game_number public_facing</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 /api/v1/game/531060/content  FALSE           1          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   double_header gameday_type tiebreaker    calendar_event_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1             N            P          N 14-531060-2018-08-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_display day_night scheduled_innings reverse_home_away_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           2018       day                 9                    FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   inning_break_length games_in_series series_game_number</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                 125               4                  2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   series_description record_source if_necessary</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     Regular Season             S            N</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   if_necessary_description                    game_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1              Normal Game 2018/08/03/sdnmlb-chnmlb-1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   home_win_probability away_win_probability</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                 53.7                 46.3</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Game Context Metrics data from MLB.com ─────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:03:52 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 63</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   game_pk link                  game_type season game_date official_date</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">531</span>060 /api/v1.1/game/53106… R         2018   2018-08-… 2018-08-03   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 57 more variables: status_abstract_game_state &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   status_coded_game_state &lt;chr&gt;, status_detailed_state &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   status_status_code &lt;chr&gt;, status_start_time_tbd &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   status_abstract_game_code &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   teams_away_league_record_wins &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   teams_away_league_record_losses &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   teams_away_league_record_pct &lt;chr&gt;, teams_away_score &lt;int&gt;, …</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

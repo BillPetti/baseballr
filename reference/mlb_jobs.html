@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -146,220 +148,22 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_jobs</span><span class="op">(</span>job_type<span class="op">=</span><span class="st">'UMPR'</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     jersey_number    job job_code  title person_id   person_full_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1              67 Umpire     UMPR Umpire    596809       Ryan Additon</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2             100 Umpire     UMPR Umpire    486200      David Arrieta</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3             101 Umpire     UMPR Umpire    623938      Erich Bacchus</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4              70 Umpire     UMPR Umpire    545402         John Bacon</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5              71 Umpire     UMPR Umpire    490319       Jordan Baker</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6              29 Umpire     UMPR Umpire    503493        Sean Barber</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7              23 Umpire     UMPR Umpire    427013    Lance Barksdale</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8              16 Umpire     UMPR Umpire    483561      Lance Barrett</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9              65 Umpire     UMPR Umpire    427019        Ted Barrett</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10             87 Umpire     UMPR Umpire    482608        Scott Barry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11            102 Umpire     UMPR Umpire    644760          Adam Beck</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12              2 Umpire     UMPR Umpire    483564        Dan Bellino</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13             36 Umpire     UMPR Umpire    503502       Ryan Blakney</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14             89 Umpire     UMPR Umpire    484183        Cory Blaser</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15             54 Umpire     UMPR Umpire    427044         CB Bucknor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16             19 Umpire     UMPR Umpire    483569      Vic Carapazza</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17              6 Umpire     UMPR Umpire    427053       Mark Carlson</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18            103 Umpire     UMPR Umpire    598411        Nestor Ceja</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19            104 Umpire     UMPR Umpire    607884       Paul Clemons</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20             98 Umpire     UMPR Umpire    482620       Chris Conroy</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21             10 Umpire     UMPR Umpire    427093         Phil Cuzzi</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22             18 Umpire     UMPR Umpire    594151     Ramon De Jesus</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23             63 Umpire     UMPR Umpire    427113           Laz Diaz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24             30 Umpire     UMPR Umpire    427128          Rob Drake</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25              1 Umpire     UMPR Umpire    427129     Bruce Dreckman</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26             88 Umpire     UMPR Umpire    427139       Doug Eddings</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27             50 Umpire     UMPR Umpire    427144         Paul Emmel</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28             83 Umpire     UMPR Umpire    482631     Mike Estabrook</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29              4 Umpire     UMPR Umpire    431232     Chad Fairchild</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30             49 Umpire     UMPR Umpire    427164      Andy Fletcher</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31             60 Umpire     UMPR Umpire    427168       Marty Foster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32            120 Umpire     UMPR Umpire    623942         Reid Gibbs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33             53 Umpire     UMPR Umpire    427184        Greg Gibson</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34             73 Umpire     UMPR Umpire    503586       Tripp Gibson</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35             79 Umpire     UMPR Umpire    484499     Manny Gonzalez</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36             68 Umpire     UMPR Umpire    427197     Chris Guccione</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37             20 Umpire     UMPR Umpire    427206        Tom Hallion</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38             78 Umpire     UMPR Umpire    503077        Adam Hamari</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39              5 Umpire     UMPR Umpire    427220    Angel Hernandez</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40             15 Umpire     UMPR Umpire    427224          Ed Hickox</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41             31 Umpire     UMPR Umpire    573596         Pat Hoberg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42             34 Umpire     UMPR Umpire    427235       Sam Holbrook</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43             92 Umpire     UMPR Umpire    428442         James Hoye</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44             51 Umpire     UMPR Umpire    427243      Marvin Hudson</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45             58 Umpire     UMPR Umpire    427248       Dan Iassogna</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46             80 Umpire     UMPR Umpire    482641     Adrian Johnson</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47             91 Umpire     UMPR Umpire    427286       Brian Knight</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48             46 Umpire     UMPR Umpire    427292          Ron Kulpa</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49             24 Umpire     UMPR Umpire    427299        Jerry Layne</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50             59 Umpire     UMPR Umpire    544728          Nic Lentz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51             84 Umpire     UMPR Umpire    596805         John Libka</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52             93 Umpire     UMPR Umpire    504381        Will Little</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53             43 Umpire     UMPR Umpire    575629 Shane Livensparger</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54            105 Umpire     UMPR Umpire    623945        Alex MacKay</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55             48 Umpire     UMPR Umpire    521051       Nick Mahrley</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56             72 Umpire     UMPR Umpire    427315    Alfonso Marquez</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57             97 Umpire     UMPR Umpire    521251            Ben May</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58             41 Umpire     UMPR Umpire    427339        Jerry Meals</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59            107 Umpire     UMPR Umpire    605670         Dan Merzel</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60             26 Umpire     UMPR Umpire    427344        Bill Miller</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61             55 Umpire     UMPR Umpire    639723     Brennan Miller</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62            108 Umpire     UMPR Umpire    623946      Malachi Moore</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63             47 Umpire     UMPR Umpire    573597       Gabe Morales</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64            109 Umpire     UMPR Umpire    554242      Edwin Moscoso</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65             76 Umpire     UMPR Umpire    483912    Mike Muchlinski</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66             39 Umpire     UMPR Umpire    427361        Paul Nauert</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67            110 Umpire     UMPR Umpire    664265         Jose Navas</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68             45 Umpire     UMPR Umpire    427362        Jeff Nelson</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69                Umpire     UMPR Umpire    623961         Cody Oakes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70              7 Umpire     UMPR Umpire    427366       Brian O'Nora</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71             40 Umpire     UMPR Umpire    577468      Roberto Ortiz</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72             64 Umpire     UMPR Umpire    484198        Alan Porter</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73             86 Umpire     UMPR Umpire    482663      David Rackley</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74            111 Umpire     UMPR Umpire    605671      Charlie Ramos</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75             11 Umpire     UMPR Umpire    427413      Tony Randazzo</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76             35 Umpire     UMPR Umpire    605672      Jeremie Rehak</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77             17 Umpire     UMPR Umpire    482666       D.J. Reyburn</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78             77 Umpire     UMPR Umpire    427424       Jim Reynolds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79            112 Umpire     UMPR Umpire    573769       Jeremy Riggs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80             90 Umpire     UMPR Umpire    483919     Mark Ripperger</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81            113 Umpire     UMPR Umpire    622329    Randy Rosenberg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82             85 Umpire     UMPR Umpire    521889    Stu Scheurwater</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83             96 Umpire     UMPR Umpire    503490        Chris Segal</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84             13 Umpire     UMPR Umpire    429805      Todd Tichenor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85             95 Umpire     UMPR Umpire    427509        Tim Timmons</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86            114 Umpire     UMPR Umpire    608158     Nate Tomlinson</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87             37 Umpire     UMPR Umpire    547380      Carlos Torres</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88             66 Umpire     UMPR Umpire    605673          Alex Tosi</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89             74 Umpire     UMPR Umpire    483630       John Tumpane</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90              0 Umpire     UMPR Umpire    496166          1B Umpire</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 91              0 Umpire     UMPR Umpire    496167          2B Umpire</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 92              0 Umpire     UMPR Umpire    496168          3B Umpire</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 93              0 Umpire     UMPR Umpire    496165          HP Umpire</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 94              0 Umpire     UMPR Umpire    433417          NO UMPIRE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 95            115 Umpire     UMPR Umpire    608093   Junior Valentine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 96             27 Umpire     UMPR Umpire    427520      Larry Vanover</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 97             52 Umpire     UMPR Umpire    596740    Jansen Visconti</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 98            116 Umpire     UMPR Umpire    623949      Clint Vondrak</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 99             14 Umpire     UMPR Umpire    427533        Mark Wegner</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100             3 Umpire     UMPR Umpire    427534         Bill Welke</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 101            21 Umpire     UMPR Umpire    427537 Hunter Wendelstedt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 102            62 Umpire     UMPR Umpire    489985       Chad Whitson</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 103           117 Umpire     UMPR Umpire    607886       Lew Williams</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 104           118 Umpire     UMPR Umpire    605674         Ryan Wills</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 105            81 Umpire     UMPR Umpire    511890      Quinn Wolcott</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 106            28 Umpire     UMPR Umpire    427554           Jim Wolf</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               person_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   /api/v1/people/596809</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   /api/v1/people/486200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   /api/v1/people/623938</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   /api/v1/people/545402</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   /api/v1/people/490319</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   /api/v1/people/503493</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   /api/v1/people/427013</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   /api/v1/people/483561</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   /api/v1/people/427019</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  /api/v1/people/482608</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  /api/v1/people/644760</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  /api/v1/people/483564</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  /api/v1/people/503502</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  /api/v1/people/484183</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  /api/v1/people/427044</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  /api/v1/people/483569</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  /api/v1/people/427053</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  /api/v1/people/598411</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  /api/v1/people/607884</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20  /api/v1/people/482620</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21  /api/v1/people/427093</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22  /api/v1/people/594151</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23  /api/v1/people/427113</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24  /api/v1/people/427128</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25  /api/v1/people/427129</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26  /api/v1/people/427139</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27  /api/v1/people/427144</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28  /api/v1/people/482631</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29  /api/v1/people/431232</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30  /api/v1/people/427164</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31  /api/v1/people/427168</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32  /api/v1/people/623942</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33  /api/v1/people/427184</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34  /api/v1/people/503586</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35  /api/v1/people/484499</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36  /api/v1/people/427197</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37  /api/v1/people/427206</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38  /api/v1/people/503077</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39  /api/v1/people/427220</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40  /api/v1/people/427224</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41  /api/v1/people/573596</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42  /api/v1/people/427235</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43  /api/v1/people/428442</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44  /api/v1/people/427243</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45  /api/v1/people/427248</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46  /api/v1/people/482641</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47  /api/v1/people/427286</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48  /api/v1/people/427292</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49  /api/v1/people/427299</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50  /api/v1/people/544728</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51  /api/v1/people/596805</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52  /api/v1/people/504381</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53  /api/v1/people/575629</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54  /api/v1/people/623945</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55  /api/v1/people/521051</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56  /api/v1/people/427315</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57  /api/v1/people/521251</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58  /api/v1/people/427339</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59  /api/v1/people/605670</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60  /api/v1/people/427344</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61  /api/v1/people/639723</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62  /api/v1/people/623946</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63  /api/v1/people/573597</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64  /api/v1/people/554242</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65  /api/v1/people/483912</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66  /api/v1/people/427361</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67  /api/v1/people/664265</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68  /api/v1/people/427362</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69  /api/v1/people/623961</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70  /api/v1/people/427366</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71  /api/v1/people/577468</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72  /api/v1/people/484198</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73  /api/v1/people/482663</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74  /api/v1/people/605671</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75  /api/v1/people/427413</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76  /api/v1/people/605672</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77  /api/v1/people/482666</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78  /api/v1/people/427424</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79  /api/v1/people/573769</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80  /api/v1/people/483919</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81  /api/v1/people/622329</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82  /api/v1/people/521889</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83  /api/v1/people/503490</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84  /api/v1/people/429805</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85  /api/v1/people/427509</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86  /api/v1/people/608158</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87  /api/v1/people/547380</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88  /api/v1/people/605673</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89  /api/v1/people/483630</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90  /api/v1/people/496166</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 91  /api/v1/people/496167</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 92  /api/v1/people/496168</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 93  /api/v1/people/496165</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 94  /api/v1/people/433417</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 95  /api/v1/people/608093</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 96  /api/v1/people/427520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 97  /api/v1/people/596740</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 98  /api/v1/people/623949</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 99  /api/v1/people/427533</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100 /api/v1/people/427534</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 101 /api/v1/people/427537</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 102 /api/v1/people/489985</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 103 /api/v1/people/607886</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 104 /api/v1/people/605674</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 105 /api/v1/people/511890</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 106 /api/v1/people/427554</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Jobs data from MLB.com ─────────────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:06 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 106 × 7</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    jersey_number job    job_code title  person_id person_full_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 67            Umpire UMPR     Umpire    <span style="text-decoration: underline;">596</span>809 Ryan Additon    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 100           Umpire UMPR     Umpire    <span style="text-decoration: underline;">486</span>200 David Arrieta   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 101           Umpire UMPR     Umpire    <span style="text-decoration: underline;">623</span>938 Erich Bacchus   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 70            Umpire UMPR     Umpire    <span style="text-decoration: underline;">545</span>402 John Bacon      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 71            Umpire UMPR     Umpire    <span style="text-decoration: underline;">490</span>319 Jordan Baker    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 29            Umpire UMPR     Umpire    <span style="text-decoration: underline;">503</span>493 Sean Barber     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 23            Umpire UMPR     Umpire    <span style="text-decoration: underline;">427</span>013 Lance Barksdale </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 16            Umpire UMPR     Umpire    <span style="text-decoration: underline;">483</span>561 Lance Barrett   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 65            Umpire UMPR     Umpire    <span style="text-decoration: underline;">427</span>019 Ted Barrett     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 87            Umpire UMPR     Umpire    <span style="text-decoration: underline;">482</span>608 Scott Barry     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 96 more rows, and 1 more variable: person_link &lt;chr&gt;</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

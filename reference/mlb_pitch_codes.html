@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -137,39 +139,22 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_pitch_codes</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    pitch_code                  pitch_description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           R          Strike - Foul on Pitchout</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2           Y    Pitchout Hit Into Play - Out(s)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3           M               Strike - Missed Bunt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4           X             Hit Into Play - Out(s)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5           O             Strike - Bunt Foul Tip</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6           E             Hit Into Play - Run(s)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7           D          Hit Into Play - No Out(s)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8           Q      Strike - Swinging on Pitchout</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9           Z    Pitchout Hit Into Play - Run(s)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10          F                      Strike - Foul</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11          W          Strike - Swinging Blocked</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12          T                  Strike - Foul Tip</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13          L                 Strike - Foul Bunt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14          C                    Strike - Called</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15          K                   Strike - Unknown</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16          J Pitchout Hit Into Play - No Out(s)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17          S                  Strike - Swinging</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18          B                      Ball - Called</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19          P                    Ball - Pitchout</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20          H                Ball - Hit by Pitch</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21         *B                Ball - Ball In Dirt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22          3        Pickoff Throw 3rd - Pitcher</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23          1        Pickoff Throw 1st - Pitcher</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24         +3        Pickoff Throw 3rd - Catcher</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25          2        Pickoff Throw 2nd - Pitcher</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26         +2        Pickoff Throw 2nd - Catcher</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27         +1        Pickoff Throw 1st - Catcher</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28          A                 Strike - Automatic</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29          .                          Non Pitch</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30          N                           No Pitch</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31          I                 Ball - Intentional</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32          V                   Ball - Automatic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Pitch Codes data from MLB.com ──────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:18 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 32 × 2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    pitch_code pitch_description              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> R          Strike - Foul on Pitchout      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Y          Pitchout Hit Into Play - Out(s)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> M          Strike - Missed Bunt           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> X          Hit Into Play - Out(s)         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> O          Strike - Bunt Foul Tip         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> E          Hit Into Play - Run(s)         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> D          Hit Into Play - No Out(s)      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Q          Strike - Swinging on Pitchout  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Z          Pitchout Hit Into Play - Run(s)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> F          Strike - Foul                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 22 more rows</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

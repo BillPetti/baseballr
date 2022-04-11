@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -142,60 +144,34 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_people</span><span class="op">(</span>person_ids <span class="op">=</span> <span class="fl">502671</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       id        full_name                  link first_name   last_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 502671 Paul Goldschmidt /api/v1/people/502671       Paul Goldschmidt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   primary_number birth_date current_age birth_city birth_state_province</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1             46 1987-09-10          34 Wilmington                   DE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   birth_country height weight active use_name middle_name boxscore_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           USA  6' 3"    220   TRUE     Paul      Edward   Goldschmidt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   nick_name gender is_player is_verified draft_year mlb_debut_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     Goldy      M      TRUE        TRUE       2009     2011-08-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    name_first_last               name_slug  first_last_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Paul Goldschmidt paul-goldschmidt-502671 Paul Goldschmidt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     last_first_name last_init_name init_last_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Goldschmidt, Paul Goldschmidt, P  P Goldschmidt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             full_fml_name            full_lfm_name strike_zone_top</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Paul Edward Goldschmidt Goldschmidt, Paul Edward            3.49</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   strike_zone_bottom primary_position_code primary_position_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1              1.601                     3            First Base</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   primary_position_type primary_position_abbreviation bat_side_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1             Infielder                            1B             R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   bat_side_description pitch_hand_code pitch_hand_description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                Right               R                  Right</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB People data from MLB.com ───────────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:16 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 41</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       id full_name  link  first_name last_name primary_number birth_date</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> <span style="text-decoration: underline;">502</span>671 Paul Gold… /api… Paul       Goldschm… 46             1987-09-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 34 more variables: current_age &lt;int&gt;, birth_city &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   birth_state_province &lt;chr&gt;, birth_country &lt;chr&gt;, height &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   weight &lt;int&gt;, active &lt;lgl&gt;, use_name &lt;chr&gt;, middle_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   boxscore_name &lt;chr&gt;, nick_name &lt;chr&gt;, gender &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   is_player &lt;lgl&gt;, is_verified &lt;lgl&gt;, draft_year &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   mlb_debut_date &lt;chr&gt;, name_first_last &lt;chr&gt;, name_slug &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   first_last_name &lt;chr&gt;, last_first_name &lt;chr&gt;, …</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_people</span><span class="op">(</span>person_ids <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">502671</span>,<span class="fl">605151</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       id        full_name                  link first_name   last_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 502671 Paul Goldschmidt /api/v1/people/502671       Paul Goldschmidt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 605151   Archie Bradley /api/v1/people/605151     Archie     Bradley</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   primary_number birth_date current_age birth_city birth_state_province</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1             46 1987-09-10          34 Wilmington                   DE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2             23 1992-08-10          29   Muskogee                   OK</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   birth_country height weight active use_name middle_name boxscore_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           USA  6' 3"    220   TRUE     Paul      Edward   Goldschmidt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2           USA  6' 4"    215   TRUE   Archie          N.    Bradley, A</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       nick_name gender is_player is_verified draft_year mlb_debut_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         Goldy      M      TRUE        TRUE       2009     2011-08-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Crash Landing      M      TRUE        TRUE       2011     2015-04-11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    name_first_last               name_slug  first_last_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Paul Goldschmidt paul-goldschmidt-502671 Paul Goldschmidt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   Archie Bradley   archie-bradley-605151   Archie Bradley</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     last_first_name last_init_name init_last_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Goldschmidt, Paul Goldschmidt, P  P Goldschmidt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   Bradley, Archie     Bradley, A      A Bradley</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             full_fml_name            full_lfm_name strike_zone_top</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Paul Edward Goldschmidt Goldschmidt, Paul Edward           3.490</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2       Archie N. Bradley       Bradley, Archie N.           3.549</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   strike_zone_bottom pronunciation primary_position_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1              1.601          &lt;NA&gt;                     3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2              1.627      BRAD-lee                     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   primary_position_name primary_position_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1            First Base             Infielder</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2               Pitcher               Pitcher</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   primary_position_abbreviation bat_side_code bat_side_description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                            1B             R                Right</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                             P             R                Right</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   pitch_hand_code pitch_hand_description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1               R                  Right</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2               R                  Right</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB People data from MLB.com ───────────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:17 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 42</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       id full_name  link  first_name last_name primary_number birth_date</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> <span style="text-decoration: underline;">502</span>671 Paul Gold… /api… Paul       Goldschm… 46             1987-09-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> <span style="text-decoration: underline;">605</span>151 Archie Br… /api… Archie     Bradley   23             1992-08-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 35 more variables: current_age &lt;int&gt;, birth_city &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   birth_state_province &lt;chr&gt;, birth_country &lt;chr&gt;, height &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   weight &lt;int&gt;, active &lt;lgl&gt;, use_name &lt;chr&gt;, middle_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   boxscore_name &lt;chr&gt;, nick_name &lt;chr&gt;, gender &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   is_player &lt;lgl&gt;, is_verified &lt;lgl&gt;, draft_year &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   mlb_debut_date &lt;chr&gt;, name_first_last &lt;chr&gt;, name_slug &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   first_last_name &lt;chr&gt;, last_first_name &lt;chr&gt;, …</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

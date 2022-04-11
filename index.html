@@ -6,9 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="Provides numerous functions for acquiring and analyzing
-    baseball data. Data can be acquired from various online sources from
-    within R.  Custom metrics can also be calculated, such as wOBA, FIP,
-    and Edge%.">
+    baseball data from online sources such as Baseball Reference&lt;https://www.baseball-reference.com/&gt;,
+    FanGraphs&lt;https://www.fangraphs.com/&gt;, and the MLB Stats API&lt;https://www.mlb.com/&gt;.">
 <title>Functions for Acquiring and Analyzing Baseball Data • baseballr</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -23,9 +22,8 @@
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
 <meta property="og:title" content="Functions for Acquiring and Analyzing Baseball Data">
 <meta property="og:description" content="Provides numerous functions for acquiring and analyzing
-    baseball data. Data can be acquired from various online sources from
-    within R.  Custom metrics can also be calculated, such as wOBA, FIP,
-    and Edge%.">
+    baseball data from online sources such as Baseball Reference&lt;https://www.baseball-reference.com/&gt;,
+    FanGraphs&lt;https://www.fangraphs.com/&gt;, and the MLB Stats API&lt;https://www.mlb.com/&gt;.">
 <meta property="og:image" content="https://raw.githubusercontent.com/BillPetti/baseballR/master/logo.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@BillPetti">
@@ -67,6 +65,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="reference/index.html">Function Index</a>
     <a class="dropdown-item" href="reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="reference/ncaa.html">NCAA Baseball</a>
@@ -112,6 +111,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -164,7 +164,7 @@
 </h1>
 <!-- badges: start -->
 
-<p><code>baseballr</code> is a package written for R focused on baseball analysis. It includes functions for scraping various data from websites, such as FanGraphs.com, Baseball-Reference.com, and baseballsavant.com. It also includes functions for calculating metrics, such as wOBA, FIP, and team-level consistency over custom time frames.</p>
+<p><code>baseballr</code> is a package written for R focused on baseball analysis. It includes functions for scraping various data from websites, such as <a href="https://www.fangraphs.com/" class="external-link">FanGraphs.com</a>, <a href="https://www.baseball-reference.com/" class="external-link">Baseball-Reference.com</a>, and <a href="https://baseballsavant.mlb.com/" class="external-link">baseballsavant.mlb.com</a>. It also includes functions for calculating metrics, such as wOBA, FIP, and team-level consistency over custom time frames.</p>
 <p>You can read more about some of the functions and how to use them at its <a href="https://billpetti.github.io/baseballr/" class="external-link">official site</a> as well as this <a href="https://www.hardballtimes.com/developing-the-baseballr-package-for-r/" class="external-link">Hardball Times article</a>.</p>
 <div class="section level2">
 <h2 id="installation">
@@ -198,14 +198,18 @@
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://billpetti.github.io/baseballr/" class="external-link">baseballr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
 <span class="fu"><a href="reference/bref_standings_on_date.html">bref_standings_on_date</a></span><span class="op">(</span><span class="st">"2015-08-01"</span>, <span class="st">"NL East"</span>, from <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">## # A tibble: 5 x 8</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="co">##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="co">##   &lt;chr&gt; &lt;int&gt; &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt;      &lt;dbl&gt;</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co">## 1 WSN      54    48  0.529 --      422   391      0.535</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="co">## 2 NYM      54    50  0.519 1.0     368   373      0.494</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="co">## 3 ATL      46    58  0.442 9.0     379   449      0.423</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="co">## 4 MIA      42    62  0.404 13.0    370   408      0.455</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="co">## 5 PHI      41    64  0.39  14.5    386   511      0.374</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">## -- MLB Standings on Date data from baseball-reference.com --- baseballr 1.1.0 --</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">## i Data updated: 2022-04-11 09:07:32 EDT</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">## # A tibble: 5 x 8</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">##   &lt;chr&gt; &lt;int&gt; &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt;      &lt;dbl&gt;</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">## 1 WSN      54    48  0.529 --      422   391      0.535</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="co">## 2 NYM      54    50  0.519 1.0     368   373      0.494</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">## 3 ATL      46    58  0.442 9.0     379   449      0.423</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="co">## 4 MIA      42    62  0.404 13.0    370   408      0.455</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="co">## 5 PHI      41    64  0.39  14.5    386   511      0.374</span></span></code></pre></div>
 <p>Right now the function works as far as back as 1994, which is when both leagues split into three divisions.</p>
 <p>You can also pull data for all hitters over a specific date range. Here are the results for all hitters from August 1st through October 3rd during the 2015 season:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
@@ -240,10 +244,10 @@
 <span id="cb7-26"><a href="#cb7-26"></a><span class="co">## $ GDP      &lt;dbl&gt; 5, 9, 6, 1, 1, 4, 2, 2, 9, 7, 5, 1, 4, 8, 1, 2, 3, 10, 5, 4, ~</span></span>
 <span id="cb7-27"><a href="#cb7-27"></a><span class="co">## $ SB       &lt;dbl&gt; 6, 8, 11, 9, 2, 10, 0, 0, 0, 3, 3, 4, 5, 4, 24, 2, 1, 0, 6, 0~</span></span>
 <span id="cb7-28"><a href="#cb7-28"></a><span class="co">## $ CS       &lt;dbl&gt; 4, 0, 4, 4, 0, 2, 0, 0, 0, 1, 0, 1, 3, 2, 7, 2, 3, 0, 2, 0, 0~</span></span>
-<span id="cb7-29"><a href="#cb7-29"></a><span class="co">## $ BA       &lt;dbl&gt; 0.278, 0.286, 0.332, 0.322, 0.336, 0.353, 0.226, 0.281, 0.325~</span></span>
+<span id="cb7-29"><a href="#cb7-29"></a><span class="co">## $ BA       &lt;dbl&gt; 0.279, 0.286, 0.332, 0.322, 0.337, 0.353, 0.226, 0.281, 0.325~</span></span>
 <span id="cb7-30"><a href="#cb7-30"></a><span class="co">## $ OBP      &lt;dbl&gt; 0.353, 0.326, 0.364, 0.392, 0.456, 0.395, 0.282, 0.341, 0.377~</span></span>
 <span id="cb7-31"><a href="#cb7-31"></a><span class="co">## $ SLG      &lt;dbl&gt; 0.485, 0.387, 0.508, 0.448, 0.540, 0.558, 0.423, 0.506, 0.528~</span></span>
-<span id="cb7-32"><a href="#cb7-32"></a><span class="co">## $ OPS      &lt;dbl&gt; 0.839, 0.713, 0.872, 0.840, 0.996, 0.953, 0.704, 0.847, 0.906~</span></span></code></pre></div>
+<span id="cb7-32"><a href="#cb7-32"></a><span class="co">## $ OPS      &lt;dbl&gt; 0.839, 0.713, 0.872, 0.840, 0.996, 0.953, 0.705, 0.848, 0.906~</span></span></code></pre></div>
 <p>In terms of metric calculation, the package allows the user to calculate the consistency of team scoring and run prevention for any year using <code><a href="reference/team_consistency.html">team_consistency()</a></code>:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/team_consistency.html">team_consistency</a></span><span class="op">(</span><span class="fl">2015</span><span class="op">)</span></code></pre></div>
@@ -274,7 +278,7 @@
 <span id="cb11-2"><a href="#cb11-2"></a><span class="co">## Columns: 6</span></span>
 <span id="cb11-3"><a href="#cb11-3"></a><span class="co">## $ Name     &lt;chr&gt; "Edwin Encarnacion", "Bryce Harper", "David Ortiz", "Joey Vot~</span></span>
 <span id="cb11-4"><a href="#cb11-4"></a><span class="co">## $ Team     &lt;chr&gt; "Toronto", "Washington", "Boston", "Cincinnati", "Baltimore",~</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a><span class="co">## $ season   &lt;chr&gt; "2015", "2015", "2015", "2015", "2015", "2015", "2015", "2015~</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co">## $ season   &lt;int&gt; 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2~</span></span>
 <span id="cb11-6"><a href="#cb11-6"></a><span class="co">## $ PA       &lt;dbl&gt; 216, 248, 213, 251, 253, 260, 245, 255, 223, 241, 223, 259, 2~</span></span>
 <span id="cb11-7"><a href="#cb11-7"></a><span class="co">## $ wOBA     &lt;dbl&gt; 0.490, 0.450, 0.449, 0.445, 0.434, 0.430, 0.430, 0.422, 0.410~</span></span>
 <span id="cb11-8"><a href="#cb11-8"></a><span class="co">## $ wOBA_CON &lt;dbl&gt; 0.555, 0.529, 0.541, 0.543, 0.617, 0.495, 0.481, 0.494, 0.459~</span></span></code></pre></div>
@@ -285,28 +289,24 @@
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">season</span>, <span class="va">Name</span>, <span class="va">IP</span>, <span class="va">ERA</span>, <span class="va">SO</span>, <span class="va">uBB</span>, <span class="va">HBP</span>, <span class="va">HR</span>, <span class="va">FIP</span>, <span class="va">wOBA_against</span>, <span class="va">wOBA_CON_against</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">IP</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">##    season            Name   IP  ERA SO uBB HBP HR  FIP wOBA_against</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="co">## 1    2015    Johnny Cueto 37.0 1.95 38   4   2  3 2.62        0.210</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="co">## 2    2015  Dallas Keuchel 37.0 0.73 22  11   0  0 2.84        0.169</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="co">## 3    2015      Sonny Gray 36.1 1.98 25   6   1  1 2.69        0.218</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a><span class="co">## 4    2015      Mike Leake 35.2 3.03 25   7   0  5 4.16        0.240</span></span>
-<span id="cb13-6"><a href="#cb13-6"></a><span class="co">## 5    2015 Felix Hernandez 34.2 1.82 36   6   3  1 2.20        0.225</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a><span class="co">## 6    2015    Corey Kluber 34.0 4.24 36   5   2  2 2.40        0.295</span></span>
-<span id="cb13-8"><a href="#cb13-8"></a><span class="co">## 7    2015   Jake Odorizzi 33.2 2.41 26   8   1  0 2.38        0.213</span></span>
-<span id="cb13-9"><a href="#cb13-9"></a><span class="co">## 8    2015 Josh Collmenter 32.2 2.76 16   3   0  1 2.82        0.290</span></span>
-<span id="cb13-10"><a href="#cb13-10"></a><span class="co">## 9    2015   Bartolo Colon 32.2 3.31 25   1   0  4 3.29        0.280</span></span>
-<span id="cb13-11"><a href="#cb13-11"></a><span class="co">## 10   2015    Zack Greinke 32.2 1.93 27   7   1  2 3.01        0.240</span></span>
-<span id="cb13-12"><a href="#cb13-12"></a><span class="co">##    wOBA_CON_against</span></span>
-<span id="cb13-13"><a href="#cb13-13"></a><span class="co">## 1             0.276</span></span>
-<span id="cb13-14"><a href="#cb13-14"></a><span class="co">## 2             0.151</span></span>
-<span id="cb13-15"><a href="#cb13-15"></a><span class="co">## 3             0.239</span></span>
-<span id="cb13-16"><a href="#cb13-16"></a><span class="co">## 4             0.281</span></span>
-<span id="cb13-17"><a href="#cb13-17"></a><span class="co">## 5             0.272</span></span>
-<span id="cb13-18"><a href="#cb13-18"></a><span class="co">## 6             0.391</span></span>
-<span id="cb13-19"><a href="#cb13-19"></a><span class="co">## 7             0.228</span></span>
-<span id="cb13-20"><a href="#cb13-20"></a><span class="co">## 8             0.330</span></span>
-<span id="cb13-21"><a href="#cb13-21"></a><span class="co">## 9             0.357</span></span>
-<span id="cb13-22"><a href="#cb13-22"></a><span class="co">## 10            0.274</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">## -- MLB Daily Pitcher data from baseball-reference.com ------- baseballr 1.1.0 --</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="co">## i Data updated: 2022-04-11 09:07:47 EDT</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="co">## # A tibble: 10 x 11</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="co">##    season Name               IP   ERA    SO   uBB   HBP    HR   FIP wOBA_against</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="co">##     &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;        &lt;dbl&gt;</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="co">##  1   2015 Johnny Cueto     37    1.95    38     4     2     3  2.62        0.21 </span></span>
+<span id="cb13-9"><a href="#cb13-9"></a><span class="co">##  2   2015 Dallas Keuchel   37    0.73    22    11     0     0  2.84        0.169</span></span>
+<span id="cb13-10"><a href="#cb13-10"></a><span class="co">##  3   2015 Sonny Gray       36.1  1.98    25     6     1     1  2.69        0.218</span></span>
+<span id="cb13-11"><a href="#cb13-11"></a><span class="co">##  4   2015 Mike Leake       35.2  3.03    25     7     0     5  4.16        0.24 </span></span>
+<span id="cb13-12"><a href="#cb13-12"></a><span class="co">##  5   2015 Felix Hernandez  34.2  1.82    36     6     3     1  2.2         0.225</span></span>
+<span id="cb13-13"><a href="#cb13-13"></a><span class="co">##  6   2015 Corey Kluber     34    4.24    36     5     2     2  2.4         0.295</span></span>
+<span id="cb13-14"><a href="#cb13-14"></a><span class="co">##  7   2015 Jake Odorizzi    33.2  2.41    26     8     1     0  2.38        0.213</span></span>
+<span id="cb13-15"><a href="#cb13-15"></a><span class="co">##  8   2015 Josh Collmenter  32.2  2.76    16     3     0     1  2.82        0.29 </span></span>
+<span id="cb13-16"><a href="#cb13-16"></a><span class="co">##  9   2015 Bartolo Colon    32.2  3.31    25     1     0     4  3.29        0.28 </span></span>
+<span id="cb13-17"><a href="#cb13-17"></a><span class="co">## 10   2015 Zack Greinke     32.2  1.93    27     7     1     2  3.01        0.24 </span></span>
+<span id="cb13-18"><a href="#cb13-18"></a><span class="co">## # ... with 1 more variable: wOBA_CON_against &lt;dbl&gt;</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="issues">

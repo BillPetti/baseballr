@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -156,271 +158,27 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_team_leaders</span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">137</span>, leader_categories <span class="op">=</span> <span class="st">"homeRuns"</span>, season <span class="op">=</span> <span class="fl">2021</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    leader_category rank value season team_id            team_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         homeRuns    1    29   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2         homeRuns    2    25   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         homeRuns    3    24   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4         homeRuns    4    18   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5         homeRuns    4    18   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6         homeRuns    4    18   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7         homeRuns    7    16   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8         homeRuns    8    13   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9         homeRuns    8    13   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10        homeRuns   10    12   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11        homeRuns   11     8   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12        homeRuns   12     7   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13        homeRuns   12     7   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14        homeRuns   12     7   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15        homeRuns   12     7   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16        homeRuns   16     5   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17        homeRuns   16     5   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18        homeRuns   18     4   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19        homeRuns   19     3   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20        homeRuns   20     1   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21        homeRuns   20     1   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22        homeRuns    1    20   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23        homeRuns    2    19   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24        homeRuns    3    15   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25        homeRuns    4    14   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26        homeRuns    5     9   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27        homeRuns    5     9   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28        homeRuns    7     7   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29        homeRuns    7     7   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30        homeRuns    9     5   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31        homeRuns    9     5   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32        homeRuns   11     4   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33        homeRuns   11     4   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34        homeRuns   11     4   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35        homeRuns   14     3   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36        homeRuns   14     3   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37        homeRuns   14     3   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38        homeRuns   14     3   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39        homeRuns   18     2   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40        homeRuns   18     2   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41        homeRuns   18     2   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42        homeRuns   18     2   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43        homeRuns   18     2   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44        homeRuns   18     2   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45        homeRuns   24     1   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46        homeRuns   24     1   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47        homeRuns   24     1   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48        homeRuns   24     1   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49        homeRuns   24     1   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50        homeRuns    1   105   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51        homeRuns    2    42   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52        homeRuns    3     4   2021     137 San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            team_link league_id league_name        league_link person_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  /api/v1/teams/137       104          NL /api/v1/league/104    474832</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  /api/v1/teams/137       104          NL /api/v1/league/104    573262</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  /api/v1/teams/137       104          NL /api/v1/league/104    543063</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  /api/v1/teams/137       104          NL /api/v1/league/104    527038</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  /api/v1/teams/137       104          NL /api/v1/league/104    457763</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  /api/v1/teams/137       104          NL /api/v1/league/104    664774</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  /api/v1/teams/137       104          NL /api/v1/league/104    573131</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  /api/v1/teams/137       104          NL /api/v1/league/104    543105</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  /api/v1/teams/137       104          NL /api/v1/league/104    446334</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 /api/v1/teams/137       104          NL /api/v1/league/104    596103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 /api/v1/teams/137       104          NL /api/v1/league/104    621453</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 /api/v1/teams/137       104          NL /api/v1/league/104    592178</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 /api/v1/teams/137       104          NL /api/v1/league/104    642731</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 /api/v1/teams/137       104          NL /api/v1/league/104    600303</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 /api/v1/teams/137       104          NL /api/v1/league/104    456781</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 /api/v1/teams/137       104          NL /api/v1/league/104    592200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 /api/v1/teams/137       104          NL /api/v1/league/104    643289</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 /api/v1/teams/137       104          NL /api/v1/league/104    643565</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 /api/v1/teams/137       104          NL /api/v1/league/104    613564</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 /api/v1/teams/137       104          NL /api/v1/league/104    644433</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 /api/v1/teams/137       104          NL /api/v1/league/104    657277</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 /api/v1/teams/137       104          NL /api/v1/league/104    592332</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 /api/v1/teams/137       104          NL /api/v1/league/104    543101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 /api/v1/teams/137       104          NL /api/v1/league/104    456501</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25 /api/v1/teams/137       104          NL /api/v1/league/104    622072</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26 /api/v1/teams/137       104          NL /api/v1/league/104    606424</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27 /api/v1/teams/137       104          NL /api/v1/league/104    657277</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 /api/v1/teams/137       104          NL /api/v1/league/104    641793</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29 /api/v1/teams/137       104          NL /api/v1/league/104    459429</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30 /api/v1/teams/137       104          NL /api/v1/league/104    669674</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31 /api/v1/teams/137       104          NL /api/v1/league/104    643511</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32 /api/v1/teams/137       104          NL /api/v1/league/104    605154</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33 /api/v1/teams/137       104          NL /api/v1/league/104    666808</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34 /api/v1/teams/137       104          NL /api/v1/league/104    605538</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35 /api/v1/teams/137       104          NL /api/v1/league/104    543351</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36 /api/v1/teams/137       104          NL /api/v1/league/104    431148</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37 /api/v1/teams/137       104          NL /api/v1/league/104    500779</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38 /api/v1/teams/137       104          NL /api/v1/league/104    666619</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39 /api/v1/teams/137       104          NL /api/v1/league/104    501625</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40 /api/v1/teams/137       104          NL /api/v1/league/104    608678</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41 /api/v1/teams/137       104          NL /api/v1/league/104    669214</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42 /api/v1/teams/137       104          NL /api/v1/league/104    592717</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43 /api/v1/teams/137       104          NL /api/v1/league/104    572125</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44 /api/v1/teams/137       104          NL /api/v1/league/104    642073</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45 /api/v1/teams/137       104          NL /api/v1/league/104    670056</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46 /api/v1/teams/137       104          NL /api/v1/league/104    543022</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47 /api/v1/teams/137       104          NL /api/v1/league/104    606625</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48 /api/v1/teams/137       104          NL /api/v1/league/104    593974</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49 /api/v1/teams/137       104          NL /api/v1/league/104    453265</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50 /api/v1/teams/137       104          NL /api/v1/league/104    457763</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51 /api/v1/teams/137       104          NL /api/v1/league/104    592200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52 /api/v1/teams/137       104          NL /api/v1/league/104    644433</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      person_full_name           person_link person_first_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        Brandon Belt /api/v1/people/474832           Brandon</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2    Mike Yastrzemski /api/v1/people/573262              Mike</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3    Brandon Crawford /api/v1/people/543063           Brandon</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4       Wilmer Flores /api/v1/people/527038            Wilmer</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5        Buster Posey /api/v1/people/457763            Buster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6    LaMonte Wade Jr. /api/v1/people/664774           LaMonte</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7           Darin Ruf /api/v1/people/573131             Darin</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8      Alex Dickerson /api/v1/people/543105              Alex</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9       Evan Longoria /api/v1/people/446334              Evan</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10      Austin Slater /api/v1/people/596103            Austin</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11      Steven Duggar /api/v1/people/621453            Steven</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12        Kris Bryant /api/v1/people/592178              Kris</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13     Thairo Estrada /api/v1/people/642731            Thairo</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14    Tommy La Stella /api/v1/people/600303             Tommy</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15     Donovan Solano /api/v1/people/456781           Donovan</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16        Curt Casali /api/v1/people/592200              Curt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17     Mauricio Dubon /api/v1/people/643289          Mauricio</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18      Mike Tauchman /api/v1/people/643565              Mike</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19       Jason Vosler /api/v1/people/613564             Jason</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20     Chadwick Tromp /api/v1/people/644433          Chadwick</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21         Logan Webb /api/v1/people/657277             Logan</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22      Kevin Gausman /api/v1/people/592332             Kevin</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 Anthony DeSclafani /api/v1/people/543101           Anthony</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24       Johnny Cueto /api/v1/people/456501            Johnny</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25          Alex Wood /api/v1/people/622072              Alex</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26      Jarlin Garcia /api/v1/people/606424            Jarlin</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27         Logan Webb /api/v1/people/657277             Logan</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28       Zack Littell /api/v1/people/641793              Zack</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29         Jake McGee /api/v1/people/459429              Jake</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30           Sam Long /api/v1/people/669674               Sam</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31       Tyler Rogers /api/v1/people/643511             Tyler</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32       John Brebbia /api/v1/people/605154              John</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33       Camilo Doval /api/v1/people/666808            Camilo</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34        Matt Wisler /api/v1/people/605538              Matt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35        Jay Jackson /api/v1/people/543351               Jay</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36       Scott Kazmir /api/v1/people/431148             Scott</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37      Jose Quintana /api/v1/people/500779              Jose</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38     Gregory Santos /api/v1/people/666619           Gregory</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39       Jose Alvarez /api/v1/people/501625              Jose</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40      Dominic Leone /api/v1/people/608678           Dominic</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41       Conner Menez /api/v1/people/669214            Conner</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42      Aaron Sanchez /api/v1/people/592717             Aaron</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43         Sam Selman /api/v1/people/572125               Sam</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44      Jimmie Sherfy /api/v1/people/642073             James</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45      Caleb Baragar /api/v1/people/670056             Caleb</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46     Tyler Chatwood /api/v1/people/543022             Tyler</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47      Reyes Moronta /api/v1/people/606625             Reyes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48      Wandy Peralta /api/v1/people/593974             Wandy</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49        Tony Watson /api/v1/people/453265              Tony</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50       Buster Posey /api/v1/people/457763            Buster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51        Curt Casali /api/v1/people/592200              Curt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52     Chadwick Tromp /api/v1/people/644433          Chadwick</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    person_last_name sport_id       sport_link sport_abbreviation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1              Belt        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2       Yastrzemski        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3          Crawford        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4            Flores        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5             Posey        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6              Wade        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7               Ruf        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8         Dickerson        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9          Longoria        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10           Slater        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11           Duggar        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12           Bryant        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13          Estrada        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14        La Stella        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15           Solano        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16           Casali        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17            Dubon        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18         Tauchman        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19           Vosler        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20            Tromp        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21             Webb        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22          Gausman        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23       DeSclafani        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24            Cueto        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25             Wood        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26           Garcia        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27             Webb        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28          Littell        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29            McGee        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30             Long        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31           Rogers        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32          Brebbia        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33            Doval        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34           Wisler        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35          Jackson        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36           Kazmir        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37         Quintana        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38           Santos        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39          Alvarez        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40            Leone        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41            Menez        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42          Sanchez        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43           Selman        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44           Sherfy        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45          Baragar        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46         Chatwood        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47          Moronta        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48          Peralta        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49           Watson        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50            Posey        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51           Casali        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52            Tromp        1 /api/v1/sports/1                MLB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    stat_group total_splits game_type_id game_type_description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5     hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6     hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7     hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8     hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9     hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10    hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11    hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12    hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13    hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14    hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15    hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16    hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17    hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18    hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19    hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20    hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21    hitting           21            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49   pitching           28            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50   catching            3            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51   catching            3            R        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52   catching            3            R        Regular Season</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Team Leaders data from MLB.com ─────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:40 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 52 × 22</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    leader_category  rank value season team_id team_name        team_link</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> homeRuns            1 29    2021       137 San Francisco G… /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> homeRuns            2 25    2021       137 San Francisco G… /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> homeRuns            3 24    2021       137 San Francisco G… /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> homeRuns            4 18    2021       137 San Francisco G… /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> homeRuns            4 18    2021       137 San Francisco G… /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> homeRuns            4 18    2021       137 San Francisco G… /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> homeRuns            7 16    2021       137 San Francisco G… /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> homeRuns            8 13    2021       137 San Francisco G… /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> homeRuns            8 13    2021       137 San Francisco G… /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> homeRuns           10 12    2021       137 San Francisco G… /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 42 more rows, and 15 more variables: league_id &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   league_name &lt;chr&gt;, league_link &lt;chr&gt;, person_id &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   person_full_name &lt;chr&gt;, person_link &lt;chr&gt;, person_first_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   person_last_name &lt;chr&gt;, sport_id &lt;int&gt;, sport_link &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   sport_abbreviation &lt;chr&gt;, stat_group &lt;chr&gt;, total_splits &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   game_type_id &lt;chr&gt;, game_type_description &lt;chr&gt;</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -144,20 +146,19 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in"> <span class="fu">mlb_seasons</span><span class="op">(</span>sport_id <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Seasons data from MLB.com ──────────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:31 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 21</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   season_id has_wildcard pre_season_start_date pre_season_end_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1      2022         TRUE            2022-01-01          2022-03-16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   season_start_date spring_start_date spring_end_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        2022-03-17        2022-03-17      2022-04-06</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   regular_season_start_date last_date1st_half all_star_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                2022-04-07        2022-07-17    2022-07-19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   first_date2nd_half regular_season_end_date post_season_start_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         2022-07-21              2022-10-05             2022-10-07</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   post_season_end_date season_end_date offseason_start_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           2022-11-03      2022-11-03           2022-11-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   off_season_end_date season_level_gameday_type game_level_gameday_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1          2022-12-31                         P                       P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   qualifier_plate_appearances qualifier_outs_pitched</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                         3.1                      3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 2022      TRUE         2022-01-01            2022-03-16         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 17 more variables: season_start_date &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   spring_start_date &lt;chr&gt;, spring_end_date &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   regular_season_start_date &lt;chr&gt;, last_date1st_half &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   all_star_date &lt;chr&gt;, first_date2nd_half &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   regular_season_end_date &lt;chr&gt;, post_season_start_date &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   post_season_end_date &lt;chr&gt;, season_end_date &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   offseason_start_date &lt;chr&gt;, off_season_end_date &lt;chr&gt;, …</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

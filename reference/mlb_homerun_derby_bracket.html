@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -142,126 +144,25 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_homerun_derby_bracket</span><span class="op">(</span>game_pk <span class="op">=</span> <span class="fl">511101</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   game_pk                           event_name event_type_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  511101 All-Star Workout Day: Home Run Derby               O</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  511101 All-Star Workout Day: Home Run Derby               O</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  511101 All-Star Workout Day: Home Run Derby               O</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  511101 All-Star Workout Day: Home Run Derby               O</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  511101 All-Star Workout Day: Home Run Derby               O</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  511101 All-Star Workout Day: Home Run Derby               O</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  511101 All-Star Workout Day: Home Run Derby               O</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   event_type_name           event_date venue_id   venue_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           Other 2017-07-11T00:00:00Z     4169 Marlins Park</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2           Other 2017-07-11T00:00:00Z     4169 Marlins Park</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3           Other 2017-07-11T00:00:00Z     4169 Marlins Park</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4           Other 2017-07-11T00:00:00Z     4169 Marlins Park</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5           Other 2017-07-11T00:00:00Z     4169 Marlins Park</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6           Other 2017-07-11T00:00:00Z     4169 Marlins Park</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7           Other 2017-07-11T00:00:00Z     4169 Marlins Park</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            venue_link is_multi_day is_primary_calendar</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 /api/v1/venues/4169        FALSE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 /api/v1/venues/4169        FALSE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 /api/v1/venues/4169        FALSE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 /api/v1/venues/4169        FALSE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 /api/v1/venues/4169        FALSE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 /api/v1/venues/4169        FALSE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 /api/v1/venues/4169        FALSE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            file_code event_number public_facing round num_batters</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2017/07/10/mlb-112          103          TRUE     1           8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2017/07/10/mlb-112          103          TRUE     1           8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 2017/07/10/mlb-112          103          TRUE     1           8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 2017/07/10/mlb-112          103          TRUE     1           8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 2017/07/10/mlb-112          103          TRUE     2           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 2017/07/10/mlb-112          103          TRUE     2           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 2017/07/10/mlb-112          103          TRUE     3           2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   top_seed_complete top_seed_started top_seed_winner top_seed_seed</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1              TRUE             TRUE           FALSE             1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2              TRUE             TRUE            TRUE             2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3              TRUE             TRUE            TRUE             3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4              TRUE             TRUE           FALSE             4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5              TRUE             TRUE           FALSE             8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6              TRUE             TRUE           FALSE             3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7              TRUE             TRUE           FALSE             5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   top_seed_is_winner top_seed_is_complete top_seed_is_started</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1              FALSE                 TRUE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2               TRUE                 TRUE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3               TRUE                 TRUE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4              FALSE                 TRUE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5              FALSE                 TRUE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6              FALSE                 TRUE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7              FALSE                 TRUE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   top_seed_num_home_runs top_seed_player_id top_seed_player_full_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                     16             519317         Giancarlo Stanton</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                     23             592450               Aaron Judge</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                     15             641355            Cody Bellinger</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                     10             519058            Mike Moustakas</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                     10             596142              Gary Sanchez</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                     12             641355            Cody Bellinger</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                     10             593934               Miguel Sano</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    top_seed_player_link top_seed_top_derby_hit_data_launch_speed</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 /api/v1/people/519317                                      121</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 /api/v1/people/592450                                      119</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 /api/v1/people/641355                                      107</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 /api/v1/people/519058                                      114</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 /api/v1/people/596142                                      115</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 /api/v1/people/641355                                      107</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 /api/v1/people/593934                                      113</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   top_seed_top_derby_hit_data_total_distance bottom_seed_complete</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                        496                 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                        501                 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                        446                 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                        442                 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                        485                 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                        433                 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                        449                 TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   bottom_seed_started bottom_seed_winner bottom_seed_seed</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                TRUE               TRUE                8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                TRUE              FALSE                7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                TRUE              FALSE                6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                TRUE               TRUE                5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                TRUE               TRUE                5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                TRUE               TRUE                2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                TRUE               TRUE                2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   bottom_seed_is_winner bottom_seed_is_complete bottom_seed_is_started</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                  TRUE                    TRUE                   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                 FALSE                    TRUE                   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                 FALSE                    TRUE                   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                  TRUE                    TRUE                   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                  TRUE                    TRUE                   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                  TRUE                    TRUE                   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                  TRUE                    TRUE                   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   bottom_seed_num_home_runs bottom_seed_player_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                        17                596142</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                        22                571506</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                        14                453568</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                        11                593934</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                        11                593934</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                        13                592450</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                        11                592450</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   bottom_seed_player_full_name bottom_seed_player_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                 Gary Sanchez   /api/v1/people/596142</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                  Justin Bour   /api/v1/people/571506</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3             Charlie Blackmon   /api/v1/people/453568</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                  Miguel Sano   /api/v1/people/593934</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                  Miguel Sano   /api/v1/people/593934</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                  Aaron Judge   /api/v1/people/592450</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                  Aaron Judge   /api/v1/people/592450</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   bottom_seed_top_derby_hit_data_launch_speed</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                         116</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                         113</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                         109</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                         112</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                         113</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                         119</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                         118</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   bottom_seed_top_derby_hit_data_total_distance</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                           483</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                           464</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                           434</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                           470</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                           491</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                           513</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                           480</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Homerun Derby Bracket data from MLB.com ────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:04 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7 × 41</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   game_pk event_name event_type_code event_type_name event_date venue_id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">511</span>101 All-Star … O               Other           2017-07-1…     <span style="text-decoration: underline;">4</span>169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">511</span>101 All-Star … O               Other           2017-07-1…     <span style="text-decoration: underline;">4</span>169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>  <span style="text-decoration: underline;">511</span>101 All-Star … O               Other           2017-07-1…     <span style="text-decoration: underline;">4</span>169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>  <span style="text-decoration: underline;">511</span>101 All-Star … O               Other           2017-07-1…     <span style="text-decoration: underline;">4</span>169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>  <span style="text-decoration: underline;">511</span>101 All-Star … O               Other           2017-07-1…     <span style="text-decoration: underline;">4</span>169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>  <span style="text-decoration: underline;">511</span>101 All-Star … O               Other           2017-07-1…     <span style="text-decoration: underline;">4</span>169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span>  <span style="text-decoration: underline;">511</span>101 All-Star … O               Other           2017-07-1…     <span style="text-decoration: underline;">4</span>169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 35 more variables: venue_name &lt;chr&gt;, venue_link &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   is_multi_day &lt;lgl&gt;, is_primary_calendar &lt;lgl&gt;, file_code &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   event_number &lt;int&gt;, public_facing &lt;lgl&gt;, round &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   num_batters &lt;int&gt;, top_seed_complete &lt;lgl&gt;, top_seed_started &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   top_seed_winner &lt;lgl&gt;, top_seed_seed &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   top_seed_is_winner &lt;lgl&gt;, top_seed_is_complete &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   top_seed_is_started &lt;lgl&gt;, top_seed_num_home_runs &lt;int&gt;, …</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

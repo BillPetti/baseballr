@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -159,285 +161,28 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_teams</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2021</span>, sport_ids <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    all_star_status team_id        team_full_name              link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                N     133     Oakland Athletics /api/v1/teams/133</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                N     134    Pittsburgh Pirates /api/v1/teams/134</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                N     135      San Diego Padres /api/v1/teams/135</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                N     136      Seattle Mariners /api/v1/teams/136</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                N     137  San Francisco Giants /api/v1/teams/137</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                N     138   St. Louis Cardinals /api/v1/teams/138</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                N     139        Tampa Bay Rays /api/v1/teams/139</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                N     140         Texas Rangers /api/v1/teams/140</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                N     141     Toronto Blue Jays /api/v1/teams/141</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10               N     142       Minnesota Twins /api/v1/teams/142</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11               N     143 Philadelphia Phillies /api/v1/teams/143</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12               N     144        Atlanta Braves /api/v1/teams/144</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13               N     145     Chicago White Sox /api/v1/teams/145</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14               N     146         Miami Marlins /api/v1/teams/146</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15               N     147      New York Yankees /api/v1/teams/147</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16               N     158     Milwaukee Brewers /api/v1/teams/158</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17               N     108    Los Angeles Angels /api/v1/teams/108</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18               N     109  Arizona Diamondbacks /api/v1/teams/109</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19               N     110     Baltimore Orioles /api/v1/teams/110</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20               N     111        Boston Red Sox /api/v1/teams/111</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21               N     112          Chicago Cubs /api/v1/teams/112</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22               N     113       Cincinnati Reds /api/v1/teams/113</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23               N     114     Cleveland Indians /api/v1/teams/114</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24               N     115      Colorado Rockies /api/v1/teams/115</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25               N     116        Detroit Tigers /api/v1/teams/116</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26               N     117        Houston Astros /api/v1/teams/117</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27               N     118    Kansas City Royals /api/v1/teams/118</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28               N     119   Los Angeles Dodgers /api/v1/teams/119</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29               N     120  Washington Nationals /api/v1/teams/120</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30               N     121         New York Mets /api/v1/teams/121</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    season team_code file_code team_abbreviation team_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1    2021       oak       oak               OAK Athletics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2    2021       pit       pit               PIT   Pirates</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3    2021       sdn        sd                SD    Padres</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4    2021       sea       sea               SEA  Mariners</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5    2021       sfn        sf                SF    Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6    2021       sln       stl               STL Cardinals</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7    2021       tba        tb                TB      Rays</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8    2021       tex       tex               TEX   Rangers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9    2021       tor       tor               TOR Blue Jays</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10   2021       min       min               MIN     Twins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11   2021       phi       phi               PHI  Phillies</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12   2021       atl       atl               ATL    Braves</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13   2021       cha       cws               CWS White Sox</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14   2021       mia       mia               MIA   Marlins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15   2021       nya       nyy               NYY   Yankees</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16   2021       mil       mil               MIL   Brewers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17   2021       ana       ana               LAA    Angels</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18   2021       ari       ari               ARI   D-backs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19   2021       bal       bal               BAL   Orioles</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20   2021       bos       bos               BOS   Red Sox</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21   2021       chn       chc               CHC      Cubs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22   2021       cin       cin               CIN      Reds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23   2021       cle       cle               CLE   Indians</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24   2021       col       col               COL   Rockies</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25   2021       det       det               DET    Tigers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26   2021       hou       hou               HOU    Astros</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27   2021       kca        kc                KC    Royals</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28   2021       lan        la               LAD   Dodgers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29   2021       was       was               WSH Nationals</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30   2021       nyn       nym               NYM      Mets</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     location_name first_year_of_play    short_name franchise_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         Oakland               1901       Oakland        Oakland</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2      Pittsburgh               1882    Pittsburgh     Pittsburgh</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3       San Diego               1968     San Diego      San Diego</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4         Seattle               1977       Seattle        Seattle</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   San Francisco               1883 San Francisco  San Francisco</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6       St. Louis               1892     St. Louis      St. Louis</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  St. Petersburg               1996     Tampa Bay      Tampa Bay</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8       Arlington               1961         Texas          Texas</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9         Toronto               1977       Toronto        Toronto</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10    Minneapolis               1901     Minnesota      Minnesota</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11   Philadelphia               1883  Philadelphia   Philadelphia</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12        Atlanta               1871       Atlanta        Atlanta</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13        Chicago               1901 Chi White Sox        Chicago</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14          Miami               1991         Miami          Miami</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15          Bronx               1903    NY Yankees       New York</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16      Milwaukee               1968     Milwaukee      Milwaukee</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17        Anaheim               1961     LA Angels    Los Angeles</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18        Phoenix               1996       Arizona        Arizona</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19      Baltimore               1901     Baltimore      Baltimore</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20         Boston               1901        Boston         Boston</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21        Chicago               1874      Chi Cubs        Chicago</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22     Cincinnati               1882    Cincinnati     Cincinnati</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23      Cleveland               1901     Cleveland      Cleveland</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24         Denver               1992      Colorado       Colorado</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25        Detroit               1901       Detroit        Detroit</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26        Houston               1962       Houston        Houston</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27    Kansas City               1968   Kansas City    Kansas City</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28    Los Angeles               1884    LA Dodgers    Los Angeles</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29     Washington               1968    Washington     Washington</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30       Flushing               1962       NY Mets       New York</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       club_name active spring_league_id spring_league_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     Athletics   TRUE              114      Cactus League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2       Pirates   TRUE              115  Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3        Padres   TRUE              114      Cactus League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4      Mariners   TRUE              114      Cactus League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5        Giants   TRUE              114      Cactus League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6     Cardinals   TRUE              115  Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7          Rays   TRUE              115  Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8       Rangers   TRUE              114      Cactus League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9     Blue Jays   TRUE              115  Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10        Twins   TRUE              115  Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11     Phillies   TRUE              115  Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12       Braves   TRUE              115  Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13    White Sox   TRUE              114      Cactus League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14      Marlins   TRUE              115  Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15      Yankees   TRUE              115  Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16      Brewers   TRUE              114      Cactus League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17       Angels   TRUE              114      Cactus League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 Diamondbacks   TRUE              114      Cactus League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19      Orioles   TRUE              115  Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20      Red Sox   TRUE              115  Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21         Cubs   TRUE              114      Cactus League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22         Reds   TRUE              114      Cactus League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23      Indians   TRUE              114      Cactus League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24      Rockies   TRUE              114      Cactus League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25       Tigers   TRUE              115  Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26       Astros   TRUE              115  Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27       Royals   TRUE              114      Cactus League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28      Dodgers   TRUE              114      Cactus League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29    Nationals   TRUE              115  Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30         Mets   TRUE              115  Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    spring_league_link spring_league_abbreviation venue_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  /api/v1/league/114                         CL       10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  /api/v1/league/115                         GL       31</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  /api/v1/league/114                         CL     2680</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  /api/v1/league/114                         CL      680</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  /api/v1/league/114                         CL     2395</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  /api/v1/league/115                         GL     2889</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  /api/v1/league/115                         GL       12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  /api/v1/league/114                         CL     5325</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  /api/v1/league/115                         GL       14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 /api/v1/league/115                         GL     3312</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 /api/v1/league/115                         GL     2681</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 /api/v1/league/115                         GL     4705</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 /api/v1/league/114                         CL        4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 /api/v1/league/115                         GL     4169</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 /api/v1/league/115                         GL     3313</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 /api/v1/league/114                         CL       32</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 /api/v1/league/114                         CL        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 /api/v1/league/114                         CL       15</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 /api/v1/league/115                         GL        2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 /api/v1/league/115                         GL        3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 /api/v1/league/114                         CL       17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 /api/v1/league/114                         CL     2602</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 /api/v1/league/114                         CL        5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 /api/v1/league/114                         CL       19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25 /api/v1/league/115                         GL     2394</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26 /api/v1/league/115                         GL     2392</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27 /api/v1/league/114                         CL        7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 /api/v1/league/114                         CL       22</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29 /api/v1/league/115                         GL     3309</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30 /api/v1/league/115                         GL     3289</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     venue_name          venue_link spring_venue_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1             Oakland Coliseum   /api/v1/venues/10            2507</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                     PNC Park   /api/v1/venues/31            2526</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                   Petco Park /api/v1/venues/2680            2530</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                T-Mobile Park  /api/v1/venues/680            2530</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                  Oracle Park /api/v1/venues/2395            2532</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                Busch Stadium /api/v1/venues/2889            2520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7              Tropicana Field   /api/v1/venues/12            2534</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8             Globe Life Field /api/v1/venues/5325            2603</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                Rogers Centre   /api/v1/venues/14            2536</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                Target Field /api/v1/venues/3312            2862</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11          Citizens Bank Park /api/v1/venues/2681            2700</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                 Truist Park /api/v1/venues/4705            5380</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13       Guaranteed Rate Field    /api/v1/venues/4            3809</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14              loanDepot park /api/v1/venues/4169            2520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15              Yankee Stadium /api/v1/venues/3313            2523</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16       American Family Field   /api/v1/venues/32            2518</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17               Angel Stadium    /api/v1/venues/1            2500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                 Chase Field   /api/v1/venues/15            4249</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 Oriole Park at Camden Yards    /api/v1/venues/2            2508</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20                 Fenway Park    /api/v1/venues/3            4309</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21               Wrigley Field   /api/v1/venues/17            4629</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22    Great American Ball Park /api/v1/venues/2602            3834</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23           Progressive Field    /api/v1/venues/5            3834</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24                 Coors Field   /api/v1/venues/19            4249</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25               Comerica Park /api/v1/venues/2394            2511</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26            Minute Maid Park /api/v1/venues/2392            5000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27            Kauffman Stadium    /api/v1/venues/7            2603</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28              Dodger Stadium   /api/v1/venues/22            3809</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29              Nationals Park /api/v1/venues/3309            5000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30                  Citi Field /api/v1/venues/3289            2856</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      spring_venue_link league_id     league_name        league_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  /api/v1/venues/2507       103 American League /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  /api/v1/venues/2526       104 National League /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  /api/v1/venues/2530       104 National League /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  /api/v1/venues/2530       103 American League /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  /api/v1/venues/2532       104 National League /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  /api/v1/venues/2520       104 National League /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  /api/v1/venues/2534       103 American League /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  /api/v1/venues/2603       103 American League /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  /api/v1/venues/2536       103 American League /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 /api/v1/venues/2862       103 American League /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 /api/v1/venues/2700       104 National League /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 /api/v1/venues/5380       104 National League /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 /api/v1/venues/3809       103 American League /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 /api/v1/venues/2520       104 National League /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 /api/v1/venues/2523       103 American League /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 /api/v1/venues/2518       104 National League /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 /api/v1/venues/2500       103 American League /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 /api/v1/venues/4249       104 National League /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 /api/v1/venues/2508       103 American League /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 /api/v1/venues/4309       103 American League /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 /api/v1/venues/4629       104 National League /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 /api/v1/venues/3834       104 National League /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 /api/v1/venues/3834       103 American League /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 /api/v1/venues/4249       104 National League /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25 /api/v1/venues/2511       103 American League /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26 /api/v1/venues/5000       103 American League /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27 /api/v1/venues/2603       103 American League /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 /api/v1/venues/3809       104 National League /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29 /api/v1/venues/5000       104 National League /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30 /api/v1/venues/2856       104 National League /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    division_id           division_name         division_link sport_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1          200    American League West /api/v1/divisions/200        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2          205 National League Central /api/v1/divisions/205        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3          203    National League West /api/v1/divisions/203        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4          200    American League West /api/v1/divisions/200        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5          203    National League West /api/v1/divisions/203        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6          205 National League Central /api/v1/divisions/205        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7          201    American League East /api/v1/divisions/201        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8          200    American League West /api/v1/divisions/200        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9          201    American League East /api/v1/divisions/201        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10         202 American League Central /api/v1/divisions/202        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11         204    National League East /api/v1/divisions/204        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12         204    National League East /api/v1/divisions/204        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13         202 American League Central /api/v1/divisions/202        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14         204    National League East /api/v1/divisions/204        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15         201    American League East /api/v1/divisions/201        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16         205 National League Central /api/v1/divisions/205        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17         200    American League West /api/v1/divisions/200        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18         203    National League West /api/v1/divisions/203        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19         201    American League East /api/v1/divisions/201        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20         201    American League East /api/v1/divisions/201        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21         205 National League Central /api/v1/divisions/205        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22         205 National League Central /api/v1/divisions/205        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23         202 American League Central /api/v1/divisions/202        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24         203    National League West /api/v1/divisions/203        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25         202 American League Central /api/v1/divisions/202        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26         200    American League West /api/v1/divisions/200        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27         202 American League Central /api/v1/divisions/202        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28         203    National League West /api/v1/divisions/203        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29         204    National League East /api/v1/divisions/204        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30         204    National League East /api/v1/divisions/204        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          sport_link            sport_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29 /api/v1/sports/1 Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30 /api/v1/sports/1 Major League Baseball</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Teams data from MLB.com ────────────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:41 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 30 × 33</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    all_star_status team_id team_full_name       link    season team_code</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> N                   133 Oakland Athletics    /api/v…   <span style="text-decoration: underline;">2</span>021 oak      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> N                   134 Pittsburgh Pirates   /api/v…   <span style="text-decoration: underline;">2</span>021 pit      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> N                   135 San Diego Padres     /api/v…   <span style="text-decoration: underline;">2</span>021 sdn      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> N                   136 Seattle Mariners     /api/v…   <span style="text-decoration: underline;">2</span>021 sea      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> N                   137 San Francisco Giants /api/v…   <span style="text-decoration: underline;">2</span>021 sfn      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> N                   138 St. Louis Cardinals  /api/v…   <span style="text-decoration: underline;">2</span>021 sln      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> N                   139 Tampa Bay Rays       /api/v…   <span style="text-decoration: underline;">2</span>021 tba      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> N                   140 Texas Rangers        /api/v…   <span style="text-decoration: underline;">2</span>021 tex      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> N                   141 Toronto Blue Jays    /api/v…   <span style="text-decoration: underline;">2</span>021 tor      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> N                   142 Minnesota Twins      /api/v…   <span style="text-decoration: underline;">2</span>021 min      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 20 more rows, and 27 more variables: file_code &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_abbreviation &lt;chr&gt;, team_name &lt;chr&gt;, location_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   first_year_of_play &lt;chr&gt;, short_name &lt;chr&gt;, franchise_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   club_name &lt;chr&gt;, active &lt;lgl&gt;, spring_league_id &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   spring_league_name &lt;chr&gt;, spring_league_link &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   spring_league_abbreviation &lt;chr&gt;, venue_id &lt;int&gt;, venue_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   venue_link &lt;chr&gt;, spring_venue_id &lt;int&gt;, spring_venue_link &lt;chr&gt;, …</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

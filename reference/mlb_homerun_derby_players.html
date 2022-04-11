@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -142,366 +144,26 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_homerun_derby_players</span><span class="op">(</span>game_pk <span class="op">=</span> <span class="fl">511101</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   game_pk                           event_name           event_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  511101 All-Star Workout Day: Home Run Derby 2017-07-11T00:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  511101 All-Star Workout Day: Home Run Derby 2017-07-11T00:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  511101 All-Star Workout Day: Home Run Derby 2017-07-11T00:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  511101 All-Star Workout Day: Home Run Derby 2017-07-11T00:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  511101 All-Star Workout Day: Home Run Derby 2017-07-11T00:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  511101 All-Star Workout Day: Home Run Derby 2017-07-11T00:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  511101 All-Star Workout Day: Home Run Derby 2017-07-11T00:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  511101 All-Star Workout Day: Home Run Derby 2017-07-11T00:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   event_type_code event_type_name venue_id   venue_name player_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1               O           Other     4169 Marlins Park    519317</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2               O           Other     4169 Marlins Park    592450</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3               O           Other     4169 Marlins Park    641355</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4               O           Other     4169 Marlins Park    519058</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5               O           Other     4169 Marlins Park    593934</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6               O           Other     4169 Marlins Park    453568</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7               O           Other     4169 Marlins Park    571506</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8               O           Other     4169 Marlins Park    596142</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    player_full_name           player_link player_first_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Giancarlo Stanton /api/v1/people/519317         Giancarlo</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2       Aaron Judge /api/v1/people/592450             Aaron</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3    Cody Bellinger /api/v1/people/641355              Cody</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4    Mike Moustakas /api/v1/people/519058           Michael</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5       Miguel Sano /api/v1/people/593934            Miguel</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  Charlie Blackmon /api/v1/people/453568           Charles</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7       Justin Bour /api/v1/people/571506            Justin</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8      Gary Sanchez /api/v1/people/596142              Gary</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_last_name player_primary_number player_birth_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1          Stanton                    27        1989-11-08</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2            Judge                    99        1992-04-26</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3        Bellinger                    35        1995-07-13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4        Moustakas                     9        1988-09-11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5             Sano                    22        1993-05-11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6         Blackmon                    19        1986-07-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7             Bour                    48        1988-05-28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8          Sanchez                    24        1992-12-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_age    player_birth_city player_birth_state_province</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                 32             Panorama                          CA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                 29               Linden                          CA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                 26           Scottsdale                          AZ</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                 33          Los Angeles                          CA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                 28 San Pedro de Macoris                        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                 35               Dallas                          TX</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                 33           Washington                          DC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                 29        Santo Domingo                        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_birth_country player_height player_weight player_active</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                  USA         6' 6"           245          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                  USA         6' 7"           282          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                  USA         6' 4"           203          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                  USA         6' 0"           225          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   Dominican Republic         6' 4"           272          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                  USA         6' 3"           221          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                  USA         6' 4"           270          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   Dominican Republic         6' 2"           230          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_use_name player_middle_name player_boxscore_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1       Giancarlo       Cruz-Michael              Stanton</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2           Aaron              James                Judge</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3            Cody              James            Bellinger</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4            Mike        Christopher            Moustakas</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5          Miguel              Angel                 Sanó</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6         Charlie               Cobb             Blackmon</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7          Justin              James                 Bour</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8            Gary               &lt;NA&gt;           Sánchez, G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_nick_name player_gender player_is_player player_is_verified</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   Parmigiancarlo             M             TRUE               TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2              Baj             M             TRUE               TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3            Belli             M             TRUE               TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4            Moose             M             TRUE               TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5         Boqueton             M             TRUE               TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6      Chuck Nazty             M             TRUE               TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7               JB             M             TRUE               TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8           Kraken             M             TRUE               TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_draft_year player_pronunciation player_mlb_debut_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1              2007          Zhon-car-lo            2010-06-08</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2              2013                 &lt;NA&gt;            2016-08-13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3              2013                 &lt;NA&gt;            2017-04-25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4              2007         moo-STOCK-us            2011-06-10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                NA                sa-NO            2015-07-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6              2008                 &lt;NA&gt;            2011-06-07</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7              2009                 &lt;NA&gt;            2014-06-05</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                NA                 &lt;NA&gt;            2015-10-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_name_first_last         player_name_slug</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1      Giancarlo Stanton giancarlo-stanton-519317</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2            Aaron Judge       aaron-judge-592450</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         Cody Bellinger    cody-bellinger-641355</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4         Mike Moustakas    mike-moustakas-519058</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5            Miguel Sano       miguel-sano-593934</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6       Charlie Blackmon  charlie-blackmon-453568</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7            Justin Bour       justin-bour-571506</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8           Gary Sanchez      gary-sanchez-596142</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_first_last_name player_last_first_name player_last_init_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1      Giancarlo Stanton     Stanton, Giancarlo            Stanton, G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2            Aaron Judge           Judge, Aaron              Judge, A</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         Cody Bellinger        Bellinger, Cody          Bellinger, C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4         Mike Moustakas        Moustakas, Mike          Moustakas, M</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5            Miguel Sanó           Sanó, Miguel               Sanó, M</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6       Charlie Blackmon      Blackmon, Charlie           Blackmon, C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7            Justin Bour           Bour, Justin               Bour, J</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8           Gary Sánchez          Sánchez, Gary            Sánchez, G</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_init_last_name           player_full_fml_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1             G Stanton Giancarlo Cruz-Michael Stanton</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2               A Judge              Aaron James Judge</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3           C Bellinger           Cody James Bellinger</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4           M Moustakas  Michael Christopher Moustakas</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                M Sanó              Miguel Angel Sanó</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6            C Blackmon          Charles Cobb Blackmon</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                J Bour              Justin James Bour</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8             G Sánchez                   Gary Sánchez</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              player_full_lfm_name player_strike_zone_top</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Stanton, Giancarlo Cruz-Michael                  3.656</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2              Judge, Aaron James                  3.756</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3           Bellinger, Cody James                  3.549</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  Moustakas, Michael Christopher                  3.371</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5              Sanó, Miguel Angel                  3.549</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6          Blackmon, Charles Cobb                  3.490</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7              Bour, Justin James                  3.549</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                   Sánchez, Gary                  3.467</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_strike_zone_bottom player_name_matrilineal</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                     1.677                    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                     1.746                    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                     1.627                    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                     1.535                    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                     1.627                    Jean</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                     1.601                    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                     1.627                    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                     1.589                    &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_id player_current_team_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                    147         New York Yankees</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                    147         New York Yankees</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                    119      Los Angeles Dodgers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                    113          Cincinnati Reds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                    142          Minnesota Twins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                    115         Colorado Rockies</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                    532 Diablos Rojos del Mexico</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                    142          Minnesota Twins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_link player_current_team_season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        /api/v1/teams/147                       2022</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2        /api/v1/teams/147                       2022</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3        /api/v1/teams/119                       2022</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4        /api/v1/teams/113                       2022</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5        /api/v1/teams/142                       2022</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6        /api/v1/teams/115                       2022</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7        /api/v1/teams/532                       2022</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8        /api/v1/teams/142                       2022</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_team_code player_current_team_file_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                           nya                           nyy</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                           nya                           nyy</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                           lan                            la</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                           cin                           cin</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                           min                           min</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                           col                           col</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                           mxo                          t532</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                           min                           min</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_abbreviation player_current_team_team_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                              NYY                       Yankees</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                              NYY                       Yankees</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                              LAD                       Dodgers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                              CIN                          Reds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                              MIN                         Twins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                              COL                       Rockies</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                              MEX                 Diablos Rojos</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                              MIN                         Twins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_location_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                             Bronx</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                             Bronx</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                       Los Angeles</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                        Cincinnati</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                       Minneapolis</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                            Denver</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                       Mexico City</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                       Minneapolis</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_first_year_of_play player_current_team_short_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                   1903                     NY Yankees</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                   1903                     NY Yankees</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                   1884                     LA Dodgers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                   1882                     Cincinnati</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                   1901                      Minnesota</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                   1992                       Colorado</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                   1940                         Mexico</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                   1901                      Minnesota</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_franchise_name player_current_team_club_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                           New York                       Yankees</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                           New York                       Yankees</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                        Los Angeles                       Dodgers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                         Cincinnati                          Reds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                          Minnesota                         Twins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                           Colorado                       Rockies</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                             Mexico                 Diablos Rojos</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                          Minnesota                         Twins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_all_star_status player_current_team_active</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                   N                       TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                   N                       TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                   N                       TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                   N                       TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                   N                       TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                   N                       TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                   N                       TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                   N                       TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_parent_org_name player_current_team_parent_org_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                &lt;NA&gt;                                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                &lt;NA&gt;                                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                &lt;NA&gt;                                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                &lt;NA&gt;                                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                &lt;NA&gt;                                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                &lt;NA&gt;                                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7          Office of the Commissioner                                11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                &lt;NA&gt;                                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_venue_id player_current_team_venue_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                         3313                 Yankee Stadium</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                         3313                 Yankee Stadium</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                           22                 Dodger Stadium</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                         2602       Great American Ball Park</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                         3312                   Target Field</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                           19                    Coors Field</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                         5340      Estadio Alfredo Harp Helu</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                         3312                   Target Field</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_venue_link player_current_team_spring_venue_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1            /api/v1/venues/3313                                2523</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2            /api/v1/venues/3313                                2523</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3              /api/v1/venues/22                                3809</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4            /api/v1/venues/2602                                3834</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5            /api/v1/venues/3312                                2862</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6              /api/v1/venues/19                                4249</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7            /api/v1/venues/5340                                  NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8            /api/v1/venues/3312                                2862</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_spring_venue_link player_current_team_league_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                   /api/v1/venues/2523                           103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                   /api/v1/venues/2523                           103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                   /api/v1/venues/3809                           104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                   /api/v1/venues/3834                           104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                   /api/v1/venues/2862                           103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                   /api/v1/venues/4249                           104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                  &lt;NA&gt;                           125</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                   /api/v1/venues/2862                           103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_league_name player_current_team_league_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                 American League              /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                 American League              /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                 National League              /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                 National League              /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                 American League              /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                 National League              /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                  Mexican League              /api/v1/league/125</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                 American League              /api/v1/league/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_division_id player_current_team_division_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                             201              American League East</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                             201              American League East</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                             203              National League West</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                             205           National League Central</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                             202           American League Central</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                             203              National League West</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                             223                Mexican League Sur</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                             202           American League Central</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_division_link player_current_team_sport_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1             /api/v1/divisions/201                            1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2             /api/v1/divisions/201                            1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3             /api/v1/divisions/203                            1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4             /api/v1/divisions/205                            1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5             /api/v1/divisions/202                            1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6             /api/v1/divisions/203                            1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7             /api/v1/divisions/223                           23</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8             /api/v1/divisions/202                            1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_sport_link player_current_team_sport_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1               /api/v1/sports/1          Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2               /api/v1/sports/1          Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3               /api/v1/sports/1          Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4               /api/v1/sports/1          Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5               /api/v1/sports/1          Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6               /api/v1/sports/1          Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7              /api/v1/sports/23            Independent Leagues</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8               /api/v1/sports/1          Major League Baseball</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_spring_league_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                  115</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                  115</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                  114</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                  114</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                  115</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                  114</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                   NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                  115</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_spring_league_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                      Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                      Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                          Cactus League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                          Cactus League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                      Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                          Cactus League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                      Grapefruit League</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_spring_league_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                     /api/v1/league/115</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                     /api/v1/league/115</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                     /api/v1/league/114</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                     /api/v1/league/114</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                     /api/v1/league/115</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                     /api/v1/league/114</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                     /api/v1/league/115</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_current_team_spring_league_abbreviation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                             GL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                             GL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                             CL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                             CL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                             GL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                             CL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                           &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                             GL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_primary_position_code player_primary_position_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                           10            Designated Hitter</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                            9                   Outfielder</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                            8                   Outfielder</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                            5                   Third Base</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                            3                   First Base</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                            9                   Outfielder</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                            3                   First Base</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                            2                      Catcher</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_primary_position_type player_primary_position_abbreviation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                       Hitter                                   DH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                   Outfielder                                   RF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                   Outfielder                                   CF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                    Infielder                                   3B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                    Infielder                                   1B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                   Outfielder                                   RF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                    Infielder                                   1B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                      Catcher                                    C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_bat_side_code player_bat_side_description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                    R                       Right</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                    R                       Right</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                    L                        Left</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                    L                        Left</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                    R                       Right</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                    L                        Left</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                    L                        Left</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                    R                       Right</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   player_pitch_hand_code player_pitch_hand_description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                      R                         Right</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                      R                         Right</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                      L                          Left</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                      R                         Right</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                      R                         Right</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                      L                          Left</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                      R                         Right</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                      R                         Right</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            venue_link is_multi_day is_primary_calendar</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 /api/v1/venues/4169        FALSE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 /api/v1/venues/4169        FALSE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 /api/v1/venues/4169        FALSE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 /api/v1/venues/4169        FALSE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 /api/v1/venues/4169        FALSE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 /api/v1/venues/4169        FALSE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 /api/v1/venues/4169        FALSE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 /api/v1/venues/4169        FALSE                TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            file_code event_number public_facing</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2017/07/10/mlb-112          103          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2017/07/10/mlb-112          103          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 2017/07/10/mlb-112          103          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 2017/07/10/mlb-112          103          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 2017/07/10/mlb-112          103          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 2017/07/10/mlb-112          103          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 2017/07/10/mlb-112          103          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 2017/07/10/mlb-112          103          TRUE</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Homerun Derby Players data from MLB.com ────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:06 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8 × 91</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   game_pk event_name event_date event_type_code event_type_name venue_id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">511</span>101 All-Star … 2017-07-1… O               Other               <span style="text-decoration: underline;">4</span>169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">511</span>101 All-Star … 2017-07-1… O               Other               <span style="text-decoration: underline;">4</span>169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>  <span style="text-decoration: underline;">511</span>101 All-Star … 2017-07-1… O               Other               <span style="text-decoration: underline;">4</span>169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>  <span style="text-decoration: underline;">511</span>101 All-Star … 2017-07-1… O               Other               <span style="text-decoration: underline;">4</span>169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>  <span style="text-decoration: underline;">511</span>101 All-Star … 2017-07-1… O               Other               <span style="text-decoration: underline;">4</span>169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>  <span style="text-decoration: underline;">511</span>101 All-Star … 2017-07-1… O               Other               <span style="text-decoration: underline;">4</span>169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span>  <span style="text-decoration: underline;">511</span>101 All-Star … 2017-07-1… O               Other               <span style="text-decoration: underline;">4</span>169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span>  <span style="text-decoration: underline;">511</span>101 All-Star … 2017-07-1… O               Other               <span style="text-decoration: underline;">4</span>169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 85 more variables: venue_name &lt;chr&gt;, player_id &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   player_full_name &lt;chr&gt;, player_link &lt;chr&gt;, player_first_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   player_last_name &lt;chr&gt;, player_primary_number &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   player_birth_date &lt;chr&gt;, player_current_age &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   player_birth_city &lt;chr&gt;, player_birth_state_province &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   player_birth_country &lt;chr&gt;, player_height &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   player_weight &lt;int&gt;, player_active &lt;lgl&gt;, player_use_name &lt;chr&gt;, …</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

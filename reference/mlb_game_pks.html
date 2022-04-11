@@ -35,6 +35,7 @@ via the MLB api http://statsapi.mlb.com/api/"><meta property="og:image" content=
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -80,6 +81,7 @@ via the MLB api http://statsapi.mlb.com/api/"><meta property="og:image" content=
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -163,176 +165,27 @@ information for games scheduled or played</p><table class="table table"><tr><td>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_game_pks</span><span class="op">(</span><span class="st">"2019-04-29"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   game_pk                            link gameType season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  565909 /api/v1.1/game/565909/feed/live        R   2019</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  566001 /api/v1.1/game/566001/feed/live        R   2019</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  565040 /api/v1.1/game/565040/feed/live        R   2019</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  567173 /api/v1.1/game/567173/feed/live        R   2019</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  566975 /api/v1.1/game/566975/feed/live        R   2019</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  567566 /api/v1.1/game/567566/feed/live        R   2019</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  567275 /api/v1.1/game/567275/feed/live        R   2019</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  565717 /api/v1.1/game/565717/feed/live        R   2019</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  566484 /api/v1.1/game/566484/feed/live        R   2019</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               gameDate officialDate isTie gameNumber publicFacing</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2019-04-29T23:05:00Z   2019-04-29 FALSE          1         TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2019-04-29T23:10:00Z   2019-04-29 FALSE          1         TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 2019-04-29T23:10:00Z   2019-04-29 FALSE          1         TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 2019-04-29T23:20:00Z   2019-04-29 FALSE          1         TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 2019-04-29T23:40:00Z   2019-04-29 FALSE          1         TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 2019-04-29T23:40:00Z   2019-04-29 FALSE          1         TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 2019-04-30T00:10:00Z   2019-04-29 FALSE          1         TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 2019-04-30T00:15:00Z   2019-04-29 FALSE          1         TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9 2019-04-30T01:45:00Z   2019-04-29 FALSE          1         TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   doubleHeader gamedayType tiebreaker      calendarEventID</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1            N           P          N 14-565909-2019-04-29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2            N           P          N 14-566001-2019-04-29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3            N           P          N 14-565040-2019-04-29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4            N           P          N 14-567173-2019-04-29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5            N           P          N 14-566975-2019-04-29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6            N           P          N 14-567566-2019-04-29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7            N           P          N 14-567275-2019-04-29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8            N           P          N 14-565717-2019-04-29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9            N           P          N 14-566484-2019-04-29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   seasonDisplay dayNight scheduledInnings reverseHomeAwayStatus</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1          2019    night                9                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2          2019    night                9                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3          2019    night                9                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4          2019    night                9                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5          2019    night                9                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6          2019    night                9                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7          2019    night                9                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8          2019    night                9                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9          2019    night                9                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   inningBreakLength gamesInSeries seriesGameNumber seriesDescription</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1               120             4                1    Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2               120             4                1    Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3               120             3                1    Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4               120             4                1    Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5               120             4                1    Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6               120             4                1    Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7               120             3                1    Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8               120             4                1    Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9               120             3                1    Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   recordSource ifNecessary ifNecessaryDescription</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1            S           N            Normal Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2            S           N            Normal Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3            S           N            Normal Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4            S           N            Normal Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5            S           N            Normal Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6            S           N            Normal Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7            S           N            Normal Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8            S           N            Normal Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9            S           N            Normal Game</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   status.abstractGameState status.codedGameState status.detailedState</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                    Final                     F                Final</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                    Final                     F                Final</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                    Final                     F                Final</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                    Final                     F                Final</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                    Final                     F                Final</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                    Final                     F                Final</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                    Final                     F                Final</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                    Final                     F                Final</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                    Final                     F                Final</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   status.statusCode status.startTimeTBD status.abstractGameCode</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                 F               FALSE                       F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                 F               FALSE                       F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                 F               FALSE                       F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                 F               FALSE                       F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                 F               FALSE                       F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                 F               FALSE                       F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                 F               FALSE                       F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                 F               FALSE                       F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                 F               FALSE                       F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams.away.score teams.away.isWinner teams.away.splitSquad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                6                TRUE                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                5                TRUE                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                4               FALSE                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                1               FALSE                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                0               FALSE                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                1               FALSE                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                3               FALSE                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                8                TRUE                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                2               FALSE                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams.away.seriesNumber teams.away.leagueRecord.wins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                      10                           18</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                      10                           12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                      11                           14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                      10                           16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                      10                           17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                      10                           13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                      10                           10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                      10                           19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                      10                           19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams.away.leagueRecord.losses teams.away.leagueRecord.pct</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                             10                        .643</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                             16                        .429</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                             17                        .452</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                             13                        .552</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                             12                        .586</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                             16                        .448</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                             20                        .333</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                              9                        .679</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                             12                        .613</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams.away.team.id teams.away.team.name teams.away.team.link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                138  St. Louis Cardinals    /api/v1/teams/138</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                113      Cincinnati Reds    /api/v1/teams/113</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                133    Oakland Athletics    /api/v1/teams/133</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                135     San Diego Padres    /api/v1/teams/135</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                117       Houston Astros    /api/v1/teams/117</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                115     Colorado Rockies    /api/v1/teams/115</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                110    Baltimore Orioles    /api/v1/teams/110</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                139       Tampa Bay Rays    /api/v1/teams/139</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                119  Los Angeles Dodgers    /api/v1/teams/119</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams.home.score teams.home.isWinner teams.home.splitSquad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                3               FALSE                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                4               FALSE                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                9                TRUE                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                3                TRUE                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                1                TRUE                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                5                TRUE                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                5                TRUE                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                5               FALSE                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                3                TRUE                 FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams.home.seriesNumber teams.home.leagueRecord.wins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                      10                           12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                      10                           14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                      10                           12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                      10                           14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                      10                           17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                      10                           16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                      10                           12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                      10                            9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                      10                           12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams.home.leagueRecord.losses teams.home.leagueRecord.pct</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                             15                        .444</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                             14                        .500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                             17                        .414</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                             14                        .500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                              9                        .654</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                             14                        .533</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                             14                        .462</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                             20                        .310</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                             17                        .414</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   teams.home.team.id teams.home.team.name teams.home.team.link venue.id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                120 Washington Nationals    /api/v1/teams/120     3309</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                121        New York Mets    /api/v1/teams/121     3289</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                111       Boston Red Sox    /api/v1/teams/111        3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                144       Atlanta Braves    /api/v1/teams/144     4705</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                142      Minnesota Twins    /api/v1/teams/142     3312</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                158    Milwaukee Brewers    /api/v1/teams/158       32</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                145    Chicago White Sox    /api/v1/teams/145        4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                118   Kansas City Royals    /api/v1/teams/118        7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                137 San Francisco Giants    /api/v1/teams/137     2395</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              venue.name          venue.link                content.link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        Nationals Park /api/v1/venues/3309 /api/v1/game/565909/content</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2            Citi Field /api/v1/venues/3289 /api/v1/game/566001/content</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3           Fenway Park    /api/v1/venues/3 /api/v1/game/565040/content</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4         SunTrust Park /api/v1/venues/4705 /api/v1/game/567173/content</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5          Target Field /api/v1/venues/3312 /api/v1/game/566975/content</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6           Miller Park   /api/v1/venues/32 /api/v1/game/567566/content</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 Guaranteed Rate Field    /api/v1/venues/4 /api/v1/game/567275/content</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8      Kauffman Stadium    /api/v1/venues/7 /api/v1/game/565717/content</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9           Oracle Park /api/v1/venues/2395 /api/v1/game/566484/content</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Game Pks data from MLB.com ─────────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:03:58 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 54</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   game_pk link    gameType season gameDate officialDate isTie gameNumber</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">565</span>909 /api/v… R        2019   2019-04… 2019-04-29   FALSE          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">566</span>001 /api/v… R        2019   2019-04… 2019-04-29   FALSE          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>  <span style="text-decoration: underline;">565</span>040 /api/v… R        2019   2019-04… 2019-04-29   FALSE          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>  <span style="text-decoration: underline;">567</span>173 /api/v… R        2019   2019-04… 2019-04-29   FALSE          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>  <span style="text-decoration: underline;">566</span>975 /api/v… R        2019   2019-04… 2019-04-29   FALSE          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>  <span style="text-decoration: underline;">567</span>566 /api/v… R        2019   2019-04… 2019-04-29   FALSE          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span>  <span style="text-decoration: underline;">567</span>275 /api/v… R        2019   2019-04… 2019-04-29   FALSE          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span>  <span style="text-decoration: underline;">565</span>717 /api/v… R        2019   2019-04… 2019-04-29   FALSE          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">9</span>  <span style="text-decoration: underline;">566</span>484 /api/v… R        2019   2019-04… 2019-04-29   FALSE          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 46 more variables: publicFacing &lt;lgl&gt;, doubleHeader &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   gamedayType &lt;chr&gt;, tiebreaker &lt;chr&gt;, calendarEventID &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   seasonDisplay &lt;chr&gt;, dayNight &lt;chr&gt;, scheduledInnings &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   reverseHomeAwayStatus &lt;lgl&gt;, inningBreakLength &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   gamesInSeries &lt;int&gt;, seriesGameNumber &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   seriesDescription &lt;chr&gt;, recordSource &lt;chr&gt;, ifNecessary &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ifNecessaryDescription &lt;chr&gt;, status.abstractGameState &lt;chr&gt;, …</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

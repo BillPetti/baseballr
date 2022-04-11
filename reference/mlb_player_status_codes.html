@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -137,38 +139,22 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="fu">mlb_player_status_codes</span><span class="op">(</span><span class="op">)</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Player Status Codes data from MLB.com ──────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:20 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 31 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    player_status_code player_status_description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                 DEC                  Deceased</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                 RET                   Retired</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                 ASG                  Assigned</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                 MIL            Military Leave</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                  IN           Ineligible List</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                  TI        Temporary Inactive</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                  CL                   Claimed</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                 DES       Des. for Assignment</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                 RST                Restricted</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                 D7                  7-day IL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                BRV               Bereavement</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                RES                   Reserve</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                  A                    Active</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                D15                 15-day IL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                D60                 60-day IL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                 SU                 Suspended</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                 BN                    Banned</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                 WA                    Waived</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                 RM                Reassigned</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20                 RA                     Rehab</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21                 RL                  Released</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22                NRI                       NRI</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23                 TR                    Traded</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24                 FA                Free agent</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                D10                 10-day IL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26                FME            Family Medical</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27                 PL                 Paternity</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28                TAX                Taxi Squad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29                D45                 45-day IL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30                DEV          Development List</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31                MIN     Minor League Contract</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> DEC                Deceased                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> RET                Retired                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> ASG                Assigned                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> MIL                Military Leave           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> IN                 Ineligible List          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> TI                 Temporary Inactive       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> CL                 Claimed                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> DES                Des. for Assignment      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> RST                Restricted               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> D7                 7-day IL                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 21 more rows</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

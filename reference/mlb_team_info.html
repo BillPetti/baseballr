@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -146,22 +148,19 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_team_info</span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">147</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   all_star_status team_id   team_full_name              link season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1               N     147 New York Yankees /api/v1/teams/147   2022</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   team_code file_code team_abbreviation team_name location_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1       nya       nyy               NYY   Yankees         Bronx</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   first_year_of_play short_name franchise_name club_name active</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1               1903 NY Yankees       New York   Yankees   TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   spring_league_id spring_league_name spring_league_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1              115  Grapefruit League /api/v1/league/115</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   spring_league_abbreviation venue_id     venue_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                         GL     3313 Yankee Stadium</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            venue_link spring_venue_id   spring_venue_link league_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 /api/v1/venues/3313            2523 /api/v1/venues/2523       103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       league_name        league_link division_id        division_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 American League /api/v1/league/103         201 American League East</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           division_link sport_id       sport_link            sport_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 /api/v1/divisions/201        1 /api/v1/sports/1 Major League Baseball</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Team Info data from MLB.com ────────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:39 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 33</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   all_star_status team_id team_full_name   link         season team_code</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> N                   147 New York Yankees /api/v1/tea…   <span style="text-decoration: underline;">2</span>022 nya      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 27 more variables: file_code &lt;chr&gt;, team_abbreviation &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_name &lt;chr&gt;, location_name &lt;chr&gt;, first_year_of_play &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   short_name &lt;chr&gt;, franchise_name &lt;chr&gt;, club_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   active &lt;lgl&gt;, spring_league_id &lt;int&gt;, spring_league_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   spring_league_link &lt;chr&gt;, spring_league_abbreviation &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   venue_id &lt;int&gt;, venue_name &lt;chr&gt;, venue_link &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   spring_venue_id &lt;int&gt;, spring_venue_link &lt;chr&gt;, league_id &lt;int&gt;, …</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

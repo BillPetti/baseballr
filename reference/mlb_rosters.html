@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -150,259 +152,45 @@ Valid options include: '40Man', 'fullSeason', 'fullRoster', 'nonRosterInvitees',
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_rosters</span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">109</span>, season <span class="op">=</span> <span class="fl">2018</span>, roster_type <span class="op">=</span> <span class="st">'active'</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    jersey_number person_id  person_full_name           person_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1             13    605113        Nick Ahmed /api/v1/people/605113</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2             35    542882     Matt Andriese /api/v1/people/542882</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3              5    488671        Alex Avila /api/v1/people/488671</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4             33    545332      Jake Barrett /api/v1/people/545332</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5             31    502202    Brad Boxberger /api/v1/people/502202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6             61    611093    Silvino Bracho /api/v1/people/611093</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7             25    605151    Archie Bradley /api/v1/people/605151</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8             19    593647    Socrates Brito /api/v1/people/593647</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9             32    453329     Clay Buchholz /api/v1/people/453329</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10            40    605177     Andrew Chafin /api/v1/people/605177</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11            46    571578    Patrick Corbin /api/v1/people/571578</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12            29    407822  Jorge De La Rosa /api/v1/people/407822</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13            48    517414   Randall Delgado /api/v1/people/517414</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14             3    518614   Daniel Descalso /api/v1/people/518614</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15            41    518617      Jake Diekman /api/v1/people/518617</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16             1    502481      Jarrod Dyson /api/v1/people/502481</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17            14    500871   Eduardo Escobar /api/v1/people/500871</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18            52    643327       Zack Godley /api/v1/people/643327</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19            44    502671  Paul Goldschmidt /api/v1/people/502671</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20            21    425844      Zack Greinke /api/v1/people/425844</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21            66    673633  Yoshihisa Hirano /api/v1/people/673633</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22             9    445055           Jon Jay /api/v1/people/445055</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23            47    623182  Patrick Kivlehan /api/v1/people/623182</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24            55    571863         Matt Koch /api/v1/people/571863</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25            65    607216     Joey Krehbiel /api/v1/people/607216</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26            22    571875         Jake Lamb /api/v1/people/571875</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27            50    661255        Yoan Lopez /api/v1/people/661255</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28            10    571918     Deven Marrero /api/v1/people/571918</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29             4    606466       Ketel Marte /api/v1/people/606466</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30             2    425772       Jeff Mathis /api/v1/people/425772</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31            30    519008    T.J. McFarland /api/v1/people/519008</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32            47    450665       Kris Medlen /api/v1/people/450665</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33            26    571946     Shelby Miller /api/v1/people/571946</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34            36    571974  John Ryan Murphy /api/v1/people/571974</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35            45    502117 Kristopher Negron /api/v1/people/502117</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36            16    572008      Chris Owings /api/v1/people/572008</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37             6    444482     David Peralta /api/v1/people/444482</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38            11    572041        AJ Pollock /api/v1/people/572041</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39            38    592662        Robbie Ray /api/v1/people/592662</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40            57    477569    Fernando Salas /api/v1/people/477569</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41                  644428     Troy Scribner /api/v1/people/644428</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42            54    642073     Jimmie Sherfy /api/v1/people/642073</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43                  640463    Braden Shipley /api/v1/people/640463</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44            28    519306  Steven Souza Jr. /api/v1/people/519306</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45            37    455755     Chris Stewart /api/v1/people/455755</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46            15    545121   Ildemaro Vargas /api/v1/people/545121</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47            53    572233  Christian Walker /api/v1/people/572233</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48            99    592836    Taijuan Walker /api/v1/people/592836</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49            29    446899      Brad Ziegler /api/v1/people/446899</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    position_code position_name position_type position_abbreviation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1              6     Shortstop     Infielder                    SS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2              1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3              2       Catcher       Catcher                     C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4              1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5              1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6              1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7              1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8              9    Outfielder    Outfielder                    RF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9              1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14             5    Third Base     Infielder                    3B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16             8    Outfielder    Outfielder                    CF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17             5    Third Base     Infielder                    3B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19             3    First Base     Infielder                    1B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22             9    Outfielder    Outfielder                    RF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23             9    Outfielder    Outfielder                    RF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26             5    Third Base     Infielder                    3B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28             5    Third Base     Infielder                    3B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29             4   Second Base     Infielder                    2B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30             2       Catcher       Catcher                     C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34             2       Catcher       Catcher                     C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35             5    Third Base     Infielder                    3B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36             4   Second Base     Infielder                    2B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37             7    Outfielder    Outfielder                    LF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38             8    Outfielder    Outfielder                    CF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44             9    Outfielder    Outfielder                    RF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45             2       Catcher       Catcher                     C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46             6     Shortstop     Infielder                    SS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47             3    First Base     Infielder                    1B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49             1       Pitcher       Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    status_code       status_description                     link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1            A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2            A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3            A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4            A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5            A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6            A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7            A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8            A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9          D60           Injured 60-Day /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12          RL                 Released /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16         D60           Injured 60-Day /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23         MIN    Minor League Contract /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26         D60           Injured 60-Day /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28         MIN    Minor League Contract /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32         RET Voluntarily Retired List /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35          TR                   Traded /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40          RL                 Released /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41         MIN    Minor League Contract /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46           A                   Active /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47         D60           Injured 60-Day /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48         D60           Injured 60-Day /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49         RET Voluntarily Retired List /api/v1/teams/109/roster</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_id roster_type season date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1      109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2      109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3      109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4      109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5      109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6      109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7      109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8      109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9      109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48     109  fullSeason   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49     109  fullSeason   2018 &lt;NA&gt;</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Roster data from MLB.com ───────────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:22 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 49 × 15</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    jersey_number person_id person_full_name person_link    position_code</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 13               <span style="text-decoration: underline;">605</span>113 Nick Ahmed       /api/v1/peopl… 6            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 35               <span style="text-decoration: underline;">542</span>882 Matt Andriese    /api/v1/peopl… 1            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 5                <span style="text-decoration: underline;">488</span>671 Alex Avila       /api/v1/peopl… 2            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 33               <span style="text-decoration: underline;">545</span>332 Jake Barrett     /api/v1/peopl… 1            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 31               <span style="text-decoration: underline;">502</span>202 Brad Boxberger   /api/v1/peopl… 1            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 61               <span style="text-decoration: underline;">611</span>093 Silvino Bracho   /api/v1/peopl… 1            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 25               <span style="text-decoration: underline;">605</span>151 Archie Bradley   /api/v1/peopl… 1            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 19               <span style="text-decoration: underline;">593</span>647 Socrates Brito   /api/v1/peopl… 9            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 32               <span style="text-decoration: underline;">453</span>329 Clay Buchholz    /api/v1/peopl… 1            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 40               <span style="text-decoration: underline;">605</span>177 Andrew Chafin    /api/v1/peopl… 1            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 39 more rows, and 10 more variables: position_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   position_type &lt;chr&gt;, position_abbreviation &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   status_code &lt;chr&gt;, status_description &lt;chr&gt;, link &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_id &lt;int&gt;, roster_type &lt;chr&gt;, season &lt;dbl&gt;, date &lt;chr&gt;</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_rosters</span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">109</span>, season <span class="op">=</span> <span class="fl">2018</span>, roster_type <span class="op">=</span> <span class="st">'coach'</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    jersey_number                            job job_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1             17                        Manager   MNGR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2             12                    Bench Coach   COAB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3             23                 Pitching Coach   COAP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4             39               First Base Coach   COA1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5              3               Third Base Coach   COA3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6             71                  Bullpen Coach   COAU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7             59        Assistant Hitting Coach   COAA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8              7 Quality Control/Catching Coach   QCCC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9             60                          Coach   COAC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10            83                Bullpen Catcher   BCAT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11            84                Bullpen Catcher   BCAT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                      Senior Baseball Advisor   SBAD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                 title person_id  person_full_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                             Manager    117950     Torey Lovullo</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                         Bench Coach    119655      Jerry Narron</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                      Pitching Coach    111807      Mike Butcher</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                    First Base Coach    118763        Dave McKay</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                    Third Base Coach    120418   Tony Perezchica</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                       Bullpen Coach    114097      Mike Fetters</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7             Assistant Hitting Coach    117420         Tim Laker</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8      Quality Control/Catching Coach    425631     Robby Hammock</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                  Major League Coach    468222       Luis Urueta</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                    Bullpen Catcher    461861         Mark Reed</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                    Bullpen Catcher    279827 Humberto Quintero</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 Senior Manager, Player Development    678771     Shawn Marette</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              person_link                      link team_id roster_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  /api/v1/people/117950 /api/v1/teams/109/coaches     109       coach</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  /api/v1/people/119655 /api/v1/teams/109/coaches     109       coach</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  /api/v1/people/111807 /api/v1/teams/109/coaches     109       coach</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  /api/v1/people/118763 /api/v1/teams/109/coaches     109       coach</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  /api/v1/people/120418 /api/v1/teams/109/coaches     109       coach</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  /api/v1/people/114097 /api/v1/teams/109/coaches     109       coach</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  /api/v1/people/117420 /api/v1/teams/109/coaches     109       coach</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  /api/v1/people/425631 /api/v1/teams/109/coaches     109       coach</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  /api/v1/people/468222 /api/v1/teams/109/coaches     109       coach</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 /api/v1/people/461861 /api/v1/teams/109/coaches     109       coach</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 /api/v1/people/279827 /api/v1/teams/109/coaches     109       coach</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 /api/v1/people/678771 /api/v1/teams/109/coaches     109       coach</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    season date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1    2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2    2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3    2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4    2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5    2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6    2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7    2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8    2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9    2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11   2018 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12   2018 &lt;NA&gt;</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Roster data from MLB.com ───────────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:22 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12 × 12</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    jersey_number job             job_id title person_id person_full_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> <span style="color: #949494;">"</span>17<span style="color: #949494;">"</span>          Manager         MNGR   Mana…    <span style="text-decoration: underline;">117</span>950 Torey Lovullo   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> <span style="color: #949494;">"</span>12<span style="color: #949494;">"</span>          Bench Coach     COAB   Benc…    <span style="text-decoration: underline;">119</span>655 Jerry Narron    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> <span style="color: #949494;">"</span>23<span style="color: #949494;">"</span>          Pitching Coach  COAP   Pitc…    <span style="text-decoration: underline;">111</span>807 Mike Butcher    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> <span style="color: #949494;">"</span>39<span style="color: #949494;">"</span>          First Base Coa… COA1   Firs…    <span style="text-decoration: underline;">118</span>763 Dave McKay      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> <span style="color: #949494;">"</span>3<span style="color: #949494;">"</span>           Third Base Coa… COA3   Thir…    <span style="text-decoration: underline;">120</span>418 Tony Perezchica </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> <span style="color: #949494;">"</span>71<span style="color: #949494;">"</span>          Bullpen Coach   COAU   Bull…    <span style="text-decoration: underline;">114</span>097 Mike Fetters    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> <span style="color: #949494;">"</span>59<span style="color: #949494;">"</span>          Assistant Hitt… COAA   Assi…    <span style="text-decoration: underline;">117</span>420 Tim Laker       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> <span style="color: #949494;">"</span>7<span style="color: #949494;">"</span>           Quality Contro… QCCC   Qual…    <span style="text-decoration: underline;">425</span>631 Robby Hammock   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> <span style="color: #949494;">"</span>60<span style="color: #949494;">"</span>          Coach           COAC   Majo…    <span style="text-decoration: underline;">468</span>222 Luis Urueta     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> <span style="color: #949494;">"</span>83<span style="color: #949494;">"</span>          Bullpen Catcher BCAT   Bull…    <span style="text-decoration: underline;">461</span>861 Mark Reed       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> <span style="color: #949494;">"</span>84<span style="color: #949494;">"</span>          Bullpen Catcher BCAT   Bull…    <span style="text-decoration: underline;">279</span>827 Humberto Quinte…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> <span style="color: #949494;">""</span>            Senior Basebal… SBAD   Seni…    <span style="text-decoration: underline;">678</span>771 Shawn Marette   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 6 more variables: person_link &lt;chr&gt;, link &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_id &lt;int&gt;, roster_type &lt;chr&gt;, season &lt;dbl&gt;, date &lt;chr&gt;</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

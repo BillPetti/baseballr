@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -137,50 +139,22 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_metrics</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       metric_name metric_id        stat_group</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                         0              &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                 releaseSpinRate      1000          pitching</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                releaseExtension      1001          pitching</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                    releaseSpeed      1002          pitching</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                  effectiveSpeed      1028          pitching</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                     launchSpeed      1003 hitting, pitching</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                     launchAngle      1005 hitting, pitching</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                  generatedSpeed      1044 hitting, pitching</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                       maxHeight      1039           hitting</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                     travelTime      1049           hitting</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                       hangTime      1027           hitting</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12          opportunityTimeGround      1091              &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                       distance      1030           hitting</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                 travelDistance      1050           hitting</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                     hrDistance      1031           hitting</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                  hitTrajectory      1033           hitting</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                 launchSpinRate      1063           hitting</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                   barreledBall      1076           hitting</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                   deliveryTime      1161          pitching</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20               limbApexSkeletal      1159          fielding</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 distanceToCatchersMittSkeletal      1160          pitching</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    metric_unit</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2          RPM</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3           FT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4          MPH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5          MPH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6          MPH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7          DEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8          MPH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9           FT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10         SEC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11         SEC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13          FT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14          FT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15          FT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16      String</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17         RPM</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18      String</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19         SEC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20          FT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21          IN</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Metrics data from MLB.com ──────────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:10 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 21 × 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    metric_name        metric_id stat_group        metric_unit</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> <span style="color: #949494;">""</span>                         0 <span style="color: #BB0000;">NA</span>                <span style="color: #BB0000;">NA</span>         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> <span style="color: #949494;">"</span>releaseSpinRate<span style="color: #949494;">"</span>       <span style="text-decoration: underline;">1</span>000 pitching          RPM        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> <span style="color: #949494;">"</span>releaseExtension<span style="color: #949494;">"</span>      <span style="text-decoration: underline;">1</span>001 pitching          FT         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> <span style="color: #949494;">"</span>releaseSpeed<span style="color: #949494;">"</span>          <span style="text-decoration: underline;">1</span>002 pitching          MPH        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> <span style="color: #949494;">"</span>effectiveSpeed<span style="color: #949494;">"</span>        <span style="text-decoration: underline;">1</span>028 pitching          MPH        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> <span style="color: #949494;">"</span>launchSpeed<span style="color: #949494;">"</span>           <span style="text-decoration: underline;">1</span>003 hitting, pitching MPH        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> <span style="color: #949494;">"</span>launchAngle<span style="color: #949494;">"</span>           <span style="text-decoration: underline;">1</span>005 hitting, pitching DEG        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> <span style="color: #949494;">"</span>generatedSpeed<span style="color: #949494;">"</span>        <span style="text-decoration: underline;">1</span>044 hitting, pitching MPH        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> <span style="color: #949494;">"</span>maxHeight<span style="color: #949494;">"</span>             <span style="text-decoration: underline;">1</span>039 hitting           FT         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> <span style="color: #949494;">"</span>travelTime<span style="color: #949494;">"</span>            <span style="text-decoration: underline;">1</span>049 hitting           SEC        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 11 more rows</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

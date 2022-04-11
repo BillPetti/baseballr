@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -176,279 +178,23 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_teams_stats_leaders</span><span class="op">(</span>leader_categories<span class="op">=</span><span class="st">'homeRuns'</span>,sport_id<span class="op">=</span><span class="fl">1</span>, season <span class="op">=</span> <span class="fl">2021</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    leader_category rank value season team_id             team_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         homeRuns    1   262   2021     141     Toronto Blue Jays</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2         homeRuns    2   241   2021     137  San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         homeRuns    3   239   2021     144        Atlanta Braves</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4         homeRuns    4   237   2021     119   Los Angeles Dodgers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5         homeRuns    5   228   2021     142       Minnesota Twins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6         homeRuns    6   222   2021     113       Cincinnati Reds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7         homeRuns    6   222   2021     147      New York Yankees</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8         homeRuns    6   222   2021     139        Tampa Bay Rays</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9         homeRuns    9   221   2021     117        Houston Astros</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10        homeRuns   10   219   2021     111        Boston Red Sox</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11        homeRuns   11   210   2021     112          Chicago Cubs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12        homeRuns   12   203   2021     114     Cleveland Indians</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13        homeRuns   13   199   2021     133     Oakland Athletics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14        homeRuns   13   199   2021     136      Seattle Mariners</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15        homeRuns   15   198   2021     143 Philadelphia Phillies</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16        homeRuns   15   198   2021     138   St. Louis Cardinals</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17        homeRuns   17   195   2021     110     Baltimore Orioles</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18        homeRuns   18   194   2021     158     Milwaukee Brewers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19        homeRuns   19   190   2021     145     Chicago White Sox</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20        homeRuns   19   190   2021     108    Los Angeles Angels</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21        homeRuns   21   182   2021     115      Colorado Rockies</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22        homeRuns   21   182   2021     120  Washington Nationals</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23        homeRuns   23   180   2021     135      San Diego Padres</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24        homeRuns   24   179   2021     116        Detroit Tigers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25        homeRuns   25   176   2021     121         New York Mets</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26        homeRuns   26   167   2021     140         Texas Rangers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27        homeRuns   27   163   2021     118    Kansas City Royals</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28        homeRuns   28   158   2021     146         Miami Marlins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29        homeRuns   29   144   2021     109  Arizona Diamondbacks</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30        homeRuns   30   124   2021     134    Pittsburgh Pirates</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31        homeRuns    1   258   2021     110     Baltimore Orioles</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32        homeRuns    2   247   2021     120  Washington Nationals</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33        homeRuns    3   239   2021     142       Minnesota Twins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34        homeRuns    4   235   2021     112          Chicago Cubs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35        homeRuns    5   232   2021     109  Arizona Diamondbacks</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36        homeRuns    5   232   2021     140         Texas Rangers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37        homeRuns    7   216   2021     114     Cleveland Indians</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38        homeRuns    8   213   2021     134    Pittsburgh Pirates</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39        homeRuns    9   209   2021     141     Toronto Blue Jays</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40        homeRuns   10   206   2021     113       Cincinnati Reds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41        homeRuns   11   205   2021     135      San Diego Padres</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42        homeRuns   12   200   2021     143 Philadelphia Phillies</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43        homeRuns   13   199   2021     116        Detroit Tigers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44        homeRuns   14   197   2021     136      Seattle Mariners</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45        homeRuns   15   196   2021     115      Colorado Rockies</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46        homeRuns   15   196   2021     147      New York Yankees</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47        homeRuns   17   191   2021     133     Oakland Athletics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48        homeRuns   18   190   2021     121         New York Mets</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49        homeRuns   19   189   2021     118    Kansas City Royals</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50        homeRuns   20   188   2021     108    Los Angeles Angels</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51        homeRuns   21   187   2021     117        Houston Astros</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52        homeRuns   22   184   2021     139        Tampa Bay Rays</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53        homeRuns   23   183   2021     144        Atlanta Braves</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54        homeRuns   24   182   2021     145     Chicago White Sox</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55        homeRuns   25   176   2021     111        Boston Red Sox</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56        homeRuns   26   168   2021     158     Milwaukee Brewers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57        homeRuns   27   162   2021     146         Miami Marlins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58        homeRuns   28   161   2021     119   Los Angeles Dodgers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59        homeRuns   29   152   2021     138   St. Louis Cardinals</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60        homeRuns   30   151   2021     137  San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61        homeRuns    1  2115   2021     112          Chicago Cubs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62        homeRuns    2  1976   2021     120  Washington Nationals</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63        homeRuns    3  1281   2021     144        Atlanta Braves</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64        homeRuns    4  1128   2021     108    Los Angeles Angels</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65        homeRuns    5  1080   2021     114     Cleveland Indians</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66        homeRuns    6  1032   2021     110     Baltimore Orioles</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67        homeRuns    7   995   2021     116        Detroit Tigers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68        homeRuns    8   972   2021     146         Miami Marlins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69        homeRuns    9   956   2021     142       Minnesota Twins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70        homeRuns   10   928   2021     109  Arizona Diamondbacks</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71        homeRuns   10   928   2021     140         Texas Rangers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72        homeRuns   12   836   2021     141     Toronto Blue Jays</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73        homeRuns   13   820   2021     135      San Diego Padres</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74        homeRuns   14   788   2021     136      Seattle Mariners</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75        homeRuns   15   764   2021     133     Oakland Athletics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76        homeRuns   16   760   2021     121         New York Mets</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77        homeRuns   17   736   2021     139        Tampa Bay Rays</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78        homeRuns   18   728   2021     145     Chicago White Sox</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79        homeRuns   19   672   2021     158     Milwaukee Brewers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80        homeRuns   20   639   2021     134    Pittsburgh Pirates</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81        homeRuns   21   604   2021     137  San Francisco Giants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82        homeRuns   22   600   2021     143 Philadelphia Phillies</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83        homeRuns   23   588   2021     147      New York Yankees</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84        homeRuns   24   567   2021     118    Kansas City Royals</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85        homeRuns   25   561   2021     117        Houston Astros</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86        homeRuns   26   528   2021     111        Boston Red Sox</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87        homeRuns   27   483   2021     119   Los Angeles Dodgers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88        homeRuns   28   456   2021     138   St. Louis Cardinals</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89        homeRuns   29   412   2021     113       Cincinnati Reds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90        homeRuns   30   392   2021     115      Colorado Rockies</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            team_link stat_group total_splits game_type_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  /api/v1/teams/141    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  /api/v1/teams/137    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  /api/v1/teams/144    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  /api/v1/teams/119    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  /api/v1/teams/142    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  /api/v1/teams/113    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  /api/v1/teams/147    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  /api/v1/teams/139    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  /api/v1/teams/117    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 /api/v1/teams/111    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 /api/v1/teams/112    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 /api/v1/teams/114    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 /api/v1/teams/133    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 /api/v1/teams/136    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 /api/v1/teams/143    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 /api/v1/teams/138    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 /api/v1/teams/110    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 /api/v1/teams/158    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 /api/v1/teams/145    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 /api/v1/teams/108    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 /api/v1/teams/115    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 /api/v1/teams/120    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 /api/v1/teams/135    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 /api/v1/teams/116    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25 /api/v1/teams/121    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26 /api/v1/teams/140    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27 /api/v1/teams/118    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 /api/v1/teams/146    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29 /api/v1/teams/109    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30 /api/v1/teams/134    hitting           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31 /api/v1/teams/110   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32 /api/v1/teams/120   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33 /api/v1/teams/142   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34 /api/v1/teams/112   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35 /api/v1/teams/109   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36 /api/v1/teams/140   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37 /api/v1/teams/114   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38 /api/v1/teams/134   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39 /api/v1/teams/141   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40 /api/v1/teams/113   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41 /api/v1/teams/135   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42 /api/v1/teams/143   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43 /api/v1/teams/116   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44 /api/v1/teams/136   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45 /api/v1/teams/115   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46 /api/v1/teams/147   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47 /api/v1/teams/133   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48 /api/v1/teams/121   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49 /api/v1/teams/118   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50 /api/v1/teams/108   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51 /api/v1/teams/117   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52 /api/v1/teams/139   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53 /api/v1/teams/144   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54 /api/v1/teams/145   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55 /api/v1/teams/111   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56 /api/v1/teams/158   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57 /api/v1/teams/146   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58 /api/v1/teams/119   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59 /api/v1/teams/138   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60 /api/v1/teams/137   pitching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61 /api/v1/teams/112   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62 /api/v1/teams/120   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63 /api/v1/teams/144   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64 /api/v1/teams/108   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65 /api/v1/teams/114   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66 /api/v1/teams/110   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67 /api/v1/teams/116   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68 /api/v1/teams/146   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69 /api/v1/teams/142   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70 /api/v1/teams/109   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71 /api/v1/teams/140   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72 /api/v1/teams/141   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73 /api/v1/teams/135   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74 /api/v1/teams/136   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75 /api/v1/teams/133   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76 /api/v1/teams/121   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77 /api/v1/teams/139   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78 /api/v1/teams/145   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79 /api/v1/teams/158   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80 /api/v1/teams/134   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81 /api/v1/teams/137   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82 /api/v1/teams/143   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83 /api/v1/teams/147   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84 /api/v1/teams/118   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85 /api/v1/teams/117   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86 /api/v1/teams/111   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87 /api/v1/teams/119   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88 /api/v1/teams/138   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89 /api/v1/teams/113   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90 /api/v1/teams/115   catching           30            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    game_type_description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2         Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4         Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5         Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6         Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7         Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8         Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9         Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89        Regular Season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90        Regular Season</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Teams Stats Leaders data from MLB.com ──────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:42 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 90 × 11</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    leader_category  rank value season team_id team_name        team_link</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> homeRuns            1 262   2021       141 Toronto Blue Ja… /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> homeRuns            2 241   2021       137 San Francisco G… /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> homeRuns            3 239   2021       144 Atlanta Braves   /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> homeRuns            4 237   2021       119 Los Angeles Dod… /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> homeRuns            5 228   2021       142 Minnesota Twins  /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> homeRuns            6 222   2021       113 Cincinnati Reds  /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> homeRuns            6 222   2021       147 New York Yankees /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> homeRuns            6 222   2021       139 Tampa Bay Rays   /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> homeRuns            9 221   2021       117 Houston Astros   /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> homeRuns           10 219   2021       111 Boston Red Sox   /api/v1/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 80 more rows, and 4 more variables: stat_group &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   total_splits &lt;int&gt;, game_type_id &lt;chr&gt;, game_type_description &lt;chr&gt;</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

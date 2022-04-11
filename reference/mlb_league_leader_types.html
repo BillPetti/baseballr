@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -137,77 +139,22 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_league_leader_types</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     leader_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                       assists</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                      shutouts</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                      homeRuns</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                sacrificeBunts</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                sacrificeFlies</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                          runs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7        groundoutToFlyoutRatio</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                   stolenBases</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                battingAverage</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                   groundOuts</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11              numberOfPitches</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12             onBasePercentage</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13               caughtStealing</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14        groundIntoDoublePlays</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                   totalBases</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16             earnedRunAverage</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17           fieldingPercentage</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 walksAndHitsPerInningPitched</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                      flyouts</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20                 hitByPitches</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21                  gamesPlayed</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22                        walks</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23           sluggingPercentage</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24           onBasePlusSlugging</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                 runsBattedIn</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26                      triples</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27                extraBaseHits</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28                         hits</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29                       atBats</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30                   strikeouts</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31                      doubles</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32        totalPlateAppearances</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33             intentionalWalks</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34                         wins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35                       losses</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36                        saves</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37                    wildPitch</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38                      airOuts</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39                         balk</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40                   blownSaves</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41      catcherEarnedRunAverage</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42         catchersInterference</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43                      chances</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44                completeGames</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45                  doublePlays</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46                    earnedRun</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47                       errors</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48                gamesFinished</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49                 gamesStarted</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50                   hitBatsman</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51                  hitsPer9Inn</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52                        holds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53                      innings</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54               inningsPitched</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55              outfieldAssists</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56                  passedBalls</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57                     pickoffs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58             pitchesPerInning</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59                      putOuts</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60           rangeFactorPerGame</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61           rangeFactorPer9Inn</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62            saveOpportunities</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63         stolenBasePercentage</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64            strikeoutsPer9Inn</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65           strikeoutWalkRatio</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66               throwingErrors</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67            totalBattersFaced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68                  triplePlays</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69                 walksPer9Inn</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70                winPercentage</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB League Leader Types data from MLB.com ──────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:09 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 70 × 1</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    leader_type           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> assists               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> shutouts              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> homeRuns              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> sacrificeBunts        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> sacrificeFlies        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> runs                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> groundoutToFlyoutRatio</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> stolenBases           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> battingAverage        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> groundOuts            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 60 more rows</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -144,94 +146,95 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="fu">fg_milb_pitcher_game_logs</span><span class="op">(</span>playerid <span class="op">=</span> <span class="st">"sa3005315"</span>, year<span class="op">=</span><span class="fl">2021</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      player_name minor_playerid       Date Team Level  Opp W L</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  Hunter Greene      sa3005315 2021-09-12  CIN (AAA)  PIT 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  Hunter Greene      sa3005315 2021-09-07  CIN (AAA)  PIT 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  Hunter Greene      sa3005315 2021-09-01  CIN (AAA)  MIL 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  Hunter Greene      sa3005315 2021-08-25  CIN (AAA) @PIT 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  Hunter Greene      sa3005315 2021-08-17  CIN (AAA)  ATL 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  Hunter Greene      sa3005315 2021-08-05  CIN (AAA) @MIN 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  Hunter Greene      sa3005315 2021-07-29  CIN (AAA) @CHC 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  Hunter Greene      sa3005315 2021-07-23  CIN (AAA)  STL 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 Hunter Greene      sa3005315 2021-07-17  CIN (AAA) @MIL 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 Hunter Greene      sa3005315 2021-07-11  CIN (AAA)  STL 0 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 Hunter Greene      sa3005315 2021-07-04  CIN (AAA) @MIL 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 Hunter Greene      sa3005315 2021-06-29  CIN (AAA) @MIL 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 Hunter Greene      sa3005315 2021-06-23  CIN (AAA)  PIT 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 Hunter Greene      sa3005315 2021-06-17  CIN (AAA) @KCR 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 Hunter Greene      sa3005315 2021-06-11  CIN  (AA)  MIA 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 Hunter Greene      sa3005315 2021-06-04  CIN  (AA) @LAA 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 Hunter Greene      sa3005315 2021-05-29  CIN  (AA)  CHC 0 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 Hunter Greene      sa3005315 2021-05-22  CIN  (AA) @ATL 0 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 Hunter Greene      sa3005315 2021-05-16  CIN  (AA) @TBR 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 Hunter Greene      sa3005315 2021-05-11  CIN  (AA) @TBR 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 Hunter Greene      sa3005315 2021-05-05  CIN  (AA)  LAA 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          ERA G GS CG ShO SV  IP TBF H R ER HR BB IBB HBP WP BK SO</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   2.250000 1  1  0   0  0 4.0  16 4 3  1  1  1   0   0  0  0  3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  13.500000 1  1  0   0  0 4.0  21 8 6  6  1  1   0   1  0  0  3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   1.800000 1  1  0   0  0 5.0  23 4 2  1  0  3   0   0  0  0  6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   0.000000 1  1  0   0  0 5.0  18 2 0  0  0  2   0   0  0  0  3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  13.499983 1  1  0   0  0 2.2  12 4 4  4  3  1   0   0  0  0  4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   0.000000 1  1  0   0  0 6.1  21 1 0  0  0  1   0   1  0  0 10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   3.000000 1  1  0   0  0 6.0  26 8 2  2  0  1   0   1  0  0  7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   5.400000 1  1  0   0  0 5.0  20 4 3  3  1  1   0   0  0  0  9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  0.000000 1  1  0   0  0 5.0  19 2 0  0  0  2   0   0  1  0  9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  1.800000 1  1  0   0  0 5.0  22 6 1  1  1  2   0   0  0  0  2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 11.250000 1  1  0   0  0 4.0  22 6 5  5  0  4   0   1  0  0  2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  6.230774 1  1  0   0  0 4.1  19 4 5  3  0  2   0   0  1  0  7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  0.000000 1  1  0   0  0 5.0  20 2 0  0  0  3   0   0  0  0  6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  9.000000 1  1  0   0  0 4.0  17 4 4  4  4  1   0   0  0  0  8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  0.000000 1  1  0   0  0 6.0  25 2 0  0  0  4   0   2  1  0  9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  4.049998 1  1  0   0  0 6.2  28 7 3  3  1  1   0   1  0  0 10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  2.571429 1  1  0   0  0 7.0  27 7 2  2  0  1   0   0  0  0  8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  1.687501 1  1  0   0  0 5.1  23 3 1  1  0  5   0   0  1  0  8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20  0.000000 1  1  0   0  0 6.0  23 3 0  0  0  2   0   0  0  0 10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21  3.600000 1  1  0   0  0 5.0  18 2 2  2  1  1   0   0  0  0  7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22  1.800000 1  1  0   0  0 5.0  18 3 1  1  0  0   0   0  0  0  8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         K/9     BB/9  K/BB      HR/9         K%       K-BB%        BB%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   6.75000 2.250000  3.00  2.250000 0.18750000  0.12500000 0.06250000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   6.75000 2.250000  3.00  2.250000 0.14285714  0.09523809 0.04761905</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  10.80000 5.400000  2.00  0.000000 0.26086957  0.13043479 0.13043478</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   5.40000 3.600000  1.50  0.000000 0.16666667  0.05555556 0.11111111</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  13.49998 3.374996  4.00 10.124987 0.33333333  0.25000000 0.08333333</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  14.21053 1.421053 10.00  0.000000 0.47619048  0.42857143 0.04761905</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  10.50000 1.500000  7.00  0.000000 0.26923077  0.23076923 0.03846154</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  16.20000 1.800000  9.00  1.800000 0.45000000  0.40000000 0.05000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 16.20000 3.600000  4.50  0.000000 0.47368421  0.36842105 0.10526316</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  3.60000 3.600000  1.00  1.800000 0.09090909  0.00000000 0.09090909</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  4.50000 9.000000  0.50  0.000000 0.09090909 -0.09090909 0.18181818</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 14.53847 4.153849  3.50  0.000000 0.36842105  0.26315789 0.10526316</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 10.80000 5.400000  2.00  0.000000 0.30000000  0.15000000 0.15000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 18.00000 2.250000  8.00  9.000000 0.47058824  0.41176471 0.05882353</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 13.50000 6.000000  2.25  0.000000 0.36000000  0.20000000 0.16000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 13.49999 1.349999 10.00  1.349999 0.35714286  0.32142857 0.03571429</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 10.28571 1.285714  8.00  0.000000 0.29629630  0.25925926 0.03703704</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 13.50001 8.437505  1.60  0.000000 0.34782609  0.13043479 0.21739130</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 15.00000 3.000000  5.00  0.000000 0.43478261  0.34782609 0.08695652</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 12.60000 1.800000  7.00  1.800000 0.38888889  0.33333333 0.05555556</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 14.40000 0.000000  8.00  0.000000 0.44444444  0.44444444 0.00000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           AVG      WHIP     BABIP      LOB%        FIP   gamedate dh</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  0.26666667 1.2500000 0.2727273 0.5555556  5.8625366 2021-09-12  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  0.42105263 2.2500000 0.4666667 0.4651163  6.6125366 2021-09-07  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  0.20000000 1.4000000 0.2857143 0.7142857  2.7625366 2021-09-01  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  0.12500000 0.8000000 0.1538461 1.0000000  3.3625366 2021-08-25  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  0.36363636 1.8749976 0.2500000 1.0000000 16.1125203 2021-08-17  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  0.05263158 0.3157896 0.1111111 1.0000000  1.1520092 2021-08-05  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  0.33333333 1.5000000 0.4705882 0.8000000  2.0292033 2021-07-29  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  0.21052632 1.0000000 0.3333333 0.5555556  2.9625366 2021-07-23  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 0.11764706 0.8000000 0.2500000 1.0000000  0.9625366 2021-07-17  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 0.30000000 1.6000000 0.2941177 1.0000000  6.3625366 2021-07-11  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 0.35294118 2.5000000 0.4000000 0.5454545  6.1125366 2021-07-04  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 0.23529412 1.3846164 0.4000000 0.1666667  1.5163814 2021-06-29  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 0.11764706 1.0000000 0.1818182 1.0000000  2.7625366 2021-06-23  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 0.25000000 1.2500000 0.0000000 1.0000000 13.1125366 2021-06-17  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 0.10526316 1.0000000 0.2000000 1.0000000  3.4009687 2021-06-11  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 0.26923077 1.1999994 0.4000000 0.7894737  3.2509688 2021-06-04  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 0.26923077 1.1428571 0.3888889 0.7500000  1.5438259 2021-05-29  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 0.16666667 1.5000009 0.3000000 0.8750000  3.2134686 2021-05-22  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 0.14285714 0.8333333 0.2727273 1.0000000  1.0676354 2021-05-16  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 0.11764706 0.6000000 0.1111111 0.6250000  3.8009687 2021-05-11  1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 0.16666667 0.6000000 0.3000000 0.6666667  0.2009687 2021-05-05  1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 2022-04-11 14:03:10: Invalid arguments or no MiLB pitcher game logs data available!</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          Date Team Level  Opp W L       ERA G GS CG ShO SV  IP TBF H R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2021-09-12  CIN (AAA)  PIT 0 1  2.250000 1  1  0   0  0 4.0  16 4 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2021-09-07  CIN (AAA)  PIT 0 1 13.500000 1  1  0   0  0 4.0  21 8 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2021-09-01  CIN (AAA)  MIL 1 0  1.800000 1  1  0   0  0 5.0  23 4 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2021-08-25  CIN (AAA) @PIT 1 0  0.000000 1  1  0   0  0 5.0  18 2 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2021-08-17  CIN (AAA)  ATL 0 1 13.499983 1  1  0   0  0 2.2  12 4 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2021-08-05  CIN (AAA) @MIN 1 0  0.000000 1  1  0   0  0 6.1  21 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2021-07-29  CIN (AAA) @CHC 0 1  3.000000 1  1  0   0  0 6.0  26 8 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2021-07-23  CIN (AAA)  STL 0 1  5.400000 1  1  0   0  0 5.0  20 4 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2021-07-17  CIN (AAA) @MIL 1 0  0.000000 1  1  0   0  0 5.0  19 2 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2021-07-11  CIN (AAA)  STL 0 0  1.800000 1  1  0   0  0 5.0  22 6 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 2021-07-04  CIN (AAA) @MIL 0 1 11.250000 1  1  0   0  0 4.0  22 6 5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 2021-06-29  CIN (AAA) @MIL 0 1  6.230774 1  1  0   0  0 4.1  19 4 5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 2021-06-23  CIN (AAA)  PIT 1 0  0.000000 1  1  0   0  0 5.0  20 2 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 2021-06-17  CIN (AAA) @KCR 0 1  9.000000 1  1  0   0  0 4.0  17 4 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 2021-06-11  CIN  (AA)  MIA 1 0  0.000000 1  1  0   0  0 6.0  25 2 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 2021-06-04  CIN  (AA) @LAA 1 0  4.049998 1  1  0   0  0 6.2  28 7 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 2021-05-29  CIN  (AA)  CHC 0 0  2.571429 1  1  0   0  0 7.0  27 7 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 2021-05-22  CIN  (AA) @ATL 0 0  1.687501 1  1  0   0  0 5.1  23 3 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 2021-05-16  CIN  (AA) @TBR 1 0  0.000000 1  1  0   0  0 6.0  23 3 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 2021-05-11  CIN  (AA) @TBR 1 0  3.600000 1  1  0   0  0 5.0  18 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 2021-05-05  CIN  (AA)  LAA 1 0  1.800000 1  1  0   0  0 5.0  18 3 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    ER HR BB IBB HBP WP BK SO      K/9     BB/9  K/BB      HR/9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   1  1  1   0   0  0  0  3  6.75000 2.250000  3.00  2.250000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   6  1  1   0   1  0  0  3  6.75000 2.250000  3.00  2.250000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   1  0  3   0   0  0  0  6 10.80000 5.400000  2.00  0.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   0  0  2   0   0  0  0  3  5.40000 3.600000  1.50  0.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   4  3  1   0   0  0  0  4 13.49998 3.374996  4.00 10.124987</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   0  0  1   0   1  0  0 10 14.21053 1.421053 10.00  0.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   2  0  1   0   1  0  0  7 10.50000 1.500000  7.00  0.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   3  1  1   0   0  0  0  9 16.20000 1.800000  9.00  1.800000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  0  0  2   0   0  1  0  9 16.20000 3.600000  4.50  0.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11  1  1  2   0   0  0  0  2  3.60000 3.600000  1.00  1.800000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12  5  0  4   0   1  0  0  2  4.50000 9.000000  0.50  0.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13  3  0  2   0   0  1  0  7 14.53847 4.153849  3.50  0.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14  0  0  3   0   0  0  0  6 10.80000 5.400000  2.00  0.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15  4  4  1   0   0  0  0  8 18.00000 2.250000  8.00  9.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16  0  0  4   0   2  1  0  9 13.50000 6.000000  2.25  0.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17  3  1  1   0   1  0  0 10 13.49999 1.349999 10.00  1.349999</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18  2  0  1   0   0  0  0  8 10.28571 1.285714  8.00  0.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19  1  0  5   0   0  1  0  8 13.50001 8.437505  1.60  0.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20  0  0  2   0   0  0  0 10 15.00000 3.000000  5.00  0.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21  2  1  1   0   0  0  0  7 12.60000 1.800000  7.00  1.800000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22  1  0  0   0   0  0  0  8 14.40000 0.000000  8.00  0.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            K%       K-BB%        BB%        AVG      WHIP     BABIP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  0.18750000  0.12500000 0.06250000 0.26666667 1.2500000 0.2727273</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  0.14285714  0.09523809 0.04761905 0.42105263 2.2500000 0.4666667</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  0.26086957  0.13043479 0.13043478 0.20000000 1.4000000 0.2857143</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  0.16666667  0.05555556 0.11111111 0.12500000 0.8000000 0.1538461</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  0.33333333  0.25000000 0.08333333 0.36363636 1.8749976 0.2500000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  0.47619048  0.42857143 0.04761905 0.05263158 0.3157896 0.1111111</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  0.26923077  0.23076923 0.03846154 0.33333333 1.5000000 0.4705882</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  0.45000000  0.40000000 0.05000000 0.21052632 1.0000000 0.3333333</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 0.47368421  0.36842105 0.10526316 0.11764706 0.8000000 0.2500000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 0.09090909  0.00000000 0.09090909 0.30000000 1.6000000 0.2941177</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 0.09090909 -0.09090909 0.18181818 0.35294118 2.5000000 0.4000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 0.36842105  0.26315789 0.10526316 0.23529412 1.3846164 0.4000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 0.30000000  0.15000000 0.15000000 0.11764706 1.0000000 0.1818182</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 0.47058824  0.41176471 0.05882353 0.25000000 1.2500000 0.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 0.36000000  0.20000000 0.16000000 0.10526316 1.0000000 0.2000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 0.35714286  0.32142857 0.03571429 0.26923077 1.1999994 0.4000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 0.29629630  0.25925926 0.03703704 0.26923077 1.1428571 0.3888889</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 0.34782609  0.13043479 0.21739130 0.16666667 1.5000009 0.3000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 0.43478261  0.34782609 0.08695652 0.14285714 0.8333333 0.2727273</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 0.38888889  0.33333333 0.05555556 0.11764706 0.6000000 0.1111111</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 0.44444444  0.44444444 0.00000000 0.16666667 0.6000000 0.3000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         LOB%        FIP   gamedate dh</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  0.5555556  5.8625366 2021-09-12  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  0.4651163  6.6125366 2021-09-07  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  0.7142857  2.7625366 2021-09-01  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  1.0000000  3.3625366 2021-08-25  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  1.0000000 16.1125203 2021-08-17  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  1.0000000  1.1520092 2021-08-05  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  0.8000000  2.0292033 2021-07-29  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  0.5555556  2.9625366 2021-07-23  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 1.0000000  0.9625366 2021-07-17  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 1.0000000  6.3625366 2021-07-11  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 0.5454545  6.1125366 2021-07-04  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 0.1666667  1.5163814 2021-06-29  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 1.0000000  2.7625366 2021-06-23  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 1.0000000 13.1125366 2021-06-17  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 1.0000000  3.4009687 2021-06-11  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 0.7894737  3.2509688 2021-06-04  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 0.7500000  1.5438259 2021-05-29  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 0.8750000  3.2134686 2021-05-22  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 1.0000000  1.0676354 2021-05-16  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 0.6250000  3.8009687 2021-05-11  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 0.6666667  0.2009687 2021-05-05  1</span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

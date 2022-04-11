@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -165,438 +167,33 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_standings</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2021</span>, league_id <span class="op">=</span> <span class="fl">103</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    standings_type             last_updated team_records_season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   regularSeason 2022-03-14T05:15:01.572Z                2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   regularSeason 2022-03-14T05:15:01.572Z                2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   regularSeason 2022-03-14T05:15:01.572Z                2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   regularSeason 2022-03-14T05:15:01.572Z                2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   regularSeason 2022-03-14T05:15:01.572Z                2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   regularSeason 2022-03-31T19:50:45.503Z                2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   regularSeason 2022-03-31T19:50:45.503Z                2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   regularSeason 2022-03-31T19:50:45.503Z                2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   regularSeason 2022-03-31T19:50:45.503Z                2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  regularSeason 2022-03-31T19:50:45.503Z                2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  regularSeason 2022-03-14T05:14:55.108Z                2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  regularSeason 2022-03-14T05:14:55.108Z                2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  regularSeason 2022-03-14T05:14:55.108Z                2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  regularSeason 2022-03-14T05:14:55.108Z                2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  regularSeason 2022-03-14T05:14:55.108Z                2021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_clinch_indicator team_records_division_rank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                              z                          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                              w                          2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                              w                          3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                           &lt;NA&gt;                          4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                           &lt;NA&gt;                          5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                              y                          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                           &lt;NA&gt;                          2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                           &lt;NA&gt;                          3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                           &lt;NA&gt;                          4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                          &lt;NA&gt;                          5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                             y                          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                          &lt;NA&gt;                          2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                          &lt;NA&gt;                          3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                          &lt;NA&gt;                          4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                          &lt;NA&gt;                          5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_league_rank team_records_sport_rank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                         1                       1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                         4                       4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                         5                       5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                         6                       6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                        15                      15</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                         3                       3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                         9                       9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                        10                      10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                        12                      12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                       13                      13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                        2                       2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                        7                       7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                        8                       8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                       11                      11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                       14                      14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_games_played team_records_games_back</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                        162                       -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                        162                     8.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                        162                     8.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                        162                     9.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                        162                    48.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                        162                       -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                        162                    13.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                        162                    16.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                        162                    19.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                       162                    20.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                       162                       -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                       162                     5.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                       162                     9.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                       162                    18.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                       162                    35.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_wild_card_games_back team_records_league_games_back</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                  -                              -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                  -                            8.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                  -                            8.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                1.0                            9.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                               40.0                           48.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                  -                            7.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                               12.0                           20.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                               15.0                           23.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                               18.0                           26.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                              19.0                           27.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                 -                            5.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                               2.0                           10.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                               6.0                           14.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                              15.0                           23.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                              32.0                           40.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_spring_league_games_back team_records_sport_games_back</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                      -                             -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                      -                           8.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                      -                           8.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                      -                           9.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                      -                          48.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                      -                           7.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                      -                          20.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                      -                          23.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                      -                          26.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                     -                          27.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                     -                           5.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                     -                          10.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                     -                          14.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                     -                          23.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                     -                          40.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_division_games_back team_records_conference_games_back</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                 -                                  -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                               8.0                                  -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                               8.0                                  -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                               9.0                                  -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                              48.0                                  -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                 -                                  -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                              13.0                                  -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                              16.0                                  -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                              19.0                                  -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                             20.0                                  -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                -                                  -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                              5.0                                  -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                              9.0                                  -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                             18.0                                  -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                             35.0                                  -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_last_updated team_records_runs_allowed</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1       2022-02-15T20:15:03Z                       651</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2       2022-02-16T17:53:30Z                       749</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3       2022-02-15T19:55:25Z                       669</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4       2022-02-15T20:09:55Z                       663</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5       2022-03-14T05:15:01Z                       956</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6       2022-03-31T19:50:45Z                       636</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7       2022-02-16T17:10:25Z                       727</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8       2021-11-22T16:34:42Z                       756</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9       2021-11-23T17:57:50Z                       788</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10      2021-11-23T17:57:51Z                       834</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11      2022-03-14T05:14:55Z                       658</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12      2021-11-22T16:33:55Z                       748</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13      2021-11-22T16:34:26Z                       687</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14      2022-01-11T19:27:15Z                       804</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15      2021-11-23T00:06:06Z                       815</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_runs_scored team_records_division_champ</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                       857                        TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                       829                       FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                       711                       FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                       846                       FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                       659                       FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                       796                        TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                       717                       FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                       697                       FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                       686                       FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                      729                       FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                      863                        TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                      697                       FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                      743                       FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                      723                       FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                      625                       FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_division_leader team_records_has_wildcard</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                          TRUE                      TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                         FALSE                      TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                         FALSE                      TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                         FALSE                      TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                         FALSE                      TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                          TRUE                      TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                         FALSE                      TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                         FALSE                      TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                         FALSE                      TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                        FALSE                      TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                         TRUE                      TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                        FALSE                      TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                        FALSE                      TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                        FALSE                      TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                        FALSE                      TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_clinched team_records_elimination_number</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                   TRUE                               -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                   TRUE                               E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                   TRUE                               E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                  FALSE                               E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                  FALSE                               E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                   TRUE                               -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                  FALSE                               E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                  FALSE                               E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                  FALSE                               E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                 FALSE                               E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                  TRUE                               -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                 FALSE                               E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                 FALSE                               E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                 FALSE                               E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                 FALSE                               E</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_wild_card_elimination_number team_records_magic_number</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                          -                         -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                          -                      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                          -                      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                          E                      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                          E                      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                          -                         -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                          E                      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                          E                      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                          E                      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                         E                      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                         -                         -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                         E                      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                         E                      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                         E                      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                         E                      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_wins team_records_losses team_records_run_differential</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                100                  62                           206</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                 92                  70                            80</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                 92                  70                            42</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                 91                  71                           183</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                 52                 110                          -297</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                 93                  69                           160</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                 80                  82                           -10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                 77                  85                           -59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                 74                  88                          -102</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                73                  89                          -105</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                95                  67                           205</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                90                  72                           -51</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                86                  76                            56</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                77                  85                           -81</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                60                 102                          -190</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_winning_percentage team_records_wild_card_rank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                             .617                        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                             .568                           1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                             .568                           2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                             .562                           3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                             .321                          12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                             .574                        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                             .494                           6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                             .475                           7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                             .457                           9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                            .451                          10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                            .586                        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                            .556                           4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                            .531                           5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                            .475                           8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                            .370                          11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_wild_card_leader team_records_team_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                             NA                  139</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                           TRUE                  111</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                           TRUE                  147</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                             NA                  141</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                             NA                  110</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                             NA                  145</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                             NA                  114</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                             NA                  116</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                             NA                  118</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                            NA                  142</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                            NA                  117</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                            NA                  136</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                            NA                  133</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                            NA                  108</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                            NA                  140</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_team_name team_records_team_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1          Tampa Bay Rays      /api/v1/teams/139</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2          Boston Red Sox      /api/v1/teams/111</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3        New York Yankees      /api/v1/teams/147</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4       Toronto Blue Jays      /api/v1/teams/141</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5       Baltimore Orioles      /api/v1/teams/110</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6       Chicago White Sox      /api/v1/teams/145</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7       Cleveland Indians      /api/v1/teams/114</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8          Detroit Tigers      /api/v1/teams/116</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9      Kansas City Royals      /api/v1/teams/118</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10        Minnesota Twins      /api/v1/teams/142</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11         Houston Astros      /api/v1/teams/117</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12       Seattle Mariners      /api/v1/teams/136</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13      Oakland Athletics      /api/v1/teams/133</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14     Los Angeles Angels      /api/v1/teams/108</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15          Texas Rangers      /api/v1/teams/140</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_streak_streak_type team_records_streak_streak_number</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                           losses                                 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                             wins                                 3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                             wins                                 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                             wins                                 3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                           losses                                 3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                           losses                                 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                             wins                                 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                             wins                                 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                           losses                                 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                            wins                                 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                            wins                                 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                          losses                                 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                          losses                                 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                            wins                                 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                          losses                                 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_streak_streak_code team_records_league_record_wins</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                               L1                             100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                               W3                              92</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                               W1                              92</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                               W3                              91</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                               L3                              52</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                               L1                              93</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                               W1                              80</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                               W1                              77</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                               L2                              74</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                              W2                              73</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                              W2                              95</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                              L1                              90</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                              L2                              86</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                              W1                              77</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                              L1                              60</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_league_record_losses team_records_league_record_ties</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                 62                               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                 70                               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                 70                               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                 71                               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                110                               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                 69                               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                 82                               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                 85                               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                 88                               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                89                               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                67                               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                72                               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                76                               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                85                               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                               102                               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    team_records_league_record_pct</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                            .617</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                            .568</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                            .568</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                            .562</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                            .321</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                            .574</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                            .494</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                            .475</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                            .457</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                           .451</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                           .586</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                           .556</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                           .531</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                           .475</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                           .370</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                                                                                                                                                                                team_records_records_split_records</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  52, 48, 38, 18, 20, 34, 28, 62, 7, 7, 20, 48, 41, 59, 45, 55, 29, 33, 27, 15, 12, 14, 21, 35, 3, 12, 25, 42, 20, 42, 30, 32, home, away, left, leftHome, leftAway, rightHome, rightAway, right, lastTen, extraInning, oneRun, winners, day, night, grass, turf, .642, .593, .585, .545, .625, .708, .571, .639, .700, .368, .444, .533, .672, .584, .600, .632</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   49, 43, 35, 20, 15, 29, 28, 57, 5, 11, 26, 46, 31, 61, 88, 4, 32, 38, 31, 13, 18, 19, 20, 39, 5, 5, 18, 48, 31, 39, 57, 13, home, away, left, leftHome, leftAway, rightHome, rightAway, right, lastTen, extraInning, oneRun, winners, day, night, grass, turf, .605, .531, .530, .606, .455, .604, .583, .594, .500, .688, .591, .489, .500, .610, .607, .235</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   46, 46, 32, 16, 16, 30, 30, 60, 7, 10, 28, 48, 25, 67, 82, 10, 35, 35, 24, 13, 11, 22, 24, 46, 3, 8, 20, 43, 34, 36, 64, 6, home, away, left, leftHome, leftAway, rightHome, rightAway, right, lastTen, extraInning, oneRun, winners, day, night, grass, turf, .568, .568, .571, .552, .593, .577, .556, .566, .700, .556, .583, .527, .424, .650, .562, .625</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   47, 44, 23, 12, 11, 35, 33, 68, 6, 3, 15, 48, 41, 50, 61, 30, 33, 38, 20, 10, 10, 23, 28, 51, 4, 9, 15, 44, 21, 50, 54, 17, home, away, left, leftHome, leftAway, rightHome, rightAway, right, lastTen, extraInning, oneRun, winners, day, night, grass, turf, .588, .537, .535, .545, .524, .603, .541, .571, .600, .250, .500, .522, .661, .500, .530, .638</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5     27, 25, 22, 14, 8, 13, 17, 30, 4, 4, 13, 30, 15, 37, 48, 4, 54, 56, 43, 20, 23, 34, 33, 67, 6, 7, 24, 78, 44, 66, 95, 15, home, away, left, leftHome, leftAway, rightHome, rightAway, right, lastTen, extraInning, oneRun, winners, day, night, grass, turf, .333, .309, .338, .412, .258, .277, .340, .309, .400, .364, .351, .278, .254, .359, .336, .211</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6       53, 40, 25, 14, 11, 39, 29, 68, 7, 6, 18, 27, 35, 58, 88, 5, 28, 41, 17, 8, 9, 20, 32, 52, 3, 7, 24, 29, 29, 40, 64, 5, home, away, left, leftHome, leftAway, rightHome, rightAway, right, lastTen, extraInning, oneRun, winners, day, night, grass, turf, .654, .494, .595, .636, .550, .661, .475, .567, .700, .462, .429, .482, .547, .592, .579, .500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7     40, 40, 29, 14, 15, 26, 25, 51, 5, 7, 17, 28, 34, 46, 77, 3, 41, 41, 30, 15, 15, 26, 26, 52, 5, 9, 22, 51, 26, 56, 75, 7, home, away, left, leftHome, leftAway, rightHome, rightAway, right, lastTen, extraInning, oneRun, winners, day, night, grass, turf, .494, .494, .492, .483, .500, .500, .490, .495, .500, .438, .436, .354, .567, .451, .507, .300</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8    42, 35, 29, 15, 14, 27, 21, 48, 3, 12, 23, 39, 35, 42, 71, 6, 39, 46, 25, 11, 14, 28, 32, 60, 7, 8, 23, 36, 37, 48, 81, 4, home, away, left, leftHome, leftAway, rightHome, rightAway, right, lastTen, extraInning, oneRun, winners, day, night, grass, turf, .519, .432, .537, .577, .500, .491, .396, .444, .300, .600, .500, .520, .486, .467, .467, .600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9     39, 35, 26, 14, 12, 25, 23, 48, 5, 4, 21, 35, 30, 44, 73, 1, 42, 46, 24, 13, 11, 29, 35, 64, 5, 5, 19, 44, 36, 52, 80, 8, home, away, left, leftHome, leftAway, rightHome, rightAway, right, lastTen, extraInning, oneRun, winners, day, night, grass, turf, .481, .432, .520, .519, .522, .463, .397, .429, .500, .444, .525, .443, .455, .458, .477, .111</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  38, 35, 20, 10, 10, 28, 25, 53, 6, 11, 25, 29, 29, 44, 68, 5, 43, 46, 36, 21, 15, 22, 31, 53, 4, 12, 19, 49, 42, 47, 85, 4, home, away, left, leftHome, leftAway, rightHome, rightAway, right, lastTen, extraInning, oneRun, winners, day, night, grass, turf, .469, .432, .357, .323, .400, .560, .446, .500, .600, .478, .568, .372, .408, .484, .444, .556</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11    51, 44, 34, 18, 16, 33, 28, 61, 4, 9, 21, 45, 26, 69, 88, 7, 30, 37, 28, 12, 16, 18, 21, 39, 6, 8, 19, 32, 26, 41, 61, 6, home, away, left, leftHome, leftAway, rightHome, rightAway, right, lastTen, extraInning, oneRun, winners, day, night, grass, turf, .630, .543, .548, .600, .500, .647, .571, .610, .400, .529, .525, .584, .500, .627, .591, .538</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  46, 44, 36, 18, 18, 28, 26, 54, 7, 14, 33, 44, 33, 57, 80, 10, 35, 37, 28, 14, 14, 21, 23, 44, 3, 7, 19, 34, 23, 49, 67, 5, home, away, left, leftHome, leftAway, rightHome, rightAway, right, lastTen, extraInning, oneRun, winners, day, night, grass, turf, .568, .543, .563, .563, .563, .571, .531, .551, .700, .667, .635, .564, .589, .538, .544, .667</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13   43, 43, 37, 16, 21, 27, 22, 49, 4, 8, 23, 30, 39, 47, 77, 9, 38, 38, 26, 16, 10, 22, 28, 50, 6, 3, 27, 51, 31, 45, 66, 10, home, away, left, leftHome, leftAway, rightHome, rightAway, right, lastTen, extraInning, oneRun, winners, day, night, grass, turf, .531, .531, .587, .500, .677, .551, .440, .495, .400, .727, .460, .370, .557, .511, .538, .474</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14   40, 37, 30, 17, 13, 23, 24, 47, 5, 3, 25, 39, 22, 55, 67, 10, 42, 43, 25, 10, 15, 32, 28, 60, 5, 5, 14, 62, 27, 58, 79, 6, home, away, left, leftHome, leftAway, rightHome, rightAway, right, lastTen, extraInning, oneRun, winners, day, night, grass, turf, .488, .463, .545, .630, .464, .418, .462, .439, .500, .375, .641, .386, .449, .487, .459, .625</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  36, 24, 27, 15, 12, 21, 12, 33, 5, 9, 18, 34, 22, 38, 19, 41, 45, 57, 34, 11, 23, 34, 34, 68, 5, 9, 21, 63, 34, 68, 56, 46, home, away, left, leftHome, leftAway, rightHome, rightAway, right, lastTen, extraInning, oneRun, winners, day, night, grass, turf, .444, .296, .443, .577, .343, .382, .261, .327, .500, .500, .462, .351, .393, .358, .253, .471</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                team_records_records_division_records</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  15, 51, 19, 19, 25, 13, .441, .671, .594, 200, 201, 202, American League West, American League East, American League Central, /api/v1/divisions/200, /api/v1/divisions/201, /api/v1/divisions/202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  15, 41, 20, 18, 35, 13, .455, .539, .606, 200, 201, 202, American League West, American League East, American League Central, /api/v1/divisions/200, /api/v1/divisions/201, /api/v1/divisions/202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  22, 36, 22, 12, 40, 10, .647, .474, .688, 200, 201, 202, American League West, American League East, American League Central, /api/v1/divisions/200, /api/v1/divisions/201, /api/v1/divisions/202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  16, 42, 19, 16, 34, 15, .500, .553, .559, 200, 201, 202, American League West, American League East, American League Central, /api/v1/divisions/200, /api/v1/divisions/201, /api/v1/divisions/202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  15, 20, 10, 17, 56, 24, .469, .263, .294, 200, 201, 202, American League West, American League East, American League Central, /api/v1/divisions/200, /api/v1/divisions/201, /api/v1/divisions/202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  16, 19, 44, 17, 14, 32, .485, .576, .579, 200, 201, 202, American League West, American League East, American League Central, /api/v1/divisions/200, /api/v1/divisions/201, /api/v1/divisions/202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  15, 13, 43, 17, 21, 33, .469, .382, .566, 200, 201, 202, American League West, American League East, American League Central, /api/v1/divisions/200, /api/v1/divisions/201, /api/v1/divisions/202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  18, 18, 30, 16, 14, 46, .529, .563, .395, 200, 201, 202, American League West, American League East, American League Central, /api/v1/divisions/200, /api/v1/divisions/201, /api/v1/divisions/202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  14, 12, 36, 19, 21, 40, .424, .364, .474, 200, 201, 202, American League West, American League East, American League Central, /api/v1/divisions/200, /api/v1/divisions/201, /api/v1/divisions/202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 13, 13, 37, 20, 20, 39, .394, .394, .487, 200, 201, 202, American League West, American League East, American League Central, /api/v1/divisions/200, /api/v1/divisions/201, /api/v1/divisions/202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 49, 18, 19, 27, 13, 16, .645, .581, .543, 200, 201, 202, American League West, American League East, American League Central, /api/v1/divisions/200, /api/v1/divisions/201, /api/v1/divisions/202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 47, 19, 15, 29, 15, 17, .618, .559, .469, 200, 201, 202, American League West, American League East, American League Central, /api/v1/divisions/200, /api/v1/divisions/201, /api/v1/divisions/202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 37, 15, 23, 39, 18, 10, .487, .455, .697, 200, 201, 202, American League West, American League East, American League Central, /api/v1/divisions/200, /api/v1/divisions/201, /api/v1/divisions/202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 29, 16, 21, 47, 17, 12, .382, .485, .636, 200, 201, 202, American League West, American League East, American League Central, /api/v1/divisions/200, /api/v1/divisions/201, /api/v1/divisions/202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 28, 14, 11, 48, 20, 21, .368, .412, .344, 200, 201, 202, American League West, American League East, American League Central, /api/v1/divisions/200, /api/v1/divisions/201, /api/v1/divisions/202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      team_records_records_overall_records</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  52, 48, 29, 33, home, away, .642, .593</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  49, 43, 32, 38, home, away, .605, .531</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  46, 46, 35, 35, home, away, .568, .568</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  47, 44, 33, 38, home, away, .588, .537</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  27, 25, 54, 56, home, away, .333, .309</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  53, 40, 28, 41, home, away, .654, .494</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  40, 40, 41, 41, home, away, .494, .494</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  42, 35, 39, 46, home, away, .519, .432</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  39, 35, 42, 46, home, away, .481, .432</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 38, 35, 43, 46, home, away, .469, .432</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 51, 44, 30, 37, home, away, .630, .543</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 46, 44, 35, 37, home, away, .568, .543</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 43, 43, 38, 38, home, away, .531, .531</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 40, 37, 42, 43, home, away, .488, .463</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 36, 24, 45, 57, home, away, .444, .296</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                               team_records_records_league_records</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   85, 15, 57, 5, .599, .750, 103, 104, American League, National League, /api/v1/league/103, /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   76, 16, 66, 4, .535, .800, 103, 104, American League, National League, /api/v1/league/103, /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   80, 12, 62, 8, .563, .600, 103, 104, American League, National League, /api/v1/league/103, /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   77, 14, 65, 6, .542, .700, 103, 104, American League, National League, /api/v1/league/103, /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   45, 7, 97, 13, .317, .350, 103, 104, American League, National League, /api/v1/league/103, /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   79, 14, 63, 6, .556, .700, 103, 104, American League, National League, /api/v1/league/103, /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   71, 9, 71, 11, .500, .450, 103, 104, American League, National League, /api/v1/league/103, /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   66, 11, 76, 9, .465, .550, 103, 104, American League, National League, /api/v1/league/103, /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   62, 12, 80, 8, .437, .600, 103, 104, American League, National League, /api/v1/league/103, /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 63, 10, 79, 10, .444, .500, 103, 104, American League, National League, /api/v1/league/103, /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  86, 9, 56, 11, .606, .450, 103, 104, American League, National League, /api/v1/league/103, /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  81, 9, 61, 11, .570, .450, 103, 104, American League, National League, /api/v1/league/103, /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  75, 11, 67, 9, .528, .550, 103, 104, American League, National League, /api/v1/league/103, /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  66, 11, 76, 9, .465, .550, 103, 104, American League, National League, /api/v1/league/103, /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  53, 7, 89, 13, .373, .350, 103, 104, American League, National League, /api/v1/league/103, /api/v1/league/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     team_records_records_expected_records league_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  101, 101, 61, 61, xWinLoss, xWinLossSeason, .623, .623       103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2    88, 88, 74, 74, xWinLoss, xWinLossSeason, .543, .543       103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3    86, 86, 76, 76, xWinLoss, xWinLossSeason, .531, .531       103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4    99, 99, 63, 63, xWinLoss, xWinLossSeason, .611, .611       103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  54, 54, 108, 108, xWinLoss, xWinLossSeason, .333, .333       103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6    97, 97, 65, 65, xWinLoss, xWinLossSeason, .599, .599       103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7    80, 80, 82, 82, xWinLoss, xWinLossSeason, .494, .494       103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8    75, 75, 87, 87, xWinLoss, xWinLossSeason, .463, .463       103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9    71, 71, 91, 91, xWinLoss, xWinLossSeason, .438, .438       103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10   71, 71, 91, 91, xWinLoss, xWinLossSeason, .438, .438       103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 101, 101, 61, 61, xWinLoss, xWinLossSeason, .623, .623       103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12   76, 76, 86, 86, xWinLoss, xWinLossSeason, .469, .469       103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13   87, 87, 75, 75, xWinLoss, xWinLossSeason, .537, .537       103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14   73, 73, 89, 89, xWinLoss, xWinLossSeason, .451, .451       103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 62, 62, 100, 100, xWinLoss, xWinLossSeason, .383, .383       103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           league_link division_id         division_link sport_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  /api/v1/league/103         201 /api/v1/divisions/201        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  /api/v1/league/103         201 /api/v1/divisions/201        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  /api/v1/league/103         201 /api/v1/divisions/201        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  /api/v1/league/103         201 /api/v1/divisions/201        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  /api/v1/league/103         201 /api/v1/divisions/201        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  /api/v1/league/103         202 /api/v1/divisions/202        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  /api/v1/league/103         202 /api/v1/divisions/202        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  /api/v1/league/103         202 /api/v1/divisions/202        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  /api/v1/league/103         202 /api/v1/divisions/202        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 /api/v1/league/103         202 /api/v1/divisions/202        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 /api/v1/league/103         200 /api/v1/divisions/200        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 /api/v1/league/103         200 /api/v1/divisions/200        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 /api/v1/league/103         200 /api/v1/divisions/200        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 /api/v1/league/103         200 /api/v1/divisions/200        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 /api/v1/league/103         200 /api/v1/divisions/200        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          sport_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 /api/v1/sports/1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Standings data from MLB.com ────────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:34 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 15 × 52</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    standings_type last_updated         team_records_se… team_records_cl…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> regularSeason  2022-03-14T05:15:01… 2021             z               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> regularSeason  2022-03-14T05:15:01… 2021             w               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> regularSeason  2022-03-14T05:15:01… 2021             w               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> regularSeason  2022-03-14T05:15:01… 2021             <span style="color: #BB0000;">NA</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> regularSeason  2022-03-14T05:15:01… 2021             <span style="color: #BB0000;">NA</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> regularSeason  2022-03-31T19:50:45… 2021             y               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> regularSeason  2022-03-31T19:50:45… 2021             <span style="color: #BB0000;">NA</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> regularSeason  2022-03-31T19:50:45… 2021             <span style="color: #BB0000;">NA</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> regularSeason  2022-03-31T19:50:45… 2021             <span style="color: #BB0000;">NA</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> regularSeason  2022-03-31T19:50:45… 2021             <span style="color: #BB0000;">NA</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> regularSeason  2022-03-14T05:14:55… 2021             y               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> regularSeason  2022-03-14T05:14:55… 2021             <span style="color: #BB0000;">NA</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> regularSeason  2022-03-14T05:14:55… 2021             <span style="color: #BB0000;">NA</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> regularSeason  2022-03-14T05:14:55… 2021             <span style="color: #BB0000;">NA</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> regularSeason  2022-03-14T05:14:55… 2021             <span style="color: #BB0000;">NA</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 48 more variables: team_records_division_rank &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_records_league_rank &lt;chr&gt;, team_records_sport_rank &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_records_games_played &lt;int&gt;, team_records_games_back &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_records_wild_card_games_back &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_records_league_games_back &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_records_spring_league_games_back &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_records_sport_games_back &lt;chr&gt;, …</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

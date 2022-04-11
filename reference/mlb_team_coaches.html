@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -146,57 +148,28 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_team_coaches</span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">137</span>, season <span class="op">=</span> <span class="fl">2021</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    jersey_number                      job job_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1             19                  Manager   MNGR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2              0            Bullpen Coach   COAU</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3             84           Pitching Coach   COAP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4             97           Pitching Coach   COAP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5             50              Bench Coach   COAB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6             88  Assistant Hitting Coach   COAA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7             90 Assistant Pitching Coach   COPA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8             79    Quality Control Coach   QUAC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9             00         First Base Coach   COA1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10            77            Hitting Coach   COAT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11            23         Third Base Coach   COA3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12            91       Major League Coach   MAJC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13            92       Major League Coach   MAJC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14            99          Bullpen Catcher   BCAT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                        Bullpen Catcher   BCAT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                  Coach   COAC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                          title person_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                      Manager    137002</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                       Bullpen/Catching Coach    503360</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                               Pitching Coach    457732</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                         Director of Pitching    446454</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                          Bench/Infield Coach    678989</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  Director of Hitting/Assistant Hitting Coach    682508</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                     Assistant Pitching Coach    448258</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                      Quality Assurance Coach    455512</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                             First Base Coach    460322</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                               Hitting Coach    643585</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                            Third Base Coach    124588</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                Major League Assistant Coach    506912</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                Major League Assistant Coach    693136</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                             Bullpen Catcher    666065</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                             Bullpen Catcher    657804</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                 Coach/Video    445010</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     person_full_name           person_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        Gabe Kapler /api/v1/people/137002</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     Craig Albernaz /api/v1/people/503360</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3      Andrew Bailey /api/v1/people/457732</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4    Brian Bannister /api/v1/people/446454</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5         Kai Correa /api/v1/people/678989</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6        Dustin Lind /api/v1/people/682508</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7      J.P. Martinez /api/v1/people/448258</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8         Nick Ortiz /api/v1/people/455512</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  Antoan Richardson /api/v1/people/460322</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10      Justin Viele /api/v1/people/643585</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11         Ron Wotus /api/v1/people/124588</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12     Mark Hallberg /api/v1/people/506912</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13     Alyssa Nakken /api/v1/people/693136</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14     Taira Uematsu /api/v1/people/666065</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15     Brant Whiting /api/v1/people/657804</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16    Fernando Perez /api/v1/people/445010</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Team Coaches data from MLB.com ─────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:38 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 16 × 7</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    jersey_number job             job_id title person_id person_full_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> <span style="color: #949494;">"</span>19<span style="color: #949494;">"</span>          Manager         MNGR   Mana…    <span style="text-decoration: underline;">137</span>002 Gabe Kapler     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> <span style="color: #949494;">"</span>0<span style="color: #949494;">"</span>           Bullpen Coach   COAU   Bull…    <span style="text-decoration: underline;">503</span>360 Craig Albernaz  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> <span style="color: #949494;">"</span>84<span style="color: #949494;">"</span>          Pitching Coach  COAP   Pitc…    <span style="text-decoration: underline;">457</span>732 Andrew Bailey   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> <span style="color: #949494;">"</span>97<span style="color: #949494;">"</span>          Pitching Coach  COAP   Dire…    <span style="text-decoration: underline;">446</span>454 Brian Bannister </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> <span style="color: #949494;">"</span>50<span style="color: #949494;">"</span>          Bench Coach     COAB   Benc…    <span style="text-decoration: underline;">678</span>989 Kai Correa      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> <span style="color: #949494;">"</span>88<span style="color: #949494;">"</span>          Assistant Hitt… COAA   Dire…    <span style="text-decoration: underline;">682</span>508 Dustin Lind     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> <span style="color: #949494;">"</span>90<span style="color: #949494;">"</span>          Assistant Pitc… COPA   Assi…    <span style="text-decoration: underline;">448</span>258 J.P. Martinez   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> <span style="color: #949494;">"</span>79<span style="color: #949494;">"</span>          Quality Contro… QUAC   Qual…    <span style="text-decoration: underline;">455</span>512 Nick Ortiz      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> <span style="color: #949494;">"</span>00<span style="color: #949494;">"</span>          First Base Coa… COA1   Firs…    <span style="text-decoration: underline;">460</span>322 Antoan Richards…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> <span style="color: #949494;">"</span>77<span style="color: #949494;">"</span>          Hitting Coach   COAT   Hitt…    <span style="text-decoration: underline;">643</span>585 Justin Viele    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> <span style="color: #949494;">"</span>23<span style="color: #949494;">"</span>          Third Base Coa… COA3   Thir…    <span style="text-decoration: underline;">124</span>588 Ron Wotus       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> <span style="color: #949494;">"</span>91<span style="color: #949494;">"</span>          Major League C… MAJC   Majo…    <span style="text-decoration: underline;">506</span>912 Mark Hallberg   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> <span style="color: #949494;">"</span>92<span style="color: #949494;">"</span>          Major League C… MAJC   Majo…    <span style="text-decoration: underline;">693</span>136 Alyssa Nakken   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> <span style="color: #949494;">"</span>99<span style="color: #949494;">"</span>          Bullpen Catcher BCAT   Bull…    <span style="text-decoration: underline;">666</span>065 Taira Uematsu   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> <span style="color: #949494;">""</span>            Bullpen Catcher BCAT   Bull…    <span style="text-decoration: underline;">657</span>804 Brant Whiting   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> <span style="color: #949494;">""</span>            Coach           COAC   Coac…    <span style="text-decoration: underline;">445</span>010 Fernando Perez  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 1 more variable: person_link &lt;chr&gt;</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -144,40 +146,32 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_conferences</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   conference_id         conference_name                     link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           301 PCL American Conference  /api/v1/conferences/301</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2           302  PCL Pacific Conference  /api/v1/conferences/302</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3          5153   Metropolitan Division /api/v1/conferences/5153</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4          5154       Atlantic Division /api/v1/conferences/5154</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5          5156        Central Division /api/v1/conferences/5156</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6          5157        Pacific Division /api/v1/conferences/5157</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7          5189      Southeast Division /api/v1/conferences/5189</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8          5190      Northwest Division /api/v1/conferences/5190</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   conference_abbreviation has_wildcard conference_name_short league_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                    PCLA        FALSE          PCL American       112</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                    PCLP        FALSE           PCL Pacific       112</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                    NHLM        FALSE     Metropolitan Div.      5152</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                    NHLA        FALSE         Atlantic Div.      5152</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                    NHLC        FALSE          Central Div.      5155</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                    NHLP        FALSE          Pacific Div.      5155</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                   NHLSE        FALSE        Southeast Div.      5155</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                   NHLNW        FALSE        Northwest Div.      5155</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           league_link sport_id          sport_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  /api/v1/league/112       11   /api/v1/sports/11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  /api/v1/league/112       11   /api/v1/sports/11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 /api/v1/league/5152     5150 /api/v1/sports/5150</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 /api/v1/league/5152     5150 /api/v1/sports/5150</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 /api/v1/league/5155     5150 /api/v1/sports/5150</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 /api/v1/league/5155     5150 /api/v1/sports/5150</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 /api/v1/league/5155     5150 /api/v1/sports/5150</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 /api/v1/league/5155     5150 /api/v1/sports/5150</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Conferences data from MLB.com ──────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:03:41 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8 × 10</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   conference_id conference_name      link  conference_abbr… has_wildcard</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>           301 PCL American Confer… /api… PCLA             FALSE       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>           302 PCL Pacific Confere… /api… PCLP             FALSE       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>          <span style="text-decoration: underline;">5</span>153 Metropolitan Divisi… /api… NHLM             FALSE       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>          <span style="text-decoration: underline;">5</span>154 Atlantic Division    /api… NHLA             FALSE       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>          <span style="text-decoration: underline;">5</span>156 Central Division     /api… NHLC             FALSE       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>          <span style="text-decoration: underline;">5</span>157 Pacific Division     /api… NHLP             FALSE       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span>          <span style="text-decoration: underline;">5</span>189 Southeast Division   /api… NHLSE            FALSE       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span>          <span style="text-decoration: underline;">5</span>190 Northwest Division   /api… NHLNW            FALSE       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 5 more variables: conference_name_short &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   league_id &lt;int&gt;, league_link &lt;chr&gt;, sport_id &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   sport_link &lt;chr&gt;</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_conferences</span><span class="op">(</span>conference_id <span class="op">=</span>  <span class="fl">301</span>, season <span class="op">=</span> <span class="fl">2020</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   conference_id         conference_name                    link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           301 PCL American Conference /api/v1/conferences/301</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   conference_abbreviation has_wildcard conference_name_short league_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                    PCLA        FALSE          PCL American       112</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          league_link sport_id        sport_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 /api/v1/league/112       11 /api/v1/sports/11</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Conferences data from MLB.com ──────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:03:41 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 10</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   conference_id conference_name      link  conference_abbr… has_wildcard</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>           301 PCL American Confer… /api… PCLA             FALSE       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 5 more variables: conference_name_short &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   league_id &lt;int&gt;, league_link &lt;chr&gt;, sport_id &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   sport_link &lt;chr&gt;</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

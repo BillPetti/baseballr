@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -142,57 +144,28 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_sports</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    sport_id sport_code         sport_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         1        mlb   /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2        11        aaa  /api/v1/sports/11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3        12        aax  /api/v1/sports/12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4        13        afa  /api/v1/sports/13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5        14        afx  /api/v1/sports/14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6        16        rok  /api/v1/sports/16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7        17        win  /api/v1/sports/17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8         8        bbl   /api/v1/sports/8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9        21        min  /api/v1/sports/21</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10       23        ind  /api/v1/sports/23</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11       51        int  /api/v1/sports/51</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12      508        nat /api/v1/sports/508</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13      509        nae /api/v1/sports/509</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14      510        nas /api/v1/sports/510</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15       22        bbc  /api/v1/sports/22</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16      586        hsb /api/v1/sports/586</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                               sport_name sport_abbreviation sort_order</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                  Major League Baseball                MLB         11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                               Triple-A                AAA        101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                               Double-A                 AA        201</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                 High-A                 A+        301</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                               Single-A                  A        401</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                 Rookie                ROK        701</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                         Winter Leagues                WIN       1301</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                     Organized Baseball               Pros       1401</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                  Minor League Baseball             Minors       1402</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                   Independent Leagues                IND       2101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                International Baseball                INT       3501</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12   International Baseball (Collegiate)               INTC       3502</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 International Baseball (18 and under)                18U       3503</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 International Baseball (16 and under)                16U       3505</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                      College Baseball            College       5101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                  High School Baseball               H.S.       6201</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    active_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2           TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3           TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4           TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5           TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6           TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7           TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8           TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9           TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16          TRUE</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Sports data from MLB.com ───────────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:32 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 16 × 7</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    sport_id sport_code sport_link sport_name sport_abbreviat… sort_order</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>        1 mlb        /api/v1/s… Major Lea… MLB                      11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>       11 aaa        /api/v1/s… Triple-A   AAA                     101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>       12 aax        /api/v1/s… Double-A   AA                      201</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>       13 afa        /api/v1/s… High-A     A+                      301</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>       14 afx        /api/v1/s… Single-A   A                       401</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>       16 rok        /api/v1/s… Rookie     ROK                     701</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>       17 win        /api/v1/s… Winter Le… WIN                    <span style="text-decoration: underline;">1</span>301</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>        8 bbl        /api/v1/s… Organized… Pros                   <span style="text-decoration: underline;">1</span>401</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>       21 min        /api/v1/s… Minor Lea… Minors                 <span style="text-decoration: underline;">1</span>402</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>       23 ind        /api/v1/s… Independe… IND                    <span style="text-decoration: underline;">2</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span>       51 int        /api/v1/s… Internati… INT                    <span style="text-decoration: underline;">3</span>501</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span>      508 nat        /api/v1/s… Internati… INTC                   <span style="text-decoration: underline;">3</span>502</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span>      509 nae        /api/v1/s… Internati… 18U                    <span style="text-decoration: underline;">3</span>503</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span>      510 nas        /api/v1/s… Internati… 16U                    <span style="text-decoration: underline;">3</span>505</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span>       22 bbc        /api/v1/s… College B… College                <span style="text-decoration: underline;">5</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span>      586 hsb        /api/v1/s… High Scho… H.S.                   <span style="text-decoration: underline;">6</span>201</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 1 more variable: active_status &lt;lgl&gt;</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

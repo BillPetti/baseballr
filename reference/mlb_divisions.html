@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -146,34 +148,21 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_divisions</span><span class="op">(</span>sport_id <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   division_id           division_name season division_name_short</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         200    American League West   2022             AL West</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2         201    American League East   2022             AL East</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         202 American League Central   2022          AL Central</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4         203    National League West   2022             NL West</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5         204    National League East   2022             NL East</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6         205 National League Central   2022          NL Central</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           division_link division_abbreviation has_wildcard sort_order</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 /api/v1/divisions/200                   ALW        FALSE         24</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 /api/v1/divisions/201                   ALE        FALSE         22</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 /api/v1/divisions/202                   ALC        FALSE         23</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 /api/v1/divisions/203                   NLW        FALSE         34</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 /api/v1/divisions/204                   NLE        FALSE         32</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 /api/v1/divisions/205                   NLC        FALSE         33</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   num_playoff_teams active league_id        league_link sport_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                 1   TRUE       103 /api/v1/league/103        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                 1   TRUE       103 /api/v1/league/103        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                 1   TRUE       103 /api/v1/league/103        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                 1   TRUE       104 /api/v1/league/104        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                 1   TRUE       104 /api/v1/league/104        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                 1   TRUE       104 /api/v1/league/104        1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         sport_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 /api/v1/sports/1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 /api/v1/sports/1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Divisions data from MLB.com ────────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:03:41 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 14</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   division_id division_name        season division_name_s… division_link</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>         200 American League West 2022   AL West          /api/v1/divi…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>         201 American League East 2022   AL East          /api/v1/divi…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>         202 American League Cen… 2022   AL Central       /api/v1/divi…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>         203 National League West 2022   NL West          /api/v1/divi…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>         204 National League East 2022   NL East          /api/v1/divi…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>         205 National League Cen… 2022   NL Central       /api/v1/divi…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 9 more variables: division_abbreviation &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   has_wildcard &lt;lgl&gt;, sort_order &lt;int&gt;, num_playoff_teams &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   active &lt;lgl&gt;, league_id &lt;int&gt;, league_link &lt;chr&gt;, sport_id &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   sport_link &lt;chr&gt;</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

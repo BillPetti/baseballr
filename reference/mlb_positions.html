@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -137,120 +139,24 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_positions</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      position_short_name    position_full_name position_abbreviation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                Pitcher               Pitcher                     P</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                Catcher               Catcher                     C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3               1st Base            First Base                    1B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4               2nd Base           Second Base                    2B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5               3rd Base            Third Base                    3B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6              Shortstop             Shortstop                    SS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7             Left Field            Outfielder                    LF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8           Center Field            Outfielder                    CF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9            Right Field            Outfielder                    RF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10     Designated Hitter     Designated Hitter                    DH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11          Pinch Hitter          Pinch Hitter                    PH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12          Pinch Runner          Pinch Runner                    PR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13          Extra Hitter          Extra Hitter                    EH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14           Base Runner           Base Runner                    BR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15              Outfield              Outfield                    OF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16               Infield               Infield                    IF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17      Starting Pitcher      Starting Pitcher                    SP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18        Relief Pitcher        Relief Pitcher                    RP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                Closer                Closer                    CP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20               Utility               Utility                    UT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21     Utility Infielder     Utility Infielder                    UI</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22    Utility Outfielder    Utility Outfielder                    UO</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23  Right-Handed Pitcher  Right-Handed Pitcher                   RHP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24   Left-Handed Pitcher   Left-Handed Pitcher                   LHP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25  Right-Handed Starter  Right-Handed Starter                   RHS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26   Left-Handed Starter   Left-Handed Starter                   LHS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27  Left-Handed Reliever  Left-Handed Reliever                   LHR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 Right-Handed Reliever Right-Handed Reliever                   RHR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29   Pitcher - Infielder   Pitcher - Infielder                  P-IF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30  Pitcher - Outfielder  Pitcher - Outfielder                  P-OF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31     Pitcher - Utility     Pitcher - Utility                  P-UT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32        Two-Way Player        Two-Way Player                   TWP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33                Batter                Batter                     B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34               Unknown               Unknown                     X</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35       Runner on First       Runner on First                    R1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36      Runner on Second      Runner on Second                    R2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37       Runner on Third       Runner on Third                    R3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    position_code  position_type  position_formal_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1              1        Pitcher               Pitcher</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2              2        Catcher               Catcher</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3              3      Infielder         First Baseman</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4              4      Infielder        Second Baseman</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5              5      Infielder         Third Baseman</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6              6      Infielder             Shortstop</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7              7     Outfielder          Left Fielder</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8              8     Outfielder        Center Fielder</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9              9     Outfielder         Right Fielder</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10            10         Hitter     Designated Hitter</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11            11         Hitter          Pinch Hitter</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12            12         Runner          Pinch Runner</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13            13         Hitter          Extra Hitter</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14            BR         Runner           Base Runner</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15             O     Outfielder              Outfield</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16             I      Infielder               Infield</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17             S        Pitcher      Starting Pitcher</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18             E        Pitcher        Relief Pitcher</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19             C        Pitcher                Closer</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20             U      Infielder               Utility</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21             V      Infielder     Utility Infielder</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22             W     Outfielder    Utility Outfielder</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23             K        Pitcher  Right-Handed Pitcher</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24             L        Pitcher   Left-Handed Pitcher</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25             M        Pitcher  Right-Handed Starter</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26             N        Pitcher   Left-Handed Starter</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27             G        Pitcher  Left-Handed Reliever</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28             F        Pitcher Right-Handed Reliever</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29             A Two-Way Player   Pitcher - Infielder</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30             J Two-Way Player  Pitcher - Outfielder</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31             Z Two-Way Player     Pitcher - Utility</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32             Y Two-Way Player        Two-Way Player</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33            10         Batter                Batter</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34             X        Unknown               Unknown</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35            R1         Runner       Runner on First</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36            R2         Runner      Runner on Second</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37            R3         Runner       Runner on Third</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    position_display_name outfield game_position pitcher fielder</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                Pitcher    FALSE          TRUE    TRUE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                Catcher    FALSE          TRUE   FALSE    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3             First Base    FALSE          TRUE   FALSE    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4            Second Base    FALSE          TRUE   FALSE    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5             Third Base    FALSE          TRUE   FALSE    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6              Shortstop    FALSE          TRUE   FALSE    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7             Outfielder     TRUE          TRUE   FALSE    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8             Outfielder     TRUE          TRUE   FALSE    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9             Outfielder     TRUE          TRUE   FALSE    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10     Designated Hitter    FALSE          TRUE   FALSE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11          Pinch Hitter    FALSE          TRUE   FALSE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12          Pinch Runner    FALSE          TRUE   FALSE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13          Extra Hitter    FALSE          TRUE   FALSE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14           Base Runner    FALSE         FALSE   FALSE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15              Outfield     TRUE         FALSE   FALSE    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16               Infield    FALSE         FALSE   FALSE    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17      Starting Pitcher    FALSE         FALSE    TRUE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18        Relief Pitcher    FALSE         FALSE    TRUE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                Closer    FALSE         FALSE    TRUE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20               Utility    FALSE         FALSE   FALSE    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21     Utility Infielder    FALSE         FALSE   FALSE    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22    Utility Outfielder     TRUE         FALSE   FALSE    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23  Right-Handed Pitcher    FALSE         FALSE    TRUE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24   Left-Handed Pitcher    FALSE         FALSE    TRUE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25  Right-Handed Starter    FALSE         FALSE    TRUE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26   Left-Handed Starter    FALSE         FALSE    TRUE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27  Left-Handed Reliever    FALSE         FALSE    TRUE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 Right-Handed Reliever    FALSE         FALSE    TRUE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29   Pitcher - Infielder    FALSE         FALSE    TRUE    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30  Pitcher - Outfielder     TRUE         FALSE    TRUE    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31     Pitcher - Utility    FALSE         FALSE    TRUE    TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32        Two-Way Player    FALSE         FALSE    TRUE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33                Batter    FALSE         FALSE   FALSE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34               Unknown    FALSE         FALSE   FALSE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35       Runner on First    FALSE         FALSE   FALSE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36      Runner on Second    FALSE         FALSE   FALSE   FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37       Runner on Third    FALSE         FALSE   FALSE   FALSE</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Positions data from MLB.com ────────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:04:20 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 37 × 11</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    position_short_name position_full_name position_abbrev… position_code</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Pitcher             Pitcher            P                1            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Catcher             Catcher            C                2            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1st Base            First Base         1B               3            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2nd Base            Second Base        2B               4            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 3rd Base            Third Base         3B               5            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Shortstop           Shortstop          SS               6            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Left Field          Outfielder         LF               7            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Center Field        Outfielder         CF               8            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Right Field         Outfielder         RF               9            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Designated Hitter   Designated Hitter  DH               10           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 27 more rows, and 7 more variables: position_type &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   position_formal_name &lt;chr&gt;, position_display_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   outfield &lt;lgl&gt;, game_position &lt;lgl&gt;, pitcher &lt;lgl&gt;, fielder &lt;lgl&gt;</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

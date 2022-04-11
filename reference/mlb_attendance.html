@@ -33,6 +33,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--funcs">
     <a class="dropdown-item" href="../reference/index.html">Function Index</a>
     <a class="dropdown-item" href="../reference/mlb.html">MLB</a>
+    <a class="dropdown-item" href="../reference/mlb_award.html">MLB Awards</a>
     <a class="dropdown-item" href="../reference/statcast.html">Statcast</a>
     <a class="dropdown-item" href="../reference/retrosheet_data.html">Retrosheet</a>
     <a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a>
@@ -78,6 +79,7 @@
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
     <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
@@ -177,30 +179,19 @@ Valid values include:</p><ul><li><p>milb_full</p></li>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_attendance</span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">109</span>, season <span class="op">=</span> <span class="fl">2021</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   openings_total openings_total_away openings_total_home</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1            161                  80                  81</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   openings_total_lost games_total games_away_total games_home_total</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                   0         162               81               81</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   year attendance_average_away attendance_average_home</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2021                   20082                   12877</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   attendance_average_ytd attendance_high attendance_high_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                  16457           31661  2021-06-20T00:00:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   attendance_low attendance_low_date attendance_opening_average</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           5560 2021-05-11T00:00:00                      12877</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   attendance_total attendance_total_away attendance_total_home</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1          2649541               1606531               1043010</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   attendance_high_game_game_pk       attendance_high_game_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                       633582 /api/v1.1/game/633582/feed/live</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   attendance_high_game_day_night attendance_high_game_content_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                            day       /api/v1/game/633582/content</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   attendance_low_game_game_pk        attendance_low_game_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                      634180 /api/v1.1/game/634180/feed/live</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   attendance_low_game_day_night attendance_low_game_content_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                           day      /api/v1/game/634180/content</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   game_type_id game_type_description team_id            team_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1            R        Regular Season     109 Arizona Diamondbacks</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           team_link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 /api/v1/teams/109</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Attendance data from MLB.com ───────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-11 14:03:34 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 32</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   openings_total openings_total_away openings_total_ho… openings_total_…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>            161                  80                 81                0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 28 more variables: games_total &lt;int&gt;, games_away_total &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   games_home_total &lt;int&gt;, year &lt;chr&gt;, attendance_average_away &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   attendance_average_home &lt;int&gt;, attendance_average_ytd &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   attendance_high &lt;int&gt;, attendance_high_date &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   attendance_low &lt;int&gt;, attendance_low_date &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   attendance_opening_average &lt;int&gt;, attendance_total &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   attendance_total_away &lt;int&gt;, attendance_total_home &lt;int&gt;, …</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>
