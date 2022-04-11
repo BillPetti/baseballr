@@ -24,7 +24,7 @@ team-level consistency over custom time frames.
 You can read more about some of the functions and how to use them at its
 [official site](https://billpetti.github.io/baseballr/) as well as this
 [Hardball Times
-article](https://www.hardballtimes.com/developing-the-baseballr-package-for-r/).
+article](https://tht.fangraphs.com/developing-the-baseballr-package-for-r/).
 
 ## **Installation**
 
@@ -74,7 +74,7 @@ bref_standings_on_date("2015-08-01", "NL East", from = FALSE)
 
     ## -- MLB Standings on Date data from baseball-reference.com --- baseballr 1.1.0 --
 
-    ## i Data updated: 2022-04-11 09:07:32 EDT
+    ## i Data updated: 2022-04-11 10:30:18 EDT
 
     ## # A tibble: 5 x 8
     ##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`
@@ -191,7 +191,7 @@ bref_daily_pitcher("2015-04-05", "2015-04-30") %>%
 
     ## -- MLB Daily Pitcher data from baseball-reference.com ------- baseballr 1.1.0 --
 
-    ## i Data updated: 2022-04-11 09:07:47 EDT
+    ## i Data updated: 2022-04-11 10:30:33 EDT
 
     ## # A tibble: 10 x 11
     ##    season Name               IP   ERA    SO   uBB   HBP    HR   FIP wOBA_against
