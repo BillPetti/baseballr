@@ -281,7 +281,7 @@ This function is the compliment to the `fg_bat_leaders()` function, returning le
 
 In addition to noting the start and end years, along with qualified/IP requirements, etc., you can note whether you want all pitchers, starters, or just relievers using the `pitcher_type` argument. 
 
-- `pit` wil give you all pitchers that meet your requirements
+- `pit` will give you all pitchers that meet your requirements
 - `sta` gives you starters only 
 - `rel` gives you relievers only
 

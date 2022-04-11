@@ -44,7 +44,6 @@ Suggests:
     DBI,
     furrr,
     future,
-    ggplot2,
     ggrepel,
     knitr,
     qs (>= 0.25.1),
