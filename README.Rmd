@@ -32,7 +32,7 @@ team-level consistency over custom time frames.
 You can read more about some of the functions and how to use them at its
 [official site](https://billpetti.github.io/baseballr/) as well as this
 [Hardball Times
-article](https://www.hardballtimes.com/developing-the-baseballr-package-for-r/).
+article](https://tht.fangraphs.com/developing-the-baseballr-package-for-r/).
 
 ## **Installation**
 

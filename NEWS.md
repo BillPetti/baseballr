@@ -557,7 +557,7 @@ We also had some great contributions by others that I've added into this release
 
 # baseballr 0.3.3 (2017-05-08)
 
-The latest release of the [`baseballr`](https://billpetti.github.io/baseballr/) package for `R` includes a number of enhancement to acquiring data from [Baseball Savant](http://baseballsavant.com) as well as minor grammatical clean up in the documentation.
+The latest release of the [`baseballr`](https://billpetti.github.io/baseballr/) package for `R` includes a number of enhancement to acquiring data from [Baseball Savant](https://baseballsavant.mlb.com) as well as minor grammatical clean up in the documentation.
 
 Previous functions `scrape_statcast_savant_batter` and `scrape_statcast_savant_pitcher` allowed for the acquistion of data from baseballsavant.com for a given player over a user-determined time frame. However, this is somewhat inefficient if you want to acquire data on all players over a given time frame. 
 
@@ -970,7 +970,7 @@ Example (based on data from "2015-04-05"):
 
 Functions updated for this release:
 
-`standings_on_date_bref`: [JonathanBob](https://github.com/JonathanBob) updated this funtion to allow for records to be returned for the given date or from that date forward. Also, users can input a full date string instead of three separate arguments for the day, month, and year. Users can also choose to pull records for the AL and NL overall, not just for a given division.
+`standings_on_date_bref`: Updated this function to allow for records to be returned for the given date or from that date forward. Also, users can input a full date string instead of three separate arguments for the day, month, and year. Users can also choose to pull records for the AL and NL overall, not just for a given division.
 
 Example:
 

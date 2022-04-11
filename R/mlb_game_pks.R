@@ -1,7 +1,7 @@
 #' @rdname mlb_game_pks
 #' @title **Get MLB Game Info by Date and Level**
 #' @description Find game_pk values for professional baseball games (major and minor leagues)
-#' via the MLB api \url{http://statsapi.mlb.com/api/}
+#' via the MLB api \url{https://www.mlb.com/}
 #'
 #' @param date The date for which you want to find game_pk values for MLB games
 #' @param level_ids A numeric vector with ids for each level where game_pks are
