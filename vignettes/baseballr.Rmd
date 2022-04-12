@@ -64,7 +64,6 @@ if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
 }
 pacman::p_load_current_gh("billpetti/baseballr")
-pacman::p_load(tidyverse, zoo, ggimage, gt)
 ```
 
 ### **The Data**
