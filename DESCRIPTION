@@ -46,6 +46,7 @@ Suggests:
     future,
     ggrepel,
     knitr,
+    pacman,
     qs (>= 0.25.1),
     reshape2,
     rmarkdown,
