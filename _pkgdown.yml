@@ -89,6 +89,8 @@ navbar:
       menu:
       - text: Vignettes
         href: articles/index.html
+      - text: "Getting Started with baseballr"
+        href: articles/baseballr.html
       - text: "Plotting Statcast"
         href: articles/plotting_statcast.html
       - text: "NCAA Scraping"
