@@ -36,7 +36,7 @@ development:
 home:
   links:
   - text: "Getting Started with baseballr"
-    href:  https://BillPetti.github.io/baseballr/articles/getting-started-baseballr.html
+    href:  https://BillPetti.github.io/baseballr/articles/baseballr.html
   - text: "Plotting Statcast"
     href:  https://BillPetti.github.io/baseballr/articles/plotting_statcast.html
   - text: "NCAA Scraping"
