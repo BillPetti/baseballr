@@ -18,6 +18,10 @@ vignette: >
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+# You can install using the pacman package using the following code:
+if (!requireNamespace('pacman', quietly = TRUE)){
+  install.packages('pacman')
+}
 pacman::p_load_current_gh("r-lib/pkgapi")
 library(pkgapi)
 pkg <- pkgapi::map_package(path = "../")
