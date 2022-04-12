@@ -35,6 +35,8 @@ development:
 
 home:
   links:
+  - text: "Getting Started with baseballr"
+    href:  https://BillPetti.github.io/baseballr/articles/getting-started-baseballr.html
   - text: "Plotting Statcast"
     href:  https://BillPetti.github.io/baseballr/articles/plotting_statcast.html
   - text: "NCAA Scraping"
@@ -153,9 +155,12 @@ repo:
     issue: https://github.com/billpetti/baseballr/issues/
     user: https://github.com/billpetti/
 reference:
-  - title: MLB Stats Types and Codes
-  - subtitle: MLB Stats Types and Codes Data Functions
-    desc: Functions exported by baseballr to access MLB Stats Types and Codes Data
+  - title: MLB Stats - Overview
+    contents:
+      - '`mlb`'
+  - title: MLB Stats - Types and Codes
+  - subtitle: MLB Stats - Types and Codes Data Functions
+    desc: Functions exported by baseballr to access MLB Stats - Types and Codes Data
     contents:
       - starts_with("mlb_baseball")
       - starts_with("mlb_event")
@@ -181,9 +186,9 @@ reference:
       - starts_with("mlb_stat_groups")
       - starts_with("mlb_stat_types")
       - starts_with("mlb_wind")
-  - title: MLB Stats Game
-  - subtitle: MLB Stats Game Data Functions
-    desc: Functions exported by baseballr to access MLB Stats Game Data
+  - title: MLB Stats - Game
+  - subtitle: MLB Stats - Game Data Functions
+    desc: Functions exported by baseballr to access MLB Stats - Game Data
     contents:
       - starts_with("mlb_attendance") 
       - starts_with("mlb_game")
@@ -192,57 +197,52 @@ reference:
       - starts_with("mlb_batt")
       - starts_with("mlb_schedule")
       - starts_with("mlb_venue")
-  - title: MLB Stats Game
-  - subtitle: MLB Stats Player Data Functions
-    desc: Functions exported by baseballr to access MLB Stats Player Data
+  - title: MLB Stats - Players
+  - subtitle: MLB Stats - Player Data Functions
+    desc: Functions exported by baseballr to access MLB Stats - Player Data
     contents:
       - starts_with("mlb_player")
       - starts_with("mlb_people")
       - starts_with("mlb_high_low_stats")
       - starts_with("mlb_stats")
-  - title: MLB Stats Team
-  - subtitle: MLB Stats Team Data Functions
-    desc: Functions exported by baseballr to access MLB Stats Team Data
+  - title: MLB Stats - Teams
+  - subtitle: MLB Stats - Teams Data Functions
+    desc: Functions exported by baseballr to access MLB Stats - Teams Data
     contents:
       - starts_with("mlb_team_")
       - starts_with("mlb_teams")
       - starts_with("mlb_rosters")
-  - title: MLB Stats Standings
-  - subtitle: MLB Stats Standings Data Functions
-    desc: Functions exported by baseballr to access MLB Stats Standings Data
+  - title: MLB Stats - Standings
+  - subtitle: MLB Stats - Standings Data Functions
+    desc: Functions exported by baseballr to access MLB Stats - Standings Data
     contents:
       - starts_with("mlb_standings")
-  - title: MLB Stats League
-  - subtitle: MLB Stats League Data Functions
-    desc: Functions exported by baseballr to access MLB Stats League Data
+  - title: MLB Stats - League
+  - subtitle: MLB Stats - League Data Functions
+    desc: Functions exported by baseballr to access MLB Stats - League Data
     contents:
       - starts_with("mlb_league")
       - starts_with("mlb_conference")
       - starts_with("mlb_division")
       - starts_with("mlb_sport")
-  - title: MLB Stats Draft
-  - subtitle: MLB Stats Draft Data Functions
-    desc: Functions exported by baseballr to access MLB Stats Draft Data
+  - title: MLB Stats - Draft
+  - subtitle: MLB Stats - Draft Data Functions
+    desc: Functions exported by baseballr to access MLB Stats - Draft Data
     contents:
       - starts_with("mlb_draft")
-  - title: MLB Stats Awards
-  - subtitle: MLB Stats Awards Data Functions
-    desc: Functions exported by baseballr to access MLB Stats Awards Data
+  - title: MLB Stats - Awards
+  - subtitle: MLB Stats - Awards Data Functions
+    desc: Functions exported by baseballr to access MLB Stats - Awards Data
     contents:
       - '`mlb_award`'
       - starts_with("mlb_awards")
       - starts_with("mlb_all")
       - starts_with("mlb_home")
-  - title: MLB Stats Jobs
-  - subtitle: MLB Stats Jobs Data Functions
-    desc: Functions exported by baseballr to access MLB Stats Jobs Data
+  - title: MLB Stats - Jobs
+  - subtitle: MLB Stats - Jobs Data Functions
+    desc: Functions exported by baseballr to access MLB Stats - Jobs Data
     contents:
       - starts_with("mlb_job")
-  - title: MLB Stats
-  - subtitle: MLB Stats Misc Functions
-    desc: Functions exported by baseballr to access MLB Stats Data
-    contents:
-      - '`mlb`'
   - title: Baseball Savant
   - subtitle: Baseball Savant MLB Data Functions
     desc: Functions exported by baseballr to access Baseball Savant MLB Data
@@ -288,16 +288,16 @@ reference:
     desc: Functions exported by baseballr to access Baseball Reference's MLB Data
     contents:
       - starts_with("bref")
-  - title: Player Lookup
-  - subtitle: Player Lookup Functions
-    desc: Functions exported by baseballr to access Baseball player information from the Chadwick Bureau Register
+  - title: Chadwick Bureau Player Lookup
+  - subtitle: Chadwick Bureau Player Lookup Functions
+    desc: Functions exported by baseballr to access baseball player information from the Chadwick Bureau's Public Register of Baseball Players
     contents:
       - starts_with("chadwick")
       - '`playerid_lookup`'
       - '`playername_lookup`'
-  - title: Misc. Lookup
-  - subtitle: Misc. Lookup Functions
-    desc: Functions exported by baseballr to access Baseball players and teams
+  - title: baseballr Data Repository Misc. Lookup
+  - subtitle: baseballr Data Repository Misc. Lookup Functions
+    desc: Functions exported by baseballr to access baseballr data repository supplementary data
     contents:
       - '`load_umpire_ids`'
       - '`load_game_info_sup`'
