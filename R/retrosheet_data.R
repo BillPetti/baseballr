@@ -159,7 +159,7 @@ create.csv.file <- function(wd, year){
   
   fields <- data.table::fread(paste0(wd, "/fields.csv"))
   
-  payload <- data.table::fread(paste0("all", year, ".csv"), col_names = FALSE)
+  payload <- data.table::fread(paste0("all", year, ".csv"), header = FALSE)
   
   names(payload) <- fields$Header
   
@@ -201,7 +201,7 @@ create.csv.roster <- function(wd, year){
 read.csv2 <- function(wd, file){
   data.table::fread(file = paste0(wd,
                                   "/download.folder/unzipped/", file),
-                    col.names = FALSE)
+                    header = FALSE)
 }
 
 cleanup <- function(wd){
