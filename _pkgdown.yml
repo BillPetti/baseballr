@@ -252,8 +252,6 @@ reference:
       - '`statcast`'
       - '`statcast_leaderboards`'
       - '`statcast_search`'
-      - '`edge_scrape`'
-      - '`edge_scrape_split`'
   - title: Baseball Savant Helpers
   - subtitle: Baseball Savant MLB Helper Functions
     desc: Functions exported by baseballr to process Baseball Savant MLB Data
