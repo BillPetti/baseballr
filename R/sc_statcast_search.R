@@ -207,7 +207,7 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
     { 
       suppressMessages(
         suppressWarnings(
-          payload <- csv_from_url(url)
+          payload <- csv_from_url(url, encoding ="UTF-8")
         )
       )
     },

@@ -46,7 +46,7 @@ retrosheet_data <- function(path_to_directory,
     setwd(path_to_directory)
   }
 
-  fields <- csv_from_url("https://raw.githubusercontent.com/maxtoki/baseball_R/master/data/fields.csv")
+  fields <- csv_from_url("https://raw.githubusercontent.com/maxtoki/baseball_R/master/data/fields.csv", encoding ="UTF-8")
 
   data.table::fwrite(fields, file = paste0(path_to_directory, "/fields.csv"))
 

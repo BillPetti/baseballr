@@ -14,7 +14,7 @@
 load_umpire_ids <- function() {
   tryCatch(
     expr={
-      df <- csv_from_url("https://app.box.com/shared/static/x20ahfe5e3a3y9sknz3g5y2ojbef3fzx.csv")
+      df <- csv_from_url("https://app.box.com/shared/static/x20ahfe5e3a3y9sknz3g5y2ojbef3fzx.csv", encoding ="UTF-8")
       
       df <- df %>%
         make_baseballr_data("MLB Umpire IDs data from baseballr-data repository",Sys.time())

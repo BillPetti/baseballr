@@ -52,7 +52,7 @@
 #' }
 chadwick_player_lu <- function() {
   suppressWarnings(
-    df <- csv_from_url("https://raw.githubusercontent.com/chadwickbureau/register/master/data/people.csv")
+    df <- csv_from_url("https://raw.githubusercontent.com/chadwickbureau/register/master/data/people.csv", encoding ="UTF-8")
   )
   df <- df %>%
     make_baseballr_data("Player Lookup from the Chadwick Bureau's public register of baseball players",Sys.time())

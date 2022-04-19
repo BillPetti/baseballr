@@ -18,7 +18,7 @@
 load_game_info_sup <- function() {
   tryCatch(
     expr={
-      df <- csv_from_url("https://app.box.com/shared/static/qbtz8s1yxauamohcvrrjv2ba65v5p2d3.csv")
+      df <- csv_from_url("https://app.box.com/shared/static/qbtz8s1yxauamohcvrrjv2ba65v5p2d3.csv", encoding ="UTF-8")
       
       df <- df %>%
         make_baseballr_data("Supplementary MLB Game Info data from baseballr-data repository",Sys.time())
