@@ -2,7 +2,7 @@
 #' @param team_ids The team_id(s) to return affiliates data for.
 #' @param season The season to return team affiliates data for the particular season.
 #' @param sport_ids The sport_id to return team affiliates information for.
-#' @return Returns a data frame with the following columns
+#' @return Returns a tibble with the following columns
 #'    |col_name                   |types     |
 #'    |:--------------------------|:---------|
 #'    |all_star_status            |character |

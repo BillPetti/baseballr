@@ -10,7 +10,7 @@ mlb_homerun_derby_bracket(game_pk)
 \item{game_pk}{The game_pk for which you want to return data}
 }
 \value{
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns\tabular{ll}{
    col_name \tab types \cr
    game_pk \tab integer \cr
    event_name \tab character \cr

@@ -14,7 +14,7 @@ mlb_team_affiliates(team_ids = NULL, sport_ids = NULL, season = NULL)
 \item{season}{The season to return team affiliates data for the particular season.}
 }
 \value{
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns\tabular{ll}{
    col_name \tab types \cr
    all_star_status \tab character \cr
    team_id \tab integer \cr

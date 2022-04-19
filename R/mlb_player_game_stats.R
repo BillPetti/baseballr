@@ -1,7 +1,7 @@
 #' @title **Find MLB Player Game Stats**
 #' @param person_id MLBAMIDs for player of interest.
 #' @param game_pk The game_pk to return game_log statistics for a specific player in a specific game and to complete the call.
-#' @return Returns a data frame with the following columns:
+#' @return Returns a tibble with the following columns:
 #'   |col_name                 |types     |
 #'   |:------------------------|:---------|
 #'   |type                     |character |

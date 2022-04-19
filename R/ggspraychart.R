@@ -104,7 +104,6 @@ ggspraychart <- function(data, x_value = "hc_x",
 }
 
 #' @importFrom ggplot2 %+replace% theme_minimal element_blank element_text
-
 theme_battedball_grey <- function(base_size = 12, base_family = "Helvetica") {
   theme_minimal(base_size = base_size, base_family = base_family) %+replace%
     theme(

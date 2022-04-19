@@ -12,7 +12,7 @@ bref_team_results(Tm, year)
 \item{year}{Season for which you want to scrape the park factors.}
 }
 \value{
-Returns a data frame of MLB team results\tabular{ll}{
+Returns a tibble of MLB team results and the following columns:\tabular{ll}{
    col_name \tab types \cr
    Gm \tab numeric \cr
    Date \tab character \cr

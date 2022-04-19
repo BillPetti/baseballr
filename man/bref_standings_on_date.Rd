@@ -17,7 +17,7 @@ including the date (FALSE, default) or rather standings for games played
 after the date}
 }
 \value{
-Returns a data frame of MLB standings\tabular{ll}{
+Returns a tibble of MLB standings with the following columns:\tabular{ll}{
    col_name \tab types \cr
    Tm \tab character \cr
    W \tab integer \cr

@@ -27,7 +27,7 @@ mlb_teams(
 \item{game_type}{The game_type to return team information for.}
 }
 \value{
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns\tabular{ll}{
    col_name \tab types \cr
    team_id \tab integer \cr
    team_full_name \tab character \cr

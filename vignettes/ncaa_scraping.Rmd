@@ -26,7 +26,7 @@ The function, `ncaa_scrape`, requires the user to pass values for three paramete
 
 If you want to pull batting statistics for Vanderbilt for the 2013 season, you would use the following:
 
-```{r}
+```{r ncaa_scrape_batting}
 library(baseballr)
 library(dplyr)
 ncaa_scrape(736, 2021, "batting") %>%
@@ -36,7 +36,7 @@ ncaa_scrape(736, 2021, "batting") %>%
 
 The same can be done for pitching, just by changing the `type` parameter:
 
-```{r}
+```{r ncaa_scrape_pitching}
 ncaa_scrape(736, 2021, "pitching") %>%
   select(year:ERA)
 ```
@@ -46,7 +46,7 @@ Now, the function is dependent on the user knowing the `school_id` used by the N
 
 Just pass a string to the function and it will return possible matches based on the school's name:
 
-```{r}
+```{r ncaa_sch_id_lu}
 ncaa_school_id_lu("Vand")
 ```
 

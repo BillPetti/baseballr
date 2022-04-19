@@ -11,6 +11,9 @@ statline_from_statcast(df, base = "pa")
 
 \item{base}{Tells the function what to use as the population of pitches to use for the stat line. Options include "swings", "contact", or "pa". Defaults to "pa".}
 }
+\value{
+A tibble with the additional columns calculated using the Statcast data.
+}
 \description{
 This function allows you to create stat lines of statistics for players or groups of players from raw Statcast. When calculating wOBA, the most recent year in the data frame is used for weighting.
 }

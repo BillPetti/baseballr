@@ -10,7 +10,7 @@ mlb_draft_latest(year)
 \item{year}{The year for which to return data}
 }
 \value{
-Returns a data frame with the latest draft information for the year requested:\tabular{ll}{
+Returns a tibble with the latest draft information for the year requested:\tabular{ll}{
    col_name \tab types \cr
    bis_player_id \tab integer \cr
    pick_round \tab character \cr

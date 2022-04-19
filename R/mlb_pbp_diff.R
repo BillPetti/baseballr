@@ -5,7 +5,7 @@
 #' @param start_timecode The start time code for the MLB game (format: MMDDYYYY_HHMMSS)
 #' @param end_timecode The end time code for the MLB game (format: MMDDYYYY_HHMMSS)
 #' @importFrom jsonlite fromJSON
-#' @return Returns a data frame that includes over 100 columns of data provided
+#' @return Returns a tibble that includes over 100 columns of data provided
 #' by the MLB Stats API at a pitch level between the start_timecode and end_timecode
 #' 
 #'  |col_name                       |types     |
@@ -304,7 +304,7 @@ mlb_pbp_diff <- function(
 #' @rdname get_pbp_mlb
 #' @title **(legacy) Acquire pitch-by-pitch data for Major and Minor League games**
 #' @inheritParams mlb_pbp
-#' @return Returns a data frame that includes over 100 columns of data provided
+#' @return Returns a tibble that includes over 100 columns of data provided
 #' by the MLB Stats API at a pitch level.
 #' @keywords legacy
 #' @export

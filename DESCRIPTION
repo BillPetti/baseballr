@@ -1,6 +1,6 @@
 Package: baseballr
-Title: Functions for Acquiring and Analyzing Baseball Data
-Version: 1.1.0
+Title: Acquiring and Analyzing Baseball Data
+Version: 1.2.0
 Authors@R: c(
     person("Bill", "Petti", , "billpetti@gmail.com", role = "aut"),
     person("Saiem", "Gilani", , "saiem.gilani@gmail.com", role = c("aut", "cre")),
@@ -8,9 +8,9 @@ Authors@R: c(
     person("Ben", "Dilday", , "ben.dilday.phd@gmail.com", role = "ctb"),
     person("Robert", "Frey", , "rfrey22@gmail.com", role = "ctb")
   )
-Description: Provides numerous functions for acquiring and analyzing
-    baseball data from online sources such as Baseball Reference<https://www.baseball-reference.com/>,
-    FanGraphs<https://www.fangraphs.com/>, and the MLB Stats API<https://www.mlb.com/>.
+Description: Provides numerous utilities for acquiring and analyzing
+    baseball data from online sources such as Baseball Reference <https://www.baseball-reference.com/>,
+    FanGraphs <https://www.fangraphs.com/>, and the MLB Stats API <https://www.mlb.com/>.
 License: MIT + file LICENSE
 URL: https://billpetti.github.io/baseballr/,
     https://github.com/BillPetti/baseballr

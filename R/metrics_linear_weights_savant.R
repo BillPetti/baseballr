@@ -1,3 +1,4 @@
+#' @rdname linear_weights_savant
 #' @title **Generate linear weight values for events using Baseball Savant data**
 #' @description 
 #' This function allows a user to generate linear weight values for events using Baseball Savant data. Output includes both linear weights above average and linear weights above outs for home runs, triples, doubles, singles, walks, hit by pitches, and outs.
@@ -5,12 +6,14 @@
 #' the ```run_expectancy_code()``` function.
 #' @param level Whether to calculate linear weights the plate appearance or pitch
 #' level. Defaults to 'plate appearance'.
-#' @return Returns a data frame with the following columns
+#' @return Returns a tibble with the following columns:
+#' 
 #'   |col_name                     |types     |
 #'   |:----------------------------|:---------|
 #'   |events                       |character |
 #'   |linear_weights_above_average |numeric   |
 #'   |linear_weights_above_outs    |numeric   |
+#'   
 #' @export 
 #' @examples \donttest{
 #'   df <- statcast_search(start_date = "2016-04-06", end_date = "2016-04-15", 

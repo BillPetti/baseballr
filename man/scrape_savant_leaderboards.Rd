@@ -72,6 +72,9 @@ position categories.}
 
 \item{hand}{The handedness of the pitcher. One of 'R' or 'L'. Can be left blank.}
 }
+\value{
+Returns a tibble of Statcast leaderboard data.
+}
 \description{
 \strong{(legacy) Query Baseball Savant Leaderboards}
 }

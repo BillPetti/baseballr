@@ -7,8 +7,9 @@
 #' @param level_ids A numeric vector with ids for each level where game_pks are
 #' desired. See below for a reference of level ids.
 #' @importFrom jsonlite fromJSON
-#' @return Returns a data frame that includes game_pk values and additional
-#' information for games scheduled or played
+#' @return Returns a tibble that includes game_pk values and additional
+#' information for games scheduled or played with the following columns:
+#' 
 #'  |col_name                       |types     |
 #'  |:------------------------------|:---------|
 #'  |game_pk                        |integer   |
@@ -65,6 +66,7 @@
 #'  |venue.name                     |character |
 #'  |venue.link                     |character |
 #'  |content.link                   |character |
+#'  
 #' @details Level IDs:
 #'
 #' The following IDs can be passed to the level_ids argument:
@@ -112,7 +114,7 @@ mlb_game_pks <- function(date,
 #' @rdname get_game_pks_mlb
 #' @title **(legacy) Get MLB Game Info by Date and Level**
 #' @inheritParams mlb_game_pks
-#' @return Returns a data frame that includes game_pk values and additional
+#' @return Returns a tibble that includes game_pk values and additional
 #' information for games scheduled or played
 #' @keywords legacy
 #' @export

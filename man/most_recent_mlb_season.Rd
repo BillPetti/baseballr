@@ -6,6 +6,9 @@
 \usage{
 most_recent_mlb_season()
 }
+\value{
+An integer indicating the year of the most recent season of Major League Baseball
+}
 \description{
 \strong{Most Recent MLB Season}
 }

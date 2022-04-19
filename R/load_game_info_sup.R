@@ -1,6 +1,6 @@
 #' @rdname load_game_info_sup
 #' @title **Download a data frame of supplemental data about MLB games since 2008.**
-#' @return Function returns a data frame with various columns, including: 
+#' @return Function returns a tibble with various columns, including: 
 #' * game_pk
 #' * game_date
 #' * venue id 
@@ -35,7 +35,7 @@ load_game_info_sup <- function() {
 }
 #' @rdname get_game_info_sup_petti
 #' @title **(legacy) Download a data frame of supplemental data about MLB games since 2008.**
-#' @return Function returns a data frame with various columns, including: 
+#' @return Function returns a tibble with various columns, including: 
 #' * game_pk
 #' * game_date
 #' * venue id 

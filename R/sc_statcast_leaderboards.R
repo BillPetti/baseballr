@@ -58,6 +58,31 @@
 #' 90 = RF - Straight Up 
 #' 92 = RF - Leaning Right 
 #' 99 = RF - Close to Line 
+#' @return Returns a tibble of Statcast leaderboard data with the following columns (for leaderboard: 'exit_velocity_barrels'):
+#' 
+#'   |col_name              |types     |
+#'   |:---------------------|:---------|
+#'   |year                  |numeric   |
+#'   |last_name             |character |
+#'   |first_name            |character |
+#'   |player_id             |integer   |
+#'   |attempts              |integer   |
+#'   |avg_hit_angle         |numeric   |
+#'   |anglesweetspotpercent |numeric   |
+#'   |max_hit_speed         |numeric   |
+#'   |avg_hit_speed         |numeric   |
+#'   |fbld                  |numeric   |
+#'   |gb                    |numeric   |
+#'   |max_distance          |integer   |
+#'   |avg_distance          |integer   |
+#'   |avg_hr_distance       |integer   |
+#'   |ev95plus              |integer   |
+#'   |ev95per-swing         |numeric   |
+#'   |ev95percent           |numeric   |
+#'   |barrels               |integer   |
+#'   |brl_percent           |numeric   |
+#'   |brl_pa                |numeric   |
+#' 
 #' @export
 #' @examples \donttest{
 #'   try(statcast_leaderboards(leaderboard = "exit_velocity_barrels", year = 2018))
@@ -388,6 +413,7 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 #' @rdname scrape_savant_leaderboards
 #' @title **(legacy) Query Baseball Savant Leaderboards**
 #' @inheritParams statcast_leaderboards 
+#' @return Returns a tibble of Statcast leaderboard data.
 #' @keywords legacy
 #' @export
 scrape_savant_leaderboards <- statcast_leaderboards

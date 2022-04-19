@@ -7,13 +7,14 @@
 #' 
 #' @param statcast_df A dataframe containing Statcast batted ball data
 #' @param impute_file A CSV file giving the launch angle, launch speed, 
-#' \code{bb_type}, events fields to label
-#' as imputed. if NULL then it's read from the \code{extdata} folder of the package.
+#' `bb_type`, events fields to label
+#' as imputed. if NULL then it's read from the `extdata` folder of the package.
 #' @param inverse_precision inverse of how many digits to truncate the launch angle 
-#' and speed to for comparison. Default is \code{10000}, i.e. keep 4 digits of precision.
-#' @return A copy of the input dataframe with a new column \code{imputed} appended. imputed
+#' and speed to for comparison. Default is `10000`, i.e. keep 4 digits of precision.
+#' @return A copy of the input dataframe with a new column `imputed` appended. imputed
 #' is 1 if launch angle and launch speed are likely imputed, 0 otherwise.
-#' @return Returns a data frame with the following columns
+#' Returns a tibble with the following columns:
+#' 
 #'  |col_name                        |types     |
 #'  |:-------------------------------|:---------|
 #'  |pitch_type                      |character |
@@ -111,6 +112,7 @@
 #'  |ila                             |integer   |
 #'  |ils                             |integer   |
 #'  |imputed                         |numeric   |
+#'  
 #' @export
 #' @examples
 #' \donttest{

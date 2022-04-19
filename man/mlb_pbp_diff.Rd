@@ -14,7 +14,7 @@ mlb_pbp_diff(game_pk, start_timecode, end_timecode)
 \item{end_timecode}{The end time code for the MLB game (format: MMDDYYYY_HHMMSS)}
 }
 \value{
-Returns a data frame that includes over 100 columns of data provided
+Returns a tibble that includes over 100 columns of data provided
 by the MLB Stats API at a pitch level between the start_timecode and end_timecode\tabular{ll}{
    col_name \tab types \cr
    game_pk \tab numeric \cr

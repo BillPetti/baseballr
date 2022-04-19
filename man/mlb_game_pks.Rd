@@ -13,8 +13,8 @@ mlb_game_pks(date, level_ids = c(1))
 desired. See below for a reference of level ids.}
 }
 \value{
-Returns a data frame that includes game_pk values and additional
-information for games scheduled or played\tabular{ll}{
+Returns a tibble that includes game_pk values and additional
+information for games scheduled or played with the following columns:\tabular{ll}{
    col_name \tab types \cr
    game_pk \tab integer \cr
    link \tab character \cr

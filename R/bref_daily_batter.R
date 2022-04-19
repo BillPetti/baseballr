@@ -4,7 +4,8 @@
 #' @description This function allows you to scrape basic batter statistics over a custom time frame. Data is sourced from Baseball-Reference.com.
 #' @param t1 First date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @param t2 Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
-#' @return Returns a data frame of batter performance
+#' @return Returns a tibble of batter performance with the following columns:
+#' 
 #'  |col_name |types     |
 #'  |:--------|:---------|
 #'  |bbref_id |character |
@@ -37,6 +38,7 @@
 #'  |OBP      |numeric   |
 #'  |SLG      |numeric   |
 #'  |OPS      |numeric   |
+#'
 #' @importFrom rlang .data
 #' @importFrom dplyr filter mutate arrange desc rename select
 #' @importFrom tidyr everything
@@ -101,7 +103,8 @@ bref_daily_batter <- function(t1, t2) {
 #' @rdname daily_batter_bref
 #' @title **(legacy) Scrape Batter Performance Data Over a Custom Time Frame**
 #' @inheritParams bref_daily_batter
-#' @return Returns a data frame of batter performance
+#' @return Returns a tibble of batter performance
+#' @seealso ```bref_daily_batter()```
 #' @keywords legacy
 #' @export
 daily_batter_bref <-  bref_daily_batter

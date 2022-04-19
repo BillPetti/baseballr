@@ -10,7 +10,7 @@ ncaa_school_id_lu(school_name = NULL)
 \item{school_name}{A string that will be searched for in the names of the schools.}
 }
 \value{
-Returns a data frame with school identification data: school, conference, school_id, year, division, conference_id\tabular{ll}{
+Returns a tibble with school identification data: school, conference, school_id, year, division, conference_id\tabular{ll}{
    col_name \tab types \cr
    school \tab character \cr
    conference \tab character \cr

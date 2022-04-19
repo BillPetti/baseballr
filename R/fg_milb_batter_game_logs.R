@@ -3,7 +3,8 @@
 #' @description This function allows you to scrape MiLB game logs for individual batters from FanGraphs.
 #' @param playerid The batter's minor league ID from FanGraphs.
 #' @param year The season for which game logs should be returned.
-#' @return Returns a data frame of Minor League batter game logs.
+#' @return Returns a tibble of Minor League batter game logs with the following columns:
+#' 
 #'  |col_name       |types     |
 #'  |:--------------|:---------|
 #'  |player_name    |character |
@@ -48,6 +49,7 @@
 #'  |wBsR           |numeric   |
 #'  |gamedate       |character |
 #'  |dh             |integer   |
+#'  
 #' @importFrom tidyr separate everything
 #' @importFrom dplyr mutate select
 #' @importFrom jsonlite fromJSON
@@ -118,7 +120,7 @@ fg_milb_batter_game_logs <- function(playerid, year) {
 #' @rdname milb_batter_game_logs_fg
 #' @title **(legacy) Scrape MiLB game logs for batters from FanGraphs**
 #' @inheritParams fg_milb_batter_game_logs
-#' @return Returns a data frame of Minor League batter game logs.
+#' @return Returns a tibble of Minor League batter game logs.
 #' @keywords legacy
 #' @export
 

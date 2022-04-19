@@ -7,7 +7,7 @@
 mlb_awards()
 }
 \value{
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns\tabular{ll}{
    col_name \tab types \cr
    award_id \tab character \cr
    award_name \tab character \cr

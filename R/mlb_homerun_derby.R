@@ -2,7 +2,7 @@
 #' @title **Retrieve Homerun Derby data**
 #'
 #' @param game_pk The game_pk for which you want to return data
-#' @return Returns a data frame with the following columns 
+#' @return Returns a tibble with the following columns 
 #'   |col_name                                         |types     |
 #'   |:------------------------------------------------|:---------|
 #'   |game_pk                                          |integer   |
@@ -186,7 +186,7 @@ mlb_homerun_derby <- function(game_pk){
 #' @title **Retrieve Homerun Derby Bracket**
 #'
 #' @param game_pk The game_pk for which you want to return data
-#' @return Returns a data frame with the following columns 
+#' @return Returns a tibble with the following columns 
 #'    |col_name                                      |types     |
 #'    |:---------------------------------------------|:---------|
 #'    |game_pk                                       |integer   |
@@ -305,7 +305,7 @@ mlb_homerun_derby_bracket <- function(game_pk){
 #' @title **Retrieve Homerun Derby Players**
 #'
 #' @param game_pk The game_pk for which you want to return data
-#' @return Returns a data frame with the following columns 
+#' @return Returns a tibble with the following columns 
 #'   |col_name                                       |types     |
 #'   |:----------------------------------------------|:---------|
 #'   |game_pk                                        |integer   |

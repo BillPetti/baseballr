@@ -10,7 +10,7 @@ team_consistency(year)
 \item{year}{Season consistency should be run for.}
 }
 \value{
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns\tabular{ll}{
    col_name \tab types \cr
    Team \tab character \cr
    Con_R \tab numeric \cr

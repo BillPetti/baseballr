@@ -10,7 +10,7 @@ mlb_draft_prospects(year)
 \item{year}{The year for which to return data}
 }
 \value{
-Returns a data frame with information for every draft prospect for the year requested:\tabular{ll}{
+Returns a tibble with information for every draft prospect for the year requested:\tabular{ll}{
    col_name \tab types \cr
    bis_player_id \tab integer \cr
    pick_round \tab character \cr

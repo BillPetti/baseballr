@@ -10,7 +10,7 @@ get_draft_mlb(year)
 \item{year}{The year for which to return data}
 }
 \value{
-Returns a data frame with information for every draft pick in every round for the year requested
+Returns a tibble with information for every draft pick in every round for the year requested
 }
 \description{
 \strong{(legacy) Retrieve draft pick information by year}

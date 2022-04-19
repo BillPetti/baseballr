@@ -10,7 +10,7 @@ mlb_player_game_stats_current(person_id = NULL)
 \item{person_id}{MLBAMIDs for player of interest.}
 }
 \value{
-Returns a data frame with the following columns:\tabular{ll}{
+Returns a tibble with the following columns:\tabular{ll}{
    col_name \tab types \cr
    type \tab character \cr
    group \tab character \cr

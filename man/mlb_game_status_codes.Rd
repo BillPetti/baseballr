@@ -7,7 +7,7 @@
 mlb_game_status_codes()
 }
 \value{
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns\tabular{ll}{
    col_name \tab types \cr
    abstract_game_state \tab character \cr
    coded_game_state \tab character \cr

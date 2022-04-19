@@ -12,7 +12,7 @@ get_ncaa_lineups(game_info_url, year)
 \item{year}{The year the game was played in}
 }
 \value{
-Returns a data frame of each school's starting lineup and starting pitcher
+Returns a tibble of each school's starting lineup and starting pitcher
 }
 \description{
 \strong{(legacy) Retrieve lineups for a given NCAA game via its \code{game_info_url}}

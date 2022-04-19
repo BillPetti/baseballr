@@ -12,7 +12,7 @@ fg_milb_pitcher_game_logs(playerid, year)
 \item{year}{The season for which game logs should be returned.}
 }
 \value{
-Returns a data frame of Minor League pitcher game logs.\tabular{ll}{
+Returns a tibble of Minor League pitcher game logs.\tabular{ll}{
    col_name \tab types \cr
    player_name \tab character \cr
    minor_playerid \tab character \cr

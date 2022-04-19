@@ -14,7 +14,7 @@ the \code{run_expectancy_code()} function.}
 level. Defaults to 'plate appearance'.}
 }
 \value{
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns:\tabular{ll}{
    col_name \tab types \cr
    events \tab character \cr
    linear_weights_above_average \tab numeric \cr

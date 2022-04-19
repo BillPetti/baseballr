@@ -11,7 +11,7 @@
 #' Format must be in MM/DD/YYYY format.
 #' @param end_date Date of last game for which you want data.
 #' Format must be in MM/DD/YYYY format.
-#' @return Returns a data frame with the following columns
+#' @return Returns a tibble with the following columns
 #'   |col_name                                            |types     |
 #'   |:---------------------------------------------------|:---------|
 #'   |hits_per9inn                                        |numeric   |

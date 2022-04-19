@@ -5,7 +5,7 @@
 #' @importFrom tidyr spread
 #' @importFrom tibble tibble
 #' @importFrom stringr str_sub
-#' @return Returns a data frame that includes supplemental information, such as
+#' @return Returns a tibble that includes supplemental information, such as
 #' weather, official scorer, attendance, etc., for the game_pk provided
 #'  |col_name        |types     |
 #'  |:---------------|:---------|
@@ -88,7 +88,7 @@ mlb_game_info <- function(game_pk) {
 #' @rdname get_game_info_mlb 
 #' @title **(legacy) Retrieve additional game information for major and minor league games**
 #' @inheritParams mlb_game_info
-#' @return Returns a data frame that includes supplemental information, such as
+#' @return Returns a tibble that includes supplemental information, such as
 #' weather, official scorer, attendance, etc., for the game_pk provided
 #' @keywords legacy
 #' @export

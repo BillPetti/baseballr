@@ -10,7 +10,7 @@ mlb_game_linescore(game_pk)
 \item{game_pk}{The unique game_pk identifier for the game}
 }
 \value{
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns\tabular{ll}{
    col_name \tab types \cr
    game_pk \tab numeric \cr
    home_team_id \tab character \cr

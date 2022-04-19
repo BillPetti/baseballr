@@ -3,7 +3,7 @@
 #' **NCAA Functions Overview**
 #' @description
 #' \describe{
-#'   \item{```ncaa_scrape()```:}{ This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a data frame.}
+#'   \item{```ncaa_scrape()```:}{ This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a tibble.}
 #'   \item{```ncaa_baseball_pbp()```:}{ Get Play-By-Play Data for NCAA Baseball Games.}
 #'   \item{```ncaa_baseball_roster()```:}{ Get NCAA Baseball Rosters.}
 #'   \item{```ncaa_game_logs()```:}{ Get NCAA Baseball Game Logs.}

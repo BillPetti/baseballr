@@ -998,7 +998,7 @@ $`NL East`
 
 Functions added to this release:
 
-`edge_scrape_split()`: This function builds of off `edge_scrape()` and adds the ability to view the data split by batter and pitcher handedness. As with `edge_scrape()`, the function returns a data frame grouped by either pitchers or batters and the percentage of pitches in each of the various Edge zones, but adds in handedness.
+`edge_scrape_split()`: This function builds of off `edge_scrape()` and adds the ability to view the data split by batter and pitcher handedness. As with `edge_scrape()`, the function returns a tibble grouped by either pitchers or batters and the percentage of pitches in each of the various Edge zones, but adds in handedness.
 
 Example (Edge% splits by batters with handedness):
 

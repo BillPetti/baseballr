@@ -12,9 +12,12 @@ daily_batter_bref(t1, t2)
 \item{t2}{Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"}
 }
 \value{
-Returns a data frame of batter performance
+Returns a tibble of batter performance
 }
 \description{
 \strong{(legacy) Scrape Batter Performance Data Over a Custom Time Frame}
+}
+\seealso{
+\code{bref_daily_batter()}
 }
 \keyword{legacy}

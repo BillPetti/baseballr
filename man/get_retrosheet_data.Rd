@@ -22,6 +22,11 @@ vector (i.e. c(2017,2018)). Defaults to \code{most_recent_mlb_season()}.}
 should be sequenced so that the function returns all years including and
 between the vector passed, set the argument to TRUE. Defaults to FALSE.}
 }
+\value{
+Returns two csv files to the unzipped directory: 1) a combined csv
+of the event data for a given year and 2) a combined csv of each team's
+roster for each year
+}
 \description{
 \strong{(legacy) Get, Parse, and Format Retrosheet Event and Roster Files}
 }

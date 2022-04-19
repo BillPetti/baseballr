@@ -12,7 +12,7 @@ mlb_game_wp(game_pk, timecode = NULL)
 \item{timecode}{The time code for the MLB game (format: MMDDYYYY_HHMMSS)}
 }
 \value{
-Returns a data frame that includes time codes from the game_pk requested\tabular{ll}{
+Returns a tibble that includes time codes from the game_pk requested\tabular{ll}{
    col_name \tab types \cr
    home_team_win_probability \tab numeric \cr
    away_team_win_probability \tab numeric \cr

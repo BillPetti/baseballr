@@ -1,14 +1,15 @@
+#' @rdname statcast_edge_scrape_split
 #' @title **Scrape and Calculate Edge Percentages for Splits**
 #'
 #' @description This function allows you to calculate the percent of pitches thrown to different edges of the strike zone over any custom time frame, and to split the data by batter and pitcher handedness. Data is acquired by scraping the GameDay application from MLBAM using Carson Sievert's pitchRx package. The data can take a while to query, particular for large date ranges.
 #' @param start First date in your date range. Must be a character string in the format "yyyy-mm-dd".
 #' @param end Last date in your date range. Must be a character string in the format "yyyy-mm-dd".
 #' @param group Character string indicating whether to group the output by pitchers or batters. Options are "pitcher" or "batter".
-#' @importFrom pitchRx scrape
+#' @return Returns a tibble with Statcast data and edge columns and calculations.
 #' @export
 
 edge_scrape_split <- function(start, end, group) {
-  pfx <- suppressMessages(pitchRx::scrape(start, end))
+  pfx <- statcast_search(start, end)
   df <- left_join(pfx$pitch, pfx$atbat, by = c("gameday_link", "num"))
   f <- as.numeric(lapply(strsplit(df$b_height, "-"), function(x) x[1])) * 12
   i <- as.numeric(lapply(strsplit(df$b_height, "-"), function(x) x[1]))

@@ -12,7 +12,7 @@ bref_daily_pitcher(t1, t2)
 \item{t2}{Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"}
 }
 \value{
-Returns a data frame of pitcher performance\tabular{ll}{
+Returns a tibble of pitcher performance with the following columns:\tabular{ll}{
    col_name \tab types \cr
    bbref_id \tab character \cr
    season \tab integer \cr

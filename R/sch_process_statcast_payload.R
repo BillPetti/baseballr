@@ -4,6 +4,7 @@
 #' The function processes the initial csv payload acquired from
 #' Baseball Savant to ensure consistency in formatting across downloads
 #' @param payload payload from a Baseball Savant request
+#' @return A tibble with the processed Statcast data coerced to the correct types.
 #' @importFrom dplyr mutate_at mutate one_of
 #' @export
 

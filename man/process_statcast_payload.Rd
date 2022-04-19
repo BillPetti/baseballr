@@ -9,6 +9,9 @@ process_statcast_payload(payload)
 \arguments{
 \item{payload}{payload from a Baseball Savant request}
 }
+\value{
+A tibble with the processed Statcast data coerced to the correct types.
+}
 \description{
 This is a helper function for all \code{statcast_search()} functions.
 The function processes the initial csv payload acquired from

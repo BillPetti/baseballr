@@ -1,5 +1,7 @@
+#' @rdname mlb_baseball_stats
 #' @title **MLB Baseball Stats** 
-#' @return Returns a data frame with the following columns
+#' @return Returns a tibble with the following columns:
+#' 
 #'  |col_name          |types     |
 #'  |:-----------------|:---------|
 #'  |stat_name         |character |
@@ -7,6 +9,15 @@
 #'  |is_counting       |logical   |
 #'  |stat_label        |character |
 #'  |stat_group        |character |
+#' 
+#' @importFrom jsonlite fromJSON
+#' @importFrom janitor clean_names 
+#' @importFrom dplyr rename 
+#' @importFrom glue glue
+#' @importFrom rlang .data
+#' @importFrom tidyr unnest
+#' @importFrom tibble tibble 
+#' @import rvest 
 #' @export
 #' @examples \donttest{
 #'   try(mlb_baseball_stats())

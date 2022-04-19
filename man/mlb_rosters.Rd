@@ -18,7 +18,7 @@ Valid options include: '40Man', 'fullSeason', 'fullRoster', 'nonRosterInvitees',
 'allTime', 'depthChart', 'gameday', 'coach'}
 }
 \value{
-Returns a data frame with the following columns:\tabular{ll}{
+Returns a tibble with the following columns:\tabular{ll}{
    col_name \tab types \cr
    jersey_number \tab character \cr
    person_id \tab integer \cr

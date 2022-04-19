@@ -12,7 +12,7 @@ bref_daily_batter(t1, t2)
 \item{t2}{Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"}
 }
 \value{
-Returns a data frame of batter performance\tabular{ll}{
+Returns a tibble of batter performance with the following columns:\tabular{ll}{
    col_name \tab types \cr
    bbref_id \tab character \cr
    season \tab integer \cr

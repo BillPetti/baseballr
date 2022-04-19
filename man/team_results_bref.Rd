@@ -12,7 +12,7 @@ team_results_bref(Tm, year)
 \item{year}{Season for which you want to scrape the park factors.}
 }
 \value{
-Returns a data frame of MLB team results
+Returns a tibble of MLB team results
 }
 \description{
 \strong{(legacy) Scrape Team Results}

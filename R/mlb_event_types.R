@@ -1,5 +1,5 @@
 #' @title **MLB Event Types** 
-#' @return Returns a data frame with the following columns
+#' @return Returns a tibble with the following columns
 #'  |col_name           |types     |
 #'  |:------------------|:---------|
 #'  |plate_appearance   |logical   |

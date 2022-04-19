@@ -13,7 +13,7 @@ fg_park_hand(yr)
 \item{yr}{Season for which you want to scrape the park factors.}
 }
 \value{
-Returns a data frame of park factors.\tabular{ll}{
+Returns a tibble of park factors.\tabular{ll}{
    col_name \tab types \cr
    season \tab integer \cr
    home_team \tab character \cr
@@ -33,7 +33,7 @@ Returns a data frame of park factors.\tabular{ll}{
    FIP \tab integer \cr
 }
 
-Returns a data frame of park factors by handedness.\tabular{ll}{
+Returns a tibble of park factors by handedness.\tabular{ll}{
    col_name \tab types \cr
    season \tab integer \cr
    home_team \tab character \cr

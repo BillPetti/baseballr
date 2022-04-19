@@ -1,6 +1,6 @@
 #' @rdname load_umpire_ids
 #' @title **Download a data frame of all umpires and their mlbamids for games since 2008**
-#' @return Function returns a data frame with the following columns: 
+#' @return Function returns a tibble with the following columns: 
 #' * id 
 #' * position
 #' * name
@@ -31,7 +31,7 @@ load_umpire_ids <- function() {
 }
 #' @rdname get_umpire_ids_petti
 #' @title **(legacy) Download a data frame of all umpires and their MLBAM IDs for games since 2008**
-#' @return Function returns a data frame with the following columns: 
+#' @return Function returns a tibble with the following columns: 
 #' * id 
 #' * position,
 #' * name

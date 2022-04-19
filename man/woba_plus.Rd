@@ -9,6 +9,43 @@ woba_plus(df)
 \arguments{
 \item{df}{A data frame of statistics that includes, at a minimum, the following columns: uBB (unintentional walks), HBP (Hit By Pitch), X1B (singles), X2B (doubles), X3B (triples), HR (home runs), AB (at-bats), SH (sacrifice hits), SO (strike outs), and season.}
 }
+\value{
+Returns a tibble with the wOBA factors calculated and the following columns:\tabular{ll}{
+   col_name \tab types \cr
+   bbref_id \tab character \cr
+   season \tab integer \cr
+   Name \tab character \cr
+   Age \tab numeric \cr
+   Level \tab character \cr
+   Team \tab character \cr
+   G \tab numeric \cr
+   PA \tab numeric \cr
+   AB \tab numeric \cr
+   R \tab numeric \cr
+   H \tab numeric \cr
+   X1B \tab numeric \cr
+   X2B \tab numeric \cr
+   X3B \tab numeric \cr
+   HR \tab numeric \cr
+   RBI \tab numeric \cr
+   BB \tab numeric \cr
+   IBB \tab numeric \cr
+   uBB \tab numeric \cr
+   SO \tab numeric \cr
+   HBP \tab numeric \cr
+   SH \tab numeric \cr
+   SF \tab numeric \cr
+   GDP \tab numeric \cr
+   SB \tab numeric \cr
+   CS \tab numeric \cr
+   BA \tab numeric \cr
+   OBP \tab numeric \cr
+   SLG \tab numeric \cr
+   OPS \tab numeric \cr
+   wOBA \tab numeric \cr
+   wOBA_CON \tab numeric \cr
+}
+}
 \description{
 This function allows you to calculate wOBA for any given set of data, provided the right variables are in the data set. The function currently returns both wOBA per plate appearance on wOBA per instance of fair contact.
 }

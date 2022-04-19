@@ -31,8 +31,8 @@ desired. See below for a reference of level ids.\tabular{rllllrl}{
 }}
 }
 \value{
-Returns a data frame that includes game_pk values and additional
-information for games scheduled or played\tabular{ll}{
+Returns a tibble which includes \code{game_pk} values and additional
+information for games scheduled or played with the following columns:\tabular{ll}{
    col_name \tab types \cr
    date \tab character \cr
    total_items \tab integer \cr

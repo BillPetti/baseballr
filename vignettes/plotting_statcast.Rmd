@@ -89,8 +89,8 @@ betts_grpd %>%
   scale_color_manual(values = c("#5F9ED1", "#FF800E"))
 ```
 
-## export plot to your working directory
+## Uncomment and run to export plot to your working directory
 
 ```{r, eval=FALSE}
-ggsave("betts_angle_speed_year.png", scale = 1.2, width = 14, height = 8.5, units = "in")
+# ggsave("betts_angle_speed_year.png", scale = 1.2, width = 14, height = 8.5, units = "in")
 ```

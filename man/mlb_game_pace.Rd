@@ -38,7 +38,7 @@ Format must be in MM/DD/YYYY format.}
 Format must be in MM/DD/YYYY format.}
 }
 \value{
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns\tabular{ll}{
    col_name \tab types \cr
    hits_per9inn \tab numeric \cr
    runs_per9inn \tab numeric \cr

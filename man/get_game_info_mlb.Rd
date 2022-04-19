@@ -10,7 +10,7 @@ get_game_info_mlb(game_pk)
 \item{game_pk}{The unique game_pk identifier for the game}
 }
 \value{
-Returns a data frame that includes supplemental information, such as
+Returns a tibble that includes supplemental information, such as
 weather, official scorer, attendance, etc., for the game_pk provided
 }
 \description{

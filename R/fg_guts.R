@@ -1,7 +1,7 @@
 #' @rdname fg_guts
 #' @title **Scrape FanGraphs.com Guts!**
 #' @description Scrape historical FanGraphs Guts! table, wOBA, FIP coefficients and constants
-#' @return Returns a data frame of seasonal constants from FanGraphs
+#' @return Returns a tibble of seasonal constants from FanGraphs
 #'  |col_name   |types   |
 #'  |:----------|:-------|
 #'  |season     |integer |

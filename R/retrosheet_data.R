@@ -27,7 +27,9 @@ retrosheet_data <- function(path_to_directory,
                             years_to_acquire = most_recent_mlb_season(),
                             sequence_years = FALSE){
   # create a record for the starting working directory
-  old_wd <- getwd()
+  oldwd <- getwd()
+  # reset to starting working directory
+  on.exit(setwd(oldwd))
   if(dir.exists(path_to_directory) == FALSE) {
 
     dir.create(path_to_directory)
@@ -59,12 +61,14 @@ retrosheet_data <- function(path_to_directory,
   purrr::map(.x = years,
              ~acquire_parse_restrosheet_event(season = .x,
                                               wd = path_to_directory))
-  # reset to starting working directory
-  setwd(old_wd)
+  
 }
 #' @rdname get_retrosheet_data
 #' @title **(legacy) Get, Parse, and Format Retrosheet Event and Roster Files**
 #' @inheritParams retrosheet_data
+#' @return Returns two csv files to the unzipped directory: 1) a combined csv
+#' of the event data for a given year and 2) a combined csv of each team's
+#' roster for each year
 #' @keywords legacy
 #' @export
 get_retrosheet_data <- retrosheet_data 
@@ -82,7 +86,10 @@ acquire_parse_restrosheet_event <- function(season, wd){
   # assume current directory has a folder download.folder
   # download.folder has two subfolders unzipped and zipped
   # program cwevent.exe is in unzipped folder (for windows)
-  
+  # create a record for the starting working directory
+  oldwd <- getwd()
+  # reset to starting working directory
+  on.exit(setwd(oldwd))
   setwd(wd)
   
   download.retrosheet(wd, season)
@@ -110,6 +117,11 @@ unzip.retrosheet <- function(season){
 create.csv.file <- function(wd, year){
   # http://chadwick.sourceforge.net/doc/cwevent.html#cwtools-cwevent
   # shell("cwevent -y 2000 2000TOR.EVA > 2000TOR.bev")
+  
+  # create a record for the starting working directory
+  oldwd <- getwd()
+  # reset to starting working directory
+  on.exit(setwd(oldwd))
   setwd(paste0(wd, "/download.folder/unzipped"))
   
   character_vars <- c('GAME_ID', 'AWAY_TEAM_ID', 'PITCH_SEQ_TX',
@@ -159,7 +171,7 @@ create.csv.file <- function(wd, year){
   
   fields <- data.table::fread(paste0(wd, "/fields.csv"))
   
-  payload <- data.table::fread(paste0("all", year, ".csv"), col_names = FALSE)
+  payload <- data.table::fread(paste0("all", year, ".csv"), header = FALSE)
   
   names(payload) <- fields$Header
   
@@ -174,7 +186,7 @@ create.csv.file <- function(wd, year){
   payload <- payload %>%
     janitor::clean_names()
   
-  data.table::fwrite(payload, paste0(wd, "/download.folder/unzipped/all", year, ".csv"), col.names = TRUE)
+  data.table::fwrite(payload, paste0(wd, "/download.folder/unzipped/all", year, ".csv"), header = TRUE)
 }
 
 create.csv.roster <- function(wd, year){
@@ -201,10 +213,14 @@ create.csv.roster <- function(wd, year){
 read.csv2 <- function(wd, file){
   data.table::fread(file = paste0(wd,
                                   "/download.folder/unzipped/", file),
-                    col.names = FALSE)
+                    header = FALSE)
 }
 
 cleanup <- function(wd){
+  # create a record for the starting working directory
+  oldwd <- getwd()
+  # reset to starting working directory
+  on.exit(setwd(oldwd))
   # removes retrosheet files not needed
   setwd(paste0(wd, "/download.folder/unzipped"))
   

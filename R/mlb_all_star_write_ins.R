@@ -1,7 +1,7 @@
 #' @title **Find MLB All-Star Write-ins**
 #' @param league_id League ID for league all-star ballot of interest.
 #' @param season The season of the all-star ballot.
-#' @return Returns a data frame with the following columns:
+#' @return Returns a tibble with the following columns:
 #'   |col_name                      |types     |
 #'   |:-----------------------------|:---------|
 #'   |player_id                     |integer   |

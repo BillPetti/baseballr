@@ -4,7 +4,8 @@
 #' @description This function allows you to scrape basic pitcher statistics over a custom time frame. Data is sourced from Baseball-Reference.com.
 #' @param t1 First date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @param t2 Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
-#' @return Returns a data frame of pitcher performance
+#' @return Returns a tibble of pitcher performance with the following columns: 
+#' 
 #'  |col_name |types     |
 #'  |:--------|:---------|
 #'  |bbref_id |character |
@@ -53,6 +54,7 @@
 #'  |SO_perc  |numeric   |
 #'  |uBB_perc |numeric   |
 #'  |SO_uBB   |numeric   |
+#'  
 #' @importFrom rlang .data
 #' @importFrom dplyr filter mutate arrange desc rename select
 #' @importFrom tidyr everything
@@ -142,7 +144,8 @@ bref_daily_pitcher <- function(t1, t2) {
 #' @rdname daily_pitcher_bref
 #' @title **(legacy) Scrape Pitcher Performance Data Over a Custom Time Frame**
 #' @inheritParams bref_daily_pitcher
-#' @return Returns a data frame of pitcher performance
+#' @return Returns a tibble of pitcher performance 
+#' @seealso ```bref_daily_pitcher()```
 #' @keywords legacy
 #' @export
 daily_pitcher_bref <- bref_daily_pitcher

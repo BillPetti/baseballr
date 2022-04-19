@@ -47,7 +47,7 @@ Valid values include:
 }}
 }
 \value{
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns\tabular{ll}{
    col_name \tab types \cr
    openings_total \tab integer \cr
    openings_total_away \tab integer \cr
