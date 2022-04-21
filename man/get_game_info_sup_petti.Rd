@@ -7,7 +7,7 @@
 get_game_info_sup_petti()
 }
 \value{
-Function returns a data frame with various columns, including:
+Function returns a tibble with various columns, including:
 \itemize{
 \item game_pk
 \item game_date

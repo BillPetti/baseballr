@@ -26,7 +26,7 @@ mlb_schedule_games_tied(season = 2021, game_type = "S")
 }}
 }
 \value{
-Returns a data frame that includes game_pk values and additional
+Returns a tibble that includes game_pk values and additional
 information for games scheduled or played\tabular{ll}{
    col_name \tab types \cr
    date \tab character \cr

@@ -13,7 +13,7 @@ mlb_batting_orders(game_pk, type = "starting")
 batters that appeared ('all')}
 }
 \value{
-Returns a data frame that includes probable starting pitchers and
+Returns a tibble that includes probable starting pitchers and
 the home plate umpire for the \code{game_pk} requested\tabular{ll}{
    col_name \tab types \cr
    id \tab integer \cr

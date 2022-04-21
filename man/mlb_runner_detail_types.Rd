@@ -7,7 +7,7 @@
 mlb_runner_detail_types()
 }
 \value{
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns\tabular{ll}{
    col_name \tab types \cr
    stat_name \tab character \cr
 }

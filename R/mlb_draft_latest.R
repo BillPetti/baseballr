@@ -1,7 +1,7 @@
 #' @rdname mlb_draft_latest
 #' @title **Retrieve latest draft information by year**
 #' @param year The year for which to return data
-#' @return Returns a data frame with the latest draft information for the year requested:
+#' @return Returns a tibble with the latest draft information for the year requested:
 #'
 #'  |col_name                             |types     |
 #'  |:------------------------------------|:---------|

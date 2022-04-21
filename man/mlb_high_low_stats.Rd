@@ -98,7 +98,7 @@ mlb_high_low_stats(
 \item{limit}{Number of records as the limit of the return.}
 }
 \value{
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns\tabular{ll}{
    col_name \tab types \cr
    total_splits \tab integer \cr
    season \tab integer \cr

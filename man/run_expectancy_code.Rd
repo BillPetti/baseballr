@@ -12,7 +12,7 @@ run_expectancy_code(df, level = "plate appearance")
 \item{level}{Whether you want run expectancy calculated at the plate appearance or pitch level. Defaults to plate appearance.}
 }
 \value{
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns:\tabular{ll}{
    col_name \tab types \cr
    pitch_type \tab character \cr
    game_date \tab Date \cr

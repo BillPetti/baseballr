@@ -1,6 +1,6 @@
 #' @rdname load_game_info_sup
 #' @title **Download a data frame of supplemental data about MLB games since 2008.**
-#' @return Function returns a data frame with various columns, including: 
+#' @return Function returns a tibble with various columns, including: 
 #' * game_pk
 #' * game_date
 #' * venue id 
@@ -18,7 +18,7 @@
 load_game_info_sup <- function() {
   tryCatch(
     expr={
-      df <- csv_from_url("https://app.box.com/shared/static/qbtz8s1yxauamohcvrrjv2ba65v5p2d3.csv")
+      df <- csv_from_url("https://app.box.com/shared/static/qbtz8s1yxauamohcvrrjv2ba65v5p2d3.csv", encoding ="UTF-8")
       
       df <- df %>%
         make_baseballr_data("Supplementary MLB Game Info data from baseballr-data repository",Sys.time())
@@ -35,7 +35,7 @@ load_game_info_sup <- function() {
 }
 #' @rdname get_game_info_sup_petti
 #' @title **(legacy) Download a data frame of supplemental data about MLB games since 2008.**
-#' @return Function returns a data frame with various columns, including: 
+#' @return Function returns a tibble with various columns, including: 
 #' * game_pk
 #' * game_date
 #' * venue id 

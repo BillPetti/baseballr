@@ -5,34 +5,44 @@
 \title{\strong{Get, Parse, and Format Retrosheet Event and Roster Files}}
 \usage{
 retrosheet_data(
-  path_to_directory,
-  years_to_acquire = most_recent_mlb_season(),
+  path_to_directory = NULL,
+  years_to_acquire = most_recent_mlb_season() - 1,
   sequence_years = FALSE
 )
 }
 \arguments{
-\item{path_to_directory}{A file path that either 1) creates a new directory
-or 2) a path to an existing directory}
+\item{path_to_directory}{(default: NULL) A file path that if set, either:
+\enumerate{
+\item creates a new directory, or
+\item uses the path to an existing directory
+}}
 
-\item{years_to_acquire}{The seasons to collect. Single, multiple, and
+\item{years_to_acquire}{(format: YYYY) The seasons to collect. Single, multiple, and
 sequential years can be passed. If passing multiple years, enclose in a
 vector (i.e. c(2017,2018)). Defaults to \code{most_recent_mlb_season()}.}
 
-\item{sequence_years}{If the seasons passed in the years_to_acquire parameter
+\item{sequence_years}{(logical, default: FALSE): If the seasons passed in the years_to_acquire parameter
 should be sequenced so that the function returns all years including and
 between the vector passed, set the argument to TRUE. Defaults to FALSE.}
 }
 \value{
-Returns two csv files to the unzipped directory: 1) a combined csv
+If \code{path_to_directory} is not set (default), the process will return a named list
+of tibbles: 'events' and 'rosters' for each season provided to \code{years_to_acquire}
+If \code{path_to_directory} is set, will also write two csv files to the unzipped directory: 1) a combined csv
 of the event data for a given year and 2) a combined csv of each team's
-roster for each year
+roster for each year provided to \code{years_to_acquire}
 }
 \description{
-\strong{Get, Parse, and Format Retrosheet Event and Roster Files}
+This function requires the use of the \href{https://github.com/chadwickbureau/chadwick/releases}{\strong{\verb{Chadwick CLI}}}. Follow
+the directions at the repository for installation of the CLI release for your platform.
+Specifically from the \strong{\verb{Chadwick CLI}} tools, this function requires the \strong{\code{cwevent}} application to be available from the command line.
+For unix platform users: the \code{retrosheet_data()} function uses the \code{system()} interface under the hood.
+For Windows and other platform users: the \code{retrosheet_data()} function interacts with the \strong{\code{cwevent}} application
+using the \code{shell()} interface under the hood.
 }
 \details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{get_retrosheet_data(path_to_directory = "/Users/Documents/retrosheet/", 
-    years_to_acquire = c(1957,1959), 
-    sequence_years = F)
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{retrosheet_data(path_to_directory = NULL, 
+                years_to_acquire =  most_recent_mlb_season()-1, 
+                sequence_years = FALSE)
 }\if{html}{\out{</div>}}
 }

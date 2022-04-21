@@ -3,7 +3,7 @@
 #'
 #' @param game_pk The date for which you want to find game_pk values for MLB games
 #' @importFrom jsonlite fromJSON
-#' @return Returns a data frame that includes over 100 columns of data provided
+#' @return Returns a tibble that includes over 100 columns of data provided
 #' by the MLB Stats API at a pitch level.
 #'
 #' Some data will vary depending on the
@@ -309,7 +309,7 @@ mlb_pbp <- function(game_pk) {
 #' @rdname get_pbp_mlb
 #' @title **(legacy) Acquire pitch-by-pitch data for Major and Minor League games**
 #' @inheritParams mlb_pbp
-#' @return Returns a data frame that includes over 100 columns of data provided
+#' @return Returns a tibble that includes over 100 columns of data provided
 #' by the MLB Stats API at a pitch level.
 #' @keywords legacy
 #' @export

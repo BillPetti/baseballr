@@ -72,6 +72,31 @@ position categories.}
 
 \item{hand}{The handedness of the pitcher. One of 'R' or 'L'. Can be left blank.}
 }
+\value{
+Returns a tibble of Statcast leaderboard data with the following columns (for leaderboard: 'exit_velocity_barrels'):\tabular{ll}{
+   col_name \tab types \cr
+   year \tab numeric \cr
+   last_name \tab character \cr
+   first_name \tab character \cr
+   player_id \tab integer \cr
+   attempts \tab integer \cr
+   avg_hit_angle \tab numeric \cr
+   anglesweetspotpercent \tab numeric \cr
+   max_hit_speed \tab numeric \cr
+   avg_hit_speed \tab numeric \cr
+   fbld \tab numeric \cr
+   gb \tab numeric \cr
+   max_distance \tab integer \cr
+   avg_distance \tab integer \cr
+   avg_hr_distance \tab integer \cr
+   ev95plus \tab integer \cr
+   ev95per-swing \tab numeric \cr
+   ev95percent \tab numeric \cr
+   barrels \tab integer \cr
+   brl_percent \tab numeric \cr
+   brl_pa \tab numeric \cr
+}
+}
 \description{
 This function allows you to read leaderboard data from BaseballSavant directly into R as data frame.
 }

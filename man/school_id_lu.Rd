@@ -10,7 +10,7 @@ school_id_lu(school_name = NULL)
 \item{school_name}{A string that will be searched for in the names of the schools.}
 }
 \value{
-Returns a data frame with school identification data: school, conference, school_id, year, division, conference_id
+Returns a tibble with school identification data: school, conference, school_id, year, division, conference_id
 }
 \description{
 \strong{(legacy) Lookup NCAA baseball school IDs (Division I, II, and III)}

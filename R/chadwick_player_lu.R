@@ -1,6 +1,8 @@
 #' @rdname chadwick_player_lu
 #' @title **Download the Chadwick Bureau's public register of baseball players**
-#' @return A data frame of baseball players and the various IDs associated with them in different systems of record.
+#' @return A data frame of baseball players and the various IDs associated with them in different systems of record 
+#' and the following columns: 
+#' 
 #'   |col_name          |types     |
 #'   |:-----------------|:---------|
 #'   |key_person        |character |
@@ -43,13 +45,14 @@
 #'   |pro_umpired_last  |integer   |
 #'   |mlb_umpired_first |integer   |
 #'   |mlb_umpired_last  |integer   |
+#'   
 #' @export
 #' @examples \donttest{
 #'   try(chadwick_player_lu())
 #' }
 chadwick_player_lu <- function() {
   suppressWarnings(
-    df <- csv_from_url("https://raw.githubusercontent.com/chadwickbureau/register/master/data/people.csv")
+    df <- csv_from_url("https://raw.githubusercontent.com/chadwickbureau/register/master/data/people.csv", encoding ="UTF-8")
   )
   df <- df %>%
     make_baseballr_data("Player Lookup from the Chadwick Bureau's public register of baseball players",Sys.time())

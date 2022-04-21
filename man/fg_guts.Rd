@@ -7,7 +7,7 @@
 fg_guts()
 }
 \value{
-Returns a data frame of seasonal constants from FanGraphs\tabular{ll}{
+Returns a tibble of seasonal constants from FanGraphs\tabular{ll}{
    col_name \tab types \cr
    season \tab integer \cr
    lg_woba \tab numeric \cr

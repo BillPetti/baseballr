@@ -12,9 +12,12 @@ daily_pitcher_bref(t1, t2)
 \item{t2}{Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"}
 }
 \value{
-Returns a data frame of pitcher performance
+Returns a tibble of pitcher performance
 }
 \description{
 \strong{(legacy) Scrape Pitcher Performance Data Over a Custom Time Frame}
+}
+\seealso{
+\code{bref_daily_pitcher()}
 }
 \keyword{legacy}

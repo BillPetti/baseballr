@@ -6,7 +6,7 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom purrr map_df
 #' @importFrom tibble tibble
-#' @return Returns a data frame that includes probable starting pitchers and
+#' @return Returns a tibble that includes probable starting pitchers and
 #' the home plate umpire for the `game_pk` requested
 #'  |col_name             |types     |
 #'  |:--------------------|:---------|
@@ -110,7 +110,7 @@ mlb_batting_orders <- function (game_pk,
 #' @rdname get_batting_orders
 #' @title **(legacy) Retrieve batting orders for a given MLB game**
 #' @inheritParams mlb_batting_orders
-#' @return Returns a data frame that includes probable starting pitchers and
+#' @return Returns a tibble that includes probable starting pitchers and
 #' the home plate umpire for the `game_pk` requested
 #' @keywords legacy
 #' @export

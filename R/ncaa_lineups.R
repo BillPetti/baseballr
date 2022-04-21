@@ -2,7 +2,7 @@
 #' @title **Retrieve lineups for a given NCAA game via its `game_info_url`**
 #' @param game_info_url The unique game info url
 #' @param year The year the game was played in
-#' @return Returns a data frame of each school's starting lineup and starting pitcher
+#' @return Returns a tibble of each school's starting lineup and starting pitcher
 #'  |col_name      |types     |
 #'  |:-------------|:---------|
 #'  |year          |numeric   |
@@ -97,7 +97,7 @@ ncaa_lineups <- function(game_info_url,year) {
 #' @rdname get_ncaa_lineups
 #' @title **(legacy) Retrieve lineups for a given NCAA game via its `game_info_url`**
 #' @inheritParams ncaa_lineups
-#' @return Returns a data frame of each school's starting lineup and starting pitcher
+#' @return Returns a tibble of each school's starting lineup and starting pitcher
 #' @keywords legacy
 #' @export
 get_ncaa_lineups <- ncaa_lineups

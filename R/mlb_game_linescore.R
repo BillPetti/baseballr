@@ -1,7 +1,7 @@
 #' @rdname mlb_game_linescore
 #' @title **Retrieve game linescores for major and minor league games**
 #' @param game_pk The unique game_pk identifier for the game
-#' @return Returns a data frame with the following columns
+#' @return Returns a tibble with the following columns
 #'  |col_name                                  |types     |
 #'  |:-----------------------------------------|:---------|
 #'  |game_pk                                   |numeric   |

@@ -1,9 +1,11 @@
+#' @rdname run_expectancy_code
 #' @title **Generate run expectancy and related measures from Baseball Savant data**
 #'
 #' @description These functions allow a user to generate run expectancy and related measures and variables from Baseball Savant data. Measures and variables will be added to the data frame.
 #' @param df A data frame generated from Baseball Savant.
 #' @param level Whether you want run expectancy calculated at the plate appearance or pitch level. Defaults to plate appearance.
-#' @return Returns a data frame with the following columns
+#' @return Returns a tibble with the following columns:
+#' 
 #'  |col_name                        |types     |
 #'  |:-------------------------------|:---------|
 #'  |pitch_type                      |character |
@@ -113,6 +115,7 @@
 #'  |next_avg_re                     |numeric   |
 #'  |change_re                       |numeric   |
 #'  |re24                            |numeric   |
+#'  
 #' @importFrom stringr str_count
 #' @importFrom rlang .data
 #' @export

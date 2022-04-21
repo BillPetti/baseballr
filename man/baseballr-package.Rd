@@ -4,11 +4,11 @@
 \name{baseballr-package}
 \alias{baseballr}
 \alias{baseballr-package}
-\title{baseballr: Functions for Acquiring and Analyzing Baseball Data}
+\title{baseballr: Acquiring and Analyzing Baseball Data}
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-Provides numerous functions for acquiring and analyzing baseball data from online sources such as Baseball Reference<https://www.baseball-reference.com/>, FanGraphs<https://www.fangraphs.com/>, and the MLB Stats API<https://www.mlb.com/>.
+Provides numerous utilities for acquiring and analyzing baseball data from online sources such as Baseball Reference <https://www.baseball-reference.com/>, FanGraphs <https://www.fangraphs.com/>, and the MLB Stats API <https://www.mlb.com/>.
 }
 \seealso{
 Useful links:

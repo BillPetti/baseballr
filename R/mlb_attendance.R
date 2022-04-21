@@ -25,7 +25,7 @@
 #'    * mlb_milb_hist
 #'    * mlb_milb_win
 #'    * baseball_all
-#' @return Returns a data frame with the following columns
+#' @return Returns a tibble with the following columns
 #'  |col_name                          |types     |
 #'  |:---------------------------------|:---------|
 #'  |openings_total                    |integer   |

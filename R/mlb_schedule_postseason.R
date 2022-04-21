@@ -21,7 +21,7 @@
 #'  |I            |Intrasquad                 |
 #'  |E            |Exhibition                 |
 #' @importFrom jsonlite fromJSON
-#' @return Returns a data frame that includes game_pk values and additional
+#' @return Returns a tibble that includes game_pk values and additional
 #' information for games scheduled or played
 #'  |col_name                        |types     |
 #'  |:-------------------------------|:---------|

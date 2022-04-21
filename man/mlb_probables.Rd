@@ -10,8 +10,8 @@ mlb_probables(game_pk)
 \item{game_pk}{The unique game_pk identifier for the game}
 }
 \value{
-Returns a data frame that includes probable starting pitchers and
-the home plate umpire for the \code{game_pk} requested\tabular{ll}{
+Returns a tiible that includes probable starting pitchers and
+the home plate umpire for the \code{game_pk} requested including the following columns:\tabular{ll}{
    col_name \tab types \cr
    game_pk \tab integer \cr
    game_date \tab character \cr

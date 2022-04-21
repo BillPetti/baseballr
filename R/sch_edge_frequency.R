@@ -3,6 +3,7 @@
 #' @description This function allows you to calculate the percent of pitches thrown to different edges of the strike zone for a pitch by pitch data set that has been coded using the ```edge_code()``` function.
 #' @param df A data frame of pitch by pitch data that has been coded using the ```edge_code()``` function.
 #' @param group Character string indicating what column to group the frequency by. For example, "pitcher" or "batter". Defaults to NULL, which calculates the frequencies across the entire data set.
+#' @return Returns a tibble with the additional edge columns necessary for frequency calculations. 
 #' @export
 
 edge_frequency <- function(df, group = NULL) {

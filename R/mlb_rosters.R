@@ -5,7 +5,7 @@
 #' @param roster_type roster_type to return team directorial information for. See ```mlb_roster_types()``` for more options.
 #'   Valid options include: '40Man', 'fullSeason', 'fullRoster', 'nonRosterInvitees', 'active', 
 #'     'allTime', 'depthChart', 'gameday', 'coach'
-#' @return Returns a data frame with the following columns:
+#' @return Returns a tibble with the following columns:
 #'  |col_name              |types     |
 #'  |:---------------------|:---------|
 #'  |jersey_number         |character |

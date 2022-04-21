@@ -14,7 +14,7 @@ mlb_team_info(team_id = NULL, season = NULL, sport_id = NULL)
 \item{sport_id}{The sport_id to return a directory of team data for a particular club in a sport.}
 }
 \value{
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns\tabular{ll}{
    col_name \tab types \cr
    all_star_status \tab character \cr
    team_id \tab integer \cr

@@ -1,8 +1,10 @@
+#' @rdname mlb_schedule
 #' @title **Find game_pk values for professional baseball games (major and minor leagues)**
-#'
+#' 
 #' @param season The season for which you want to find game_pk values for MLB games
 #' @param level_ids A numeric vector with ids for each level where game_pks are
 #' desired. See below for a reference of level ids.
+#' 
 #'  | sport_id|sport_code |sport_link         |sport_name                            |sport_abbreviation | sort_order|active_status |
 #'  |--------:|:----------|:------------------|:-------------------------------------|:------------------|----------:|:-------------|
 #'  |        1|mlb        |/api/v1/sports/1   |Major League Baseball                 |MLB                |         11|TRUE          |
@@ -20,10 +22,11 @@
 #'  |      509|nae        |/api/v1/sports/509 |International Baseball (18 and under) |18U                |       3503|TRUE          |
 #'  |      510|nas        |/api/v1/sports/510 |International Baseball (16 and under) |16U                |       3505|TRUE          |
 #'  |       22|bbc        |/api/v1/sports/22  |College Baseball                      |College            |       5101|TRUE          |
-#'  |      586|hsb        |/api/v1/sports/586 |High School Baseball                  |H.S.               |       6201|TRUE      
-#' @importFrom jsonlite fromJSON
-#' @return Returns a data frame that includes game_pk values and additional
-#' information for games scheduled or played
+#'  |      586|hsb        |/api/v1/sports/586 |High School Baseball                  |H.S.               |       6201|TRUE          |
+#'  
+#' @return Returns a tibble which includes `game_pk` values and additional
+#' information for games scheduled or played with the following columns:
+#' 
 #'  |col_name                        |types     |
 #'  |:-------------------------------|:---------|
 #'  |date                            |character |
@@ -109,6 +112,12 @@
 #' 5442 = Rookie Advanced \cr
 #' 16 = Rookie \cr
 #' 17 = Winter League \cr
+#' @importFrom jsonlite fromJSON
+#' @importFrom janitor clean_names 
+#' @importFrom glue glue
+#' @importFrom rlang .data
+#' @importFrom tidyr unnest
+#' @import rvest 
 #' @export
 #'
 #' @examples \donttest{
@@ -117,15 +126,28 @@
 
 mlb_schedule <- function(season = 2019, level_ids = '1'){
   
-  api_call <- paste0("http://statsapi.mlb.com/api/v1/schedule?language=en",
-                     "&sportId=", level_ids, 
-                     "&season=", season)
+  sport_ids <- paste(level_ids, collapse = ',')
   
+  mlb_endpoint <- mlb_stats_endpoint("v1/schedule")
+  
+  query_params <- list(
+    language = "en",
+    sportId = sport_ids, 
+    season = season
+  )
+  
+  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  
+  games <- data.frame()
   tryCatch(
     expr={
-      payload <- jsonlite::fromJSON(api_call, flatten = TRUE)
       
-      games <- payload$dates %>% 
+      resp <- mlb_endpoint %>% 
+        mlb_api_call() %>% 
+        jsonlite::toJSON() %>% 
+        jsonlite::fromJSON(flatten = TRUE)
+      
+      games <- resp$dates %>% 
         tidyr::unnest(.data$games) %>%
         as.data.frame() %>%
         janitor::clean_names() %>%

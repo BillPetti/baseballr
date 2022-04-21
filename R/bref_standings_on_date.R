@@ -7,7 +7,8 @@
 #' @param from a logical indicating whether you want standings up to and
 #' including the date (FALSE, default) or rather standings for games played
 #' after the date
-#' @return Returns a data frame of MLB standings
+#' @return Returns a tibble of MLB standings with the following columns:
+#' 
 #' |col_name |types     |
 #' |:--------|:---------|
 #' |Tm       |character |
@@ -18,6 +19,7 @@
 #' |RS       |integer   |
 #' |RA       |integer   |
 #' |pythW-L% |numeric   |
+#' 
 #' @import rvest 
 #' @importFrom lubridate day month year
 #' @export
@@ -85,7 +87,7 @@ bref_standings_on_date <- function(date, division, from = FALSE) {
 #' @rdname standings_on_date_bref
 #' @title **(legacy) Scrape MLB Standings on a Given Date**
 #' @inheritParams bref_standings_on_date
-#' @return Returns a data frame of MLB standings
+#' @return Returns a tibble of MLB standings
 #' @keywords legacy
 #' @export
 standings_on_date_bref <- bref_standings_on_date

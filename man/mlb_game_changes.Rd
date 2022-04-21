@@ -12,7 +12,7 @@ mlb_game_changes(updated_since, sport_id)
 \item{sport_id}{Return division(s) for all divisions in a specific sport.}
 }
 \value{
-Returns a data frame that includes time codes from the game_pk requested\tabular{ll}{
+Returns a tibble that includes time codes from the game_pk requested\tabular{ll}{
    col_name \tab types \cr
    date \tab character \cr
    total_items \tab integer \cr

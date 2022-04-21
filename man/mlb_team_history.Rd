@@ -14,7 +14,7 @@ mlb_team_history(team_ids = NULL, start_season = NULL, end_season = NULL)
 \item{end_season}{The end_season to return historical data for from the the creation to the given year.}
 }
 \value{
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns\tabular{ll}{
    col_name \tab types \cr
    all_star_status \tab character \cr
    team_id \tab integer \cr

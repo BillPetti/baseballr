@@ -10,7 +10,8 @@ chadwick_player_lu()
 get_chadwick_lu()
 }
 \value{
-A data frame of baseball players and the various IDs associated with them in different systems of record.\tabular{ll}{
+A data frame of baseball players and the various IDs associated with them in different systems of record
+and the following columns:\tabular{ll}{
    col_name \tab types \cr
    key_person \tab character \cr
    key_uuid \tab character \cr

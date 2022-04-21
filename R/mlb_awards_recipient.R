@@ -3,7 +3,7 @@
 #' @param sport_id sport_id to return a directory of players for a given aware in a specific sport.
 #' @param league_id league_id(s) to return a directory of players for a given award in a specific league. Format '103,104'
 #' @param season Year(s) to return a directory of players for a given award in a given season.
-#' @return Returns a data frame with the following columns
+#' @return Returns a tibble with the following columns
 #'  |col_name                             |types     |
 #'  |:------------------------------------|:---------|
 #'  |award_id                             |character |

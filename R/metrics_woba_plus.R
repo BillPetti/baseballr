@@ -1,6 +1,44 @@
+#' @rdname woba_plus
 #' @title **Calculate wOBA and related metrics for any set of data**
 #' @description This function allows you to calculate wOBA for any given set of data, provided the right variables are in the data set. The function currently returns both wOBA per plate appearance on wOBA per instance of fair contact.
 #' @param df A data frame of statistics that includes, at a minimum, the following columns: uBB (unintentional walks), HBP (Hit By Pitch), X1B (singles), X2B (doubles), X3B (triples), HR (home runs), AB (at-bats), SH (sacrifice hits), SO (strike outs), and season.
+#' @return Returns a tibble with the wOBA factors calculated and the following columns:
+#'   
+#'    |col_name |types     |
+#'    |:--------|:---------|
+#'    |bbref_id |character |
+#'    |season   |integer   |
+#'    |Name     |character |
+#'    |Age      |numeric   |
+#'    |Level    |character |
+#'    |Team     |character |
+#'    |G        |numeric   |
+#'    |PA       |numeric   |
+#'    |AB       |numeric   |
+#'    |R        |numeric   |
+#'    |H        |numeric   |
+#'    |X1B      |numeric   |
+#'    |X2B      |numeric   |
+#'    |X3B      |numeric   |
+#'    |HR       |numeric   |
+#'    |RBI      |numeric   |
+#'    |BB       |numeric   |
+#'    |IBB      |numeric   |
+#'    |uBB      |numeric   |
+#'    |SO       |numeric   |
+#'    |HBP      |numeric   |
+#'    |SH       |numeric   |
+#'    |SF       |numeric   |
+#'    |GDP      |numeric   |
+#'    |SB       |numeric   |
+#'    |CS       |numeric   |
+#'    |BA       |numeric   |
+#'    |OBP      |numeric   |
+#'    |SLG      |numeric   |
+#'    |OPS      |numeric   |
+#'    |wOBA     |numeric   |
+#'    |wOBA_CON |numeric   |
+#'   
 #' @importFrom dplyr left_join desc arrange
 #' @import rvest 
 #' @export

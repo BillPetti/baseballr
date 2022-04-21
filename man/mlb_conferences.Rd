@@ -12,7 +12,7 @@ mlb_conferences(conference_id = NULL, season = NULL)
 \item{season}{Year to return to return conference information for.}
 }
 \value{
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns\tabular{ll}{
    col_name \tab types \cr
    conference_id \tab integer \cr
    conference_name \tab character \cr

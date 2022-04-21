@@ -5,7 +5,7 @@
 #' @param timecode The time code for the MLB game (format: MMDDYYYY_HHMMSS)
 
 #' @importFrom jsonlite fromJSON
-#' @return Returns a data frame that includes time codes from the game_pk requested
+#' @return Returns a tibble that includes time codes from the game_pk requested
 #' 
 #'  |col_name                        |types   |
 #'  |:-------------------------------|:-------|

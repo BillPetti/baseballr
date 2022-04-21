@@ -4,7 +4,7 @@
 #' @param updated_since Updated since date time
 #' @param sport_id Return division(s) for all divisions in a specific sport.
 #' @importFrom jsonlite fromJSON
-#' @return Returns a data frame that includes time codes from the game_pk requested
+#' @return Returns a tibble that includes time codes from the game_pk requested
 #' 
 #'  |col_name                        |types     |
 #'  |:-------------------------------|:---------|

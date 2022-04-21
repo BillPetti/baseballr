@@ -1,7 +1,8 @@
+#' @rdname team_consistency
 #' @title **Calculate Team-level Consistency**
 #' @description This function allows you to calculate team-level consistency in run scoring and run prevention over the course of an entire season.
 #' @param year Season consistency should be run for.
-#' @return Returns a data frame with the following columns
+#' @return Returns a tibble with the following columns
 #'  |col_name     |types     |
 #'  |:------------|:---------|
 #'  |Team         |character |

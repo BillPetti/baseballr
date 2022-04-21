@@ -1,5 +1,5 @@
 #' @title **MLB Game Status Codes** 
-#' @return Returns a data frame with the following columns
+#' @return Returns a tibble with the following columns
 #'  |col_name            |types     |
 #'  |:-------------------|:---------|
 #'  |abstract_game_state |character |

@@ -12,7 +12,7 @@ milb_batter_game_logs_fg(playerid, year)
 \item{year}{The season for which game logs should be returned.}
 }
 \value{
-Returns a data frame of Minor League batter game logs.
+Returns a tibble of Minor League batter game logs.
 }
 \description{
 \strong{(legacy) Scrape MiLB game logs for batters from FanGraphs}

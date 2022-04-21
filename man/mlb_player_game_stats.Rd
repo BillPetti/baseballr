@@ -12,7 +12,7 @@ mlb_player_game_stats(person_id = NULL, game_pk = NULL)
 \item{game_pk}{The game_pk to return game_log statistics for a specific player in a specific game and to complete the call.}
 }
 \value{
-Returns a data frame with the following columns:\tabular{ll}{
+Returns a tibble with the following columns:\tabular{ll}{
    col_name \tab types \cr
    type \tab character \cr
    group \tab character \cr

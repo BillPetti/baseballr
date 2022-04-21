@@ -10,7 +10,7 @@ mlb_people_free_agents(season = NULL)
 \item{season}{Season preceding free agency}
 }
 \value{
-Returns a data frame with the following columns:\tabular{ll}{
+Returns a tibble with the following columns:\tabular{ll}{
    col_name \tab types \cr
    date_declared \tab character \cr
    notes \tab character \cr

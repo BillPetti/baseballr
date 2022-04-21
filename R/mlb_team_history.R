@@ -2,7 +2,7 @@
 #' @param team_ids The team_id(s) to return historical data for.
 #' @param start_season The start_season to return historical data for from the given year to present.
 #' @param end_season The end_season to return historical data for from the the creation to the given year.
-#' @return Returns a data frame with the following columns
+#' @return Returns a tibble with the following columns
 #'   |col_name           |types     |
 #'   |:------------------|:---------|
 #'   |all_star_status    |character |

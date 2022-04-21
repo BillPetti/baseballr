@@ -6,6 +6,9 @@
 \usage{
 most_recent_ncaa_baseball_season()
 }
+\value{
+An integer indicating the year of the most recent season of NCAA baseball
+}
 \description{
 \strong{Most Recent NCAA Baseball Season}
 }

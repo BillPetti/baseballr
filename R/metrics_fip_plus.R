@@ -1,6 +1,61 @@
+#' @rdname fip_plus
 #' @title **Calculate FIP and related metrics for any set of data**
 #' @description This function allows you to calculate FIP and related metrics for any given set of data, provided the right variables are in the data set. The function currently returns both FIP per inning pitched, wOBA against (based on batters faced), and wOBA against per instance of fair contact.
 #' @param df A data frame of statistics that includes, at a minimum, the following columns: IP (innings pitched), BF (batters faced), uBB (unintentional walks), HBP (Hit By Pitch), x1B (singles), x2B (doubles), x3B (triples), HR (home runs), AB (at-bats), SH (sacrifice hits), SO (strike outs), and season.
+#' @return Returns a tibble with the following columns:
+#' 
+#'   |col_name         |types     |
+#'   |:----------------|:---------|
+#'   |bbref_id         |character |
+#'   |season           |integer   |
+#'   |Name             |character |
+#'   |Age              |numeric   |
+#'   |Level            |character |
+#'   |Team             |character |
+#'   |G                |numeric   |
+#'   |GS               |numeric   |
+#'   |W                |numeric   |
+#'   |L                |numeric   |
+#'   |SV               |numeric   |
+#'   |IP               |numeric   |
+#'   |H                |numeric   |
+#'   |R                |numeric   |
+#'   |ER               |numeric   |
+#'   |uBB              |numeric   |
+#'   |BB               |numeric   |
+#'   |SO               |numeric   |
+#'   |HR               |numeric   |
+#'   |HBP              |numeric   |
+#'   |ERA              |numeric   |
+#'   |AB               |numeric   |
+#'   |X1B              |numeric   |
+#'   |X2B              |numeric   |
+#'   |X3B              |numeric   |
+#'   |IBB              |numeric   |
+#'   |GDP              |numeric   |
+#'   |SF               |numeric   |
+#'   |SB               |numeric   |
+#'   |CS               |numeric   |
+#'   |PO               |numeric   |
+#'   |BF               |numeric   |
+#'   |Pit              |numeric   |
+#'   |Str              |numeric   |
+#'   |StL              |numeric   |
+#'   |StS              |numeric   |
+#'   |GB.FB            |numeric   |
+#'   |LD               |numeric   |
+#'   |PU               |numeric   |
+#'   |WHIP             |numeric   |
+#'   |BAbip            |numeric   |
+#'   |SO9              |numeric   |
+#'   |SO.W             |numeric   |
+#'   |SO_perc          |numeric   |
+#'   |uBB_perc         |numeric   |
+#'   |SO_uBB           |numeric   |
+#'   |FIP              |numeric   |
+#'   |wOBA_against     |numeric   |
+#'   |wOBA_CON_against |numeric   |
+#'   
 #' @importFrom dplyr left_join desc arrange
 #' @import rvest
 #' @export

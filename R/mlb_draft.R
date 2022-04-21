@@ -1,7 +1,7 @@
 #' @rdname mlb_draft 
 #' @title **Retrieve draft pick information by year**
 #' @param year The year for which to return data
-#' @return Returns a data frame with information for every draft pick in every round for the year requested
+#' @return Returns a tibble with information for every draft pick in every round for the year requested
 #'  |col_name                             |types     |
 #'  |:------------------------------------|:---------|
 #'  |bis_player_id                        |integer   |
@@ -111,7 +111,7 @@ mlb_draft <- function(year) {
 #' @rdname get_draft_mlb
 #' @title **(legacy) Retrieve draft pick information by year**
 #' @inheritParams mlb_draft
-#' @return Returns a data frame with information for every draft pick in every round for the year requested
+#' @return Returns a tibble with information for every draft pick in every round for the year requested
 #' @keywords legacy
 #' @export
 get_draft_mlb <- mlb_draft

@@ -71,7 +71,7 @@
 #'  |team            |
 #'  |streak          |
 #' @param limit Number of records as the limit of the return.  
-#' @return Returns a data frame with the following columns 
+#' @return Returns a tibble with the following columns 
 #'   |col_name               |types     |
 #'   |:----------------------|:---------|
 #'   |total_splits           |integer   |

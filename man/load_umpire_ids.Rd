@@ -7,7 +7,7 @@
 load_umpire_ids()
 }
 \value{
-Function returns a data frame with the following columns:
+Function returns a tibble with the following columns:
 \itemize{
 \item id
 \item position

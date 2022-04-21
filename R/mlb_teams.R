@@ -5,7 +5,7 @@
 #' @param league_ids The league_id(s) to return team information for.
 #' @param sport_ids The sport_id(s) to return team information for.
 #' @param game_type The game_type to return team information for.
-#' @return Returns a data frame with the following columns
+#' @return Returns a tibble with the following columns
 #'  |col_name                   |types     |
 #'  |:--------------------------|:---------|
 #'  |team_id                    |integer   |

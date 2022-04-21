@@ -7,7 +7,7 @@
 mlb_roster_types()
 }
 \value{
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns\tabular{ll}{
    col_name \tab types \cr
    roster_type_description \tab character \cr
    roster_type_lookup_name \tab character \cr

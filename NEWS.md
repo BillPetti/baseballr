@@ -1,3 +1,9 @@
+# baseballr 1.2.0
+ * Removed two `pitchRx`-dependent functions, updated retrosheet function and documentation
+ * Removed `edge_scrape()` and `edge_scrape_split()` from package. See `data-raw/archived/` for the last updated script. These may be re-visited at a later date with improved data repository maturity.
+ * Retrosheet functions updated to use tempdir()/tempfile() methods by default. Will need to specify a working directory to enable old functionality in which files are written to disk permanently. New default functionality is to return a named list with two tibbles per year specified: 'events' and 'rosters'.
+
+
 # baseballr 1.1.0
 ## ~82 MLB Stats API functions added
 |name                                   |file                               |
@@ -130,8 +136,8 @@
 |scrape_statcast_savant_pitcher_all |```statcast_search_pitchers()```  |R/sc_scrape_statcast.R              |
 ``
 * `mlb_schedules()` function added
-* Removed `viz_gb_on_period()` from package. See `data-raw/` for the last updated script.
-* Removed GameDay2 MLB API functions, `batter_boxscore()` and `pitcher_boxscore()`, from package. See `data-raw/` for the last updated script.
+* Removed `viz_gb_on_period()` from package. See `data-raw/archived/` for the last updated script.
+* Removed GameDay2 MLB API functions, `batter_boxscore()` and `pitcher_boxscore()`, from package. See `data-raw/archived/` for the last updated script.
 
 # baseballr 0.9.92-93 (2021-11-16)
 * minor fix for `ncaa_game_info()` function
@@ -998,7 +1004,7 @@ $`NL East`
 
 Functions added to this release:
 
-`edge_scrape_split()`: This function builds of off `edge_scrape()` and adds the ability to view the data split by batter and pitcher handedness. As with `edge_scrape()`, the function returns a data frame grouped by either pitchers or batters and the percentage of pitches in each of the various Edge zones, but adds in handedness.
+`edge_scrape_split()`: This function builds of off `edge_scrape()` and adds the ability to view the data split by batter and pitcher handedness. As with `edge_scrape()`, the function returns a tibble grouped by either pitchers or batters and the percentage of pitches in each of the various Edge zones, but adds in handedness.
 
 Example (Edge% splits by batters with handedness):
 

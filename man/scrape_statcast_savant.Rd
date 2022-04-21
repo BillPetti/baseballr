@@ -60,6 +60,21 @@ Default is \code{batter}}
 
 \item{pitcherid}{The MLBAM ID for the pitcher whose data you want to query.}
 }
+\value{
+Returns a tibble with Statcast data.
+
+Returns a tibble with Statcast data.
+
+Returns a tibble with Statcast data.
+
+Returns a tibble with Statcast data.
+
+Returns a tibble with Statcast data.
+
+Returns a tibble with Statcast data.
+
+Returns a tibble with Statcast data.
+}
 \description{
 \strong{(legacy) Query Statcast by Date Range and Players}
 }

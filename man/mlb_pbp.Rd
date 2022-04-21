@@ -10,7 +10,7 @@ mlb_pbp(game_pk)
 \item{game_pk}{The date for which you want to find game_pk values for MLB games}
 }
 \value{
-Returns a data frame that includes over 100 columns of data provided
+Returns a tibble that includes over 100 columns of data provided
 by the MLB Stats API at a pitch level.
 
 Some data will vary depending on the

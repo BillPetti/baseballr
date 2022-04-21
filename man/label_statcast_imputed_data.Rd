@@ -23,8 +23,7 @@ and speed to for comparison. Default is \code{10000}, i.e. keep 4 digits of prec
 \value{
 A copy of the input dataframe with a new column \code{imputed} appended. imputed
 is 1 if launch angle and launch speed are likely imputed, 0 otherwise.
-
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns:\tabular{ll}{
    col_name \tab types \cr
    pitch_type \tab character \cr
    game_date \tab Date \cr

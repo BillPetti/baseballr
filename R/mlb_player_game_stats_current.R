@@ -1,6 +1,6 @@
 #' @title **Find MLB Player Game Stats - Current Game**
 #' @param person_id MLBAMIDs for player of interest.
-#' @return Returns a data frame with the following columns:
+#' @return Returns a tibble with the following columns:
 #'
 #'   |col_name                      |types     |
 #'   |:-----------------------------|:---------|

@@ -135,9 +135,10 @@ NULL
 
 #' @title
 #' **Most Recent NCAA Baseball Season**
+#' @return An integer indicating the year of the most recent season of NCAA baseball
 #' @export
 most_recent_ncaa_baseball_season <- function() {
-  dplyr::if_else(
+  ifelse(
     as.double(substr(Sys.Date(), 6, 7)) >= 3,
     as.double(substr(Sys.Date(), 1, 4)),
     as.double(substr(Sys.Date(), 1, 4)-1)
@@ -146,9 +147,10 @@ most_recent_ncaa_baseball_season <- function() {
 
 #' @title
 #' **Most Recent MLB Season**
+#' @return An integer indicating the year of the most recent season of Major League Baseball
 #' @export
 most_recent_mlb_season <- function() {
-  dplyr::if_else(
+  ifelse(
     as.double(substr(Sys.Date(), 6, 7)) >= 3,
     as.double(substr(Sys.Date(), 1, 4)),
     as.double(substr(Sys.Date(), 1, 4)-1)
@@ -167,6 +169,7 @@ make_baseballr_data <- function(df,type,timestamp){
 }
 
 #' @export
+#' @return A print method for tibbles indicating the update timestamp of the resource
 #' @noRd
 print.baseballr_data <- function(x,...) {
   cli::cli_rule(left = "{attr(x,'baseballr_type')}",right = "{.emph baseballr {utils::packageVersion('baseballr')}}")

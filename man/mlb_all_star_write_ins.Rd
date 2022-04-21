@@ -12,7 +12,7 @@ mlb_all_star_write_ins(league_id = NULL, season = NULL)
 \item{season}{The season of the all-star ballot.}
 }
 \value{
-Returns a data frame with the following columns:\tabular{ll}{
+Returns a tibble with the following columns:\tabular{ll}{
    col_name \tab types \cr
    player_id \tab integer \cr
    full_name \tab character \cr

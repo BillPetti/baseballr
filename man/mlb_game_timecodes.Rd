@@ -10,7 +10,7 @@ mlb_game_timecodes(game_pk)
 \item{game_pk}{The game_pk for the game requested}
 }
 \value{
-Returns a data frame that includes time codes from the game_pk requested\tabular{ll}{
+Returns a tibble that includes time codes from the game_pk requested\tabular{ll}{
    col_name \tab types \cr
    timecodes  (MMDDYYYY_HHMMSS) \tab numeric \cr
 }

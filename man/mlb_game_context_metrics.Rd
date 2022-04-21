@@ -12,7 +12,7 @@ mlb_game_context_metrics(game_pk, timecode)
 \item{timecode}{The time code for the MLB game (format: MMDDYYYY_HHMMSS)}
 }
 \value{
-Returns a data frame that includes time codes from the game_pk requested\tabular{ll}{
+Returns a tibble that includes time codes from the game_pk requested\tabular{ll}{
    col_name \tab types \cr
    game_pk \tab integer \cr
    link \tab character \cr

@@ -2,7 +2,7 @@
 #' @param team_id The team_id to return team data for.
 #' @param season The season to return team data for the given year.
 #' @param sport_id The sport_id to return a directory of team data for a particular club in a sport.
-#' @return Returns a data frame with the following columns
+#' @return Returns a tibble with the following columns
 #'   |col_name           |types     |
 #'   |:------------------|:---------|
 #'   |all_star_status    |character |

@@ -17,7 +17,7 @@ including the date (FALSE, default) or rather standings for games played
 after the date}
 }
 \value{
-Returns a data frame of MLB standings
+Returns a tibble of MLB standings
 }
 \description{
 \strong{(legacy) Scrape MLB Standings on a Given Date}

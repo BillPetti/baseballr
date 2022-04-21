@@ -5,8 +5,9 @@
 #' @importFrom purrr map_df
 #' @importFrom tibble tibble
 #' @importFrom stringr str_sub
-#' @return Returns a data frame that includes probable starting pitchers and
-#' the home plate umpire for the `game_pk` requested
+#' @return Returns a tiible that includes probable starting pitchers and
+#' the home plate umpire for the `game_pk` requested including the following columns:
+#' 
 #'  |col_name             |types     |
 #'  |:--------------------|:---------|
 #'  |game_pk              |integer   |
@@ -17,14 +18,14 @@
 #'  |team_id              |integer   |
 #'  |home_plate_full_name |character |
 #'  |home_plate_id        |integer   |
+#'  
 #' @export
 #' @examples \donttest{
 #'   try(mlb_probables(566001))
 #' }
 
 mlb_probables <- function(game_pk) {
-  oldw <- getOption("warn")
-  options(warn = -1)
+  
   api_call <- paste0("http://statsapi.mlb.com/api/v1.1/game/", game_pk,"/feed/live")
   
   tryCatch(
@@ -104,7 +105,6 @@ mlb_probables <- function(game_pk) {
     }
   )
   
-  options(warn = oldw)
   
   return(table)
 }
@@ -112,7 +112,7 @@ mlb_probables <- function(game_pk) {
 #' @rdname get_probables_mlb
 #' @title **(legacy) Retrieve probable starters for a given MLB game**
 #' @inheritParams mlb_probables
-#' @return Returns a data frame that includes probable starting pitchers and
+#' @return Returns a tibble that includes probable starting pitchers and
 #' the home plate umpire for the `game_pk` requested
 #' @keywords legacy
 #' @export

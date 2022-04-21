@@ -1,6 +1,6 @@
 #' @title **Find Information About MLB Free Agents**
 #' @param season Season preceding free agency
-#' @return Returns a data frame with the following columns:
+#' @return Returns a tibble with the following columns:
 #'
 #'  |col_name               |types      |
 #'  |:----------------------|:----------|

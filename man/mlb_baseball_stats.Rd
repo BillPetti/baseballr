@@ -7,7 +7,7 @@
 mlb_baseball_stats()
 }
 \value{
-Returns a data frame with the following columns\tabular{ll}{
+Returns a tibble with the following columns:\tabular{ll}{
    col_name \tab types \cr
    stat_name \tab character \cr
    stat_lookup_param \tab character \cr

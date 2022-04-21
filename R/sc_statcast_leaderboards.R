@@ -58,6 +58,31 @@
 #' 90 = RF - Straight Up 
 #' 92 = RF - Leaning Right 
 #' 99 = RF - Close to Line 
+#' @return Returns a tibble of Statcast leaderboard data with the following columns (for leaderboard: 'exit_velocity_barrels'):
+#' 
+#'   |col_name              |types     |
+#'   |:---------------------|:---------|
+#'   |year                  |numeric   |
+#'   |last_name             |character |
+#'   |first_name            |character |
+#'   |player_id             |integer   |
+#'   |attempts              |integer   |
+#'   |avg_hit_angle         |numeric   |
+#'   |anglesweetspotpercent |numeric   |
+#'   |max_hit_speed         |numeric   |
+#'   |avg_hit_speed         |numeric   |
+#'   |fbld                  |numeric   |
+#'   |gb                    |numeric   |
+#'   |max_distance          |integer   |
+#'   |avg_distance          |integer   |
+#'   |avg_hr_distance       |integer   |
+#'   |ev95plus              |integer   |
+#'   |ev95per-swing         |numeric   |
+#'   |ev95percent           |numeric   |
+#'   |barrels               |integer   |
+#'   |brl_percent           |numeric   |
+#'   |brl_pa                |numeric   |
+#' 
 #' @export
 #' @examples \donttest{
 #'   try(statcast_leaderboards(leaderboard = "exit_velocity_barrels", year = 2018))
@@ -106,7 +131,7 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     url <- paste0("https://baseballsavant.mlb.com/statcast_leaderboard?year=", year, "&abs=", abs, "&type=", player_type, "&min=", min_pa, "&csv=true")
 
-    payload <- csv_from_url(url)
+    payload <- csv_from_url(url, encoding ="UTF-8")
   }
 
   if (leaderboard == "expected_statistics") {
@@ -141,7 +166,7 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     url <- paste0("https://baseballsavant.mlb.com/expected_statistics?type=", player_type, "&year=", year, "&position=", position, "&team=", team, "&min=", min_pa,"&csv=true")
 
-    payload <- csv_from_url(url)
+    payload <- csv_from_url(url, encoding ="UTF-8")
   }
 
   if (leaderboard == "pitch_arsenal") {
@@ -174,7 +199,7 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     url <- paste0("https://baseballsavant.mlb.com/pitch-arsenals?year=", year, "&min=", min_pitches, "&type=", arsenal_type, "&hand=", hand, "&csv=true")
 
-    payload <- csv_from_url(url)
+    payload <- csv_from_url(url, encoding ="UTF-8")
   }
 
 
@@ -197,7 +222,7 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     url <- paste0("https://baseballsavant.mlb.com/leaderboard/outs_above_average?type=Fielder&year=", year, "&team=&range=year&min=", min_field, "&pos=", oaa_position, "&roles=", oaa_roles, "&viz=show&csv=true")
 
-    payload <- csv_from_url(url)
+    payload <- csv_from_url(url, encoding ="UTF-8")
   }
 
 
@@ -227,7 +252,7 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     url <- paste0("https://baseballsavant.mlb.com/directional_outs_above_average?year=", year, "&min=", min_field, "&team=", team, "&csv=true")
 
-    payload <- csv_from_url(url)
+    payload <- csv_from_url(url, encoding ="UTF-8")
   }
 
   if (leaderboard == "catch_probability") {
@@ -248,7 +273,7 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     url <- paste0("https://baseballsavant.mlb.com/catch_probability_leaderboard?type=", fielding_type, "&min=", min_field, "&year=", year, "&csv=true")
 
-    payload <- csv_from_url(url)
+    payload <- csv_from_url(url, encoding ="UTF-8")
   }
 
   if (leaderboard == "pop_time") {
@@ -283,7 +308,7 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     url <- paste0("https://baseballsavant.mlb.com/poptime?year=", year, "&team=", team, "&min2b=", min2b, "&min3b=", min3b, "&csv=true")
 
-    payload <- csv_from_url(url)
+    payload <- csv_from_url(url, encoding ="UTF-8")
   }
 
   if (leaderboard == "sprint_speed") {
@@ -318,7 +343,7 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     url <- paste0("https://baseballsavant.mlb.com/sprint_speed_leaderboard?year=", year, "&position=", position, "&team=", team, "&min=", min_run, "&csv=true")
 
-    payload <- csv_from_url(url)
+    payload <- csv_from_url(url, encoding ="UTF-8")
   }
 
 
@@ -368,7 +393,7 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     url <- paste0("https://baseballsavant.mlb.com/running_splits?type=", run_type, "&bats=", bats, "&year=", year, "&position=", position, "&team=", team, "&min=", min_run, "&csv=true")
 
-    payload <- csv_from_url(url)
+    payload <- csv_from_url(url, encoding ="UTF-8")
   }
 
   if(!"year" %in% colnames(payload)) {
@@ -388,6 +413,7 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 #' @rdname scrape_savant_leaderboards
 #' @title **(legacy) Query Baseball Savant Leaderboards**
 #' @inheritParams statcast_leaderboards 
+#' @return Returns a tibble of Statcast leaderboard data.
 #' @keywords legacy
 #' @export
 scrape_savant_leaderboards <- statcast_leaderboards

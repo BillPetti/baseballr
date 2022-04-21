@@ -2,7 +2,7 @@
 #' @param venue_ids Venue directorial information based venue_id.
 #' @param sport_ids The sport_id(s) for which to return venue directorial information.
 #' @param season Year for which to return venue directorial information for a given season.
-#' @return Returns a data frame with the following columns:
+#' @return Returns a tibble with the following columns:
 #'  |col_name   |types     |
 #'  |:----------|:---------|
 #'  |venue_id   |integer   |

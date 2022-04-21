@@ -1,17 +1,21 @@
-#' @title **Scrape and Calculate Edge Percentages for Splits**
-#'
-#' @description This function allows you to calculate the percent of pitches thrown to different edges of the strike zone over any custom time frame, and to split the data by batter and pitcher handedness. Data is acquired by scraping the GameDay application from MLBAM using Carson Sievert's pitchRx package. The data can take a while to query, particular for large date ranges.
+#' @rdname statcast_edge_scrape
+#' @title **Edge Percentage Scrape**
+#' @description This function allows you to calculate the percent of pitches thrown to different edges of the strike zone over any custom time frame. Data is acquired by scraping the GameDay application from MLBAM using Carson Sievert's pitchRx package. The data can take a while to query, particular for large date ranges.
 #' @param start First date in your date range. Must be a character string in the format "yyyy-mm-dd".
 #' @param end Last date in your date range. Must be a character string in the format "yyyy-mm-dd".
 #' @param group Character string indicating whether to group the output by pitchers or batters. Options are "pitcher" or "batter".
-#' @importFrom pitchRx scrape
+#' @return Returns a tibble with Statcast data and edge columns and calculations.
 #' @export
-
-edge_scrape_split <- function(start, end, group) {
-  pfx <- suppressMessages(pitchRx::scrape(start, end))
-  df <- left_join(pfx$pitch, pfx$atbat, by = c("gameday_link", "num"))
+#' @examples \donttest{
+#'   try(edge_scrape(start = "2016-04-06",
+#'                   end = "2016-04-15",
+#'                   group = "pitchers"))
+#' }
+edge_scrape <- function(start, end, group) {
+  pfx <- statcast_search(start, end)
+  df <- left_join(pfx$pitch, pfx$atbat, by = c("game_pk", "pitch_num"))
   f <- as.numeric(lapply(strsplit(df$b_height, "-"), function(x) x[1])) * 12
-  i <- as.numeric(lapply(strsplit(df$b_height, "-"), function(x) x[1]))
+  i <- as.numeric(lapply(strsplit(df$b_height, "-"), function(x) x[2]))
   df$b_height_inch <- f+i
   df$called_pitch <- ifelse(grepl("Called|Ball", df$des), 1, 0)
   df$called_strike <- ifelse(grepl("Called", df$des), 1, 0)
@@ -38,8 +42,8 @@ edge_scrape_split <- function(start, end, group) {
   df_combined$OutOfZone <- with(df_combined, ifelse(location == "Out of Zone", 1, 0))
   grouped <- df_combined %>% 
     dplyr::filter(!is.na(.data$px), !is.na(.data$pz)) %>% 
-    dplyr::group_by(group, .data$p_throws, .data$stand) %>% 
-    summarise(
+    dplyr::group_by(.data$group) %>% 
+    dplyr::summarise(
       All_pitches = n(), 
       All_calls = sum(.data$called_pitch), 
       Called_Strike = sum(.data$called_strike), 
@@ -49,15 +53,18 @@ edge_scrape_split <- function(start, end, group) {
       Inside_Edge = sum(.data$Inside_Edge)/.data$All_pitches, 
       Outside_Edge = sum(.data$Outside_Edge)/.data$All_pitches, 
       Heart = sum(.data$Heart)/.data$All_pitches, 
-      Out_of_Zone = sum(.data$OutOfZone)/.data$All_pitches)
-  grouped[,c(7:13)] <- round(grouped[,c(7:13)], 3)
-  grouped <- if (group == "pitcher"){
+      Out_of_Zone = sum(.data$OutOfZone)/.data$All_pitches) %>%
+    dplyr::mutate(
+      Total_Edge = .data$Upper_Edge + .data$Lower_Edge + .data$Inside_Edge + .data$Outside_Edge)
+  grouped[,c(6:12)] <- round(grouped[,c(6:12)], 3)
+  grouped <- if (group == "pitcher") {
     grouped %>% 
       dplyr::left_join(pitcher_match, by = "pitcher") %>% 
-      dplyr::select(.data$pitcher_name, everything())
+      dplyr::select(.data$pitcher_name, tidyr::everything())
   } else {
     grouped %>% 
       dplyr::left_join(batter_match, by = "batter") %>% 
-      dplyr::select(.data$batter_name, everything())}
+      dplyr::select(.data$batter_name, tidyr::everything())
+  }
   return(grouped)
 }

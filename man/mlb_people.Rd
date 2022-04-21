@@ -10,7 +10,7 @@ mlb_people(person_ids = NULL)
 \item{person_ids}{MLBAMIDs for players of interest. Multiple IDs should be provided in a vector separated by a comma.}
 }
 \value{
-Returns a data frame with the following columns:\tabular{ll}{
+Returns a tibble with the following columns:\tabular{ll}{
    col_name \tab types \cr
    id \tab integer \cr
    full_name \tab character \cr

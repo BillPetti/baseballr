@@ -14,7 +14,7 @@ mlb_venues(venue_ids = NULL, sport_ids = NULL, season = NULL)
 \item{season}{Year for which to return venue directorial information for a given season.}
 }
 \value{
-Returns a data frame with the following columns:\tabular{ll}{
+Returns a tibble with the following columns:\tabular{ll}{
    col_name \tab types \cr
    venue_id \tab integer \cr
    venue_name \tab character \cr

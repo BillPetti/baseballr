@@ -1,7 +1,7 @@
 #' @rdname mlb_draft_prospects
 #' @title **Retrieve draft prospect information by year**
 #' @param year The year for which to return data
-#' @return Returns a data frame with information for every draft prospect for the year requested:
+#' @return Returns a tibble with information for every draft prospect for the year requested:
 #'
 #'  |col_name                             |types     |
 #'  |:------------------------------------|:---------|

@@ -38,7 +38,7 @@ mlb_schedule_postseason_series(
 }}
 }
 \value{
-Returns a data frame that includes game_pk values and additional
+Returns a tibble that includes game_pk values and additional
 information for games scheduled or played\tabular{ll}{
    col_name \tab types \cr
    total_items \tab integer \cr

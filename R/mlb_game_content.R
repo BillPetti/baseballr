@@ -1,7 +1,8 @@
 #' @rdname mlb_game_content
 #' @title **Retrieve additional game content for major and minor league games**
 #' @param game_pk The unique game_pk identifier for the game
-#' @return Returns a data frame with the following columns
+#' @return Returns a tibble of game content data with the following columns:
+#' 
 #'  |col_name            |types     |
 #'  |:-------------------|:---------|
 #'  |title               |character |
@@ -22,10 +23,15 @@
 #'  |description         |character |
 #'  |rendition_name      |character |
 #'  |language            |character |
+#'  
 #' @importFrom jsonlite fromJSON
-#' @importFrom tidyr spread
+#' @importFrom janitor clean_names 
+#' @importFrom dplyr rename 
+#' @importFrom glue glue
+#' @importFrom rlang .data
+#' @importFrom tidyr unnest
 #' @importFrom tibble tibble
-#' @importFrom stringr str_sub
+#' @import rvest 
 #' @export
 #' @examples \donttest{
 #'   try(mlb_game_content(game_pk = 566001))
@@ -46,8 +52,7 @@ mlb_game_content <- function(game_pk) {
         as.data.frame() %>% 
         janitor::clean_names() %>% 
         dplyr::rename(
-          epg_id =.data$id
-        ) %>%
+          epg_id =.data$id) %>%
         make_baseballr_data("MLB Game Content data from MLB.com",Sys.time())
     },
     error = function(e) {

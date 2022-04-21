@@ -12,7 +12,7 @@ fg_pitcher_game_logs(playerid, year = 2017)
 \item{year}{The season for which game logs should be returned (use the YYYY format)}
 }
 \value{
-A data frame of pitcher game logs.\tabular{ll}{
+Returns a tibble of pitcher game logs with the following columns:\tabular{ll}{
    col_name \tab types \cr
    PlayerName \tab character \cr
    playerid \tab integer \cr
