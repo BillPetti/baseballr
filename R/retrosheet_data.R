@@ -1,74 +1,111 @@
 #' @rdname retrosheet_data
-#' @title **Get, Parse, and Format Retrosheet Event and Roster Files**
+#' @title **Get, Parse, and Format Retrosheet Event and Roster Files** 
+#' @description This function requires the use of the [**`Chadwick CLI`**](https://github.com/chadwickbureau/chadwick/releases). Follow 
+#' the directions at the repository for installation of the CLI release for your platform. 
+#' Specifically from the **`Chadwick CLI`** tools, this function requires the **`cwevent`** application to be available from the command line. 
+#' For unix platform users: the ```retrosheet_data()``` function uses the ```system()``` interface under the hood.
+#' For Windows and other platform users: the ```retrosheet_data()``` function interacts with the **`cwevent`** application 
+#' using the ```shell()``` interface under the hood. 
 #' @details  
 #' ```r
-#' get_retrosheet_data(path_to_directory = "/Users/Documents/retrosheet/", 
-#'     years_to_acquire = c(1957,1959), 
-#'     sequence_years = F)
+#' retrosheet_data(path_to_directory = NULL, 
+#'                 years_to_acquire =  most_recent_mlb_season()-1, 
+#'                 sequence_years = FALSE)
 #' ```
-#' @param path_to_directory A file path that either 1) creates a new directory
-#' or 2) a path to an existing directory
-#' @param years_to_acquire The seasons to collect. Single, multiple, and
+#' @param path_to_directory (default: NULL) A file path that if set, either:
+#'    1) creates a new directory, or
+#'    2) uses the path to an existing directory
+#' @param years_to_acquire (format: YYYY) The seasons to collect. Single, multiple, and
 #' sequential years can be passed. If passing multiple years, enclose in a
 #' vector (i.e. c(2017,2018)). Defaults to ```most_recent_mlb_season()```.
-#' @param sequence_years If the seasons passed in the years_to_acquire parameter
+#' @param sequence_years (logical, default: FALSE): If the seasons passed in the years_to_acquire parameter
 #' should be sequenced so that the function returns all years including and
 #' between the vector passed, set the argument to TRUE. Defaults to FALSE.
-#' @return Returns two csv files to the unzipped directory: 1) a combined csv
+#' @return If `path_to_directory` is not set (default), the process will return a named list  
+#' of tibbles: 'events' and 'rosters' for each season provided to `years_to_acquire`
+#' If `path_to_directory` is set, will also write two csv files to the unzipped directory: 1) a combined csv
 #' of the event data for a given year and 2) a combined csv of each team's
-#' roster for each year
+#' roster for each year provided to `years_to_acquire`
 #' @importFrom dplyr mutate mutate_if
 #' @importFrom janitor clean_names
 #' @importFrom purrr map
 #' @importFrom utils download.file tail unzip write.csv
 #' @export
 
-retrosheet_data <- function(path_to_directory,
-                            years_to_acquire = most_recent_mlb_season(),
+retrosheet_data <- function(path_to_directory = NULL,
+                            years_to_acquire = most_recent_mlb_season()-1,
                             sequence_years = FALSE){
   # create a record for the starting working directory
   oldwd <- getwd()
   # reset to starting working directory
   on.exit(setwd(oldwd))
-  if(dir.exists(path_to_directory) == FALSE) {
-
-    dir.create(path_to_directory)
+  
+  path_temp_dir <- tempdir()
+  
+  if(!is.null(path_to_directory)) {
+    # create folders at directory path specified
+    ifelse(!dir.exists(path_to_directory), 
+           dir.create(path_to_directory), FALSE)
     
+    ifelse(!dir.exists(paste0(path_to_directory, "/download.folder")), 
+           dir.create(paste0(path_to_directory, "/download.folder")), FALSE)
+    
+    ifelse(!dir.exists(paste0(path_to_directory, "/download.folder/unzipped")), 
+           dir.create(paste0(path_to_directory, "/download.folder/unzipped")), FALSE)
+    
+    ifelse(!dir.exists(paste0(path_to_directory, "/download.folder/zipped")), 
+           dir.create(paste0(path_to_directory, "/download.folder/zipped")), FALSE)
     # setwd
     setwd(path_to_directory)
     
-    # create folders
-    dir.create(paste0(path_to_directory, "/download.folder"))
-    dir.create(paste0(path_to_directory, "/download.folder/unzipped"))
-    dir.create(paste0(path_to_directory, "/download.folder/zipped"))
   } else {
-    # setwd
-    setwd(path_to_directory)
+    # create folders at directory path of temporary directory
+    ifelse(!dir.exists(paste0(path_temp_dir, "/download.folder")), 
+           dir.create(paste0(path_temp_dir, "/download.folder")), FALSE)
+    
+    ifelse(!dir.exists(paste0(path_temp_dir, "/download.folder/unzipped")), 
+           dir.create(paste0(path_temp_dir, "/download.folder/unzipped")), FALSE)
+    
+    ifelse(!dir.exists(paste0(path_temp_dir, "/download.folder/zipped")), 
+           dir.create(paste0(path_temp_dir, "/download.folder/zipped")), FALSE)
+    # setwd to temporary directory path
+    setwd(path_temp_dir)
+    path_to_directory <- path_temp_dir
   }
-
+  
   fields <- csv_from_url("https://raw.githubusercontent.com/maxtoki/baseball_R/master/data/fields.csv", encoding ="UTF-8")
-
+  
   data.table::fwrite(fields, file = paste0(path_to_directory, "/fields.csv"))
-
+  
   if(sequence_years == FALSE) {
-
+    
     years <- years_to_acquire
   } else {
-
+    
     years <-seq(years_to_acquire[1], years_to_acquire[2],1)
   }
-
-  purrr::map(.x = years,
-             ~acquire_parse_restrosheet_event(season = .x,
-                                              wd = path_to_directory))
+  if(identical(Sys.which("cwevent")[["cwevent"]], "")){ 
+    cli::cli_abort("Please install the Chadwick CLI program from:\n https://github.com/chadwickbureau/chadwick/releases")
+  }
+  rs_season <- c(purrr::map(.x=years,
+                            function(.x){
+                              acquire_parse_restrosheet_event(season = .x,
+                                                              wd = path_to_directory)
+                              
+                              
+                            }))
+  names(rs_season) <- years
+  return(rs_season)
   
 }
 #' @rdname get_retrosheet_data
 #' @title **(legacy) Get, Parse, and Format Retrosheet Event and Roster Files**
 #' @inheritParams retrosheet_data
-#' @return Returns two csv files to the unzipped directory: 1) a combined csv
+#' @return If `path_to_directory` is not set (default), the process will return a named list  
+#' of tibbles: 'events' and 'rosters' for each season provided to `years_to_acquire`
+#' If `path_to_directory` is set, will also write two csv files to the unzipped directory: 1) a combined csv
 #' of the event data for a given year and 2) a combined csv of each team's
-#' roster for each year
+#' roster for each year provided to `years_to_acquire`
 #' @keywords legacy
 #' @export
 get_retrosheet_data <- retrosheet_data 
@@ -97,21 +134,28 @@ acquire_parse_restrosheet_event <- function(season, wd){
   create.csv.file(wd, season)
   create.csv.roster(wd, season)
   cleanup(wd)
+  events <- data.table::fread(paste0(wd,"/download.folder/unzipped/all",season,".csv")) %>%
+    make_baseballr_data("Retrosheet MLB events data from retrosheet.org",Sys.time())
+  rosters <- data.table::fread(paste0(wd,"/download.folder/unzipped/roster",season,".csv")) %>%
+    make_baseballr_data("Retrosheet MLB rosters data from retrosheet.org",Sys.time())
+  retrosheet_season <- c(list(events),list(rosters))
+  names(retrosheet_season) <- c("events","rosters")
+  return(retrosheet_season)
 }
 
 download.retrosheet <- function(wd, season){
   # get zip file from retrosheet website
   download.file(
-    url=paste("https://www.retrosheet.org/events/", season, "eve.zip", sep="")
-    , destfile=paste(wd, "/download.folder", "/zipped/",
-                     season, "eve.zip", sep="")
+    url=paste0("https://www.retrosheet.org/events/", season, "eve.zip")
+    , destfile=paste0(wd, "/download.folder", "/zipped/",
+                      season, "eve.zip")
   )
 }
 
 unzip.retrosheet <- function(season){
   #unzip retrosheet files
-  unzip(paste("download.folder", "/zipped/", season, "eve.zip", sep=""),
-        exdir=paste("download.folder", "/unzipped", sep=""))
+  unzip(paste0("download.folder", "/zipped/", season, "eve.zip"),
+        exdir=paste0("download.folder", "/unzipped"))
 }
 
 create.csv.file <- function(wd, year){
@@ -122,6 +166,7 @@ create.csv.file <- function(wd, year){
   oldwd <- getwd()
   # reset to starting working directory
   on.exit(setwd(oldwd))
+  
   setwd(paste0(wd, "/download.folder/unzipped"))
   
   character_vars <- c('GAME_ID', 'AWAY_TEAM_ID', 'PITCH_SEQ_TX',
@@ -161,13 +206,14 @@ create.csv.file <- function(wd, year){
                     'PR_RUN3_FL', 'REMOVED_FOR_PR_RUN3_ID')
   
   if (.Platform$OS.type == "unix"){
-    system(paste(paste("cwevent -y", year, "-f 0-96"),
+    system(paste(paste("cwevent -y", year, "-f 0-96 -q"),
                  paste(year,"*.EV*",sep=""),
-                 paste("> all", year, ".csv", sep="")))} else {
-                   shell(paste(paste("cwevent -y", year, "-f 0-96"),
-                               paste(year,"*.EV*",sep=""),
-                               paste("> all", year, ".csv", sep="")))
-                 }
+                 paste("> all", year, ".csv", sep="")))
+  } else {
+    shell(paste(paste("cwevent -y", year, "-f 0-96 -q"),
+                paste(year,"*.EV*",sep=""),
+                paste("> all", year, ".csv", sep="")))
+  }
   
   fields <- data.table::fread(paste0(wd, "/fields.csv"))
   
@@ -177,16 +223,16 @@ create.csv.file <- function(wd, year){
   
   payload <- payload %>%
     dplyr::mutate(year = year)
-  
-  payload <- payload %>%
-    dplyr::mutate_if(names(payload) %in% character_vars, as.character) %>%
-    dplyr::mutate_if(names(payload) %in% numeric_vars, as.numeric) %>%
-    dplyr::mutate_if(names(payload) %in% logical_vars, as.logical)
-  
+  suppressWarnings(
+    payload <- payload %>%
+      dplyr::mutate_if(names(payload) %in% character_vars, as.character) %>%
+      dplyr::mutate_if(names(payload) %in% numeric_vars, as.numeric) %>%
+      dplyr::mutate_if(names(payload) %in% logical_vars, as.logical)
+  )
   payload <- payload %>%
     janitor::clean_names()
   
-  data.table::fwrite(payload, paste0(wd, "/download.folder/unzipped/all", year, ".csv"), header = TRUE)
+  data.table::fwrite(payload, paste0(wd, "/download.folder/unzipped/all", year, ".csv"))
 }
 
 create.csv.roster <- function(wd, year){
@@ -194,7 +240,7 @@ create.csv.roster <- function(wd, year){
   filenames <- list.files(path = paste0(wd, "/download.folder/unzipped/"))
   
   filenames.roster <-
-    subset(filenames, substr(filenames, 4, 11)==paste(year,".ROS",sep=""))
+    subset(filenames, substr(filenames, 4, 11) == paste0(year,".ROS"))
   
   R <- do.call("rbind", lapply(filenames.roster, function(x){
     read.csv2(wd = wd, file = x)
@@ -221,7 +267,7 @@ cleanup <- function(wd){
   oldwd <- getwd()
   # reset to starting working directory
   on.exit(setwd(oldwd))
-  # removes retrosheet files not needed
+  # removes retrosheet files not needed from unzipped directory
   setwd(paste0(wd, "/download.folder/unzipped"))
   
   if (.Platform$OS.type == "unix") {
@@ -230,20 +276,23 @@ cleanup <- function(wd){
     system("rm *.EVN")
     system("rm *.EVA")
     system("rm *.ROS")
-    system("rm TEAM*")} else {
-      shell("del *.EDN")
-      shell("del *.EDA")
-      shell("del *.EVN")
-      shell("del *.EVA")
-      shell("del *.ROS")
-      shell("del TEAM*")
-    }
+    system("rm TEAM*")
+  } else {
+    shell("if exist *.EDN del *.EDN")
+    shell("if exist *.EDA del *.EDA")
+    shell("if exist *.EVN del *.EVN")
+    shell("if exist *.EVA del *.EVA")
+    shell("if exist *.ROS del *.ROS")
+    shell("if exist TEAM* del TEAM*")
+  }
   
+  # removes retrosheet files not needed from unzipped directory
   setwd(paste0(wd, "/download.folder/zipped"))
   
   if (.Platform$OS.type == "unix") {
-    system("rm *.zip")} else {
-      shell("del *.zip")
-    }
+    system("rm *.zip")
+  } else {
+    shell("del *.zip")
+  }
   
 }

@@ -10,7 +10,7 @@ mlb_game_content(game_pk)
 \item{game_pk}{The unique game_pk identifier for the game}
 }
 \value{
-Returns a tibble with the following columns:\tabular{ll}{
+Returns a tibble of game content data with the following columns:\tabular{ll}{
    col_name \tab types \cr
    title \tab character \cr
    epg_id \tab integer \cr

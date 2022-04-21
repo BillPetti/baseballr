@@ -1,7 +1,7 @@
 #' @rdname mlb_game_content
 #' @title **Retrieve additional game content for major and minor league games**
 #' @param game_pk The unique game_pk identifier for the game
-#' @return Returns a tibble with the following columns:
+#' @return Returns a tibble of game content data with the following columns:
 #' 
 #'  |col_name            |types     |
 #'  |:-------------------|:---------|

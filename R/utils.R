@@ -138,7 +138,7 @@ NULL
 #' @return An integer indicating the year of the most recent season of NCAA baseball
 #' @export
 most_recent_ncaa_baseball_season <- function() {
-  dplyr::if_else(
+  ifelse(
     as.double(substr(Sys.Date(), 6, 7)) >= 3,
     as.double(substr(Sys.Date(), 1, 4)),
     as.double(substr(Sys.Date(), 1, 4)-1)
@@ -150,7 +150,7 @@ most_recent_ncaa_baseball_season <- function() {
 #' @return An integer indicating the year of the most recent season of Major League Baseball
 #' @export
 most_recent_mlb_season <- function() {
-  dplyr::if_else(
+  ifelse(
     as.double(substr(Sys.Date(), 6, 7)) >= 3,
     as.double(substr(Sys.Date(), 1, 4)),
     as.double(substr(Sys.Date(), 1, 4)-1)

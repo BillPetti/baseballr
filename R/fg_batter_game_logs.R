@@ -291,36 +291,36 @@
 #' }
 
 fg_batter_game_logs <- function(playerid, year = 2017) {
-
+  
   url <- paste0("https://cdn.fangraphs.com/api/players/game-log?playerid=",
                 playerid,
                 "&position=&type=0&gds=&gde=&z=1637143594112&season=",
                 year)
   tryCatch(
     expr = {
-  res <- httr::RETRY("GET", url)
-  
-  resp <- res %>% 
-    httr::content(as = "text", encoding = "UTF-8")
-
-  payload <- jsonlite::fromJSON(resp)[['mlb']] %>% 
-    as.data.frame()
-  payload <- payload[-1,]
-  payload <- payload %>% 
-    dplyr::mutate(
-      Date = stringr::str_extract(.data$Date,"(?<=>).+(?=<)")) %>% 
-    dplyr::select(.data$PlayerName, .data$playerid, tidyr::everything())
-  
-  payload <- payload %>%
-    make_baseballr_data("MLB Batter Game Logs data from FanGraphs.com",Sys.time())
+      res <- httr::RETRY("GET", url)
+      
+      resp <- res %>% 
+        httr::content(as = "text", encoding = "UTF-8")
+      
+      payload <- jsonlite::fromJSON(resp)[['mlb']] %>% 
+        as.data.frame()
+      payload <- payload[-1,]
+      payload <- payload %>% 
+        dplyr::mutate(
+          Date = stringr::str_extract(.data$Date,"(?<=>).+(?=<)")) %>% 
+        dplyr::select(.data$PlayerName, .data$playerid, tidyr::everything())
+      
+      payload <- payload %>%
+        make_baseballr_data("MLB Batter Game Logs data from FanGraphs.com",Sys.time())
     },
-  error = function(e) {
-    message(glue::glue("{Sys.time()}: Invalid arguments or no batter game logs data available!"))
-  },
-  warning = function(w) {
-  },
-  finally = {
-  }
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no batter game logs data available!"))
+    },
+    warning = function(w) {
+    },
+    finally = {
+    }
   )
   return(payload)
 }

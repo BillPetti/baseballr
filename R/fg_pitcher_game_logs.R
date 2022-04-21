@@ -4,7 +4,8 @@
 #' @description This function allows you to scrape game logs by year for a pitcher from FanGraphs.com.
 #' @param playerid This is the playerid used by FanGraphs for a given player
 #' @param year The season for which game logs should be returned (use the YYYY format)
-#' @return A data frame of pitcher game logs.
+#' @return Returns a tibble of pitcher game logs with the following columns:
+#' 
 #'  |col_name   |types     |
 #'  |:----------|:---------|
 #'  |PlayerName |character |
@@ -141,6 +142,7 @@
 #'  |Events     |numeric   |
 #'  |gamedate   |character |
 #'  |dh         |integer   |
+#'  
 #' @importFrom dplyr mutate select 
 #' @importFrom jsonlite fromJSON 
 #' @importFrom stringr str_extract

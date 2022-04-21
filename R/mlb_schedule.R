@@ -1,6 +1,6 @@
 #' @rdname mlb_schedule
 #' @title **Find game_pk values for professional baseball games (major and minor leagues)**
-#'
+#' 
 #' @param season The season for which you want to find game_pk values for MLB games
 #' @param level_ids A numeric vector with ids for each level where game_pks are
 #' desired. See below for a reference of level ids.
@@ -126,15 +126,28 @@
 
 mlb_schedule <- function(season = 2019, level_ids = '1'){
   
-  api_call <- paste0("http://statsapi.mlb.com/api/v1/schedule?language=en",
-                     "&sportId=", level_ids, 
-                     "&season=", season)
+  sport_ids <- paste(level_ids, collapse = ',')
+  
+  mlb_endpoint <- mlb_stats_endpoint("v1/schedule")
+  
+  query_params <- list(
+    language = "en",
+    sportId = sport_ids, 
+    season = season
+  )
+  
+  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  
   games <- data.frame()
   tryCatch(
     expr={
-      payload <- jsonlite::fromJSON(api_call, flatten = TRUE)
       
-      games <- payload$dates %>% 
+      resp <- mlb_endpoint %>% 
+        mlb_api_call() %>% 
+        jsonlite::toJSON() %>% 
+        jsonlite::fromJSON(flatten = TRUE)
+      
+      games <- resp$dates %>% 
         tidyr::unnest(.data$games) %>%
         as.data.frame() %>%
         janitor::clean_names() %>%
