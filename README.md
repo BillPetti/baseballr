@@ -81,9 +81,9 @@ library(dplyr)
 bref_standings_on_date("2015-08-01", "NL East", from = FALSE)
 ```
 
-    ## -- MLB Standings on Date data from baseball-reference.com --- baseballr 1.1.0 --
+    ## -- MLB Standings on Date data from baseball-reference.com --- baseballr 1.2.0 --
 
-    ## i Data updated: 2022-04-11 16:26:56 EDT
+    ## i Data updated: 2022-04-21 15:34:48 EDT
 
     ## # A tibble: 5 x 8
     ##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`
@@ -198,9 +198,9 @@ bref_daily_pitcher("2015-04-05", "2015-04-30") %>%
   head(10)
 ```
 
-    ## -- MLB Daily Pitcher data from baseball-reference.com ------- baseballr 1.1.0 --
+    ## -- MLB Daily Pitcher data from baseball-reference.com ------- baseballr 1.2.0 --
 
-    ## i Data updated: 2022-04-11 16:27:11 EDT
+    ## i Data updated: 2022-04-21 15:35:30 EDT
 
     ## # A tibble: 10 x 11
     ##    season Name               IP   ERA    SO   uBB   HBP    HR   FIP wOBA_against
