@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -134,7 +134,7 @@
 
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Function returns a data frame with various columns, including:</p><ul><li><p>game_pk</p></li>
+    <p>Function returns a tibble with various columns, including:</p><ul><li><p>game_pk</p></li>
 <li><p>game_date</p></li>
 <li><p>venue id</p></li>
 <li><p>attendance</p></li>
@@ -150,21 +150,21 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">load_game_info_sup</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Supplementary MLB Game Info data from baseballr-data repository ─────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-18 13:48:34 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 39,668 × 18</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-21 18:54:22 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 39,692 × 18</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    game_date  game_pk venue_name      venue_id temperature other_weather</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2022-04-17  <span style="text-decoration: underline;">663</span>365 Oriole Park at…        2          52 Partly Cloudy</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2022-04-17  <span style="text-decoration: underline;">662</span>294 PNC Park              31          42 Overcast     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2022-04-17  <span style="text-decoration: underline;">663</span>308 Fenway Park            3          45 Cloudy       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2022-04-17  <span style="text-decoration: underline;">661</span>804 Rogers Centre         14          68 Roof Closed  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2022-04-17  <span style="text-decoration: underline;">662</span>625 Citi Field          <span style="text-decoration: underline;">3</span>289          48 Partly Cloudy</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2022-04-17  <span style="text-decoration: underline;">663</span>132 Progressive Fi…        5          35 Cloudy       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2022-04-17  <span style="text-decoration: underline;">661</span>415 loanDepot park      <span style="text-decoration: underline;">4</span>169          72 Roof Closed  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2022-04-17  <span style="text-decoration: underline;">661</span>462 Guaranteed Rat…        4          41 Cloudy       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2022-04-17  <span style="text-decoration: underline;">661</span>226 American Famil…       32          65 Roof Closed  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2022-04-17  <span style="text-decoration: underline;">662</span>038 Globe Life Fie…     <span style="text-decoration: underline;">5</span>325          67 Cloudy       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 39,658 more rows, and 12 more variables: wind &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2022-04-19  <span style="text-decoration: underline;">662</span>587 Nationals Park      <span style="text-decoration: underline;">3</span>309          47 Partly Cloudy</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2022-04-19  <span style="text-decoration: underline;">662</span>583 Nationals Park      <span style="text-decoration: underline;">3</span>309          48 Partly Cloudy</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2022-04-19  <span style="text-decoration: underline;">662</span>350 Citi Field          <span style="text-decoration: underline;">3</span>289          48 Partly Cloudy</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2022-04-19  <span style="text-decoration: underline;">662</span>616 Citi Field          <span style="text-decoration: underline;">3</span>289          48 Partly Cloudy</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2022-04-19  <span style="text-decoration: underline;">661</span>405 loanDepot park      <span style="text-decoration: underline;">4</span>169          72 Dome         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2022-04-19  <span style="text-decoration: underline;">662</span>896 Comerica Park       <span style="text-decoration: underline;">2</span>394          43 Cloudy       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2022-04-19  <span style="text-decoration: underline;">663</span>249 Fenway Park            3          47 Cloudy       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2022-04-19  <span style="text-decoration: underline;">663</span>196 Wrigley Field         17          42 Partly Cloudy</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2022-04-19  <span style="text-decoration: underline;">661</span>211 American Famil…       32          67 Roof Closed  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2022-04-19  <span style="text-decoration: underline;">662</span>927 Minute Maid Pa…     <span style="text-decoration: underline;">2</span>392          73 Roof Closed  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 39,682 more rows, and 12 more variables: wind &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   attendance &lt;chr&gt;, start_time &lt;chr&gt;, elapsed_time &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   game_id &lt;chr&gt;, game_type &lt;chr&gt;, home_sport_code &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   official_scorer &lt;chr&gt;, date &lt;chr&gt;, status_ind &lt;chr&gt;,</span></span>

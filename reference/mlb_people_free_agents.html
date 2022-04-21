@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -139,14 +139,14 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Returns a data frame with the following columns:</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>date_declared</td><td>character</td></tr><tr><td>notes</td><td>character</td></tr><tr><td>date_signed</td><td>character</td></tr><tr><td>sort_order</td><td>integer</td></tr><tr><td>player_id</td><td>integer</td></tr><tr><td>player_full_name</td><td>character</td></tr><tr><td>player_link</td><td>character</td></tr><tr><td>original_team_id</td><td>integer</td></tr><tr><td>original_team_name</td><td>character</td></tr><tr><td>original_team_link</td><td>character</td></tr><tr><td>position_code</td><td>character</td></tr><tr><td>position_name</td><td>character</td></tr><tr><td>position_type</td><td>character</td></tr><tr><td>position_abbreviation</td><td>character</td></tr><tr><td>new_team_id</td><td>integer</td></tr><tr><td>new_team_name</td><td>character</td></tr><tr><td>new_team_link</td><td>character</td></tr></table></div>
+    <p>Returns a tibble with the following columns:</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>date_declared</td><td>character</td></tr><tr><td>notes</td><td>character</td></tr><tr><td>date_signed</td><td>character</td></tr><tr><td>sort_order</td><td>integer</td></tr><tr><td>player_id</td><td>integer</td></tr><tr><td>player_full_name</td><td>character</td></tr><tr><td>player_link</td><td>character</td></tr><tr><td>original_team_id</td><td>integer</td></tr><tr><td>original_team_name</td><td>character</td></tr><tr><td>original_team_link</td><td>character</td></tr><tr><td>position_code</td><td>character</td></tr><tr><td>position_name</td><td>character</td></tr><tr><td>position_type</td><td>character</td></tr><tr><td>position_abbreviation</td><td>character</td></tr><tr><td>new_team_id</td><td>integer</td></tr><tr><td>new_team_name</td><td>character</td></tr><tr><td>new_team_link</td><td>character</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_people_free_agents</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2018</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB People - Free Agents data from MLB.com ─────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-18 13:49:39 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB People - Free Agents data from MLB.com ─────── <span style="font-style: italic;">baseballr 1.2.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-21 18:55:00 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 515 × 17</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    notes date_signed date_declared sort_order player_id player_full_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>

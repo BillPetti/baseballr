@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -134,18 +134,18 @@
 
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Returns a data frame of seasonal constants from FanGraphs</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>season</td><td>integer</td></tr><tr><td>lg_woba</td><td>numeric</td></tr><tr><td>woba_scale</td><td>numeric</td></tr><tr><td>wBB</td><td>numeric</td></tr><tr><td>wHBP</td><td>numeric</td></tr><tr><td>w1B</td><td>numeric</td></tr><tr><td>w2B</td><td>numeric</td></tr><tr><td>w3B</td><td>numeric</td></tr><tr><td>wHR</td><td>numeric</td></tr><tr><td>runSB</td><td>numeric</td></tr><tr><td>runCS</td><td>numeric</td></tr><tr><td>lg_r_pa</td><td>numeric</td></tr><tr><td>lg_r_w</td><td>numeric</td></tr><tr><td>cFIP</td><td>numeric</td></tr></table></div>
+    <p>Returns a tibble of seasonal constants from FanGraphs</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>season</td><td>integer</td></tr><tr><td>lg_woba</td><td>numeric</td></tr><tr><td>woba_scale</td><td>numeric</td></tr><tr><td>wBB</td><td>numeric</td></tr><tr><td>wHBP</td><td>numeric</td></tr><tr><td>w1B</td><td>numeric</td></tr><tr><td>w2B</td><td>numeric</td></tr><tr><td>w3B</td><td>numeric</td></tr><tr><td>wHR</td><td>numeric</td></tr><tr><td>runSB</td><td>numeric</td></tr><tr><td>runCS</td><td>numeric</td></tr><tr><td>lg_r_pa</td><td>numeric</td></tr><tr><td>lg_r_w</td><td>numeric</td></tr><tr><td>cFIP</td><td>numeric</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">fg_guts</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── GUTS data from FanGraphs.com ───────────────────── <span style="font-style: italic;">baseballr 1.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-18 13:48:12 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── GUTS data from FanGraphs.com ───────────────────── <span style="font-style: italic;">baseballr 1.2.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-21 18:54:07 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 152 × 14</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    season lg_woba woba_scale   wBB  wHBP   w1B   w2B   w3B   wHR runSB</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>022   0.311       1.30 0.7   0.732 0.902  1.29  1.64  2.13   0.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>022   0.307       1.33 0.696 0.729 0.902  1.30  1.66  2.17   0.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   <span style="text-decoration: underline;">2</span>021   0.314       1.21 0.692 0.722 0.879  1.24  1.57  2.01   0.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   <span style="text-decoration: underline;">2</span>020   0.32        1.18 0.699 0.728 0.883  1.24  1.56  1.98   0.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>   <span style="text-decoration: underline;">2</span>019   0.32        1.16 0.69  0.719 0.87   1.22  1.53  1.94   0.2</span>

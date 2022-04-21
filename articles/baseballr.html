@@ -37,7 +37,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -157,7 +157,7 @@
                         <h4 data-toc-skip class="author">Saiem Gilani <br><a href="https://twitter.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge" alt="@saiemgilani"></a> <a href="https://github.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a>
 </h4>
             
-            <h4 data-toc-skip class="date">2022-04-18</h4>
+            <h4 data-toc-skip class="date">2022-04-21</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballr/blob/master/vignettes/baseballr.Rmd" class="external-link"><code>vignettes/baseballr.Rmd</code></a></small>
       <div class="d-none name"><code>baseballr.Rmd</code></div>
@@ -167,6 +167,32 @@
     
 <p>Welcome folks,</p>
 <p>I’m Saiem Gilani, one of the <a href="https://billpetti.github.io/baseballr/authors.html" title="Authors and contributors to baseballr" class="external-link">authors</a> of <a href="https://billpetti.github.io/baseballr/" class="external-link"><code>baseballr</code></a>, and I hope to give the community a high-quality resource for accessing men’s baseball data for statistical analysis, baseball research, and more. I am excited to show you some of what you can do with this edition of the package.</p>
+<div class="section level3">
+<h3 id="installing-r-and-rstudio">
+<strong>Installing R and RStudio</strong><a class="anchor" aria-label="anchor" href="#installing-r-and-rstudio"></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>Head to <a href="https://cran.r-project.org" class="external-link uri">https://cran.r-project.org</a>
+</li>
+<li>Select the appropriate link for your operating system (Windows, Mac OS X, or Linux)</li>
+</ol>
+<ul>
+<li>
+<strong>Windows</strong> - Select base and download the most recent version</li>
+<li>
+<strong>Mac OS X</strong> - Select Latest Release, but check to make sure your OS is the correct version. Look through Binaries for Legacy OS X Systems if you are on an older release</li>
+<li>
+<strong>Linux</strong> - Select the appropriate distro and follow the installation instructions</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Head to <a href="https://www.rstudio.com/products/rstudio/download/#download" title="Download the appropriate version of RStudio (Free) for your operating system to use with R" class="external-link">RStudio.com</a>
+</li>
+<li>Follow the associated download and installation instructions for RStudio.</li>
+<li>Start peering over the <a href="https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf" class="external-link">RStudio IDE Cheatsheet</a>. <em>An IDE is an integrated development environment.</em>
+</li>
+<li>For <strong>Windows</strong> users: I recommend you install <a href="https://cran.r-project.org/bin/windows/Rtools/" class="external-link">Rtools</a>. This is not an R package! It is “a collection of resources for building packages for R under Microsoft Windows, or for building R itself”. Go to <a href="https://cran.r-project.org/bin/windows/Rtools/" class="external-link">https://cran.r-project.org/bin/windows/Rtools/</a> and follow the directions for installation.</li>
+</ol>
+</div>
 <div class="section level2">
 <h2 id="install-baseballr">
 <strong>Install</strong> <a href="https://billpetti.github.io/baseballr/" class="external-link"><strong><code>baseballr</code></strong></a><a class="anchor" aria-label="anchor" href="#install-baseballr"></a>
@@ -181,7 +207,7 @@
 <h3 id="the-data">
 <strong>The Data</strong><a class="anchor" aria-label="anchor" href="#the-data"></a>
 </h3>
-<p>There are generally speaking <strong>eight</strong> men’s baseball data sources accessed from this package:</p>
+<p>There are generally speaking <strong>eight</strong> men’s baseball data sources accessible from this package:</p>
 <ul>
 <li>
 <a href="https://github.com/saiemgilani/baseballr-data" class="external-link"><code>baseballr-data</code> repo</a> <a href="https://twitter.com/sportsdataverse" class="external-link"><img src="https://img.shields.io/twitter/follow/sportsdataverse?color=blue&amp;label=%40sportsdataverse&amp;logo=twitter&amp;style=for-the-badge" alt="Twitter Follow"></a>
@@ -198,15 +224,16 @@
 <h4 id="function-names-indicate-the-data-source">
 <strong>Function names indicate the data source</strong><a class="anchor" aria-label="anchor" href="#function-names-indicate-the-data-source"></a>
 </h4>
+<p>As of <a href="https://billpetti.github.io/baseballr/news/index.html#baseballr-1.0.0" class="external-link">baseballr v1.0.0</a>, a function naming convention was implemented to have the data source indicator appear at the start of the function name:</p>
 <ul>
 <li><p>Functions that use the <a href="https://github.com/saiemgilani/baseballr-data" class="external-link"><code>baseballr-data</code> repository</a> will contain <code>load_</code> or <code>update_</code> in the function name and would be considered loading functions for the play-by-play data, team box scores, and player box scores.</p></li>
-<li><p>Functions that use the MLB Stats API start with <code>mlb_</code> by convention and should be assumed as <code>get</code> functions. As of <code>baseballr</code> version 1.1.0, the package exports ~88 functions covering the MLB Stats API</p></li>
-<li><p>Functions that use one of <a href="https://baseballsavant.mlb.com/" class="external-link">Baseball Savant’s Statcast</a> APIs start with <code>statcast_</code> by convention and should be assumed as <code>get</code> functions. These functions allow for live access to Statcast data for the MLB games in-progress. As of <code>baseballr</code> version 1.1.0, the package exports ~5 Statcast-related functions.</p></li>
-<li><p>Functions that use <a href="https://github.com/chadwickbureau/register/" class="external-link">Chadwick Bureau’s Public Register of Baseball Players</a> start with <code>chadwick_</code>, <code>playerid_</code>, or <code>playername_</code> by convention and should be assumed as <code>get</code> functions. These functions allow for access to the Bureau’s public register of baseball players. As of <code>baseballr</code> version 1.1.0, the package exports 3 functions sourced using the Chadwick Bureau’s public register of baseball players.</p></li>
-<li><p>Functions that use Baseball Reference’s website start with <code>bref_</code> by convention and should be assumed as <code>get</code> functions. As of <code>baseballr</code> version 1.1.0, the package exports ~4 functions covering <a href="https://www.baseball-reference.com/" class="external-link">Baseball Reference</a>.</p></li>
-<li><p>Functions that use FanGraphs’s baseball website start with <code>fg_</code> by convention and should be assumed as <code>get</code> functions. As of <code>baseballr</code> version 1.1.0, the package exports ~11 functions covering <a href="https://www.fangraphs.com/" class="external-link">FanGraphs.com</a>.</p></li>
-<li><p>Functions that use Retrosheet’s baseball data start with <code>retrosheet_</code> by convention and should be assumed as <code>get</code> functions. As of <code>baseballr</code> version 1.1.0, the package exports 1 function for <a href="https://www.retrosheet.org/" class="external-link">Retrosheet Data</a>.</p></li>
-<li><p>Functions that use the NCAA website start with <code>ncaa_</code> by convention and should be assumed as <code>get</code> functions. As of <code>baseballr</code> version 1.1.0, the package exports ~8 function covering the <a href="https://stats.ncaa.org/" class="external-link">NCAA Stats portal</a>.</p></li>
+<li><p>Functions that use the MLB Stats API start with <code>mlb_</code> by convention and should be assumed as <code>get</code> functions. As of <code>baseballr</code> version 1.2.0, the package exports ~88 functions covering the MLB Stats API.</p></li>
+<li><p>Functions that use one of <a href="https://baseballsavant.mlb.com/" class="external-link">Baseball Savant’s Statcast</a> APIs start with <code>statcast_</code> by convention and should be assumed as <code>get</code> functions. These functions allow for live access to Statcast data for the MLB games in-progress. As of <code>baseballr</code> version 1.2.0, the package exports ~5 Statcast-related functions.</p></li>
+<li><p>Functions that use <a href="https://github.com/chadwickbureau/register/" class="external-link">Chadwick Bureau’s Public Register of Baseball Players</a> start with <code>chadwick_</code>, <code>playerid_</code>, or <code>playername_</code> by convention and should be assumed as <code>get</code> functions. These functions allow for access to the Bureau’s public register of baseball players. As of <code>baseballr</code> version 1.2.0, the package exports 3 functions sourced using the Chadwick Bureau’s public register of baseball players.</p></li>
+<li><p>Functions that use Baseball Reference’s website start with <code>bref_</code> by convention and should be assumed as <code>get</code> functions. As of <code>baseballr</code> version 1.2.0, the package exports ~4 functions covering <a href="https://www.baseball-reference.com/" class="external-link">Baseball Reference</a>.</p></li>
+<li><p>Functions that use FanGraphs’s baseball website start with <code>fg_</code> by convention and should be assumed as <code>get</code> functions. As of <code>baseballr</code> version 1.2.0, the package exports ~11 functions covering <a href="https://www.fangraphs.com/" class="external-link">FanGraphs.com</a>.</p></li>
+<li><p>Functions that use Retrosheet’s baseball data start with <code>retrosheet_</code> by convention and should be assumed as <code>get</code> functions. As of <code>baseballr</code> version 1.2.0, the package exports 1 function for <a href="https://www.retrosheet.org/" class="external-link">Retrosheet Data</a>.</p></li>
+<li><p>Functions that use the NCAA website start with <code>ncaa_</code> by convention and should be assumed as <code>get</code> functions. As of <code>baseballr</code> version 1.2.0, the package exports ~8 function covering the <a href="https://stats.ncaa.org/" class="external-link">NCAA Stats portal</a>.</p></li>
 </ul>
 </div>
 </div>

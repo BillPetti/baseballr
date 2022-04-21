@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -122,6 +122,12 @@
       <small>Source: <a href="https://github.com/billpetti/baseballr/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.2.0" id="baseballr-120">baseballr 1.2.0<a class="anchor" aria-label="anchor" href="#baseballr-120"></a></h2>
+<ul><li>Removed two <code>pitchRx</code>-dependent functions, updated retrosheet function and documentation</li>
+<li>Removed <code>edge_scrape()</code> and <code>edge_scrape_split()</code> from package. See <code>data-raw/archived/</code> for the last updated script. These may be re-visited at a later date with improved data repository maturity.</li>
+<li>Retrosheet functions updated to use tempdir()/tempfile() methods by default. Will need to specify a working directory to enable old functionality in which files are written to disk permanently. New default functionality is to return a named list with two tibbles per year specified: ‘events’ and ‘rosters’.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.1.0" id="baseballr-110">baseballr 1.1.0<a class="anchor" aria-label="anchor" href="#baseballr-110"></a></h2>
 <div class="section level3">
@@ -405,7 +411,7 @@
 </tr><tr class="odd"><td align="left">scrape_statcast_savant_pitcher_all</td>
 <td align="left"><code><a href="../reference/statcast_search.html">statcast_search_pitchers()</a></code></td>
 <td align="left">R/sc_scrape_statcast.R</td>
-</tr></tbody></table><p>`<code>*</code>mlb_schedules()<code>function added * Removed</code>viz_gb_on_period()<code>from package. See</code>data-raw/<code>for the last updated script. * Removed GameDay2 MLB API functions,</code>batter_boxscore()<code>and</code>pitcher_boxscore()<code>, from package. See</code>data-raw/` for the last updated script.</p>
+</tr></tbody></table><p>`<code>*</code>mlb_schedules()<code>function added * Removed</code>viz_gb_on_period()<code>from package. See</code>data-raw/archived/<code>for the last updated script. * Removed GameDay2 MLB API functions,</code>batter_boxscore()<code>and</code>pitcher_boxscore()<code>, from package. See</code>data-raw/archived/` for the last updated script.</p>
 </div>
 </div>
     <div class="section level2">
@@ -1233,7 +1239,7 @@ payload %&gt;%
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.2" id="baseballr-012-2016-03-07">baseballr 0.1.2 (2016-03-07)<a class="anchor" aria-label="anchor" href="#baseballr-012-2016-03-07"></a></h2>
 <p>Functions added to this release:</p>
-<p><code><a href="../reference/edge_scrape_split.html">edge_scrape_split()</a></code>: This function builds of off <code><a href="../reference/edge_scrape.html">edge_scrape()</a></code> and adds the ability to view the data split by batter and pitcher handedness. As with <code><a href="../reference/edge_scrape.html">edge_scrape()</a></code>, the function returns a data frame grouped by either pitchers or batters and the percentage of pitches in each of the various Edge zones, but adds in handedness.</p>
+<p><code>edge_scrape_split()</code>: This function builds of off <code>edge_scrape()</code> and adds the ability to view the data split by batter and pitcher handedness. As with <code>edge_scrape()</code>, the function returns a tibble grouped by either pitchers or batters and the percentage of pitches in each of the various Edge zones, but adds in handedness.</p>
 <p>Example (Edge% splits by batters with handedness):</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">edge_scrape_split</span>(<span class="st">"2015-04-05"</span>, <span class="st">"2015-04-05"</span>, <span class="st">"batter"</span>) <span class="op">%&gt;%</span><span class="st"> </span>.[,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">9</span><span class="op">:</span><span class="dv">14</span>)]</span>
 <span id="cb24-2"><a href="#cb24-2"></a></span>
@@ -1268,7 +1274,7 @@ payload %&gt;%
 <span id="cb25-10"><a href="#cb25-10"></a><span class="dv">8</span>    <span class="dv">2015</span> Josh Collmenter <span class="fl">32.2</span> <span class="fl">2.76</span> <span class="dv">16</span>   <span class="dv">3</span>   <span class="dv">0</span>  <span class="dv">1</span> <span class="fl">2.82</span>        <span class="fl">0.290</span>            <span class="fl">0.330</span></span>
 <span id="cb25-11"><a href="#cb25-11"></a><span class="dv">9</span>    <span class="dv">2015</span>   Bartolo Colon <span class="fl">32.2</span> <span class="fl">3.31</span> <span class="dv">25</span>   <span class="dv">1</span>   <span class="dv">0</span>  <span class="dv">4</span> <span class="fl">3.29</span>        <span class="fl">0.280</span>            <span class="fl">0.357</span></span>
 <span id="cb25-12"><a href="#cb25-12"></a><span class="dv">10</span>   <span class="dv">2015</span>    Zack Greinke <span class="fl">32.2</span> <span class="fl">1.93</span> <span class="dv">27</span>   <span class="dv">7</span>   <span class="dv">1</span>  <span class="dv">2</span> <span class="fl">3.01</span>        <span class="fl">0.240</span>            <span class="fl">0.274</span></span></code></pre></div>
-<p><code><a href="../reference/edge_scrape.html">edge_scrape()</a></code>: This function allows the user to scrape PITCHf/x data from the GameDay application using Carson Sievert’s <a href="https://github.com/cpsievert/pitchRx" class="external-link">pitchRx</a> package and to calculate metrics associated with <a href="https://billpetti.shinyapps.io/edge_shiny/" class="external-link">Edge%</a>. The function returns a data.frame grouped by either pitchers or batters and the percentage of pitches in each of the various Edge zones.</p>
+<p><code>edge_scrape()</code>: This function allows the user to scrape PITCHf/x data from the GameDay application using Carson Sievert’s <a href="https://github.com/cpsievert/pitchRx" class="external-link">pitchRx</a> package and to calculate metrics associated with <a href="https://billpetti.shinyapps.io/edge_shiny/" class="external-link">Edge%</a>. The function returns a data.frame grouped by either pitchers or batters and the percentage of pitches in each of the various Edge zones.</p>
 <p>Example (pitchers):</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">edge_scrape</span>(<span class="st">"2015-04-06"</span>, <span class="st">"2015-04-07"</span>, <span class="st">"pitcher"</span>) <span class="op">%&gt;%</span><span class="st"> </span>.[, <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dv">7</span><span class="op">:</span><span class="dv">12</span>)] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">10</span>)</span>
 <span id="cb26-2"><a href="#cb26-2"></a>     pitcher_name pitcher All_pitches Upper_Edge Lower_Edge Inside_Edge Outside_Edge Heart Out_of_Zone</span>

@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -201,6 +201,9 @@ position categories.</p></dd>
 <dd><p>The handedness of the pitcher. One of 'R' or 'L'. Can be left blank.</p></dd>
 </dl></div>
     <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    <p>Returns a tibble of Statcast leaderboard data with the following columns (for leaderboard: 'exit_velocity_barrels'):</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>year</td><td>numeric</td></tr><tr><td>last_name</td><td>character</td></tr><tr><td>first_name</td><td>character</td></tr><tr><td>player_id</td><td>integer</td></tr><tr><td>attempts</td><td>integer</td></tr><tr><td>avg_hit_angle</td><td>numeric</td></tr><tr><td>anglesweetspotpercent</td><td>numeric</td></tr><tr><td>max_hit_speed</td><td>numeric</td></tr><tr><td>avg_hit_speed</td><td>numeric</td></tr><tr><td>fbld</td><td>numeric</td></tr><tr><td>gb</td><td>numeric</td></tr><tr><td>max_distance</td><td>integer</td></tr><tr><td>avg_distance</td><td>integer</td></tr><tr><td>avg_hr_distance</td><td>integer</td></tr><tr><td>ev95plus</td><td>integer</td></tr><tr><td>ev95per-swing</td><td>numeric</td></tr><tr><td>ev95percent</td><td>numeric</td></tr><tr><td>barrels</td><td>integer</td></tr><tr><td>brl_percent</td><td>numeric</td></tr><tr><td>brl_pa</td><td>numeric</td></tr></table></div>
+    <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>oaa_roles argument:
 30 = 1B - Straight Up
@@ -239,7 +242,7 @@ position categories.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">statcast_leaderboards</span><span class="op">(</span>leaderboard <span class="op">=</span> <span class="st">"exit_velocity_barrels"</span>, year <span class="op">=</span> <span class="fl">2018</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Baseball Savant Statcast Leaderboards data from baseballsavant.ml</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-18 13:50:55 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-21 18:55:50 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 138 × 20</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     year last_name first_name player_id attempts avg_hit_angle</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>

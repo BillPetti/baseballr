@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -137,6 +137,9 @@
     <dl><dt>df</dt>
 <dd><p>A data frame of statistics that includes, at a minimum, the following columns: IP (innings pitched), BF (batters faced), uBB (unintentional walks), HBP (Hit By Pitch), x1B (singles), x2B (doubles), x3B (triples), HR (home runs), AB (at-bats), SH (sacrifice hits), SO (strike outs), and season.</p></dd>
 </dl></div>
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    <p>Returns a tibble with the following columns:</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>bbref_id</td><td>character</td></tr><tr><td>season</td><td>integer</td></tr><tr><td>Name</td><td>character</td></tr><tr><td>Age</td><td>numeric</td></tr><tr><td>Level</td><td>character</td></tr><tr><td>Team</td><td>character</td></tr><tr><td>G</td><td>numeric</td></tr><tr><td>GS</td><td>numeric</td></tr><tr><td>W</td><td>numeric</td></tr><tr><td>L</td><td>numeric</td></tr><tr><td>SV</td><td>numeric</td></tr><tr><td>IP</td><td>numeric</td></tr><tr><td>H</td><td>numeric</td></tr><tr><td>R</td><td>numeric</td></tr><tr><td>ER</td><td>numeric</td></tr><tr><td>uBB</td><td>numeric</td></tr><tr><td>BB</td><td>numeric</td></tr><tr><td>SO</td><td>numeric</td></tr><tr><td>HR</td><td>numeric</td></tr><tr><td>HBP</td><td>numeric</td></tr><tr><td>ERA</td><td>numeric</td></tr><tr><td>AB</td><td>numeric</td></tr><tr><td>X1B</td><td>numeric</td></tr><tr><td>X2B</td><td>numeric</td></tr><tr><td>X3B</td><td>numeric</td></tr><tr><td>IBB</td><td>numeric</td></tr><tr><td>GDP</td><td>numeric</td></tr><tr><td>SF</td><td>numeric</td></tr><tr><td>SB</td><td>numeric</td></tr><tr><td>CS</td><td>numeric</td></tr><tr><td>PO</td><td>numeric</td></tr><tr><td>BF</td><td>numeric</td></tr><tr><td>Pit</td><td>numeric</td></tr><tr><td>Str</td><td>numeric</td></tr><tr><td>StL</td><td>numeric</td></tr><tr><td>StS</td><td>numeric</td></tr><tr><td>GB.FB</td><td>numeric</td></tr><tr><td>LD</td><td>numeric</td></tr><tr><td>PU</td><td>numeric</td></tr><tr><td>WHIP</td><td>numeric</td></tr><tr><td>BAbip</td><td>numeric</td></tr><tr><td>SO9</td><td>numeric</td></tr><tr><td>SO.W</td><td>numeric</td></tr><tr><td>SO_perc</td><td>numeric</td></tr><tr><td>uBB_perc</td><td>numeric</td></tr><tr><td>SO_uBB</td><td>numeric</td></tr><tr><td>FIP</td><td>numeric</td></tr><tr><td>wOBA_against</td><td>numeric</td></tr><tr><td>wOBA_CON_against</td><td>numeric</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
@@ -144,7 +147,7 @@
 <span class="r-in">  <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="bref_daily_pitcher.html">bref_daily_pitcher</a></span><span class="op">(</span><span class="st">"2015-04-05"</span>, <span class="st">"2015-04-30"</span><span class="op">)</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">fip_plus</span><span class="op">(</span><span class="va">df</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Daily Pitcher data from baseball-reference.com ──────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-18 13:48:23 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-21 18:54:13 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 453 × 49</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    bbref_id season Name    Age Level Team      G    GS     W     L    SV</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>

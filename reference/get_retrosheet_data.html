@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -130,8 +130,8 @@
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">get_retrosheet_data</span><span class="op">(</span>
-  <span class="va">path_to_directory</span>,
-  years_to_acquire <span class="op">=</span> <span class="fu"><a href="most_recent_mlb_season.html">most_recent_mlb_season</a></span><span class="op">(</span><span class="op">)</span>,
+  path_to_directory <span class="op">=</span> <span class="cn">NULL</span>,
+  years_to_acquire <span class="op">=</span> <span class="fu"><a href="most_recent_mlb_season.html">most_recent_mlb_season</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span>,
   sequence_years <span class="op">=</span> <span class="cn">FALSE</span>
 <span class="op">)</span></code></pre></div>
     </div>
@@ -139,17 +139,25 @@
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>path_to_directory</dt>
-<dd><p>A file path that either 1) creates a new directory
-or 2) a path to an existing directory</p></dd>
+<dd><p>(default: NULL) A file path that if set, either:</p><ol><li><p>creates a new directory, or</p></li>
+<li><p>uses the path to an existing directory</p></li>
+</ol></dd>
 <dt>years_to_acquire</dt>
-<dd><p>The seasons to collect. Single, multiple, and
+<dd><p>(format: YYYY) The seasons to collect. Single, multiple, and
 sequential years can be passed. If passing multiple years, enclose in a
 vector (i.e. c(2017,2018)). Defaults to <code><a href="most_recent_mlb_season.html">most_recent_mlb_season()</a></code>.</p></dd>
 <dt>sequence_years</dt>
-<dd><p>If the seasons passed in the years_to_acquire parameter
+<dd><p>(logical, default: FALSE): If the seasons passed in the years_to_acquire parameter
 should be sequenced so that the function returns all years including and
 between the vector passed, set the argument to TRUE. Defaults to FALSE.</p></dd>
 </dl></div>
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    <p>If <code>path_to_directory</code> is not set (default), the process will return a named list
+of tibbles: 'events' and 'rosters' for each season provided to <code>years_to_acquire</code>If <code>path_to_directory</code> is set, will also write two csv files to the unzipped directory: 1) a combined csv
+of the event data for a given year and 2) a combined csv of each team's
+roster for each year provided to <code>years_to_acquire</code></p>
+    </div>
 
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>

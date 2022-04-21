@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -146,14 +146,14 @@ after the date</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Returns a data frame of MLB standings</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>Tm</td><td>character</td></tr><tr><td>W</td><td>integer</td></tr><tr><td>L</td><td>integer</td></tr><tr><td>W-L%</td><td>numeric</td></tr><tr><td>GB</td><td>character</td></tr><tr><td>RS</td><td>integer</td></tr><tr><td>RA</td><td>integer</td></tr><tr><td>pythW-L%</td><td>numeric</td></tr></table></div>
+    <p>Returns a tibble of MLB standings with the following columns:</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>Tm</td><td>character</td></tr><tr><td>W</td><td>integer</td></tr><tr><td>L</td><td>integer</td></tr><tr><td>W-L%</td><td>numeric</td></tr><tr><td>GB</td><td>character</td></tr><tr><td>RS</td><td>integer</td></tr><tr><td>RA</td><td>integer</td></tr><tr><td>pythW-L%</td><td>numeric</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">bref_standings_on_date</span><span class="op">(</span>date <span class="op">=</span> <span class="st">"2015-08-04"</span>, division <span class="op">=</span> <span class="st">"AL East"</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Standings on Date data from baseball-reference.com ──────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-18 13:47:38 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-21 18:53:49 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 8</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
