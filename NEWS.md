@@ -1,7 +1,7 @@
 # baseballr 1.2.0
 ## Removed two `pitchRx`-dependent functions, updated retrosheet function and documentation
  * Removed `edge_scrape()` and `edge_scrape_split()` from package. See `data-raw/archived/` for the last updated script. These may be re-visited at a later date with improved data repository maturity.
- * Retrosheet functions updated to use tempdir()/tempfile() methods by default. Will need to specify a working directory to enable old functionality in which files are written to disk permanently.
+ * Retrosheet functions updated to use tempdir()/tempfile() methods by default. Will need to specify a working directory to enable old functionality in which files are written to disk permanently. New default functionality is to return a named list with two tibbles per year specified: 'events' and 'rosters'.
 
 
 # baseballr 1.1.0
