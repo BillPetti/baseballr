@@ -29,7 +29,6 @@ Imports:
     lubridate,
     magrittr,
     progressr (>= 0.6.0),
-    pitchRx,
     purrr (>= 0.3.0),
     Rcpp,
     RcppParallel,

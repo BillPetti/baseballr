@@ -32,3 +32,4 @@
 ^README\.Rmd$
 logo.png
 ^CRAN-SUBMISSION$
+^\.pre-commit-config\.yaml$

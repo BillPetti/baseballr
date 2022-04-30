@@ -108,27 +108,29 @@ navbar:
       - text: --------------------------------
       - text: R Packages
       - text: sportsdataverse-R
-        href: https://saiemgilani.github.io/sportsdataverse-R/
+        href: https://r.sportsdataverse.org/
       - text: cfbfastR
-        href: https://saiemgilani.github.io/cfbfastR/
+        href: https://cfbfastR.sportsdataverse.org/
       - text: hoopR
         href: https://hoopR.sportsdataverse.org/
       - text: wehoop
         href: https://wehoop.sportsdataverse.org/
+      - text: toRvik
+        href: https://torvik.dev/
       - text: fastRhockey
-        href: https://BenHowell71.github.io/fastRhockey/
+        href: https://fastRhockey.sportsdataverse.org/
+      - text: baseballr
+        href: https://BillPetti.github.io/baseballr/
       - text: worldfootballR
         href: https://jaseziv.github.io/worldfootballR/
       - text: chessR
         href: https://jaseziv.github.io/chessR/
-      - text: baseballr
-        href: https://BillPetti.github.io/baseballr/
       - text: cfbplotR
         href: https://kazink36.github.io/cfbplotR/
       - text: cfb4th
         href: https://kazink36.github.io/cfb4th/
       - text: recruitR
-        href: https://saiemgilani.github.io/recruitR/
+        href: https://recruitr.sportsdataverse.org/
       - text: gamezoneR
         href: https://jacklich10.github.io/gamezoneR/
       - text: puntr
