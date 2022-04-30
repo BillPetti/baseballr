@@ -74,17 +74,18 @@
     <a class="external-link dropdown-item" href="https://sportsdataverse.org/">SportsDataverse</a>
     <div class="dropdown-divider"></div>
     <h6 class="dropdown-header" data-toc-skip>R Packages</h6>
-    <a class="external-link dropdown-item" href="https://saiemgilani.github.io/sportsdataverse-R/">sportsdataverse-R</a>
-    <a class="external-link dropdown-item" href="https://saiemgilani.github.io/cfbfastR/">cfbfastR</a>
+    <a class="external-link dropdown-item" href="https://r.sportsdataverse.org/">sportsdataverse-R</a>
+    <a class="external-link dropdown-item" href="https://cfbfastR.sportsdataverse.org/">cfbfastR</a>
     <a class="external-link dropdown-item" href="https://hoopR.sportsdataverse.org/">hoopR</a>
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
-    <a class="external-link dropdown-item" href="https://BenHowell71.github.io/fastRhockey/">fastRhockey</a>
+    <a class="external-link dropdown-item" href="https://torvik.dev/">toRvik</a>
+    <a class="external-link dropdown-item" href="https://fastRhockey.sportsdataverse.org/">fastRhockey</a>
+    <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
-    <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
     <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
-    <a class="external-link dropdown-item" href="https://saiemgilani.github.io/recruitR/">recruitR</a>
+    <a class="external-link dropdown-item" href="https://recruitr.sportsdataverse.org/">recruitR</a>
     <a class="external-link dropdown-item" href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a>
     <a class="external-link dropdown-item" href="https://puntalytics.github.io/puntr/">puntr</a>
     <div class="dropdown-divider"></div>
@@ -141,11 +142,11 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">fg_guts</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── GUTS data from FanGraphs.com ───────────────────── <span style="font-style: italic;">baseballr 1.2.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-25 13:26:02 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-30 07:15:14 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 152 × 14</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    season lg_woba woba_scale   wBB  wHBP   w1B   w2B   w3B   wHR runSB</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>022   0.306       1.33 0.695 0.729 0.902  1.30  1.66  2.17   0.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>022   0.305       1.34 0.695 0.728 0.902  1.30  1.66  2.18   0.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   <span style="text-decoration: underline;">2</span>021   0.314       1.21 0.692 0.722 0.879  1.24  1.57  2.01   0.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   <span style="text-decoration: underline;">2</span>020   0.32        1.18 0.699 0.728 0.883  1.24  1.56  1.98   0.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>   <span style="text-decoration: underline;">2</span>019   0.32        1.16 0.69  0.719 0.87   1.22  1.53  1.94   0.2</span>
