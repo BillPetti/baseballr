@@ -17,39 +17,57 @@
 }
 }
 \details{
-\subsection{\strong{Scrape Pitcher Game Logs from FanGraphs}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_pitcher_game_logs(playerid = 104, year = 2006)
+\subsection{\strong{Scrape Pitcher Game Logs from FanGraphs}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_pitcher_game_logs(playerid = 104, year = 2006)
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Scrape Batter Game Logs from FanGraphs}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_batter_game_logs(playerid = 6184, year = 2017)
+\subsection{\strong{Scrape Batter Game Logs from FanGraphs}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_batter_game_logs(playerid = 6184, year = 2017)
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Scrape MiLB game logs for pitchers from Fangraphs}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_milb_pitcher_game_logs(playerid = "sa3004210", year=2017)
+\subsection{\strong{Scrape MiLB game logs for pitchers from Fangraphs}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_milb_pitcher_game_logs(playerid = "sa3004210", year=2017)
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Scrape MiLB game logs for batters from Fangraphs}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_milb_batter_game_logs(playerid = "sa917940", year=2018)
+\subsection{\strong{Scrape MiLB game logs for batters from Fangraphs}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_milb_batter_game_logs(playerid = "sa917940", year=2018)
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Scrape Batter Leaderboards from FanGraphs}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_batter_leaders(x = 2015, y = 2015, qual = 400)
+\subsection{\strong{Scrape Batter Leaderboards from FanGraphs}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_batter_leaders(x = 2015, y = 2015, qual = 400)
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Scrape Pitcher Leaderboards from FanGraphs}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_pitcher_leaders(x = 2015, y = 2015, qual = 150)
+\subsection{\strong{Scrape Pitcher Leaderboards from FanGraphs}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_pitcher_leaders(x = 2015, y = 2015, qual = 150)
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Scrape FanGraphs.com Guts!}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_guts()
+\subsection{\strong{Scrape FanGraphs.com Guts!}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_guts()
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Scrape Park Factors from FanGraphs.com}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_park(2013)
+\subsection{\strong{Scrape Park Factors from FanGraphs.com}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_park(2013)
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Scrape Park Factors by handedness from FanGraphs.com}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_park_hand(2013)
+\subsection{\strong{Scrape Park Factors by handedness from FanGraphs.com}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_park_hand(2013)
 }\if{html}{\out{</div>}}
 }
 }

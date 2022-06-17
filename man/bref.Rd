@@ -12,26 +12,36 @@
 }
 }
 \details{
-\subsection{\strong{Scrape Batter Performance Data Over a Custom Time Frame}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  bref_daily_batter("2015-05-10", "2015-06-20")
+\subsection{\strong{Scrape Batter Performance Data Over a Custom Time Frame}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  bref_daily_batter("2015-05-10", "2015-06-20")
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Scrape Pitcher Performance Data Over a Custom Time Frame}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  bref_daily_batter("2015-05-10", "2015-06-20")
+\subsection{\strong{Scrape Pitcher Performance Data Over a Custom Time Frame}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  bref_daily_batter("2015-05-10", "2015-06-20")
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Scrape MLB Standings on a Given Date}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  bref_standings_on_date(date = "2015-08-04", division = "AL East")
+\subsection{\strong{Scrape MLB Standings on a Given Date}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  bref_standings_on_date(date = "2015-08-04", division = "AL East")
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Scrape Team Results}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  bref_team_results("NYM", 2015)
+\subsection{\strong{Scrape Team Results}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  bref_team_results("NYM", 2015)
   bref_team_results(Tm="TBR", year=2008)
 }\if{html}{\out{</div>}}
 }
 
 \subsection{\strong{Team Level Consistency}}{
 
-Uses \code{bref_team_results()} to calculate team consistency metrics\if{html}{\out{<div class="sourceCode r">}}\preformatted{  team_consistency(year=2015)
+Uses \code{bref_team_results()} to calculate team consistency metrics
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  team_consistency(year=2015)
 }\if{html}{\out{</div>}}
 }
 }

@@ -16,36 +16,52 @@
 }
 }
 \details{
-\subsection{\strong{Scrape NCAA baseball data (Division I, II, and III)}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_scrape(teamid=255, year=2013, type = "batting")
+\subsection{\strong{Scrape NCAA baseball data (Division I, II, and III)}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_scrape(teamid=255, year=2013, type = "batting")
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Get Play-By-Play Data for NCAA Baseball Games}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  x <- ncaa_schedule_info(736, 2021)$game_info_url[2]
+\subsection{\strong{Get Play-By-Play Data for NCAA Baseball Games}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  x <- ncaa_schedule_info(736, 2021)$game_info_url[2]
   ncaa_baseball_pbp(game_info_url = x)
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Get NCAA Baseball Rosters}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_baseball_roster(teamid = 104, team_year = 2021)
+\subsection{\strong{Get NCAA Baseball Rosters}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_baseball_roster(teamid = 104, team_year = 2021)
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Get NCAA Baseball Game Logs}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_game_logs(player_id = 2113782, year = 2021, type = "pitching", span = "game")
+\subsection{\strong{Get NCAA Baseball Game Logs}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_game_logs(player_id = 2113782, year = 2021, type = "pitching", span = "game")
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Get NCAA Baseball Game Lineups}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_lineups(game_info_url="https://stats.ncaa.org/game/index/4587474?org_id=528",year=2018)
+\subsection{\strong{Get NCAA Baseball Game Lineups}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_lineups(game_info_url="https://stats.ncaa.org/game/index/4587474?org_id=528",year=2018)
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Get Park Effects for NCAA Baseball Teams}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{   ncaa_park_factor(teamid = 736, years = c(2017:2019), type = "conference")
+\subsection{\strong{Get Park Effects for NCAA Baseball Teams}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{   ncaa_park_factor(teamid = 736, years = c(2017:2019), type = "conference")
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Get Schedule and Results for NCAA Baseball Teams}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_schedule_info(teamid =736, year = 2021)
+\subsection{\strong{Get Schedule and Results for NCAA Baseball Teams}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_schedule_info(teamid =736, year = 2021)
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Lookup NCAA School IDs (Division I, II, and III)}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_school_id_lu("VAN")
+\subsection{\strong{Lookup NCAA School IDs (Division I, II, and III)}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_school_id_lu("VAN")
 }\if{html}{\out{</div>}}
 }
 }

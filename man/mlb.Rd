@@ -15,31 +15,45 @@
 }
 }
 \details{
-\subsection{\strong{Retrieve batting orders for a given MLB game}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  mlb_batting_orders(game_pk=566001)
+\subsection{\strong{Retrieve batting orders for a given MLB game}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  mlb_batting_orders(game_pk=566001)
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Retrieve draft pick information by year}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  mlb_draft(year= 2018)
+\subsection{\strong{Retrieve draft pick information by year}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  mlb_draft(year= 2018)
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Acquire pitch-by-pitch data for Major and Minor League games}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  mlb_pbp(game_pk = 575156)
+\subsection{\strong{Acquire pitch-by-pitch data for Major and Minor League games}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  mlb_pbp(game_pk = 575156)
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Retrieve additional game information for major and minor league games}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  mlb_game_info(game_pk = 566001)
+\subsection{\strong{Retrieve additional game information for major and minor league games}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  mlb_game_info(game_pk = 566001)
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Get MLB Game Info by Date and Level}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  mlb_game_pks("2019-04-29")
+\subsection{\strong{Get MLB Game Info by Date and Level}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  mlb_game_pks("2019-04-29")
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Find game_pk values for professional baseball games (major and minor leagues)}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  mlb_schedule(season = "2019")
+\subsection{\strong{Find game_pk values for professional baseball games (major and minor leagues)}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  mlb_schedule(season = "2019")
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Retrieve probable starters for a given MLB game}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  mlb_probables(566001)
+\subsection{\strong{Retrieve probable starters for a given MLB game}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  mlb_probables(566001)
 }\if{html}{\out{</div>}}
 }
 }

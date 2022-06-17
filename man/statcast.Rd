@@ -12,7 +12,9 @@
 }
 }
 \details{
-\subsection{\strong{Query Statcast Batters by Date Range}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{statcast_search(start_date = "2016-04-06", 
+\subsection{\strong{Query Statcast Batters by Date Range}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{statcast_search(start_date = "2016-04-06", 
                 end_date = "2016-04-15", 
                 player_type = 'batter')
                             
@@ -23,7 +25,9 @@ statcast_search_batters(start_date = "2016-04-06",
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Query Statcast Pitchers by Date Range}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{statcast_search(start_date = "2016-04-06", 
+\subsection{\strong{Query Statcast Pitchers by Date Range}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{statcast_search(start_date = "2016-04-06", 
                 end_date = "2016-04-15", 
                 player_type = 'pitcher')
                             
@@ -34,7 +38,9 @@ statcast_search_pitchers(start_date = "2016-04-06",
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Query Statcast Batters by Date Range and Player ID}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  correa <- statcast_search(start_date = "2016-04-06", 
+\subsection{\strong{Query Statcast Batters by Date Range and Player ID}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  correa <- statcast_search(start_date = "2016-04-06", 
                             end_date = "2016-04-15", 
                             playerid = 621043, 
                             player_type = 'batter')
@@ -46,7 +52,9 @@ statcast_search_pitchers(start_date = "2016-04-06",
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Query Statcast Pitchers by Date Range and Player ID}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  noah <- statcast_search(start_date = "2016-04-06",
+\subsection{\strong{Query Statcast Pitchers by Date Range and Player ID}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  noah <- statcast_search(start_date = "2016-04-06",
                           end_date = "2016-04-15", 
                           playerid = 592789, 
                           player_type = 'pitcher')
@@ -58,7 +66,9 @@ statcast_search_pitchers(start_date = "2016-04-06",
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Query Baseball Savant Leaderboards}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  statcast_leaderboards(leaderboard = "exit_velocity_barrels", year = 2021)
+\subsection{\strong{Query Baseball Savant Leaderboards}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  statcast_leaderboards(leaderboard = "exit_velocity_barrels", year = 2021)
 }\if{html}{\out{</div>}}
 }
 }

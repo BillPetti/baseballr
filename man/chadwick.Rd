@@ -11,16 +11,22 @@
 }
 }
 \details{
-\subsection{\strong{Directly download the Chadwick Bureau's public register of baseball players.}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  chadwick_player_lu()
+\subsection{\strong{Directly download the Chadwick Bureau's public register of baseball players.}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  chadwick_player_lu()
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Look up baseball player name by ID}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  playername_lookup(4885)
+\subsection{\strong{Look up baseball player name by ID}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  playername_lookup(4885)
   playername_lookup("kaaihki01")
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Look up baseball player IDs by player name}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  playerid_lookup("Garcia", "Karim")
+\subsection{\strong{Look up baseball player IDs by player name}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  playerid_lookup("Garcia", "Karim")
 }\if{html}{\out{</div>}}
 }
 }

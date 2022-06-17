@@ -16,35 +16,51 @@
 }
 }
 \details{
-\subsection{\strong{Find MLB All-Star Ballots}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  try(mlb_all_star_ballots(league_id = 103, season = 2021))
+\subsection{\strong{Find MLB All-Star Ballots}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  try(mlb_all_star_ballots(league_id = 103, season = 2021))
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Find MLB All-Star Final Vote}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  try(mlb_all_star_final_vote(league_id = 103, season = 2021))
+\subsection{\strong{Find MLB All-Star Final Vote}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  try(mlb_all_star_final_vote(league_id = 103, season = 2021))
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Find MLB All-Star Write-ins}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  try(mlb_all_star_write_ins(league_id = 103, season = 2021))
+\subsection{\strong{Find MLB All-Star Write-ins}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  try(mlb_all_star_write_ins(league_id = 103, season = 2021))
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Find MLB Awards}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  try(mlb_awards())
+\subsection{\strong{Find MLB Awards}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  try(mlb_awards())
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Find MLB Award Recipients}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  try(mlb_awards_recipient(award_id = 'MLBHOF', season = 2020))
+\subsection{\strong{Find MLB Award Recipients}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  try(mlb_awards_recipient(award_id = 'MLBHOF', season = 2020))
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Retrieve MLB Home Run Derby Data}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{  try(mlb_homerun_derby(game_pk = 511101))
+\subsection{\strong{Retrieve MLB Home Run Derby Data}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  try(mlb_homerun_derby(game_pk = 511101))
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Retrieve MLB Home Run Derby Bracket}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{   try(mlb_homerun_derby_bracket(game_pk = 511101))
+\subsection{\strong{Retrieve MLB Home Run Derby Bracket}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{   try(mlb_homerun_derby_bracket(game_pk = 511101))
 }\if{html}{\out{</div>}}
 }
 
-\subsection{\strong{Retrieve MLB Home Run Derby Players}}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{   try(mlb_homerun_derby_players(game_pk = 511101))
+\subsection{\strong{Retrieve MLB Home Run Derby Players}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{   try(mlb_homerun_derby_players(game_pk = 511101))
 }\if{html}{\out{</div>}}
 }
 }
