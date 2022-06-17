@@ -343,7 +343,7 @@ reference:
       - '`batter_game_logs_fg`' 
       - '`daily_batter_bref`'
       - '`daily_pitcher_bref`'
-      - '`fg_bat_leaders `'
+      - '`fg_bat_leaders`'
       - '`fg_pitch_leaders`'
       - '`get_batting_orders`'
       - '`get_draft_mlb`'
