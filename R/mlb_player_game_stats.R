@@ -128,7 +128,9 @@ mlb_player_game_stats <- function(person_id = NULL,
           player_id = person_id,
           game_pk = game_pk
         )
-      colnames(stats)<-gsub("stat_", "", colnames(stats)) %>%
+      colnames(stats)<-gsub("stat_", "", colnames(stats)) 
+      
+      stats <- stats %>%
         make_baseballr_data("MLB Player Game Stats data from MLB.com",Sys.time())
       
     },
