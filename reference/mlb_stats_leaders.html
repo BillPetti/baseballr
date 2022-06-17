@@ -151,13 +151,21 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>leader_categories</dt>
 <dd><p>League leader category to return information and ranking for a particular statistic.</p></dd>
+
+
 <dt>player_pool</dt>
 <dd><p>There are 4 different types of player pools to return statistics for a particular player pool across a sport.
 Acceptable values include: All, Qualified, Rookies, or Qualified_rookies</p></dd>
+
+
 <dt>leader_game_types</dt>
 <dd><p>Game type to return information and ranking for a particular statistic in a particular game type.</p></dd>
+
+
 <dt>sit_codes</dt>
 <dd><p>Situation code to return information and ranking for a particular statistic in a particular game type.</p></dd>
+
+
 <dt>position</dt>
 <dd><p>Position to return statistics for a given position. Default to "Qualified" player pool
 Acceptable values include:</p><ul><li><p>P</p></li>
@@ -190,35 +198,54 @@ Acceptable values include:</p><ul><li><p>P</p></li>
 <li><p>B</p></li>
 <li><p>X</p></li>
 </ul></dd>
+
+
 <dt>stat_group</dt>
 <dd><p>Stat group to return information and ranking for a particular statistic in a particular group.</p></dd>
+
+
 <dt>season</dt>
 <dd><p>Year to return information and ranking for a particular statistic in a given year.</p></dd>
+
+
 <dt>league_id</dt>
 <dd><p>League ID to return statistics for a given league. Default to "Qualified" player pool.</p></dd>
+
+
 <dt>sport_id</dt>
 <dd><p>The sport_id to return information and ranking information for.</p></dd>
+
+
 <dt>start_date</dt>
 <dd><p>Start date to return information and ranking for a particular statistic for a particular date range. Format: MM/DD/YYYY
 <em>start_date must be coupled with end_date and byDateRange stat_type</em></p></dd>
+
+
 <dt>end_date</dt>
 <dd><p>End date to return information and ranking for a particular statistic for a particular date range. Format: MM/DD/YYYY
 <em>end_date must be coupled with start_date and byDateRange stat_type</em></p></dd>
+
+
 <dt>stat_type</dt>
 <dd><p>The stat_type to return information and ranking for a particular statistic for a particular stat type.</p></dd>
+
+
 <dt>limit</dt>
 <dd><p>A limit to limit return to a particular number of records.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Returns a tibble with the following columns</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>leader_category</td><td>character</td></tr><tr><td>rank</td><td>integer</td></tr><tr><td>value</td><td>character</td></tr><tr><td>season</td><td>character</td></tr><tr><td>num_teams</td><td>integer</td></tr><tr><td>team_id</td><td>integer</td></tr><tr><td>team_name</td><td>character</td></tr><tr><td>team_link</td><td>character</td></tr><tr><td>league_id</td><td>integer</td></tr><tr><td>league_name</td><td>character</td></tr><tr><td>league_link</td><td>character</td></tr><tr><td>person_id</td><td>integer</td></tr><tr><td>person_full_name</td><td>character</td></tr><tr><td>person_link</td><td>character</td></tr><tr><td>person_first_name</td><td>character</td></tr><tr><td>person_last_name</td><td>character</td></tr><tr><td>sport_id</td><td>integer</td></tr><tr><td>sport_link</td><td>character</td></tr><tr><td>sport_abbreviation</td><td>character</td></tr><tr><td>stat_group</td><td>character</td></tr><tr><td>total_splits</td><td>integer</td></tr><tr><td>game_type_id</td><td>character</td></tr><tr><td>game_type_description</td><td>character</td></tr></table></div>
+    
+
+<p>Returns a tibble with the following columns</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>leader_category</td><td>character</td></tr><tr><td>rank</td><td>integer</td></tr><tr><td>value</td><td>character</td></tr><tr><td>season</td><td>character</td></tr><tr><td>num_teams</td><td>integer</td></tr><tr><td>team_id</td><td>integer</td></tr><tr><td>team_name</td><td>character</td></tr><tr><td>team_link</td><td>character</td></tr><tr><td>league_id</td><td>integer</td></tr><tr><td>league_name</td><td>character</td></tr><tr><td>league_link</td><td>character</td></tr><tr><td>person_id</td><td>integer</td></tr><tr><td>person_full_name</td><td>character</td></tr><tr><td>person_link</td><td>character</td></tr><tr><td>person_first_name</td><td>character</td></tr><tr><td>person_last_name</td><td>character</td></tr><tr><td>sport_id</td><td>integer</td></tr><tr><td>sport_link</td><td>character</td></tr><tr><td>sport_abbreviation</td><td>character</td></tr><tr><td>stat_group</td><td>character</td></tr><tr><td>total_splits</td><td>integer</td></tr><tr><td>game_type_id</td><td>character</td></tr><tr><td>game_type_description</td><td>character</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in"> <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_stats_leaders</span><span class="op">(</span>leader_categories<span class="op">=</span><span class="st">'homeRuns'</span>,sport_id<span class="op">=</span><span class="fl">1</span>, season <span class="op">=</span> <span class="fl">2021</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Stats Leaders data from MLB.com ────────────── <span style="font-style: italic;">baseballr 1.2.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-30 07:16:39 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-06-17 03:02:20 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 306 × 23</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    leader_category  rank value season num_teams team_id team_name       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
@@ -250,7 +277,7 @@ Acceptable values include:</p><ul><li><p>P</p></li>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
     </footer></div>

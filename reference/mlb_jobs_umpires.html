@@ -137,20 +137,25 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>sport_id</dt>
 <dd><p>Return information for a given sport_id.</p></dd>
+
+
 <dt>date</dt>
 <dd><p>Return information for a given date.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Returns a tibble with the following columns</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>jersey_number</td><td>character</td></tr><tr><td>job</td><td>character</td></tr><tr><td>job_code</td><td>character</td></tr><tr><td>title</td><td>character</td></tr><tr><td>person_id</td><td>integer</td></tr><tr><td>person_full_name</td><td>character</td></tr><tr><td>person_link</td><td>character</td></tr></table></div>
+    
+
+<p>Returns a tibble with the following columns</p><table class="table table"><tr><td>col_name</td><td>types</td></tr><tr><td>jersey_number</td><td>character</td></tr><tr><td>job</td><td>character</td></tr><tr><td>job_code</td><td>character</td></tr><tr><td>title</td><td>character</td></tr><tr><td>person_id</td><td>integer</td></tr><tr><td>person_full_name</td><td>character</td></tr><tr><td>person_link</td><td>character</td></tr></table></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_jobs_umpires</span><span class="op">(</span>sport_id<span class="op">=</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Jobs Umpires data from MLB.com ─────────────── <span style="font-style: italic;">baseballr 1.2.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-04-30 07:16:14 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 106 × 7</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-06-17 03:01:57 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 107 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    jersey_number job    job_code title  person_id person_full_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 67            Umpire UMPR     Umpire    <span style="text-decoration: underline;">596</span>809 Ryan Additon    </span>
@@ -158,12 +163,12 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 101           Umpire UMPR     Umpire    <span style="text-decoration: underline;">623</span>938 Erich Bacchus   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 70            Umpire UMPR     Umpire    <span style="text-decoration: underline;">545</span>402 John Bacon      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 71            Umpire UMPR     Umpire    <span style="text-decoration: underline;">490</span>319 Jordan Baker    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 29            Umpire UMPR     Umpire    <span style="text-decoration: underline;">503</span>493 Sean Barber     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 23            Umpire UMPR     Umpire    <span style="text-decoration: underline;">427</span>013 Lance Barksdale </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 16            Umpire UMPR     Umpire    <span style="text-decoration: underline;">483</span>561 Lance Barrett   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 65            Umpire UMPR     Umpire    <span style="text-decoration: underline;">427</span>019 Ted Barrett     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 87            Umpire UMPR     Umpire    <span style="text-decoration: underline;">482</span>608 Scott Barry     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 96 more rows, and 1 more variable: person_link &lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 119           Umpire UMPR     Umpire    <span style="text-decoration: underline;">665</span>576 Brock Ballou    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 29            Umpire UMPR     Umpire    <span style="text-decoration: underline;">503</span>493 Sean Barber     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 23            Umpire UMPR     Umpire    <span style="text-decoration: underline;">427</span>013 Lance Barksdale </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 16            Umpire UMPR     Umpire    <span style="text-decoration: underline;">483</span>561 Lance Barrett   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 65            Umpire UMPR     Umpire    <span style="text-decoration: underline;">427</span>019 Ted Barrett     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 97 more rows, and 1 more variable: person_link &lt;chr&gt;</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>
@@ -176,7 +181,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
     </footer></div>

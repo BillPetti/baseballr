@@ -1,9 +1,9 @@
 pandoc: 2.7.3
-pkgdown: 2.0.3
+pkgdown: 2.0.4
 pkgdown_sha: ~
 articles:
   baseballr: baseballr.html
   ncaa_scraping: ncaa_scraping.html
   plotting_statcast: plotting_statcast.html
-last_built: 2022-04-30T07:14Z
+last_built: 2022-06-17T03:00Z
 
