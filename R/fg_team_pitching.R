@@ -1,5 +1,5 @@
 
-#' @rdname fg_pitcher_leaders
+#' @rdname fg_team_pitching
 #' @title **Scrape Pitcher Leaderboards from FanGraphs**
 #' @param pitcher_type Whether you want only starting pitchers, relievers, or all pitchers that meet the criteria specified in the qual argument. Options include "pit", "sta", "rel".
 #' @param x First season for which you want data.
@@ -309,6 +309,7 @@
 #'  |Contact_pct_pi     |numeric   |
 #'  |Zone_pct_pi        |numeric   |
 #'  |Pace_pi            |numeric   |
+#'  |Dol                |numeric   |
 #' @import rvest 
 #' @export
 #' @examples \donttest{
@@ -350,6 +351,8 @@ fg_team_pitching <- function(x, y, league = "all", qual = 0,
           dplyr::select(.data$Season,tidyr::everything())
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))), stringsAsFactors=F)
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))), stringsAsFactors=F)
+        leaders$Dol <- gsub("\\(", "-", leaders$Dol)
+        leaders$Dol <- gsub("\\)", "", leaders$Dol)
         # Replace any empty cells with NA to avoid a warning message.
         is.na(leaders) <- leaders==""
         # Convert columns 5 to 301 to numeric, except column 217 "Age Rng"
@@ -405,9 +408,9 @@ fg_team_pitching <- function(x, y, league = "all", qual = 0,
           dplyr::select(.data$Season,tidyr::everything())
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))))
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))))
-        # leaders$Dol <- gsub("\\(", "-", leaders$Dol)
-        # leaders$Dol <- gsub("\\)", "", leaders$Dol)
-        # Convert columns 5 to 299 to numeric, except column 217 "Age Rng"
+        leaders$Dol <- gsub("\\(", "-", leaders$Dol)
+        leaders$Dol <- gsub("\\)", "", leaders$Dol)
+        # Convert columns 5 to 301 to numeric, except column 217 "Age Rng"
         for(i in c(5:216, 218:ncol(leaders))) {
           suppressWarnings(
             leaders[,i] <- as.numeric(as.character(leaders[,i]))
