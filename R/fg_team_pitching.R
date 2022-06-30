@@ -10,9 +10,10 @@
 #' @return A data frame of pitcher data.
 #'  |col_name           |types     |
 #'  |:------------------|:---------|
+#'  |Season             |character |
 #'  |#                  |character |
 #'  |Team               |character |
-#'  |Season             |character |
+#'  |Age                |character |
 #'  |W                  |numeric   |
 #'  |L                  |numeric   |
 #'  |ERA                |numeric   |

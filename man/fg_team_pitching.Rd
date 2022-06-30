@@ -22,9 +22,10 @@ fg_team_pitching(x, y, league = "all", qual = 0, pitcher_type = "pit", ind = 1)
 \value{
 A data frame of pitcher data.\tabular{ll}{
    col_name \tab types \cr
+   Season \tab character \cr
    # \tab character \cr
    Team \tab character \cr
-   Season \tab character \cr
+   Age \tab character \cr
    W \tab numeric \cr
    L \tab numeric \cr
    ERA \tab numeric \cr
