@@ -13,7 +13,6 @@
 #'  |Season             |character |
 #'  |#                  |character |
 #'  |Team               |character |
-#'  |Age                |character |
 #'  |W                  |numeric   |
 #'  |L                  |numeric   |
 #'  |ERA                |numeric   |
@@ -336,6 +335,7 @@ fg_team_pitching <- function(x, y, league = "all", qual = 0,
         leaders <- leaders[-c(1,3),]
         colnames(leaders) <- leaders[1,]
         leaders <- leaders[-1,]
+        leaders <- leaders[,-4]
         c <- as.matrix(names(leaders))
         c <- gsub("%", "_pct", c, fixed = TRUE)
         c <- gsub(" (pfx)", "_pfx", c, fixed = TRUE)
@@ -344,7 +344,7 @@ fg_team_pitching <- function(x, y, league = "all", qual = 0,
         c <- ifelse(substr(c, nchar(c)-1+1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
         r <- c("Start_IP", "Relief_IP", "WPA_minus",
                "WPA_plus", "FBall_pct", "AgeRng")
-        c[c(56,58,65,66,76,217),] <- r
+        c[c(55,57,64,65,75,216),] <- r
         Seasons <- ifelse(x==y, paste0(x), paste0(x, "-", y))
         names(leaders) <- c
         leaders <- leaders %>% 
@@ -356,8 +356,8 @@ fg_team_pitching <- function(x, y, league = "all", qual = 0,
         leaders$Dol <- gsub("\\)", "", leaders$Dol)
         # Replace any empty cells with NA to avoid a warning message.
         is.na(leaders) <- leaders==""
-        # Convert columns 5 to 301 to numeric, except column 217 "Age Rng"
-        for(i in c(5:216, 218:ncol(leaders))) {
+        # Convert columns 5 to 300 to numeric, except column 217 "Age Rng"
+        for(i in c(4:215, 217:ncol(leaders))) {
           suppressWarnings(
             leaders[,i] <- as.numeric(as.character(leaders[,i]))
           )
@@ -395,6 +395,7 @@ fg_team_pitching <- function(x, y, league = "all", qual = 0,
         leaders <- leaders[-c(1,3),]
         colnames(leaders) <- leaders[1,]
         leaders <- leaders[-1,]
+        leaders <- leaders[,-4]
         c <- as.matrix(names(leaders))
         c <- gsub("%", "_pct", c, fixed = TRUE)
         c <- gsub(" (pfx)", "_pfx", c, fixed = TRUE)
@@ -403,7 +404,7 @@ fg_team_pitching <- function(x, y, league = "all", qual = 0,
         c <- ifelse(substr(c, nchar(c)-1+1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
         r <- c("Start_IP", "Relief_IP", "WPA_minus",
                "WPA_plus", "FBall_pct", "AgeRng")
-        c[c(56,58,65,66,76,217),] <- r
+        c[c(55,57,64,65,75,216),] <- r
         names(leaders) <- c
         leaders <- leaders %>% 
           dplyr::select(.data$Season,tidyr::everything())
@@ -412,7 +413,7 @@ fg_team_pitching <- function(x, y, league = "all", qual = 0,
         leaders$Dol <- gsub("\\(", "-", leaders$Dol)
         leaders$Dol <- gsub("\\)", "", leaders$Dol)
         # Convert columns 5 to 301 to numeric, except column 217 "Age Rng"
-        for(i in c(5:216, 218:ncol(leaders))) {
+        for(i in c(4:215, 217:ncol(leaders))) {
           suppressWarnings(
             leaders[,i] <- as.numeric(as.character(leaders[,i]))
           )

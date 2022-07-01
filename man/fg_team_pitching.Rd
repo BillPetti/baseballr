@@ -25,7 +25,6 @@ A data frame of pitcher data.\tabular{ll}{
    Season \tab character \cr
    # \tab character \cr
    Team \tab character \cr
-   Age \tab character \cr
    W \tab numeric \cr
    L \tab numeric \cr
    ERA \tab numeric \cr
