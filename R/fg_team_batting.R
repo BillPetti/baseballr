@@ -1,5 +1,5 @@
 #' @rdname fg_team_batting
-#' @title **Scrape Batter Leaderboards from FanGraphs**
+#' @title **Scrape Team Batter Leaderboards from FanGraphs**
 #' @description This function allows you to scrape all leaderboard statistics (basic and advanced) from FanGraphs.com.
 #' @param x First season for which you want data.
 #' @param y Last season for which you want data. If multiple years selected, data returned will be aggregate data for the date range. If y = x, function will return single-season data.

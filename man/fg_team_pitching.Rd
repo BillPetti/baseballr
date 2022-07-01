@@ -2,7 +2,7 @@
 % Please edit documentation in R/fg_team_pitching.R
 \name{fg_team_pitching}
 \alias{fg_team_pitching}
-\title{\strong{Scrape Pitcher Leaderboards from FanGraphs}}
+\title{\strong{Scrape Team Pitcher Leaderboards from FanGraphs}}
 \usage{
 fg_team_pitching(x, y, league = "all", qual = 0, pitcher_type = "pit", ind = 1)
 }
@@ -325,7 +325,7 @@ A data frame of pitcher data.\tabular{ll}{
 }
 }
 \description{
-\strong{Scrape Pitcher Leaderboards from FanGraphs}
+\strong{Scrape Team Pitcher Leaderboards from FanGraphs}
 }
 \examples{
 \donttest{

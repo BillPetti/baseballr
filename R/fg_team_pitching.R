@@ -1,6 +1,6 @@
 
 #' @rdname fg_team_pitching
-#' @title **Scrape Pitcher Leaderboards from FanGraphs**
+#' @title **Scrape Team Pitcher Leaderboards from FanGraphs**
 #' @param pitcher_type Whether you want only starting pitchers, relievers, or all pitchers that meet the criteria specified in the qual argument. Options include "pit", "sta", "rel".
 #' @param x First season for which you want data.
 #' @param y Last season for which you want data. If multiple years selected, data returned will be aggregate data for the date range. If y = x, function will return single-season data.

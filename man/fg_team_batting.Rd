@@ -2,7 +2,7 @@
 % Please edit documentation in R/fg_team_batting.R
 \name{fg_team_batting}
 \alias{fg_team_batting}
-\title{\strong{Scrape Batter Leaderboards from FanGraphs}}
+\title{\strong{Scrape Team Batter Leaderboards from FanGraphs}}
 \usage{
 fg_team_batting(x, y, league = "all", qual = "y", ind = 1, exc_p = TRUE)
 }
