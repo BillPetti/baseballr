@@ -319,7 +319,7 @@ fg_team_batting <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = T
         
         leaders <- (payload %>%
                       rvest::html_elements("table"))[[17]] %>%
-          rvest::html_table(fill=TRUE)
+          rvest::html_table()
         
         leaders <- leaders[-c(1,3),]
         names(leaders) <- leaders[1,]
@@ -383,7 +383,7 @@ fg_team_batting <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = T
         
         leaders <- (payload %>%
                       rvest::html_elements("table"))[[17]] %>% 
-          rvest::html_table(fill=TRUE)
+          rvest::html_table()
         
         leaders <- leaders[-c(1,3),]
         names(leaders) <- leaders[1,]
