@@ -4,14 +4,17 @@
 \alias{sptrc_team_active_payroll}
 \title{\strong{Scrape Team Active Payroll Breakdown from Spotrac}}
 \usage{
-sptrc_team_active_payroll(team_abbr)
+sptrc_team_active_payroll(team_abbr, year = most_recent_mlb_season())
 }
 \arguments{
 \item{team_abbr}{Team abbreviation}
+
+\item{year}{Year to load}
 }
 \value{
 A data frame of contract data.\tabular{ll}{
    col_name \tab types \cr
+   year \tab numeric \cr
    team \tab character \cr
    player_name \tab character \cr
    roster_status \tab character \cr
@@ -33,6 +36,6 @@ This function allows you to scrape each team's active payroll from Spotrac.
 }
 \examples{
 \donttest{
-  try(sptrc_team_active_payroll(team_abbr = "BAL"))
+  try(sptrc_team_active_payroll(team_abbr = "BAL", year = 2015))
 }
 }
