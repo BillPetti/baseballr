@@ -354,10 +354,9 @@ fg_team_batting <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = T
         
         
         leaders <- leaders %>%
-          make_baseballr_data("MLB Batter Leaders data from FanGraphs.com",Sys.time())
+          make_baseballr_data("MLB Team Batting data from FanGraphs.com",Sys.time())
       },
       error = function(e) {
-        message(e)
         message(glue::glue("{Sys.time()}: Invalid arguments or no batter leaders data available!"))
       },
       warning = function(w) {
@@ -414,10 +413,9 @@ fg_team_batting <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = T
 
         
         leaders <- leaders %>%
-          make_baseballr_data("MLB Batter Leaders data from FanGraphs.com",Sys.time())
+          make_baseballr_data("MLB Team Batting data from FanGraphs.com",Sys.time())
       },
       error = function(e) {
-        message(e)
         message(glue::glue("{Sys.time()}: Invalid arguments or no batter leaders data available!"))
       },
       warning = function(w) {

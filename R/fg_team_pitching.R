@@ -365,7 +365,7 @@ fg_team_pitching <- function(x, y, league = "all", qual = 0,
         
         
         leaders <- leaders %>%
-          make_baseballr_data("MLB Pitcher Leaders data from FanGraphs.com",Sys.time())
+          make_baseballr_data("MLB Team Pitching data from FanGraphs.com",Sys.time())
       },
       error = function(e) {
         message(glue::glue("{Sys.time()}: Invalid arguments or no team data available!"))
@@ -422,7 +422,7 @@ fg_team_pitching <- function(x, y, league = "all", qual = 0,
         
         
         leaders <- leaders %>%
-          make_baseballr_data("MLB Team data from FanGraphs.com",Sys.time())
+          make_baseballr_data("MLB Team Pitching data from FanGraphs.com",Sys.time())
       },
       error = function(e) {
         message(glue::glue("{Sys.time()}: Invalid arguments or no team data available!"))
