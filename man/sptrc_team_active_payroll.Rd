@@ -32,7 +32,7 @@ A data frame of contract data.\tabular{ll}{
 }
 }
 \description{
-This function allows you to scrape each team's active payroll from Spotrac.
+This function allows you to scrape a team's active payroll from Spotrac.
 }
 \examples{
 \donttest{

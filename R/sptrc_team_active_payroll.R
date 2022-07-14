@@ -1,6 +1,6 @@
 #' @rdname sptrc_team_active_payroll
 #' @title **Scrape Team Active Payroll Breakdown from Spotrac**
-#' @description This function allows you to scrape each team's active payroll from Spotrac.
+#' @description This function allows you to scrape a team's active payroll from Spotrac.
 #' @param team_abbr Team abbreviation
 #' @param year Year to load
 #' @return A data frame of contract data.
@@ -22,6 +22,8 @@
 #'  |lux_tax_salary     |numeric   |
 #'  |total_salary       |numeric   |
 #' @import rvest 
+#' @import dplyr
+#' @importFrom janitor clean_names
 #' @export
 #' @examples \donttest{
 #'   try(sptrc_team_active_payroll(team_abbr = "BAL", year = 2015))
