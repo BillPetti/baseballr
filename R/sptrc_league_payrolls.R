@@ -22,9 +22,11 @@
 #' @importFrom janitor clean_names
 #' @export
 #' @examples \donttest{
-#'   try(sptrc_league_payrolls(year = 2015))
+#'   try(sptrc_league_payrolls(year = most_recent_mlb_season()))
 #' }
 sptrc_league_payrolls <- function(year = most_recent_mlb_season()){
+  
+  stopifnot("'year' can't be further than two seasons ago" = 2 >= most_recent_mlb_season()-year)
   
   url <- paste0("https://www.spotrac.com/mlb/payroll/", year, "/")
   

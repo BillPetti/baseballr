@@ -31,6 +31,6 @@ This function allows you to scrape each team's payroll from Spotrac.
 }
 \examples{
 \donttest{
-  try(sptrc_league_payrolls(year = 2015))
+  try(sptrc_league_payrolls(year = most_recent_mlb_season()))
 }
 }
