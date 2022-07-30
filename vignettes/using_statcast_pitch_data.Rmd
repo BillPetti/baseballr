@@ -110,7 +110,7 @@ burnes_cleaned_data |>
   ggplot2::geom_vline(xintercept = 0) +
   ggplot2::geom_hline(yintercept = 0) +
   # Make the points slightly transparent
-  ggplot2::geom_point(alpha = 0.25) +
+  ggplot2::geom_point(size = 1.5, alpha = 0.25) +
   # Scale the pitch colors to match what we defined above
   # and limit it to only the pitches Burnes throws
   ggplot2::scale_color_manual(values = pitch_colors,
