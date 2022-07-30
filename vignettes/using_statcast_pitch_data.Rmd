@@ -35,7 +35,7 @@ library(ggplot2)
 # Find Corbin Burnes' MLBAM ID
 
 ```{r get-id}
-burnes_id <- baseballr::playerid_lookup(last_name = "Burnes", first_name = "Corbin") |> 
+burnes_id <- baseballr::playerid_lookup(last_name = "Burnes", first_name = "Corbin") %>% 
   dplyr::pull(mlbam_id)
 ```
 
@@ -72,13 +72,13 @@ Since we're going to be making a scatterplot of Corbin Burnes' pitch movement, w
 # Try it out if you haven't used it before!
 # 
 # 
-# burnes_data |> dplyr::glimpse()
+# burnes_data %>% dplyr::glimpse()
 
-burnes_cleaned_data <- burnes_data |> 
+burnes_cleaned_data <- burnes_data %>% 
   # Only keep rows with pitch movement readings
   # and during the regular season
   dplyr::filter(!is.na(pfx_x), !is.na(pfx_z),
-                game_type == "R") |> 
+                game_type == "R") %>% 
   dplyr::mutate(pfx_x_in_pv = -12*pfx_x,
                 pfx_z_in = 12*pfx_z)
   
@@ -105,7 +105,7 @@ pitch_colors <- c("4-Seam Fastball" = "red",
 # Find unique pitch types to not have unnecessary pitches in legend
 burnes_pitch_types <- unique(burnes_cleaned_data$pitch_name)
 
-burnes_cleaned_data |> 
+burnes_cleaned_data %>% 
   ggplot2::ggplot(ggplot2::aes(x = pfx_x_in_pv, y = pfx_z_in, color = pitch_name)) +
   ggplot2::geom_vline(xintercept = 0) +
   ggplot2::geom_hline(yintercept = 0) +
@@ -139,12 +139,12 @@ Now let's take a look at Corbin Burnes' pitch velo by inning for his trademark c
 
 ```{r velo-by-inning}
 
-burnes_velo_by_inning <- burnes_cleaned_data |> 
-  dplyr::filter(pitch_name == "Cutter") |> 
-  dplyr::group_by(inning, pitch_name) |> 
+burnes_velo_by_inning <- burnes_cleaned_data %>% 
+  dplyr::filter(pitch_name == "Cutter") %>% 
+  dplyr::group_by(inning, pitch_name) %>% 
   dplyr::summarize(average_velo = mean(release_speed, na.rm = TRUE))
 
-burnes_velo_by_inning |> 
+burnes_velo_by_inning %>% 
   ggplot2::ggplot(ggplot2::aes(x = inning, y = average_velo, color = pitch_name)) +
   ggplot2::geom_line(size = 1.5, alpha = 0.5, show.legend = FALSE) +
   ggplot2::geom_point(size = 3, show.legend = FALSE) +
