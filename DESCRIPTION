@@ -18,6 +18,7 @@ BugReports: https://github.com/BillPetti/baseballr/issues
 Depends:
     R (>= 4.0.0)
 Imports: 
+    arrow,
     cli (>= 3.0.0),
     data.table (>= 1.14.0),
     dplyr,

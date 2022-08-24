@@ -23,6 +23,78 @@ progressively <- function(f, p = NULL){
   
 }
 
+
+#' Load rds/parquet/csv files from remote URL
+#' @param url a vector of URLs to load into memory. If more than one URL provided, will row-bind them.
+#' @param seasons a numeric vector of years that will be used to filter the dataframe's `season` column. If `TRUE` (default), does not filter.
+#' @param baseballr TRUE to add baseballr_data classing and attributes.
+#' @param ... named arguments that will be added as attributes to the data
+#' @return a dataframe
+load_from_url <- function(url, ..., seasons = TRUE, baseballr = FALSE){
+  
+  url <- as.character(url)
+  
+  if(length(url) == 1) {
+    out <- loader(url)
+    if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
+    if(!isTRUE(seasons) && "season" %in% names(out)) out <- out[out$season %in% seasons]
+  }
+  
+  if(length(url) > 1) {
+    p <- NULL
+    if (is_installed("progressr")) p <- progressr::progressor(along = url)
+    out <- lapply(url, progressively(loader, p))
+    out <- rbindlist_with_attrs(out)
+  }
+  
+  if(baseballr) out <- make_baseballr_data(out,...)
+  return(out)
+}
+
+
+
+
+
+loader <- function(url){
+  switch(detect_filetype(url),
+         "rds" = rds_from_url(url),
+         "parquet" = parquet_from_url(url),
+         "csv" = csv_from_url(url)
+  )
+}
+
+detect_filetype <- function(url){
+  tools::file_ext(gsub(x = url, pattern = ".gz$", replacement = ""))
+}
+
+#' @title
+#' **Load .parquet file from a remote connection**
+#' @description 
+#' Retrieves a parquet file from URL.
+#' @param url a character url
+#' @keywords internal
+#' @importFrom arrow read_parquet
+#' @importFrom data.table data.table setDT
+parquet_from_url <- function(url){
+  rlang::check_installed("arrow")
+  load <- try(curl::curl_fetch_memory(url), silent = TRUE)
+  
+  if (inherits(load, "try-error")) {
+    cli::cli_warn("Failed to retrieve data from {.url {url}}")
+    return(data.table::data.table())
+  }
+  
+  content <- try(arrow::read_parquet(load$content), silent = TRUE)
+  
+  if (inherits(content, "try-error")) {
+    cli::cli_warn("Failed to parse file with {.fun arrow::read_parquet()} from {.url {url}}")
+    return(data.table::data.table())
+  }
+  
+  data.table::setDT(content)
+  return(content)
+}
+
 #' @title
 #' **Load .csv / .csv.gz file from a remote connection**
 #' @description
