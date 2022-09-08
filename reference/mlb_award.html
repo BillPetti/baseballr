@@ -27,7 +27,7 @@ Retrieve MLB Home Run Derby Players.
 
 
 
-"><title>MLB All-Star, Awards, Home Run Derby Functions — mlb_award • baseballr</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet"><meta property="og:title" content="MLB All-Star, Awards, Home Run Derby Functions — mlb_award"><meta property="og:description" content="
+"><title>MLB All-Star, Awards, Home Run Derby Functions — mlb_award • baseballr</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet"><meta property="og:title" content="MLB All-Star, Awards, Home Run Derby Functions — mlb_award"><meta property="og:description" content="
 
 mlb_all_star_ballots():
 Find MLB All-Star Ballots.
@@ -66,7 +66,7 @@ Retrieve MLB Home Run Derby Players.
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.3.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -109,6 +109,7 @@ Retrieve MLB Home Run Derby Players.
   <div class="dropdown-menu" aria-labelledby="dropdown--articles">
     <a class="dropdown-item" href="../articles/index.html">Vignettes</a>
     <a class="dropdown-item" href="../articles/baseballr.html">Getting Started with baseballr</a>
+    <a class="dropdown-item" href="../articles/using_statcast_pitch_data.html">Using Statcast Pitch Data</a>
     <a class="dropdown-item" href="../articles/plotting_statcast.html">Plotting Statcast</a>
     <a class="dropdown-item" href="../articles/ncaa_scraping.html">NCAA Scraping</a>
   </div>
@@ -217,56 +218,56 @@ Retrieve MLB Home Run Derby Players.
 <h3 id="find-mlb-all-star-ballots"><strong>Find MLB All-Star Ballots</strong><a class="anchor" aria-label="anchor" href="#find-mlb-all-star-ballots"></a></h3>
 
 
-<p></p><div class="sourceCode r"><pre><code><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/mlb_all_star_ballots.html">mlb_all_star_ballots</a></span><span class="op">(</span>league_id <span class="op">=</span> <span class="fl">103</span>, season <span class="op">=</span> <span class="fl">2021</span><span class="op">)</span><span class="op">)</span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/mlb_all_star_ballots.html">mlb_all_star_ballots</a></span><span class="op">(</span>league_id <span class="op">=</span> <span class="fl">103</span>, season <span class="op">=</span> <span class="fl">2021</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
 </div>
 
 <div class="section">
 <h3 id="find-mlb-all-star-final-vote"><strong>Find MLB All-Star Final Vote</strong><a class="anchor" aria-label="anchor" href="#find-mlb-all-star-final-vote"></a></h3>
 
 
-<p></p><div class="sourceCode r"><pre><code><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/mlb_all_star_final_vote.html">mlb_all_star_final_vote</a></span><span class="op">(</span>league_id <span class="op">=</span> <span class="fl">103</span>, season <span class="op">=</span> <span class="fl">2021</span><span class="op">)</span><span class="op">)</span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/mlb_all_star_final_vote.html">mlb_all_star_final_vote</a></span><span class="op">(</span>league_id <span class="op">=</span> <span class="fl">103</span>, season <span class="op">=</span> <span class="fl">2021</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
 </div>
 
 <div class="section">
 <h3 id="find-mlb-all-star-write-ins"><strong>Find MLB All-Star Write-ins</strong><a class="anchor" aria-label="anchor" href="#find-mlb-all-star-write-ins"></a></h3>
 
 
-<p></p><div class="sourceCode r"><pre><code><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/mlb_all_star_write_ins.html">mlb_all_star_write_ins</a></span><span class="op">(</span>league_id <span class="op">=</span> <span class="fl">103</span>, season <span class="op">=</span> <span class="fl">2021</span><span class="op">)</span><span class="op">)</span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/mlb_all_star_write_ins.html">mlb_all_star_write_ins</a></span><span class="op">(</span>league_id <span class="op">=</span> <span class="fl">103</span>, season <span class="op">=</span> <span class="fl">2021</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
 </div>
 
 <div class="section">
 <h3 id="find-mlb-awards"><strong>Find MLB Awards</strong><a class="anchor" aria-label="anchor" href="#find-mlb-awards"></a></h3>
 
 
-<p></p><div class="sourceCode r"><pre><code><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/mlb_awards.html">mlb_awards</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/mlb_awards.html">mlb_awards</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
 </div>
 
 <div class="section">
 <h3 id="find-mlb-award-recipients"><strong>Find MLB Award Recipients</strong><a class="anchor" aria-label="anchor" href="#find-mlb-award-recipients"></a></h3>
 
 
-<p></p><div class="sourceCode r"><pre><code><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/mlb_awards_recipient.html">mlb_awards_recipient</a></span><span class="op">(</span>award_id <span class="op">=</span> <span class="st">'MLBHOF'</span>, season <span class="op">=</span> <span class="fl">2020</span><span class="op">)</span><span class="op">)</span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/mlb_awards_recipient.html">mlb_awards_recipient</a></span><span class="op">(</span>award_id <span class="op">=</span> <span class="st">'MLBHOF'</span>, season <span class="op">=</span> <span class="fl">2020</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
 </div>
 
 <div class="section">
 <h3 id="retrieve-mlb-home-run-derby-data"><strong>Retrieve MLB Home Run Derby Data</strong><a class="anchor" aria-label="anchor" href="#retrieve-mlb-home-run-derby-data"></a></h3>
 
 
-<p></p><div class="sourceCode r"><pre><code><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/mlb_homerun_derby.html">mlb_homerun_derby</a></span><span class="op">(</span>game_pk <span class="op">=</span> <span class="fl">511101</span><span class="op">)</span><span class="op">)</span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/mlb_homerun_derby.html">mlb_homerun_derby</a></span><span class="op">(</span>game_pk <span class="op">=</span> <span class="fl">511101</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
 </div>
 
 <div class="section">
 <h3 id="retrieve-mlb-home-run-derby-bracket"><strong>Retrieve MLB Home Run Derby Bracket</strong><a class="anchor" aria-label="anchor" href="#retrieve-mlb-home-run-derby-bracket"></a></h3>
 
 
-<p></p><div class="sourceCode r"><pre><code><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/mlb_homerun_derby_bracket.html">mlb_homerun_derby_bracket</a></span><span class="op">(</span>game_pk <span class="op">=</span> <span class="fl">511101</span><span class="op">)</span><span class="op">)</span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span>   <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/mlb_homerun_derby_bracket.html">mlb_homerun_derby_bracket</a></span><span class="op">(</span>game_pk <span class="op">=</span> <span class="fl">511101</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
 </div>
 
 <div class="section">
 <h3 id="retrieve-mlb-home-run-derby-players"><strong>Retrieve MLB Home Run Derby Players</strong><a class="anchor" aria-label="anchor" href="#retrieve-mlb-home-run-derby-players"></a></h3>
 
 
-<p></p><div class="sourceCode r"><pre><code><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/mlb_homerun_derby_players.html">mlb_homerun_derby_players</a></span><span class="op">(</span>game_pk <span class="op">=</span> <span class="fl">511101</span><span class="op">)</span><span class="op">)</span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span>   <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/mlb_homerun_derby_players.html">mlb_homerun_derby_players</a></span><span class="op">(</span>game_pk <span class="op">=</span> <span class="fl">511101</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
 </div>
 
     </div>
@@ -280,7 +281,7 @@ Retrieve MLB Home Run Derby Players.
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
     </footer></div>

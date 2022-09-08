@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="../deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="NCAA Scraping">
@@ -37,7 +37,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.3.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,6 +81,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--articles">
     <a class="dropdown-item" href="../articles/index.html">Vignettes</a>
     <a class="dropdown-item" href="../articles/baseballr.html">Getting Started with baseballr</a>
+    <a class="dropdown-item" href="../articles/using_statcast_pitch_data.html">Using Statcast Pitch Data</a>
     <a class="dropdown-item" href="../articles/plotting_statcast.html">Plotting Statcast</a>
     <a class="dropdown-item" href="../articles/ncaa_scraping.html">NCAA Scraping</a>
   </div>
@@ -170,73 +171,73 @@
 <p><code>school_id</code>: numerical code used by the NCAA for each school <code>year</code>: a four-digit year <code>type</code>: whether to pull data for batters or pitchers</p>
 <p>If you want to pull batting statistics for Vanderbilt for the 2013 season, you would use the following:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://billpetti.github.io/baseballr/" class="external-link">baseballr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'dplyr'</span>
-<span class="co">#&gt; The following objects are masked from 'package:stats':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     filter, lag</span>
-<span class="co">#&gt; The following objects are masked from 'package:base':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     intersect, setdiff, setequal, union</span>
-<span class="fu"><a href="../reference/ncaa_scrape.html">ncaa_scrape</a></span><span class="op">(</span><span class="fl">736</span>, <span class="fl">2021</span>, <span class="st">"batting"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">year</span><span class="op">:</span><span class="va">OBPct</span><span class="op">)</span>
-<span class="co">#&gt; ── NCAA Baseball Team Stats data from stats.ncaa.org ───────────────────</span>
-<span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-06-17 03:03:16 UTC</span></span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 41 × 12</span></span>
-<span class="co">#&gt;     year school     conference division Jersey Player  Yr    Pos      GP</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 51     Bradfi… Fr    OF       67</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 25     Noland… So    INF      66</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 99     Gonzal… So    INF      61</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 9      Young,… So    INF      61</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 12     Keegan… Jr    UT       60</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 8      Thomas… Jr    OF       59</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 5      Rodrig… So    C        58</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 16     Bulger… Fr    UT       50</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 6      Kolwyc… Jr    INF      43</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 19     LaNeve… So    OF       37</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 31 more rows, and 3 more variables: GS &lt;dbl&gt;, BA &lt;dbl&gt;,</span></span>
-<span class="co">#&gt; <span style="color: #949494;">#   OBPct &lt;dbl&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://billpetti.github.io/baseballr/" class="external-link">baseballr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter, lag</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
+<span><span class="fu"><a href="../reference/ncaa_scrape.html">ncaa_scrape</a></span><span class="op">(</span><span class="fl">736</span>, <span class="fl">2021</span>, <span class="st">"batting"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">year</span><span class="op">:</span><span class="va">OBPct</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ── NCAA Baseball Team Stats data from stats.ncaa.org ───────────────────</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-09-08 22:54:24 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 41 × 12</span></span></span>
+<span><span class="co">#&gt;     year school    confe…¹ divis…² Jersey Player Yr    Pos      GP    GS</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 51     Bradf… Fr    OF       67    67</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 25     Nolan… So    INF      66    66</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 99     Gonza… So    INF      61    58</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 9      Young… So    INF      61    61</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 12     Keega… Jr    UT       60    60</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 8      Thoma… Jr    OF       59    57</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 5      Rodri… So    C        58    52</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 16     Bulge… Fr    UT       50    41</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 6      Kolwy… Jr    INF      43    39</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 19     LaNev… So    OF       37    19</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 31 more rows, 2 more variables: BA &lt;dbl&gt;, OBPct &lt;dbl&gt;, and</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   abbreviated variable names ¹​conference, ²​division</span></span></span></code></pre></div>
 <p>The same can be done for pitching, just by changing the <code>type</code> parameter:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/ncaa_scrape.html">ncaa_scrape</a></span><span class="op">(</span><span class="fl">736</span>, <span class="fl">2021</span>, <span class="st">"pitching"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">year</span><span class="op">:</span><span class="va">ERA</span><span class="op">)</span>
-<span class="co">#&gt; ── NCAA Baseball Team Stats data from stats.ncaa.org ───────────────────</span>
-<span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-06-17 03:03:18 UTC</span></span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 41 × 12</span></span>
-<span class="co">#&gt;     year school     conference division Jersey Player  Yr    Pos      GP</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 51     Bradfi… Fr    OF       67</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 25     Noland… So    INF      66</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 99     Gonzal… So    INF      61</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 9      Young,… So    INF      61</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 12     Keegan… Jr    UT       60</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 8      Thomas… Jr    OF       59</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 5      Rodrig… So    C        58</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 16     Bulger… Fr    UT       50</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 6      Kolwyc… Jr    INF      43</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">2</span>021 Vanderbilt SEC               1 19     LaNeve… So    OF       37</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 31 more rows, and 3 more variables: App &lt;dbl&gt;, GS &lt;dbl&gt;,</span></span>
-<span class="co">#&gt; <span style="color: #949494;">#   ERA &lt;dbl&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ncaa_scrape.html">ncaa_scrape</a></span><span class="op">(</span><span class="fl">736</span>, <span class="fl">2021</span>, <span class="st">"pitching"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">year</span><span class="op">:</span><span class="va">ERA</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ── NCAA Baseball Team Stats data from stats.ncaa.org ───────────────────</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-09-08 22:54:25 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 41 × 12</span></span></span>
+<span><span class="co">#&gt;     year school    confe…¹ divis…² Jersey Player Yr    Pos      GP   App</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 51     Bradf… Fr    OF       67    67</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 25     Nolan… So    INF      66    66</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 99     Gonza… So    INF      61    61</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 9      Young… So    INF      61    61</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 12     Keega… Jr    UT       60    60</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 8      Thoma… Jr    OF       59    59</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 5      Rodri… So    C        58    58</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 16     Bulge… Fr    UT       50    50</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 6      Kolwy… Jr    INF      43    43</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">2</span>021 Vanderbi… SEC           1 19     LaNev… So    OF       37    37</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 31 more rows, 2 more variables: GS &lt;dbl&gt;, ERA &lt;dbl&gt;, and</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   abbreviated variable names ¹​conference, ²​division</span></span></span></code></pre></div>
 <p>Now, the function is dependent on the user knowing the <code>school_id</code> used by the NCAA website. Given that, I’ve included a <code>ncaa_school_id_lu</code> function so that users can find the <code>school_id</code> they need.</p>
 <p>Just pass a string to the function and it will return possible matches based on the school’s name:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/ncaa_school_id_lu.html">ncaa_school_id_lu</a></span><span class="op">(</span><span class="st">"Vand"</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 6</span></span>
-<span class="co">#&gt;    school     conference school_id  year division conference_id</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>013        1           911</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>014        1           911</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>015        1           911</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>016        1           911</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>017        1           911</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>018        1           911</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>019        1           911</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>020        1           911</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>021        1           911</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>022        1           911</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ncaa_school_id_lu.html">ncaa_school_id_lu</a></span><span class="op">(</span><span class="st">"Vand"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 6</span></span></span>
+<span><span class="co">#&gt;    school     conference school_id  year division conference_id</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>013        1           911</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>014        1           911</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>015        1           911</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>016        1           911</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>017        1           911</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>018        1           911</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>019        1           911</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>020        1           911</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>021        1           911</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Vanderbilt SEC              736  <span style="text-decoration: underline;">2</span>022        1           911</span></span></code></pre></div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
 </div>
@@ -250,7 +251,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
     </footer>

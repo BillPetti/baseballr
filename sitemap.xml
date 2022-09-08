@@ -22,6 +22,9 @@
     <loc>/articles/plotting_statcast.html</loc>
   </url>
   <url>
+    <loc>/articles/using_statcast_pitch_data.html</loc>
+  </url>
+  <url>
     <loc>/authors.html</loc>
   </url>
   <url>
@@ -116,6 +119,12 @@
   </url>
   <url>
     <loc>/reference/fg_pitcher_leaders.html</loc>
+  </url>
+  <url>
+    <loc>/reference/fg_team_batter.html</loc>
+  </url>
+  <url>
+    <loc>/reference/fg_team_pitcher.html</loc>
   </url>
   <url>
     <loc>/reference/fip_plus.html</loc>
@@ -527,6 +536,12 @@
   </url>
   <url>
     <loc>/reference/scrape_statcast_savant.html</loc>
+  </url>
+  <url>
+    <loc>/reference/sptrc_league_payrolls.html</loc>
+  </url>
+  <url>
+    <loc>/reference/sptrc_team_active_payroll.html</loc>
   </url>
   <url>
     <loc>/reference/standings_on_date_bref.html</loc>
