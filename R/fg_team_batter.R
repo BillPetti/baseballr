@@ -1,60 +1,56 @@
-
-#' @rdname fg_team_pitching
-#' @title **Scrape Team Pitcher Leaderboards from FanGraphs**
-#' @param pitcher_type Whether you want only starting pitchers, relievers, or all pitchers that meet the criteria specified in the qual argument. Options include "pit", "sta", "rel".
+#' @rdname fg_team_batter
+#' @title **Scrape Team Batter Leaderboards from FanGraphs**
+#' @description This function allows you to scrape all leaderboard statistics (basic and advanced) from FanGraphs.com.
 #' @param x First season for which you want data.
 #' @param y Last season for which you want data. If multiple years selected, data returned will be aggregate data for the date range. If y = x, function will return single-season data.
 #' @param league Option for limiting results to different leagues or overall results. Options are "al", "nl", or "all".
 #' @param qual Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimum number of plate appearaces/innings pitched, use the number desired. Defaults to "y".
 #' @param ind Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.
-#' @return A data frame of pitcher data.
+#' @param exc_p (logical) Whether or not to exclude pitchers from the batter leaderboards. TRUE = exclude pitchers, FALSE = retain pitchers.
+#' @return A data frame of batter data.
 #'  |col_name           |types     |
 #'  |:------------------|:---------|
 #'  |Season             |character |
 #'  |#                  |character |
 #'  |Team               |character |
-#'  |W                  |numeric   |
-#'  |L                  |numeric   |
-#'  |ERA                |numeric   |
 #'  |G                  |numeric   |
-#'  |GS                 |numeric   |
-#'  |CG                 |numeric   |
-#'  |ShO                |numeric   |
-#'  |SV                 |numeric   |
-#'  |BS                 |numeric   |
-#'  |IP                 |numeric   |
-#'  |TBF                |numeric   |
+#'  |AB                 |numeric   |
+#'  |PA                 |numeric   |
 #'  |H                  |numeric   |
-#'  |R                  |numeric   |
-#'  |ER                 |numeric   |
+#'  |1B                 |numeric   |
+#'  |2B                 |numeric   |
+#'  |3B                 |numeric   |
 #'  |HR                 |numeric   |
+#'  |R                  |numeric   |
+#'  |RBI                |numeric   |
 #'  |BB                 |numeric   |
 #'  |IBB                |numeric   |
-#'  |HBP                |numeric   |
-#'  |WP                 |numeric   |
-#'  |BK                 |numeric   |
 #'  |SO                 |numeric   |
+#'  |HBP                |numeric   |
+#'  |SF                 |numeric   |
+#'  |SH                 |numeric   |
+#'  |GDP                |numeric   |
+#'  |SB                 |numeric   |
+#'  |CS                 |numeric   |
+#'  |AVG                |numeric   |
 #'  |GB                 |numeric   |
 #'  |FB                 |numeric   |
 #'  |LD                 |numeric   |
 #'  |IFFB               |numeric   |
+#'  |Pitches            |numeric   |
 #'  |Balls              |numeric   |
 #'  |Strikes            |numeric   |
-#'  |Pitches            |numeric   |
-#'  |RS                 |numeric   |
 #'  |IFH                |numeric   |
 #'  |BU                 |numeric   |
 #'  |BUH                |numeric   |
-#'  |K_9                |numeric   |
-#'  |BB_9               |numeric   |
-#'  |K_BB               |numeric   |
-#'  |H_9                |numeric   |
-#'  |HR_9               |numeric   |
-#'  |AVG                |numeric   |
-#'  |WHIP               |numeric   |
+#'  |BB_pct             |numeric   |
+#'  |K_pct              |numeric   |
+#'  |BB_K               |numeric   |
+#'  |OBP                |numeric   |
+#'  |SLG                |numeric   |
+#'  |OPS                |numeric   |
+#'  |ISO                |numeric   |
 #'  |BABIP              |numeric   |
-#'  |LOB_pct            |numeric   |
-#'  |FIP                |numeric   |
 #'  |GB_FB              |numeric   |
 #'  |LD_pct             |numeric   |
 #'  |GB_pct             |numeric   |
@@ -63,25 +59,26 @@
 #'  |HR_FB              |numeric   |
 #'  |IFH_pct            |numeric   |
 #'  |BUH_pct            |numeric   |
-#'  |Starting           |numeric   |
-#'  |Start_IP           |numeric   |
-#'  |Relieving          |numeric   |
-#'  |Relief_IP          |numeric   |
+#'  |wOBA               |numeric   |
+#'  |wRAA               |numeric   |
+#'  |wRC                |numeric   |
+#'  |Bat                |numeric   |
+#'  |Fld                |numeric   |
+#'  |Rep                |numeric   |
+#'  |Pos                |numeric   |
 #'  |RAR                |numeric   |
 #'  |WAR                |numeric   |
-#'  |Dollars            |numeric   |
-#'  |tERA               |numeric   |
-#'  |xFIP               |numeric   |
+#'  |Dol                |numeric   |
+#'  |Spd                |numeric   |
+#'  |wRC_plus           |numeric   |
 #'  |WPA                |numeric   |
 #'  |WPA_minus          |numeric   |
 #'  |WPA_plus           |numeric   |
 #'  |RE24               |numeric   |
 #'  |REW                |numeric   |
 #'  |pLI                |numeric   |
-#'  |inLI               |numeric   |
-#'  |gmLI               |numeric   |
-#'  |exLI               |numeric   |
-#'  |Pulls              |numeric   |
+#'  |phLI               |numeric   |
+#'  |PH                 |numeric   |
 #'  |WPA_LI             |numeric   |
 #'  |Clutch             |numeric   |
 #'  |FBall_pct          |numeric   |
@@ -123,17 +120,7 @@
 #'  |Zone_pct           |numeric   |
 #'  |F-Strike_pct       |numeric   |
 #'  |SwStr_pct          |numeric   |
-#'  |HLD                |numeric   |
-#'  |SD                 |numeric   |
-#'  |MD                 |numeric   |
-#'  |ERA-               |numeric   |
-#'  |FIP-               |numeric   |
-#'  |xFIP-              |numeric   |
-#'  |K_pct              |numeric   |
-#'  |BB_pct             |numeric   |
-#'  |SIERA              |numeric   |
-#'  |RS_9               |numeric   |
-#'  |E-F                |numeric   |
+#'  |BsR                |numeric   |
 #'  |FA_pct (sc)        |numeric   |
 #'  |FT_pct (sc)        |numeric   |
 #'  |FC_pct (sc)        |numeric   |
@@ -221,19 +208,19 @@
 #'  |Contact_pct (sc)   |numeric   |
 #'  |Zone_pct (sc)      |numeric   |
 #'  |Pace               |numeric   |
-#'  |RA9-WAR            |numeric   |
-#'  |BIP-Wins           |numeric   |
-#'  |LOB-Wins           |numeric   |
-#'  |FDP-Wins           |numeric   |
+#'  |Def                |numeric   |
+#'  |wSB                |numeric   |
+#'  |UBR                |numeric   |
 #'  |AgeRng             |numeric   |
-#'  |K-BB_pct           |numeric   |
+#'  |Off                |numeric   |
+#'  |Lg                 |numeric   |
+#'  |wGDP               |numeric   |
 #'  |Pull_pct           |numeric   |
 #'  |Cent_pct           |numeric   |
 #'  |Oppo_pct           |numeric   |
 #'  |Soft_pct           |numeric   |
 #'  |Med_pct            |numeric   |
 #'  |Hard_pct           |numeric   |
-#'  |kwERA              |numeric   |
 #'  |TTO_pct            |numeric   |
 #'  |CH_pct_pi          |numeric   |
 #'  |CS_pct_pi          |numeric   |
@@ -309,66 +296,68 @@
 #'  |Contact_pct_pi     |numeric   |
 #'  |Zone_pct_pi        |numeric   |
 #'  |Pace_pi            |numeric   |
-#'  |Dol                |numeric   |
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'   fg_team_pitching(x = 2015, y = 2015, qual = 150)
+#'   try(fg_team_batter(x = 2015, y = 2015, qual = 400))
 #' }
-
-fg_team_pitching <- function(x, y, league = "all", qual = 0,
-                               pitcher_type = "pit", ind = 1) {
+fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TRUE) {
   
   if (ind == 0) {
     tryCatch(
       expr = {
+        if (exc_p){
+          payload <- paste0("http://www.fangraphs.com/leaders.aspx?pos=np&stats=bat&lg=", league, "&qual=", qual,
+                            "&type=c,-1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286&season=", y, "&month=0&season1=", x, "&ind=", ind, "&team=0&ts,rost=&age=&filter=&players=&page=1_100000") %>% 
+            xml2::read_html()
+        } else {
+          payload <- paste0("http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=", league, "&qual=", qual,
+                            "&type=c,-1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286&season=", y, "&month=0&season1=", x, "&ind=", ind, "&team=0&ts,rost=&age=&filter=&players=&page=1_100000") %>% 
+            xml2::read_html()
+        }
         
-        url <- paste0("https://www.fangraphs.com/leaders.aspx?pos=all&stats=", pitcher_type, "&lg=", league, "&qual=", qual, "&type=c,-1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299&season=", y, "&month=0&season1=", x, "&ind=", ind,"&team=0,ts&rost=&age=&filter=&players=&page=1_100000")
-        
-        payload <- url %>% 
-          xml2::read_html()
         
         leaders <- (payload %>%
-                      rvest::html_elements("table"))[[17]] %>% 
+                      rvest::html_elements("table"))[[17]] %>%
           rvest::html_table()
         
         leaders <- leaders[-c(1,3),]
-        colnames(leaders) <- leaders[1,]
+        names(leaders) <- leaders[1,]
         leaders <- leaders[-1,]
-        leaders <- leaders[,-4]
+        leaders <- leaders[,-2]
         c <- as.matrix(names(leaders))
         c <- gsub("%", "_pct", c, fixed = TRUE)
         c <- gsub(" (pfx)", "_pfx", c, fixed = TRUE)
         c <- gsub(" (pi)", "_pi", c, fixed = TRUE)
         c <- gsub("/", "_", c, fixed = TRUE)
         c <- ifelse(substr(c, nchar(c)-1+1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
-        r <- c("Start_IP", "Relief_IP", "WPA_minus",
-               "WPA_plus", "FBall_pct", "AgeRng")
-        c[c(55,57,64,65,75,216),] <- r
+        r <- c("wRC_plus", "WPA_minus", "WPA_plus", "FBall_pct", "AgeRng")
+        c[c(60,62,63,71,201),] <- r
         Seasons <- ifelse(x==y, paste0(x), paste0(x, "-", y))
         names(leaders) <- c
-        leaders <- leaders %>% 
-          dplyr::mutate(Season=Seasons) %>% 
-          dplyr::select(.data$Season,tidyr::everything())
+        leaders <- leaders %>%
+          dplyr::mutate(Season = Seasons) %>%
+          dplyr::select(.data$Season, tidyr::everything())
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))), stringsAsFactors=F)
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))), stringsAsFactors=F)
         leaders$Dol <- gsub("\\(", "-", leaders$Dol)
         leaders$Dol <- gsub("\\)", "", leaders$Dol)
         # Replace any empty cells with NA to avoid a warning message.
         is.na(leaders) <- leaders==""
-        # Convert columns 5 to 300 to numeric, except column 217 "Age Rng"
-        for(i in c(4:215, 217:ncol(leaders))) {
+        # Convert columns 5 to 287 to numeric, except column 201 "Age Rng"
+        for(i in c(5:201, 203:ncol(leaders))) {
           suppressWarnings(
             leaders[,i] <- as.numeric(as.character(leaders[,i]))
           )
         }
         
         
+        
         leaders <- leaders %>%
-          make_baseballr_data("MLB Team Pitching data from FanGraphs.com",Sys.time())
+          make_baseballr_data("MLB Team Batting data from FanGraphs.com",Sys.time())
       },
       error = function(e) {
-        message(glue::glue("{Sys.time()}: Invalid arguments or no team data available!"))
+        message(glue::glue("{Sys.time()}: Invalid arguments or no batter leaders data available!"))
       },
       warning = function(w) {
       },
@@ -378,54 +367,56 @@ fg_team_pitching <- function(x, y, league = "all", qual = 0,
     return(leaders)
   }
   
-  
   else {
     tryCatch(
       expr = {
-        
-        url <- paste0("https://www.fangraphs.com/leaders.aspx?pos=all&stats=", pitcher_type, "&lg=", league, "&qual=", qual, "&type=c,-1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299&season=", y, "&month=0&season1=", x, "&ind=", ind,"&team=0,ts&rost=&age=&filter=&players=&page=1_100000")
-        
-        payload <- url %>% 
-          xml2::read_html()
+        if (exc_p){
+          payload <- paste0("http://www.fangraphs.com/leaders.aspx?pos=np&stats=bat&lg=", league, "&qual=", qual, 
+                            "&type=c,-1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286&season=", y, "&month=0&season1=", x, "&ind=", ind, "&team=0&ts,rost=&age=&filter=&players=&page=1_100000") %>% 
+            xml2::read_html()
+        } else {
+          payload <- paste0("http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=", league, "&qual=", qual, 
+                            "&type=c,-1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286&season=", y, "&month=0&season1=", x, "&ind=", ind, "&team=0&ts,rost=&age=&filter=&players=&page=1_100000") %>% 
+            xml2::read_html()
+        }
         
         leaders <- (payload %>%
                       rvest::html_elements("table"))[[17]] %>% 
           rvest::html_table()
         
         leaders <- leaders[-c(1,3),]
-        colnames(leaders) <- leaders[1,]
+        names(leaders) <- leaders[1,]
         leaders <- leaders[-1,]
-        leaders <- leaders[,-4]
+        leaders <- leaders[,-c(3,5)]
         c <- as.matrix(names(leaders))
         c <- gsub("%", "_pct", c, fixed = TRUE)
         c <- gsub(" (pfx)", "_pfx", c, fixed = TRUE)
         c <- gsub(" (pi)", "_pi", c, fixed = TRUE)
         c <- gsub("/", "_", c, fixed = TRUE)
         c <- ifelse(substr(c, nchar(c)-1+1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
-        r <- c("Start_IP", "Relief_IP", "WPA_minus",
-               "WPA_plus", "FBall_pct", "AgeRng")
-        c[c(55,57,64,65,75,216),] <- r
+        r <- c("wRC_plus", "WPA_minus", "WPA_plus", "FBall_pct", "AgeRng")
+        c[c(61,63,64,72,202),] <- r
         names(leaders) <- c
-        leaders <- leaders %>% 
-          dplyr::select(.data$Season,tidyr::everything())
+        leaders <- leaders %>%
+          dplyr::select(.data$Season, everything())
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))))
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))))
         leaders$Dol <- gsub("\\(", "-", leaders$Dol)
         leaders$Dol <- gsub("\\)", "", leaders$Dol)
-        # Convert columns 5 to 301 to numeric, except column 217 "Age Rng"
-        for(i in c(4:215, 217:ncol(leaders))) {
+        for(i in c(5:201, 203:ncol(leaders))) {
           suppressWarnings(
             leaders[,i] <- as.numeric(as.character(leaders[,i]))
           )
         }
         
         
+
         
         leaders <- leaders %>%
-          make_baseballr_data("MLB Team Pitching data from FanGraphs.com",Sys.time())
+          make_baseballr_data("MLB Team Batting data from FanGraphs.com",Sys.time())
       },
       error = function(e) {
-        message(glue::glue("{Sys.time()}: Invalid arguments or no team data available!"))
+        message(glue::glue("{Sys.time()}: Invalid arguments or no batter leaders data available!"))
       },
       warning = function(w) {
       },
@@ -435,4 +426,3 @@ fg_team_pitching <- function(x, y, league = "all", qual = 0,
     return(leaders)
   }
 }
-

@@ -44,8 +44,8 @@ test_that("MLB Draft Latest", {
   skip_on_cran()
   
   x <- mlb_draft_latest(year = 2020) %>% 
-    dplyr::select(tidyr::all_of(cols))
+    dplyr::select(tidyr::any_of(cols))
   
-  expect_equal(colnames(x), cols)
+  expect_true(all(colnames(x) %in% cols))
   expect_s3_class(x, "data.frame")
 })

@@ -1,3 +1,11 @@
+# baseballr 1.3.0
+ * Vignette contributed by [\@camdenk](https://github.com/camdenk), *Using Statcast Pitch Data*.  
+ * ```sptrc_league_payrolls()``` function added (contributed by [\@camdenk](https://github.com/camdenk))
+ * ```sptrc_team_active_payrolls()``` function added (contributed by [\@camdenk](https://github.com/camdenk))
+ * ```fg_team_batter()``` function added (contributed by [\@camdenk](https://github.com/camdenk))
+ * ```fg_team_pitcher()``` function added (contributed by [\@camdenk](https://github.com/camdenk))
+ * Updates documentation per CRAN's request
+
 # baseballr 1.2.0
  * Removed two `pitchRx`-dependent functions, updated retrosheet function and documentation
  * Removed `edge_scrape()` and `edge_scrape_split()` from package. See `data-raw/archived/` for the last updated script. These may be re-visited at a later date with improved data repository maturity.
