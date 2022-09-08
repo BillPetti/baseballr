@@ -81,11 +81,11 @@ library(dplyr)
 bref_standings_on_date("2015-08-01", "NL East", from = FALSE)
 ```
 
-    ## -- MLB Standings on Date data from baseball-reference.com --- baseballr 1.2.0 --
+    ## ── MLB Standings on Date data from baseball-reference.com ─── baseballr 1.3.0 ──
 
-    ## i Data updated: 2022-04-21 15:34:48 EDT
+    ## ℹ Data updated: 2022-09-08 19:40:26 EDT
 
-    ## # A tibble: 5 x 8
+    ## # A tibble: 5 × 8
     ##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`
     ##   <chr> <int> <int>  <dbl> <chr> <int> <int>      <dbl>
     ## 1 WSN      54    48  0.529 --      422   391      0.535
@@ -109,36 +109,36 @@ data %>%
 
     ## Rows: 764
     ## Columns: 30
-    ## $ bbref_id <chr> "547989", "554429", "542436", "571431", "501303", "346793", "~
-    ## $ season   <int> 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2~
-    ## $ Name     <chr> "Manny Machado", "Matt Duffy", "Jose Altuve", "Adam Eaton", "~
-    ## $ Age      <dbl> 22, 24, 25, 26, 32, 21, 27, 28, 36, 28, 29, 29, 27, 29, 27, 2~
-    ## $ Level    <chr> "Maj-AL", "Maj-NL", "Maj-AL", "Maj-AL", "Maj-AL", "Maj-AL", "~
-    ## $ Team     <chr> "Baltimore", "San Francisco", "Houston", "Chicago", "Texas", ~
-    ## $ G        <dbl> 59, 59, 57, 58, 58, 58, 59, 58, 59, 57, 55, 57, 57, 58, 56, 5~
-    ## $ PA       <dbl> 266, 264, 262, 262, 260, 259, 259, 258, 257, 257, 255, 255, 2~
-    ## $ AB       <dbl> 237, 248, 244, 230, 211, 224, 239, 235, 231, 233, 213, 218, 2~
-    ## $ R        <dbl> 36, 33, 30, 37, 48, 35, 32, 29, 37, 27, 50, 37, 36, 25, 38, 4~
-    ## $ H        <dbl> 66, 71, 81, 74, 71, 79, 54, 66, 75, 48, 65, 56, 61, 51, 78, 5~
-    ## $ X1B      <dbl> 43, 54, 53, 56, 47, 51, 34, 37, 48, 30, 34, 32, 35, 33, 66, 2~
-    ## $ X2B      <dbl> 10, 12, 19, 12, 14, 17, 6, 17, 16, 11, 13, 13, 15, 10, 7, 13,~
-    ## $ X3B      <dbl> 0, 2, 3, 1, 1, 4, 1, 0, 2, 1, 2, 4, 0, 1, 3, 0, 4, 0, 1, 1, 0~
-    ## $ HR       <dbl> 13, 3, 6, 5, 9, 7, 13, 12, 9, 6, 16, 7, 11, 7, 2, 20, 9, 8, 8~
-    ## $ RBI      <dbl> 32, 30, 18, 31, 34, 32, 27, 40, 53, 21, 50, 19, 31, 39, 23, 4~
-    ## $ BB       <dbl> 26, 15, 10, 23, 39, 18, 16, 17, 21, 21, 34, 33, 21, 39, 12, 3~
-    ## $ IBB      <dbl> 1, 0, 1, 1, 1, 0, 0, 6, 1, 1, 0, 1, 1, 5, 0, 4, 3, 3, 7, 2, 2~
-    ## $ uBB      <dbl> 25, 15, 9, 22, 38, 18, 16, 11, 20, 20, 34, 32, 20, 34, 12, 35~
-    ## $ SO       <dbl> 42, 35, 28, 55, 51, 38, 68, 56, 29, 53, 46, 62, 41, 48, 27, 7~
-    ## $ HBP      <dbl> 2, 0, 4, 5, 8, 1, 3, 5, 1, 1, 2, 3, 3, 1, 1, 6, 1, 3, 4, 1, 0~
-    ## $ SH       <dbl> 0, 0, 1, 2, 1, 11, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, ~
-    ## $ SF       <dbl> 1, 1, 3, 2, 1, 5, 1, 1, 4, 2, 5, 1, 2, 2, 3, 0, 3, 2, 3, 4, 3~
-    ## $ GDP      <dbl> 5, 9, 6, 1, 1, 4, 2, 2, 9, 7, 5, 1, 4, 8, 1, 2, 3, 10, 5, 4, ~
-    ## $ SB       <dbl> 6, 8, 11, 9, 2, 10, 0, 0, 0, 3, 3, 4, 5, 4, 24, 2, 1, 0, 6, 0~
-    ## $ CS       <dbl> 4, 0, 4, 4, 0, 2, 0, 0, 0, 1, 0, 1, 3, 2, 7, 2, 3, 0, 2, 0, 0~
-    ## $ BA       <dbl> 0.279, 0.286, 0.332, 0.322, 0.337, 0.353, 0.226, 0.281, 0.325~
-    ## $ OBP      <dbl> 0.353, 0.326, 0.364, 0.392, 0.456, 0.395, 0.282, 0.341, 0.377~
-    ## $ SLG      <dbl> 0.485, 0.387, 0.508, 0.448, 0.540, 0.558, 0.423, 0.506, 0.528~
-    ## $ OPS      <dbl> 0.839, 0.713, 0.872, 0.840, 0.996, 0.953, 0.705, 0.848, 0.906~
+    ## $ bbref_id <chr> "547989", "554429", "542436", "571431", "501303", "346793", "…
+    ## $ season   <int> 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2…
+    ## $ Name     <chr> "Manny Machado", "Matt Duffy", "Jose Altuve", "Adam Eaton", "…
+    ## $ Age      <dbl> 22, 24, 25, 26, 32, 21, 27, 28, 36, 28, 29, 29, 27, 29, 27, 2…
+    ## $ Level    <chr> "Maj-AL", "Maj-NL", "Maj-AL", "Maj-AL", "Maj-AL", "Maj-AL", "…
+    ## $ Team     <chr> "Baltimore", "San Francisco", "Houston", "Chicago", "Texas", …
+    ## $ G        <dbl> 59, 59, 57, 58, 58, 58, 59, 58, 59, 57, 55, 57, 57, 58, 56, 5…
+    ## $ PA       <dbl> 266, 264, 262, 262, 260, 259, 259, 258, 257, 257, 255, 255, 2…
+    ## $ AB       <dbl> 237, 248, 244, 230, 211, 224, 239, 235, 231, 233, 213, 218, 2…
+    ## $ R        <dbl> 36, 33, 30, 37, 48, 35, 32, 29, 37, 27, 50, 37, 36, 25, 38, 4…
+    ## $ H        <dbl> 66, 71, 81, 74, 71, 79, 54, 66, 75, 48, 65, 56, 61, 51, 78, 5…
+    ## $ X1B      <dbl> 43, 54, 53, 56, 47, 51, 34, 37, 48, 30, 34, 32, 35, 33, 66, 2…
+    ## $ X2B      <dbl> 10, 12, 19, 12, 14, 17, 6, 17, 16, 11, 13, 13, 15, 10, 7, 13,…
+    ## $ X3B      <dbl> 0, 2, 3, 1, 1, 4, 1, 0, 2, 1, 2, 4, 0, 1, 3, 0, 4, 0, 1, 1, 0…
+    ## $ HR       <dbl> 13, 3, 6, 5, 9, 7, 13, 12, 9, 6, 16, 7, 11, 7, 2, 20, 9, 8, 8…
+    ## $ RBI      <dbl> 32, 30, 18, 31, 34, 32, 27, 40, 53, 21, 50, 19, 31, 39, 23, 4…
+    ## $ BB       <dbl> 26, 15, 10, 23, 39, 18, 16, 17, 21, 21, 34, 33, 21, 39, 12, 3…
+    ## $ IBB      <dbl> 1, 0, 1, 1, 1, 0, 0, 6, 1, 1, 0, 1, 1, 5, 0, 4, 3, 3, 7, 2, 2…
+    ## $ uBB      <dbl> 25, 15, 9, 22, 38, 18, 16, 11, 20, 20, 34, 32, 20, 34, 12, 35…
+    ## $ SO       <dbl> 42, 35, 28, 55, 51, 38, 68, 56, 29, 53, 46, 62, 41, 48, 27, 7…
+    ## $ HBP      <dbl> 2, 0, 4, 5, 8, 1, 3, 5, 1, 1, 2, 3, 3, 1, 1, 6, 1, 3, 4, 1, 0…
+    ## $ SH       <dbl> 0, 0, 1, 2, 1, 11, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, …
+    ## $ SF       <dbl> 1, 1, 3, 2, 1, 5, 1, 1, 4, 2, 5, 1, 2, 2, 3, 0, 3, 2, 3, 4, 3…
+    ## $ GDP      <dbl> 5, 9, 6, 1, 1, 4, 2, 2, 9, 7, 5, 1, 4, 8, 1, 2, 3, 10, 5, 4, …
+    ## $ SB       <dbl> 6, 8, 11, 9, 2, 10, 0, 0, 0, 3, 3, 4, 5, 4, 24, 2, 1, 0, 6, 0…
+    ## $ CS       <dbl> 4, 0, 4, 4, 0, 2, 0, 0, 0, 1, 0, 1, 3, 2, 7, 2, 3, 0, 2, 0, 0…
+    ## $ BA       <dbl> 0.279, 0.286, 0.332, 0.322, 0.337, 0.353, 0.226, 0.281, 0.325…
+    ## $ OBP      <dbl> 0.353, 0.326, 0.364, 0.392, 0.456, 0.395, 0.282, 0.341, 0.377…
+    ## $ SLG      <dbl> 0.485, 0.387, 0.508, 0.448, 0.540, 0.558, 0.423, 0.506, 0.528…
+    ## $ OPS      <dbl> 0.839, 0.713, 0.872, 0.840, 0.996, 0.953, 0.705, 0.848, 0.906…
 
 In terms of metric calculation, the package allows the user to calculate
 the consistency of team scoring and run prevention for any year using
@@ -148,7 +148,7 @@ the consistency of team scoring and run prevention for any year using
 team_consistency(2015)
 ```
 
-    ## # A tibble: 30 x 5
+    ## # A tibble: 30 × 5
     ##    Team  Con_R Con_RA Con_R_Ptile Con_RA_Ptile
     ##    <chr> <dbl>  <dbl>       <dbl>        <dbl>
     ##  1 ARI    0.37   0.36          17           15
@@ -161,7 +161,7 @@ team_consistency(2015)
     ##  8 CLE    0.41   0.4           88           63
     ##  9 COL    0.35   0.34           7            3
     ## 10 DET    0.39   0.38          52           42
-    ## # ... with 20 more rows
+    ## # … with 20 more rows
 
 You can also calculate wOBA per plate appearance and wOBA on contact for
 any set of data over any date range, provided you have the data
@@ -180,12 +180,12 @@ data %>%
 
     ## Rows: 117
     ## Columns: 6
-    ## $ Name     <chr> "Edwin Encarnacion", "Bryce Harper", "David Ortiz", "Joey Vot~
-    ## $ Team     <chr> "Toronto", "Washington", "Boston", "Cincinnati", "Baltimore",~
-    ## $ season   <int> 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2~
-    ## $ PA       <dbl> 216, 248, 213, 251, 253, 260, 245, 255, 223, 241, 223, 259, 2~
-    ## $ wOBA     <dbl> 0.490, 0.450, 0.449, 0.445, 0.434, 0.430, 0.430, 0.422, 0.410~
-    ## $ wOBA_CON <dbl> 0.555, 0.529, 0.541, 0.543, 0.617, 0.495, 0.481, 0.494, 0.459~
+    ## $ Name     <chr> "Edwin Encarnacion", "Bryce Harper", "David Ortiz", "Joey Vot…
+    ## $ Team     <chr> "Toronto", "Washington", "Boston", "Cincinnati", "Baltimore",…
+    ## $ season   <int> 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2…
+    ## $ PA       <dbl> 216, 248, 213, 251, 253, 260, 245, 255, 223, 241, 223, 259, 2…
+    ## $ wOBA     <dbl> 0.490, 0.450, 0.449, 0.445, 0.434, 0.430, 0.430, 0.422, 0.410…
+    ## $ wOBA_CON <dbl> 0.555, 0.529, 0.541, 0.543, 0.617, 0.495, 0.481, 0.494, 0.459…
 
 You can also generate these wOBA-based stats, as well as FIP, for
 pitchers using the `fip_plus()` function:
@@ -198,24 +198,24 @@ bref_daily_pitcher("2015-04-05", "2015-04-30") %>%
   head(10)
 ```
 
-    ## -- MLB Daily Pitcher data from baseball-reference.com ------- baseballr 1.2.0 --
+    ## ── MLB Daily Pitcher data from baseball-reference.com ─────── baseballr 1.3.0 ──
 
-    ## i Data updated: 2022-04-21 15:35:30 EDT
+    ## ℹ Data updated: 2022-09-08 19:40:41 EDT
 
-    ## # A tibble: 10 x 11
-    ##    season Name               IP   ERA    SO   uBB   HBP    HR   FIP wOBA_against
-    ##     <int> <chr>           <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>        <dbl>
-    ##  1   2015 Johnny Cueto     37    1.95    38     4     2     3  2.62        0.21 
-    ##  2   2015 Dallas Keuchel   37    0.73    22    11     0     0  2.84        0.169
-    ##  3   2015 Sonny Gray       36.1  1.98    25     6     1     1  2.69        0.218
-    ##  4   2015 Mike Leake       35.2  3.03    25     7     0     5  4.16        0.24 
-    ##  5   2015 Felix Hernandez  34.2  1.82    36     6     3     1  2.2         0.225
-    ##  6   2015 Corey Kluber     34    4.24    36     5     2     2  2.4         0.295
-    ##  7   2015 Jake Odorizzi    33.2  2.41    26     8     1     0  2.38        0.213
-    ##  8   2015 Josh Collmenter  32.2  2.76    16     3     0     1  2.82        0.29 
-    ##  9   2015 Bartolo Colon    32.2  3.31    25     1     0     4  3.29        0.28 
-    ## 10   2015 Zack Greinke     32.2  1.93    27     7     1     2  3.01        0.24 
-    ## # ... with 1 more variable: wOBA_CON_against <dbl>
+    ## # A tibble: 10 × 11
+    ##    season Name            IP   ERA    SO   uBB   HBP    HR   FIP wOBA_…¹ wOBA_…²
+    ##     <int> <chr>        <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>   <dbl>   <dbl>
+    ##  1   2015 Johnny Cueto  37    1.95    38     4     2     3  2.62   0.21    0.276
+    ##  2   2015 Dallas Keuc…  37    0.73    22    11     0     0  2.84   0.169   0.151
+    ##  3   2015 Sonny Gray    36.1  1.98    25     6     1     1  2.69   0.218   0.239
+    ##  4   2015 Mike Leake    35.2  3.03    25     7     0     5  4.16   0.24    0.281
+    ##  5   2015 Felix Herna…  34.2  1.82    36     6     3     1  2.2    0.225   0.272
+    ##  6   2015 Corey Kluber  34    4.24    36     5     2     2  2.4    0.295   0.391
+    ##  7   2015 Jake Odoriz…  33.2  2.41    26     8     1     0  2.38   0.213   0.228
+    ##  8   2015 Josh Collme…  32.2  2.76    16     3     0     1  2.82   0.29    0.33 
+    ##  9   2015 Bartolo Col…  32.2  3.31    25     1     0     4  3.29   0.28    0.357
+    ## 10   2015 Zack Greinke  32.2  1.93    27     7     1     2  3.01   0.24    0.274
+    ## # … with abbreviated variable names ¹​wOBA_against, ²​wOBA_CON_against
 
 ## **Issues**
 
