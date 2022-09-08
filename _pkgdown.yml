@@ -91,6 +91,8 @@ navbar:
         href: articles/index.html
       - text: "Getting Started with baseballr"
         href: articles/baseballr.html
+      - text: "Using Statcast Pitch Data"
+        href: articles/using_statcast_pitch_data.html
       - text: "Plotting Statcast"
         href: articles/plotting_statcast.html
       - text: "NCAA Scraping"
@@ -159,6 +161,62 @@ repo:
     issue: https://github.com/billpetti/baseballr/issues/
     user: https://github.com/billpetti/
 reference:
+  - title: Baseball Savant
+  - subtitle: Baseball Savant MLB Data Functions
+    desc: Functions exported by baseballr to access Baseball Savant MLB Data
+    contents:
+      - '`statcast`'
+      - '`statcast_leaderboards`'
+      - '`statcast_search`'
+  - title: Baseball Savant Helpers
+  - subtitle: Baseball Savant MLB Helper Functions
+    desc: Functions exported by baseballr to process Baseball Savant MLB Data
+    contents:
+      - '`edge_code`'
+      - '`edge_frequency`'
+      - '`code_barrel`'
+      - '`process_statcast_payload`'
+      - '`statline_from_statcast`'
+      - '`label_statcast_imputed_data`'
+      - '`linear_weights_savant`'
+  - title: NCAA Baseball 
+  - subtitle: NCAA Baseball Data Functions
+    desc: Functions exported by baseballr to access NCAA Baseball Data
+    contents:
+      - starts_with("ncaa")
+  - title: Retrosheet
+  - subtitle: Retrosheet Data Functions
+    desc: Functions exported by baseballr to access Retrosheet Data
+    contents:
+      - '`retrosheet_data`'
+  - title: FanGraphs
+  - subtitle: FanGraphs MLB and MiLB Data Functions
+    desc: Functions exported by baseballr to access FanGraphs' MLB and MiLB Data
+    contents:
+      - '`fangraphs`'
+      - starts_with("fg_park")
+      - starts_with("fg_guts")
+      - starts_with("fg_batter")
+      - starts_with("fg_pitcher")
+      - starts_with("fg_milb")
+      - starts_with("fg_team")
+  - title: Baseball Reference
+  - subtitle: Baseball Reference MLB Data Functions
+    desc: Functions exported by baseballr to access Baseball Reference's MLB Data
+    contents:
+      - starts_with("bref")
+  - title: Chadwick Bureau Player Lookup
+  - subtitle: Chadwick Bureau Player Lookup Functions
+    desc: Functions exported by baseballr to access baseball player information from the Chadwick Bureau's Public Register of Baseball Players
+    contents:
+      - starts_with("chadwick")
+      - '`playerid_lookup`'
+      - '`playername_lookup`'
+  - title: Spotrac
+  - subtitle: MLB Contracts Data functions
+    desc: Functions exported by baseballr to access Spotrac Contracts Data
+    contents:
+      - starts_with("sptrc")
   - title: MLB Stats - Overview
     contents:
       - '`mlb`'
@@ -247,56 +305,7 @@ reference:
     desc: Functions exported by baseballr to access MLB Stats - Jobs Data
     contents:
       - starts_with("mlb_job")
-  - title: Baseball Savant
-  - subtitle: Baseball Savant MLB Data Functions
-    desc: Functions exported by baseballr to access Baseball Savant MLB Data
-    contents:
-      - '`statcast`'
-      - '`statcast_leaderboards`'
-      - '`statcast_search`'
-  - title: Baseball Savant Helpers
-  - subtitle: Baseball Savant MLB Helper Functions
-    desc: Functions exported by baseballr to process Baseball Savant MLB Data
-    contents:
-      - '`edge_code`'
-      - '`edge_frequency`'
-      - '`code_barrel`'
-      - '`process_statcast_payload`'
-      - '`statline_from_statcast`'
-      - '`label_statcast_imputed_data`'
-      - '`linear_weights_savant`'
-  - title: NCAA Baseball 
-  - subtitle: NCAA Baseball Data Functions
-    desc: Functions exported by baseballr to access NCAA Baseball Data
-    contents:
-      - starts_with("ncaa")
-  - title: Retrosheet
-  - subtitle: Retrosheet Data Functions
-    desc: Functions exported by baseballr to access Retrosheet Data
-    contents:
-      - '`retrosheet_data`'
-  - title: FanGraphs
-  - subtitle: FanGraphs MLB and MiLB Data Functions
-    desc: Functions exported by baseballr to access FanGraphs' MLB and MiLB Data
-    contents:
-      - '`fangraphs`'
-      - starts_with("fg_park")
-      - starts_with("fg_guts")
-      - starts_with("fg_batter")
-      - starts_with("fg_pitcher")
-      - starts_with("fg_milb")
-  - title: Baseball Reference
-  - subtitle: Baseball Reference MLB Data Functions
-    desc: Functions exported by baseballr to access Baseball Reference's MLB Data
-    contents:
-      - starts_with("bref")
-  - title: Chadwick Bureau Player Lookup
-  - subtitle: Chadwick Bureau Player Lookup Functions
-    desc: Functions exported by baseballr to access baseball player information from the Chadwick Bureau's Public Register of Baseball Players
-    contents:
-      - starts_with("chadwick")
-      - '`playerid_lookup`'
-      - '`playername_lookup`'
+
   - title: baseballr Data Repository Misc. Lookup
   - subtitle: baseballr Data Repository Misc. Lookup Functions
     desc: Functions exported by baseballr to access baseballr data repository supplementary data
