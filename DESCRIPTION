@@ -50,6 +50,7 @@ Suggests:
     reshape2,
     rmarkdown,
     RSQLite,
+    scales,
     stringi,
     stats,
     testthat,
