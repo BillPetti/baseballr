@@ -32,6 +32,7 @@ Other contributors:
   \item Ben Baumer \email{ben.baumer@gmail.com} [contributor]
   \item Ben Dilday \email{ben.dilday.phd@gmail.com} [contributor]
   \item Robert Frey \email{rfrey22@gmail.com} [contributor]
+  \item Camden Kay \email{camden.kay23@gmail.com} [contributor]
 }
 
 }

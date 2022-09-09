@@ -6,7 +6,8 @@ Authors@R: c(
     person("Saiem", "Gilani", , "saiem.gilani@gmail.com", role = c("aut", "cre")),
     person("Ben", "Baumer", , "ben.baumer@gmail.com", role = "ctb"),
     person("Ben", "Dilday", , "ben.dilday.phd@gmail.com", role = "ctb"),
-    person("Robert", "Frey", , "rfrey22@gmail.com", role = "ctb")
+    person("Robert", "Frey", , "rfrey22@gmail.com", role = "ctb"),
+    person("Camden", "Kay", , "camden.kay23@gmail.com", role = "ctb")
   )
 Description: Provides numerous utilities for acquiring and analyzing
     baseball data from online sources such as Baseball Reference <https://www.baseball-reference.com/>,

@@ -37,6 +37,8 @@ home:
   links:
   - text: "Getting Started with baseballr"
     href:  https://BillPetti.github.io/baseballr/articles/baseballr.html
+  - text: "Using Statcast Pitch Data"
+    href:  https://BillPetti.github.io/baseballr/articles/using_statcast_pitch_data.html
   - text: "Plotting Statcast"
     href:  https://BillPetti.github.io/baseballr/articles/plotting_statcast.html
   - text: "NCAA Scraping"

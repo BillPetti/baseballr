@@ -83,7 +83,7 @@ bref_standings_on_date("2015-08-01", "NL East", from = FALSE)
 
     ## ── MLB Standings on Date data from baseball-reference.com ─── baseballr 1.3.0 ──
 
-    ## ℹ Data updated: 2022-09-08 19:40:26 EDT
+    ## ℹ Data updated: 2022-09-08 20:13:31 EDT
 
     ## # A tibble: 5 × 8
     ##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`
@@ -200,7 +200,7 @@ bref_daily_pitcher("2015-04-05", "2015-04-30") %>%
 
     ## ── MLB Daily Pitcher data from baseball-reference.com ─────── baseballr 1.3.0 ──
 
-    ## ℹ Data updated: 2022-09-08 19:40:41 EDT
+    ## ℹ Data updated: 2022-09-08 20:13:44 EDT
 
     ## # A tibble: 10 × 11
     ##    season Name            IP   ERA    SO   uBB   HBP    HR   FIP wOBA_…¹ wOBA_…²
@@ -266,6 +266,10 @@ stars](https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&log
 -   [Robert Frey](https://twitter.com/RobertFrey40)  
     <a href="https://twitter.com/RobertFrey40" target="blank"><img src="https://img.shields.io/twitter/follow/RobertFrey40?color=blue&label=%40RobertFrey40&logo=twitter&style=for-the-badge" alt="@RobertFrey40" /></a>
     <a href="https://github.com/robert-frey" target="blank"><img src="https://img.shields.io/github/followers/robert-frey?color=eee&logo=Github&style=for-the-badge" alt="@robert-frey" /></a>
+
+-   [Camden Kay](https://twitter.com/k_camden)  
+    <a href="https://twitter.com/k_camden" target="blank"><img src="https://img.shields.io/twitter/follow/k_camden?color=blue&label=%40k_camden&logo=twitter&style=for-the-badge" alt="@k_camden" /></a>
+    <a href="https://github.com/camdenk" target="blank"><img src="https://img.shields.io/github/followers/camdenk?color=eee&logo=Github&style=for-the-badge" alt="@camdenk" /></a>
 
 ## **Citations**
 
