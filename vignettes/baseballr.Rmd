@@ -5,7 +5,7 @@ author: "Saiem Gilani <br><a href='https://twitter.com/saiemgilani' target='blan
 date: "`r Sys.Date()`"
 opengraph:
   image: 
-    src: "https://github.com/saiemgilani/hoopR-data/blob/master/themes/hoopR_gh.png?raw=true"
+    src: "https://raw.githubusercontent.com/billpetti/baseballr/master/logo.png"
   twitter:
     card: summary_large_image
     creator: "@saiemgilani"
@@ -87,7 +87,7 @@ pacman::p_load_current_gh("billpetti/baseballr")
 
 There are generally speaking **eight** men's baseball data sources accessible from this package:
 
--   [`baseballr-data` repo](https://github.com/saiemgilani/baseballr-data) [![Twitter Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse)
+-   [`baseballr-data` repo](https://github.com/sportsdataverse/baseballr-data) [![Twitter Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse)
 -   [MLB Stats API](https://www.mlb.com/)
 -   [Baseball Savant's Statcast](https://baseballsavant.mlb.com/)
 -   [Chadwick Bureau's Public Register of Baseball Players](https://github.com/chadwickbureau/register/)
@@ -100,7 +100,7 @@ There are generally speaking **eight** men's baseball data sources accessible fr
 
 As of [baseballr v1.0.0](https://billpetti.github.io/baseballr/news/index.html#baseballr-1.0.0), a function naming convention was implemented to have the data source indicator appear at the start of the function name:
 
--   Functions that use the [`baseballr-data` repository](https://github.com/saiemgilani/baseballr-data) will contain `load_` or `update_` in the function name and would be considered loading functions for the play-by-play data, team box scores, and player box scores.
+-   Functions that use the [`baseballr-data` repository](https://github.com/sportsdataverse/baseballr-data) will contain `load_` or `update_` in the function name and would be considered loading functions for the play-by-play data, team box scores, and player box scores.
 
 -   Functions that use the MLB Stats API start with `mlb_` by convention and should be assumed as `get` functions. As of `baseballr` version `r remote_version`, the package exports ~88 functions covering the MLB Stats API.
 
