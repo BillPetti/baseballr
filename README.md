@@ -140,4 +140,3 @@ Example (batters):
 ```
 
 More functionality will be added soon. Please leave any suggestions or bugs in the [Issues section](https://github.com/BillPetti/baseballr/issues).
-A line test for Readme
