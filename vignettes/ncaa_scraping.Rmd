@@ -1,0 +1,52 @@
+---
+title: "NCAA Scraping"
+author: "Bill Petti"
+date: "2016-11-22"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{NCAA Scraping}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The latest release of the [`baseballr`](https://billpetti.github.io/baseballr/) includes a function for acquiring player statistics from the [NCAA's website](http://stats.ncaa.org) for baseball teams across the three major divisions (I, II, III).
+
+The function, `ncaa_scrape`, requires the user to pass values for three parameters for the function to work:
+
+`school_id`: numerical code used by the NCAA for each school
+`year`: a four-digit year
+`type`: whether to pull data for batters or pitchers
+
+If you want to pull batting statistics for Vanderbilt for the 2013 season, you would use the following:
+
+```{r ncaa_scrape_batting}
+library(baseballr)
+library(dplyr)
+ncaa_scrape(736, 2021, "batting") %>%
+  select(year:OBPct)
+```
+
+
+The same can be done for pitching, just by changing the `type` parameter:
+
+```{r ncaa_scrape_pitching}
+ncaa_scrape(736, 2021, "pitching") %>%
+  select(year:ERA)
+```
+
+
+Now, the function is dependent on the user knowing the `school_id` used by the NCAA website. Given that, I've included a `ncaa_school_id_lu` function so that users can find the `school_id` they need.
+
+Just pass a string to the function and it will return possible matches based on the school's name:
+
+```{r ncaa_sch_id_lu}
+ncaa_school_id_lu("Vand")
+```
+

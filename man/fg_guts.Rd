@@ -2,15 +2,34 @@
 % Please edit documentation in R/fg_guts.R
 \name{fg_guts}
 \alias{fg_guts}
-\title{Scrape FanGraphs.com Guts!}
+\title{\strong{Scrape FanGraphs.com Guts!}}
 \usage{
 fg_guts()
 }
+\value{
+Returns a tibble of seasonal constants from FanGraphs\tabular{ll}{
+   col_name \tab types \cr
+   season \tab integer \cr
+   lg_woba \tab numeric \cr
+   woba_scale \tab numeric \cr
+   wBB \tab numeric \cr
+   wHBP \tab numeric \cr
+   w1B \tab numeric \cr
+   w2B \tab numeric \cr
+   w3B \tab numeric \cr
+   wHR \tab numeric \cr
+   runSB \tab numeric \cr
+   runCS \tab numeric \cr
+   lg_r_pa \tab numeric \cr
+   lg_r_w \tab numeric \cr
+   cFIP \tab numeric \cr
+}
+}
 \description{
-This function allows you to scrape the historical, season-by-season wOBA and FIP constants and coefficients at FanGraphs.com.
+Scrape historical FanGraphs Guts! table, wOBA, FIP coefficients and constants
 }
 \examples{
-fg_guts()
+\donttest{
+  try(fg_guts())
 }
-\keyword{MLB,}
-\keyword{sabermetrics}
+}

@@ -1,0 +1,134 @@
+---
+title: "Getting Started with baseballr"
+description: "Getting started with using <code>baseballr</code> and men's baseball data."
+author: "Saiem Gilani <br><a href='https://twitter.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
+date: "`r Sys.Date()`"
+opengraph:
+  image: 
+    src: "https://raw.githubusercontent.com/billpetti/baseballr/master/logo.png"
+  twitter:
+    card: summary_large_image
+    creator: "@saiemgilani"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started with baseballr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# You can install using the pacman package using the following code:
+# if (!requireNamespace('pacman', quietly = TRUE)){
+#   install.packages('pacman')
+# }
+# pacman::p_load_current_gh("r-lib/pkgapi")
+# library(pkgapi)
+# pkg <- pkgapi::map_package(path = "../")
+# library(dplyr)
+# function_calls <- pkg$calls
+# exported <- pkg$defs %>% 
+#   dplyr::filter(exported == TRUE) %>% 
+#   dplyr::select(all_of(c("name", "file"))) 
+# 
+# mlb_functions <- exported %>% 
+#   dplyr::filter(stringr::str_detect(.data$name,pattern = "^mlb_*"))
+# 
+# bref_functions <- exported %>% 
+#   dplyr::filter(stringr::str_detect(.data$name,pattern = "^bref_*"))
+# fg_functions <- exported %>% 
+#   dplyr::filter(stringr::str_detect(.data$name,pattern = "^fg_*"))
+# sc_functions <- exported %>% 
+#   dplyr::filter(stringr::str_detect(.data$name,pattern = "^statcast_*"))
+# ncaa_functions <- exported %>% 
+#   dplyr::filter(stringr::str_detect(.data$name,pattern = "^ncaa_*"))
+# chadwick_functions <- exported %>% 
+#   dplyr::filter(stringr::str_detect(.data$name,pattern = "^chadwick_*|^playerid_*|^playername_*"))
+# retrosheet_functions <- exported %>% 
+#   dplyr::filter(stringr::str_detect(.data$name,pattern = "^retrosheet_*"))
+old <- options(rmarkdown.html_vignette.check_title = FALSE)
+pkg_name <- "billpetti/baseballr"
+url <- paste0("https://raw.githubusercontent.com/", pkg_name, "/master/DESCRIPTION")
+x <- readLines(url)
+remote_version <- gsub("Version:\\s*", "", x[grep('Version:', x)])
+```
+
+Welcome folks,
+
+I'm Saiem Gilani, one of the [authors](https://billpetti.github.io/baseballr/authors.html "Authors and contributors to baseballr") of [`baseballr`](https://billpetti.github.io/baseballr/), and I hope to give the community a high-quality resource for accessing men's baseball data for statistical analysis, baseball research, and more. I am excited to show you some of what you can do with this edition of the package.
+
+### **Installing R and RStudio**
+
+1.  Head to <https://cran.r-project.org>
+2.  Select the appropriate link for your operating system (Windows, Mac OS X, or Linux)
+
+-   **Windows** - Select base and download the most recent version
+-   **Mac OS X** - Select Latest Release, but check to make sure your OS is the correct version. Look through Binaries for Legacy OS X Systems if you are on an older release
+-   **Linux** - Select the appropriate distro and follow the installation instructions
+
+3.  Head to [RStudio.com](https://www.rstudio.com/products/rstudio/download/#download "Download the appropriate version of RStudio (Free) for your operating system to use with R")
+4.  Follow the associated download and installation instructions for RStudio.
+5.  Start peering over the [RStudio IDE Cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf). *An IDE is an integrated development environment.*
+6.  For **Windows** users: I recommend you install [Rtools](https://cran.r-project.org/bin/windows/Rtools/). This is not an R package! It is “a collection of resources for building packages for R under Microsoft Windows, or for building R itself”. Go to [https://cran.r-project.org/bin/windows/Rtools/](https://cran.r-project.org/bin/windows/Rtools/) and follow the directions for installation.
+
+
+
+
+## **Install** [**`baseballr`**](https://billpetti.github.io/baseballr/)
+```{r install_baseballr_gs, message=FALSE,eval=FALSE}
+# You can install using the pacman package using the following code:
+if (!requireNamespace('pacman', quietly = TRUE)){
+  install.packages('pacman')
+}
+pacman::p_load_current_gh("billpetti/baseballr")
+```
+
+### **The Data**
+
+There are generally speaking **eight** men's baseball data sources accessible from this package:
+
+-   [`baseballr-data` repo](https://github.com/sportsdataverse/baseballr-data) [![Twitter Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse)
+-   [MLB Stats API](https://www.mlb.com/)
+-   [Baseball Savant's Statcast](https://baseballsavant.mlb.com/)
+-   [Chadwick Bureau's Public Register of Baseball Players](https://github.com/chadwickbureau/register/)
+-   [Baseball Reference](https://www.baseball-reference.com/)
+-   [FanGraphs](https://www.fangraphs.com/)
+-   [Retrosheet](https://www.retrosheet.org/)
+-   [NCAA](https://stats.ncaa.org/)
+
+#### **Function names indicate the data source**
+
+As of [baseballr v1.0.0](https://billpetti.github.io/baseballr/news/index.html#baseballr-1.0.0), a function naming convention was implemented to have the data source indicator appear at the start of the function name:
+
+-   Functions that use the [`baseballr-data` repository](https://github.com/sportsdataverse/baseballr-data) will contain `load_` or `update_` in the function name and would be considered loading functions for the play-by-play data, team box scores, and player box scores.
+
+-   Functions that use the MLB Stats API start with `mlb_` by convention and should be assumed as `get` functions. As of `baseballr` version `r remote_version`, the package exports ~88 functions covering the MLB Stats API.
+
+-   Functions that use one of [Baseball Savant's Statcast](https://baseballsavant.mlb.com/) APIs start with `statcast_` by convention and should be assumed as `get` functions. These functions allow for live access to Statcast data for the MLB games in-progress. As of `baseballr` version `r remote_version`, the package exports ~5 Statcast-related functions.
+
+-   Functions that use [Chadwick Bureau's Public Register of Baseball Players](https://github.com/chadwickbureau/register/) start with `chadwick_`, `playerid_`, or `playername_` by convention and should be assumed as `get` functions. These functions allow for access to the Bureau's public register of baseball players. As of `baseballr` version `r remote_version`, the package exports 3 functions sourced using the Chadwick Bureau's public register of baseball players.
+
+-   Functions that use Baseball Reference's website start with `bref_` by convention and should be assumed as `get` functions. As of `baseballr` version `r remote_version`, the package exports ~4 functions covering [Baseball Reference](https://www.baseball-reference.com/).
+
+-   Functions that use FanGraphs's baseball website start with `fg_` by convention and should be assumed as `get` functions. As of `baseballr` version `r remote_version`, the package exports ~11 functions covering [FanGraphs.com](https://www.fangraphs.com/).
+
+-   Functions that use Retrosheet's baseball data start with `retrosheet_` by convention and should be assumed as `get` functions. As of `baseballr` version `r remote_version`, the package exports 1 function for [Retrosheet Data](https://www.retrosheet.org/).
+
+-   Functions that use the NCAA website start with `ncaa_` by convention and should be assumed as `get` functions. As of `baseballr` version `r remote_version`, the package exports ~8 function covering the [NCAA Stats portal](https://stats.ncaa.org/).
+
+
+## Follow the [SportsDataverse](https://twitter.com/SportsDataverse) on Twitter and star this repo
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=twitter&style=for-the-badge)](https://twitter.com/SportsDataverse) 
+
+[![GitHub stars](https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&logo=github&style=for-the-badge&label=Star%20baseballr&maxAge=2592000)](https://github.com/billpetti/baseballr/stargazers/)
+
+## **Our Authors**
+
+-   [Bill Petti](https://twitter.com/BillPetti)       
+<a href="https://twitter.com/BillPetti" target="blank"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge" alt="@BillPetti" /></a>
+<a href="https://github.com/BillPetti" target="blank"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&logo=Github&style=for-the-badge" alt="@BillPetti" /></a>
+
+-   [Saiem Gilani](https://twitter.com/saiemgilani)       
+<a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
+<a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>

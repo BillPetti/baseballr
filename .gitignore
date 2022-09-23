@@ -1,5 +1,6 @@
 .Rproj.user
 .Rhistory
 .RData
-baseballr.Rproj
-inst/doc
+.DS_Store
+^data-raw$
+docs

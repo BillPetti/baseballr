@@ -1,0 +1,381 @@
+url: ~
+template:
+  bootstrap: 5
+  bootswatch: flatly
+  bslib:
+    primary: "#0054AD"
+    secondary: "#2178C0"
+    border-radius: 0.5rem
+    btn-border-radius: 0.25rem
+  opengraph:
+    image:
+      src: "https://raw.githubusercontent.com/BillPetti/baseballR/master/logo.png"
+    twitter:
+      creator: "@BillPetti"
+      href: https://twitter.com/BillPetti
+      card: summary
+
+
+toc:
+  depth: 3
+
+authors:
+  Bill Petti:
+    href: https://twitter.com/BillPetti
+  Saiem Gilani:
+    href: https://twitter.com/saiemgilani
+    
+
+code:
+  width: 72
+  
+development:
+  mode: auto    
+  
+
+home:
+  links:
+  - text: "Getting Started with baseballr"
+    href:  https://BillPetti.github.io/baseballr/articles/baseballr.html
+  - text: "Using Statcast Pitch Data"
+    href:  https://BillPetti.github.io/baseballr/articles/using_statcast_pitch_data.html
+  - text: "Plotting Statcast"
+    href:  https://BillPetti.github.io/baseballr/articles/plotting_statcast.html
+  - text: "NCAA Scraping"
+    href:  https://BillPetti.github.io/baseballr/articles/ncaa_scraping.html
+    
+
+navbar:
+  structure:
+    left:  [home, reference, articles, news, network, repo]
+    right: [twitter, github]
+  # icon: https://raw.githubusercontent.com/BillPetti/baseballR/master/man/figures/logo.ico
+  title: "baseballr"
+  components:
+    home:
+      title: An R package to quickly obtain clean and tidy men's baseball play by play data
+      description: Functions to Access Men's Baseball Play by Play Data
+      icon: fa-home
+      href: index.html
+    reference:
+      icon: "fas fa-code"
+      text: " Funcs"
+      href: reference/index.html
+      menu:
+      - text: "Function Index"
+        href: reference/index.html
+      - text: "MLB"
+        href: reference/mlb.html
+      - text: "MLB Awards"
+        href: reference/mlb_award.html
+      - text: "Statcast"
+        href: reference/statcast.html
+      - text: "Retrosheet"
+        href: reference/retrosheet_data.html
+      - text: "NCAA Baseball"
+        href: reference/ncaa.html
+      - text: "Baseball Reference"
+        href: reference/bref.html
+      - text: "FanGraphs"
+        href: reference/fangraphs.html
+      - text: "Metrics"
+        href: reference/metrics.html
+      - text: "Visualizations"
+        href: reference/ggspraychart.html
+      - text: "Player Lookup"
+        href: reference/chadwick.html
+        
+    articles:
+      icon: "fas fa-book-reader"
+      text: " Articles"
+      menu:
+      - text: Vignettes
+        href: articles/index.html
+      - text: "Getting Started with baseballr"
+        href: articles/baseballr.html
+      - text: "Using Statcast Pitch Data"
+        href: articles/using_statcast_pitch_data.html
+      - text: "Plotting Statcast"
+        href: articles/plotting_statcast.html
+      - text: "NCAA Scraping"
+        href: articles/ncaa_scraping.html
+    news:
+      icon: "fas fa-newspaper"
+      text: " News"
+      href: news/index.html
+    network:
+      icon: "fas fa-project-diagram"
+      text: " SDV"
+      menu:
+      - text: SportsDataverse
+        href: https://sportsdataverse.org/
+      - text: --------------------------------
+      - text: R Packages
+      - text: sportsdataverse-R
+        href: https://r.sportsdataverse.org/
+      - text: cfbfastR
+        href: https://cfbfastR.sportsdataverse.org/
+      - text: hoopR
+        href: https://hoopR.sportsdataverse.org/
+      - text: wehoop
+        href: https://wehoop.sportsdataverse.org/
+      - text: toRvik
+        href: https://torvik.dev/
+      - text: fastRhockey
+        href: https://fastRhockey.sportsdataverse.org/
+      - text: baseballr
+        href: https://BillPetti.github.io/baseballr/
+      - text: worldfootballR
+        href: https://jaseziv.github.io/worldfootballR/
+      - text: chessR
+        href: https://jaseziv.github.io/chessR/
+      - text: cfbplotR
+        href: https://kazink36.github.io/cfbplotR/
+      - text: cfb4th
+        href: https://kazink36.github.io/cfb4th/
+      - text: recruitR
+        href: https://recruitr.sportsdataverse.org/
+      - text: gamezoneR
+        href: https://jacklich10.github.io/gamezoneR/
+      - text: puntr
+        href: https://puntalytics.github.io/puntr/
+      - text: --------------------------------
+      - text: Python Packages
+      - text: sportsdataverse-py
+        href: https://py.sportsdataverse.org/
+      - text: --------------------------------
+      - text: Node.js Packages
+      - text: sportsdataverse.js
+        href: https://js.sportsdataverse.org/
+      - text: nfl-nerd
+        href: https://github.com/nntrn/nfl-nerd/
+    github:
+      icon: "fab fa-github fa-lg"
+      href: https://github.com/billpetti/baseballr/
+    twitter:
+      icon: "fa-twitter"
+      href: http://twitter.com/BillPetti
+      aria-label: Twitter
+repo:
+  url:
+    home: https://github.com//billpetti/baseballr/
+    source: https://github.com/billpetti/baseballr/blob/master/
+    issue: https://github.com/billpetti/baseballr/issues/
+    user: https://github.com/billpetti/
+reference:
+  - title: Baseball Savant
+  - subtitle: Baseball Savant MLB Data Functions
+    desc: Functions exported by baseballr to access Baseball Savant MLB Data
+    contents:
+      - '`statcast`'
+      - '`statcast_leaderboards`'
+      - '`statcast_search`'
+  - title: Baseball Savant Helpers
+  - subtitle: Baseball Savant MLB Helper Functions
+    desc: Functions exported by baseballr to process Baseball Savant MLB Data
+    contents:
+      - '`edge_code`'
+      - '`edge_frequency`'
+      - '`code_barrel`'
+      - '`process_statcast_payload`'
+      - '`statline_from_statcast`'
+      - '`label_statcast_imputed_data`'
+      - '`linear_weights_savant`'
+  - title: NCAA Baseball 
+  - subtitle: NCAA Baseball Data Functions
+    desc: Functions exported by baseballr to access NCAA Baseball Data
+    contents:
+      - starts_with("ncaa")
+  - title: Retrosheet
+  - subtitle: Retrosheet Data Functions
+    desc: Functions exported by baseballr to access Retrosheet Data
+    contents:
+      - '`retrosheet_data`'
+  - title: FanGraphs
+  - subtitle: FanGraphs MLB and MiLB Data Functions
+    desc: Functions exported by baseballr to access FanGraphs' MLB and MiLB Data
+    contents:
+      - '`fangraphs`'
+      - starts_with("fg_park")
+      - starts_with("fg_guts")
+      - starts_with("fg_batter")
+      - starts_with("fg_pitcher")
+      - starts_with("fg_milb")
+      - starts_with("fg_team")
+  - title: Baseball Reference
+  - subtitle: Baseball Reference MLB Data Functions
+    desc: Functions exported by baseballr to access Baseball Reference's MLB Data
+    contents:
+      - starts_with("bref")
+  - title: Chadwick Bureau Player Lookup
+  - subtitle: Chadwick Bureau Player Lookup Functions
+    desc: Functions exported by baseballr to access baseball player information from the Chadwick Bureau's Public Register of Baseball Players
+    contents:
+      - starts_with("chadwick")
+      - '`playerid_lookup`'
+      - '`playername_lookup`'
+  - title: Spotrac
+  - subtitle: MLB Contracts Data functions
+    desc: Functions exported by baseballr to access Spotrac Contracts Data
+    contents:
+      - starts_with("sptrc")
+  - title: MLB Stats - Overview
+    contents:
+      - '`mlb`'
+  - title: MLB Stats - Types and Codes
+  - subtitle: MLB Stats - Types and Codes Data Functions
+    desc: Functions exported by baseballr to access MLB Stats - Types and Codes Data
+    contents:
+      - starts_with("mlb_baseball")
+      - starts_with("mlb_event")
+      - starts_with("mlb_fielder")
+      - starts_with("mlb_high_low_types")
+      - starts_with("mlb_hit")
+      - starts_with("mlb_game_types")
+      - starts_with("mlb_job_types")
+      - starts_with("mlb_league_leader")
+      - starts_with("mlb_lang")
+      - starts_with("mlb_logical")
+      - starts_with("mlb_metrics")
+      - starts_with("mlb_pitch")
+      - starts_with("mlb_positions")
+      - starts_with("mlb_review")
+      - starts_with("mlb_roster_types")
+      - starts_with("mlb_runner")
+      - starts_with("mlb_schedule_event")
+      - starts_with("mlb_season")
+      - starts_with("mlb_situation")
+      - starts_with("mlb_sky")
+      - starts_with("mlb_standings_types")
+      - starts_with("mlb_stat_groups")
+      - starts_with("mlb_stat_types")
+      - starts_with("mlb_wind")
+  - title: MLB Stats - Game
+  - subtitle: MLB Stats - Game Data Functions
+    desc: Functions exported by baseballr to access MLB Stats - Game Data
+    contents:
+      - starts_with("mlb_attendance") 
+      - starts_with("mlb_game")
+      - starts_with("mlb_pbp")
+      - starts_with("mlb_prob")
+      - starts_with("mlb_batt")
+      - starts_with("mlb_schedule")
+      - starts_with("mlb_venue")
+  - title: MLB Stats - Players
+  - subtitle: MLB Stats - Player Data Functions
+    desc: Functions exported by baseballr to access MLB Stats - Player Data
+    contents:
+      - starts_with("mlb_player")
+      - starts_with("mlb_people")
+      - starts_with("mlb_high_low_stats")
+      - starts_with("mlb_stats")
+  - title: MLB Stats - Teams
+  - subtitle: MLB Stats - Teams Data Functions
+    desc: Functions exported by baseballr to access MLB Stats - Teams Data
+    contents:
+      - starts_with("mlb_team_")
+      - starts_with("mlb_teams")
+      - starts_with("mlb_rosters")
+  - title: MLB Stats - Standings
+  - subtitle: MLB Stats - Standings Data Functions
+    desc: Functions exported by baseballr to access MLB Stats - Standings Data
+    contents:
+      - starts_with("mlb_standings")
+  - title: MLB Stats - League
+  - subtitle: MLB Stats - League Data Functions
+    desc: Functions exported by baseballr to access MLB Stats - League Data
+    contents:
+      - starts_with("mlb_league")
+      - starts_with("mlb_conference")
+      - starts_with("mlb_division")
+      - starts_with("mlb_sport")
+  - title: MLB Stats - Draft
+  - subtitle: MLB Stats - Draft Data Functions
+    desc: Functions exported by baseballr to access MLB Stats - Draft Data
+    contents:
+      - starts_with("mlb_draft")
+  - title: MLB Stats - Awards
+  - subtitle: MLB Stats - Awards Data Functions
+    desc: Functions exported by baseballr to access MLB Stats - Awards Data
+    contents:
+      - '`mlb_award`'
+      - starts_with("mlb_awards")
+      - starts_with("mlb_all")
+      - starts_with("mlb_home")
+  - title: MLB Stats - Jobs
+  - subtitle: MLB Stats - Jobs Data Functions
+    desc: Functions exported by baseballr to access MLB Stats - Jobs Data
+    contents:
+      - starts_with("mlb_job")
+
+  - title: baseballr Data Repository Misc. Lookup
+  - subtitle: baseballr Data Repository Misc. Lookup Functions
+    desc: Functions exported by baseballr to access baseballr data repository supplementary data
+    contents:
+      - '`load_umpire_ids`'
+      - '`load_game_info_sup`'
+  - title: Metrics
+  - subtitle: Metrics Functions
+    desc: Functions exported by baseballr to calculate metrics
+    contents:
+      - '`metrics`'
+      - '`woba_plus`'
+      - '`fip_plus`'
+      - '`team_consistency`'
+      - '`run_expectancy_code`'
+  - title: Visualizations
+  - subtitle: Visualizations Functions
+    desc: Functions exported by baseballr to create visuals
+    contents:
+      - '`ggspraychart`'
+  - title: Included Data
+  - subtitle: Included baseballr data
+    desc: Data exported by baseballr for ease of use
+    contents:
+      - '`column_structure_draft_mlb`'
+      - '`ncaa_season_id_lu`'
+      - '`ncaa_school_id_lu`'
+      - '`ncaa_team_lu`'
+      - '`teams_lu_table`'
+      - '`stats_api_live_empty_df`'
+      - '`statcast_impute`'
+  - title: Utilities
+  - subtitle: Internal utilities of baseballr
+    contents:
+      - '`most_recent_mlb_season`'
+      - '`most_recent_ncaa_baseball_season`'
+      - '`csv_from_url`'
+      - '`rds_from_url`'
+      - '`progressively`'
+  - title: Legacy
+  - subtitle: Legacy Functions
+    desc: Functions superseded by new naming convention
+    contents:
+      - '`batter_game_logs_fg`' 
+      - '`daily_batter_bref`'
+      - '`daily_pitcher_bref`'
+      - '`fg_bat_leaders`'
+      - '`fg_pitch_leaders`'
+      - '`get_batting_orders`'
+      - '`get_draft_mlb`'
+      - '`get_game_info_mlb`'
+      - '`get_game_info_sup_petti`'
+      - '`get_game_pks_mlb`'
+      - '`get_ncaa_baseball_pbp`'
+      - '`get_ncaa_baseball_roster`'
+      - '`get_ncaa_game_logs`'
+      - '`get_ncaa_lineups`'
+      - '`get_ncaa_park_factor`'
+      - '`get_ncaa_schedule_info`'
+      - '`get_pbp_mlb`'
+      - '`get_probables_mlb`'
+      - '`get_retrosheet_data`'
+      - '`get_umpire_ids_petti`'
+      - '`milb_batter_game_logs_fg`'
+      - '`milb_pitcher_game_logs_fg`'
+      - '`pitcher_game_logs_fg`'
+      - '`school_id_lu`'
+      - '`scrape_savant_leaderboards`'
+      - '`scrape_statcast_savant`'
+      - '`standings_on_date_bref`'
+      - '`team_results_bref`'

@@ -1,0 +1,188 @@
+---
+output: github_document
+---
+
+```{r readme_setup, include = FALSE}
+# You can install using the pacman package using the following code:
+if (!requireNamespace('pacman', quietly = TRUE)){
+  install.packages('pacman')
+}
+
+pacman::p_load(dplyr)
+```
+
+# 
+
+# `baseballr` <a href='https://billpetti.github.io/baseballr/'><img src='https://raw.githubusercontent.com/billpetti/baseballr/master/logo.png' align="right" width="30%" min-width="100px" /></a>
+
+<!-- badges: start -->
+
+[![CRAN
+version](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=CRAN%20version&prefix=v&query=%24.Version&url=https%3A%2F%2Fcrandb.r-pkg.org%2Fbaseballr)](https://CRAN.R-project.org/package=baseballr)
+[![CRAN
+downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=Downloads&query=%24%5B0%5D.downloads&url=https%3A%2F%2Fcranlogs.r-pkg.org%2Fdownloads%2Ftotal%2F2021-10-26%3Alast-day%2Fbaseballr)](https://CRAN.R-project.org/package=baseballr)
+[![Version-Number](https://img.shields.io/github/r-package/v/BillPetti/baseballr?label=baseballr&logo=R&style=for-the-badge)](https://github.com/BillPetti/baseballr/)
+[![R-CMD-check](https://img.shields.io/github/workflow/status/BillPetti/baseballr/R-CMD-check?label=R-CMD-Check&logo=R&logoColor=white&style=for-the-badge)](https://github.com/BillPetti/baseballr/actions/workflows/R-CMD-check.yaml)
+[![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge&logo=github)](https://github.com/BillPetti/baseballr/)
+[![Contributors](https://img.shields.io/github/contributors/BillPetti/baseballr?style=for-the-badge)](https://github.com/BillPetti/baseballr/graphs/contributors)
+<!-- badges: end -->
+
+`baseballr` is a package written for R focused on baseball analysis. It
+includes functions for scraping various data from websites, such as
+[FanGraphs.com](https://www.fangraphs.com/), [Baseball-Reference.com](https://www.baseball-reference.com/), and [baseballsavant.mlb.com](https://baseballsavant.mlb.com/). It also
+includes functions for calculating metrics, such as wOBA, FIP, and
+team-level consistency over custom time frames.
+
+You can read more about some of the functions and how to use them at its
+[official site](https://billpetti.github.io/baseballr/) as well as this
+[Hardball Times
+article](https://tht.fangraphs.com/developing-the-baseballr-package-for-r/).
+
+## Installation
+
+You can install the CRAN version of
+[**`baseballr`**](https://CRAN.R-project.org/package=baseballr)
+with:
+
+``` r
+install.packages("baseballr")
+```
+
+You can install the released version of [**```baseballr```**](https://github.com/BillPetti/baseballr) from [GitHub](https://github.com/BillPetti/baseballr) with:
+
+``` r
+# You can install using the pacman package using the following code:
+if (!requireNamespace('pacman', quietly = TRUE)){
+  install.packages('pacman')
+}
+pacman::p_load_current_gh("BillPetti/baseballr")
+```
+
+``` r
+# Alternatively, using the devtools package:
+if (!requireNamespace('devtools', quietly = TRUE)){
+  install.packages('devtools')
+}
+devtools::install_github(repo = "BillPetti/baseballr")
+```
+
+For experimental functions in development, you can install the [development branch](https://github.com/BillPetti/baseballr/tree/development_branch):
+
+``` r
+# install.packages("devtools")
+devtools::install_github("BillPetti/baseballr", ref = "development_branch")
+```
+
+## **Functionality**
+
+The package consists of two main sets of functions: data acquisition and metric calculation.
+
+For example, if you want to see the standings for a specific MLB division on a given date, you can use the `bref_standings_on_date()` function. Just pass the year, month, day, and division you want:
+
+```{r bref_standings_on_date}
+library(baseballr)
+library(dplyr)
+bref_standings_on_date("2015-08-01", "NL East", from = FALSE)
+```
+
+Right now the function works as far as back as 1994, which is when both leagues split into three divisions.
+
+You can also pull data for all hitters over a specific date range. Here are the results for all hitters from August 1st through October 3rd during the 2015 season:
+
+```{r bref_daily_batter}
+
+data <- bref_daily_batter("2015-08-01", "2015-10-03") 
+data %>%
+  dplyr::glimpse()
+```
+
+In terms of metric calculation, the package allows the user to calculate the consistency of team scoring and run prevention for any year using `team_consistency()`:
+
+```{r team_consistency}
+team_consistency(2015)
+```
+
+You can also calculate wOBA per plate appearance and wOBA on contact for any set of data over any date range, provided you have the data available.
+
+Simply pass the proper data frame to `woba_plus`:
+
+```{r woba}
+data %>%
+  dplyr::filter(PA > 200) %>%
+  woba_plus %>%
+  dplyr::arrange(desc(wOBA)) %>%
+  dplyr::select(Name, Team, season, PA, wOBA, wOBA_CON) %>%
+  dplyr::glimpse()
+```
+
+You can also generate these wOBA-based stats, as well as FIP, for pitchers using the `fip_plus()` function:
+
+```{r bref_daily_pitcher}
+bref_daily_pitcher("2015-04-05", "2015-04-30") %>% 
+  fip_plus() %>% 
+  dplyr::select(season, Name, IP, ERA, SO, uBB, HBP, HR, FIP, wOBA_against, wOBA_CON_against) %>%
+  dplyr::arrange(dplyr::desc(IP)) %>% 
+  head(10)
+```
+
+
+## **Issues**
+
+Please leave any suggestions or bugs in the [Issues section](https://github.com/billpetti/baseballr/issues).
+
+## **Pull Requests**
+
+Pull request are welcome, but I cannot guarantee that they will be accepted or accepted quickly. Please make all pull requests to the [development branch](https://github.com/billpetti/baseballr/tree/development_branch) for review.
+
+## **Breaking Changes**
+
+[**Full News on Releases**](https://billpetti.github.io/baseballr/news/index.html)
+
+## Follow the [SportsDataverse](https://twitter.com/SportsDataverse) on Twitter and star this repo
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=twitter&style=for-the-badge)](https://twitter.com/SportsDataverse) 
+
+[![GitHub stars](https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&logo=github&style=for-the-badge&label=Star%20baseballr&maxAge=2592000)](https://github.com/billpetti/baseballr/stargazers/)
+
+## **Our Authors**
+
+-   [Bill Petti](https://twitter.com/BillPetti)       
+<a href="https://twitter.com/BillPetti" target="blank"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge" alt="@BillPetti" /></a>
+<a href="https://github.com/BillPetti" target="blank"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&logo=Github&style=for-the-badge" alt="@BillPetti" /></a>
+
+-   [Saiem Gilani](https://twitter.com/saiemgilani)       
+<a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
+<a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
+
+
+## **Our Contributors (they're awesome)**
+
+-   [Ben Baumer](https://twitter.com/BaumerBen)       
+<a href="https://twitter.com/BaumerBen" target="blank"><img src="https://img.shields.io/twitter/follow/BaumerBen?color=blue&label=%40BaumerBen&logo=twitter&style=for-the-badge" alt="@BaumerBen" /></a>
+<a href="https://github.com/beanumber" target="blank"><img src="https://img.shields.io/github/followers/beanumber?color=eee&logo=Github&style=for-the-badge" alt="@beanumber" /></a>
+
+-   [Ben Dilday](https://twitter.com/BenDilday)      
+<a href="https://twitter.com/BenDilday" target="blank"><img src="https://img.shields.io/twitter/follow/BenDilday?color=blue&label=%40BenDilday&logo=twitter&style=for-the-badge" alt="@BenDilday" /></a> 
+<a href="https://github.com/bdilday" target="blank"><img src="https://img.shields.io/github/followers/bdilday?color=eee&logo=Github&style=for-the-badge" alt="@bdilday" /></a>
+
+-   [Robert Frey](https://twitter.com/RobertFrey40)      
+<a href="https://twitter.com/RobertFrey40" target="blank"><img src="https://img.shields.io/twitter/follow/RobertFrey40?color=blue&label=%40RobertFrey40&logo=twitter&style=for-the-badge" alt="@RobertFrey40" /></a> 
+<a href="https://github.com/robert-frey" target="blank"><img src="https://img.shields.io/github/followers/robert-frey?color=eee&logo=Github&style=for-the-badge" alt="@robert-frey" /></a>
+
+-   [Camden Kay](https://twitter.com/k_camden)      
+<a href="https://twitter.com/k_camden" target="blank"><img src="https://img.shields.io/twitter/follow/k_camden?color=blue&label=%40k_camden&logo=twitter&style=for-the-badge" alt="@k_camden" /></a> 
+<a href="https://github.com/camdenk" target="blank"><img src="https://img.shields.io/github/followers/camdenk?color=eee&logo=Github&style=for-the-badge" alt="@camdenk" /></a>
+
+## **Citations**
+
+To cite the [**`baseballr`**](https://billpetti.github.io/baseballr/) R package in publications, use:
+
+BibTex Citation
+```bibtex
+@misc{petti_gilani_2021,
+  author = {Bill Petti and Saiem Gilani},
+  title = {baseballr: The SportsDataverse's R Package for Baseball Data.},
+  url = {https://billpetti.github.io/baseballr/},
+  year = {2021}
+}
+```

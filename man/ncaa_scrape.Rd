@@ -2,9 +2,9 @@
 % Please edit documentation in R/ncaa_scrape.R
 \name{ncaa_scrape}
 \alias{ncaa_scrape}
-\title{Scrape NCAA baseball data (Division I, II, and III)}
+\title{\strong{Scrape NCAA baseball data (Division I, II, and III)}}
 \usage{
-ncaa_scrape(teamid, year, type)
+ncaa_scrape(teamid, year, type = "batting")
 }
 \arguments{
 \item{teamid}{The numerical ID that the NCAA website uses to identify a team}
@@ -13,14 +13,51 @@ ncaa_scrape(teamid, year, type)
 
 \item{type}{A string indicating whether to return "batting" or "pitching" statistics}
 }
+\value{
+A data frame with the following variables\tabular{ll}{
+   col_name \tab types \cr
+   year \tab integer \cr
+   school \tab character \cr
+   conference \tab character \cr
+   division \tab numeric \cr
+   Jersey \tab character \cr
+   Player \tab character \cr
+   Yr \tab character \cr
+   Pos \tab character \cr
+   GP \tab numeric \cr
+   GS \tab numeric \cr
+   BA \tab numeric \cr
+   OBPct \tab numeric \cr
+   SlgPct \tab numeric \cr
+   R \tab numeric \cr
+   AB \tab numeric \cr
+   H \tab numeric \cr
+   2B \tab numeric \cr
+   3B \tab numeric \cr
+   TB \tab numeric \cr
+   HR \tab numeric \cr
+   RBI \tab numeric \cr
+   BB \tab numeric \cr
+   HBP \tab numeric \cr
+   SF \tab numeric \cr
+   SH \tab numeric \cr
+   K \tab numeric \cr
+   DP \tab numeric \cr
+   CS \tab numeric \cr
+   Picked \tab numeric \cr
+   SB \tab numeric \cr
+   RBI2out \tab numeric \cr
+   teamid \tab numeric \cr
+   conference_id \tab integer \cr
+   player_id \tab integer \cr
+   player_url \tab character \cr
+}
+}
 \description{
-This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a data frame.
+This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a tibble.
 }
 \examples{
-\dontrun{
-ncaa_scrape(255, 2013, "batting")
+\donttest{
+  try(ncaa_scrape(teamid=255, year=2013, type = "batting"))
 }
 }
-\keyword{NCAA,}
-\keyword{baseball,}
-\keyword{college}

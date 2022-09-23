@@ -2,18 +2,61 @@
 % Please edit documentation in R/fg_park.R
 \name{fg_park}
 \alias{fg_park}
-\title{Scrape Park Factors from FanGraphs.com}
+\alias{fg_park_hand}
+\title{\strong{Scrape Park Factors from FanGraphs}}
 \usage{
 fg_park(yr)
+
+fg_park_hand(yr)
 }
 \arguments{
 \item{yr}{Season for which you want to scrape the park factors.}
 }
+\value{
+Returns a tibble of park factors.\tabular{ll}{
+   col_name \tab types \cr
+   season \tab integer \cr
+   home_team \tab character \cr
+   basic_5yr \tab integer \cr
+   3yr \tab integer \cr
+   1yr \tab integer \cr
+   single \tab integer \cr
+   double \tab integer \cr
+   triple \tab integer \cr
+   hr \tab integer \cr
+   so \tab integer \cr
+   UIBB \tab integer \cr
+   GB \tab integer \cr
+   FB \tab integer \cr
+   LD \tab integer \cr
+   IFFB \tab integer \cr
+   FIP \tab integer \cr
+}
+
+Returns a tibble of park factors by handedness.\tabular{ll}{
+   col_name \tab types \cr
+   season \tab integer \cr
+   home_team \tab character \cr
+   single_as_LHH \tab integer \cr
+   single_as_RHH \tab integer \cr
+   double_as_LHH \tab integer \cr
+   double_as_RHH \tab integer \cr
+   triple_as_LHH \tab integer \cr
+   triple_as_RHH \tab integer \cr
+   hr_as_LHH \tab integer \cr
+   hr_as_RHH \tab integer \cr
+}
+}
 \description{
 This function allows you to scrape park factors for a given season from FanGraphs.com.
+
+This function allows you to scrape park factors by handedness from FanGraphs.com for a given single year.
 }
 \examples{
-fg_park(2013)
+\donttest{
+  try(fg_park(2013))
 }
-\keyword{MLB,}
-\keyword{sabermetrics}
+\donttest{
+  try(fg_park_hand(2013))
+}
+}
