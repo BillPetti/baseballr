@@ -154,25 +154,15 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">bref_daily_batter</span><span class="op">(</span><span class="st">"2015-05-10"</span>, <span class="st">"2015-06-20"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Daily Batter data from baseball-reference.com ───────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-09-09 07:37:41 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 658 × 30</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    bbref_id season Name    Age Level Team      G    PA    AB     R     H</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 547989     <span style="text-decoration: underline;">2</span>015 Mann…    22 Maj-… Balt…    40   175   163    30    51</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 554429     <span style="text-decoration: underline;">2</span>015 Char…    28 Maj-… Colo…    40   175   153    24    37</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 571431     <span style="text-decoration: underline;">2</span>015 Jaso…    28 Maj-… Clev…    37   174   143    31    57</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 346793     <span style="text-decoration: underline;">2</span>015 Josh…    29 Maj-… Toro…    39   174   155    30    45</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 605113     <span style="text-decoration: underline;">2</span>015 Bill…    25 Maj-… Oakl…    37   172   159    25    52</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 593643     <span style="text-decoration: underline;">2</span>015 Nick…    31 Maj-… Atla…    39   172   148    14    44</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 501659     <span style="text-decoration: underline;">2</span>015 Shin…    32 Maj-… Texas    38   172   155    24    42</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 475174     <span style="text-decoration: underline;">2</span>015 Dee …    27 Maj-… Miami    38   172   168    19    49</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 514888     <span style="text-decoration: underline;">2</span>015 Dext…    29 Maj-… Chic…    37   170   148    28    32</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 506693     <span style="text-decoration: underline;">2</span>015 Paul…    27 Maj-… Ariz…    39   169   133    26    48</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 648 more rows, and 19 more variables: X1B &lt;dbl&gt;, X2B &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   X3B &lt;dbl&gt;, HR &lt;dbl&gt;, RBI &lt;dbl&gt;, BB &lt;dbl&gt;, IBB &lt;dbl&gt;, uBB &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   SO &lt;dbl&gt;, HBP &lt;dbl&gt;, SH &lt;dbl&gt;, SF &lt;dbl&gt;, GDP &lt;dbl&gt;, SB &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   CS &lt;dbl&gt;, BA &lt;dbl&gt;, OBP &lt;dbl&gt;, SLG &lt;dbl&gt;, OPS &lt;dbl&gt;</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 2022-10-05 17:34:44: Invalid arguments or no daily batter data available!</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> function (x, df1, df2, ncp, log = FALSE) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     if (missing(ncp)) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         .Call(C_df, x, df1, df2, log)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     else .Call(C_dnf, x, df1, df2, ncp, log)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;bytecode: 0x560245cd75f0&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: namespace:stats&gt;</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

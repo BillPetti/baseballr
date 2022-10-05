@@ -150,27 +150,9 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="bref_daily_batter.html">bref_daily_batter</a></span><span class="op">(</span><span class="st">"2015-08-01"</span>, <span class="st">"2015-10-03"</span><span class="op">)</span> </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 2022-10-05 17:38:34: Invalid arguments or no daily batter data available!</span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">woba_plus</span><span class="op">(</span><span class="va">df</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Daily Batter data from baseball-reference.com ───────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-09-09 07:41:05 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 764 × 32</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    bbref_id season Name    Age Level Team      G    PA    AB     R     H</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 400284     <span style="text-decoration: underline;">2</span>015 Bran…    26 Maj-… New …     1     1     1     0     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 472528     <span style="text-decoration: underline;">2</span>015 Pedr…    21 Maj-… Wash…     1     1     1     1     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 572182     <span style="text-decoration: underline;">2</span>015 Jett…    25 Maj-… Los …     2     2     2     1     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 452234     <span style="text-decoration: underline;">2</span>015 Dani…    22 Maj-… Detr…     1     3     2     1     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 502143     <span style="text-decoration: underline;">2</span>015 Keit…    26 Maj-… Ariz…     1     1     1     0     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 475100     <span style="text-decoration: underline;">2</span>015 Rico…    26 Maj-… New …    13     1     1     5     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 573627     <span style="text-decoration: underline;">2</span>015 Carl…    32 Maj-… New …     1     1     1     1     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 475582     <span style="text-decoration: underline;">2</span>015 Jaso…    22 Maj-… Balt…     1     1     0     0     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 596119     <span style="text-decoration: underline;">2</span>015 Yova…    29 Maj-… Texas     1     2     2     0     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 570256     <span style="text-decoration: underline;">2</span>015 Joe …    24 Maj-… San …     4    14    12     5     5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 754 more rows, and 21 more variables: X1B &lt;dbl&gt;, X2B &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   X3B &lt;dbl&gt;, HR &lt;dbl&gt;, RBI &lt;dbl&gt;, BB &lt;dbl&gt;, IBB &lt;dbl&gt;, uBB &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   SO &lt;dbl&gt;, HBP &lt;dbl&gt;, SH &lt;dbl&gt;, SF &lt;dbl&gt;, GDP &lt;dbl&gt;, SB &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   CS &lt;dbl&gt;, BA &lt;dbl&gt;, OBP &lt;dbl&gt;, SLG &lt;dbl&gt;, OPS &lt;dbl&gt;, wOBA &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   wOBA_CON &lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in df$season : object of type 'closure' is not subsettable</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
