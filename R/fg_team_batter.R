@@ -324,7 +324,6 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
         leaders <- leaders[-c(1,3),]
         names(leaders) <- leaders[1,]
         leaders <- leaders[-1,]
-        leaders <- leaders[,-2]
         c <- as.matrix(names(leaders))
         c <- gsub("%", "_pct", c, fixed = TRUE)
         c <- gsub(" (pfx)", "_pfx", c, fixed = TRUE)
@@ -337,7 +336,7 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
         names(leaders) <- c
         leaders <- leaders %>%
           dplyr::mutate(Season = Seasons) %>%
-          dplyr::select(.data$Season, tidyr::everything())
+          dplyr::select("Season", tidyr::everything())
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))), stringsAsFactors=F)
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))), stringsAsFactors=F)
         leaders$Dol <- gsub("\\(", "-", leaders$Dol)
@@ -345,7 +344,7 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
         # Replace any empty cells with NA to avoid a warning message.
         is.na(leaders) <- leaders==""
         # Convert columns 5 to 287 to numeric, except column 201 "Age Rng"
-        for(i in c(5:201, 203:ncol(leaders))) {
+        for(i in c(4:201, 203:ncol(leaders))) {
           suppressWarnings(
             leaders[,i] <- as.numeric(as.character(leaders[,i]))
           )
