@@ -107,8 +107,6 @@ ncaa_baseball_pbp <- function(game_info_url) {
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

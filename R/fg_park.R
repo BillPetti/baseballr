@@ -43,8 +43,6 @@ fg_park <- function(yr) {
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no park factors data available!"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )
@@ -90,8 +88,6 @@ fg_park_hand <- function(yr) {
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no park factors by handedness data available!"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

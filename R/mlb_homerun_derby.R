@@ -175,8 +175,6 @@ mlb_homerun_derby <- function(game_pk){
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )
@@ -292,8 +290,6 @@ mlb_homerun_derby_bracket <- function(game_pk){
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }
@@ -507,8 +503,6 @@ mlb_homerun_derby_players <- function(game_pk){
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

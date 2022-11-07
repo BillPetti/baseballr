@@ -105,8 +105,6 @@ mlb_game_changes <- function(updated_since, sport_id) {
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

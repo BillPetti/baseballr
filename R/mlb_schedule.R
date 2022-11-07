@@ -157,8 +157,6 @@ mlb_schedule <- function(season = 2019, level_ids = '1'){
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

@@ -22,8 +22,6 @@ load_umpire_ids <- function() {
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no Umpire IDs data available!"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

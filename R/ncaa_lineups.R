@@ -84,8 +84,6 @@ ncaa_lineups <- function(game_info_url,year) {
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

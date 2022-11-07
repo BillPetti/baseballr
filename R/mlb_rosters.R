@@ -56,8 +56,6 @@ mlb_rosters <- function(team_id = NULL, season = NULL, date = NULL, roster_type 
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no roster data for {team_id} available!"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

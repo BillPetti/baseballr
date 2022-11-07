@@ -86,8 +86,6 @@ bref_team_results <-function(Tm, year) {
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team results data available!"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

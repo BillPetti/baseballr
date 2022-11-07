@@ -64,8 +64,6 @@ mlb_team_history <- function(team_ids = NULL,
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

@@ -49,7 +49,7 @@
 #' }
 
 bref_daily_batter <- function(t1, t2) {
-  
+
   tryCatch(
     expr = {
       payload <- xml2::read_html(paste0("http://www.baseball-reference.com/leagues/daily.cgi?user_team=&bust_cache=&type=b&lastndays=7&dates=fromandto&fromandto=", t1, ".", t2, "&level=mlb&franch=&stat=&stat_value=0"))

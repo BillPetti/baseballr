@@ -88,8 +88,6 @@ mlb_teams_stats_leaders <- function(leader_categories = NULL,
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

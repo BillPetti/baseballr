@@ -99,8 +99,6 @@
 #     error = function(e) {
 #       message(glue::glue("{Sys.time()}: Invalid arguments or no umpire game data for {umpire_id} available!"))
 #     },
-#     warning = function(w) {
-#     },
 #     finally = {
 #     }
 #   )

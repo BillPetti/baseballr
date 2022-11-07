@@ -83,8 +83,6 @@ mlb_all_star_ballots <- function(league_id = NULL,
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

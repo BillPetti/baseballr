@@ -370,8 +370,6 @@ fg_team_pitcher <- function(x, y, league = "all", qual = 0,
       error = function(e) {
         message(glue::glue("{Sys.time()}: Invalid arguments or no team data available!"))
       },
-      warning = function(w) {
-      },
       finally = {
       }
     )
@@ -426,8 +424,6 @@ fg_team_pitcher <- function(x, y, league = "all", qual = 0,
       },
       error = function(e) {
         message(glue::glue("{Sys.time()}: Invalid arguments or no team data available!"))
-      },
-      warning = function(w) {
       },
       finally = {
       }

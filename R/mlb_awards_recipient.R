@@ -51,8 +51,6 @@ mlb_awards_recipient <- function(award_id = NULL, sport_id = NULL, league_id = N
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

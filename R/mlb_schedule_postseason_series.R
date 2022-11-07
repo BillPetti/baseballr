@@ -134,8 +134,6 @@ mlb_schedule_postseason_series <- function(season = 2021,
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no MLB postseason series schedule data available!"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

@@ -86,8 +86,6 @@ mlb_sports_players <- function(sport_id = 1,
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

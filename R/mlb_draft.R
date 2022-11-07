@@ -100,8 +100,6 @@ mlb_draft <- function(year) {
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

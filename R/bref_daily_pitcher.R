@@ -132,8 +132,6 @@ bref_daily_pitcher <- function(t1, t2) {
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no daily pitcher data available!"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

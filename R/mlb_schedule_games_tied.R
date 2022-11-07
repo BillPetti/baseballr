@@ -125,8 +125,6 @@ mlb_schedule_games_tied <- function(season = 2021, game_type = 'S'){
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

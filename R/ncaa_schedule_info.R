@@ -123,8 +123,6 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

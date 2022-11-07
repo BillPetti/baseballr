@@ -383,8 +383,6 @@ fg_pitcher_leaders <- function(x, y, league = "all", qual = "y",
       error = function(e) {
         message(glue::glue("{Sys.time()}: Invalid arguments or no pitcher leaders data available!"))
       },
-      warning = function(w) {
-      },
       finally = {
       }
     )
@@ -443,8 +441,6 @@ fg_pitcher_leaders <- function(x, y, league = "all", qual = "y",
       },
       error = function(e) {
         message(glue::glue("{Sys.time()}: Invalid arguments or no pitcher leaders data available!"))
-      },
-      warning = function(w) {
       },
       finally = {
       }

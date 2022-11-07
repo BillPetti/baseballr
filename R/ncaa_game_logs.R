@@ -238,8 +238,6 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

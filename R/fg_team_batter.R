@@ -359,8 +359,6 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
       error = function(e) {
         message(glue::glue("{Sys.time()}: Invalid arguments or no batter leaders data available!"))
       },
-      warning = function(w) {
-      },
       finally = {
       }
     )
@@ -417,8 +415,6 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
       },
       error = function(e) {
         message(glue::glue("{Sys.time()}: Invalid arguments or no batter leaders data available!"))
-      },
-      warning = function(w) {
       },
       finally = {
       }

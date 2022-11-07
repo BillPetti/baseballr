@@ -40,8 +40,6 @@ mlb_venues <- function(venue_ids = NULL, sport_ids = NULL, season = NULL){
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

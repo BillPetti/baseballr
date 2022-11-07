@@ -180,8 +180,6 @@ fg_pitcher_game_logs <- function(playerid, year = 2017) {
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no pitcher game log data available!"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

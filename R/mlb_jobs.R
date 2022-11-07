@@ -43,8 +43,6 @@ mlb_jobs <- function(job_type='UMPR',
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

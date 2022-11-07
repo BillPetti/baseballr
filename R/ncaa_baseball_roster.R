@@ -98,8 +98,6 @@ ncaa_baseball_roster <- function(teamid = NA, team_year){
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

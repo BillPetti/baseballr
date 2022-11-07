@@ -26,8 +26,6 @@ load_game_info_sup <- function() {
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no supplementary game info data available!"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

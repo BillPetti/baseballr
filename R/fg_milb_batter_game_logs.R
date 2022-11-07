@@ -108,8 +108,6 @@ fg_milb_batter_game_logs <- function(playerid, year) {
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no MiLB batter game logs data available!"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

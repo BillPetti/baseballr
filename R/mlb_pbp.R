@@ -298,8 +298,6 @@ mlb_pbp <- function(game_pk) {
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   ) 

@@ -76,8 +76,6 @@ bref_standings_on_date <- function(date, division, from = FALSE) {
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no standings on date data available!"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )

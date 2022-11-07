@@ -39,8 +39,6 @@ fg_guts <- function() {
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no GUTS data available!"))
     },
-    warning = function(w) {
-    },
     finally = {
     }
   )
