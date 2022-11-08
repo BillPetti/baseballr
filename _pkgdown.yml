@@ -110,7 +110,7 @@ navbar:
       - text: SportsDataverse
         href: https://sportsdataverse.org/
       - text: --------------------------------
-      - text: R Packages
+      - text: "R Packages"
       - text: sportsdataverse-R
         href: https://r.sportsdataverse.org/
       - text: cfbfastR
@@ -119,32 +119,52 @@ navbar:
         href: https://hoopR.sportsdataverse.org/
       - text: wehoop
         href: https://wehoop.sportsdataverse.org/
-      - text: toRvik
-        href: https://torvik.dev/
       - text: fastRhockey
         href: https://fastRhockey.sportsdataverse.org/
+      - text: hockeyR
+        href: https://hockeyr.netlify.app/
+      - text: ggshakeR
+        href: https://abhiamishra.github.io/ggshakeR/
       - text: baseballr
         href: https://BillPetti.github.io/baseballr/
       - text: worldfootballR
         href: https://jaseziv.github.io/worldfootballR/
+      - text: usfootballR
+        href: https://usfootballR.sportsdataverse.org/
+      - text: soccerAnimate
+        href: https://github.com/Dato-Futbol/soccerAnimate/
       - text: chessR
         href: https://jaseziv.github.io/chessR/
+      - text: oddsapiR
+        href: https://oddsapiR.sportsdataverse.org/
+      - text: sportyR
+        href: https://sportyR.sportsdataverse.org/
+      - text: toRvik
+        href: https://torvik.dev/
       - text: cfbplotR
-        href: https://kazink36.github.io/cfbplotR/
+        href: https://cfbplotR.sportsdataverse.org/
+      - text: mlbplotR
+        href: https://github.com/camdenk/mlbplotR
       - text: cfb4th
-        href: https://kazink36.github.io/cfb4th/
-      - text: recruitR
-        href: https://recruitr.sportsdataverse.org/
+        href: https://cfb4th.sportsdataverse.org/
       - text: gamezoneR
         href: https://jacklich10.github.io/gamezoneR/
+      - text: recruitR
+        href: https://recruitr.sportsdataverse.org/
       - text: puntr
         href: https://puntalytics.github.io/puntr/
       - text: --------------------------------
-      - text: Python Packages
+      - text: "Python Packages"
       - text: sportsdataverse-py
         href: https://py.sportsdataverse.org/
+      - text: sportypy
+        href: https://sportypy.sportsdataverse.org/
+      - text: recruitR-py
+        href: https://github.com/sportsdataverse/recruitR-py/
+      - text: collegebaseball
+        href: https://collegebaseball.readthedocs.io/en/latest/index.html
       - text: --------------------------------
-      - text: Node.js Packages
+      - text: "Node.js Packages"
       - text: sportsdataverse.js
         href: https://js.sportsdataverse.org/
       - text: nfl-nerd
