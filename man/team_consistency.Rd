@@ -22,8 +22,6 @@ Returns a tibble with the following columns\tabular{ll}{
 \description{
 This function allows you to calculate team-level consistency in run scoring and run prevention over the course of an entire season.
 }
-\examples{
-\donttest{
-  try(team_consistency(year=2021))
-}
+\details{
+try(team_consistency(year=2021))
 }

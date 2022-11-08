@@ -1,10 +1,7 @@
 ## Release summary
 
 This is a minor release that 
-* Per most recent submission, cleared up URL 301 issues
-* Updates html per CRAN's roxygen update.
-* Adds a vignette "Using Statcast Pitch Data"
-* Adds 4 functions: ```fg_team_batter()```, ```fg_team_pitcher()```, ```sptrc_league_payrolls()```, ```sptrc_team_active_payroll()```
+* Updates for tidyselect deprecation of data masking for related dplyr and tidyr functions
 
 ## R CMD check results
 

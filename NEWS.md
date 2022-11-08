@@ -1,3 +1,6 @@
+# baseballr 1.4.0
+ * Minor updates under the hood for tidyselect version changes affecting dplyr and tidyr functions under the hood
+
 # baseballr 1.3.0
  * Vignette contributed by [\@camdenk](https://github.com/camdenk), *Using Statcast Pitch Data*.  
  * ```sptrc_league_payrolls()``` function added (contributed by [\@camdenk](https://github.com/camdenk))

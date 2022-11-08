@@ -66,7 +66,7 @@ I'm Saiem Gilani, one of the [authors](https://billpetti.github.io/baseballr/aut
 -   **Mac OS X** - Select Latest Release, but check to make sure your OS is the correct version. Look through Binaries for Legacy OS X Systems if you are on an older release
 -   **Linux** - Select the appropriate distro and follow the installation instructions
 
-3.  Head to [RStudio.com](https://www.rstudio.com/products/rstudio/download/#download "Download the appropriate version of RStudio (Free) for your operating system to use with R")
+3.  Head to [RStudio.com](https://posit.co/download/rstudio-desktop/#download "Download the appropriate version of RStudio (Free) for your operating system to use with R")
 4.  Follow the associated download and installation instructions for RStudio.
 5.  Start peering over the [RStudio IDE Cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf). *An IDE is an integrated development environment.*
 6.  For **Windows** users: I recommend you install [Rtools](https://cran.r-project.org/bin/windows/Rtools/). This is not an R package! It is “a collection of resources for building packages for R under Microsoft Windows, or for building R itself”. Go to [https://cran.r-project.org/bin/windows/Rtools/](https://cran.r-project.org/bin/windows/Rtools/) and follow the directions for installation.

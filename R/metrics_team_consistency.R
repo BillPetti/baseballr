@@ -12,9 +12,9 @@
 #'  |Con_RA_Ptile |numeric   |
 #' @import rvest 
 #' @export
-#' @examples \donttest{
+#' @details 
 #'   try(team_consistency(year=2021))
-#' }
+#' 
 
 team_consistency <- function(year) {
   
