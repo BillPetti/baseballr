@@ -29,9 +29,9 @@ mlb_awards <- function(){
   awards <- jsonlite::fromJSON(jsonlite::toJSON(resp$awards), flatten = TRUE)  %>% 
     janitor::clean_names() %>% 
     dplyr::rename(
-      award_id = .data$id,
-      award_name = .data$name,
-      award_description = .data$description) %>%
+      "award_id" = "id",
+      "award_name" = "name",
+      "award_description" = "description") %>%
     make_baseballr_data("MLB Awards data from MLB.com",Sys.time())
   
     },

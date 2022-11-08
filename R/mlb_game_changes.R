@@ -90,14 +90,14 @@ mlb_game_changes <- function(updated_since, sport_id) {
   )
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>% 
         mlb_api_call() 
       
       changes <- resp$dates %>% 
         jsonlite::toJSON() %>% 
         jsonlite::fromJSON(flatten = TRUE) %>% 
-        tidyr::unnest(.data$games) %>%
+        tidyr::unnest("games") %>%
         as.data.frame() %>%
         janitor::clean_names() %>%
         make_baseballr_data("MLB Game Changes data from MLB.com",Sys.time())

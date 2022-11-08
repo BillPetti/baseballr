@@ -349,7 +349,7 @@ fg_team_pitcher <- function(x, y, league = "all", qual = 0,
         names(leaders) <- c
         leaders <- leaders %>% 
           dplyr::mutate(Season=Seasons) %>% 
-          dplyr::select(.data$Season,tidyr::everything())
+          dplyr::select("Season",tidyr::everything())
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))), stringsAsFactors=F)
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))), stringsAsFactors=F)
         leaders$Dol <- gsub("\\(", "-", leaders$Dol)
@@ -405,7 +405,7 @@ fg_team_pitcher <- function(x, y, league = "all", qual = 0,
         c[c(55,57,64,65,75,216),] <- r
         names(leaders) <- c
         leaders <- leaders %>% 
-          dplyr::select(.data$Season,tidyr::everything())
+          dplyr::select("Season",tidyr::everything())
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))))
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))))
         leaders$Dol <- gsub("\\(", "-", leaders$Dol)

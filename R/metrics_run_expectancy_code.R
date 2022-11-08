@@ -180,8 +180,8 @@ run_expectancy_code <- function(df, level = "plate appearance"){
       dplyr::ungroup() %>% 
       dplyr::left_join(re_table, by = c("next_base_out_state" = "base_out_state")) %>%
       dplyr::rename(
-        next_avg_re = .data$avg_re.y, 
-        avg_re = .data$avg_re.x) %>%
+        "next_avg_re" = "avg_re.y", 
+        "avg_re" = "avg_re.x") %>%
       dplyr::mutate(
         next_avg_re = ifelse(is.na(.data$next_avg_re), 0, .data$next_avg_re),
         change_re = .data$next_avg_re - .data$avg_re,
@@ -216,8 +216,8 @@ run_expectancy_code <- function(df, level = "plate appearance"){
       dplyr::ungroup() %>%
       dplyr::left_join(re_table, by = c("next_count_base_out_state" = "count_base_out_state")) %>%
       dplyr::rename(
-        next_avg_re = .data$avg_re.y, 
-        avg_re = .data$avg_re.x) %>%
+        "next_avg_re" = "avg_re.y", 
+        "avg_re" = "avg_re.x") %>%
       dplyr::mutate(
         next_avg_re = ifelse(is.na(.data$next_avg_re),
                              0, .data$next_avg_re),

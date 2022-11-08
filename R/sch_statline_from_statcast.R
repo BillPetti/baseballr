@@ -51,12 +51,17 @@ statline_from_statcast <- function(df, base = "pa") {
         Outs = ifelse("Outs" %in% colnames(batted_balls), .data$Outs, 0))
 
     batted_balls <- batted_balls %>%
-      dplyr::select(.data$`1`, .data$`2`, .data$`3`, .data$`4`, .data$Outs)
+      dplyr::select(
+        "1", 
+        "2", 
+        "3", 
+        "4", 
+        "Outs")
 
     names(batted_balls) <- c("X1B", "X2B", "X3B", "HR", "Outs")
 
     batted_balls <- batted_balls %>%
-      dplyr::select(-.data$Outs)
+      dplyr::select(-"Outs")
 
     swing_miss <- df %>%
       dplyr::filter(.data$swing == 1) %>%
@@ -69,7 +74,10 @@ statline_from_statcast <- function(df, base = "pa") {
     statline <- batted_balls %>% 
       dplyr::bind_cols(swing_miss) %>%
       dplyr::mutate(batted_balls = .data$swings - .data$swing_and_miss_or_foul) %>%
-      dplyr::select(.data$swings, .data$batted_balls, tidyr::everything())
+      dplyr::select(
+        "swings", 
+        "batted_balls", 
+        tidyr::everything())
 
     statline <- statline %>%
       dplyr::mutate(
@@ -81,7 +89,9 @@ statline_from_statcast <- function(df, base = "pa") {
     statline$year <- as.integer(substr(max(df$game_date),1,4))
 
     statline <- statline %>% 
-      dplyr::select(.data$year, tidyr::everything())
+      dplyr::select(
+        "year", 
+        tidyr::everything())
 
     statline <- woba_swings(statline, guts_table)
 
@@ -107,8 +117,13 @@ statline_from_statcast <- function(df, base = "pa") {
         '4' = ifelse(4 %in% colnames(batted_balls), .data$`4`, 0),
         Outs = ifelse("Outs" %in% colnames(batted_balls), .data$Outs, 0))
 
-    batted_balls <- batted_balls %>%
-      dplyr::select(.data$`1`, .data$`2`, .data$`3`, .data$`4`, .data$Outs)
+    batted_balls <- batted_balls %>% 
+      dplyr::select(
+        "1", 
+        "2", 
+        "3", 
+        "4", 
+        "Outs")
 
     names(batted_balls) <- c("X1B", "X2B", "X3B", "HR", "Outs")
 
@@ -128,7 +143,7 @@ statline_from_statcast <- function(df, base = "pa") {
       dplyr::group_by(.data$type) %>%
       dplyr::count() %>%
       dplyr::ungroup() %>%
-      tidyr::spread(key = .data$type, value = .data$n)
+      tidyr::spread(key = "type", value = "n")
 
     empty_df <- tibble(BB = NA, HBP = NA, SO = NA)
 
@@ -166,7 +181,9 @@ statline_from_statcast <- function(df, base = "pa") {
     statline$year <- as.integer(substr(max(df$game_date),1,4))
 
     statline <- statline %>% 
-      dplyr::select(.data$year, tidyr::everything())
+      dplyr::select(
+        "year", 
+        tidyr::everything())
 
     statline <- woba_pas(statline, guts_table)
 
@@ -185,7 +202,7 @@ statline_from_statcast <- function(df, base = "pa") {
       dplyr::count() %>%
       dplyr::ungroup() %>%
       dplyr::mutate(hit_type = ifelse(is.na(.data$hit_type), "Outs", .data$hit_type)) %>%
-      tidyr::spread(key = .data$hit_type, value = .data$n)
+      tidyr::spread(key = "hit_type", value = "n")
 
     batted_balls <- batted_balls %>%
       dplyr::mutate(
@@ -195,15 +212,20 @@ statline_from_statcast <- function(df, base = "pa") {
         '4' = ifelse(4 %in% colnames(batted_balls), .data$`4`, 0),
         Outs = ifelse("Outs" %in% colnames(batted_balls), .data$Outs, 0))
 
-    batted_balls <- batted_balls %>%
-      dplyr::select(.data$`1`, .data$`2`, .data$`3`, .data$`4`, .data$Outs)
+    batted_balls <- batted_balls  %>%
+      dplyr::select(
+        "1", 
+        "2", 
+        "3", 
+        "4", 
+        "Outs")
 
     names(batted_balls) <- c("X1B", "X2B", "X3B", "HR", "Outs")
 
     batted_balls <- batted_balls %>%
       dplyr::mutate(batted_balls = sum(.data$X1B, .data$X2B, .data$X3B, .data$HR, .data$Outs)) %>%
-      dplyr::select(-.data$Outs) %>%
-      dplyr::select(.data$batted_balls, tidyr::everything())
+      dplyr::select(-"Outs") %>%
+      dplyr::select("batted_balls", tidyr::everything())
 
     batted_balls <- batted_balls %>%
       dplyr::mutate(
@@ -215,7 +237,7 @@ statline_from_statcast <- function(df, base = "pa") {
     batted_balls$year <- as.integer(substr(max(df$game_date),1,4))
 
     batted_balls <- batted_balls %>% 
-      dplyr::select(.data$year, tidyr::everything())
+      dplyr::select("year", tidyr::everything())
 
     batted_balls <- woba_contact(batted_balls, guts_table)
 

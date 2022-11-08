@@ -34,7 +34,7 @@ ncaa_baseball_pbp <- function(game_info_url) {
         rvest::html_elements("#root li:nth-child(3) a") %>%
         rvest::html_attr("href") %>%
         as.data.frame() %>%
-        dplyr::rename(pbp_url_slug = .data$`.`) %>%
+        dplyr::rename(pbp_url_slug = ".") %>%
         dplyr::mutate(pbp_url = paste0("https://stats.ncaa.org", .data$pbp_url_slug)) %>%
         dplyr::pull(.data$pbp_url)
       
@@ -45,7 +45,7 @@ ncaa_baseball_pbp <- function(game_info_url) {
         rvest::html_elements("table:nth-child(7)") %>%
         rvest::html_table() %>%
         as.data.frame() %>%
-        tidyr::spread(.data$X1, .data$X2) 
+        tidyr::spread("X1", "X2") 
       
       game_info <- dplyr::rename_with(game_info,~gsub(":", "", .x)) %>%
         janitor::clean_names() %>%
@@ -90,7 +90,7 @@ ncaa_baseball_pbp <- function(game_info_url) {
       
       mapped_table <- mapped_table %>%
         dplyr::mutate(score = ifelse(.data$score == "", NA, .data$score)) %>%
-        tidyr::fill(.data$score, .direction = "down")
+        tidyr::fill("score", .direction = "down")
       
       mapped_table <- mapped_table %>%
         dplyr::mutate(
@@ -99,8 +99,8 @@ ncaa_baseball_pbp <- function(game_info_url) {
           date = game_info$game_date,
           location = game_info$location) %>%
         dplyr::select(
-          .data$date, .data$location, .data$attendance, 
-          .data$inning, .data$inning_top_bot, dplyr::everything()) %>%
+          "date", "location", "attendance", 
+          "inning", "inning_top_bot", dplyr::everything()) %>%
         make_baseballr_data("NCAA Baseball Play-by-Play data from stats.ncaa.org",Sys.time())
       
     },
@@ -130,12 +130,12 @@ format_baseball_pbp_tables <- function(table_node, teams) {
               dplyr::mutate(batting = ifelse(.data$X1 != "", teams$away, teams$home)) %>%
               dplyr::mutate(fielding = ifelse(.data$X1 != "", teams$home, teams$away)))[-1,] %>%
     tidyr::gather(key = "X1", value = "value", -c("batting", "fielding", "X2")) %>%
-    dplyr::rename(score = .data$X2) %>%
+    dplyr::rename("score" = "X2") %>%
     dplyr::filter(.data$value != "")
   
   table <- table %>%
-    dplyr::rename(description = .data$value) %>%
-    dplyr::select(-.data$X1)
+    dplyr::rename("description" = "value") %>%
+    dplyr::select(-"X1")
   
   return(table)
 }

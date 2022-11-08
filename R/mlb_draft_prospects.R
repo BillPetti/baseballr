@@ -112,7 +112,7 @@ mlb_draft_prospects <- function(year) {
   
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/draft/prospects/{year}"))
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>%
         mlb_api_call()
       

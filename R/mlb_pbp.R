@@ -170,7 +170,7 @@ mlb_pbp <- function(game_pk) {
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1.1/game/{game_pk}/feed/live"))
   
   tryCatch(
-    expr={
+    expr = {
       payload <- mlb_endpoint %>% 
         mlb_api_call() %>% 
         jsonlite::toJSON() %>% 
@@ -205,7 +205,7 @@ mlb_pbp <- function(game_pk) {
       df <- data.frame(cols, classes)
       list_columns <- df %>%
         dplyr::filter(.data$classes == "list") %>%
-        dplyr::pull(.data$cols)
+        dplyr::pull("cols")
       
       at_bats <- at_bats %>%
         dplyr::select(-c(tidyr::one_of(list_columns)))
@@ -214,11 +214,11 @@ mlb_pbp <- function(game_pk) {
         dplyr::left_join(at_bats, by = c("endTime" = "playEndTime"))
       
       pbp <- pbp %>%
-        tidyr::fill(.data$atBatIndex:.data$matchup.splits.menOnBase, .direction = "up") %>%
+        tidyr::fill("atBatIndex":"matchup.splits.menOnBase", .direction = "up") %>%
         dplyr::mutate(
           game_pk = game_pk,
           game_date = substr(payload$gameData$datetime$dateTime, 1, 10)) %>%
-        dplyr::select(.data$game_pk, .data$game_date, tidyr::everything())
+        dplyr::select("game_pk", "game_date", tidyr::everything())
       
       pbp <- pbp %>%
         dplyr::mutate(
@@ -287,12 +287,12 @@ mlb_pbp <- function(game_pk) {
       
       pbp <- pbp %>%
         dplyr::rename(
-          count.balls.start = .data$count.balls.x,
-          count.strikes.start = .data$count.strikes.x,
-          count.outs.start = .data$count.outs.x,
-          count.balls.end = .data$count.balls.y,
-          count.strikes.end = .data$count.strikes.y,
-          count.outs.end = .data$count.outs.y) %>%
+          "count.balls.start" = "count.balls.x",
+          "count.strikes.start" = "count.strikes.x",
+          "count.outs.start" = "count.outs.x",
+          "count.balls.end" = "count.balls.y",
+          "count.strikes.end" = "count.strikes.y",
+          "count.outs.end" = "count.outs.y") %>%
         make_baseballr_data("MLB Play-by-Play data from MLB.com",Sys.time())
     },
     error = function(e) {

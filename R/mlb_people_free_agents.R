@@ -39,7 +39,7 @@ mlb_people_free_agents <- function(season = NULL){
     expr = {
       resp <- mlb_endpoint %>%
         mlb_api_call()
-      free_agents <- jsonlite::fromJSON(jsonlite::toJSON(resp$freeAgents), flatten=TRUE) %>%
+      free_agents <- jsonlite::fromJSON(jsonlite::toJSON(resp$freeAgents), flatten = TRUE) %>%
         janitor::clean_names() %>%
         make_baseballr_data("MLB People - Free Agents data from MLB.com",Sys.time())
     },

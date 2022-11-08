@@ -44,11 +44,11 @@ mlb_divisions <- function(division_id = NULL,
         janitor::clean_names() %>% 
         as.data.frame() %>% 
         dplyr::rename(
-          division_id = .data$id,
-          division_name = .data$name,
-          division_name_short = .data$name_short,
-          division_link = .data$link,
-          division_abbreviation = .data$abbreviation) %>%
+          "division_id" = "id",
+          "division_name" = "name",
+          "division_name_short" = "name_short",
+          "division_link" = "link",
+          "division_abbreviation" = "abbreviation") %>%
         make_baseballr_data("MLB Divisions data from MLB.com",Sys.time())
       
     },

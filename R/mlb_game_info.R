@@ -37,7 +37,7 @@ mlb_game_info <- function(game_pk) {
   api_call <- paste0("http://statsapi.mlb.com/api/v1.1/game/", game_pk,"/feed/live")
   
   tryCatch(
-    expr={
+    expr = {
       payload <- jsonlite::fromJSON(api_call)
       
       lookup_table <- payload$liveData$boxscore$info %>%

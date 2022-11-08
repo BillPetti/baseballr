@@ -119,11 +119,11 @@ mlb_player_game_stats <- function(person_id = NULL,
     expr = {
       resp <- mlb_endpoint %>%
         mlb_api_call()
-      stats <- jsonlite::fromJSON(jsonlite::toJSON(resp$stats), flatten=TRUE) %>%
-        tidyr::unnest(.data$splits) %>% 
+      stats <- jsonlite::fromJSON(jsonlite::toJSON(resp$stats), flatten = TRUE) %>%
+        tidyr::unnest("splits") %>% 
         janitor::clean_names() %>% 
         as.data.frame() %>% 
-        dplyr::select(-.data$exemptions) %>% 
+        dplyr::select(-"exemptions") %>% 
         dplyr::mutate(
           player_id = person_id,
           game_pk = game_pk

@@ -19,10 +19,14 @@ edge_scrape_split <- function(start, end, group) {
   df$swing <- ifelse(grepl("Swinging|Foul|In play", df$des), 1, 0)
   df$whiff <- ifelse(grepl("Swinging", df$des), 1, 0)
   pitcher_match <- df %>% 
-    dplyr::select(.data$pitcher_name, .data$pitcher) %>% 
+    dplyr::select(
+      "pitcher_name", 
+      "pitcher") %>% 
     unique()
   batter_match <- df %>% 
-    dplyr::select(.data$batter_name, .data$batter) %>% 
+    dplyr::select(
+      "batter_name", 
+      "batter") %>% 
     unique()
   LHH <- df %>% 
     dplyr::filter(.data$stand == "L")
@@ -55,10 +59,10 @@ edge_scrape_split <- function(start, end, group) {
   grouped <- if (group == "pitcher"){
     grouped %>% 
       dplyr::left_join(pitcher_match, by = "pitcher") %>% 
-      dplyr::select(.data$pitcher_name, everything())
+      dplyr::select("pitcher_name", tidyr::everything())
   } else {
     grouped %>% 
       dplyr::left_join(batter_match, by = "batter") %>% 
-      dplyr::select(.data$batter_name, everything())}
+      dplyr::select("batter_name", tidyr::everything())}
   return(grouped)
 }

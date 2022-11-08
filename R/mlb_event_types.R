@@ -18,14 +18,14 @@ mlb_event_types <- function(){
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>% 
         mlb_api_call()
       event_types <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  %>% 
         janitor::clean_names() %>% 
         dplyr::rename(
-          event_code = .data$code,
-          event_description = .data$description) %>%
+          "event_code" = "code",
+          "event_description" = "description") %>%
         make_baseballr_data("MLB Event Types data from MLB.com",Sys.time())
     },
     error = function(e) {

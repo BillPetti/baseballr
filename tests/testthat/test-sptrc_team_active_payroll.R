@@ -7,14 +7,15 @@ cols <- c(
   "age",
   "pos",
   "status",
-  "waiver_options",
   "base_salary",
   "signing_bonus",
+  "incentives",
   "payroll_salary",
   "adj_salary",
   "payroll_percent",
   "lux_tax_salary",
-  "total_salary"
+  "total_salary",
+  "waiver_options"
 )
 
 test_that("Spotrac League Payrolls Breakdown", {

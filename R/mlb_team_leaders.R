@@ -51,7 +51,7 @@ mlb_team_leaders <- function(team_id = NULL,
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>% 
         mlb_api_call()
       team_leaders <- jsonlite::fromJSON(jsonlite::toJSON(resp[['teamLeaders']]), flatten = TRUE)  
@@ -60,7 +60,7 @@ mlb_team_leaders <- function(team_id = NULL,
       team_leaders$team.name <- NULL
       team_leaders$team.link <- NULL
       team_leaders <- team_leaders %>% 
-        tidyr::unnest(.data$leaders) %>% 
+        tidyr::unnest("leaders") %>% 
         janitor::clean_names() %>% 
         as.data.frame() %>%
         make_baseballr_data("MLB Team Leaders data from MLB.com",Sys.time())

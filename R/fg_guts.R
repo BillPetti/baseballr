@@ -25,7 +25,7 @@
 #' }
 fg_guts <- function() {
   tryCatch(
-    expr={
+    expr = {
       guts_table <- "http://www.fangraphs.com/guts.aspx?type=cn" %>% 
         xml2::read_html() %>%
         rvest::html_element(xpath = '//*[(@id = "GutsBoard1_dg1_ctl00")]') %>%

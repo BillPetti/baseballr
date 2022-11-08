@@ -350,7 +350,7 @@ fg_pitcher_leaders <- function(x, y, league = "all", qual = "y",
         names(leaders) <- c
         leaders <- leaders %>% 
           dplyr::mutate(Season=Seasons) %>% 
-          dplyr::select(.data$Season,tidyr::everything())
+          dplyr::select("Season",tidyr::everything())
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))), stringsAsFactors=F)
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))), stringsAsFactors=F)
         leaders$Dol <- gsub("\\(", "-", leaders$Dol)
@@ -369,13 +369,13 @@ fg_pitcher_leaders <- function(x, y, league = "all", qual = "y",
           rvest::html_elements("a") %>%
           rvest::html_attr("href") %>%
           as.data.frame() %>%
-          dplyr::rename(slug = .data$`.`) %>%
+          dplyr::rename(slug = ".") %>%
           dplyr::filter(grepl("playerid", .data$slug)) %>%
           dplyr::mutate(playerid = sub(".*[=] *(.*?) *[&].*", "\\1", .data$slug))
         
         leaders <- leaders %>%
           dplyr::mutate(playerid = playerids$playerid) %>%
-          dplyr::select(.data$playerid, tidyr::everything())
+          dplyr::select("playerid", tidyr::everything())
         
         leaders <- leaders %>%
           make_baseballr_data("MLB Pitcher Leaders data from FanGraphs.com",Sys.time())
@@ -428,13 +428,13 @@ fg_pitcher_leaders <- function(x, y, league = "all", qual = "y",
           rvest::html_elements("a") %>%
           rvest::html_attr("href") %>%
           as.data.frame() %>%
-          dplyr::rename(slug = .data$`.`) %>%
+          dplyr::rename(slug = ".") %>%
           dplyr::filter(grepl("playerid", .data$slug)) %>%
           dplyr::mutate(playerid = sub(".*[=] *(.*?) *[&].*", "\\1", .data$slug))
         
         leaders <- leaders %>%
           dplyr::mutate(playerid = playerids$playerid) %>%
-          dplyr::select(.data$playerid, tidyr::everything())
+          dplyr::select("playerid", tidyr::everything())
         
         leaders <- leaders %>%
           make_baseballr_data("MLB Pitcher Leaders data from FanGraphs.com",Sys.time())

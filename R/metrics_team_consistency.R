@@ -28,6 +28,7 @@ team_consistency <- function(year) {
     rvest::html_table() %>%
     as.data.frame()
   
+  Sys.sleep(5)
   teams <- teams %>% 
     dplyr::filter(.data$Tm != "LgAvg", .data$Tm != "Tm")
   
@@ -42,7 +43,7 @@ team_consistency <- function(year) {
   
   teams <- teams %>% 
     dplyr::left_join(teams_data %>% 
-                       dplyr::select(.data$name,.data$bref_abbreviation), 
+                       dplyr::select("name", "bref_abbreviation"), 
                      by = c("Tm" = "name"))
   teams <- teams %>% 
     dplyr::mutate(
@@ -60,7 +61,7 @@ team_consistency <- function(year) {
     
 
   results <- results %>% 
-    dplyr::select(.data$Year, .data$Date, .data$Tm, .data$R, .data$RA)
+    dplyr::select("Year", "Date", "Tm", "R", "RA")
   
   names(results) <- c("Year", "Date", "Team", "R", "RA")
   attr(results, "vars") <- NULL

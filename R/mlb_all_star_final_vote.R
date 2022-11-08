@@ -69,14 +69,14 @@ mlb_all_star_final_vote <- function(league_id = NULL,
     expr = {
       resp <- mlb_endpoint %>%
         mlb_api_call()
-      final_vote <- jsonlite::fromJSON(jsonlite::toJSON(resp$people), flatten=TRUE) %>%
+      final_vote <- jsonlite::fromJSON(jsonlite::toJSON(resp$people), flatten = TRUE) %>%
         janitor::clean_names() %>% 
         as.data.frame() %>% 
         dplyr::mutate(
           league_id = as.numeric(league_id),
           season = as.numeric(season)) %>% 
         dplyr::rename(
-          player_id = .data$id) %>%
+          "player_id" = "id") %>%
         make_baseballr_data("MLB All-Star Final Votes data from MLB.com",Sys.time())
       
     },

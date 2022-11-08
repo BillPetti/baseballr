@@ -140,7 +140,7 @@ mlb_schedule <- function(season = 2019, level_ids = '1'){
   
   games <- data.frame()
   tryCatch(
-    expr={
+    expr = {
       
       resp <- mlb_endpoint %>% 
         mlb_api_call() %>% 
@@ -148,7 +148,7 @@ mlb_schedule <- function(season = 2019, level_ids = '1'){
         jsonlite::fromJSON(flatten = TRUE)
       
       games <- resp$dates %>% 
-        tidyr::unnest(.data$games) %>%
+        tidyr::unnest("games") %>%
         as.data.frame() %>%
         janitor::clean_names() %>%
         make_baseballr_data("MLB Schedule data from MLB.com",Sys.time())

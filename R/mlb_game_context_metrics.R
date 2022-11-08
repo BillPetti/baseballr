@@ -90,7 +90,7 @@ mlb_game_context_metrics <- function(
   mlb_endpoint <- httr::modify_url(mlb_endpoint,
                                    query = query_params)
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>% 
         mlb_api_call()  
       

@@ -24,7 +24,7 @@ mlb_league <- function(seasons = NULL,
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>% 
         mlb_api_call()
       
@@ -32,24 +32,24 @@ mlb_league <- function(seasons = NULL,
         janitor::clean_names() %>% 
         as.data.frame() %>% 
         dplyr::rename(
-          league_id = .data$id,
-          league_name = .data$name,
-          league_link = .data$link,
-          league_abbreviation = .data$abbreviation,
-          league_name_short = .data$name_short,
-          league_season_state = .data$season_state,
-          league_has_wild_card = .data$has_wild_card,
-          league_has_split_season = .data$has_split_season,
-          league_num_games = .data$num_games,
-          league_has_playoff_points = .data$has_playoff_points,
-          league_num_teams = .data$num_teams,
-          league_num_wildcard_teams = .data$num_wildcard_teams,
-          league_season = .data$season,
-          league_org_code = .data$org_code,
-          league_conferences_in_use = .data$conferences_in_use,
-          league_divisions_in_use = .data$divisions_in_use,
-          league_sort_order = .data$sort_order,
-          league_active = .data$active) %>%
+          "league_id" = "id",
+          "league_name" = "name",
+          "league_link" = "link",
+          "league_abbreviation" = "abbreviation",
+          "league_name_short" = "name_short",
+          "league_season_state" = "season_state",
+          "league_has_wild_card" = "has_wild_card",
+          "league_has_split_season" = "has_split_season",
+          "league_num_games" = "num_games",
+          "league_has_playoff_points" = "has_playoff_points",
+          "league_num_teams" = "num_teams",
+          "league_num_wildcard_teams" = "num_wildcard_teams",
+          "league_season" = "season",
+          "league_org_code" = "org_code",
+          "league_conferences_in_use" = "conferences_in_use",
+          "league_divisions_in_use" = "divisions_in_use",
+          "league_sort_order" = "sort_order",
+          "league_active" = "active") %>%
         make_baseballr_data("MLB League data from MLB.com",Sys.time())
     },
     error = function(e) {

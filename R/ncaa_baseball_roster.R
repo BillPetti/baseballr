@@ -30,11 +30,11 @@ ncaa_baseball_roster <- function(teamid = NA, team_year){
   
   id <- baseballr::ncaa_season_id_lu %>% 
     dplyr::filter(.data$season == team_year) %>% 
-    dplyr::select(.data$id)
+    dplyr::select("id")
   
   school_info <- baseballr::ncaa_team_lu %>% 
     dplyr::filter(.data$school_id == teamid & .data$year == team_year) %>%
-    dplyr::select(-.data$year) %>%
+    dplyr::select(-"year") %>%
     dplyr::distinct()
   
   url <- paste0("https://stats.ncaa.org/team/", teamid, "/roster/", id)
@@ -74,19 +74,25 @@ ncaa_baseball_roster <- function(teamid = NA, team_year){
       
       roster <- dplyr::bind_cols(payload_table, url_slug) %>% 
         dplyr::rename(
-          name = .data$Player,
-          class = .data$Yr,
-          position = .data$Pos,
-          games_played = .data$GP,
-          games_started = .data$GS,
-          number = .data$Jersey)
+          "name" = "Player",
+          "class" = "Yr",
+          "position" = "Pos",
+          "games_played" = "GP",
+          "games_started" = "GS",
+          "number" = "Jersey")
       roster <- roster %>%
         dplyr::mutate(
           season = team_year,
           player_id = gsub(".*stats_player_seq=\\s*", "", .data$url_slug),
           player_url = ifelse(is.na(.data$player_id), NA, paste0("https://stats.ncaa.org", .data$url_slug))) %>%
-        dplyr::select(.data$name, .data$class, .data$player_id, .data$season, 
-                      .data$number, .data$position, .data$player_url)
+        dplyr::select(
+          "name", 
+          "class", 
+          "player_id", 
+          "season",
+          "number", 
+          "position", 
+          "player_url")
       
       school_info <- school_info %>%
         dplyr::slice(rep(1:n(), each = nrow(roster)))

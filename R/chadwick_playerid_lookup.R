@@ -65,17 +65,17 @@ process_player_name <- function(last_name = NULL, first_name = NULL, chadwick_pl
   if (is.null(first_name)) {
     x <- chadwick_player_lu_table %>%
       dplyr::filter(grepl(last_name, .data$name_last)) %>%
-      dplyr::select(.data$name_first, .data$name_last, .data$name_given, .data$name_suffix, 
-                    .data$name_nick, .data$birth_year, .data$mlb_played_first, .data$key_mlbam, 
-                    .data$key_retro, .data$key_bbref, .data$key_fangraphs)
+      dplyr::select("name_first", "name_last", "name_given", "name_suffix", 
+                    "name_nick", "birth_year", "mlb_played_first", "key_mlbam", 
+                    "key_retro", "key_bbref", "key_fangraphs")
   }
   else {
     x <- chadwick_player_lu_table %>%
       dplyr::filter(grepl(last_name, .data$name_last)) %>%
       dplyr::filter(grepl(first_name, .data$name_first)) %>%
-      dplyr::select(.data$name_first, .data$name_last, .data$name_given, .data$name_suffix, 
-                    .data$name_nick, .data$birth_year, .data$mlb_played_first, 
-                    .data$key_mlbam, .data$key_retro, .data$key_bbref, .data$key_fangraphs)
+      dplyr::select("name_first", "name_last", "name_given", "name_suffix", 
+                    "name_nick", "birth_year", "mlb_played_first", 
+                    "key_mlbam", "key_retro", "key_bbref", "key_fangraphs")
   }
   return(x)
 }

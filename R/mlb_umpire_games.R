@@ -90,10 +90,10 @@
 #       resp <- mlb_endpoint %>% 
 #         mlb_api_call()
 #       games <- jsonlite::fromJSON(jsonlite::toJSON(resp$dates), flatten = TRUE) %>% 
-#         tidyr::unnest(.data$games) %>% 
+#         tidyr::unnest("games") %>% 
 #         janitor::clean_names() %>% 
 #         as.data.frame() %>% 
-#         dplyr::select(-.data$events)
+#         dplyr::select(-"events")
 #       
 #     },
 #     error = function(e) {

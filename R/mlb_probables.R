@@ -29,7 +29,7 @@ mlb_probables <- function(game_pk) {
   api_call <- paste0("http://statsapi.mlb.com/api/v1.1/game/", game_pk,"/feed/live")
   
   tryCatch(
-    expr={
+    expr = {
       payload <- jsonlite::fromJSON(api_call, flatten = TRUE)
       away_probable <- if(is.null(payload$gameData$probablePitchers$away)) {
         return_table <- tibble(id = NA,
@@ -64,11 +64,11 @@ mlb_probables <- function(game_pk) {
         umpires <- payload$liveData$boxscore$officials %>%
           dplyr::filter(.data$officialType == "Home Plate") %>%
           dplyr::rename(
-            home_plate_type = .data$officialType,
-            home_plate_id = .data$official.id,
-            home_plate_full_name = .data$official.fullName,
-            home_plate_link = .data$official.link) %>%
-          dplyr::select(.data$home_plate_id, .data$home_plate_full_name)
+            "home_plate_type" = "officialType",
+            "home_plate_id" = "official.id",
+            "home_plate_full_name" = "official.fullName",
+            "home_plate_link" = "official.link") %>%
+          dplyr::select("home_plate_id", "home_plate_full_name")
         
       } else {
         
@@ -91,8 +91,8 @@ mlb_probables <- function(game_pk) {
         dplyr::mutate(
           game_pk = payload$gamePk,
           game_date = stringr::str_sub(payload$gameData$game$calendarEventID, -10, -1)) %>%
-        dplyr::select(.data$game_pk, .data$game_date, .data$fullName, .data$id, .data$team, .data$team_id,
-                      .data$home_plate_full_name, .data$home_plate_id) %>%
+        dplyr::select("game_pk", "game_date", "fullName", "id", "team", "team_id",
+                      "home_plate_full_name", "home_plate_id") %>%
         make_baseballr_data("MLB Probables data from MLB.com",Sys.time())
       
     },

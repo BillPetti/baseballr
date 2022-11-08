@@ -39,13 +39,18 @@ sptrc_league_payrolls <- function(year = most_recent_mlb_season()){
         rvest::html_table() %>% 
         janitor::clean_names() %>% 
         dplyr::filter(.data$team != "League Average") %>%
-        dplyr::rename(active_man_payroll = 5,
-                      yearly_total_payroll = 10) %>%  
+        dplyr::rename("active_man_payroll" = 5,
+                      "yearly_total_payroll" = 10) %>%  
         dplyr::mutate(year = year,
                       team_abbr = gsub(".*\\t","", .data$team),
                       team = gsub("\\n.*","", .data$team),
                       dplyr::across(tidyr::everything(), as.character)) %>% 
-        dplyr::select(.data$year, .data$team, .data$team_abbr, .data$rank, tidyr::everything())
+        dplyr::select(
+          "year", 
+          "team", 
+          "team_abbr", 
+          "rank", 
+          tidyr::everything())
       
       
       league_payroll[] <- lapply(league_payroll, gsub, pattern="\\$", replacement="")

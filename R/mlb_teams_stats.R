@@ -85,10 +85,10 @@ mlb_teams_stats <- function(stat_type = NULL,
       stats_leaders <- jsonlite::fromJSON(jsonlite::toJSON(resp[['stats']]), flatten = TRUE)  
       stats_leaders$season <- NULL
       stats <- stats_leaders %>% 
-        tidyr::unnest(.data$splits) %>% 
+        tidyr::unnest("splits") %>% 
         janitor::clean_names()  %>% 
         as.data.frame() %>% 
-        dplyr::select(-.data$exemptions) %>%
+        dplyr::select(-"exemptions") %>%
         make_baseballr_data("MLB Teams Stats data from MLB.com",Sys.time())
       
     },

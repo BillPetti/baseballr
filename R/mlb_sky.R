@@ -16,15 +16,15 @@ mlb_sky <- function(){
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>% 
         mlb_api_call()
       sky <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  %>% 
         janitor::clean_names() %>% 
         as.data.frame() %>% 
         dplyr::rename(
-          sky_code = .data$code,
-          sky_description = .data$description) %>%
+          "sky_code" = "code",
+          "sky_description" = "description") %>%
         make_baseballr_data("MLB Sky (Weather) Codes data from MLB.com",Sys.time())
       
     },

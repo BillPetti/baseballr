@@ -49,15 +49,15 @@ mlb_team_history <- function(team_ids = NULL,
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>% 
         mlb_api_call()
       teams <- jsonlite::fromJSON(jsonlite::toJSON(resp$teams),flatten = TRUE) %>% 
         janitor::clean_names() %>% 
         dplyr::rename(
-          team_id = .data$id,
-          team_full_name = .data$name,
-          team_abbreviation = .data$abbreviation) %>%
+          "team_id" = "id",
+          "team_full_name" = "name",
+          "team_abbreviation" = "abbreviation") %>%
         make_baseballr_data("MLB Team History data from MLB.com",Sys.time())
       
     },

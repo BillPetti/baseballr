@@ -51,6 +51,6 @@ This function allows you to scrape basic batter statistics over a custom time fr
 }
 \examples{
 \donttest{
-  try(bref_daily_batter("2015-05-10", "2015-06-20"))
+  try(bref_daily_batter(t1="2015-05-10", t2="2015-06-20"))
 }
 }

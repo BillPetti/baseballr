@@ -53,7 +53,7 @@ mlb_seasons_all <- function(sport_id = 1,
   
   
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>% 
         mlb_api_call()
       

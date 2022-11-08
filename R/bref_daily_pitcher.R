@@ -118,16 +118,17 @@ bref_daily_pitcher <- function(t1, t2) {
         rvest::html_elements("a") %>%
         rvest::html_attr("href") %>%
         as.data.frame() %>%
-        dplyr::rename(slug = .data$`.`) %>%
+        dplyr::rename(slug = ".") %>%
         dplyr::filter(grepl("redirect", .data$slug)) %>%
         dplyr::mutate(playerid = gsub("/redirect.fcgi\\?player=1&mlb_ID=", "", .data$slug))
       
       df <- df %>%
         dplyr::mutate(bbref_id = playerids$playerid) %>%
-        dplyr::select(.data$bbref_id, tidyr::everything())
+        dplyr::select("bbref_id", tidyr::everything())
       
       df <- df %>%
         make_baseballr_data("MLB Daily Pitcher data from baseball-reference.com",Sys.time())
+      Sys.sleep(5)
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no daily pitcher data available!"))

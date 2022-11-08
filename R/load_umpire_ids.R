@@ -13,7 +13,7 @@
 
 load_umpire_ids <- function() {
   tryCatch(
-    expr={
+    expr = {
       df <- csv_from_url("https://app.box.com/shared/static/x20ahfe5e3a3y9sknz3g5y2ojbef3fzx.csv", encoding ="UTF-8")
       
       df <- df %>%

@@ -13,15 +13,15 @@ mlb_roster_types <- function(){
   mlb_endpoint <- mlb_stats_endpoint("v1/rosterTypes")
   
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>% 
         mlb_api_call()
       roster_types <- resp %>% 
         janitor::clean_names() %>% 
         dplyr::rename(
-          roster_type_description = .data$description,
-          roster_type_lookup_name = .data$lookup_name,
-          roster_type_parameter = .data$parameter) %>%
+          "roster_type_description" = "description",
+          "roster_type_lookup_name" = "lookup_name",
+          "roster_type_parameter" = "parameter") %>%
         make_baseballr_data("MLB Roster Types data from MLB.com",Sys.time())
       
     },

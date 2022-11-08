@@ -110,7 +110,7 @@ mlb_game_linescore <- function(game_pk) {
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1.1/game/{game_pk}/feed/live"))
   
   tryCatch(
-    expr={
+    expr = {
       payload <- mlb_endpoint %>% 
         mlb_api_call() %>% 
         jsonlite::toJSON() %>% 
@@ -138,9 +138,11 @@ mlb_game_linescore <- function(game_pk) {
         dplyr::mutate(
           game_pk = game_pk) %>% 
         dplyr::select(
-          .data$game_pk, 
-          .data$home_team_id, .data$home_team_name,
-          .data$away_team_id, .data$away_team_name,
+          "game_pk", 
+          "home_team_id", 
+          "home_team_name",
+          "away_team_id", 
+          "away_team_name",
           tidyr::everything()) %>%
         make_baseballr_data("MLB Game Linescore data from MLB.com",Sys.time())
     },
