@@ -112,19 +112,19 @@
 #' @export
 #' @examples
 #' \donttest{
-#'   ### Correa
-#'   x<- try(statcast_search(start_date = "2016-04-06",
-#'                       end_date = "2016-04-15", 
-#'                       playerid = 621043, 
+#'   ### Harper
+#'   try(statcast_search(start_date = "2022-10-06", 
+#'                       end_date = "2022-10-16", 
+#'                       playerid = 547180, 
 #'                       player_type = 'batter'))
-#'   ### Noah
-#'   try(statcast_search(start_date = "2016-04-06",
-#'                       end_date = "2016-04-15", 
-#'                       playerid = 592789, 
+#'   ### Framber
+#'   try(statcast_search(start_date = "2022-10-06", 
+#'                       end_date = "2022-10-16", 
+#'                       playerid = 664285, 
 #'                       player_type = 'pitcher'))
 #'   ### Daily
-#'   try(statcast_search(start_date = "2016-04-06", 
-#'                       end_date = "2016-04-06"))
+#'   try(statcast_search(start_date = "2022-11-04", 
+#'                       end_date = "2022-11-06"))
 #' }
 
 statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),

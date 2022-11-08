@@ -28,7 +28,8 @@ cols <- c(
 test_that("Statcast Search", {
   skip_on_cran()
   
-  x <- statcast_search(start_date = "2016-04-06", end_date = "2016-04-06")
+  x <- statcast_search(start_date = "2022-11-04",
+                       end_date = "2022-11-06")
   
   expect_equal(colnames(x), cols)
   expect_s3_class(x, "data.frame")
