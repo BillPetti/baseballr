@@ -306,9 +306,9 @@
 #' }
 fg_batter_leaders <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TRUE) {
   
-  if (ind == 0) {
-    tryCatch(
-      expr = {
+  tryCatch(
+    expr = {
+      if (ind == 0) {
         if (exc_p){
           payload <- paste0("http://www.fangraphs.com/leaders.aspx?pos=np&stats=bat&lg=", league, "&qual=", qual,
                             "&type=c,-1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286&season=", y, "&month=0&season1=", x, "&ind=", ind, "&team=&rost=&age=&filter=&players=&page=1_100000") %>% 
@@ -325,7 +325,7 @@ fg_batter_leaders <- function(x, y, league = "all", qual = "y", ind = 1, exc_p =
           rvest::html_table(fill=TRUE)
         
         leaders <- leaders[-c(1,3),]
-        names(leaders) <- leaders[1,]
+        colnames(leaders) <- leaders[1,]
         leaders <- leaders[-1,]
         c <- as.matrix(names(leaders))
         c <- gsub("%", "_pct", c, fixed = TRUE)
@@ -334,8 +334,8 @@ fg_batter_leaders <- function(x, y, league = "all", qual = "y", ind = 1, exc_p =
         c <- gsub("/", "_", c, fixed = TRUE)
         c <- ifelse(substr(c, nchar(c)-1+1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
         r <- c("wRC_plus", "WPA_minus", "WPA_plus", "FBall_pct", "AgeRng")
-        c[c(62,64,65,73,202),] <- r
-        Seasons <- ifelse(x==y, paste0(x), paste0(x, "-", y))
+        c[c(62,64,65,74,202),] <- r
+        Seasons <- ifelse(x == y, paste0(x), paste0(x, "-", y))
         names(leaders) <- c
         leaders <- cbind(Seasons, leaders)
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))), stringsAsFactors=F)
@@ -356,30 +356,18 @@ fg_batter_leaders <- function(x, y, league = "all", qual = "y", ind = 1, exc_p =
           rvest::html_elements("a") %>%
           rvest::html_attr("href") %>%
           as.data.frame() %>%
-          dplyr::rename(slug = .data$`.`) %>%
+          dplyr::rename("slug" = ".") %>%
           dplyr::filter(grepl("playerid", .data$slug)) %>%
           dplyr::mutate(playerid = sub(".*[=] *(.*?) *[&].*", "\\1", .data$slug))
-        
+        leaders$playerid <- playerids$playerid
         leaders <- leaders %>%
-          dplyr::mutate(playerid = playerids$playerid) %>%
-          dplyr::select(.data$playerid, tidyr::everything())
+          dplyr::select("playerid", tidyr::everything())
         leaders <- leaders %>%
           make_baseballr_data("MLB Batter Leaders data from FanGraphs.com",Sys.time())
-      },
-      error = function(e) {
-        message(glue::glue("{Sys.time()}: Invalid arguments or no batter leaders data available!"))
-      },
-      warning = function(w) {
-      },
-      finally = {
       }
-    )
-    return(leaders)
-  }
-  
-  else {
-    tryCatch(
-      expr = {
+      
+      else {
+        
         if (exc_p){
           payload <- paste0("http://www.fangraphs.com/leaders.aspx?pos=np&stats=bat&lg=", league, "&qual=", qual, "&type=c,-1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286&season=", y, "&month=0&season1=", x, "&ind=", ind, "&team=&rost=&age=&filter=&players=&page=1_100000") %>% 
             xml2::read_html()
@@ -390,10 +378,10 @@ fg_batter_leaders <- function(x, y, league = "all", qual = "y", ind = 1, exc_p =
         
         leaders <- (payload %>%
                       rvest::html_elements("table"))[[17]] %>% 
-          rvest::html_table(fill=TRUE)
+          rvest::html_table(fill = TRUE)
         
         leaders <- leaders[-c(1,3),]
-        names(leaders) <- leaders[1,]
+        colnames(leaders) <- leaders[1,]
         leaders <- leaders[-1,]
         c <- as.matrix(names(leaders))
         c <- gsub("%", "_pct", c, fixed = TRUE)
@@ -419,27 +407,25 @@ fg_batter_leaders <- function(x, y, league = "all", qual = "y", ind = 1, exc_p =
           rvest::html_elements("a") %>%
           rvest::html_attr("href") %>%
           as.data.frame() %>%
-          dplyr::rename(slug = .data$`.`) %>%
+          dplyr::rename("slug" = ".") %>%
           dplyr::filter(grepl("playerid", .data$slug)) %>%
           dplyr::mutate(playerid = sub(".*[=] *(.*?) *[&].*", "\\1", .data$slug))
         
         leaders <- leaders %>%
           dplyr::mutate(playerid = playerids$playerid) %>%
-          dplyr::select(.data$playerid, everything())
+          dplyr::select("playerid", everything())
         
         leaders <- leaders %>%
           make_baseballr_data("MLB Batter Leaders data from FanGraphs.com",Sys.time())
-      },
-      error = function(e) {
-        message(glue::glue("{Sys.time()}: Invalid arguments or no batter leaders data available!"))
-      },
-      warning = function(w) {
-      },
-      finally = {
       }
-    )
-    return(leaders)
-  }
+    },
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments or no batter leaders data available!"))
+    },
+    finally = {
+    }
+  )
+  return(leaders)
 }
 #' @rdname fg_bat_leaders
 #' @title **(legacy) Scrape Batter Leaderboards from FanGraphs**

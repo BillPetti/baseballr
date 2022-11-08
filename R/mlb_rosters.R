@@ -43,7 +43,7 @@ mlb_rosters <- function(team_id = NULL, season = NULL, date = NULL, roster_type 
     expr = {
       resp <- mlb_endpoint %>% 
         mlb_api_call()
-      roster <- jsonlite::fromJSON(jsonlite::toJSON(resp$roster), flatten=TRUE) %>% 
+      roster <- jsonlite::fromJSON(jsonlite::toJSON(resp$roster), flatten = TRUE) %>% 
         dplyr::bind_cols(link = resp$link, 
                          team_id = resp$teamId,
                          roster_type = resp$rosterType,
@@ -55,8 +55,6 @@ mlb_rosters <- function(team_id = NULL, season = NULL, date = NULL, roster_type 
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no roster data for {team_id} available!"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

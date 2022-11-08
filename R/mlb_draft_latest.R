@@ -107,7 +107,7 @@ mlb_draft_latest <- function(year) {
   
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/draft/{year}/latest"))
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>%
         mlb_api_call()
       
@@ -118,8 +118,6 @@ mlb_draft_latest <- function(year) {
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

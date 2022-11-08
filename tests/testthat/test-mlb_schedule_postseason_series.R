@@ -28,7 +28,6 @@ cols <- c(
   "record_source",
   "if_necessary",
   "if_necessary_description",
-  "is_default_game",
   "status_abstract_game_state",
   "status_coded_game_state",
   "status_detailed_state",

@@ -322,7 +322,7 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
           rvest::html_table()
         
         leaders <- leaders[-c(1,3),]
-        names(leaders) <- leaders[1,]
+        colnames(leaders) <- leaders[1,]
         leaders <- leaders[-1,]
         leaders <- leaders[,-2]
         c <- as.matrix(names(leaders))
@@ -337,7 +337,7 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
         names(leaders) <- c
         leaders <- leaders %>%
           dplyr::mutate(Season = Seasons) %>%
-          dplyr::select(.data$Season, tidyr::everything())
+          dplyr::select("Season", tidyr::everything())
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))), stringsAsFactors=F)
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))), stringsAsFactors=F)
         leaders$Dol <- gsub("\\(", "-", leaders$Dol)
@@ -358,8 +358,6 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
       },
       error = function(e) {
         message(glue::glue("{Sys.time()}: Invalid arguments or no batter leaders data available!"))
-      },
-      warning = function(w) {
       },
       finally = {
       }
@@ -385,7 +383,7 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
           rvest::html_table()
         
         leaders <- leaders[-c(1,3),]
-        names(leaders) <- leaders[1,]
+        colnames(leaders) <- leaders[1,]
         leaders <- leaders[-1,]
         leaders <- leaders[,-c(3,5)]
         c <- as.matrix(names(leaders))
@@ -398,7 +396,7 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
         c[c(61,63,64,72,202),] <- r
         names(leaders) <- c
         leaders <- leaders %>%
-          dplyr::select(.data$Season, everything())
+          dplyr::select("Season", everything())
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))))
         leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))))
         leaders$Dol <- gsub("\\(", "-", leaders$Dol)
@@ -417,8 +415,6 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
       },
       error = function(e) {
         message(glue::glue("{Sys.time()}: Invalid arguments or no batter leaders data available!"))
-      },
-      warning = function(w) {
       },
       finally = {
       }

@@ -27,11 +27,14 @@ ncaa_lineups <- function(game_info_url,year) {
                 rvest::html_elements("table"))[[6]] %>% 
         rvest::html_table(trim=FALSE) %>% 
         dplyr::rename(
-          playerName = .data$X1,
-          position = .data$X2) %>% 
+          "playerName" = "X1",
+          "position" = "X2") %>% 
         dplyr::mutate(
           school = .data$playerName[1]) %>% 
-        dplyr::select(.data$playerName,.data$position,.data$school)
+        dplyr::select(
+          "playerName",
+          "position",
+          "school")
       
       dfa <- dfa[c(-1:-2,-nrow(dfa)),]
       dfa = dfa %>% 
@@ -50,10 +53,13 @@ ncaa_lineups <- function(game_info_url,year) {
                  rvest::html_elements("table"))[[7]] %>% 
         rvest::html_table(trim = FALSE) %>% 
         dplyr::rename(
-          playerName = .data$X1, 
-          position = .data$X2) %>% 
+          "playerName" = "X1", 
+          "position" = "X2") %>% 
         dplyr::mutate(school = .data$playerName[1]) %>% 
-        dplyr::select(.data$playerName, .data$position, .data$school)
+        dplyr::select(
+          "playerName", 
+          "position", 
+          "school")
       dfb <- dfb[c(-1:-2,-nrow(dfb)),]
       dfb <-  dfb %>% 
         dplyr::mutate(
@@ -73,18 +79,16 @@ ncaa_lineups <- function(game_info_url,year) {
       
       lineup_table <- lineup_table %>% 
         dplyr::select(
-          .data$year,
-          .data$playerName,
-          .data$position,
-          .data$batting_order,
-          .data$school) %>%
+          "year",
+          "playerName",
+          "position",
+          "batting_order",
+          "school") %>%
         make_baseballr_data("NCAA Baseball Lineups data from stats.ncaa.org",Sys.time())
       
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

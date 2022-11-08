@@ -23,15 +23,13 @@ mlb_wind_direction_codes <- function(){
         janitor::clean_names() %>% 
         as.data.frame() %>% 
         dplyr::rename(
-          wind_direction_code = .data$code,
-          wind_direction_description = .data$description) %>%
+          "wind_direction_code" = "code",
+          "wind_direction_description" = "description") %>%
         make_baseballr_data("MLB Wind Direction Codes data from MLB.com",Sys.time())
       
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

@@ -403,7 +403,7 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
   }
 
   payload <- payload %>%
-    dplyr::select(.data$year, tidyr::everything()) %>%
+    dplyr::select("year", tidyr::everything()) %>%
     make_baseballr_data("MLB Baseball Savant Statcast Leaderboards data from baseballsavant.mlb.com",Sys.time())
 
   return(payload)

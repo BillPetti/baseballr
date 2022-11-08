@@ -56,7 +56,7 @@
 
 fg_milb_pitcher_game_logs <- function(playerid, year) {
   tryCatch(
-    expr={
+    expr = {
       
       # url for standard game log table
       url_basic <- paste0("http://www.fangraphs.com/statsd-legacy.aspx?playerid=",
@@ -95,14 +95,12 @@ fg_milb_pitcher_game_logs <- function(playerid, year) {
         dplyr::mutate(
           player_name = player_name,
           minor_playerid = playerid) %>%
-        dplyr::select(.data$player_name, .data$minor_playerid, tidyr::everything())
+        dplyr::select("player_name", "minor_playerid", tidyr::everything())
       payload <- payload %>%
         make_baseballr_data("MiLB Pitcher Game Logs data from FanGraphs.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no MiLB pitcher game logs data available!"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

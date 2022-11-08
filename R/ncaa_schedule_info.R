@@ -31,7 +31,7 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
   
   school_info <- baseballr::ncaa_team_lu %>% 
     dplyr::filter(.data$school_id == teamid, .data$year == year) %>%
-    dplyr::select(-.data$year) %>%
+    dplyr::select(-"year") %>%
     dplyr::distinct()
   
   url <- paste0("https://stats.ncaa.org/team/", teamid, "/", id)
@@ -107,7 +107,7 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
       
       suppressWarnings(
         sched <- sched %>%
-          tidyr::separate(.data$Result, into = c("Result", "Score", "Innings"),
+          tidyr::separate("Result", into = c("Result", "Score", "Innings"),
                           sep = " ") %>%
           # dplyr::filter(.data$Result != "RPI") %>% 
           dplyr::mutate(
@@ -122,8 +122,6 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

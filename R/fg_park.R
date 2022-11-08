@@ -30,7 +30,7 @@
 fg_park <- function(yr) {
   
   tryCatch(
-    expr={
+    expr = {
       park_table <- paste0("http://www.fangraphs.com/guts.aspx?type=pf&teamid=0&season=", yr) %>% 
         xml2::read_html() %>%
         rvest::html_element(xpath = '//*[(@id = "GutsBoard1_dg1_ctl00")]') %>%
@@ -42,8 +42,6 @@ fg_park <- function(yr) {
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no park factors data available!"))
-    },
-    warning = function(w) {
     },
     finally = {
     }
@@ -77,7 +75,7 @@ fg_park <- function(yr) {
 
 fg_park_hand <- function(yr) {
   tryCatch(
-    expr={
+    expr = {
       park_table <- paste0("http://www.fangraphs.com/guts.aspx?type=pfh&teamid=0&season=", yr) %>% 
         xml2::read_html() %>%
         rvest::html_element(xpath = '//*[(@id = "GutsBoard1_dg1_ctl00")]') %>%
@@ -90,8 +88,6 @@ fg_park_hand <- function(yr) {
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no park factors by handedness data available!"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

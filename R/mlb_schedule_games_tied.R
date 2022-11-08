@@ -111,12 +111,12 @@ mlb_schedule_games_tied <- function(season = 2021, game_type = 'S'){
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>% 
         mlb_api_call()
       
-      games <- jsonlite::fromJSON(jsonlite::toJSON(resp$dates), flatten=TRUE) %>% 
-        tidyr::unnest(.data$games) %>%
+      games <- jsonlite::fromJSON(jsonlite::toJSON(resp$dates), flatten = TRUE) %>% 
+        tidyr::unnest("games") %>%
         as.data.frame() %>%
         janitor::clean_names() %>%
         make_baseballr_data("MLB Schedule - Games Tied data from MLB.com",Sys.time())
@@ -124,8 +124,6 @@ mlb_schedule_games_tied <- function(season = 2021, game_type = 'S'){
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

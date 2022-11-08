@@ -91,18 +91,16 @@ mlb_game_pks <- function(date,
   api_call <- paste0("http://statsapi.mlb.com/api/v1/schedule?sportId=", paste(level_ids, collapse = ','), "&date=", date)
   
   tryCatch(
-    expr={
+    expr = {
       payload <- jsonlite::fromJSON(api_call, flatten = TRUE)
       
       payload <- payload$dates$games %>%
         as.data.frame() %>%
-        rename(game_pk = .data$gamePk) %>%
+        rename("game_pk" = "gamePk") %>%
         make_baseballr_data("MLB Game Pks data from MLB.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

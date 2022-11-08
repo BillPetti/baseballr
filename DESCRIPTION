@@ -1,6 +1,6 @@
 Package: baseballr
 Title: Acquiring and Analyzing Baseball Data
-Version: 1.3.0
+Version: 1.4.0
 Authors@R: c(
     person("Bill", "Petti", , "billpetti@gmail.com", role = "aut"),
     person("Saiem", "Gilani", , "saiem.gilani@gmail.com", role = c("aut", "cre")),
@@ -63,4 +63,4 @@ VignetteBuilder:
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.1

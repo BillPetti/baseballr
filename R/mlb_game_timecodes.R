@@ -20,17 +20,15 @@ mlb_game_timecodes <- function(game_pk) {
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1.1/game/{game_pk}/feed/live/timestamps"))
   
   tryCatch(
-    expr={
+    expr = {
       timecodes <- mlb_endpoint %>% 
         mlb_api_call() %>% 
         as.data.frame() %>% 
-        dplyr::rename(timecodes = .data$.) %>%
+        dplyr::rename("timecodes" = ".") %>%
         make_baseballr_data("MLB Game Timecodes data from MLB.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

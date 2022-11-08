@@ -92,12 +92,12 @@ mlb_standings <- function(
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>% 
         mlb_api_call()
       
       standings <- jsonlite::fromJSON(jsonlite::toJSON(resp$records), flatten = TRUE) %>% 
-        tidyr::unnest(.data$teamRecords, names_sep = "_") %>% 
+        tidyr::unnest("teamRecords", names_sep = "_") %>% 
         janitor::clean_names() %>% 
         as.data.frame() %>%
         make_baseballr_data("MLB Standings data from MLB.com",Sys.time())
@@ -105,8 +105,6 @@ mlb_standings <- function(
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

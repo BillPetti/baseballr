@@ -20,7 +20,7 @@ mlb_jobs_datacasters <- function(
   date = NULL){
   
   tryCatch(
-    expr={
+    expr = {
       mlb_endpoint <- mlb_stats_endpoint("v1/jobs/datacasters")
       query_params <- list(
         sportId = sport_id,
@@ -35,13 +35,11 @@ mlb_jobs_datacasters <- function(
         janitor::clean_names() %>% 
         as.data.frame() %>% 
         dplyr::rename(
-          job_code = .data$job_id) %>%
+          "job_code" = "job_id") %>%
         make_baseballr_data("MLB Jobs Datacasters data from MLB.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

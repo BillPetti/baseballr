@@ -84,7 +84,7 @@ mlb_batting_orders <- function (game_pk,
         dplyr::arrange(.data$batting_order)
       
       final_batting_order_table <- dplyr::bind_rows(away_players, home_players) %>%
-        dplyr::select(-.data$link, -.data$code, -.data$name, -.data$type) %>%
+        dplyr::select(-c("link", "code", "name", "type")) %>%
         dplyr::arrange(.data$team, .data$batting_order, .data$batting_position_num) %>%
         dplyr::filter(!is.na(.data$batting_order)) %>%
         make_baseballr_data("MLB Game Batting Order data from MLB.com",Sys.time())
@@ -98,8 +98,6 @@ mlb_batting_orders <- function (game_pk,
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

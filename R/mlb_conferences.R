@@ -37,16 +37,14 @@ mlb_conferences <- function(conference_id = NULL,
       conferences <- jsonlite::fromJSON(jsonlite::toJSON(resp$conferences), flatten = TRUE)  %>% 
         janitor::clean_names() %>% 
         dplyr::rename(
-          conference_id = .data$id,
-          conference_name = .data$name,
-          conference_abbreviation = .data$abbreviation,
-          conference_name_short = .data$name_short) %>%
+          "conference_id" = "id",
+          "conference_name" = "name",
+          "conference_abbreviation" = "abbreviation",
+          "conference_name_short" = "name_short") %>%
         make_baseballr_data("MLB Conferences data from MLB.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

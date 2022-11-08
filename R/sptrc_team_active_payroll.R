@@ -82,32 +82,42 @@ sptrc_team_active_payroll <- function(team_abbr, year = most_recent_mlb_season()
       Active <- (page_data)[[1]] %>% 
         rvest::html_table() %>% 
         janitor::clean_names() %>% 
-        dplyr::rename(player_name = 1) %>%  
+        dplyr::rename("player_name" = 1) %>%  
         dplyr::mutate(year = year, 
                       team = team_abbr, 
                       roster_status = "Active",
                       player_name = gsub(".*\\t","", .data$player_name),
                       dplyr::across(tidyr::everything(), as.character)) %>% 
-        dplyr::select(.data$year, .data$team, .data$player_name, .data$roster_status, tidyr::everything())
+        dplyr::select(
+          "year", 
+          "team", 
+          "player_name", 
+          "roster_status", 
+          tidyr::everything())
       
       
       IL <- (page_data)[[2]] %>% 
         rvest::html_table() %>% 
         janitor::clean_names() %>% 
-        dplyr::rename(player_name = 1) %>% 
+        dplyr::rename("player_name" = 1) %>% 
         dplyr::mutate(year = year, 
                       team = team_abbr, 
                       roster_status = "IL",
                       player_name = sub("[a-zA-Z'\\.\\s]*\\s{4}", "", .data$player_name),
                       player_name = sub("\\s{2}.*", "", .data$player_name),
                       dplyr::across(tidyr::everything(), as.character)) %>% 
-        dplyr::select(.data$year, .data$team, .data$player_name, .data$roster_status, tidyr::everything())
+        dplyr::select(
+          "year", 
+          "team", 
+          "player_name", 
+          "roster_status", 
+          tidyr::everything())
       
       
       Retained <- (page_data)[[3]] %>% 
         rvest::html_table() %>% 
         janitor::clean_names() %>% 
-        dplyr::rename(player_name = 1) %>% 
+        dplyr::rename("player_name" = 1) %>% 
         dplyr::mutate(year = year, 
                       team = team_abbr, 
                       roster_status = "Retained Salary",
@@ -115,7 +125,16 @@ sptrc_team_active_payroll <- function(team_abbr, year = most_recent_mlb_season()
                       status = NA_character_,
                       waiver_options = NA_character_,
                       dplyr::across(tidyr::everything(), as.character)) %>% 
-        select(.data$year, .data$team, .data$player_name, .data$roster_status, .data$age, .data$pos, .data$status, .data$waiver_options, tidyr::everything())
+        select(
+          "year", 
+          "team", 
+          "player_name", 
+          "roster_status", 
+          "age", 
+          "pos", 
+          "status", 
+          "waiver_options", 
+          tidyr::everything())
       
       Active_Payroll <- dplyr::bind_rows(Active, IL, Retained) %>% 
         dplyr::mutate(signing_bonus = dplyr::if_else(.data$signing_bonus == "-", NA_character_, .data$signing_bonus))
@@ -136,8 +155,6 @@ sptrc_team_active_payroll <- function(team_abbr, year = most_recent_mlb_season()
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no contract data available!"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

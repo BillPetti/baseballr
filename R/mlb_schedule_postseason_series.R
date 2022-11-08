@@ -125,7 +125,7 @@ mlb_schedule_postseason_series <- function(season = 2021,
         mlb_api_call()
       
       games <- jsonlite::fromJSON(jsonlite::toJSON(resp$series),flatten = TRUE) %>% 
-        tidyr::unnest(.data$games) %>%
+        tidyr::unnest("games") %>%
         as.data.frame() %>%
         janitor::clean_names() %>%
         make_baseballr_data("MLB Schedule - Post-season Series data from MLB.com",Sys.time())
@@ -133,8 +133,6 @@ mlb_schedule_postseason_series <- function(season = 2021,
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no MLB postseason series schedule data available!"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

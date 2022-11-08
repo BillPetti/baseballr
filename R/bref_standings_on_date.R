@@ -72,11 +72,10 @@ bref_standings_on_date <- function(date, division, from = FALSE) {
       }
       x <- x %>%
         make_baseballr_data("MLB Standings on Date data from baseball-reference.com",Sys.time())
+      Sys.sleep(5)
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no standings on date data available!"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

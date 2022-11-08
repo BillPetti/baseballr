@@ -72,16 +72,14 @@ mlb_teams <- function(
       teams <- jsonlite::fromJSON(jsonlite::toJSON(resp$teams),flatten = TRUE) %>% 
         janitor::clean_names() %>% 
         dplyr::rename(
-          team_id = .data$id,
-          team_full_name = .data$name,
-          team_abbreviation = .data$abbreviation) %>%
+          "team_id" = "id",
+          "team_full_name" = "name",
+          "team_abbreviation" = "abbreviation") %>%
         make_baseballr_data("MLB Teams data from MLB.com",Sys.time())
       
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

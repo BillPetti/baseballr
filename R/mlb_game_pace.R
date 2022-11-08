@@ -96,7 +96,7 @@ mlb_game_pace <- function(season,
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>% 
         mlb_api_call() %>% 
         jsonlite::toJSON() %>% 
@@ -108,8 +108,6 @@ mlb_game_pace <- function(season,
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

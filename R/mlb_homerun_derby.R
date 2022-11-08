@@ -81,7 +81,7 @@ mlb_homerun_derby <- function(game_pk){
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>% 
         mlb_api_call() %>% 
         jsonlite::toJSON() %>% 
@@ -95,27 +95,27 @@ mlb_homerun_derby <- function(game_pk){
         jsonlite::fromJSON(flatten = TRUE) %>%  
         janitor::clean_names() %>% 
         dplyr::rename(
-          game_pk = .data$id,
-          event_name = .data$name)
+          "game_pk" = "id",
+          "event_name" = "name")
       
       rounds <- resp$rounds %>% 
         as.data.frame() %>% 
-        tidyr::unnest(.data$matchups) %>% 
+        tidyr::unnest("matchups") %>% 
         janitor::clean_names() 
       
       top_seed <- rounds %>% 
-        tidyr::unnest(.data$top_seed_hits) %>%
+        tidyr::unnest("top_seed_hits") %>%
         janitor::clean_names() %>% 
-        dplyr::select(-.data$bottom_seed_hits) %>% 
+        dplyr::select(-"bottom_seed_hits") %>% 
         dplyr::mutate(
           batter = .data$top_seed_player_full_name,
           batter_id = .data$top_seed_player_id,
           batter_link = .data$top_seed_player_link)
       
       bottom_seed <- rounds %>% 
-        tidyr::unnest(.data$bottom_seed_hits) %>% 
+        tidyr::unnest("bottom_seed_hits") %>% 
         janitor::clean_names() %>% 
-        dplyr::select(-.data$top_seed_hits) %>% 
+        dplyr::select(-"top_seed_hits") %>% 
         dplyr::mutate(
           batter = .data$bottom_seed_player_full_name,
           batter_id = .data$bottom_seed_player_id,
@@ -125,18 +125,18 @@ mlb_homerun_derby <- function(game_pk){
         dplyr::bind_rows(bottom_seed) %>% 
         dplyr::bind_cols(info) %>% 
         dplyr::select(
-          .data$game_pk,
-          .data$event_name,
-          .data$event_date,
-          .data$event_type_code,
-          .data$event_type_name,
-          .data$venue_id,
-          .data$venue_name,
-          .data$round, 
-          .data$num_batters, 
-          .data$batter, 
-          .data$batter_id, 
-          .data$batter_link, 
+          "game_pk",
+          "event_name",
+          "event_date",
+          "event_type_code",
+          "event_type_name",
+          "venue_id",
+          "venue_name",
+          "round", 
+          "num_batters", 
+          "batter", 
+          "batter_id", 
+          "batter_link", 
           tidyr::everything()) %>% 
         dplyr::select(c(
           "game_pk", "event_name", "event_date", 
@@ -174,8 +174,6 @@ mlb_homerun_derby <- function(game_pk){
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }
@@ -245,7 +243,7 @@ mlb_homerun_derby_bracket <- function(game_pk){
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>% 
         mlb_api_call() %>% 
         jsonlite::toJSON() %>% 
@@ -257,17 +255,17 @@ mlb_homerun_derby_bracket <- function(game_pk){
         jsonlite::fromJSON(flatten = TRUE) %>%  
         janitor::clean_names() %>% 
         dplyr::rename(
-          game_pk = .data$id,
-          event_name = .data$name)
+          "game_pk" = "id",
+          "event_name" = "name")
       
       rounds <- resp$rounds %>% 
         as.data.frame() %>% 
-        tidyr::unnest(.data$matchups) %>% 
+        tidyr::unnest("matchups") %>% 
         janitor::clean_names() 
       
       bracket <- info %>% 
         dplyr::bind_cols(rounds) %>% 
-        dplyr::select(-.data$top_seed_hits, -.data$bottom_seed_hits) %>% 
+        dplyr::select(-"top_seed_hits", -"bottom_seed_hits") %>% 
         dplyr::select(c(
           "game_pk", "event_name", "event_type_code",
           "event_type_name", "event_date", "venue_id",
@@ -292,8 +290,6 @@ mlb_homerun_derby_bracket <- function(game_pk){
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }
@@ -414,7 +410,7 @@ mlb_homerun_derby_players <- function(game_pk){
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>% 
         mlb_api_call() %>% 
         jsonlite::toJSON() %>% 
@@ -426,25 +422,25 @@ mlb_homerun_derby_players <- function(game_pk){
         jsonlite::fromJSON(flatten = TRUE) %>%  
         janitor::clean_names() %>% 
         dplyr::rename(
-          game_pk = .data$id,
-          event_name = .data$name)
+          "game_pk" = "id",
+          "event_name" = "name")
       
       players <- resp$players %>% 
         as.data.frame() %>%  
         janitor::clean_names() %>% 
-        dplyr::select(-.data$stats)
+        dplyr::select(-"stats")
       colnames(players) <- paste0("player_", colnames(players))
       
       players <- players %>% 
         dplyr::bind_cols(info) %>% 
         dplyr::select(
-          .data$game_pk,
-          .data$event_name,
-          .data$event_date,
-          .data$event_type_code,
-          .data$event_type_name,
-          .data$venue_id,
-          .data$venue_name,
+          "game_pk",
+          "event_name",
+          "event_date",
+          "event_type_code",
+          "event_type_name",
+          "venue_id",
+          "venue_name",
           tidyr::everything()) %>% 
         dplyr::select(c(
           "game_pk", "event_name", "event_date", 
@@ -507,8 +503,6 @@ mlb_homerun_derby_players <- function(game_pk){
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

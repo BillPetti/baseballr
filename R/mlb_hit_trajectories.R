@@ -16,21 +16,19 @@ mlb_hit_trajectories <- function(){
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>% 
         mlb_api_call()
       hit_trajectories <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  %>% 
         janitor::clean_names() %>% 
         as.data.frame() %>% 
         dplyr::rename(
-          hit_trajectory_code = .data$code,
-          hit_trajectory_description = .data$description) %>%
+          "hit_trajectory_code" = "code",
+          "hit_trajectory_description" = "description") %>%
         make_baseballr_data("MLB Hit Trajectories data from MLB.com",Sys.time())
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

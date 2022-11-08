@@ -17,7 +17,7 @@
 
 load_game_info_sup <- function() {
   tryCatch(
-    expr={
+    expr = {
       df <- csv_from_url("https://app.box.com/shared/static/qbtz8s1yxauamohcvrrjv2ba65v5p2d3.csv", encoding ="UTF-8")
       
       df <- df %>%
@@ -25,8 +25,6 @@ load_game_info_sup <- function() {
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no supplementary game info data available!"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

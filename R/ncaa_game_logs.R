@@ -62,13 +62,13 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
   
   year_id <- baseballr::ncaa_season_id_lu %>% 
     dplyr::filter(.data$season == year) %>% 
-    dplyr::select(.data$id)
+    dplyr::select("id")
   batting_id <- baseballr::ncaa_season_id_lu %>% 
     dplyr::filter(.data$season == year) %>% 
-    dplyr::select(.data$batting_id)
+    dplyr::select("batting_id")
   pitching_id <- baseballr::ncaa_season_id_lu %>% 
     dplyr::filter(.data$season == year) %>% 
-    dplyr::select(.data$pitching_id)
+    dplyr::select("pitching_id")
   
   tryCatch(
     expr={
@@ -121,7 +121,7 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
           if('OPP DP' %in% colnames(payload_df) == TRUE) {
             
             payload_df <- payload_df %>%
-              dplyr::rename(DP = -.data$`OPP DP`)
+              dplyr::rename("DP" = "OPP DP")
           }
           
           cols_to_num <- c("G", "R", "AB", "H", "2B", "3B", "TB", "HR", "RBI",
@@ -135,7 +135,7 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
             dplyr::mutate(
               player_id = player_id,
               player_name = player_name) %>%
-            dplyr::select(.data$player_id, .data$player_name, tidyr::everything())
+            dplyr::select("player_id", "player_name", tidyr::everything())
           
         } else {
           
@@ -151,7 +151,7 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
           if('OPP DP' %in% colnames(payload_df) == TRUE) {
             
             payload_df <- payload_df %>%
-              dplyr::rename(DP = .data$`OPP DP`)
+              dplyr::rename("DP" = "OPP DP")
           }
           
           cols_to_num <- c("G", "App", "GS", "IP", "CG", "H", "R", "ER", "BB", "SO", "SHO", "BF", "P-OAB", "2B-A", "3B-A", "Bk", "HR-A", "WP", "HB", "IBB", "Inh Run", "Inh Run Score", "SHA", "SFA", "Pitches", "GO", "FO", "W", "L", "SV", "OrdAppeared", "KL")
@@ -165,7 +165,7 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
           dplyr::mutate(
             player_id = player_id,
             player_name = player_name) %>%
-          dplyr::select(.data$player_id, .data$player_name, tidyr::everything())
+          dplyr::select("player_id", "player_name", tidyr::everything())
         
       } else {
         
@@ -183,21 +183,42 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
           if('OPP DP' %in% colnames(payload_df) == TRUE) {
             
             payload_df <- payload_df %>%
-              dplyr::rename(DP = .data$`OPP DP`)
+              dplyr::rename("DP" = "OPP DP")
           }
           
           payload_df <- payload_df %>%
             dplyr::select(
-              .data$Year, .data$Team, .data$GP, .data$BA, .data$G, .data$OBPct,
-              .data$SlgPct, .data$R, .data$AB, .data$H, .data$`2B`, .data$`3B`,
-              .data$TB, .data$HR, .data$RBI, .data$BB, .data$HBP, .data$SF, .data$SH,
-              .data$K, .data$DP, .data$CS, .data$Picked, .data$SB, .data$RBI2out)
+              "Year", 
+              "Team", 
+              "GP",
+              "BA",
+              "G",
+              "OBPct",
+              "SlgPct",
+              "R",
+              "AB",
+              "H",
+              "2B",
+              "3B",
+              "TB",
+              "HR",
+              "RBI",
+              "BB",
+              "HBP",
+              "SF",
+              "SH",
+              "K",
+              "DP",
+              "CS",
+              "Picked",
+              "SB",
+              "RBI2out")
           
           payload_df <- payload_df %>%
             dplyr::mutate(
               player_id = player_id,
               player_name = player_name) %>%
-            dplyr::select(.data$Year, .data$player_id, .data$player_name, tidyr::everything())
+            dplyr::select("Year", "player_id", "player_name", tidyr::everything())
           
         } 
         else {
@@ -213,21 +234,49 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
           
           payload_df <- payload_df %>%
             dplyr::select(
-              .data$Year,.data$Team,.data$GP,.data$G,
-              .data$App,.data$GS,.data$ERA,.data$IP,.data$CG,.data$H,
-              .data$R,.data$ER,.data$BB,.data$SO,.data$SHO,.data$BF,
-              .data$`P-OAB`,.data$`2B-A`,.data$`3B-A`,.data$Bk,
-              .data$`HR-A`,.data$WP,.data$HB,.data$IBB,
-              .data$`Inh Run`,.data$`Inh Run Score`,
-              .data$SHA,.data$SFA,.data$Pitches,.data$GO,.data$FO,
-              .data$W,.data$L,.data$SV,.data$KL, tidyr::everything())
+              "Year",
+              "Team",
+              "GP",
+              "G",
+              "App",
+              "GS",
+              "ERA",
+              "IP",
+              "CG",
+              "H",
+              "R",
+              "ER",
+              "BB",
+              "SO",
+              "SHO",
+              "BF",
+              "P-OAB",
+              "2B-A",
+              "3B-A",
+              "Bk",
+              "HR-A",
+              "WP",
+              "HB",
+              "IBB",
+              "Inh Run",
+              "Inh Run Score",
+              "SHA",
+              "SFA",
+              "Pitches",
+              "GO",
+              "FO",
+              "W",
+              "L",
+              "SV",
+              "KL", 
+              tidyr::everything())
           
           
           payload_df <- payload_df %>%
             dplyr::mutate(
               player_id = player_id,
               player_name = player_name) %>%
-            dplyr::select(.data$Year, .data$player_id, .data$player_name, tidyr::everything())
+            dplyr::select("Year", "player_id", "player_name", tidyr::everything())
         }
         
       }
@@ -237,8 +286,6 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

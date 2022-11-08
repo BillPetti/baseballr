@@ -22,26 +22,24 @@ mlb_situation_codes <- function(){
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
   tryCatch(
-    expr={
-  resp <- mlb_endpoint %>% 
-    mlb_api_call()
-  situation_codes <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  %>% 
-    janitor::clean_names() %>% 
-    as.data.frame() %>% 
-    dplyr::rename(
-      situation_code = .data$code,
-      situation_code_description = .data$description
-    ) %>%
-    make_baseballr_data("MLB Situation Codes data from MLB.com",Sys.time())
-  
+    expr = {
+      resp <- mlb_endpoint %>% 
+        mlb_api_call()
+      situation_codes <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  %>% 
+        janitor::clean_names() %>% 
+        as.data.frame() %>% 
+        dplyr::rename(
+          "situation_code" = "code",
+          "situation_code_description" = "description"
+        ) %>%
+        make_baseballr_data("MLB Situation Codes data from MLB.com",Sys.time())
+      
     },
-  error = function(e) {
-    message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-  },
-  warning = function(w) {
-  },
-  finally = {
-  }
+    error = function(e) {
+      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+    },
+    finally = {
+    }
   )
   
   return(situation_codes)

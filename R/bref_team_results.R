@@ -46,7 +46,7 @@ bref_team_results <-function(Tm, year) {
     teams_data <- baseballr::teams_lu_table
     Tm <- (teams_data %>% 
              dplyr::filter(.data$name == Tm) %>% 
-             dplyr::select(.data$bref_abbreviation))[[1]]
+             dplyr::select("bref_abbreviation"))[[1]]
   }
   url <- paste0("https://www.baseball-reference.com/teams/", Tm, "/", year, "-schedule-scores.shtml")
   
@@ -82,11 +82,10 @@ bref_team_results <-function(Tm, year) {
       
       data <- data %>%
         make_baseballr_data("MLB Team Results data from baseball-reference.com",Sys.time())
+      Sys.sleep(5)
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no team results data available!"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

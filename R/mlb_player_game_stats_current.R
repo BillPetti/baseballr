@@ -118,15 +118,15 @@ mlb_player_game_stats_current <- function(person_id = NULL){
     expr = {
       resp <- mlb_endpoint %>%
         mlb_api_call()
-      stats <- jsonlite::fromJSON(jsonlite::toJSON(resp$stats), flatten=TRUE) %>% 
+      stats <- jsonlite::fromJSON(jsonlite::toJSON(resp$stats), flatten = TRUE) %>% 
         as.data.frame() %>%
         make_baseballr_data("MLB Player Game Stats - Current Game data from MLB.com",Sys.time())
       if(length(stats)>0){
         stats <- stats %>%
-          tidyr::unnest(.data$splits) %>% 
+          tidyr::unnest("splits") %>% 
           janitor::clean_names() %>% 
           as.data.frame() %>% 
-          dplyr::select(-.data$exemptions) %>% 
+          dplyr::select(-"exemptions") %>% 
           dplyr::mutate(
             player_id = person_id) %>%
           make_baseballr_data("MLB Player Game Stats - Current Game data from MLB.com",Sys.time())
@@ -134,8 +134,6 @@ mlb_player_game_stats_current <- function(person_id = NULL){
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments provided"))
-    },
-    warning = function(w) {
     },
     finally = {
     }

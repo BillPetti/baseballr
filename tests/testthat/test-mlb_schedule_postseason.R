@@ -65,7 +65,6 @@ cols <- c(
   "status_reason",
   "rescheduled_from",
   "rescheduled_from_date",
-  "is_default_game",
   "events"
 )
 test_that("MLB Schedule Postseason", {
