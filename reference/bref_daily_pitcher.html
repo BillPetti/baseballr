@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,19 +79,29 @@
     <a class="external-link dropdown-item" href="https://cfbfastR.sportsdataverse.org/">cfbfastR</a>
     <a class="external-link dropdown-item" href="https://hoopR.sportsdataverse.org/">hoopR</a>
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
-    <a class="external-link dropdown-item" href="https://torvik.dev/">toRvik</a>
     <a class="external-link dropdown-item" href="https://fastRhockey.sportsdataverse.org/">fastRhockey</a>
+    <a class="external-link dropdown-item" href="https://hockeyr.netlify.app/">hockeyR</a>
+    <a class="external-link dropdown-item" href="https://abhiamishra.github.io/ggshakeR/">ggshakeR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://usfootballR.sportsdataverse.org/">usfootballR</a>
+    <a class="external-link dropdown-item" href="https://github.com/Dato-Futbol/soccerAnimate/">soccerAnimate</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
-    <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
-    <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
-    <a class="external-link dropdown-item" href="https://recruitr.sportsdataverse.org/">recruitR</a>
+    <a class="external-link dropdown-item" href="https://oddsapiR.sportsdataverse.org/">oddsapiR</a>
+    <a class="external-link dropdown-item" href="https://sportyR.sportsdataverse.org/">sportyR</a>
+    <a class="external-link dropdown-item" href="https://torvik.dev/">toRvik</a>
+    <a class="external-link dropdown-item" href="https://cfbplotR.sportsdataverse.org/">cfbplotR</a>
+    <a class="external-link dropdown-item" href="https://github.com/camdenk/mlbplotR">mlbplotR</a>
+    <a class="external-link dropdown-item" href="https://cfb4th.sportsdataverse.org/">cfb4th</a>
     <a class="external-link dropdown-item" href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a>
+    <a class="external-link dropdown-item" href="https://recruitr.sportsdataverse.org/">recruitR</a>
     <a class="external-link dropdown-item" href="https://puntalytics.github.io/puntr/">puntr</a>
     <div class="dropdown-divider"></div>
     <h6 class="dropdown-header" data-toc-skip>Python Packages</h6>
     <a class="external-link dropdown-item" href="https://py.sportsdataverse.org/">sportsdataverse-py</a>
+    <a class="external-link dropdown-item" href="https://sportypy.sportsdataverse.org/">sportypy</a>
+    <a class="external-link dropdown-item" href="https://github.com/sportsdataverse/recruitR-py/">recruitR-py</a>
+    <a class="external-link dropdown-item" href="https://collegebaseball.readthedocs.io/en/latest/index.html">collegebaseball</a>
     <div class="dropdown-divider"></div>
     <h6 class="dropdown-header" data-toc-skip>Node.js Packages</h6>
     <a class="external-link dropdown-item" href="https://js.sportsdataverse.org/">sportsdataverse.js</a>
@@ -154,15 +164,28 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">bref_daily_pitcher</span><span class="op">(</span><span class="st">"2015-05-10"</span>, <span class="st">"2015-06-20"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 2022-10-05 17:34:44: Invalid arguments or no daily pitcher data available!</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> function (x, df1, df2, ncp, log = FALSE) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     if (missing(ncp)) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         .Call(C_df, x, df1, df2, log)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     else .Call(C_dnf, x, df1, df2, ncp, log)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;bytecode: 0x560245cd75f0&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: namespace:stats&gt;</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Daily Pitcher data from baseball-reference.com ──────────────────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-11-08 09:14:53 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 511 × 46</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    bbref_id season Name    Age Level Team      G    GS     W     L    SV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 430911     <span style="text-decoration: underline;">2</span>015 Chri…    26 Maj-… Chic…     8     8     4     2    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 472551     <span style="text-decoration: underline;">2</span>015 Max …    30 Maj-… Wash…     8     8     6     2    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 542866     <span style="text-decoration: underline;">2</span>015 Mark…    36 Maj-… Toro…     8     8     3     2    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 502264     <span style="text-decoration: underline;">2</span>015 Core…    29 Maj-… Clev…     8     8     3     4    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 346793     <span style="text-decoration: underline;">2</span>015 Dall…    27 Maj-… Hous…     8     8     4     3    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 456379     <span style="text-decoration: underline;">2</span>015 Jaco…    27 Maj-… New …     8     8     4     2    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 592102     <span style="text-decoration: underline;">2</span>015 Jeff…    30 Maj-… Chic…     8     8     2     2    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 506693     <span style="text-decoration: underline;">2</span>015 Gerr…    24 Maj-… Pitt…     8     8     7     1    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 501625     <span style="text-decoration: underline;">2</span>015 Clay…    30 Maj-… Bost…     8     8     3     2    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 506560     <span style="text-decoration: underline;">2</span>015 A.J.…    38 Maj-… Pitt…     8     8     5     2    <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 501 more rows, and 35 more variables: IP &lt;dbl&gt;, H &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   R &lt;dbl&gt;, ER &lt;dbl&gt;, uBB &lt;dbl&gt;, BB &lt;dbl&gt;, SO &lt;dbl&gt;, HR &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   HBP &lt;dbl&gt;, ERA &lt;dbl&gt;, AB &lt;dbl&gt;, X1B &lt;dbl&gt;, X2B &lt;dbl&gt;, X3B &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   IBB &lt;dbl&gt;, GDP &lt;dbl&gt;, SF &lt;dbl&gt;, SB &lt;dbl&gt;, CS &lt;dbl&gt;, PO &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   BF &lt;dbl&gt;, Pit &lt;dbl&gt;, Str &lt;dbl&gt;, StL &lt;dbl&gt;, StS &lt;dbl&gt;, GB.FB &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   LD &lt;dbl&gt;, PU &lt;dbl&gt;, WHIP &lt;dbl&gt;, BAbip &lt;dbl&gt;, SO9 &lt;dbl&gt;, SO.W &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   SO_perc &lt;dbl&gt;, uBB_perc &lt;dbl&gt;, SO_uBB &lt;dbl&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

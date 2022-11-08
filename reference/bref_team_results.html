@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,19 +79,29 @@
     <a class="external-link dropdown-item" href="https://cfbfastR.sportsdataverse.org/">cfbfastR</a>
     <a class="external-link dropdown-item" href="https://hoopR.sportsdataverse.org/">hoopR</a>
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
-    <a class="external-link dropdown-item" href="https://torvik.dev/">toRvik</a>
     <a class="external-link dropdown-item" href="https://fastRhockey.sportsdataverse.org/">fastRhockey</a>
+    <a class="external-link dropdown-item" href="https://hockeyr.netlify.app/">hockeyR</a>
+    <a class="external-link dropdown-item" href="https://abhiamishra.github.io/ggshakeR/">ggshakeR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://usfootballR.sportsdataverse.org/">usfootballR</a>
+    <a class="external-link dropdown-item" href="https://github.com/Dato-Futbol/soccerAnimate/">soccerAnimate</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
-    <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
-    <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
-    <a class="external-link dropdown-item" href="https://recruitr.sportsdataverse.org/">recruitR</a>
+    <a class="external-link dropdown-item" href="https://oddsapiR.sportsdataverse.org/">oddsapiR</a>
+    <a class="external-link dropdown-item" href="https://sportyR.sportsdataverse.org/">sportyR</a>
+    <a class="external-link dropdown-item" href="https://torvik.dev/">toRvik</a>
+    <a class="external-link dropdown-item" href="https://cfbplotR.sportsdataverse.org/">cfbplotR</a>
+    <a class="external-link dropdown-item" href="https://github.com/camdenk/mlbplotR">mlbplotR</a>
+    <a class="external-link dropdown-item" href="https://cfb4th.sportsdataverse.org/">cfb4th</a>
     <a class="external-link dropdown-item" href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a>
+    <a class="external-link dropdown-item" href="https://recruitr.sportsdataverse.org/">recruitR</a>
     <a class="external-link dropdown-item" href="https://puntalytics.github.io/puntr/">puntr</a>
     <div class="dropdown-divider"></div>
     <h6 class="dropdown-header" data-toc-skip>Python Packages</h6>
     <a class="external-link dropdown-item" href="https://py.sportsdataverse.org/">sportsdataverse-py</a>
+    <a class="external-link dropdown-item" href="https://sportypy.sportsdataverse.org/">sportypy</a>
+    <a class="external-link dropdown-item" href="https://github.com/sportsdataverse/recruitR-py/">recruitR-py</a>
+    <a class="external-link dropdown-item" href="https://collegebaseball.readthedocs.io/en/latest/index.html">collegebaseball</a>
     <div class="dropdown-divider"></div>
     <h6 class="dropdown-header" data-toc-skip>Node.js Packages</h6>
     <a class="external-link dropdown-item" href="https://js.sportsdataverse.org/">sportsdataverse.js</a>
@@ -154,375 +164,43 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">bref_team_results</span><span class="op">(</span><span class="st">"NYM"</span>, <span class="fl">2015</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 2022-10-05 17:34:45: Invalid arguments or no team results data available!</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> function (..., list = character(), package = NULL, lib.loc = NULL, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     verbose = getOption("verbose"), envir = .GlobalEnv, overwrite = TRUE) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     fileExt &lt;- function(x) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         db &lt;- grepl("\\.[^.]+\\.(gz|bz2|xz)$", x)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         ans &lt;- sub(".*\\.", "", x)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         ans[db] &lt;- sub(".*\\.([^.]+\\.)(gz|bz2|xz)$", "\\1\\2", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             x[db])</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         ans</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     my_read_table &lt;- function(...) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         lcc &lt;- Sys.getlocale("LC_COLLATE")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         on.exit(Sys.setlocale("LC_COLLATE", lcc))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         Sys.setlocale("LC_COLLATE", "C")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         read.table(...)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     stopifnot(is.character(list))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     names &lt;- c(as.character(substitute(list(...))[-1L]), list)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     if (!is.null(package)) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         if (!is.character(package)) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             stop("'package' must be a character vector or NULL")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     paths &lt;- find.package(package, lib.loc, verbose = verbose)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     if (is.null(lib.loc)) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         paths &lt;- c(path.package(package, TRUE), if (!length(package)) getwd(), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             paths)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     paths &lt;- unique(normalizePath(paths[file.exists(paths)]))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     paths &lt;- paths[dir.exists(file.path(paths, "data"))]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     dataExts &lt;- tools:::.make_file_exts("data")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     if (length(names) == 0L) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         db &lt;- matrix(character(), nrow = 0L, ncol = 4L)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         for (path in paths) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             entries &lt;- NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             packageName &lt;- if (file_test("-f", file.path(path, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 "DESCRIPTION"))) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 basename(path)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             else "."</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             if (file_test("-f", INDEX &lt;- file.path(path, "Meta", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 "data.rds"))) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 entries &lt;- readRDS(INDEX)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             else {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 dataDir &lt;- file.path(path, "data")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 entries &lt;- tools::list_files_with_type(dataDir, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   "data")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 if (length(entries)) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   entries &lt;- unique(tools::file_path_sans_ext(basename(entries)))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   entries &lt;- cbind(entries, "")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             if (NROW(entries)) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 if (is.matrix(entries) &amp;&amp; ncol(entries) == 2L) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   db &lt;- rbind(db, cbind(packageName, dirname(path), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     entries))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 else warning(gettextf("data index for package %s is invalid and will be ignored", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   sQuote(packageName)), domain = NA, call. = FALSE)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         colnames(db) &lt;- c("Package", "LibPath", "Item", "Title")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         footer &lt;- if (missing(package)) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             paste0("Use ", sQuote(paste("data(package =", ".packages(all.available = TRUE))")), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 "\n", "to list the data sets in all *available* packages.")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         else NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         y &lt;- list(title = "Data sets", header = NULL, results = db, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             footer = footer)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         class(y) &lt;- "packageIQR"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         return(y)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     paths &lt;- file.path(paths, "data")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     for (name in names) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         found &lt;- FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         for (p in paths) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             tmp_env &lt;- if (overwrite) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 envir</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             else new.env()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             if (file_test("-f", file.path(p, "Rdata.rds"))) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 rds &lt;- readRDS(file.path(p, "Rdata.rds"))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 if (name %in% names(rds)) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   found &lt;- TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   if (verbose) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     message(sprintf("name=%s:\t found in Rdata.rds", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       name), domain = NA)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   thispkg &lt;- sub(".*/([^/]*)/data$", "\\1", p)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   thispkg &lt;- sub("_.*$", "", thispkg)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   thispkg &lt;- paste0("package:", thispkg)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   objs &lt;- rds[[name]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   lazyLoad(file.path(p, "Rdata"), envir = tmp_env, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     filter = function(x) x %in% objs)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   break</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 else if (verbose) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   message(sprintf("name=%s:\t NOT found in names() of Rdata.rds, i.e.,\n\t%s\n", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     name, paste(names(rds), collapse = ",")), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     domain = NA)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             if (file_test("-f", file.path(p, "Rdata.zip"))) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 warning("zipped data found for package ", sQuote(basename(dirname(p))), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   ".\nThat is defunct, so please re-install the package.", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   domain = NA)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 if (file_test("-f", fp &lt;- file.path(p, "filelist"))) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   files &lt;- file.path(p, scan(fp, what = "", quiet = TRUE))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 else {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   warning(gettextf("file 'filelist' is missing for directory %s", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     sQuote(p)), domain = NA)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   next</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             else {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 files &lt;- list.files(p, full.names = TRUE)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             files &lt;- files[grep(name, files, fixed = TRUE)]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             if (length(files) &gt; 1L) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 o &lt;- match(fileExt(files), dataExts, nomatch = 100L)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 paths0 &lt;- dirname(files)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 paths0 &lt;- factor(paths0, levels = unique(paths0))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 files &lt;- files[order(paths0, o)]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             if (length(files)) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 for (file in files) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   if (verbose) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     message("name=", name, ":\t file= ...", .Platform$file.sep, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       basename(file), "::\t", appendLF = FALSE, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       domain = NA)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   ext &lt;- fileExt(file)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   if (basename(file) != paste0(name, ".", ext)) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     found &lt;- FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   else {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     found &lt;- TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     zfile &lt;- file</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     zipname &lt;- file.path(dirname(file), "Rdata.zip")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     if (file.exists(zipname)) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       Rdatadir &lt;- tempfile("Rdata")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       dir.create(Rdatadir, showWarnings = FALSE)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       topic &lt;- basename(file)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       rc &lt;- .External(C_unzip, zipname, topic, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         Rdatadir, FALSE, TRUE, FALSE, FALSE)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       if (rc == 0L) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         zfile &lt;- file.path(Rdatadir, topic)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     if (zfile != file) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       on.exit(unlink(zfile))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     switch(ext, R = , r = {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       library("utils")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       sys.source(zfile, chdir = TRUE, envir = tmp_env)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     }, RData = , rdata = , rda = load(zfile, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       envir = tmp_env), TXT = , txt = , tab = , </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       tab.gz = , tab.bz2 = , tab.xz = , txt.gz = , </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       txt.bz2 = , txt.xz = assign(name, my_read_table(zfile, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         header = TRUE, as.is = FALSE), envir = tmp_env), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       CSV = , csv = , csv.gz = , csv.bz2 = , </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       csv.xz = assign(name, my_read_table(zfile, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         header = TRUE, sep = ";", as.is = FALSE), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         envir = tmp_env), found &lt;- FALSE)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   if (found) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     break</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 if (verbose) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   message(if (!found) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     "*NOT* ", "found", domain = NA)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             if (found) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 break</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         if (!found) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             warning(gettextf("data set %s not found", sQuote(name)), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 domain = NA)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         else if (!overwrite) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             for (o in ls(envir = tmp_env, all.names = TRUE)) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 if (exists(o, envir = envir, inherits = FALSE)) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   warning(gettextf("an object named %s already exists and will not be overwritten", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     sQuote(o)))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 else assign(o, get(o, envir = tmp_env, inherits = FALSE), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   envir = envir)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             rm(tmp_env)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     invisible(names)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;bytecode: 0x560247e89ce8&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: namespace:utils&gt;</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Team Results data from baseball-reference.com ───────────────────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-11-08 09:15:04 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 162 × 22</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Gm Date    Tm    H_A   Opp   Result     R    RA Inn   Record  Rank</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>     1 Monday… NYM   A     WSN   W          3     1 <span style="color: #949494;">""</span>    1-0        1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>     2 Wednes… NYM   A     WSN   L          1     2 <span style="color: #949494;">""</span>    1-1        2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>     3 Thursd… NYM   A     WSN   W          6     3 <span style="color: #949494;">""</span>    2-1        2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>     4 Friday… NYM   A     ATL   L          3     5 <span style="color: #949494;">""</span>    2-2        2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>     5 Saturd… NYM   A     ATL   L          3     5 <span style="color: #949494;">""</span>    2-3        3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>     6 Sunday… NYM   A     ATL   W          4     3 <span style="color: #949494;">""</span>    3-3        2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>     7 Monday… NYM   H     PHI   W          2     0 <span style="color: #949494;">""</span>    4-3        2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>     8 Tuesda… NYM   H     PHI   W          6     5 <span style="color: #949494;">""</span>    5-3        2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>     9 Wednes… NYM   H     PHI   W          6     1 <span style="color: #949494;">""</span>    6-3        1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>    10 Thursd… NYM   H     MIA   W          7     5 <span style="color: #949494;">""</span>    7-3        1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 152 more rows, and 11 more variables: GB &lt;chr&gt;, Win &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Loss &lt;chr&gt;, Save &lt;chr&gt;, Time &lt;chr&gt;, `D/N` &lt;chr&gt;, Attendance &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   cLI &lt;dbl&gt;, Streak &lt;dbl&gt;, Orig_Scheduled &lt;chr&gt;, Year &lt;dbl&gt;</span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">bref_team_results</span><span class="op">(</span>Tm<span class="op">=</span><span class="st">"TBR"</span>, year<span class="op">=</span><span class="fl">2008</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 2022-10-05 17:34:45: Invalid arguments or no team results data available!</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> function (..., list = character(), package = NULL, lib.loc = NULL, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     verbose = getOption("verbose"), envir = .GlobalEnv, overwrite = TRUE) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     fileExt &lt;- function(x) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         db &lt;- grepl("\\.[^.]+\\.(gz|bz2|xz)$", x)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         ans &lt;- sub(".*\\.", "", x)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         ans[db] &lt;- sub(".*\\.([^.]+\\.)(gz|bz2|xz)$", "\\1\\2", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             x[db])</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         ans</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     my_read_table &lt;- function(...) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         lcc &lt;- Sys.getlocale("LC_COLLATE")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         on.exit(Sys.setlocale("LC_COLLATE", lcc))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         Sys.setlocale("LC_COLLATE", "C")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         read.table(...)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     stopifnot(is.character(list))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     names &lt;- c(as.character(substitute(list(...))[-1L]), list)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     if (!is.null(package)) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         if (!is.character(package)) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             stop("'package' must be a character vector or NULL")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     paths &lt;- find.package(package, lib.loc, verbose = verbose)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     if (is.null(lib.loc)) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         paths &lt;- c(path.package(package, TRUE), if (!length(package)) getwd(), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             paths)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     paths &lt;- unique(normalizePath(paths[file.exists(paths)]))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     paths &lt;- paths[dir.exists(file.path(paths, "data"))]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     dataExts &lt;- tools:::.make_file_exts("data")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     if (length(names) == 0L) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         db &lt;- matrix(character(), nrow = 0L, ncol = 4L)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         for (path in paths) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             entries &lt;- NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             packageName &lt;- if (file_test("-f", file.path(path, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 "DESCRIPTION"))) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 basename(path)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             else "."</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             if (file_test("-f", INDEX &lt;- file.path(path, "Meta", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 "data.rds"))) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 entries &lt;- readRDS(INDEX)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             else {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 dataDir &lt;- file.path(path, "data")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 entries &lt;- tools::list_files_with_type(dataDir, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   "data")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 if (length(entries)) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   entries &lt;- unique(tools::file_path_sans_ext(basename(entries)))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   entries &lt;- cbind(entries, "")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             if (NROW(entries)) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 if (is.matrix(entries) &amp;&amp; ncol(entries) == 2L) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   db &lt;- rbind(db, cbind(packageName, dirname(path), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     entries))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 else warning(gettextf("data index for package %s is invalid and will be ignored", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   sQuote(packageName)), domain = NA, call. = FALSE)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         colnames(db) &lt;- c("Package", "LibPath", "Item", "Title")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         footer &lt;- if (missing(package)) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             paste0("Use ", sQuote(paste("data(package =", ".packages(all.available = TRUE))")), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 "\n", "to list the data sets in all *available* packages.")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         else NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         y &lt;- list(title = "Data sets", header = NULL, results = db, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             footer = footer)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         class(y) &lt;- "packageIQR"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         return(y)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     paths &lt;- file.path(paths, "data")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     for (name in names) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         found &lt;- FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         for (p in paths) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             tmp_env &lt;- if (overwrite) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 envir</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             else new.env()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             if (file_test("-f", file.path(p, "Rdata.rds"))) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 rds &lt;- readRDS(file.path(p, "Rdata.rds"))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 if (name %in% names(rds)) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   found &lt;- TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   if (verbose) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     message(sprintf("name=%s:\t found in Rdata.rds", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       name), domain = NA)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   thispkg &lt;- sub(".*/([^/]*)/data$", "\\1", p)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   thispkg &lt;- sub("_.*$", "", thispkg)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   thispkg &lt;- paste0("package:", thispkg)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   objs &lt;- rds[[name]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   lazyLoad(file.path(p, "Rdata"), envir = tmp_env, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     filter = function(x) x %in% objs)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   break</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 else if (verbose) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   message(sprintf("name=%s:\t NOT found in names() of Rdata.rds, i.e.,\n\t%s\n", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     name, paste(names(rds), collapse = ",")), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     domain = NA)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             if (file_test("-f", file.path(p, "Rdata.zip"))) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 warning("zipped data found for package ", sQuote(basename(dirname(p))), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   ".\nThat is defunct, so please re-install the package.", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   domain = NA)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 if (file_test("-f", fp &lt;- file.path(p, "filelist"))) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   files &lt;- file.path(p, scan(fp, what = "", quiet = TRUE))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 else {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   warning(gettextf("file 'filelist' is missing for directory %s", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     sQuote(p)), domain = NA)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   next</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             else {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 files &lt;- list.files(p, full.names = TRUE)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             files &lt;- files[grep(name, files, fixed = TRUE)]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             if (length(files) &gt; 1L) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 o &lt;- match(fileExt(files), dataExts, nomatch = 100L)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 paths0 &lt;- dirname(files)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 paths0 &lt;- factor(paths0, levels = unique(paths0))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 files &lt;- files[order(paths0, o)]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             if (length(files)) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 for (file in files) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   if (verbose) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     message("name=", name, ":\t file= ...", .Platform$file.sep, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       basename(file), "::\t", appendLF = FALSE, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       domain = NA)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   ext &lt;- fileExt(file)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   if (basename(file) != paste0(name, ".", ext)) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     found &lt;- FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   else {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     found &lt;- TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     zfile &lt;- file</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     zipname &lt;- file.path(dirname(file), "Rdata.zip")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     if (file.exists(zipname)) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       Rdatadir &lt;- tempfile("Rdata")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       dir.create(Rdatadir, showWarnings = FALSE)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       topic &lt;- basename(file)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       rc &lt;- .External(C_unzip, zipname, topic, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         Rdatadir, FALSE, TRUE, FALSE, FALSE)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       if (rc == 0L) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         zfile &lt;- file.path(Rdatadir, topic)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     if (zfile != file) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       on.exit(unlink(zfile))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     switch(ext, R = , r = {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       library("utils")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       sys.source(zfile, chdir = TRUE, envir = tmp_env)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     }, RData = , rdata = , rda = load(zfile, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       envir = tmp_env), TXT = , txt = , tab = , </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       tab.gz = , tab.bz2 = , tab.xz = , txt.gz = , </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       txt.bz2 = , txt.xz = assign(name, my_read_table(zfile, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         header = TRUE, as.is = FALSE), envir = tmp_env), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       CSV = , csv = , csv.gz = , csv.bz2 = , </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       csv.xz = assign(name, my_read_table(zfile, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         header = TRUE, sep = ";", as.is = FALSE), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         envir = tmp_env), found &lt;- FALSE)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   if (found) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     break</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 if (verbose) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   message(if (!found) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     "*NOT* ", "found", domain = NA)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             if (found) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 break</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         if (!found) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             warning(gettextf("data set %s not found", sQuote(name)), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 domain = NA)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         else if (!overwrite) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             for (o in ls(envir = tmp_env, all.names = TRUE)) {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 if (exists(o, envir = envir, inherits = FALSE)) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   warning(gettextf("an object named %s already exists and will not be overwritten", </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     sQuote(o)))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 else assign(o, get(o, envir = tmp_env, inherits = FALSE), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   envir = envir)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             rm(tmp_env)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     invisible(names)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;bytecode: 0x560247e89ce8&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;environment: namespace:utils&gt;</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Team Results data from baseball-reference.com ───────────────────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-11-08 09:15:09 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 162 × 22</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Gm Date    Tm    H_A   Opp   Result     R    RA Inn   Record  Rank</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>     1 Monday… TBR   A     BAL   W          6     2 <span style="color: #949494;">""</span>    1-0        1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>     2 Wednes… TBR   A     BAL   L          6     9 <span style="color: #949494;">""</span>    1-1        2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>     3 Friday… TBR   A     NYY   W         13     4 <span style="color: #949494;">""</span>    2-1        1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>     4 Saturd… TBR   A     NYY   W          6     3 <span style="color: #949494;">""</span>    3-1        1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>     5 Sunday… TBR   A     NYY   L          0     2 <span style="color: #949494;">""</span>    3-2        3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>     6 Monday… TBR   A     NYY   L          1     6 <span style="color: #949494;">""</span>    3-3        4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>     7 Tuesda… TBR   H     SEA   L          5     6 <span style="color: #949494;">""</span>    3-4        5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>     8 Wednes… TBR   H     SEA   L          1     7 <span style="color: #949494;">""</span>    3-5        5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>     9 Thursd… TBR   H     SEA   W          7     0 <span style="color: #949494;">""</span>    4-5        4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>    10 Friday… TBR   H     BAL   W         10     5 <span style="color: #949494;">""</span>    5-5        3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 152 more rows, and 11 more variables: GB &lt;chr&gt;, Win &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Loss &lt;chr&gt;, Save &lt;chr&gt;, Time &lt;chr&gt;, `D/N` &lt;chr&gt;, Attendance &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   cLI &lt;dbl&gt;, Streak &lt;dbl&gt;, Orig_Scheduled &lt;chr&gt;, Year &lt;dbl&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

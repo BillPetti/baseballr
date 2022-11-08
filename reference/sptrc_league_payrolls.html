@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,19 +79,29 @@
     <a class="external-link dropdown-item" href="https://cfbfastR.sportsdataverse.org/">cfbfastR</a>
     <a class="external-link dropdown-item" href="https://hoopR.sportsdataverse.org/">hoopR</a>
     <a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a>
-    <a class="external-link dropdown-item" href="https://torvik.dev/">toRvik</a>
     <a class="external-link dropdown-item" href="https://fastRhockey.sportsdataverse.org/">fastRhockey</a>
+    <a class="external-link dropdown-item" href="https://hockeyr.netlify.app/">hockeyR</a>
+    <a class="external-link dropdown-item" href="https://abhiamishra.github.io/ggshakeR/">ggshakeR</a>
     <a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a>
+    <a class="external-link dropdown-item" href="https://usfootballR.sportsdataverse.org/">usfootballR</a>
+    <a class="external-link dropdown-item" href="https://github.com/Dato-Futbol/soccerAnimate/">soccerAnimate</a>
     <a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a>
-    <a class="external-link dropdown-item" href="https://kazink36.github.io/cfbplotR/">cfbplotR</a>
-    <a class="external-link dropdown-item" href="https://kazink36.github.io/cfb4th/">cfb4th</a>
-    <a class="external-link dropdown-item" href="https://recruitr.sportsdataverse.org/">recruitR</a>
+    <a class="external-link dropdown-item" href="https://oddsapiR.sportsdataverse.org/">oddsapiR</a>
+    <a class="external-link dropdown-item" href="https://sportyR.sportsdataverse.org/">sportyR</a>
+    <a class="external-link dropdown-item" href="https://torvik.dev/">toRvik</a>
+    <a class="external-link dropdown-item" href="https://cfbplotR.sportsdataverse.org/">cfbplotR</a>
+    <a class="external-link dropdown-item" href="https://github.com/camdenk/mlbplotR">mlbplotR</a>
+    <a class="external-link dropdown-item" href="https://cfb4th.sportsdataverse.org/">cfb4th</a>
     <a class="external-link dropdown-item" href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a>
+    <a class="external-link dropdown-item" href="https://recruitr.sportsdataverse.org/">recruitR</a>
     <a class="external-link dropdown-item" href="https://puntalytics.github.io/puntr/">puntr</a>
     <div class="dropdown-divider"></div>
     <h6 class="dropdown-header" data-toc-skip>Python Packages</h6>
     <a class="external-link dropdown-item" href="https://py.sportsdataverse.org/">sportsdataverse-py</a>
+    <a class="external-link dropdown-item" href="https://sportypy.sportsdataverse.org/">sportypy</a>
+    <a class="external-link dropdown-item" href="https://github.com/sportsdataverse/recruitR-py/">recruitR-py</a>
+    <a class="external-link dropdown-item" href="https://collegebaseball.readthedocs.io/en/latest/index.html">collegebaseball</a>
     <div class="dropdown-divider"></div>
     <h6 class="dropdown-header" data-toc-skip>Node.js Packages</h6>
     <a class="external-link dropdown-item" href="https://js.sportsdataverse.org/">sportsdataverse.js</a>
@@ -150,21 +160,21 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">sptrc_league_payrolls</span><span class="op">(</span>year <span class="op">=</span> <span class="fu"><a href="most_recent_mlb_season.html">most_recent_mlb_season</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Payroll data from Spotrac.com ──────────────── <span style="font-style: italic;">baseballr 1.3.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-10-05 17:37:49 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Payroll data from Spotrac.com ──────────────── <span style="font-style: italic;">baseballr 1.4.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-11-08 09:18:04 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 30 × 12</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    year  team       team_…¹  rank win_p…² roster activ…³ injur…⁴ retai…⁵</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2022  New York … NYM         1   0.621     28  2.12<span style="color: #949494;">e</span>8  2.22<span style="color: #949494;">e</span>7  4.25<span style="color: #949494;">e</span>7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2022  Los Angel… LAD         2   0.683     28  2.28<span style="color: #949494;">e</span>8  2.89<span style="color: #949494;">e</span>7  1.28<span style="color: #949494;">e</span>7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2022  New York … NYY         3   0.615     28  2.11<span style="color: #949494;">e</span>8  2.88<span style="color: #949494;">e</span>7  2.41<span style="color: #949494;">e</span>7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2022  Philadelp… PHI         4   0.54      28  1.85<span style="color: #949494;">e</span>8  1.82<span style="color: #949494;">e</span>7  4.16<span style="color: #949494;">e</span>7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2022  San Diego… SD          5   0.553     28  1.72<span style="color: #949494;">e</span>8  1.09<span style="color: #949494;">e</span>7  4.77<span style="color: #949494;">e</span>7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2022  Boston Re… BOS         6   0.478     28  1.10<span style="color: #949494;">e</span>8  5.04<span style="color: #949494;">e</span>7  5.99<span style="color: #949494;">e</span>7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2022  Chicago W… CHW         7   0.503     28  1.56<span style="color: #949494;">e</span>8  2.00<span style="color: #949494;">e</span>7  3.04<span style="color: #949494;">e</span>7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2022  Atlanta B… ATL         8   0.627     28  1.41<span style="color: #949494;">e</span>8  2.44<span style="color: #949494;">e</span>7  2.78<span style="color: #949494;">e</span>7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2022  Houston A… HOU         9   0.652     28  1.45<span style="color: #949494;">e</span>8  2.15<span style="color: #949494;">e</span>7  2.53<span style="color: #949494;">e</span>7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2022  Los Angel… LAA        10   0.453     28  1.18<span style="color: #949494;">e</span>8  6.98<span style="color: #949494;">e</span>6  6.29<span style="color: #949494;">e</span>7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2022  New York … NYM         1   0.623     31  2.31<span style="color: #949494;">e</span>8  4.16<span style="color: #949494;">e</span>6  4.57<span style="color: #949494;">e</span>7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2022  Los Angel… LAD         2   0.685     28  2.28<span style="color: #949494;">e</span>8  2.89<span style="color: #949494;">e</span>7  1.28<span style="color: #949494;">e</span>7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2022  New York … NYY         3   0.611     30  2.15<span style="color: #949494;">e</span>8  2.52<span style="color: #949494;">e</span>7  2.41<span style="color: #949494;">e</span>7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2022  Philadelp… PHI         4   0.537     28  1.92<span style="color: #949494;">e</span>8  1.19<span style="color: #949494;">e</span>7  4.18<span style="color: #949494;">e</span>7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2022  San Diego… SD          5   0.549     29  1.74<span style="color: #949494;">e</span>8  1.09<span style="color: #949494;">e</span>7  5.07<span style="color: #949494;">e</span>7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2022  Boston Re… BOS         6   0.481     26  1.10<span style="color: #949494;">e</span>8  5.04<span style="color: #949494;">e</span>7  6.14<span style="color: #949494;">e</span>7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2022  Chicago W… CHW         7   0.5       28  1.56<span style="color: #949494;">e</span>8  2.00<span style="color: #949494;">e</span>7  3.19<span style="color: #949494;">e</span>7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2022  Atlanta B… ATL         8   0.623     28  1.42<span style="color: #949494;">e</span>8  2.44<span style="color: #949494;">e</span>7  2.78<span style="color: #949494;">e</span>7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2022  Houston A… HOU         9   0.654     28  1.45<span style="color: #949494;">e</span>8  2.15<span style="color: #949494;">e</span>7  2.43<span style="color: #949494;">e</span>7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2022  Los Angel… LAA        10   0.451     28  1.18<span style="color: #949494;">e</span>8  6.98<span style="color: #949494;">e</span>6  6.29<span style="color: #949494;">e</span>7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 20 more rows, 3 more variables: buried &lt;dbl&gt;, suspended &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   yearly_total_payroll &lt;dbl&gt;, and abbreviated variable names</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ¹​team_abbr, ²​win_percent, ³​active_man_payroll, ⁴​injured_reserve,</span></span>
