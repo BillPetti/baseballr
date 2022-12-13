@@ -163,12 +163,13 @@
 
 
 
-<script src="plotting_statcast_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+
+<div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Plotting Statcast data</h1>
                         <h4 data-toc-skip class="author">Bill Petti</h4>
             
-            <h4 data-toc-skip class="date">2022-11-08</h4>
+            <h4 data-toc-skip class="date">2022-12-13</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballr/blob/master/vignettes/plotting_statcast.Rmd" class="external-link"><code>vignettes/plotting_statcast.Rmd</code></a></small>
       <div class="d-none name"><code>plotting_statcast.Rmd</code></div>
@@ -176,8 +177,10 @@
 
     
     
-<p>In this example, the <code>baseballr</code> package is used to acquire Statcast data for Mookie Betts from 2015-2016.</p>
-<p>The data is then processed and plotted to show how his launch angle and batted ball speed have changed from year to year</p>
+<p>In this example, the <code>baseballr</code> package is used to
+acquire Statcast data for Mookie Betts from 2015-2016.</p>
+<p>The data is then processed and plotted to show how his launch angle
+and batted ball speed have changed from year to year</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://billpetti.github.io/baseballr/" class="external-link">baseballr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
@@ -193,7 +196,8 @@
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">mlbam_id</span>, <span class="va">first_name</span>, <span class="va">last_name</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="scrape-betts-statcast-data-by-pitch-removing-those-with-a-batted-ball-speed-of-0">scrape Betts’ Statcast data, by pitch removing those with a batted ball speed of 0<a class="anchor" aria-label="anchor" href="#scrape-betts-statcast-data-by-pitch-removing-those-with-a-batted-ball-speed-of-0"></a>
+<h2 id="scrape-betts-statcast-data-by-pitch-removing-those-with-a-batted-ball-speed-of-0">scrape Betts’ Statcast data, by pitch removing those with a batted
+ball speed of 0<a class="anchor" aria-label="anchor" href="#scrape-betts-statcast-data-by-pitch-removing-those-with-a-batted-ball-speed-of-0"></a>
 </h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">betts_15</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/statcast_search.html">statcast_search</a></span><span class="op">(</span><span class="st">"2015-03-31"</span>, <span class="st">"2015-10-31"</span>, playerid <span class="op">=</span> <span class="va">betts_id</span><span class="op">[</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">]</span>, player_type <span class="op">=</span> <span class="st">'batter'</span><span class="op">)</span></span>
@@ -217,7 +221,8 @@
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>Year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr</a></span><span class="op">(</span><span class="va">game_date</span>,<span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="calculate-betts-average-launch-angle-and-batted-ball-speed-by-year">calculate Betts’ average launch angle and batted ball speed by year<a class="anchor" aria-label="anchor" href="#calculate-betts-average-launch-angle-and-batted-ball-speed-by-year"></a>
+<h2 id="calculate-betts-average-launch-angle-and-batted-ball-speed-by-year">calculate Betts’ average launch angle and batted ball speed by
+year<a class="anchor" aria-label="anchor" href="#calculate-betts-average-launch-angle-and-batted-ball-speed-by-year"></a>
 </h2>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">betts_avg_speed_yr</span> <span class="op">&lt;-</span> <span class="va">betts</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>

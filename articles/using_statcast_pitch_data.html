@@ -163,12 +163,13 @@
 
 
 
-<script src="using_statcast_pitch_data_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+
+<div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Using Statcast Pitch Data</h1>
                         <h4 data-toc-skip class="author">Camden Kay</h4>
             
-            <h4 data-toc-skip class="date">2022-11-08</h4>
+            <h4 data-toc-skip class="date">2022-12-13</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballr/blob/master/vignettes/using_statcast_pitch_data.Rmd" class="external-link"><code>vignettes/using_statcast_pitch_data.Rmd</code></a></small>
       <div class="d-none name"><code>using_statcast_pitch_data.Rmd</code></div>
@@ -176,8 +177,10 @@
 
     
     
-<p>In this example, the <code>baseballr</code> package is used to acquire Statcast data for Corbin Burnes for the 2021 season.</p>
-<p>This data is then used to generate different plots to showcase his arsenal and his cutter’s velocity by inning.</p>
+<p>In this example, the <code>baseballr</code> package is used to
+acquire Statcast data for Corbin Burnes for the 2021 season.</p>
+<p>This data is then used to generate different plots to showcase his
+arsenal and his cutter’s velocity by inning.</p>
 <div class="section level2">
 <h2 id="load-packages">Load Packages<a class="anchor" aria-label="anchor" href="#load-packages"></a>
 </h2>
@@ -208,18 +211,24 @@
 <code class="sourceCode R"><span><span class="va">burnes_data</span> <span class="op">&lt;-</span> <span class="fu">baseballr</span><span class="fu">::</span><span class="fu"><a href="../reference/statcast_search.html">statcast_search_pitchers</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="st">"2021-03-01"</span>,</span>
 <span>                                                   end_date <span class="op">=</span> <span class="st">"2021-12-01"</span>,</span>
 <span>                                                   pitcherid <span class="op">=</span> <span class="va">burnes_id</span><span class="op">)</span></span></code></pre></div>
-<p>This block will download all of Corbin Burnes’ pitches from March 1st through December 1st.</p>
+<p>This block will download all of Corbin Burnes’ pitches from March 1st
+through December 1st.</p>
 </div>
 <div class="section level2">
 <h2 id="clean-data">Clean Data<a class="anchor" aria-label="anchor" href="#clean-data"></a>
 </h2>
-<p>If this is your first time looking at Statcast data I recommend looking at their <a href="https://baseballsavant.mlb.com/csv-docs" class="external-link">documentation</a> for for the dataset returned. It’ll walk you through the data represented by each column and give you a better idea of the data points collected for each pitch.</p>
+<p>If this is your first time looking at Statcast data I recommend
+looking at their <a href="https://baseballsavant.mlb.com/csv-docs" class="external-link">documentation</a> for for
+the dataset returned. It’ll walk you through the data represented by
+each column and give you a better idea of the data points collected for
+each pitch.</p>
 <p>Some of the more common data points used for pitching analysis:</p>
 <ul>
 <li>
 <code>pitcher</code> : Pitcher’s MLBAM ID</li>
 <li>
-<code>pitch_name</code>/<code>pitch_type</code> : Pitch Name/Type</li>
+<code>pitch_name</code>/<code>pitch_type</code> : Pitch
+Name/Type</li>
 <li>
 <code>release_speed</code> : Velocity</li>
 <li>
@@ -229,11 +238,18 @@
 <li>
 <code>spin_axis</code> : Spin Axis</li>
 <li>
-<code>release_pos_z</code>/<code>release_pos_z</code>/<code>extension</code> : Release Point</li>
+<code>release_pos_z</code>/<code>release_pos_z</code>/<code>extension</code>
+: Release Point</li>
 <li>
 <code>plate_z</code>/<code>plate_x</code> : Pitch Location</li>
 </ul>
-<p>Since we’re going to be making a scatterplot of Corbin Burnes’ pitch movement, we need to make sure we have the data in the proper format to match a traditional movement plot. The <code>pfx_x</code> and <code>pfx_z</code> columns are both in feet so let’s create two new columns and convert them to inches. <code>pfx_x</code> is also from the catcher’s point of view so let’s also reverse it to be from the pitcher’s.</p>
+<p>Since we’re going to be making a scatterplot of Corbin Burnes’ pitch
+movement, we need to make sure we have the data in the proper format to
+match a traditional movement plot. The <code>pfx_x</code> and
+<code>pfx_z</code> columns are both in feet so let’s create two new
+columns and convert them to inches. <code>pfx_x</code> is also from the
+catcher’s point of view so let’s also reverse it to be from the
+pitcher’s.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># The glimpse function is something I use regularly</span></span>
 <span><span class="co"># to quickly preview the data I'm working with.</span></span>
@@ -254,7 +270,8 @@
 <div class="section level2">
 <h2 id="create-a-movement-plot">Create A Movement Plot<a class="anchor" aria-label="anchor" href="#create-a-movement-plot"></a>
 </h2>
-<p>Now that we’ve created our new columns, let’s use them to plot how Corbin Burnes’ pitches move.</p>
+<p>Now that we’ve created our new columns, let’s use them to plot how
+Corbin Burnes’ pitches move.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Make a named vector to scale pitch colors with</span></span>
 <span><span class="va">pitch_colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"4-Seam Fastball"</span> <span class="op">=</span> <span class="st">"red"</span>,</span>
@@ -297,12 +314,17 @@
 <span>                y <span class="op">=</span> <span class="st">"Induced Vertical Break"</span>,</span>
 <span>                color <span class="op">=</span> <span class="st">"Pitch Name"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="using_statcast_pitch_data_files/figure-html/movement-plot-1.png" width="100%"></p>
-<p>I like to use <code>pitch_name</code> to color my scatterplots as it gives the full pitch name in the legend, but <code>pitch_type</code> would also work if you prefer the shorter abbreviations (ex: 4-Seam Fastball = FF). If you were to use <code>pitch_type</code> instead, be sure to make a new vector for the colors.</p>
+<p>I like to use <code>pitch_name</code> to color my scatterplots as it
+gives the full pitch name in the legend, but <code>pitch_type</code>
+would also work if you prefer the shorter abbreviations (ex: 4-Seam
+Fastball = FF). If you were to use <code>pitch_type</code> instead, be
+sure to make a new vector for the colors.</p>
 </div>
 <div class="section level2">
 <h2 id="velo-by-inning">Velo By Inning<a class="anchor" aria-label="anchor" href="#velo-by-inning"></a>
 </h2>
-<p>Now let’s take a look at Corbin Burnes’ pitch velo by inning for his trademark cutter.</p>
+<p>Now let’s take a look at Corbin Burnes’ pitch velo by inning for his
+trademark cutter.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">burnes_velo_by_inning</span> <span class="op">&lt;-</span> <span class="va">burnes_cleaned_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
@@ -331,7 +353,10 @@
 <div class="section level2">
 <h2 id="conclusion">Conclusion<a class="anchor" aria-label="anchor" href="#conclusion"></a>
 </h2>
-<p>These were just two examples of things you can do with pitch data acquired using baseballr. Statcast data goes back to 2015 and contains a multitude of data points for each pitch/batted ball event so there’s endless things to go research!</p>
+<p>These were just two examples of things you can do with pitch data
+acquired using baseballr. Statcast data goes back to 2015 and contains a
+multitude of data points for each pitch/batted ball event so there’s
+endless things to go research!</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
