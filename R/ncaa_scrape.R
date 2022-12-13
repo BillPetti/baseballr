@@ -160,21 +160,21 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
         html_elements('#stat_grid a') %>%
         html_attr('href') %>%
         as.data.frame() %>%
-        dplyr::rename(player_url = ".") %>%
+        dplyr::rename("player_url" = ".") %>%
         dplyr::mutate(player_url = paste0('http://stats.ncaa.org', .data$player_url))
       
       player_names_join <- data_read %>%
         html_elements('#stat_grid a') %>%
         html_text() %>%
         as.data.frame() %>%
-        dplyr::rename(player_names_join = ".")
+        dplyr::rename("player_names_join" = ".")
       
       player_id <-
         stringr::str_split(
           pattern = '&stats_player_seq=',  
           string = player_url$player_url, simplify = TRUE)[,2] %>%
         as.data.frame() %>%
-        dplyr::rename(player_id = ".")
+        dplyr::rename("player_id" = ".")
       
       player_url_comb <- dplyr::bind_cols(player_names_join, player_id, player_url)
       
