@@ -1,6 +1,6 @@
 
 cols <- c(
-  "language_code", "language_name", "locale"
+  "language_id", "language_code", "language_name", "locale"
 )
 
 test_that("MLB Languages", {

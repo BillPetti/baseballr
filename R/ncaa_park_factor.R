@@ -281,15 +281,16 @@ ncaa_park_factor <- function(teamid, years, type = "conference") {
                                     "runs_allowed_away"), where = "row", name = school_name) %>% 
       tail(1)
     if (type == "division") {
-      dfa = dfa %>% dplyr::mutate(
-        base_pf = ((.data$runs_scored_home+.data$runs_allowed_home)/(.data$home_game))/((.data$runs_scored_away+.data$runs_allowed_away)/(.data$away_game)),
-        home_game_adj = ifelse(.data$base_pf > 1, 
-                               .data$base_pf-(abs(.data$base_pf-1)*(.data$home_game/(.data$home_game+.data$away_game))), 
-                               .data$base_pf+(abs(.data$base_pf-1)*(.data$home_game/(.data$home_game+.data$away_game)))),
-        final_pf = (1-(1-.data$home_game_adj)*.9),
-        base_pf = round(.data$base_pf,3),
-        home_game_adj = round(.data$home_game_adj,3),
-        final_pf = round(.data$final_pf,3)) %>% 
+      dfa = dfa %>% 
+        dplyr::mutate(
+          base_pf = ((.data$runs_scored_home+.data$runs_allowed_home)/(.data$home_game))/((.data$runs_scored_away+.data$runs_allowed_away)/(.data$away_game)),
+          home_game_adj = ifelse(.data$base_pf > 1, 
+                                 .data$base_pf-(abs(.data$base_pf-1)*(.data$home_game/(.data$home_game+.data$away_game))), 
+                                 .data$base_pf+(abs(.data$base_pf-1)*(.data$home_game/(.data$home_game+.data$away_game)))),
+          final_pf = (1-(1-.data$home_game_adj)*.9),
+          base_pf = round(.data$base_pf,3),
+          home_game_adj = round(.data$home_game_adj,3),
+          final_pf = round(.data$final_pf,3)) %>% 
         dplyr::rename("school" = "score")
     } else {
       dfa = dfa %>% 
@@ -346,27 +347,29 @@ ncaa_park_factor <- function(teamid, years, type = "conference") {
       tail(1)
     if (type == "division") {
       
-      dfa = dfa %>% dplyr::mutate(
-        base_pf = (((.data$runs_scored_home+.data$runs_allowed_home)/(.data$home_game))*(.data$home_game/(.data$home_game+.data$away_game)))/(((.data$runs_scored_away+.data$runs_allowed_away)/(.data$away_game))*(.data$away_game/(.data$home_game+.data$away_game))),
-        home_game_adj = ifelse(.data$base_pf > 1, .data$base_pf-(abs(.data$base_pf-1)*(.data$home_game/(.data$home_game+.data$away_game))), .data$base_pf+(abs(.data$base_pf-1)*(.data$home_game/(.data$home_game+.data$away_game)))),
-        final_pf = (1-(1-.data$home_game_adj)*.95),
-        base_pf = round(.data$base_pf,3),
-        home_game_adj = round(.data$home_game_adj,3),
-        final_pf = round(.data$final_pf,3)) %>% 
+      dfa = dfa %>% 
+        dplyr::mutate(
+          base_pf = (((.data$runs_scored_home+.data$runs_allowed_home)/(.data$home_game))*(.data$home_game/(.data$home_game+.data$away_game)))/(((.data$runs_scored_away+.data$runs_allowed_away)/(.data$away_game))*(.data$away_game/(.data$home_game+.data$away_game))),
+          home_game_adj = ifelse(.data$base_pf > 1, .data$base_pf-(abs(.data$base_pf-1)*(.data$home_game/(.data$home_game+.data$away_game))), .data$base_pf+(abs(.data$base_pf-1)*(.data$home_game/(.data$home_game+.data$away_game)))),
+          final_pf = (1-(1-.data$home_game_adj)*.95),
+          base_pf = round(.data$base_pf,3),
+          home_game_adj = round(.data$home_game_adj,3),
+          final_pf = round(.data$final_pf,3)) %>% 
         dplyr::rename("school" = "score")
     } else {
-      dfa = dfa %>% mutate(
-        RPGH = (.data$runs_scored_home+.data$runs_allowed_home)/(.data$home_game),
-        RPGR = (.data$runs_scored_away+.data$runs_allowed_away)/(.data$away_game),
-        TM = round(mean(teams$n),0),
-        base_pf = (.data$RPGH*.data$TM)/((.data$TM-1)*.data$RPGR+.data$RPGH),
-        home_game_adj = ifelse(.data$base_pf > 1, 
-                               .data$base_pf-(abs(.data$base_pf-1)*(.data$home_game/(.data$home_game+.data$away_game))), 
-                               .data$base_pf+(abs(.data$base_pf-1)*(.data$home_game/(.data$home_game+.data$away_game)))),
-        final_pf = (1-(1-.data$home_game_adj)*.95),
-        base_pf = round(.data$base_pf,3),
-        home_game_adj = round(.data$home_game_adj,3),
-        final_pf = round(.data$final_pf,3)) %>% 
+      dfa = dfa %>% 
+        dplyr::mutate(
+          RPGH = (.data$runs_scored_home+.data$runs_allowed_home)/(.data$home_game),
+          RPGR = (.data$runs_scored_away+.data$runs_allowed_away)/(.data$away_game),
+          TM = round(mean(teams$n),0),
+          base_pf = (.data$RPGH*.data$TM)/((.data$TM-1)*.data$RPGR+.data$RPGH),
+          home_game_adj = ifelse(.data$base_pf > 1, 
+                                 .data$base_pf-(abs(.data$base_pf-1)*(.data$home_game/(.data$home_game+.data$away_game))), 
+                                 .data$base_pf+(abs(.data$base_pf-1)*(.data$home_game/(.data$home_game+.data$away_game)))),
+          final_pf = (1-(1-.data$home_game_adj)*.95),
+          base_pf = round(.data$base_pf,3),
+          home_game_adj = round(.data$home_game_adj,3),
+          final_pf = round(.data$final_pf,3)) %>% 
         dplyr::select(-c("RPGH", "RPGR", "TM")) %>% 
         dplyr::rename("school" = "score")
     }

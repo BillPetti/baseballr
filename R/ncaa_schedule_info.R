@@ -93,7 +93,7 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
         dplyr::bind_rows() 
       
       sched$opponent_slug <- sched_html %>%
-        rvest::html_elements("td:nth-child(2)")%>%
+        rvest::html_elements("td:nth-child(2)") %>%
         rvest::html_element("a") %>%
         rvest::html_attr("href")
       sched <- dplyr::bind_cols(sched, slugs)

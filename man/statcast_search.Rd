@@ -343,12 +343,12 @@ This function allows you to query Statcast data as provided on \url{https://base
 \donttest{
   ### Harper
   try(statcast_search(start_date = "2022-10-06", 
-                      end_date = "2022-11-06", 
+                      end_date = "2022-10-16", 
                       playerid = 547180, 
                       player_type = 'batter'))
   ### Framber
   try(statcast_search(start_date = "2022-10-06", 
-                      end_date = "2022-11-06", 
+                      end_date = "2022-10-16", 
                       playerid = 664285, 
                       player_type = 'pitcher'))
   ### Daily

@@ -2,6 +2,7 @@
 
 This is a minor release that 
 * Updates for tidyselect deprecation of data masking for related dplyr and tidyr functions
+* Also resolves the issue cited with vignette by CRAN maintainers
 
 ## R CMD check results
 
