@@ -6,10 +6,11 @@
 \usage{
 scrape_savant_leaderboards(
   leaderboard = "exit_velocity_barrels",
-  year = 2018,
+  year = 2020,
   abs = 50,
   min_pa = "q",
   min_pitches = 100,
+  min_throws = 100,
   min_field = "q",
   min_run = 0,
   player_type = "batter",
@@ -30,7 +31,7 @@ scrape_savant_leaderboards(
 \item{leaderboard}{The type of leaderboard to retrieve, input as a string. Current
 options include exit_velocity_barrels, expected_statistics, pitch_arsenal,
 outs_above_average, directional_oaa, catch_probability, pop_time, sprint_speed, and
-running_splits_90_ft.}
+running_splits_90_ft, arm_strength.}
 
 \item{year}{The season for which you want data.}
 
@@ -40,6 +41,8 @@ leaderboards.}
 \item{min_pa}{Minimum number of plate appearances. Can be a number or 'q' for qualified batters.}
 
 \item{min_pitches}{Minimum number of pitches thrown.}
+
+\item{min_throws}{Minimum number of throwing opportunities.}
 
 \item{min_field}{Minimum number of fieding opportunities.}
 

@@ -5,7 +5,7 @@
 #' @param leaderboard The type of leaderboard to retrieve, input as a string. Current
 #' options include exit_velocity_barrels, expected_statistics, pitch_arsenal,
 #' outs_above_average, directional_oaa, catch_probability, pop_time, sprint_speed, and
-#' running_splits_90_ft.
+#' running_splits_90_ft, arm_strength.
 #' @param year The season for which you want data.
 #' @param abs The minimum number of batted balls. Applies only to exit_velocity_barrels
 #' leaderboards.
@@ -13,6 +13,7 @@
 #' @param min_pitches Minimum number of pitches thrown.
 #' @param min_field Minimum number of fieding opportunities.
 #' @param min_run Minimum number of running opportunities.
+#' @param min_throws Minimum number of throwing opportunities.
 #' @param player_type One of either 'batter' or pitcher. For the expected_statistics
 #' leaderboard, 'batter-team' and 'pitcher-team' are also available.
 #' @param fielding_type One of either 'player' or 'team'.
@@ -85,14 +86,16 @@
 #' 
 #' @export
 #' @examples \donttest{
-#'   try(statcast_leaderboards(leaderboard = "exit_velocity_barrels", year = 2018))
+#'   try(statcast_leaderboards(leaderboard = "expected_statistics", year = 2018))
+#'   try(statcast_leaderboards(leaderboard = "arm_strength", year = 2020))
 #' }
 
 statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
-                                       year = 2018,
+                                       year = 2020,
                                        abs = 50,
                                        min_pa = 'q',
                                        min_pitches = 100,
+                                       min_throws = 100,
                                        min_field = "q",
                                        min_run = 0,
                                        player_type = "batter",
@@ -107,7 +110,8 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
                                        position = "",
                                        bats = "",
                                        hand = "") {
-
+  
+  ## Exit Velocity Barrels ---------
   if (leaderboard == "exit_velocity_barrels") {
 
     if (!year %in% c(seq(2015,substr(Sys.time(), 1, 4),1))) {
@@ -133,7 +137,8 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     payload <- csv_from_url(url, encoding ="UTF-8")
   }
-
+  
+  ## Expected Statistics ---------
   if (leaderboard == "expected_statistics") {
 
     if (!year %in% c(seq(2015,substr(Sys.time(), 1, 4),1))) {
@@ -168,7 +173,8 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     payload <- csv_from_url(url, encoding ="UTF-8")
   }
-
+  
+  ## Pitch Arsenal ---------
   if (leaderboard == "pitch_arsenal") {
 
     if (!year %in% c(seq(2017,substr(Sys.time(), 1, 4),1))) {
@@ -201,9 +207,8 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     payload <- csv_from_url(url, encoding ="UTF-8")
   }
-
-
-
+  
+  ## Outs Above Average ---------
   if (leaderboard == "outs_above_average") {
 
     if (!year %in% c(seq(2016,substr(Sys.time(), 1, 4),1))) {
@@ -224,9 +229,8 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     payload <- csv_from_url(url, encoding ="UTF-8")
   }
-
-
-
+  
+  ## Directional Outs Above Average ---------
   if (leaderboard == "directional_oaa") {
 
     if (!year %in% c(seq(2016,substr(Sys.time(), 1, 4),1))) {
@@ -254,7 +258,8 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     payload <- csv_from_url(url, encoding ="UTF-8")
   }
-
+  
+  ## Catch Probability ---------
   if (leaderboard == "catch_probability") {
 
     if (!year %in% c(seq(2016,substr(Sys.time(), 1, 4),1))) {
@@ -275,7 +280,8 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     payload <- csv_from_url(url, encoding ="UTF-8")
   }
-
+  
+  ## Pop Time ---------
   if (leaderboard == "pop_time") {
 
     if (!year %in% c(seq(2015,substr(Sys.time(), 1, 4),1))) {
@@ -310,7 +316,8 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     payload <- csv_from_url(url, encoding ="UTF-8")
   }
-
+  
+  ## Sprint Speed ---------
   if (leaderboard == "sprint_speed") {
 
     if (!year %in% c(seq(2015,substr(Sys.time(), 1, 4),1))) {
@@ -345,8 +352,8 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     payload <- csv_from_url(url, encoding ="UTF-8")
   }
-
-
+  
+  ## Running Splits 90 ft ---------
   if (leaderboard == "running_splits_90_ft") {
 
     if (!year %in% c(seq(2017,substr(Sys.time(), 1, 4),1))) {
@@ -395,7 +402,43 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     payload <- csv_from_url(url, encoding ="UTF-8")
   }
-
+  
+  ## Arm Strength ---------
+  if (leaderboard == "arm_strength") {
+    
+    if (!year %in% c(seq(2020,substr(Sys.time(), 1, 4),1))) {
+      
+      message("Arm Strength leaderboards are only available starting in 2020. Please choose an appropriate year.")
+      
+      return(NULL)
+    }
+    
+    if (!min_throws %in% c(50,100,300,500,1000)) {
+      
+      message("Please choose one of the following for the minimum number of throws: 50,100,300,500")
+      
+      return(NULL)
+    }
+    
+    if(!team %in% c("", "ATL", "ARI", "BAL", "BOS", "CHC", "CIN", "CLE", "COL", "CWS", "DET", "HOU", "KC", "LAA", "LAD", "OAK", "MIA", "MIL", "MIN", "NYM", "NYY", "PHI", "PIT", "SD", "SEA", "SF", "STL", "TB", "TEX", "TOR", "WSH")) {
+      
+      message("If you are trying to query records for a specific team, please be sure to enter one of the following: ATL, ARI, BAL, BOS, CHC, CIN, CLE, COL, CWS, DET, HOU, KC, LAA, LAD, OAK, MIA, MIL, MIN, NYM, NYY, PHI, PIT, SD, SEA, SF, STL, TB, TEX, TOR, WSH")
+      
+      return(NULL)
+    }
+    
+    if(!position %in% c("", 1,2,3,4,5,6,7,8,9,10)) {
+      
+      message("Please enter one of the following for position: 1,2,3,4,5,6,7,8,9,10")
+      
+      return(NULL)
+    }
+    
+    url <- paste0("https://baseballsavant.mlb.com/leaderboard/arm-strength?type=", fielding_type, "&year=", year, "&pos=", position, "&team=", team, "&minThrows=", min_throws,"&csv=true")
+    
+    payload <- csv_from_url(url, encoding ="UTF-8")
+  }
+  
   if(!"year" %in% colnames(payload)) {
 
     payload <- payload %>%
