@@ -70,8 +70,6 @@ bref_daily_batter <- function(t1, t2) {
       df$Team <- gsub(" $", "", df$Team, perl=T)
       df <- df %>% 
         dplyr::filter(.data$Name != "Name")
-      #df <- df %>% 
-        #dplyr::arrange(desc(.data$PA), desc(.data$OPS))
       
       playerids <- payload %>%
         rvest::html_elements("table") %>%
@@ -79,8 +77,6 @@ bref_daily_batter <- function(t1, t2) {
         rvest::html_attr("href") %>%
         as.data.frame() %>%
         dplyr::rename(slug = ".") %>%
-        #dplyr::filter(grepl("redirect", .data$slug)) %>%
-        #dplyr::mutate(playerid = gsub("/redirect.fcgi\\?player=1&mlb_ID=", "", .data$slug))
         dplyr::filter(grepl("players", .data$slug)) %>%
         dplyr::mutate(playerid = gsub("/players/gl.fcgi\\?id=",
                                   "", .data$slug)) %>%
