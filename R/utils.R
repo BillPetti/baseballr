@@ -141,7 +141,7 @@ most_recent_ncaa_baseball_season <- function() {
   ifelse(
     as.double(substr(Sys.Date(), 6, 7)) >= 3,
     as.double(substr(Sys.Date(), 1, 4)),
-    as.double(substr(Sys.Date(), 1, 4)-1)
+    as.double(substr(Sys.Date(), 1, 4))-1
   )
 }
 
@@ -153,7 +153,7 @@ most_recent_mlb_season <- function() {
   ifelse(
     as.double(substr(Sys.Date(), 6, 7)) >= 3,
     as.double(substr(Sys.Date(), 1, 4)),
-    as.double(substr(Sys.Date(), 1, 4)-1)
+    as.double(substr(Sys.Date(), 1, 4))-1
   )
 }
 # Functions for custom class
