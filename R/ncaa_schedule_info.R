@@ -6,43 +6,57 @@
 #' @return A data frame with the following fields: date, opponent,
 #' result, score, innings (if more than regulation), and the url
 #' for the game itself.
-#'  |col_name      |types     |
-#'  |:-------------|:---------|
-#'  |date          |character |
-#'  |opponent      |character |
-#'  |result        |character |
-#'  |score         |character |
-#'  |innings       |character |
-#'  |opponent_slug |character |
-#'  |slug          |character |
-#'  |game_info_url |character |
+#' 
+#'   |col_name                |types     |
+#'   |:-----------------------|:---------|
+#'   |year                    |integer   |
+#'   |season_id               |integer   |
+#'   |date                    |character |
+#'   |home_team               |character |
+#'   |home_team_id            |integer   |
+#'   |home_team_conference    |character |
+#'   |home_team_conference_id |integer   |
+#'   |home_team_slug          |character |
+#'   |home_team_division      |integer   |
+#'   |away_team               |character |
+#'   |away_team_id            |integer   |
+#'   |away_team_conference    |character |
+#'   |away_team_conference_id |integer   |
+#'   |away_team_slug          |character |
+#'   |away_team_division      |integer   |
+#'   |neutral_site            |character |
+#'   |result                  |character |
+#'   |score                   |character |
+#'   |innings                 |character |
+#'   |slug                    |character |
+#'   |game_info_url           |character |
+#'    
 #' @importFrom tibble tibble rownames_to_column
 #' @importFrom tidyr separate
 #' @importFrom stringr str_trim str_extract
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'   try(ncaa_schedule_info(teamid = 736, year = 2021))
+#'  try(ncaa_schedule_info(teamid = 698, year = 2023))
 #' }
 
 ncaa_schedule_info <- function(teamid = NULL, year = NULL){
   season_ids <- load_ncaa_baseball_season_ids()
   id <- subset(season_ids, season_ids$season == year, select = id)
-  
-  school_info <- load_ncaa_baseball_teams() %>% 
-    dplyr::filter(.data$team_id == teamid, .data$year == year) %>%
-    dplyr::select(-"year") %>%
+  year2 <- year
+  ncaa_baseball_teams <- load_ncaa_baseball_teams()
+  school_info <- ncaa_baseball_teams %>% 
+    dplyr::filter(.data$team_id == teamid, as.integer(.data$year) == as.integer(year2)) %>%
     dplyr::distinct()
   
   url <- paste0("https://stats.ncaa.org/team/", teamid, "/", id)
   
   tryCatch(
-    expr={
+    expr = {
+      
       payload <- url %>% xml2::read_html()
       
-      
-      
-      if(year>2018){
+      if (year > 2018) {
         sched_html <- payload %>%
           rvest::html_elements("fieldset") %>%
           rvest::html_elements("table") 
@@ -96,6 +110,7 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
         rvest::html_elements("td:nth-child(2)") %>%
         rvest::html_element("a") %>%
         rvest::html_attr("href")
+      
       sched <- dplyr::bind_cols(sched, slugs)
       sched <- sched %>%
         dplyr::filter(!(.data$Result %in% c("Canceled","Ppd")))
@@ -115,9 +130,84 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
           )
         
       )
+      sched <- school_info %>% 
+        dplyr::bind_cols(sched)
+      
       sched <- sched %>% 
-        janitor::clean_names() %>%
-        make_baseballr_data("NCAA Baseball Schedule Info data from stats.ncaa.org",Sys.time())
+        dplyr::mutate(
+          away = stringr::str_extract(string = .data$Opponent,"^@"),
+          Opponent = stringr::str_trim(stringr::str_remove(.data$Opponent,"^@")),
+          game_number = dplyr::row_number()
+        )
+      
+      sched <- sched %>% 
+        tidyr::separate("Opponent", sep = "@", into = c("OpponentName","NeutralSite"), fill = "right")
+      
+      sched <- sched %>% 
+        dplyr::group_by(.data$game_number) %>% 
+        dplyr::mutate(
+          home_team = dplyr::case_when(
+            !is.na(.data$NeutralSite) ~ sort(c(.data$team_name, .data$OpponentName))[[1]],
+            .data$away == "@" ~ .data$OpponentName,
+            TRUE ~ .data$team_name),
+          away_team = dplyr::case_when(
+            !is.na(.data$NeutralSite) ~ sort(c(.data$team_name, .data$OpponentName))[[2]],
+            .data$away == "@" ~ .data$team_name,
+            TRUE ~ .data$OpponentName),
+          OpponentName = stringr::str_trim(.data$OpponentName),
+          NeutralSite = stringr::str_trim(.data$NeutralSite)) %>% 
+        dplyr::ungroup() %>%  
+        dplyr::select(-"away") %>% 
+        dplyr::left_join(ncaa_baseball_teams %>% 
+                           dplyr::filter(as.integer(.data$year) == as.integer(year2)) %>%
+                           dplyr::distinct() %>% 
+                           dplyr::select(
+                             "OpponentName" = "team_name",
+                             "OpponentTeamId" = "team_id",
+                             "OpponentConference" = "conference",
+                             "OpponentConferenceId" = "conference_id",
+                             "OpponentTeamSlug" = "team_url",
+                             "OpponentDivision" = "division"), by = c("OpponentName" = "OpponentName")) %>%
+        janitor::clean_names() 
+      sched <- sched %>% 
+        dplyr::mutate(
+          home_team_id = ifelse(.data$home_team == .data$team_name, .data$team_id, .data$opponent_team_id),
+          home_team_conference = ifelse(.data$home_team == .data$team_name, .data$conference, .data$opponent_conference),
+          home_team_conference_id = ifelse(.data$home_team == .data$team_name, .data$conference_id, .data$opponent_conference_id),
+          home_team_slug = ifelse(.data$home_team == .data$team_name, .data$team_url, .data$opponent_team_slug),
+          home_team_division = ifelse(.data$home_team == .data$team_name, .data$division, .data$opponent_division),
+          
+          away_team_id = ifelse(.data$home_team == .data$team_name, .data$opponent_team_id, .data$team_id),
+          away_team_conference = ifelse(.data$home_team == .data$team_name, .data$opponent_conference, .data$conference),
+          away_team_conference_id = ifelse(.data$home_team == .data$team_name, .data$opponent_conference_id, .data$conference_id),
+          away_team_slug = ifelse(.data$home_team == .data$team_name, .data$opponent_team_slug, .data$team_url),
+          away_team_division = ifelse(.data$home_team == .data$team_name, .data$opponent_division, .data$division)) %>% 
+        dplyr::select(
+          "year",
+          "season_id",
+          "date",
+          "home_team",
+          "home_team_id",
+          "home_team_conference",
+          "home_team_conference_id",
+          "home_team_slug",
+          "home_team_division",
+          "away_team",
+          "away_team_id",
+          "away_team_conference",
+          "away_team_conference_id",
+          "away_team_slug",
+          "away_team_division",
+          "neutral_site",
+          "result",
+          "score",
+          "innings",
+          "slug",
+          "game_info_url"
+        )
+      
+      sched <- sched %>%
+        make_baseballr_data("NCAA Baseball Schedule Info data from stats.ncaa.org", Sys.time())
       
     },
     error = function(e) {

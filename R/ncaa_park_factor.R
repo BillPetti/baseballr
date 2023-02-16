@@ -32,7 +32,7 @@
 ncaa_park_factor <- function(teamid, years, type = "conference") {
   ncaa_team_lookup <- load_ncaa_baseball_teams()
   conference_pull <-  ncaa_team_lookup %>% 
-    dplyr::filter(.data$team_id == teamid & .data$year == year) %>%
+    dplyr::filter(.data$team_id == teamid) %>%
     dplyr::select(
       "team_id",
       "conference_id",

@@ -17,12 +17,25 @@ A data frame with the following fields: date, opponent,
 result, score, innings (if more than regulation), and the url
 for the game itself.\tabular{ll}{
    col_name \tab types \cr
+   year \tab integer \cr
+   season_id \tab integer \cr
    date \tab character \cr
-   opponent \tab character \cr
+   home_team \tab character \cr
+   home_team_id \tab integer \cr
+   home_team_conference \tab character \cr
+   home_team_conference_id \tab integer \cr
+   home_team_slug \tab character \cr
+   home_team_division \tab integer \cr
+   away_team \tab character \cr
+   away_team_id \tab integer \cr
+   away_team_conference \tab character \cr
+   away_team_conference_id \tab integer \cr
+   away_team_slug \tab character \cr
+   away_team_division \tab integer \cr
+   neutral_site \tab character \cr
    result \tab character \cr
    score \tab character \cr
    innings \tab character \cr
-   opponent_slug \tab character \cr
    slug \tab character \cr
    game_info_url \tab character \cr
 }
@@ -32,6 +45,6 @@ for the game itself.\tabular{ll}{
 }
 \examples{
 \donttest{
-  try(ncaa_schedule_info(teamid = 736, year = 2021))
+ try(ncaa_schedule_info(teamid = 698, year = 2023))
 }
 }
