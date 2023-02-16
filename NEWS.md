@@ -1,3 +1,8 @@
+# baseballr 1.5.0
+ * Updated NCAA data functions
+ * ```ncaa_teams()``` function added
+ * ```chadwick_player_lu()``` function updated to address data source change
+
 # baseballr 1.4.0
  * Minor updates under the hood for tidyselect version changes affecting dplyr and tidyr functions under the hood
 
