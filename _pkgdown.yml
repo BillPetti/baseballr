@@ -328,6 +328,13 @@ reference:
     contents:
       - starts_with("mlb_job")
 
+  - title: baseballr Data Repository - NCAA
+  - subtitle: baseballr Data Repository NCAA Functions
+    desc: Functions exported by baseballr to access baseballr data repository NCAA data
+    contents:
+      - '`load_ncaa_baseball_teams()`'
+      - '`load_ncaa_baseball_season_ids()`'
+
   - title: baseballr Data Repository Misc. Lookup
   - subtitle: baseballr Data Repository Misc. Lookup Functions
     desc: Functions exported by baseballr to access baseballr data repository supplementary data
