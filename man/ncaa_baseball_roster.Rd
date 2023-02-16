@@ -22,9 +22,9 @@ IDs and urls for each player (if available)\tabular{ll}{
    number \tab character \cr
    position \tab character \cr
    player_url \tab character \cr
-   school \tab character \cr
+   team_name \tab character \cr
    conference \tab character \cr
-   school_id \tab numeric \cr
+   team_id \tab numeric \cr
    division \tab numeric \cr
    conference_id \tab numeric \cr
 }

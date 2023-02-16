@@ -13,6 +13,7 @@
 \item{\code{ncaa_park_factor()}:}{ Get Park Effects for NCAA Baseball Teams.}
 \item{\code{ncaa_schedule_info()}:}{ Get Schedule and Results for NCAA Baseball Teams.}
 \item{\code{ncaa_school_id_lu()}:}{Lookup NCAA School IDs (Division I, II, and III)}
+\item{\code{ncaa_teams()}:}{Lookup NCAA Teams by Division (I, II, and III) and Season}
 }
 }
 \details{
@@ -62,6 +63,12 @@
 \subsection{\strong{Lookup NCAA School IDs (Division I, II, and III)}}{
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_school_id_lu("VAN")
+}\if{html}{\out{</div>}}
+}
+
+\subsection{\strong{Scrape NCAA baseball Teams (Division I, II, and III)}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_teams()
 }\if{html}{\out{</div>}}
 }
 }
