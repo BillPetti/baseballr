@@ -58,6 +58,6 @@ This function allows the user to obtain batting or pitching statistics for any s
 }
 \examples{
 \donttest{
-  try(ncaa_scrape(teamid=255, year=2013, type = "batting"))
+  try(ncaa_scrape(teamid = 255, year = 2013, type = "pitching"))
 }
 }

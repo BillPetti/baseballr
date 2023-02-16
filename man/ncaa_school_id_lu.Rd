@@ -12,12 +12,14 @@ ncaa_school_id_lu(school_name = NULL)
 \value{
 Returns a tibble with school identification data: school, conference, school_id, year, division, conference_id\tabular{ll}{
    col_name \tab types \cr
-   school \tab character \cr
-   conference \tab character \cr
-   school_id \tab numeric \cr
-   year \tab numeric \cr
-   division \tab numeric \cr
+   team_id \tab numeric \cr
+   team_name \tab character \cr
+   team_url \tab character \cr
    conference_id \tab numeric \cr
+   conference \tab character \cr
+   division \tab numeric \cr
+   year \tab numeric \cr
+   season_id \tab numeric \cr
 }
 }
 \description{
