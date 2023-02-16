@@ -47,7 +47,7 @@
 #' @export
 #' @examples
 #' \donttest{
-#'   try(ncaa_scrape(teamid=255, year=2013, type = "batting"))
+#'   try(ncaa_scrape(teamid = 255, year = 2013, type = "pitching"))
 #' }
 
 ncaa_scrape <- function(teamid, year, type = 'batting') {
@@ -59,7 +59,7 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
   tryCatch(
     expr={
       if (type == "batting") {
-        id <- baseballr::ncaa_season_id_lu %>% 
+        id <- load_ncaa_baseball_season_ids() %>% 
           dplyr::filter(.data$season == year) %>% 
           dplyr::select("id")
         
@@ -72,10 +72,10 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
         df$year <- year
         df$teamid <- teamid
         df <- df %>%
-          dplyr::left_join(baseballr::ncaa_team_lu,
-                           by = c("teamid" = "school_id", "year" = "year"))
+          dplyr::left_join(load_ncaa_baseball_teams(),
+                           by = c("teamid" = "team_id", "year" = "year"))
         df <- df %>% 
-          dplyr::select("year", "school", "conference", "division", tidyr::everything())
+          dplyr::select("year", "team_name", "conference", "division", tidyr::everything())
         df$Player <- gsub("x ", "", df$Player)
         if (!"RBI2out" %in% names(df)) {
           df$RBI2out <- NA
@@ -87,12 +87,12 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
         }
         
         df <- df %>% dplyr::select(
-          "year","school","conference","division","Jersey","Player",
+          "year","team_name","conference","division","Jersey","Player",
           "Yr","Pos","GP","GS","BA","OBPct","SlgPct","R","AB",
           "H","2B","3B","TB","HR","RBI","BB","HBP","SF","SH",
           "K","DP","CS","Picked","SB","RBI2out","teamid","conference_id")
         
-        character_cols <- c("year", "school", "conference", "Jersey", "Player",
+        character_cols <- c("year", "team_name", "conference", "Jersey", "Player",
                             "Yr", "Pos")
         
         numeric_cols <- c("division", "GP", "GS", "BA", "OBPct", "SlgPct", "R", "AB",
@@ -109,10 +109,10 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
         )
         
       } else {
-        year_id <- baseballr::ncaa_season_id_lu %>% 
+        year_id <- load_ncaa_baseball_season_ids() %>% 
           dplyr::filter(.data$season == year) %>% 
           dplyr::select("id")
-        type_id <- baseballr::ncaa_season_id_lu %>% 
+        type_id <- load_ncaa_baseball_season_ids() %>% 
           dplyr::filter(.data$season == year) %>% 
           dplyr::select("pitching_id")
         url <- paste0("http://stats.ncaa.org/team/", teamid, "/stats?id=", year_id, "&year_stat_category_id=", type_id)
@@ -125,13 +125,13 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
         df$year <- year
         df$teamid <- teamid
         df <- df %>%
-          dplyr::left_join(baseballr::ncaa_team_lu, by = c("teamid" = "school_id", "year" = "year"))
+          dplyr::left_join(load_ncaa_baseball_teams(), by = c("teamid" = "team_id", "year" = "year"))
         df <- df %>% 
-          dplyr::select("year", "school", "conference", "division", tidyr::everything())
+          dplyr::select("year", "team_name", "conference", "division", tidyr::everything())
         df$Player <- gsub("x ", "", df$Player)
         
         df <- df %>% dplyr::select( 
-          "year","school","conference","division","Jersey","Player",
+          "year","team_name","conference","division","Jersey","Player",
           "Yr","Pos","GP","App","GS","ERA","IP","H","R",
           "ER","BB","SO","SHO","BF","P-OAB",
           "2B-A","3B-A","Bk","HR-A","WP","HB",
@@ -139,7 +139,7 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
           "SHA","SFA","Pitches","GO","FO","W","L",
           "SV","KL","teamid","conference_id")
         
-        character_cols <- c("year", "school", "conference", "Jersey", "Player",
+        character_cols <- c("year", "team_name", "conference", "Jersey", "Player",
                             "Yr", "Pos")
         
         numeric_cols <- c("division",  "GP", "App", "GS", "ERA", "IP", "H", "R", "ER",

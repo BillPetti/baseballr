@@ -5,20 +5,22 @@
 #' @return Returns a tibble with school identification data: school, conference, school_id, year, division, conference_id
 #'  |col_name      |types     |
 #'  |:-------------|:---------|
-#'  |school        |character |
-#'  |conference    |character |
-#'  |school_id     |numeric   |
-#'  |year          |numeric   |
-#'  |division      |numeric   |
+#'  |team_id       |numeric   |
+#'  |team_name     |character |
+#'  |team_url      |character |
 #'  |conference_id |numeric   |
+#'  |conference    |character |
+#'  |division      |numeric   |
+#'  |year          |numeric   |
+#'  |season_id     |numeric   |
 #' @export
 #' @examples \donttest{
 #'   try(ncaa_school_id_lu("Van"))
 #' }
 
 ncaa_school_id_lu <- function(school_name = NULL) {
-  x <- baseballr::ncaa_team_lu %>%
-    dplyr::filter(grepl(school_name, .data$school))
+  x <- load_ncaa_baseball_teams() %>%
+    dplyr::filter(grepl(school_name, .data$team_name))
   return(x)
 }
 

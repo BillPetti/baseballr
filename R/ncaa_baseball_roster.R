@@ -13,9 +13,9 @@
 #'  |number        |character |
 #'  |position      |character |
 #'  |player_url    |character |
-#'  |school        |character |
+#'  |team_name     |character |
 #'  |conference    |character |
-#'  |school_id     |numeric   |
+#'  |team_id       |numeric   |
 #'  |division      |numeric   |
 #'  |conference_id |numeric   |
 #' @importFrom tibble tibble
@@ -27,13 +27,16 @@
 #' }
 
 ncaa_baseball_roster <- function(teamid = NA, team_year){
+  season_ids <- load_ncaa_baseball_season_ids()
   
-  id <- baseballr::ncaa_season_id_lu %>% 
+  id <- season_ids %>% 
     dplyr::filter(.data$season == team_year) %>% 
     dplyr::select("id")
   
-  school_info <- baseballr::ncaa_team_lu %>% 
-    dplyr::filter(.data$school_id == teamid & .data$year == team_year) %>%
+  ncaa_teams_lookup <- load_ncaa_baseball_teams()
+  
+  school_info <- ncaa_teams_lookup %>% 
+    dplyr::filter(.data$team_id == teamid & .data$year == team_year) %>%
     dplyr::select(-"year") %>%
     dplyr::distinct()
   

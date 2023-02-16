@@ -30,34 +30,34 @@
 #' }
 
 ncaa_park_factor <- function(teamid, years, type = "conference") {
-  
-  conference_pull <-  baseballr::ncaa_team_lu %>% 
-    dplyr::filter(.data$school_id == teamid & .data$year == year) %>%
+  ncaa_team_lookup <- load_ncaa_baseball_teams()
+  conference_pull <-  ncaa_team_lookup %>% 
+    dplyr::filter(.data$team_id == teamid & .data$year == year) %>%
     dplyr::select(
-      "school_id",
+      "team_id",
       "conference_id",
       "year",
       "division") %>%
     dplyr::distinct() %>% 
     dplyr::filter(.data$year %in% years)
   
-  teams <- baseballr::ncaa_team_lu %>% 
+  teams <- ncaa_team_lookup %>% 
     dplyr::filter(.data$conference_id %in% conference_pull$conference_id,
                   .data$year %in% years) %>% 
-    dplyr::group_by(.data$conference_id,.data$year) %>% 
+    dplyr::group_by(.data$conference_id, .data$year) %>% 
     dplyr::count(.data$conference) %>% 
     dplyr::ungroup()
   conference_pull <- conference_pull %>% 
-    dplyr::right_join(teams,by=c("conference_id","year")) %>% 
+    dplyr::right_join(teams, by = c("conference_id","year")) %>% 
     dplyr::pull("n")
   
   
   
-  school_name <- baseballr::ncaa_team_lu %>% 
-    dplyr::filter(.data$school_id == teamid) %>%
-    dplyr::select("school") %>%
+  school_name <- ncaa_team_lookup %>% 
+    dplyr::filter(.data$team_id == teamid) %>%
+    dplyr::select("team_name") %>%
     dplyr::distinct() %>% 
-    dplyr::pull("school")
+    dplyr::pull("team_name")
   
   y = length(years)
   y_all = vector(mode = "list", length = length(years))

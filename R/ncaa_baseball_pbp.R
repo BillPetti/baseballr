@@ -28,7 +28,8 @@
 ncaa_baseball_pbp <- function(game_info_url) {
   
   tryCatch(
-    expr={
+    expr = {
+      
       payload <- game_info_url %>% 
         xml2::read_html() %>% 
         rvest::html_elements("#root li:nth-child(3) a") %>%

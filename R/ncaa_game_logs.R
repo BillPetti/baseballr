@@ -59,14 +59,14 @@
 #' }
 
 ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
-  
-  year_id <- baseballr::ncaa_season_id_lu %>% 
+  season_ids <- load_ncaa_baseball_season_ids()
+  year_id <- season_ids %>% 
     dplyr::filter(.data$season == year) %>% 
     dplyr::select("id")
-  batting_id <- baseballr::ncaa_season_id_lu %>% 
+  batting_id <- season_ids %>% 
     dplyr::filter(.data$season == year) %>% 
     dplyr::select("batting_id")
-  pitching_id <- baseballr::ncaa_season_id_lu %>% 
+  pitching_id <- season_ids %>% 
     dplyr::filter(.data$season == year) %>% 
     dplyr::select("pitching_id")
   

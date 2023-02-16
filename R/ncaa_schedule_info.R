@@ -26,11 +26,11 @@
 #' }
 
 ncaa_schedule_info <- function(teamid = NULL, year = NULL){
+  season_ids <- load_ncaa_baseball_season_ids()
+  id <- subset(season_ids, season_ids$season == year, select = id)
   
-  id <- subset(baseballr::ncaa_season_id_lu, baseballr::ncaa_season_id_lu$season == year, select = id)
-  
-  school_info <- baseballr::ncaa_team_lu %>% 
-    dplyr::filter(.data$school_id == teamid, .data$year == year) %>%
+  school_info <- load_ncaa_baseball_teams() %>% 
+    dplyr::filter(.data$team_id == teamid, .data$year == year) %>%
     dplyr::select(-"year") %>%
     dplyr::distinct()
   

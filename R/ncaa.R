@@ -11,6 +11,7 @@
 #'   \item{```ncaa_park_factor()```:}{ Get Park Effects for NCAA Baseball Teams.}
 #'   \item{```ncaa_schedule_info()```:}{ Get Schedule and Results for NCAA Baseball Teams.}
 #'   \item{```ncaa_school_id_lu()```:}{Lookup NCAA School IDs (Division I, II, and III)}
+#'   \item{```ncaa_teams()```:}{Lookup NCAA Teams by Division (I, II, and III) and Season}
 #' }
 #' @details
 #' ### **Scrape NCAA baseball data (Division I, II, and III)**
@@ -45,6 +46,10 @@
 #' ### **Lookup NCAA School IDs (Division I, II, and III)**
 #' ```r
 #'   ncaa_school_id_lu("VAN")
+#' ```
+#' ### **Scrape NCAA baseball Teams (Division I, II, and III)**
+#' ```r
+#'   ncaa_teams()
 #' ```
 #'
 NULL
