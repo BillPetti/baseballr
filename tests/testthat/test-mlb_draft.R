@@ -1,4 +1,3 @@
-context("MLB Draft")
 
 cols <- c(
   "bis_player_id", "pick_round", "pick_number", 

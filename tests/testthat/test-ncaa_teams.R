@@ -10,10 +10,11 @@ cols <- c(
   "season_id"
 )
 
-test_that("NCAA School ID Lookup", {
+test_that("NCAA Teams", {
   skip_on_cran()
+  skip_on_ci()
   
-  x <- school_id_lu("Van")
+  x <- ncaa_teams()
   
   expect_equal(colnames(x), cols)
   expect_s3_class(x, "data.frame")

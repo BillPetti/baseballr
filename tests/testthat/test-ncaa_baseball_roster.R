@@ -1,8 +1,19 @@
 
 cols <- c(
-  "name", "class", "player_id", "season", "number",
-  "position", "player_url", "school",
-  "conference", "school_id", "division", "conference_id"
+  "name",
+  "class",
+  "player_id",
+  "season",
+  "number",
+  "position",
+  "player_url",
+  "team_id",
+  "team_name",
+  "team_url",
+  "conference_id",
+  "conference",
+  "division",
+  "season_id"
 )
 
 test_that("NCAA Roster", {
