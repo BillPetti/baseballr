@@ -51,9 +51,23 @@
 #'   try(chadwick_player_lu())
 #' }
 chadwick_player_lu <- function() {
+  old <- options(list(stringsAsFactors = FALSE, scipen = 999))
+  on.exit(options(old))
+  
+  loader <- csv_from_url
+  
+  hex_seq <- c(0:9, letters[1:6])
   suppressWarnings(
-    df <- csv_from_url("https://raw.githubusercontent.com/chadwickbureau/register/master/data/people.csv", encoding ="UTF-8")
+    urls <- paste0("https://raw.githubusercontent.com/chadwickbureau/register/master/data/people-", hex_seq,".csv")
   )
+  p <- NULL
+  if (is_installed("progressr")) p <- progressr::progressor(along = hex_seq)
+  
+  df <- lapply(urls, progressively(loader, p))
+  df <- rbindlist_with_attrs(df)
+  class(df) <- c("baseballr_data","tbl_df","tbl","data.table","data.frame")
+  
+  
   df <- df %>%
     make_baseballr_data("Player Lookup from the Chadwick Bureau's public register of baseball players",Sys.time())
   return(df)
