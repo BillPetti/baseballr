@@ -22,11 +22,11 @@ load_ncaa_baseball_teams <- function(...,
   on.exit(options(old))
   dots <- rlang::dots_list(...)
   
-  loader <- csv_from_url
+  loader <- rds_from_url
   
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
  
-  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/baseballr-data/main/ncaa/ncaa_team_lookup.csv")
+  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/baseballr-data/main/ncaa/teams_info/ncaa_team_lookup.rds")
   
   p <- NULL
 
