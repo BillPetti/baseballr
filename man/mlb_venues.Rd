@@ -20,6 +20,7 @@ Returns a tibble with the following columns:\tabular{ll}{
    venue_name \tab character \cr
    venue_link \tab character \cr
    active \tab logical \cr
+   season \tab logical \cr
 }
 }
 \description{

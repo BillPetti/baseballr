@@ -9,6 +9,7 @@
 #'  |venue_name |character |
 #'  |venue_link |character |
 #'  |active     |logical   |
+#'  |season     |logical   |
 #' @importFrom jsonlite fromJSON 
 #' @export
 #' @examples \donttest{
@@ -27,12 +28,12 @@ mlb_venues <- function(venue_ids = NULL, sport_ids = NULL, season = NULL){
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
   tryCatch(
-    expr={
+    expr = {
       resp <- mlb_endpoint %>% 
         mlb_api_call()
       
       venues <- resp$venues
-      colnames(venues) <- c("venue_id", "venue_name", "venue_link","active")
+      colnames(venues) <- c("venue_id", "venue_name", "venue_link","active", "season")
       venues <- venues %>%
         make_baseballr_data("MLB Venues data from MLB.com",Sys.time())
       
