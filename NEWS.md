@@ -1,6 +1,9 @@
 # baseballr 1.5.0
- * Updated NCAA data functions
- * ```ncaa_teams()``` function added
+ * Adds the following functions:
+  - ```ncaa_teams()```
+  - ```load_ncaa_baseball_teams()```
+  - ```load_ncaa_baseball_season_ids()```
+ * Under the hood fixes for ```mlb_venues()```, ```fg_team_batter()```, ```chadwick_player_lu()```
  * ```chadwick_player_lu()``` function updated to address data source change
 
 # baseballr 1.4.0

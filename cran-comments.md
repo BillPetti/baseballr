@@ -1,6 +1,11 @@
 ## Release summary
 
 This is a minor release that 
+* Adds the following functions:
+  - ncaa_teams()
+  - load_ncaa_baseball_teams()
+  - load_ncaa_baseball_season_ids()
+* Under the hood fixes for mlb_venues(), fg_team_batter(), chadwick_player_lu()
 * Updates for tidyselect deprecation of data masking for related dplyr and tidyr functions
 * Also resolves the issue cited with vignette by CRAN maintainers
 
