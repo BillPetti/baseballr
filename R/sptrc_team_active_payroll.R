@@ -30,7 +30,7 @@
 #' }
 sptrc_team_active_payroll <- function(team_abbr, year = most_recent_mlb_season()){
   
-  stopifnot("'year' can't be further than two seasons ago" = 2 >= most_recent_mlb_season()-year)
+  stopifnot("'year' can't be further than two seasons ago" = 2 >= as.integer(most_recent_mlb_season())-as.integer(year))
   
   url_team_name <- switch(team_abbr,
                           "ARI" = "arizona-diamondbacks",

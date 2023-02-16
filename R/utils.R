@@ -12,8 +12,8 @@
 #'
 #' @return a function that does the same as `f` but it calls `p()` after iteration.
 progressively <- function(f, p = NULL){
-  if(!is.null(p) && !inherits(p, "progressor")) stop("`p` must be a progressor function!")
-  if(is.null(p)) p <- function(...) NULL
+  if (!is.null(p) && !inherits(p, "progressor")) stop("`p` must be a progressor function!")
+  if (is.null(p)) p <- function(...) NULL
   force(f)
   
   function(...){
@@ -113,7 +113,7 @@ rule_footer <- function(x) {
 #' @import rvest
 check_status <- function(res) {
   x = httr::status_code(res)
-  if(x != 200) stop("The API returned an error", call. = FALSE)
+  if (x != 200) stop("The API returned an error", call. = FALSE)
 }
 
 #' @importFrom magrittr %>%
@@ -128,8 +128,8 @@ utils::globalVariables(c("where"))
 #' @importFrom RcppParallel defaultNumThreads
 NULL
 
-`%c%` <- function(x,y){
-  ifelse(!is.na(x),x,y)
+`%c%` <- function(x, y) {
+  ifelse(!is.na(x), x, y)
 }
 
 
@@ -141,7 +141,7 @@ most_recent_ncaa_baseball_season <- function() {
   ifelse(
     as.double(substr(Sys.Date(), 6, 7)) >= 3,
     as.double(substr(Sys.Date(), 1, 4)),
-    as.double(substr(Sys.Date(), 1, 4)-1)
+    as.double(substr(Sys.Date(), 1, 4)) - 1
   )
 }
 
@@ -153,12 +153,12 @@ most_recent_mlb_season <- function() {
   ifelse(
     as.double(substr(Sys.Date(), 6, 7)) >= 3,
     as.double(substr(Sys.Date(), 1, 4)),
-    as.double(substr(Sys.Date(), 1, 4)-1)
+    as.double(substr(Sys.Date(), 1, 4)) - 1
   )
 }
 # Functions for custom class
 # turn a data.frame into a tibble/baseballr_data
-make_baseballr_data <- function(df,type,timestamp){
+make_baseballr_data <- function(df, type, timestamp){
   out <- df %>%
     tidyr::as_tibble()
   
@@ -174,7 +174,7 @@ make_baseballr_data <- function(df,type,timestamp){
 print.baseballr_data <- function(x,...) {
   cli::cli_rule(left = "{attr(x,'baseballr_type')}",right = "{.emph baseballr {utils::packageVersion('baseballr')}}")
   
-  if(!is.null(attr(x,'baseballr_timestamp'))) {
+  if (!is.null(attr(x,'baseballr_timestamp'))) {
     cli::cli_alert_info(
       "Data updated: {.field {format(attr(x,'baseballr_timestamp'), tz = Sys.timezone(), usetz = TRUE)}}"
     )
