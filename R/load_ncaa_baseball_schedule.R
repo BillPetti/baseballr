@@ -12,7 +12,6 @@ NULL
 #' @param dbConnection A `DBIConnection` object, as returned by
 #' @param tablename The name of the schedule data table within the database
 #' @return Returns a tibble
-#' @import furrr
 #' @export
 #' @examples \donttest{
 #'   load_ncaa_baseball_schedule(seasons = 2023)
