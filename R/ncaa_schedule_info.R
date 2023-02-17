@@ -64,15 +64,21 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
                       rvest::html_elements("fieldset") %>%
                       rvest::html_elements("table")) [[1]] %>%
           rvest::html_elements("tr")
-        sched_1 <- sched_1[2:length(sched_1)]
-        sched_1 <- sched_1[c(seq(1,length(sched_1),2))]
-        sched <- sched_html %>%
-          rvest::html_table() %>%
-          as.data.frame() 
-        sched <- sched %>%
-          dplyr::filter(.data$Date != "") %>% 
-          dplyr::select(-dplyr::any_of("Attendance"))
-      }else{
+        if (length(sched_1) > 1) {
+          sched_1 <- sched_1[2:length(sched_1)]
+          sched_1 <- sched_1[c(seq(1,length(sched_1),2))]
+          sched <- sched_html %>%
+            rvest::html_table() %>%
+            as.data.frame() 
+          sched <- sched %>%
+            dplyr::filter(.data$Date != "") %>% 
+            dplyr::select(-dplyr::any_of("Attendance"))
+        } else {
+          sched <- data.frame()
+          cli::cli_warn(glue::glue("No NCAA Schedule Information found for params (team_id: {teamid}, year = {year})"))
+          return(NULL)
+        }
+      } else {
         sched_html <- payload %>% 
           rvest::html_element("td:nth-child(1) > table") 
         sched_1 <- (payload  %>% 
