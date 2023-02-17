@@ -139,7 +139,7 @@ NULL
 #' @export
 most_recent_ncaa_baseball_season <- function() {
   ifelse(
-    as.double(substr(Sys.Date(), 6, 7)) >= 3,
+    as.double(substr(Sys.Date(), 6, 7)) >= 2,
     as.double(substr(Sys.Date(), 1, 4)),
     as.double(substr(Sys.Date(), 1, 4)) - 1
   )
