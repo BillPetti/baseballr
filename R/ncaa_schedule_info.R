@@ -37,7 +37,7 @@
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'  try(ncaa_schedule_info(teamid = 743, year = 2023))
+#'  try(ncaa_schedule_info(teamid = 80, year = 2023))
 #' }
 
 ncaa_schedule_info <- function(teamid = NULL, year = NULL){
@@ -184,7 +184,7 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
         } else {
           
           payload_df <- data.frame(
-            pbp_url = NA_character_,
+            game_pbp_url = NA_character_,
             contest_id = NA_integer_,
             game_pbp_id = NA_integer_
           )
