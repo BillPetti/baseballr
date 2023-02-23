@@ -36,9 +36,10 @@
 #' @importFrom stringr str_trim str_extract
 #' @import rvest 
 #' @export
-#' @examples \donttest{
+#' @details 
+#' ```r
 #'  try(ncaa_schedule_info(teamid = 80, year = 2023))
-#' }
+#' ````
 
 ncaa_schedule_info <- function(teamid = NULL, year = NULL){
   season_ids <- load_ncaa_baseball_season_ids()

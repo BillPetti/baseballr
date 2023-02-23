@@ -43,8 +43,7 @@ for the game itself.\tabular{ll}{
 \description{
 \strong{Get Schedule and Results for NCAA Baseball Teams}
 }
-\examples{
-\donttest{
- try(ncaa_schedule_info(teamid = 80, year = 2023))
-}
+\details{
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ try(ncaa_schedule_info(teamid = 80, year = 2023))
+}\if{html}{\out{</div>}}
 }

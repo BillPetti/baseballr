@@ -40,6 +40,8 @@ A data frame with play-by-play data for an individual game.\tabular{ll}{
    batting \tab character \cr
    fielding \tab character \cr
    description \tab character \cr
+   game_pbp_url \tab character \cr
+   game_pbp_id \tab integer \cr
 }
 }
 \description{

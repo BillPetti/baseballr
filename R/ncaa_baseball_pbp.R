@@ -9,6 +9,7 @@
 #' @param read_from_file Read from raw html on disk
 #' @param file File with full path to read raw html
 #' @return A data frame with play-by-play data for an individual game.
+#' 
 #'  |col_name       |types     |
 #'  |:--------------|:---------|
 #'  |date           |character |
@@ -20,6 +21,9 @@
 #'  |batting        |character |
 #'  |fielding       |character |
 #'  |description    |character |
+#'  |game_pbp_url   |character |
+#'  |game_pbp_id    |integer   |
+#'  
 #' @importFrom tibble tibble
 #' @importFrom tidyr gather spread
 #' @importFrom purrr map
@@ -55,8 +59,8 @@ ncaa_baseball_pbp <- function(game_info_url = NA_character_,
           rvest::html_attr("href") %>%
           as.data.frame() %>%
           dplyr::rename(pbp_url_slug = ".") %>%
-          dplyr::mutate(pbp_url = paste0("https://stats.ncaa.org", .data$pbp_url_slug)) %>%
-          dplyr::pull(.data$pbp_url)
+          dplyr::mutate(game_pbp_url = paste0("https://stats.ncaa.org", .data$pbp_url_slug)) %>%
+          dplyr::pull(.data$game_pbp_url)
         
         pbp_payload <- payload %>% 
           xml2::read_html()
@@ -67,6 +71,7 @@ ncaa_baseball_pbp <- function(game_info_url = NA_character_,
         }
       }
       if (read_from_file == FALSE && !is.na(game_pbp_url)) {
+        payload <- game_pbp_url
         pbp_payload <- game_pbp_url %>% 
           xml2::read_html()
         
@@ -132,7 +137,9 @@ ncaa_baseball_pbp <- function(game_info_url = NA_character_,
           inning_top_bot = ifelse(teams$away == .data$batting, "top", "bot"),
           attendance = game_info$attendance,
           date = game_info$game_date,
-          location = game_info$location) %>%
+          location = game_info$location,
+          game_pbp_url = payload,
+          game_pbp_id = as.integer(stringr::str_extract(payload, "\\d+"))) %>%
         dplyr::select(
           "date", "location", "attendance", 
           "inning", "inning_top_bot", dplyr::everything()) %>%
