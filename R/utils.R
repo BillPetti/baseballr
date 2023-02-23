@@ -113,7 +113,7 @@ rule_footer <- function(x) {
 #' @import rvest
 check_status <- function(res) {
   x = httr::status_code(res)
-  if (x != 200) stop("The API returned an error", call. = FALSE)
+  if (x != 200) stop(glue::glue("The API returned an error, HTTP Response Code {x}"), call. = FALSE)
 }
 
 #' @importFrom magrittr %>%

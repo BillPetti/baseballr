@@ -44,6 +44,6 @@ for the game itself.\tabular{ll}{
 \strong{Get Schedule and Results for NCAA Baseball Teams}
 }
 \details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ try(ncaa_schedule_info(teamid = 80, year = 2023))
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ x <- try(ncaa_schedule_info(teamid = 110, year = 2021))
 }\if{html}{\out{</div>}}
 }

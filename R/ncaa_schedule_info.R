@@ -38,7 +38,7 @@
 #' @export
 #' @details 
 #' ```r
-#'  try(ncaa_schedule_info(teamid = 80, year = 2023))
+#'  x <- try(ncaa_schedule_info(teamid = 110, year = 2021))
 #' ````
 
 ncaa_schedule_info <- function(teamid = NULL, year = NULL){
@@ -55,8 +55,14 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
   
   tryCatch(
     expr = {
+      content <- httr::RETRY("GET", url = url, httr::add_headers(.headers = .ncaa_headers()))
       
-      payload <- url %>% xml2::read_html()
+      check_status(content)
+      
+      content_body <- content %>% 
+        httr::content(as = "text", encoding = "UTF-8")
+      
+      payload <- content_body %>% xml2::read_html()
       
       if (year > 2018) {
         sched_html <- payload %>%
