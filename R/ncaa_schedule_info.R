@@ -37,7 +37,7 @@
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'  x<- try(ncaa_schedule_info(teamid = 743, year = 2023))
+#'  try(ncaa_schedule_info(teamid = 743, year = 2023))
 #' }
 
 ncaa_schedule_info <- function(teamid = NULL, year = NULL){
