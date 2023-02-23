@@ -4,11 +4,29 @@
 \alias{get_ncaa_baseball_pbp}
 \title{\strong{(legacy) Get Play-By-Play Data for NCAA Baseball Games}}
 \usage{
-get_ncaa_baseball_pbp(game_info_url)
+get_ncaa_baseball_pbp(
+  game_info_url = NA_character_,
+  game_pbp_url = NA_character_,
+  raw_html_to_disk = FALSE,
+  raw_html_path = "/",
+  read_from_file = FALSE,
+  file = NA_character_
+)
 }
 \arguments{
-\item{game_info_url}{The url for the game's play-by-play data. This can be
-found using the get_ncaa_schedule_info function.}
+\item{game_info_url}{The url for the game's boxscore data. This can be
+found using the ncaa_schedule_info function.}
+
+\item{game_pbp_url}{The url for the game's play-by-play data. This can be
+found using the ncaa_schedule_info function.}
+
+\item{raw_html_to_disk}{Write raw html to disk}
+
+\item{raw_html_path}{Directory path to write raw html}
+
+\item{read_from_file}{Read from raw html on disk}
+
+\item{file}{File with full path to read raw html}
 }
 \value{
 A data frame with play-by-play data for an individual game.

@@ -6,7 +6,7 @@ NULL
 #' @rdname load_ncaa_baseball_schedule
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given NCAA college baseball seasons. (Min: 2011)
+#' @param seasons A vector of 4-digit years associated with given NCAA college baseball seasons. (Min: 2012)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database (used by `update_ncaa_baseball_db()`).
 #' @param dbConnection A `DBIConnection` object, as returned by
@@ -14,7 +14,7 @@ NULL
 #' @return Returns a tibble
 #' @export
 #' @examples \donttest{
-#'   load_ncaa_baseball_schedule(seasons = 2023)
+#'   load_ncaa_baseball_schedule(seasons = 2022)
 #' }
 load_ncaa_baseball_schedule <- function(seasons = most_recent_ncaa_baseball_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
@@ -25,10 +25,10 @@ load_ncaa_baseball_schedule <- function(seasons = most_recent_ncaa_baseball_seas
   loader <- rds_from_url
   
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
-  if (isTRUE(seasons)) seasons <- 2011:most_recent_ncaa_baseball_season()
+  if (isTRUE(seasons)) seasons <- 2012:most_recent_ncaa_baseball_season()
   
   stopifnot(is.numeric(seasons),
-            seasons >= 2011,
+            seasons >= 2012,
             seasons <= most_recent_ncaa_baseball_season())
   
   urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/baseballr-data/main/ncaa/schedules/rds/ncaa_baseball_schedule_",seasons,".rds")

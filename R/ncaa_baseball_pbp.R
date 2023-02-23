@@ -1,7 +1,13 @@
 #' @rdname ncaa_baseball_pbp
 #' @title **Get Play-By-Play Data for NCAA Baseball Games**
-#' @param game_info_url The url for the game's play-by-play data. This can be 
-#'  found using the get_ncaa_schedule_info function.
+#' @param game_info_url The url for the game's boxscore data. This can be 
+#'  found using the ncaa_schedule_info function.
+#' @param game_pbp_url The url for the game's play-by-play data. This can be 
+#'  found using the ncaa_schedule_info function.
+#' @param raw_html_to_disk Write raw html to disk
+#' @param raw_html_path Directory path to write raw html
+#' @param read_from_file Read from raw html on disk
+#' @param file File with full path to read raw html
 #' @return A data frame with play-by-play data for an individual game.
 #'  |col_name       |types     |
 #'  |:--------------|:---------|
@@ -22,25 +28,57 @@
 #' @export
 #' @examples \donttest{
 #'   x <- ncaa_schedule_info(736, 2021)$game_info_url[2]
-#'   try(ncaa_baseball_pbp(game_info_url = x))
+#'   try(ncaa_baseball_pbp(game_info_url = "https://stats.ncaa.org/contests/2167178/box_score"))
 #' }
 
-ncaa_baseball_pbp <- function(game_info_url) {
+ncaa_baseball_pbp <- function(game_info_url = NA_character_, 
+                              game_pbp_url = NA_character_,
+                              raw_html_to_disk = FALSE, 
+                              raw_html_path = "/",
+                              read_from_file = FALSE,
+                              file = NA_character_) {
   
   tryCatch(
     expr = {
-      
-      payload <- game_info_url %>% 
-        xml2::read_html() %>% 
-        rvest::html_elements("#root li:nth-child(3) a") %>%
-        rvest::html_attr("href") %>%
-        as.data.frame() %>%
-        dplyr::rename(pbp_url_slug = ".") %>%
-        dplyr::mutate(pbp_url = paste0("https://stats.ncaa.org", .data$pbp_url_slug)) %>%
-        dplyr::pull(.data$pbp_url)
-      
-      pbp_payload <- payload %>% 
-        xml2::read_html()
+      if (is.na(game_info_url) && is.na(game_pbp_url) && is.na(file)){
+        message(glue::glue("{Sys.time()}: No game_info_url, game_pbp_url, or file provided"))
+        return(NULL)
+      }
+      if (read_from_file == FALSE && !is.na(game_info_url)) {
+        contest_id <- as.integer(stringr::str_extract(game_info_url, "\\d+"))
+        
+        init_payload <- game_info_url %>% 
+          xml2::read_html() 
+        
+        payload <- init_payload %>% 
+          rvest::html_elements("#root li:nth-child(3) a") %>%
+          rvest::html_attr("href") %>%
+          as.data.frame() %>%
+          dplyr::rename(pbp_url_slug = ".") %>%
+          dplyr::mutate(pbp_url = paste0("https://stats.ncaa.org", .data$pbp_url_slug)) %>%
+          dplyr::pull(.data$pbp_url)
+        
+        pbp_payload <- payload %>% 
+          xml2::read_html()
+        
+        if (raw_html_to_disk == TRUE) {
+          pbp_id <- as.integer(stringr::str_extract(payload,"\\d+"))
+          xml2::write_xml(pbp_payload, file = glue::glue("{raw_html_path}{pbp_id}.html"))
+        }
+      }
+      if (read_from_file == FALSE && !is.na(game_pbp_url)) {
+        pbp_payload <- game_pbp_url %>% 
+          xml2::read_html()
+        
+        if (raw_html_to_disk == TRUE) {
+          pbp_id <- as.integer(stringr::str_extract(game_pbp_url,"\\d+"))
+          xml2::write_xml(pbp_payload, file = glue::glue("{raw_html_path}{pbp_id}.html"))
+        }
+      }
+      if ((read_from_file == TRUE) && (!is.na(file))) {
+        pbp_payload <- file %>% 
+          xml2::read_html()
+      }
       
       game_info <- pbp_payload %>%
         rvest::html_elements("table:nth-child(7)") %>%
@@ -53,10 +91,8 @@ ncaa_baseball_pbp <- function(game_info_url) {
         dplyr::mutate(game_date = substr(.data$game_date, 1, 10))
       att <- any(!grepl("attendance", colnames(game_info)))
       if (att) {
-        
         game_info$attendance <- NA
       } else {
-        
         game_info <- game_info %>%
           dplyr::mutate(attendance = as.numeric(gsub(",", "", .data$attendance)))
       }
@@ -79,8 +115,6 @@ ncaa_baseball_pbp <- function(game_info_url) {
                               home = (table_list_innings[[1]] %>%
                                         rvest::html_table() %>%
                                         as.data.frame())[1,3])
-      
-      
       
       mapped_table <- purrr::map(.x = table_list_innings,
                                  ~format_baseball_pbp_tables(.x, teams = teams)) %>%
@@ -106,7 +140,7 @@ ncaa_baseball_pbp <- function(game_info_url) {
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      message(glue::glue("{Sys.time()}: Invalid arguments provided for game_info_url, {game_info_url}"))
     },
     finally = {
     }

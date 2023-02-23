@@ -12,7 +12,7 @@ load_ncaa_baseball_schedule(
 )
 }
 \arguments{
-\item{seasons}{A vector of 4-digit years associated with given NCAA college baseball seasons. (Min: 2011)}
+\item{seasons}{A vector of 4-digit years associated with given NCAA college baseball seasons. (Min: 2012)}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database (used by \code{update_ncaa_baseball_db()}).}
@@ -30,6 +30,6 @@ or writes it into a db using some forwarded arguments in the dots
 }
 \examples{
 \donttest{
-  load_ncaa_baseball_schedule(seasons = 2023)
+  load_ncaa_baseball_schedule(seasons = 2022)
 }
 }

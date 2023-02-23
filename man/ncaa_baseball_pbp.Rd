@@ -4,11 +4,29 @@
 \alias{ncaa_baseball_pbp}
 \title{\strong{Get Play-By-Play Data for NCAA Baseball Games}}
 \usage{
-ncaa_baseball_pbp(game_info_url)
+ncaa_baseball_pbp(
+  game_info_url = NA_character_,
+  game_pbp_url = NA_character_,
+  raw_html_to_disk = FALSE,
+  raw_html_path = "/",
+  read_from_file = FALSE,
+  file = NA_character_
+)
 }
 \arguments{
-\item{game_info_url}{The url for the game's play-by-play data. This can be
-found using the get_ncaa_schedule_info function.}
+\item{game_info_url}{The url for the game's boxscore data. This can be
+found using the ncaa_schedule_info function.}
+
+\item{game_pbp_url}{The url for the game's play-by-play data. This can be
+found using the ncaa_schedule_info function.}
+
+\item{raw_html_to_disk}{Write raw html to disk}
+
+\item{raw_html_path}{Directory path to write raw html}
+
+\item{read_from_file}{Read from raw html on disk}
+
+\item{file}{File with full path to read raw html}
 }
 \value{
 A data frame with play-by-play data for an individual game.\tabular{ll}{
@@ -30,6 +48,6 @@ A data frame with play-by-play data for an individual game.\tabular{ll}{
 \examples{
 \donttest{
   x <- ncaa_schedule_info(736, 2021)$game_info_url[2]
-  try(ncaa_baseball_pbp(game_info_url = x))
+  try(ncaa_baseball_pbp(game_info_url = "https://stats.ncaa.org/contests/2167178/box_score"))
 }
 }
