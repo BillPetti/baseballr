@@ -22,6 +22,8 @@ In order to look up teams, you can either load the teams for all divisions from 
 
 Loading from the baseballr-data repository:
 ```{r ncaa_teams}
+library(baseballr)
+library(dplyr)
 ncaa_teams_df <- load_ncaa_baseball_teams()
 ```
 From the NCAA website:
@@ -38,8 +40,7 @@ The function, `ncaa_scrape`, requires the user to pass values for three paramete
 If you want to pull batting statistics for Florida State for the `r baseballr:::most_recent_ncaa_baseball_season()` season, you would use the following:
 
 ```{r ncaa_scrape_batting}
-library(baseballr)
-library(dplyr)
+
 teamid <- ncaa_teams_df %>% 
   dplyr::filter(.data$team_name == "Florida St.") %>% 
   dplyr::select("team_id") %>% 
