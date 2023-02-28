@@ -6,6 +6,9 @@
 \usage{
 school_id_lu(team_name = NULL)
 }
+\arguments{
+\item{team_name}{A string that will be searched for in the names of the schools.}
+}
 \value{
 Returns a tibble with school identification data: school, conference, school_id, year, division, conference_id
 }
