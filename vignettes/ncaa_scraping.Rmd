@@ -18,27 +18,44 @@ knitr::opts_chunk$set(
 
 The latest release of the [`baseballr`](https://billpetti.github.io/baseballr/) includes a function for acquiring player statistics from the [NCAA's website](http://stats.ncaa.org) for baseball teams across the three major divisions (I, II, III).
 
+In order to look up teams, you can either load the teams for all divisions from the `baseballr-data` repository or access them directly from the NCAA website for a given year and division.
+
+Loading from the baseballr-data repository:
+```{r ncaa_teams}
+ncaa_teams_df <- load_ncaa_baseball_teams()
+```
+From the NCAA website:
+```{r ncaa_teams_website}
+ncaa_teams(year = most_recent_ncaa_baseball_season(), division = "1")
+```
+
 The function, `ncaa_scrape`, requires the user to pass values for three parameters for the function to work:
 
-`school_id`: numerical code used by the NCAA for each school
+`team_id`: numerical code used by the NCAA for each school
 `year`: a four-digit year
 `type`: whether to pull data for batters or pitchers
 
-If you want to pull batting statistics for Vanderbilt for the 2013 season, you would use the following:
+If you want to pull batting statistics for Florida State for the `r baseballr:::most_recent_ncaa_baseball_season()` season, you would use the following:
 
 ```{r ncaa_scrape_batting}
 library(baseballr)
 library(dplyr)
-ncaa_scrape(736, 2021, "batting") %>%
-  select("year":"OBPct")
+teamid <- ncaa_teams_df %>% 
+  dplyr::filter(.data$team_name == "Florida St.") %>% 
+  dplyr::select("team_id") %>% 
+  dplyr::distinct() %>% 
+  dplyr::pull("team_id")
+
+year <- most_recent_ncaa_baseball_season()
+ncaa_scrape(teamid = teamid, year = year, "batting")
+
 ```
 
 
 The same can be done for pitching, just by changing the `type` parameter:
 
 ```{r ncaa_scrape_pitching}
-ncaa_scrape(736, 2021, "pitching") %>%
-  select("year":"ERA")
+ncaa_scrape(teamid = teamid, year = year,  "pitching")
 ```
 
 
