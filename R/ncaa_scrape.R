@@ -3,6 +3,7 @@
 #' @param teamid The numerical ID that the NCAA website uses to identify a team
 #' @param year The season for which data should be returned, in the form of "YYYY". Years currently available: 2013-2017.
 #' @param type A string indicating whether to return "batting" or "pitching" statistics
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return A data frame with the following variables
 #'  |col_name      |types     |
 #'  |:-------------|:---------|
@@ -47,27 +48,41 @@
 #' @export
 #' @examples
 #' \donttest{
-#'   try(ncaa_scrape(teamid = 234, year = 2022, type = "pitching"))
+#'   try(ncaa_scrape(teamid = 234, year = 2023, type = "batting"))
 #' }
 
-ncaa_scrape <- function(teamid, year, type = 'batting') {
+ncaa_scrape <- function(teamid, year = most_recent_ncaa_baseball_season(), type = 'batting', ...) {
+  
+  dots <- rlang::dots_list(..., .named = TRUE)
+  proxy <- dots$.proxy
   
   if (year < 2013) {
-    stop('you must provide a year that is equal to or greater than 2013')
+    stop('you must provide a year that is greater than or equal to 2013')
   }
   
   tryCatch(
-    expr={
+    expr = {
       if (type == "batting") {
         id <- load_ncaa_baseball_season_ids() %>% 
           dplyr::filter(.data$season == year) %>% 
           dplyr::select("id")
-        
+        type_id <- load_ncaa_baseball_season_ids() %>% 
+          dplyr::filter(.data$season == year) %>% 
+          dplyr::select("batting_id")
         url <- paste0("http://stats.ncaa.org/team/",teamid,"/stats?game_sport_year_ctl_id=", id, "&id=", id)
-        data_read <- xml2::read_html(url)
+        team_stats_resp <- httr::RETRY("GET", url = url, proxy, httr::add_headers(.headers = .ncaa_headers()))
+        
+        check_status(team_stats_resp)
+        
+        payload <- team_stats_resp %>% 
+          httr::content(as = "text", encoding = "UTF-8") %>% 
+          xml2::read_html()
+        
+        data_read <- payload
+        
         data <- (data_read %>%
                    rvest::html_elements("table"))[[3]] %>%
-          rvest::html_table(fill = TRUE)
+          rvest::html_table()
         df <- as.data.frame(data)
         df$year <- year
         df$teamid <- teamid
@@ -116,10 +131,19 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
           dplyr::filter(.data$season == year) %>% 
           dplyr::select("pitching_id")
         url <- paste0("http://stats.ncaa.org/team/", teamid, "/stats?id=", year_id, "&year_stat_category_id=", type_id)
-        data_read <- xml2::read_html(url)
+        team_stats_resp <- httr::RETRY("GET", url = url, proxy, httr::add_headers(.headers = .ncaa_headers()))
+        
+        check_status(team_stats_resp)
+        
+        payload <- team_stats_resp %>% 
+          httr::content(as = "text", encoding = "UTF-8") %>% 
+          xml2::read_html()
+        
+        data_read <- payload
+        
         data <- (data_read %>%
                    rvest::html_elements("table"))[[3]] %>%
-          rvest::html_table(fill = TRUE)
+          rvest::html_table()
         df <- as.data.frame(data)
         df <- df[,-6]
         df$year <- year
@@ -184,7 +208,7 @@ ncaa_scrape <- function(teamid, year, type = 'batting') {
       df <- df %>%
         dplyr::mutate_at(vars(player_url), as.character) %>%
         dplyr::mutate_at(c("conference_id", "player_id", "year"), as.integer) %>%
-        make_baseballr_data("NCAA Baseball Team Stats data from stats.ncaa.org",Sys.time())
+        make_baseballr_data(glue::glue("NCAA Baseball Team {stringr::str_to_title(type)} Stats data from stats.ncaa.org"),Sys.time())
       
     },
     error = function(e) {

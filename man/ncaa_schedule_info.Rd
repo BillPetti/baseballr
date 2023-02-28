@@ -4,13 +4,15 @@
 \alias{ncaa_schedule_info}
 \title{\strong{Get Schedule and Results for NCAA Baseball Teams}}
 \usage{
-ncaa_schedule_info(teamid = NULL, year = NULL)
+ncaa_schedule_info(teamid = NULL, year = NULL, ...)
 }
 \arguments{
 \item{teamid}{The team's unique NCAA id.}
 
 \item{year}{The season (i.e. use 2016 for the 2015-2016 season,
 etc.)}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 A data frame with the following fields: date, opponent,
@@ -44,6 +46,6 @@ for the game itself.\tabular{ll}{
 \strong{Get Schedule and Results for NCAA Baseball Teams}
 }
 \details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ x <- try(ncaa_schedule_info(teamid = 110, year = 2021))
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ try(ncaa_schedule_info(teamid = 736, year = 2019))
 }\if{html}{\out{</div>}}
 }

@@ -4,7 +4,12 @@
 \alias{ncaa_scrape}
 \title{\strong{Scrape NCAA baseball data (Division I, II, and III)}}
 \usage{
-ncaa_scrape(teamid, year, type = "batting")
+ncaa_scrape(
+  teamid,
+  year = most_recent_ncaa_baseball_season(),
+  type = "batting",
+  ...
+)
 }
 \arguments{
 \item{teamid}{The numerical ID that the NCAA website uses to identify a team}
@@ -12,6 +17,8 @@ ncaa_scrape(teamid, year, type = "batting")
 \item{year}{The season for which data should be returned, in the form of "YYYY". Years currently available: 2013-2017.}
 
 \item{type}{A string indicating whether to return "batting" or "pitching" statistics}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 A data frame with the following variables\tabular{ll}{
@@ -58,6 +65,6 @@ This function allows the user to obtain batting or pitching statistics for any s
 }
 \examples{
 \donttest{
-  try(ncaa_scrape(teamid = 234, year = 2022, type = "pitching"))
+  try(ncaa_scrape(teamid = 234, year = 2023, type = "batting"))
 }
 }

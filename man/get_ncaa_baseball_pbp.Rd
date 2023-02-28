@@ -10,7 +10,8 @@ get_ncaa_baseball_pbp(
   raw_html_to_disk = FALSE,
   raw_html_path = "/",
   read_from_file = FALSE,
-  file = NA_character_
+  file = NA_character_,
+  ...
 )
 }
 \arguments{
@@ -27,6 +28,8 @@ found using the ncaa_schedule_info function.}
 \item{read_from_file}{Read from raw html on disk}
 
 \item{file}{File with full path to read raw html}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 A data frame with play-by-play data for an individual game.

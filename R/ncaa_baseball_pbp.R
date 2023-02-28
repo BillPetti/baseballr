@@ -8,11 +8,12 @@
 #' @param raw_html_path Directory path to write raw html
 #' @param read_from_file Read from raw html on disk
 #' @param file File with full path to read raw html
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return A data frame with play-by-play data for an individual game.
 #' 
 #'  |col_name       |types     |
 #'  |:--------------|:---------|
-#'  |date           |character |
+#'  |game_date      |character |
 #'  |location       |character |
 #'  |attendance     |logical   |
 #'  |inning         |character |
@@ -40,7 +41,11 @@ ncaa_baseball_pbp <- function(game_info_url = NA_character_,
                               raw_html_to_disk = FALSE, 
                               raw_html_path = "/",
                               read_from_file = FALSE,
-                              file = NA_character_) {
+                              file = NA_character_,
+                              ...) {
+  
+  dots <- rlang::dots_list(..., .named = TRUE)
+  proxy <- dots$.proxy
   
   tryCatch(
     expr = {
@@ -51,10 +56,16 @@ ncaa_baseball_pbp <- function(game_info_url = NA_character_,
       if (read_from_file == FALSE && !is.na(game_info_url)) {
         contest_id <- as.integer(stringr::str_extract(game_info_url, "\\d+"))
         
-        init_payload <- game_info_url %>% 
+        
+        game_info_resp <- httr::RETRY("GET", url = game_info_url, proxy, httr::add_headers(.headers = .ncaa_headers()))
+        
+        check_status(game_info_resp)
+        
+        init_payload <- game_info_resp %>% 
+          httr::content(as = "text", encoding = "UTF-8") %>% 
           xml2::read_html() 
         
-        payload <- init_payload %>% 
+        game_pbp_url <- init_payload %>% 
           rvest::html_elements("#root li:nth-child(3) a") %>%
           rvest::html_attr("href") %>%
           as.data.frame() %>%
@@ -62,7 +73,12 @@ ncaa_baseball_pbp <- function(game_info_url = NA_character_,
           dplyr::mutate(game_pbp_url = paste0("https://stats.ncaa.org", .data$pbp_url_slug)) %>%
           dplyr::pull(.data$game_pbp_url)
         
-        pbp_payload <- payload %>% 
+        pbp_payload_resp <- httr::RETRY("GET", url = game_pbp_url, proxy, httr::add_headers(.headers = .ncaa_headers()))
+        
+        check_status(pbp_payload_resp)
+        
+        pbp_payload <- pbp_payload_resp %>% 
+          httr::content(as = "text", encoding = "UTF-8") %>% 
           xml2::read_html()
         
         if (raw_html_to_disk == TRUE) {
@@ -72,7 +88,12 @@ ncaa_baseball_pbp <- function(game_info_url = NA_character_,
       }
       if (read_from_file == FALSE && !is.na(game_pbp_url)) {
         payload <- game_pbp_url
-        pbp_payload <- game_pbp_url %>% 
+        pbp_payload_resp <- httr::RETRY("GET", url = game_pbp_url, proxy, httr::add_headers(.headers = .ncaa_headers()))
+        
+        check_status(pbp_payload_resp)
+        
+        pbp_payload <- pbp_payload_resp %>% 
+          httr::content(as = "text", encoding = "UTF-8") %>% 
           xml2::read_html()
         
         if (raw_html_to_disk == TRUE) {
@@ -83,6 +104,7 @@ ncaa_baseball_pbp <- function(game_info_url = NA_character_,
       if ((read_from_file == TRUE) && (!is.na(file))) {
         pbp_payload <- file %>% 
           xml2::read_html()
+        payload <- stringr::str_extract(file, "\\d+")
       }
       
       game_info <- pbp_payload %>%
@@ -136,13 +158,14 @@ ncaa_baseball_pbp <- function(game_info_url = NA_character_,
         dplyr::mutate(
           inning_top_bot = ifelse(teams$away == .data$batting, "top", "bot"),
           attendance = game_info$attendance,
-          date = game_info$game_date,
+          game_date = game_info$game_date,
           location = game_info$location,
+          year = as.integer(stringr::str_extract(.data$game_date, "\\d{4}")),
           game_pbp_url = payload,
           game_pbp_id = as.integer(stringr::str_extract(payload, "\\d+"))) %>%
         dplyr::select(
-          "date", "location", "attendance", 
-          "inning", "inning_top_bot", dplyr::everything()) %>%
+          "game_date", "location", "attendance", 
+          "inning", "inning_top_bot", tidyr::everything()) %>%
         make_baseballr_data("NCAA Baseball Play-by-Play data from stats.ncaa.org",Sys.time())
       
     },

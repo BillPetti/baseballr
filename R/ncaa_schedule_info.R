@@ -3,6 +3,7 @@
 #' @param teamid The team's unique NCAA id.
 #' @param year The season (i.e. use 2016 for the 2015-2016 season,
 #' etc.)
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return A data frame with the following fields: date, opponent,
 #' result, score, innings (if more than regulation), and the url
 #' for the game itself.
@@ -38,10 +39,13 @@
 #' @export
 #' @details 
 #' ```r
-#'  x <- try(ncaa_schedule_info(teamid = 110, year = 2021))
+#'  try(ncaa_schedule_info(teamid = 736, year = 2019))
 #' ````
 
-ncaa_schedule_info <- function(teamid = NULL, year = NULL){
+ncaa_schedule_info <- function(teamid = NULL, year = NULL, ...){
+  dots <- rlang::dots_list(..., .named = TRUE)
+  proxy <- dots$.proxy
+  
   season_ids <- load_ncaa_baseball_season_ids()
   id <- subset(season_ids, season_ids$season == year, select = id)
   year2 <- year
@@ -55,14 +59,13 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
   
   tryCatch(
     expr = {
-      content <- httr::RETRY("GET", url = url, httr::add_headers(.headers = .ncaa_headers()))
+      content <- httr::RETRY("GET", url = url, proxy, httr::add_headers(.headers = .ncaa_headers()))
       
       check_status(content)
       
-      content_body <- content %>% 
-        httr::content(as = "text", encoding = "UTF-8")
-      
-      payload <- content_body %>% xml2::read_html()
+      payload <- content %>% 
+        httr::content(as = "text", encoding = "UTF-8") %>% 
+        xml2::read_html()
       
       if (year > 2018) {
         sched_html <- payload %>%
@@ -170,7 +173,12 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
         if (!is.na(x)) {
           contest_id <- as.integer(stringr::str_extract(x, "\\d+"))
           
-          init_payload <- x %>% 
+          content <- httr::RETRY("GET", url = x, proxy, httr::add_headers(.headers = .ncaa_headers()))
+          
+          check_status(content)
+          
+          init_payload <- content %>% 
+            httr::content(as = "text", encoding = "UTF-8") %>%
             xml2::read_html() 
           
           payload <- init_payload %>% 
@@ -212,7 +220,6 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL){
             Score = stringr::str_trim(stringr::str_remove(.data$Result, "\\(\\d+\\)"))
           ) %>% 
           dplyr::select(-"Result")
-        
       )
       sched <- school_info %>% 
         dplyr::bind_cols(sched)

@@ -4,12 +4,14 @@
 \alias{get_ncaa_baseball_roster}
 \title{\strong{(legacy) Get NCAA Baseball Rosters}}
 \usage{
-get_ncaa_baseball_roster(teamid = NA, team_year)
+get_ncaa_baseball_roster(teamid = NA_integer_, team_year, ...)
 }
 \arguments{
 \item{teamid}{NCAA id for a school}
 
 \item{team_year}{The year of interest}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 A data frame containing roster information, including

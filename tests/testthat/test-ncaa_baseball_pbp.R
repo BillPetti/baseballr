@@ -1,6 +1,6 @@
 
 cols <- c(
-  "date",
+  "game_date",
   "location",
   "attendance",
   "inning",
@@ -9,6 +9,7 @@ cols <- c(
   "batting",
   "fielding",
   "description",
+  "year",
   "game_pbp_url",
   "game_pbp_id"
 )

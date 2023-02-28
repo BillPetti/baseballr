@@ -2,6 +2,7 @@
 #' @title **Get NCAA Baseball Rosters**
 #' @param teamid NCAA id for a school
 #' @param team_year The year of interest
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return A data frame containing roster information, including
 #' IDs and urls for each player (if available)
 #'  |col_name      |types     |
@@ -26,7 +27,10 @@
 #'   try(ncaa_baseball_roster(teamid = 104, team_year = 2021))
 #' }
 
-ncaa_baseball_roster <- function(teamid = NA, team_year){
+ncaa_baseball_roster <- function(teamid = NA_integer_, team_year, ...){
+  dots <- rlang::dots_list(..., .named = TRUE)
+  proxy <- dots$.proxy
+  
   season_ids <- load_ncaa_baseball_season_ids()
   
   id <- season_ids %>% 
@@ -43,8 +47,13 @@ ncaa_baseball_roster <- function(teamid = NA, team_year){
   url <- paste0("https://stats.ncaa.org/team/", teamid, "/roster/", id)
   
   tryCatch(
-    expr={
-      payload <- url %>% 
+    expr = {
+      roster_resp <- httr::RETRY("GET", url = url, proxy, httr::add_headers(.headers = .ncaa_headers()))
+      
+      check_status(roster_resp)
+      
+      payload <- roster_resp %>% 
+        httr::content(as = "text", encoding = "UTF-8") %>% 
         xml2::read_html()
       
       payload1 <- (payload %>%
