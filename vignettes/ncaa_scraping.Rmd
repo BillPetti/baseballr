@@ -37,7 +37,7 @@ The function, `ncaa_scrape`, requires the user to pass values for three paramete
 `year`: a four-digit year
 `type`: whether to pull data for batters or pitchers
 
-If you want to pull batting statistics for Florida State for the `r baseballr:::most_recent_ncaa_baseball_season()` season, you would use the following:
+If you want to pull batting statistics for Florida State for the `r baseballr::most_recent_ncaa_baseball_season()` season, you would use the following:
 
 ```{r ncaa_scrape_batting}
 
