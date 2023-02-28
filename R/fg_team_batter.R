@@ -330,6 +330,7 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
         c <- gsub(" (pi)", "_pi", c, fixed = TRUE)
         c <- gsub("/", "_", c, fixed = TRUE)
         c <- ifelse(substr(c, nchar(c)-1+1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
+        c <- gsub(" ", "_", c, fixed = TRUE)
         r <- c("wRC_plus", "WPA_minus", "WPA_plus", "FBall_pct", "AgeRng")
         c[c(60,62,63,71,201),] <- r
         Seasons <- ifelse(x==y, paste0(x), paste0(x, "-", y))
@@ -362,9 +363,7 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
       }
     )
     return(leaders)
-  }
-  
-  else {
+  } else {
     tryCatch(
       expr = {
         if (exc_p){
@@ -391,6 +390,7 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
         c <- gsub(" (pi)", "_pi", c, fixed = TRUE)
         c <- gsub("/", "_", c, fixed = TRUE)
         c <- ifelse(substr(c, nchar(c)-1+1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
+        c <- gsub(" ", "_", c, fixed = TRUE)
         r <- c("wRC_plus", "WPA_minus", "WPA_plus", "FBall_pct", "AgeRng")
         c[c(61,63,64,72,202),] <- r
         names(leaders) <- c

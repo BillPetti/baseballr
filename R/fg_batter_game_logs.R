@@ -308,7 +308,8 @@ fg_batter_game_logs <- function(playerid, year = 2017) {
       payload <- payload[-1,]
       payload <- payload %>% 
         dplyr::mutate(
-          Date = stringr::str_extract(.data$Date,"(?<=>).+(?=<)")) %>% 
+          Date = stringr::str_extract(.data$Date,"(?<=>).+(?=<)"))
+      payload <- payload %>% 
         dplyr::select("PlayerName", "playerid", tidyr::everything())
       
       payload <- payload %>%
