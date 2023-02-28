@@ -41,14 +41,15 @@ If you want to pull batting statistics for Florida State for the `r baseballr::m
 
 ```{r ncaa_scrape_batting}
 
-teamid <- ncaa_teams_df %>% 
+team_id <- ncaa_teams_df %>% 
   dplyr::filter(.data$team_name == "Florida St.") %>% 
   dplyr::select("team_id") %>% 
   dplyr::distinct() %>% 
   dplyr::pull("team_id")
 
 year <- most_recent_ncaa_baseball_season()
-ncaa_scrape(teamid = teamid, year = year, "batting")
+
+ncaa_scrape(team_id = team_id, year = year, "batting")
 
 ```
 
@@ -56,7 +57,7 @@ ncaa_scrape(teamid = teamid, year = year, "batting")
 The same can be done for pitching, just by changing the `type` parameter:
 
 ```{r ncaa_scrape_pitching}
-ncaa_scrape(teamid = teamid, year = year,  "pitching")
+ncaa_scrape(team_id = team_id, year = year,  "pitching")
 ```
 
 

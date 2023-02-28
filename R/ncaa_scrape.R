@@ -1,6 +1,6 @@
 #' @title **Scrape NCAA baseball data (Division I, II, and III)**
 #' @description This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a tibble.
-#' @param teamid The numerical ID that the NCAA website uses to identify a team
+#' @param team_id The numerical ID that the NCAA website uses to identify a team
 #' @param year The season for which data should be returned, in the form of "YYYY". Years currently available: 2013-2017.
 #' @param type A string indicating whether to return "batting" or "pitching" statistics
 #' @param ... Additional arguments passed to an underlying function like httr.
@@ -38,7 +38,7 @@
 #'  |Picked        |numeric   |
 #'  |SB            |numeric   |
 #'  |RBI2out       |numeric   |
-#'  |teamid        |numeric   |
+#'  |team_id       |numeric   |
 #'  |conference_id |integer   |
 #'  |player_id     |integer   |
 #'  |player_url    |character |
@@ -48,10 +48,10 @@
 #' @export
 #' @examples
 #' \donttest{
-#'   try(ncaa_scrape(teamid = 234, year = 2023, type = "batting"))
+#'   try(ncaa_scrape(team_id = 234, year = 2023, type = "batting"))
 #' }
 
-ncaa_scrape <- function(teamid, year = most_recent_ncaa_baseball_season(), type = 'batting', ...) {
+ncaa_scrape <- function(team_id, year = most_recent_ncaa_baseball_season(), type = 'batting', ...) {
   
   dots <- rlang::dots_list(..., .named = TRUE)
   proxy <- dots$.proxy
@@ -69,7 +69,7 @@ ncaa_scrape <- function(teamid, year = most_recent_ncaa_baseball_season(), type 
         type_id <- load_ncaa_baseball_season_ids() %>% 
           dplyr::filter(.data$season == year) %>% 
           dplyr::select("batting_id")
-        url <- paste0("http://stats.ncaa.org/team/",teamid,"/stats?game_sport_year_ctl_id=", id, "&id=", id)
+        url <- paste0("http://stats.ncaa.org/team/",team_id,"/stats?game_sport_year_ctl_id=", id, "&id=", id)
         team_stats_resp <- httr::RETRY("GET", url = url, proxy, httr::add_headers(.headers = .ncaa_headers()))
         
         check_status(team_stats_resp)
@@ -85,10 +85,10 @@ ncaa_scrape <- function(teamid, year = most_recent_ncaa_baseball_season(), type 
           rvest::html_table()
         df <- as.data.frame(data)
         df$year <- year
-        df$teamid <- teamid
+        df$team_id <- team_id
         df <- df %>%
           dplyr::left_join(load_ncaa_baseball_teams(),
-                           by = c("teamid" = "team_id", "year" = "year"))
+                           by = c("team_id" = "team_id", "year" = "year"))
         df <- df %>% 
           dplyr::select("year", "team_name", "conference", "division", tidyr::everything())
         df$Player <- gsub("x ", "", df$Player)
@@ -105,14 +105,14 @@ ncaa_scrape <- function(teamid, year = most_recent_ncaa_baseball_season(), type 
           "year","team_name","conference","division","Jersey","Player",
           "Yr","Pos","GP","GS","BA","OBPct","SlgPct","R","AB",
           "H","2B","3B","TB","HR","RBI","BB","HBP","SF","SH",
-          "K","DP","CS","Picked","SB","RBI2out","teamid","conference_id")
+          "K","DP","CS","Picked","SB","RBI2out","team_id","conference_id")
         
         character_cols <- c("year", "team_name", "conference", "Jersey", "Player",
                             "Yr", "Pos")
         
         numeric_cols <- c("division", "GP", "GS", "BA", "OBPct", "SlgPct", "R", "AB",
                           "H", "2B", "3B", "TB", "HR", "RBI", "BB", "HBP", "SF", "SH",
-                          "K", "DP", "CS", "Picked", "SB", "RBI2out", "teamid", "conference_id")
+                          "K", "DP", "CS", "Picked", "SB", "RBI2out", "team_id", "conference_id")
         
         suppressWarnings(
           df <- df %>%
@@ -130,7 +130,7 @@ ncaa_scrape <- function(teamid, year = most_recent_ncaa_baseball_season(), type 
         type_id <- load_ncaa_baseball_season_ids() %>% 
           dplyr::filter(.data$season == year) %>% 
           dplyr::select("pitching_id")
-        url <- paste0("http://stats.ncaa.org/team/", teamid, "/stats?id=", year_id, "&year_stat_category_id=", type_id)
+        url <- paste0("http://stats.ncaa.org/team/", team_id, "/stats?id=", year_id, "&year_stat_category_id=", type_id)
         team_stats_resp <- httr::RETRY("GET", url = url, proxy, httr::add_headers(.headers = .ncaa_headers()))
         
         check_status(team_stats_resp)
@@ -147,9 +147,9 @@ ncaa_scrape <- function(teamid, year = most_recent_ncaa_baseball_season(), type 
         df <- as.data.frame(data)
         df <- df[,-6]
         df$year <- year
-        df$teamid <- teamid
+        df$team_id <- team_id
         df <- df %>%
-          dplyr::left_join(load_ncaa_baseball_teams(), by = c("teamid" = "team_id", "year" = "year"))
+          dplyr::left_join(load_ncaa_baseball_teams(), by = c("team_id" = "team_id", "year" = "year"))
         df <- df %>% 
           dplyr::select("year", "team_name", "conference", "division", tidyr::everything())
         df$Player <- gsub("x ", "", df$Player)
@@ -161,7 +161,7 @@ ncaa_scrape <- function(teamid, year = most_recent_ncaa_baseball_season(), type 
           "2B-A","3B-A","Bk","HR-A","WP","HB",
           "IBB","Inh Run","Inh Run Score",
           "SHA","SFA","Pitches","GO","FO","W","L",
-          "SV","KL","teamid","conference_id")
+          "SV","KL","team_id","conference_id")
         
         character_cols <- c("year", "team_name", "conference", "Jersey", "Player",
                             "Yr", "Pos")
@@ -169,7 +169,7 @@ ncaa_scrape <- function(teamid, year = most_recent_ncaa_baseball_season(), type 
         numeric_cols <- c("division",  "GP", "App", "GS", "ERA", "IP", "H", "R", "ER",
                           "BB", "SO", "SHO", "BF", "P-OAB", "2B-A", "3B-A", "Bk", "HR-A",
                           "WP", "HB", "IBB", "Inh Run", "Inh Run Score", "SHA", "SFA",
-                          "Pitches", "GO", "FO", "W", "L", "SV", "KL", "teamid", "conference_id")
+                          "Pitches", "GO", "FO", "W", "L", "SV", "KL", "team_id", "conference_id")
         suppressWarnings(
           df <- df %>%
             dplyr::mutate_at(vars(character_cols), function(x){as.character(x)})

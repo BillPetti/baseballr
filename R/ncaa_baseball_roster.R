@@ -1,7 +1,7 @@
 #' @rdname ncaa_baseball_roster
 #' @title **Get NCAA Baseball Rosters**
-#' @param teamid NCAA id for a school
-#' @param team_year The year of interest
+#' @param team_id NCAA id for a school
+#' @param year The year of interest
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return A data frame containing roster information, including
 #' IDs and urls for each player (if available)
@@ -24,27 +24,27 @@
 #' @export
 #' @examples
 #' \donttest{
-#'   try(ncaa_baseball_roster(teamid = 104, team_year = 2021))
+#'   try(ncaa_baseball_roster(team_id = 104, year = 2021))
 #' }
 
-ncaa_baseball_roster <- function(teamid = NA_integer_, team_year, ...){
+ncaa_baseball_roster <- function(team_id = NA_integer_, year, ...){
   dots <- rlang::dots_list(..., .named = TRUE)
   proxy <- dots$.proxy
   
   season_ids <- load_ncaa_baseball_season_ids()
   
   id <- season_ids %>% 
-    dplyr::filter(.data$season == team_year) %>% 
+    dplyr::filter(.data$season == year) %>% 
     dplyr::select("id")
   
   ncaa_teams_lookup <- load_ncaa_baseball_teams()
   
   school_info <- ncaa_teams_lookup %>% 
-    dplyr::filter(.data$team_id == teamid & .data$year == team_year) %>%
+    dplyr::filter(.data$team_id == team_id & .data$year == year) %>%
     dplyr::select(-"year") %>%
     dplyr::distinct()
   
-  url <- paste0("https://stats.ncaa.org/team/", teamid, "/roster/", id)
+  url <- paste0("https://stats.ncaa.org/team/", team_id, "/roster/", id)
   
   tryCatch(
     expr = {
@@ -84,7 +84,8 @@ ncaa_baseball_roster <- function(teamid = NA_integer_, team_year, ...){
       url_slug <- lapply(payload1, extractor) %>% 
         dplyr::bind_rows() 
       
-      roster <- dplyr::bind_cols(payload_table, url_slug) %>% 
+      roster <- payload_table %>% 
+        dplyr::bind_cols(url_slug) %>% 
         dplyr::rename(
           "name" = "Player",
           "class" = "Yr",
@@ -94,7 +95,7 @@ ncaa_baseball_roster <- function(teamid = NA_integer_, team_year, ...){
           "number" = "Jersey")
       roster <- roster %>%
         dplyr::mutate(
-          season = team_year,
+          season = year,
           player_id = gsub(".*stats_player_seq=\\s*", "", .data$url_slug),
           player_url = ifelse(is.na(.data$player_id), NA, paste0("https://stats.ncaa.org", .data$url_slug))) %>%
         dplyr::select(
@@ -109,7 +110,8 @@ ncaa_baseball_roster <- function(teamid = NA_integer_, team_year, ...){
       school_info <- school_info %>%
         dplyr::slice(rep(1:n(), each = nrow(roster)))
       
-      roster <- dplyr::bind_cols(roster, school_info) %>%
+      roster <- roster %>% 
+        dplyr::bind_cols(school_info) %>%
         make_baseballr_data("NCAA Baseball Roster data from stats.ncaa.org",Sys.time())
       
     },

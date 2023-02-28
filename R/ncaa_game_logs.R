@@ -56,6 +56,8 @@
 #' @export
 #' @examples \donttest{
 #'   try(ncaa_game_logs(player_id = 2113782, year = 2021, type = "pitching", span = "game"))
+#'   try(ncaa_game_logs(player_id = 2113782, year = 2021, type = "pitching", span = "career"))
+#'   try(ncaa_game_logs(player_id = 1879650, year = 2019, type = "batting", span = "game"))
 #'   try(ncaa_game_logs(player_id = 1879650, year = 2019, type = "batting", span = "career"))
 #' }
 
@@ -92,6 +94,7 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...
                            rvest::html_elements("select"))[3] %>% 
                           rvest::html_elements(xpath="//option[@selected]") %>% 
                           rvest::html_text())[3]
+        player_name <- stringr::str_remove(stringr::str_extract(player_name,".*(?<= #)")," #")
       } else {
         
         pitching_url <- paste0("https://stats.ncaa.org/player/index?id=", year_id,"&stats_player_seq=", player_id,"&year_stat_category_id=", pitching_id)
@@ -108,6 +111,7 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...
                            rvest::html_elements("select"))[3] %>% 
                           rvest::html_elements(xpath="//option[@selected]") %>% 
                           rvest::html_text())[3]
+        player_name <- stringr::str_remove(stringr::str_extract(player_name,".*(?<= #)")," #")
       }
       
       if (span == 'game') {
@@ -129,8 +133,6 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...
           payload_df <- payload_df %>% 
             dplyr::select(batting_cols)
           
-          payload_df <- payload_df %>%
-            dplyr::mutate_at(vars(.data$G:.data$RBI2out), extract_numeric)
           
           if ('OPP DP' %in% colnames(payload_df) == TRUE) {
             
@@ -179,7 +181,8 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...
         payload_df <- payload_df %>%
           dplyr::mutate(
             player_id = player_id,
-            player_name = player_name) %>%
+            player_name = player_name,
+            Year = year) %>%
           dplyr::select("player_id", "player_name", tidyr::everything())
         
       } else {

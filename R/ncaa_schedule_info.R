@@ -1,6 +1,6 @@
 #' @rdname ncaa_schedule_info
 #' @title **Get Schedule and Results for NCAA Baseball Teams**
-#' @param teamid The team's unique NCAA id.
+#' @param team_id The team's unique NCAA id.
 #' @param year The season (i.e. use 2016 for the 2015-2016 season,
 #' etc.)
 #' @param ... Additional arguments passed to an underlying function like httr.
@@ -39,10 +39,10 @@
 #' @export
 #' @details 
 #' ```r
-#'  try(ncaa_schedule_info(teamid = 736, year = 2019))
+#'  try(ncaa_schedule_info(team_id = 736, year = 2019))
 #' ````
 
-ncaa_schedule_info <- function(teamid = NULL, year = NULL, ...){
+ncaa_schedule_info <- function(team_id = NULL, year = NULL, ...){
   dots <- rlang::dots_list(..., .named = TRUE)
   proxy <- dots$.proxy
   
@@ -51,11 +51,11 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL, ...){
   year2 <- year
   ncaa_baseball_teams <- load_ncaa_baseball_teams()
   school_info <- ncaa_baseball_teams %>% 
-    dplyr::filter(.data$team_id == teamid, as.integer(.data$year) == as.integer(year2)) %>%
+    dplyr::filter(.data$team_id == team_id, as.integer(.data$year) == as.integer(year2)) %>%
     dplyr::distinct() %>% 
     dplyr::first()
   
-  url <- paste0("https://stats.ncaa.org/team/", teamid, "/", id)
+  url <- paste0("https://stats.ncaa.org/team/", team_id, "/", id)
   
   tryCatch(
     expr = {
@@ -73,7 +73,7 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL, ...){
           rvest::html_elements("table")
         if (length(sched_html) == 0){
           sched <- data.frame()          
-          cli::cli_warn(glue::glue("No NCAA Schedule Information found for params (team_id: {teamid}, year = {year})"))
+          cli::cli_warn(glue::glue("No NCAA Schedule Information found for params (team_id: {team_id}, year = {year})"))
           return(sched)
         }
         grey_heading <- sched_html %>%
@@ -99,7 +99,7 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL, ...){
             dplyr::select(-dplyr::any_of("Attendance"))
         } else {
           sched <- data.frame()
-          cli::cli_warn(glue::glue("No NCAA Schedule Information found for params (team_id: {teamid}, year = {year})"))
+          cli::cli_warn(glue::glue("No NCAA Schedule Information found for params (team_id: {team_id}, year = {year})"))
           return(sched)
         }
       } else {
@@ -107,7 +107,7 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL, ...){
           rvest::html_element("td:nth-child(1) > table") 
         if (length(sched_html) == 0){
           sched <- data.frame()          
-          cli::cli_warn(glue::glue("No NCAA Schedule Information found for params (team_id: {teamid}, year = {year})"))
+          cli::cli_warn(glue::glue("No NCAA Schedule Information found for params (team_id: {team_id}, year = {year})"))
           return(sched)
         }
         sched_1 <- (payload  %>% 
@@ -125,7 +125,7 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL, ...){
           sched <- sched[3:nrow(sched),]
         } else {
           sched <- data.frame()
-          cli::cli_warn(glue::glue("No NCAA Schedule Information found for params (team_id: {teamid}, year = {year})"))
+          cli::cli_warn(glue::glue("No NCAA Schedule Information found for params (team_id: {team_id}, year = {year})"))
           return(sched)
         }
       }
@@ -160,7 +160,7 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL, ...){
         dplyr::filter(!(.data$Result %in% c("Canceled","Ppd")))
       
       if (nrow(sched) == 0) {
-        cli::cli_warn(glue::glue("No NCAA Schedule Information found for params (team_id: {teamid}, year = {year})"))
+        cli::cli_warn(glue::glue("No NCAA Schedule Information found for params (team_id: {team_id}, year = {year})"))
         return(sched)
       }
       
@@ -254,7 +254,7 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL, ...){
                            dplyr::distinct() %>% 
                            dplyr::select(
                              "OpponentName" = "team_name",
-                             "OpponentTeamId" = "team_id",
+                             "Opponentteam_id" = "team_id",
                              "OpponentConference" = "conference",
                              "OpponentConferenceId" = "conference_id",
                              "OpponentTeamSlug" = "team_url",
@@ -315,7 +315,7 @@ ncaa_schedule_info <- function(teamid = NULL, year = NULL, ...){
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided (team_id: {teamid}, year = {year})"))
+      message(glue::glue("{Sys.time()}: Invalid arguments provided (team_id: {team_id}, year = {year})"))
     },
     finally = {
     }

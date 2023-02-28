@@ -1,7 +1,7 @@
 #' @rdname ncaa_school_id_lu
 #' @title **Lookup NCAA baseball school IDs (Division I, II, and III)**
 #' @description This function allows the user to look up the `school_id` needed for the ```ncaa_scrape()``` function.
-#' @param school_name A string that will be searched for in the names of the schools.
+#' @param team_name A string that will be searched for in the names of the schools.
 #' @return Returns a tibble with school identification data: school, conference, school_id, year, division, conference_id
 #'  |col_name      |types     |
 #'  |:-------------|:---------|
@@ -18,9 +18,9 @@
 #'   try(ncaa_school_id_lu("Van"))
 #' }
 
-ncaa_school_id_lu <- function(school_name = NULL) {
+ncaa_school_id_lu <- function(team_name = NULL) {
   x <- load_ncaa_baseball_teams() %>%
-    dplyr::filter(grepl(school_name, .data$team_name))
+    dplyr::filter(grepl(team_name, .data$team_name))
   return(x)
 }
 

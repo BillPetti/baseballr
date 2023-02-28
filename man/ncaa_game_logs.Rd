@@ -70,6 +70,8 @@ as well as game by game statistics\tabular{ll}{
 \examples{
 \donttest{
   try(ncaa_game_logs(player_id = 2113782, year = 2021, type = "pitching", span = "game"))
+  try(ncaa_game_logs(player_id = 2113782, year = 2021, type = "pitching", span = "career"))
+  try(ncaa_game_logs(player_id = 1879650, year = 2019, type = "batting", span = "game"))
   try(ncaa_game_logs(player_id = 1879650, year = 2019, type = "batting", span = "career"))
 }
 }

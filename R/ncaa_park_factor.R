@@ -1,12 +1,13 @@
 #' @rdname ncaa_park_factor
 #' @title **Get Park Effects for NCAA Baseball Teams**
 #'
-#' @param teamid The team's unique NCAA id.
+#' @param team_id The team's unique NCAA id.
 #' @param years The season or seasons (i.e. use 2016 for the 2015-2016 season,
 #' etc., limited to just 2013-2020 seasons).
 #' @param type default is conference. the conference parameter adjusts for the conference
 #' the school plays in, the division parameter calculates based on the division the school plays in 1,2,or 3.
 #' Defaults to 'conference'.
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return A data frame with the following fields: school, home_game,
 #' away_game, runs_scored_home, runs_allowed_home, run_scored_away,
 #' runs_allowed_away, base_pf (base park factor), home_game_adj (an adjustment for the percentage of home games played) final_pf (park factor after adjustments)
@@ -26,13 +27,15 @@
 #' @importFrom janitor adorn_totals
 #' @export
 #' @examples \donttest{
-#'   try(ncaa_park_factor(teamid = 736, years = c(2017:2019), type = "conference"))
+#'   try(ncaa_park_factor(team_id = 736, years = c(2017:2019), type = "conference"))
 #' }
 
-ncaa_park_factor <- function(teamid, years, type = "conference") {
+ncaa_park_factor <- function(team_id, years, type = "conference") {
+  dots <- rlang::dots_list(..., .named = TRUE)
+  proxy <- dots$.proxy
   ncaa_team_lookup <- load_ncaa_baseball_teams()
   conference_pull <-  ncaa_team_lookup %>% 
-    dplyr::filter(.data$team_id == teamid) %>%
+    dplyr::filter(.data$team_id == team_id) %>%
     dplyr::select(
       "team_id",
       "conference_id",
@@ -54,7 +57,7 @@ ncaa_park_factor <- function(teamid, years, type = "conference") {
   
   
   school_name <- ncaa_team_lookup %>% 
-    dplyr::filter(.data$team_id == teamid) %>%
+    dplyr::filter(.data$team_id == team_id) %>%
     dplyr::select("team_name") %>%
     dplyr::distinct() %>% 
     dplyr::pull("team_name")
@@ -67,12 +70,12 @@ ncaa_park_factor <- function(teamid, years, type = "conference") {
   
   
   if (y == 1) {
-    df = suppressWarnings(baseballr::ncaa_schedule_info(teamid = teamid, year = years))
+    df = suppressWarnings(baseballr::ncaa_schedule_info(team_id = team_id, year = years, .proxy = proxy))
     
     df = df %>%
       dplyr::mutate(
-        home_game = ifelse(stringr::str_detect(.data$opponent,"\\@")==TRUE,0,1),
-        away_game = ifelse(.data$home_game==1,0,1),
+        home_game = ifelse(stringr::str_detect(.data$opponent,"\\@") == TRUE, 0, 1),
+        away_game = ifelse(.data$home_game == 1, 0, 1),
         score = stringr::str_squish(.data$score),
         score = stringr::str_remove_all(.data$score," "),
         runs_scored_home = as.numeric(ifelse(.data$home_game == 1, 
@@ -97,14 +100,14 @@ ncaa_park_factor <- function(teamid, years, type = "conference") {
     if (type == "division") {
       dfa = dfa %>% 
         dplyr::mutate(
-          base_pf = ((.data$runs_scored_home+.data$runs_allowed_home)/(.data$home_game))/((.data$runs_scored_away+.data$runs_allowed_away)/(.data$away_game)),
+          base_pf = ((.data$runs_scored_home + .data$runs_allowed_home)/(.data$home_game))/((.data$runs_scored_away + .data$runs_allowed_away)/(.data$away_game)),
           home_game_adj = ifelse(.data$base_pf > 1, 
-                                 .data$base_pf-(abs(.data$base_pf-1)*(.data$home_game/(.data$home_game+.data$away_game))), 
-                                 .data$base_pf+(abs(.data$base_pf-1)*(.data$home_game/(.data$home_game+.data$away_game)))),
-          final_pf = (1-(1-.data$home_game_adj)*.6),
-          base_pf = round(.data$base_pf,3),
-          home_game_adj = round(.data$home_game_adj,3),
-          final_pf = round(.data$final_pf,3)) %>% 
+                                 .data$base_pf - (abs(.data$base_pf - 1)*(.data$home_game/(.data$home_game + .data$away_game))), 
+                                 .data$base_pf + (abs(.data$base_pf - 1)*(.data$home_game/(.data$home_game + .data$away_game)))),
+          final_pf = (1 - (1 - .data$home_game_adj)*.6),
+          base_pf = round(.data$base_pf, 3),
+          home_game_adj = round(.data$home_game_adj, 3),
+          final_pf = round(.data$final_pf, 3)) %>% 
         dplyr::rename("school" = "score")
     } else {
       dfa = dfa %>% 
@@ -126,7 +129,7 @@ ncaa_park_factor <- function(teamid, years, type = "conference") {
     
   } else if (y == 2) {
     for (j in 1:length(years)) {
-      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(teamid = teamid, year = years[[j]]))
+      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(team_id = team_id, year = years[[j]], .proxy = proxy))
     }
     
     df = do.call(rbind,y_all)
@@ -188,7 +191,7 @@ ncaa_park_factor <- function(teamid, years, type = "conference") {
   } else if (y == 3) {
     
     for (j in 1:length(years)) {
-      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(teamid = teamid, year = years[[j]]))
+      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(team_id = team_id, year = years[[j]], .proxy = proxy))
     }
     
     df = do.call(rbind,y_all)
@@ -250,15 +253,15 @@ ncaa_park_factor <- function(teamid, years, type = "conference") {
   } else if(y == 4) {
     
     for (j in 1:length(years)) {
-      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(teamid = teamid, year = years[[j]]))
+      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(team_id = team_id, year = years[[j]], .proxy = proxy))
     }
     
-    df = do.call(rbind,y_all)
+    df = do.call(rbind, y_all)
     
     df = df %>%
       dplyr::mutate(
-        home_game = ifelse(stringr::str_detect(.data$opponent,"\\@")==TRUE,0,1),
-        away_game = ifelse(.data$home_game==1,0,1),
+        home_game = ifelse(stringr::str_detect(.data$opponent,"\\@") == TRUE,0,1),
+        away_game = ifelse(.data$home_game == 1,0,1),
         score = stringr::str_squish(.data$score),
         score = stringr::str_remove_all(.data$score," "),
         runs_scored_home = as.numeric(ifelse(.data$home_game == 1,
@@ -311,10 +314,10 @@ ncaa_park_factor <- function(teamid, years, type = "conference") {
     }
     
     return(dfa)
-  } else if(y >= 5) {
+  } else if (y >= 5) {
     
     for (j in 1:length(years)) {
-      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(teamid = teamid, year = years[[j]]))
+      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(team_id = team_id, year = years[[j]], .proxy = proxy))
     }
     
     df = do.call(rbind,y_all)

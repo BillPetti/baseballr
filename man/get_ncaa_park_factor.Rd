@@ -4,10 +4,10 @@
 \alias{get_ncaa_park_factor}
 \title{\strong{(legacy) Get Park Effects for NCAA Baseball Teams}}
 \usage{
-get_ncaa_park_factor(teamid, years, type = "conference")
+get_ncaa_park_factor(team_id, years, type = "conference")
 }
 \arguments{
-\item{teamid}{The team's unique NCAA id.}
+\item{team_id}{The team's unique NCAA id.}
 
 \item{years}{The season or seasons (i.e. use 2016 for the 2015-2016 season,
 etc., limited to just 2013-2020 seasons).}

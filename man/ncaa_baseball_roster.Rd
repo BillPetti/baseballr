@@ -4,12 +4,12 @@
 \alias{ncaa_baseball_roster}
 \title{\strong{Get NCAA Baseball Rosters}}
 \usage{
-ncaa_baseball_roster(teamid = NA_integer_, team_year, ...)
+ncaa_baseball_roster(team_id = NA_integer_, year, ...)
 }
 \arguments{
-\item{teamid}{NCAA id for a school}
+\item{team_id}{NCAA id for a school}
 
-\item{team_year}{The year of interest}
+\item{year}{The year of interest}
 
 \item{...}{Additional arguments passed to an underlying function like httr.}
 }
@@ -36,6 +36,6 @@ IDs and urls for each player (if available)\tabular{ll}{
 }
 \examples{
 \donttest{
-  try(ncaa_baseball_roster(teamid = 104, team_year = 2021))
+  try(ncaa_baseball_roster(team_id = 104, year = 2021))
 }
 }

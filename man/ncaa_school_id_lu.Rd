@@ -4,10 +4,10 @@
 \alias{ncaa_school_id_lu}
 \title{\strong{Lookup NCAA baseball school IDs (Division I, II, and III)}}
 \usage{
-ncaa_school_id_lu(school_name = NULL)
+ncaa_school_id_lu(team_name = NULL)
 }
 \arguments{
-\item{school_name}{A string that will be searched for in the names of the schools.}
+\item{team_name}{A string that will be searched for in the names of the schools.}
 }
 \value{
 Returns a tibble with school identification data: school, conference, school_id, year, division, conference_id\tabular{ll}{

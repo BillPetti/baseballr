@@ -4,10 +4,10 @@
 \alias{ncaa_park_factor}
 \title{\strong{Get Park Effects for NCAA Baseball Teams}}
 \usage{
-ncaa_park_factor(teamid, years, type = "conference")
+ncaa_park_factor(team_id, years, type = "conference")
 }
 \arguments{
-\item{teamid}{The team's unique NCAA id.}
+\item{team_id}{The team's unique NCAA id.}
 
 \item{years}{The season or seasons (i.e. use 2016 for the 2015-2016 season,
 etc., limited to just 2013-2020 seasons).}
@@ -38,6 +38,6 @@ runs_allowed_away, base_pf (base park factor), home_game_adj (an adjustment for 
 }
 \examples{
 \donttest{
-  try(ncaa_park_factor(teamid = 736, years = c(2017:2019), type = "conference"))
+  try(ncaa_park_factor(team_id = 736, years = c(2017:2019), type = "conference"))
 }
 }
