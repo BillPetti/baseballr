@@ -322,7 +322,7 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
           rvest::html_table()
         
         leaders <- leaders[-c(1,3),]
-        names(leaders) <- leaders[1,]
+        names(leaders) <- as.character(as.vector(leaders[1,]))
         leaders <- leaders[-1,]
         c <- as.matrix(names(leaders))
         c <- gsub("%", "_pct", c, fixed = TRUE)
@@ -381,7 +381,7 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
           rvest::html_table()
         
         leaders <- leaders[-c(1,3),]
-        names(leaders) <- leaders[1,]
+        names(leaders) <- as.character(as.vector(leaders[1,]))
         leaders <- leaders[-1,]
         leaders <- leaders[,-c(4)] # Remove age
         c <- as.matrix(names(leaders))

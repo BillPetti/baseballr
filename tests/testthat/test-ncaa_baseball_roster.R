@@ -1,6 +1,6 @@
 
 cols <- c(
-  "name",
+  "player_name",
   "class",
   "player_id",
   "season",
@@ -13,6 +13,7 @@ cols <- c(
   "conference_id",
   "conference",
   "division",
+  "year",
   "season_id"
 )
 

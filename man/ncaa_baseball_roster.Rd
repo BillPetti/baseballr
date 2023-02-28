@@ -17,7 +17,7 @@ ncaa_baseball_roster(team_id = NA_integer_, year, ...)
 A data frame containing roster information, including
 IDs and urls for each player (if available)\tabular{ll}{
    col_name \tab types \cr
-   name \tab character \cr
+   player_name \tab character \cr
    class \tab character \cr
    player_id \tab character \cr
    season \tab numeric \cr

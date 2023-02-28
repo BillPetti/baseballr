@@ -1,7 +1,7 @@
 
 cols <- c(
   "year",
-  "playerName",
+  "player_name",
   "position",
   "slug",
   "batting_order",

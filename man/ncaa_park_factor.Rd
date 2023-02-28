@@ -15,6 +15,8 @@ etc., limited to just 2013-2020 seasons).}
 \item{type}{default is conference. the conference parameter adjusts for the conference
 the school plays in, the division parameter calculates based on the division the school plays in 1,2,or 3.
 Defaults to 'conference'.}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 A data frame with the following fields: school, home_game,

@@ -5,43 +5,45 @@
 #' @param type A string indicating whether to return "batting" or "pitching" statistics
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return A data frame with the following variables
-#'  |col_name      |types     |
-#'  |:-------------|:---------|
-#'  |year          |integer   |
-#'  |school        |character |
-#'  |conference    |character |
-#'  |division      |numeric   |
-#'  |Jersey        |character |
-#'  |Player        |character |
-#'  |Yr            |character |
-#'  |Pos           |character |
-#'  |GP            |numeric   |
-#'  |GS            |numeric   |
-#'  |BA            |numeric   |
-#'  |OBPct         |numeric   |
-#'  |SlgPct        |numeric   |
-#'  |R             |numeric   |
-#'  |AB            |numeric   |
-#'  |H             |numeric   |
-#'  |2B            |numeric   |
-#'  |3B            |numeric   |
-#'  |TB            |numeric   |
-#'  |HR            |numeric   |
-#'  |RBI           |numeric   |
-#'  |BB            |numeric   |
-#'  |HBP           |numeric   |
-#'  |SF            |numeric   |
-#'  |SH            |numeric   |
-#'  |K             |numeric   |
-#'  |DP            |numeric   |
-#'  |CS            |numeric   |
-#'  |Picked        |numeric   |
-#'  |SB            |numeric   |
-#'  |RBI2out       |numeric   |
-#'  |team_id       |numeric   |
-#'  |conference_id |integer   |
-#'  |player_id     |integer   |
-#'  |player_url    |character |
+#'  
+#'    |col_name      |types     |
+#'    |:-------------|:---------|
+#'    |year          |integer   |
+#'    |team_name     |character |
+#'    |team_id       |numeric   |
+#'    |conference_id |integer   |
+#'    |conference    |character |
+#'    |division      |numeric   |
+#'    |player_id     |integer   |
+#'    |player_url    |character |
+#'    |player_name   |character |
+#'    |Yr            |character |
+#'    |Pos           |character |
+#'    |Jersey        |character |
+#'    |GP            |numeric   |
+#'    |GS            |numeric   |
+#'    |BA            |numeric   |
+#'    |OBPct         |numeric   |
+#'    |SlgPct        |numeric   |
+#'    |R             |numeric   |
+#'    |AB            |numeric   |
+#'    |H             |numeric   |
+#'    |2B            |numeric   |
+#'    |3B            |numeric   |
+#'    |TB            |numeric   |
+#'    |HR            |numeric   |
+#'    |RBI           |numeric   |
+#'    |BB            |numeric   |
+#'    |HBP           |numeric   |
+#'    |SF            |numeric   |
+#'    |SH            |numeric   |
+#'    |K             |numeric   |
+#'    |DP            |numeric   |
+#'    |CS            |numeric   |
+#'    |Picked        |numeric   |
+#'    |SB            |numeric   |
+#'    |RBI2out       |numeric   |
+#'  
 #' @import dplyr
 #' @import rvest
 #' @importFrom stringr str_split
@@ -204,11 +206,27 @@ ncaa_scrape <- function(team_id, year = most_recent_ncaa_baseball_season(), type
       
       df <- df %>% 
         dplyr::left_join(player_url_comb, by = c('Player' = 'player_names_join'))
+      df <- df %>% 
+        dplyr::rename("player_name" = "Player")
       
       df <- df %>%
         dplyr::mutate_at(vars(player_url), as.character) %>%
         dplyr::mutate_at(c("conference_id", "player_id", "year"), as.integer) %>%
-        make_baseballr_data(glue::glue("NCAA Baseball Team {stringr::str_to_title(type)} Stats data from stats.ncaa.org"),Sys.time())
+        dplyr::select(
+          "year",
+          "team_name",
+          "team_id",
+          "conference_id",
+          "conference",
+          "division",
+          "player_id",
+          "player_url",
+          "player_name",
+          "Yr",
+          "Pos",
+          "Jersey",
+          tidyr::everything()) %>% 
+      make_baseballr_data(glue::glue("NCAA Baseball Team {stringr::str_to_title(type)} Stats data from stats.ncaa.org"),Sys.time())
       
     },
     error = function(e) {

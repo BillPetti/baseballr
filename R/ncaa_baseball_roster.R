@@ -7,7 +7,7 @@
 #' IDs and urls for each player (if available)
 #'  |col_name      |types     |
 #'  |:-------------|:---------|
-#'  |name          |character |
+#'  |player_name   |character |
 #'  |class         |character |
 #'  |player_id     |character |
 #'  |season        |numeric   |
@@ -34,14 +34,13 @@ ncaa_baseball_roster <- function(team_id = NA_integer_, year, ...){
   season_ids <- load_ncaa_baseball_season_ids()
   
   id <- season_ids %>% 
-    dplyr::filter(.data$season == year) %>% 
+    dplyr::filter(.data$season == {{year}}) %>% 
     dplyr::select("id")
   
   ncaa_teams_lookup <- load_ncaa_baseball_teams()
   
   school_info <- ncaa_teams_lookup %>% 
-    dplyr::filter(.data$team_id == team_id & .data$year == year) %>%
-    dplyr::select(-"year") %>%
+    dplyr::filter(.data$team_id == {{team_id}} & .data$year == {{year}}) %>%
     dplyr::distinct()
   
   url <- paste0("https://stats.ncaa.org/team/", team_id, "/roster/", id)
@@ -87,7 +86,7 @@ ncaa_baseball_roster <- function(team_id = NA_integer_, year, ...){
       roster <- payload_table %>% 
         dplyr::bind_cols(url_slug) %>% 
         dplyr::rename(
-          "name" = "Player",
+          "player_name" = "Player",
           "class" = "Yr",
           "position" = "Pos",
           "games_played" = "GP",
@@ -95,11 +94,11 @@ ncaa_baseball_roster <- function(team_id = NA_integer_, year, ...){
           "number" = "Jersey")
       roster <- roster %>%
         dplyr::mutate(
-          season = year,
+          season =  {{year}},
           player_id = gsub(".*stats_player_seq=\\s*", "", .data$url_slug),
           player_url = ifelse(is.na(.data$player_id), NA, paste0("https://stats.ncaa.org", .data$url_slug))) %>%
         dplyr::select(
-          "name", 
+          "player_name", 
           "class", 
           "player_id", 
           "season",

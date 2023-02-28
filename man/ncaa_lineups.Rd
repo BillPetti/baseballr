@@ -15,7 +15,7 @@ ncaa_lineups(game_info_url, ...)
 Returns a tibble of each school's starting lineup and starting pitcher\tabular{ll}{
    col_name \tab types \cr
    year \tab numeric \cr
-   playerName \tab character \cr
+   player_name \tab character \cr
    position \tab character \cr
    slug \tab character \cr
    batting_order \tab character \cr

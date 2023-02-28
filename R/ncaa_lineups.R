@@ -7,7 +7,7 @@
 #'  |col_name      |types     |
 #'  |:-------------|:---------|
 #'  |year          |numeric   |
-#'  |playerName    |character |
+#'  |player_name   |character |
 #'  |position      |character |
 #'  |slug          |character |
 #'  |batting_order |character |
@@ -93,12 +93,12 @@ ncaa_lineups <- function(game_info_url, ...) {
       first_team_table <- first_team %>% 
         rvest::html_table(trim=FALSE) %>% 
         dplyr::rename(
-          "playerName" = "X1",
+          "player_name" = "X1",
           "position" = "X2") %>% 
         dplyr::mutate(
-          team_name = .data$playerName[1]) %>% 
+          team_name = .data$player_name[1]) %>% 
         dplyr::select(
-          "playerName",
+          "player_name",
           "position",
           "team_name")
       first_team_rows <- first_team %>% 
@@ -112,9 +112,9 @@ ncaa_lineups <- function(game_info_url, ...) {
       first_team_table <- first_team_table[c(-1:-2,-nrow(first_team_table)),]
       first_team_table = first_team_table %>% 
         dplyr::mutate(
-          playerName = stringr::str_remove_all(.data$playerName, "\\n"),
-          sub = ifelse(stringr::str_starts(.data$playerName, "[[:space:]]") == TRUE, 1, 0),
-          playerName = stringr::str_squish(.data$playerName))
+          player_name = stringr::str_remove_all(.data$player_name, "\\n"),
+          sub = ifelse(stringr::str_starts(.data$player_name, "[[:space:]]") == TRUE, 1, 0),
+          player_name = stringr::str_squish(.data$player_name))
       
       first_team_table = first_team_table %>% 
         dplyr::filter(.data$sub == 0) %>% 
@@ -129,12 +129,12 @@ ncaa_lineups <- function(game_info_url, ...) {
       second_team_table <- second_team %>% 
         rvest::html_table(trim = FALSE) %>% 
         dplyr::rename(
-          "playerName" = "X1",
+          "player_name" = "X1",
           "position" = "X2") %>% 
         dplyr::mutate(
-          team_name = .data$playerName[1]) %>% 
+          team_name = .data$player_name[1]) %>% 
         dplyr::select(
-          "playerName",
+          "player_name",
           "position",
           "team_name")
       
@@ -150,9 +150,9 @@ ncaa_lineups <- function(game_info_url, ...) {
       second_team_table <- second_team_table[c(-1:-2,-nrow(second_team_table)),]
       second_team_table <-  second_team_table %>% 
         dplyr::mutate(
-          playerName = stringr::str_remove_all(.data$playerName, "\\n"),
-          sub = ifelse(stringr::str_starts(.data$playerName, "[[:space:]]") == TRUE, 1, 0),
-          playerName = stringr::str_squish(.data$playerName))
+          player_name = stringr::str_remove_all(.data$player_name, "\\n"),
+          sub = ifelse(stringr::str_starts(.data$player_name, "[[:space:]]") == TRUE, 1, 0),
+          player_name = stringr::str_squish(.data$player_name))
       
       second_team_table = second_team_table  %>% 
         dplyr::filter(.data$sub == 0) %>% 
@@ -176,7 +176,7 @@ ncaa_lineups <- function(game_info_url, ...) {
       lineup_table <- lineup_table %>% 
         dplyr::select(
           "year",
-          "playerName",
+          "player_name",
           "position",
           "slug",
           "batting_order",

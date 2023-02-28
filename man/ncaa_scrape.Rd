@@ -24,13 +24,17 @@ ncaa_scrape(
 A data frame with the following variables\tabular{ll}{
    col_name \tab types \cr
    year \tab integer \cr
-   school \tab character \cr
+   team_name \tab character \cr
+   team_id \tab numeric \cr
+   conference_id \tab integer \cr
    conference \tab character \cr
    division \tab numeric \cr
-   Jersey \tab character \cr
-   Player \tab character \cr
+   player_id \tab integer \cr
+   player_url \tab character \cr
+   player_name \tab character \cr
    Yr \tab character \cr
    Pos \tab character \cr
+   Jersey \tab character \cr
    GP \tab numeric \cr
    GS \tab numeric \cr
    BA \tab numeric \cr
@@ -54,10 +58,6 @@ A data frame with the following variables\tabular{ll}{
    Picked \tab numeric \cr
    SB \tab numeric \cr
    RBI2out \tab numeric \cr
-   team_id \tab numeric \cr
-   conference_id \tab integer \cr
-   player_id \tab integer \cr
-   player_url \tab character \cr
 }
 }
 \description{
