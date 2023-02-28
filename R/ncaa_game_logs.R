@@ -148,7 +148,8 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...
           payload_df <- payload_df %>%
             dplyr::mutate(
               player_id = player_id,
-              player_name = player_name) %>%
+              player_name = player_name,
+              Year = year) %>%
             dplyr::select("player_id", "player_name", tidyr::everything())
           
         } else {

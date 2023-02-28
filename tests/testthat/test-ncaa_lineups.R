@@ -5,12 +5,18 @@ cols <- c(
   "position",
   "slug",
   "batting_order",
-  "school",
+  "team_name",
   "sub",
   "attendance",
   "game_date",
   "location",
-  "player_id"
+  "player_id",
+  "team_id",
+  "team_url",
+  "conference_id",
+  "conference",
+  "division",
+  "season_id"
 )
 
 test_that("NCAA Batting Lineups", {

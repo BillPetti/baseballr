@@ -6,6 +6,9 @@
   - ```load_ncaa_baseball_schedule()```
  * Under the hood fixes for ```mlb_venues()```, ```fg_team_batter()```, ```chadwick_player_lu()```
  * ```chadwick_player_lu()``` function updated to address data source change
+ * ```ncaa_lineups()``` function removes the `year` parameter (was unnecessary)
+ * `ncaa_*()` functions now return `team_id` and `team_name` instead of `school_id` and `school`
+* Add `.proxy` rlang dots option for passing ```httr::use_proxy()`` option to `ncaa_*()` functions
 
 # baseballr 1.4.0
  * Minor updates under the hood for tidyselect version changes affecting dplyr and tidyr functions under the hood

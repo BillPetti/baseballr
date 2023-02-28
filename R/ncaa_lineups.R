@@ -3,13 +3,27 @@
 #' @param game_info_url The unique game info url
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return Returns a tibble of each school's starting lineup and starting pitcher
+#' 
 #'  |col_name      |types     |
 #'  |:-------------|:---------|
 #'  |year          |numeric   |
 #'  |playerName    |character |
 #'  |position      |character |
+#'  |slug          |character |
 #'  |batting_order |character |
-#'  |school        |character |
+#'  |team_name     |character |
+#'  |sub           |numeric   |
+#'  |attendance    |character |
+#'  |game_date     |character |
+#'  |location      |character |
+#'  |player_id     |integer   |
+#'  |team_id       |numeric   |
+#'  |team_url      |character |
+#'  |conference_id |numeric   |
+#'  |conference    |character |
+#'  |division      |numeric   |
+#'  |season_id     |numeric   |
+#' 
 #' @importFrom stringr str_detect str_squish str_starts str_remove_all str_split_fixed
 #' @import rvest
 #' @export
@@ -22,7 +36,7 @@ ncaa_lineups <- function(game_info_url, ...) {
   dots <- rlang::dots_list(..., .named = TRUE)
   proxy <- dots$.proxy
   url <- game_info_url
-  
+  ncaa_teams <- load_ncaa_baseball_teams()
   tryCatch(
     expr = {
       if (stringr::str_detect(game_info_url,"contests")){
@@ -82,11 +96,11 @@ ncaa_lineups <- function(game_info_url, ...) {
           "playerName" = "X1",
           "position" = "X2") %>% 
         dplyr::mutate(
-          school = .data$playerName[1]) %>% 
+          team_name = .data$playerName[1]) %>% 
         dplyr::select(
           "playerName",
           "position",
-          "school")
+          "team_name")
       first_team_rows <- first_team %>% 
         rvest::html_elements("tr")
       
@@ -118,11 +132,11 @@ ncaa_lineups <- function(game_info_url, ...) {
           "playerName" = "X1",
           "position" = "X2") %>% 
         dplyr::mutate(
-          school = .data$playerName[1]) %>% 
+          team_name = .data$playerName[1]) %>% 
         dplyr::select(
           "playerName",
           "position",
-          "school")
+          "team_name")
       
       second_team_rows <- second_team %>% 
         rvest::html_elements("tr")
@@ -152,11 +166,12 @@ ncaa_lineups <- function(game_info_url, ...) {
         dplyr::bind_rows(second_team_table) %>% 
         dplyr::bind_cols(game_info) %>% 
         dplyr::mutate(
-          year = as.integer(stringr::str_extract(game_date, "\\d{4}")),
-          school = stringr::str_squish(.data$school),
+          year = as.integer(stringr::str_extract(.data$game_date, "\\d{4}")),
+          team_name = stringr::str_squish(.data$team_name),
           player_id = as.integer(stringr::str_extract(.data$slug, "(?<=&stats_player_seq=)\\d+")))
       
-      
+      lineup_table <- lineup_table %>% 
+        dplyr::left_join(ncaa_teams, by = c("team_name" = "team_name", "year" = "year"))
       
       lineup_table <- lineup_table %>% 
         dplyr::select(
@@ -165,7 +180,7 @@ ncaa_lineups <- function(game_info_url, ...) {
           "position",
           "slug",
           "batting_order",
-          "school",
+          "team_name",
           tidyr::everything()) %>%
         make_baseballr_data("NCAA Baseball Lineups data from stats.ncaa.org",Sys.time())
       

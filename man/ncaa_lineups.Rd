@@ -17,8 +17,20 @@ Returns a tibble of each school's starting lineup and starting pitcher\tabular{l
    year \tab numeric \cr
    playerName \tab character \cr
    position \tab character \cr
+   slug \tab character \cr
    batting_order \tab character \cr
-   school \tab character \cr
+   team_name \tab character \cr
+   sub \tab numeric \cr
+   attendance \tab character \cr
+   game_date \tab character \cr
+   location \tab character \cr
+   player_id \tab integer \cr
+   team_id \tab numeric \cr
+   team_url \tab character \cr
+   conference_id \tab numeric \cr
+   conference \tab character \cr
+   division \tab numeric \cr
+   season_id \tab numeric \cr
 }
 }
 \description{
