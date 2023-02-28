@@ -4,7 +4,7 @@
 \alias{get_ncaa_park_factor}
 \title{\strong{(legacy) Get Park Effects for NCAA Baseball Teams}}
 \usage{
-get_ncaa_park_factor(team_id, years, type = "conference")
+get_ncaa_park_factor(team_id, years, type = "conference", ...)
 }
 \arguments{
 \item{team_id}{The team's unique NCAA id.}
@@ -15,6 +15,8 @@ etc., limited to just 2013-2020 seasons).}
 \item{type}{default is conference. the conference parameter adjusts for the conference
 the school plays in, the division parameter calculates based on the division the school plays in 1,2,or 3.
 Defaults to 'conference'.}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 A data frame with the following fields: school, home_game,

@@ -30,7 +30,7 @@
 #'   try(ncaa_park_factor(team_id = 736, years = c(2017:2019), type = "conference"))
 #' }
 
-ncaa_park_factor <- function(team_id, years, type = "conference") {
+ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
   dots <- rlang::dots_list(..., .named = TRUE)
   proxy <- dots$.proxy
   ncaa_team_lookup <- load_ncaa_baseball_teams()

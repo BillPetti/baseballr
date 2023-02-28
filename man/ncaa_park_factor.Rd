@@ -4,7 +4,7 @@
 \alias{ncaa_park_factor}
 \title{\strong{Get Park Effects for NCAA Baseball Teams}}
 \usage{
-ncaa_park_factor(team_id, years, type = "conference")
+ncaa_park_factor(team_id, years, type = "conference", ...)
 }
 \arguments{
 \item{team_id}{The team's unique NCAA id.}
