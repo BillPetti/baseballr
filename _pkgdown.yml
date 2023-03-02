@@ -374,6 +374,7 @@ reference:
       - '`csv_from_url`'
       - '`rds_from_url`'
       - '`progressively`'
+      - '`request_with_proxy`'
   - title: Legacy
   - subtitle: Legacy Functions
     desc: Functions superseded by new naming convention

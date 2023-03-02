@@ -3,6 +3,7 @@
 #' @description This function allows the user to look up the `school_id` needed for the ```ncaa_scrape()``` function.
 #' @param team_name A string that will be searched for in the names of the schools.
 #' @return Returns a tibble with school identification data: school, conference, school_id, year, division, conference_id
+#' 
 #'  |col_name      |types     |
 #'  |:-------------|:---------|
 #'  |team_id       |numeric   |
@@ -13,6 +14,7 @@
 #'  |division      |numeric   |
 #'  |year          |numeric   |
 #'  |season_id     |numeric   |
+#'  
 #' @export
 #' @examples \donttest{
 #'   try(ncaa_school_id_lu("Van"))

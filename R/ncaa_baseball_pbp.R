@@ -44,8 +44,7 @@ ncaa_baseball_pbp <- function(game_info_url = NA_character_,
                               file = NA_character_,
                               ...) {
   
-  dots <- rlang::dots_list(..., .named = TRUE)
-  proxy <- dots$.proxy
+  headers <- httr::add_headers(.headers = .ncaa_headers())
   
   tryCatch(
     expr = {
@@ -56,9 +55,8 @@ ncaa_baseball_pbp <- function(game_info_url = NA_character_,
       if (read_from_file == FALSE && !is.na(game_info_url)) {
         contest_id <- as.integer(stringr::str_extract(game_info_url, "\\d+"))
         
-        
-        game_info_resp <- httr::RETRY("GET", url = game_info_url, proxy, httr::add_headers(.headers = .ncaa_headers()))
-        
+        game_info_resp <- request_with_proxy(url = game_info_url, ..., headers)
+
         check_status(game_info_resp)
         
         init_payload <- game_info_resp %>% 
@@ -73,7 +71,7 @@ ncaa_baseball_pbp <- function(game_info_url = NA_character_,
           dplyr::mutate(game_pbp_url = paste0("https://stats.ncaa.org", .data$pbp_url_slug)) %>%
           dplyr::pull(.data$game_pbp_url)
         
-        pbp_payload_resp <- httr::RETRY("GET", url = game_pbp_url, proxy, httr::add_headers(.headers = .ncaa_headers()))
+        pbp_payload_resp <-  request_with_proxy(url = game_pbp_url, ..., headers)
         
         check_status(pbp_payload_resp)
         
@@ -88,7 +86,7 @@ ncaa_baseball_pbp <- function(game_info_url = NA_character_,
       }
       if (read_from_file == FALSE && !is.na(game_pbp_url)) {
         payload <- game_pbp_url
-        pbp_payload_resp <- httr::RETRY("GET", url = game_pbp_url, proxy, httr::add_headers(.headers = .ncaa_headers()))
+        pbp_payload_resp <- request_with_proxy(url = game_pbp_url, ..., headers)
         
         check_status(pbp_payload_resp)
         

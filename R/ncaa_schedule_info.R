@@ -39,27 +39,26 @@
 #' @export
 #' @details 
 #' ```r
-#'  try(ncaa_schedule_info(team_id = 736, year = 2019))
+#'  x <- try(ncaa_schedule_info(team_id = 736, year = 2019))
 #' ````
 
 ncaa_schedule_info <- function(team_id = NULL, year = NULL, ...){
-  dots <- rlang::dots_list(..., .named = TRUE)
-  proxy <- dots$.proxy
-  
+
   season_ids <- load_ncaa_baseball_season_ids()
   id <- subset(season_ids, season_ids$season == year, select = id)
   year2 <- year
   ncaa_baseball_teams <- load_ncaa_baseball_teams()
   school_info <- ncaa_baseball_teams %>% 
-    dplyr::filter(.data$team_id == team_id, as.integer(.data$year) == as.integer(year2)) %>%
+    dplyr::filter(.data$team_id == {{team_id}}, as.integer(.data$year) == as.integer(year2)) %>%
     dplyr::distinct() %>% 
     dplyr::first()
   
   url <- paste0("https://stats.ncaa.org/team/", team_id, "/", id)
   
+  headers <- httr::add_headers(.headers = .ncaa_headers())
   tryCatch(
     expr = {
-      content <- httr::RETRY("GET", url = url, proxy, httr::add_headers(.headers = .ncaa_headers()))
+      content <- request_with_proxy(url = url, ..., headers)
       
       check_status(content)
       
@@ -173,7 +172,7 @@ ncaa_schedule_info <- function(team_id = NULL, year = NULL, ...){
         if (!is.na(x)) {
           contest_id <- as.integer(stringr::str_extract(x, "\\d+"))
           
-          content <- httr::RETRY("GET", url = x, proxy, httr::add_headers(.headers = .ncaa_headers()))
+          content <- request_with_proxy(url = x, ..., headers)
           
           check_status(content)
           
@@ -254,7 +253,7 @@ ncaa_schedule_info <- function(team_id = NULL, year = NULL, ...){
                            dplyr::distinct() %>% 
                            dplyr::select(
                              "OpponentName" = "team_name",
-                             "Opponentteam_id" = "team_id",
+                             "OpponentTeamId" = "team_id",
                              "OpponentConference" = "conference",
                              "OpponentConferenceId" = "conference_id",
                              "OpponentTeamSlug" = "team_url",

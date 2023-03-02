@@ -55,13 +55,12 @@
 
 ncaa_scrape <- function(team_id, year = most_recent_ncaa_baseball_season(), type = 'batting', ...) {
   
-  dots <- rlang::dots_list(..., .named = TRUE)
-  proxy <- dots$.proxy
+  
   
   if (year < 2013) {
     stop('you must provide a year that is greater than or equal to 2013')
   }
-  
+  headers <- httr::add_headers(.headers = .ncaa_headers())
   tryCatch(
     expr = {
       if (type == "batting") {
@@ -72,7 +71,8 @@ ncaa_scrape <- function(team_id, year = most_recent_ncaa_baseball_season(), type
           dplyr::filter(.data$season == year) %>% 
           dplyr::select("batting_id")
         url <- paste0("http://stats.ncaa.org/team/",team_id,"/stats?game_sport_year_ctl_id=", id, "&id=", id)
-        team_stats_resp <- httr::RETRY("GET", url = url, proxy, httr::add_headers(.headers = .ncaa_headers()))
+        
+        team_stats_resp <- request_with_proxy(url = url, ..., headers)
         
         check_status(team_stats_resp)
         
@@ -133,7 +133,8 @@ ncaa_scrape <- function(team_id, year = most_recent_ncaa_baseball_season(), type
           dplyr::filter(.data$season == year) %>% 
           dplyr::select("pitching_id")
         url <- paste0("http://stats.ncaa.org/team/", team_id, "/stats?id=", year_id, "&year_stat_category_id=", type_id)
-        team_stats_resp <- httr::RETRY("GET", url = url, proxy, httr::add_headers(.headers = .ncaa_headers()))
+        
+        team_stats_resp <- request_with_proxy(url = url, ..., headers)
         
         check_status(team_stats_resp)
         

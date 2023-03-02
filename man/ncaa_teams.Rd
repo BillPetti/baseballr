@@ -4,12 +4,14 @@
 \alias{ncaa_teams}
 \title{\strong{Scrape NCAA baseball Teams (Division I, II, and III)}}
 \usage{
-ncaa_teams(year = most_recent_ncaa_baseball_season(), division = 1)
+ncaa_teams(year = most_recent_ncaa_baseball_season(), division = 1, ...)
 }
 \arguments{
 \item{year}{The season for which data should be returned, in the form of "YYYY". Years currently available: 2002 onward.}
 
 \item{division}{Division - 1, 2, 3}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 A data frame with the following variables\tabular{ll}{
@@ -26,4 +28,8 @@ A data frame with the following variables\tabular{ll}{
 }
 \description{
 This function allows the user to obtain NCAA teams by year and division
+}
+\details{
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ncaa_teams(2023, 1)
+}\if{html}{\out{</div>}}
 }

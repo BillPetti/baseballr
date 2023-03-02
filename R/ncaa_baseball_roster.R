@@ -5,6 +5,7 @@
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return A data frame containing roster information, including
 #' IDs and urls for each player (if available)
+#' 
 #'  |col_name      |types     |
 #'  |:-------------|:---------|
 #'  |player_name   |character |
@@ -19,6 +20,7 @@
 #'  |team_id       |numeric   |
 #'  |division      |numeric   |
 #'  |conference_id |numeric   |
+#'  
 #' @importFrom tibble tibble
 #' @import rvest
 #' @export
@@ -28,8 +30,6 @@
 #' }
 
 ncaa_baseball_roster <- function(team_id = NA_integer_, year, ...){
-  dots <- rlang::dots_list(..., .named = TRUE)
-  proxy <- dots$.proxy
   
   season_ids <- load_ncaa_baseball_season_ids()
   
@@ -45,9 +45,11 @@ ncaa_baseball_roster <- function(team_id = NA_integer_, year, ...){
   
   url <- paste0("https://stats.ncaa.org/team/", team_id, "/roster/", id)
   
+  headers <- httr::add_headers(.headers = .ncaa_headers())
+  
   tryCatch(
     expr = {
-      roster_resp <- httr::RETRY("GET", url = url, proxy, httr::add_headers(.headers = .ncaa_headers()))
+      roster_resp <- request_with_proxy(url = url, ..., headers)
       
       check_status(roster_resp)
       

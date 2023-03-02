@@ -4,6 +4,7 @@
 #' @param team_abbr Team abbreviation
 #' @param year Year to load
 #' @return A data frame of contract data.
+#' 
 #'  |col_name           |types     |
 #'  |:------------------|:---------|
 #'  |year               |numeric   |
@@ -21,12 +22,13 @@
 #'  |payroll_percent    |numeric   |
 #'  |lux_tax_salary     |numeric   |
 #'  |total_salary       |numeric   |
+#'  
 #' @import rvest 
 #' @import dplyr
 #' @importFrom janitor clean_names
 #' @export
 #' @examples \donttest{
-#'   try(sptrc_team_active_payroll(team_abbr = "BAL", year = most_recent_mlb_season()))
+#'   x <- try(sptrc_team_active_payroll(team_abbr = "BAL", year = most_recent_mlb_season()))
 #' }
 sptrc_team_active_payroll <- function(team_abbr, year = most_recent_mlb_season()){
   

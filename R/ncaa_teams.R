@@ -2,7 +2,9 @@
 #' @description This function allows the user to obtain NCAA teams by year and division
 #' @param year The season for which data should be returned, in the form of "YYYY". Years currently available: 2002 onward.
 #' @param division Division - 1, 2, 3
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return A data frame with the following variables
+#' 
 #'    |col_name      |types     |
 #'    |:-------------|:---------|
 #'    |team_id       |character |
@@ -13,17 +15,25 @@
 #'    |division      |numeric   |
 #'    |year          |numeric   |
 #'    |season_id     |character |
+#'    
 #' @import dplyr
 #' @import rvest
 #' @importFrom stringr str_split
 #' @export
+#' @details 
+#' ```r
+#' ncaa_teams(2023, 1)
+#' ```
 
-ncaa_teams <- function(year = most_recent_ncaa_baseball_season(), division = 1) {
+ncaa_teams <- function(year = most_recent_ncaa_baseball_season(), division = 1, ...) {
   
   if (year < 2002) {
     stop('you must provide a year that is equal to or greater than 2002')
   }
+  
   df <- data.frame()
+  
+  headers <- httr::add_headers(.headers = .ncaa_headers())
   tryCatch(
     expr = {
       
@@ -34,7 +44,10 @@ ncaa_teams <- function(year = most_recent_ncaa_baseball_season(), division = 1) 
                     "&division=", division,
                     "&sport_code=MBA")
       
-      data_read <- url %>% 
+      resp <- request_with_proxy(url = url, ..., headers)
+      
+      data_read <- resp %>% 
+        httr::content(as = "text", encoding = "UTF-8") %>% 
         xml2::read_html()      
       
       team_urls <- data_read %>% 
@@ -68,14 +81,17 @@ ncaa_teams <- function(year = most_recent_ncaa_baseball_season(), division = 1) 
                                  "&conf_id=", x,
                                  "&division=", division,
                                  "&sport_code=MBA")
+        resp <- request_with_proxy(url = conf_team_urls, ..., headers)
         
-        team_urls <- conf_team_urls %>% 
+        team_urls <- resp %>% 
+          httr::content(as = "text", encoding = "UTF-8") %>% 
           xml2::read_html() %>% 
           rvest::html_elements("table") %>% 
           rvest::html_elements("a") %>% 
           rvest::html_attr("href")
         
-        team_names <- conf_team_urls %>% 
+        team_names <- resp %>% 
+          httr::content(as = "text", encoding = "UTF-8") %>% 
           xml2::read_html() %>% 
           rvest::html_elements("table") %>% 
           rvest::html_elements("a") %>% 

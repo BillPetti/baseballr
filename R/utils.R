@@ -1,5 +1,20 @@
 .datatable.aware <- TRUE
 
+#' @title
+#' **Retry http request with proxy**
+#' @description
+#' This is a thin wrapper on httr::RETRY
+#' @param url Request url
+#' @param ... passed to httr::RETRY
+#' @keywords internal
+#' @importFrom httr RETRY
+request_with_proxy <- function(url, ...){
+  dots <- rlang::dots_list(..., .named = TRUE)
+  proxy <- dots$proxy
+  headers <- dots$headers
+  httr::RETRY("GET", url = {{url}}, proxy, headers)
+}
+
 #' @title **Progressively**
 #'
 #' @description This function helps add progress-reporting to any function - given function `f()` and progressor `p()`, it will return a new function that calls `f()` and then (on-exiting) will call `p()` after every iteration.

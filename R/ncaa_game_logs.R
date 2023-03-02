@@ -10,6 +10,7 @@
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return A data frame containing player and school information
 #' as well as game by game statistics
+#' 
 #'  |col_name      |types     |
 #'  |:-------------|:---------|
 #'  |player_id     |numeric   |
@@ -50,6 +51,7 @@
 #'  |OrdAppeared   |numeric   |
 #'  |KL            |numeric   |
 #'  |pickoffs      |character |
+#'  
 #' @importFrom tibble tibble
 #' @importFrom tidyr extract_numeric
 #' @import rvest
@@ -63,8 +65,7 @@
 
 ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...) {
   
-  dots <- rlang::dots_list(..., .named = TRUE)
-  proxy <- dots$.proxy
+  
   
   season_ids <- load_ncaa_baseball_season_ids()
   year_id <- season_ids %>% 
@@ -77,12 +78,13 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...
     dplyr::filter(.data$season == year) %>% 
     dplyr::select("pitching_id")
   
+  headers <- httr::add_headers(.headers = .ncaa_headers())
   tryCatch(
     expr = {
       if (type == "batting") {
         
         batting_url <- paste0("https://stats.ncaa.org/player/index?id=", year_id,"&stats_player_seq=", player_id,"&year_stat_category_id=", batting_id)
-        batting_resp <- httr::RETRY("GET", url = batting_url, proxy, httr::add_headers(.headers = .ncaa_headers()))
+        batting_resp <- request_with_proxy(url = batting_url, ..., headers)
         
         check_status(batting_resp)
         
@@ -92,14 +94,14 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...
         
         player_name <- ((batting_payload %>% 
                            rvest::html_elements("select"))[3] %>% 
-                          rvest::html_elements(xpath="//option[@selected]") %>% 
+                          rvest::html_elements(xpath = "//option[@selected]") %>% 
                           rvest::html_text())[3]
         player_name <- stringr::str_remove(stringr::str_extract(player_name,".*(?<= #)")," #")
       } else {
         
         pitching_url <- paste0("https://stats.ncaa.org/player/index?id=", year_id,"&stats_player_seq=", player_id,"&year_stat_category_id=", pitching_id)
         
-        pitching_resp <- httr::RETRY("GET", url = pitching_url, proxy, httr::add_headers(.headers = .ncaa_headers()))
+        pitching_resp <- request_with_proxy(url = pitching_url, ..., headers)
         
         check_status(pitching_resp)
         
@@ -109,7 +111,7 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...
         
         player_name <- ((pitching_payload %>% 
                            rvest::html_elements("select"))[3] %>% 
-                          rvest::html_elements(xpath="//option[@selected]") %>% 
+                          rvest::html_elements(xpath = "//option[@selected]") %>% 
                           rvest::html_text())[3]
         player_name <- stringr::str_remove(stringr::str_extract(player_name,".*(?<= #)")," #")
       }

@@ -33,14 +33,15 @@
 #'   try(ncaa_lineups(game_info_url="https://stats.ncaa.org/game/index/4587474?org_id=528"))
 #' }
 ncaa_lineups <- function(game_info_url, ...) {
-  dots <- rlang::dots_list(..., .named = TRUE)
-  proxy <- dots$.proxy
+
   url <- game_info_url
-  ncaa_teams <- load_ncaa_baseball_teams()
+  ncaa_teams <- load_ncaa_baseball_teams()  
+  headers <- httr::add_headers(.headers = .ncaa_headers())
+
   tryCatch(
     expr = {
       if (stringr::str_detect(game_info_url,"contests")){
-        game_info_resp <- httr::RETRY("GET", url = game_info_url, proxy, httr::add_headers(.headers = .ncaa_headers()))
+        game_info_resp <- request_with_proxy(url = game_info_url, ..., headers)
         
         check_status(game_info_resp)
         
@@ -56,7 +57,7 @@ ncaa_lineups <- function(game_info_url, ...) {
           dplyr::mutate(game_pbp_url = paste0("https://stats.ncaa.org", .data$pbp_url_slug)) %>%
           dplyr::pull(.data$game_pbp_url)
       }
-      lineup_resp <- httr::RETRY("GET", url = url, proxy, httr::add_headers(.headers = .ncaa_headers()))
+      lineup_resp <- request_with_proxy(url = game_info_url, ..., headers)
       
       check_status(lineup_resp)
       
