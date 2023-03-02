@@ -12,7 +12,7 @@ request_with_proxy <- function(url, ...){
   dots <- rlang::dots_list(..., .named = TRUE)
   proxy <- dots$proxy
   headers <- dots$headers
-  httr::RETRY("GET", url = {{url}}, proxy, headers)
+  httr::RETRY("GET", url = {{url}}, ..., headers)
 }
 
 #' @title **Progressively**

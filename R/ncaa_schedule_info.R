@@ -50,8 +50,8 @@ ncaa_schedule_info <- function(team_id = NULL, year = NULL, ...){
     cli::cli_abort("Enter valid year as a number (YYYY)")
   }
   season_ids <- load_ncaa_baseball_season_ids()
-  id <- subset(season_ids, season_ids$season == year, select = id)
   year2 <- year
+  id <- subset(season_ids, season_ids$season == year, select = id)
   ncaa_baseball_teams <- load_ncaa_baseball_teams()
   school_info <- ncaa_baseball_teams %>% 
     dplyr::filter(.data$team_id == {{team_id}}, as.integer(.data$year) == as.integer(year2)) %>%
