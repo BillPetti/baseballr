@@ -36,6 +36,6 @@ This function allows you to scrape a team's active payroll from Spotrac.
 }
 \examples{
 \donttest{
-  try(sptrc_team_active_payroll(team_abbr = "BAL", year = most_recent_mlb_season()))
+ try(sptrc_team_active_payroll(team_abbr = "BAL", year = most_recent_mlb_season()))
 }
 }

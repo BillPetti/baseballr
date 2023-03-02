@@ -1,8 +1,10 @@
 #' @rdname ncaa_school_id_lu
 #' @title **Lookup NCAA baseball school IDs (Division I, II, and III)**
-#' @description This function allows the user to look up the `school_id` needed for the ```ncaa_scrape()``` function.
-#' @param team_name A string that will be searched for in the names of the schools.
-#' @return Returns a tibble with school identification data: school, conference, school_id, year, division, conference_id
+#' @description This function allows the user to look up the `team_id` needed 
+#' for the ```ncaa_scrape()``` function.
+#' @param team_name A string that will be searched for in the names of the teams.
+#' @return Returns a tibble with school identification data: team_id, team_name, team_url,
+#'  conference, conference_id, division, year, and season_id
 #' 
 #'  |col_name      |types     |
 #'  |:-------------|:---------|
@@ -29,7 +31,8 @@ ncaa_school_id_lu <- function(team_name = NULL) {
 #' @rdname school_id_lu
 #' @title **(legacy) Lookup NCAA baseball school IDs (Division I, II, and III)**
 #' @inheritParams ncaa_school_id_lu
-#' @return Returns a tibble with school identification data: school, conference, school_id, year, division, conference_id
+#' @return Returns a tibble with school identification data: team_id, team_name, team_url,
+#'  conference, conference_id, division, year, and season_id
 #' @keywords legacy
 #' @export
 school_id_lu <-  ncaa_school_id_lu

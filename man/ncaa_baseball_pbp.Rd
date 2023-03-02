@@ -21,7 +21,8 @@ found using the ncaa_schedule_info function.}
 \item{game_pbp_url}{The url for the game's play-by-play data. This can be
 found using the ncaa_schedule_info function.}
 
-\item{raw_html_to_disk}{Write raw html to disk}
+\item{raw_html_to_disk}{Write raw html to disk (saves as {game_pbp_id}.html
+in \code{raw_html_path} directory)}
 
 \item{raw_html_path}{Directory path to write raw html}
 
@@ -52,7 +53,6 @@ A data frame with play-by-play data for an individual game.\tabular{ll}{
 }
 \examples{
 \donttest{
-  x <- ncaa_schedule_info(736, 2021)$game_info_url[2]
   try(ncaa_baseball_pbp(game_info_url = "https://stats.ncaa.org/contests/2167178/box_score"))
 }
 }

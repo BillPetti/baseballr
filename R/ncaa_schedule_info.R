@@ -39,7 +39,7 @@
 #' @export
 #' @details 
 #' ```r
-#'  x <- try(ncaa_schedule_info(team_id = 736, year = 2019))
+#'  try(ncaa_schedule_info(team_id = 736, year = 2019))
 #' ````
 
 ncaa_schedule_info <- function(team_id = NULL, year = NULL, ...){

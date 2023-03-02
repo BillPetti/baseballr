@@ -4,7 +4,8 @@
 #'  found using the ncaa_schedule_info function.
 #' @param game_pbp_url The url for the game's play-by-play data. This can be 
 #'  found using the ncaa_schedule_info function.
-#' @param raw_html_to_disk Write raw html to disk
+#' @param raw_html_to_disk Write raw html to disk (saves as {game_pbp_id}.html
+#'  in `raw_html_path` directory)
 #' @param raw_html_path Directory path to write raw html
 #' @param read_from_file Read from raw html on disk
 #' @param file File with full path to read raw html
@@ -32,7 +33,6 @@
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'   x <- ncaa_schedule_info(736, 2021)$game_info_url[2]
 #'   try(ncaa_baseball_pbp(game_info_url = "https://stats.ncaa.org/contests/2167178/box_score"))
 #' }
 

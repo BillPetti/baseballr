@@ -38,8 +38,7 @@ runs_allowed_away, base_pf (base park factor), home_game_adj (an adjustment for 
 \description{
 \strong{Get Park Effects for NCAA Baseball Teams}
 }
-\examples{
-\donttest{
-  try(ncaa_park_factor(team_id = 736, years = c(2018:2019), type = "conference"))
-}
+\details{
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  try(ncaa_park_factor(team_id = 736, years = c(2018:2019), type = "conference"))
+}\if{html}{\out{</div>}}
 }

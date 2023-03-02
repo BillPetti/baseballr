@@ -7,10 +7,11 @@
 school_id_lu(team_name = NULL)
 }
 \arguments{
-\item{team_name}{A string that will be searched for in the names of the schools.}
+\item{team_name}{A string that will be searched for in the names of the teams.}
 }
 \value{
-Returns a tibble with school identification data: school, conference, school_id, year, division, conference_id
+Returns a tibble with school identification data: team_id, team_name, team_url,
+conference, conference_id, division, year, and season_id
 }
 \description{
 \strong{(legacy) Lookup NCAA baseball school IDs (Division I, II, and III)}

@@ -7,10 +7,11 @@
 ncaa_school_id_lu(team_name = NULL)
 }
 \arguments{
-\item{team_name}{A string that will be searched for in the names of the schools.}
+\item{team_name}{A string that will be searched for in the names of the teams.}
 }
 \value{
-Returns a tibble with school identification data: school, conference, school_id, year, division, conference_id\tabular{ll}{
+Returns a tibble with school identification data: team_id, team_name, team_url,
+conference, conference_id, division, year, and season_id\tabular{ll}{
    col_name \tab types \cr
    team_id \tab numeric \cr
    team_name \tab character \cr
@@ -23,7 +24,8 @@ Returns a tibble with school identification data: school, conference, school_id,
 }
 }
 \description{
-This function allows the user to look up the \code{school_id} needed for the \code{ncaa_scrape()} function.
+This function allows the user to look up the \code{team_id} needed
+for the \code{ncaa_scrape()} function.
 }
 \examples{
 \donttest{

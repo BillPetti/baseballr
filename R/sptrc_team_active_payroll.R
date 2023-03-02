@@ -28,7 +28,7 @@
 #' @importFrom janitor clean_names
 #' @export
 #' @examples \donttest{
-#'   x <- try(sptrc_team_active_payroll(team_abbr = "BAL", year = most_recent_mlb_season()))
+#'  try(sptrc_team_active_payroll(team_abbr = "BAL", year = most_recent_mlb_season()))
 #' }
 sptrc_team_active_payroll <- function(team_abbr, year = most_recent_mlb_season()){
   

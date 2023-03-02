@@ -28,9 +28,10 @@
 #' @importFrom stringr str_detect str_squish str_remove_all str_split_fixed
 #' @importFrom janitor adorn_totals
 #' @export
-#' @examples \donttest{
+#' @details 
+#' ```r
 #'   try(ncaa_park_factor(team_id = 736, years = c(2018:2019), type = "conference"))
-#' }
+#' ```
 
 ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
   
