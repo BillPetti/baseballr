@@ -43,7 +43,12 @@
 #' ````
 
 ncaa_schedule_info <- function(team_id = NULL, year = NULL, ...){
-
+  if (is.null(team_id)) {
+    cli::cli_abort("Enter valid team_id")
+  }
+  if (is.null(year)) {
+    cli::cli_abort("Enter valid year as a number (YYYY)")
+  }
   season_ids <- load_ncaa_baseball_season_ids()
   id <- subset(season_ids, season_ids$season == year, select = id)
   year2 <- year

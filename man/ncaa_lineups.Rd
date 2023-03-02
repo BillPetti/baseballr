@@ -4,7 +4,7 @@
 \alias{ncaa_lineups}
 \title{\strong{Retrieve lineups for a given NCAA game via its \code{game_info_url}}}
 \usage{
-ncaa_lineups(game_info_url, ...)
+ncaa_lineups(game_info_url = NULL, ...)
 }
 \arguments{
 \item{game_info_url}{The unique game info url}

@@ -28,10 +28,10 @@ ncaa_teams_df <- load_ncaa_baseball_teams()
 ```
 From the NCAA website:
 ```{r ncaa_teams_website}
-ncaa_teams(year = most_recent_ncaa_baseball_season(), division = "1")
+try(ncaa_teams(year = most_recent_ncaa_baseball_season(), division = "1"))
 ```
 
-The function, `ncaa_scrape`, requires the user to pass values for three parameters for the function to work:
+The function, ```ncaa_team_player_stats()```, requires the user to pass values for three parameters for the function to work:
 
 `team_id`: numerical code used by the NCAA for each school
 `year`: a four-digit year
@@ -49,7 +49,7 @@ team_id <- ncaa_teams_df %>%
 
 year <- most_recent_ncaa_baseball_season()
 
-ncaa_scrape(team_id = team_id, year = year, "batting")
+ncaa_team_player_stats(team_id = team_id, year = year, "batting")
 
 ```
 
@@ -57,7 +57,7 @@ ncaa_scrape(team_id = team_id, year = year, "batting")
 The same can be done for pitching, just by changing the `type` parameter:
 
 ```{r ncaa_scrape_pitching}
-ncaa_scrape(team_id = team_id, year = year,  "pitching")
+ncaa_team_player_stats(team_id = team_id, year = year,  "pitching")
 ```
 
 

@@ -32,8 +32,11 @@
 #'   try(ncaa_lineups(game_info_url="https://stats.ncaa.org/contests/2167178/box_score"))
 #'   try(ncaa_lineups(game_info_url="https://stats.ncaa.org/game/index/4587474?org_id=528"))
 #' }
-ncaa_lineups <- function(game_info_url, ...) {
-
+ncaa_lineups <- function(game_info_url = NULL, ...) {
+  
+  if (is.null(game_info_url)) {
+    cli::cli_abort("Enter valid game_info_url (e.g. https://stats.ncaa.org/contests/2167178/box_score")
+  }
   url <- game_info_url
   ncaa_teams <- load_ncaa_baseball_teams()  
   headers <- httr::add_headers(.headers = .ncaa_headers())

@@ -34,7 +34,12 @@
 #' ```
 
 ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
-  
+  if (is.null(team_id)) {
+    cli::cli_abort("Enter valid team_id")
+  }
+  if (is.null(years)) {
+    cli::cli_abort("Enter valid years as a number (YYYY) or vector")
+  }
   ncaa_team_lookup <- load_ncaa_baseball_teams()
   conference_pull <-  ncaa_team_lookup %>% 
     dplyr::filter(.data$team_id == team_id) %>%

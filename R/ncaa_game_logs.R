@@ -64,7 +64,18 @@
 #' }
 
 ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...) {
-  
+  if (is.null(team_id)) {
+    cli::cli_abort("Enter valid team_id")
+  }
+  if (is.null(year)) {
+    cli::cli_abort("Enter valid year as a number (YYYY)")
+  }
+  if (is.null(type) | !(type %in% c("batting","pitching", "fielding"))) {
+    cli::cli_abort("Enter valid type: 'batting', 'pitching'")
+  }
+  if (is.null(span) | !(span %in% c("game","career"))) {
+    cli::cli_abort("Enter valid span: 'game', 'career'")
+  }
   
   
   season_ids <- load_ncaa_baseball_season_ids()

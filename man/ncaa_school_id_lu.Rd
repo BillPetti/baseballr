@@ -25,7 +25,7 @@ conference, conference_id, division, year, and season_id\tabular{ll}{
 }
 \description{
 This function allows the user to look up the \code{team_id} needed
-for the \code{ncaa_scrape()} function.
+for the \code{ncaa_team_player_stats()} function.
 }
 \examples{
 \donttest{

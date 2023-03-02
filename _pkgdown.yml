@@ -201,11 +201,26 @@ reference:
       - '`statline_from_statcast`'
       - '`label_statcast_imputed_data`'
       - '`linear_weights_savant`'
+  - title: NCAA Baseball Loaders
+  - subtitle: NCAA Baseball Data Functions
+    desc: Functions exported by baseballr to access NCAA Baseball Data
+    contents:
+      - '`load_ncaa_baseball_teams`'
+      - '`load_ncaa_baseball_schedule`'
+      - '`load_ncaa_baseball_season_ids`'
   - title: NCAA Baseball 
   - subtitle: NCAA Baseball Data Functions
     desc: Functions exported by baseballr to access NCAA Baseball Data
     contents:
-      - starts_with("ncaa")
+      - '`ncaa_schedule_info`'
+      - '`ncaa_roster`'
+      - '`ncaa_game_logs`'
+      - '`ncaa_lineups`'
+      - '`ncaa_park_factor`'
+      - '`ncaa_school_id_lu`'
+      - '`ncaa_teams`'
+      - '`ncaa_team_player_stats`'
+      - '`ncaa_pbp`'
   - title: Retrosheet
   - subtitle: Retrosheet Data Functions
     desc: Functions exported by baseballr to access Retrosheet Data
@@ -401,6 +416,7 @@ reference:
       - '`get_umpire_ids_petti`'
       - '`milb_batter_game_logs_fg`'
       - '`milb_pitcher_game_logs_fg`'
+      - '`ncaa_scrape`'
       - '`pitcher_game_logs_fg`'
       - '`school_id_lu`'
       - '`scrape_savant_leaderboards`'

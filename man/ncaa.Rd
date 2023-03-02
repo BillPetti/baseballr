@@ -5,9 +5,9 @@
 \title{\strong{NCAA Functions Overview}}
 \description{
 \describe{
-\item{\code{ncaa_scrape()}:}{ This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a tibble.}
-\item{\code{ncaa_baseball_pbp()}:}{ Get Play-By-Play Data for NCAA Baseball Games.}
-\item{\code{ncaa_baseball_roster()}:}{ Get NCAA Baseball Rosters.}
+\item{\code{ncaa_team_player_stats()}:}{ This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a tibble.}
+\item{\code{ncaa_pbp()}:}{ Get Play-By-Play Data for NCAA Baseball Games.}
+\item{\code{ncaa_roster()}:}{ Get NCAA Baseball Rosters.}
 \item{\code{ncaa_game_logs()}:}{ Get NCAA Baseball Game Logs.}
 \item{\code{ncaa_lineups()}:}{ Get NCAA Baseball Game Lineups.}
 \item{\code{ncaa_park_factor()}:}{ Get Park Effects for NCAA Baseball Teams.}
@@ -19,20 +19,20 @@
 \details{
 \subsection{\strong{Scrape NCAA baseball data (Division I, II, and III)}}{
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_scrape(teamid=255, year=2013, type = "batting")
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_team_player_stats(team_id = 255, year = 2013, type = "batting")
 }\if{html}{\out{</div>}}
 }
 
 \subsection{\strong{Get Play-By-Play Data for NCAA Baseball Games}}{
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{  x <- ncaa_schedule_info(736, 2021)$game_info_url[2]
-  ncaa_baseball_pbp(game_info_url = x)
+  ncaa_pbp(game_info_url = x)
 }\if{html}{\out{</div>}}
 }
 
 \subsection{\strong{Get NCAA Baseball Rosters}}{
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_baseball_roster(teamid = 104, team_year = 2021)
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_roster(team_id = 104, year = 2021)
 }\if{html}{\out{</div>}}
 }
 
@@ -50,13 +50,13 @@
 
 \subsection{\strong{Get Park Effects for NCAA Baseball Teams}}{
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{   ncaa_park_factor(teamid = 736, years = c(2017:2019), type = "conference")
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{   ncaa_park_factor(team_id = 736, years = c(2017:2019), type = "conference")
 }\if{html}{\out{</div>}}
 }
 
 \subsection{\strong{Get Schedule and Results for NCAA Baseball Teams}}{
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_schedule_info(teamid =736, year = 2021)
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_schedule_info(team_id = 736, year = 2021)
 }\if{html}{\out{</div>}}
 }
 
@@ -68,7 +68,7 @@
 
 \subsection{\strong{Scrape NCAA baseball Teams (Division I, II, and III)}}{
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_teams()
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  ncaa_teams(year = 2023, division = 1)
 }\if{html}{\out{</div>}}
 }
 }

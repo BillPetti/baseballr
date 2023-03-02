@@ -27,6 +27,12 @@
 
 ncaa_teams <- function(year = most_recent_ncaa_baseball_season(), division = 1, ...) {
   
+  if (is.null(year)) {
+    cli::cli_abort("Enter valid year as a number (YYYY)")
+  }
+  if (is.null(division)) {
+    cli::cli_abort("Enter valid division as a number: 1, 2, 3")
+  }
   if (year < 2002) {
     stop('you must provide a year that is equal to or greater than 2002')
   }
