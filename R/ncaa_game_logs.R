@@ -64,9 +64,6 @@
 #' }
 
 ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...) {
-  if (is.null(team_id)) {
-    cli::cli_abort("Enter valid team_id")
-  }
   if (is.null(year)) {
     cli::cli_abort("Enter valid year as a number (YYYY)")
   }
