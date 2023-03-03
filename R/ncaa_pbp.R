@@ -167,7 +167,7 @@ ncaa_pbp <- function(game_info_url = NA_character_,
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided for game_info_url, {game_info_url}"))
+      message(glue::glue("{Sys.time()}: Invalid arguments provided for game_info_url, {game_info_url}, game_pbp_url: {game_pbp_url}"))
     },
     finally = {
     }
