@@ -8,7 +8,7 @@ NULL
 #' or writes it into a db using some forwarded arguments in the dots
 #'
 #' @param ... Additional arguments passed to an underlying function that writes
-#' the season data into a database (used by `update_ncaa_baseball_db()`).
+#' the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by
 #' @param tablename The name of the data table within the database
 #' @return Returns a tibble

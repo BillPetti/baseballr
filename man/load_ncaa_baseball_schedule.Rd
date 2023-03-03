@@ -15,7 +15,7 @@ load_ncaa_baseball_schedule(
 \item{seasons}{A vector of 4-digit years associated with given NCAA college baseball seasons. (Min: 2012)}
 
 \item{...}{Additional arguments passed to an underlying function that writes
-the season data into a database (used by \code{update_ncaa_baseball_db()}).}
+the season data into a database.}
 
 \item{dbConnection}{A \code{DBIConnection} object, as returned by}
 

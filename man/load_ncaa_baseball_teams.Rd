@@ -8,7 +8,7 @@ load_ncaa_baseball_teams(..., dbConnection = NULL, tablename = NULL)
 }
 \arguments{
 \item{...}{Additional arguments passed to an underlying function that writes
-the season data into a database (used by \code{update_ncaa_baseball_db()}).}
+the season data into a database.}
 
 \item{dbConnection}{A \code{DBIConnection} object, as returned by}
 
