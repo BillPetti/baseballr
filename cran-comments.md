@@ -4,6 +4,7 @@ This is a minor release that
  
  Adds or creates aliases for the following NCAA baseball functions:
     - ncaa_teams()
+    - load_ncaa_baseball_pbp()
     - load_ncaa_baseball_teams()
     - load_ncaa_baseball_season_ids()
     - load_ncaa_baseball_schedule()

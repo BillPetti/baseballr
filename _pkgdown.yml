@@ -207,6 +207,7 @@ reference:
     contents:
       - '`load_ncaa_baseball_teams`'
       - '`load_ncaa_baseball_schedule`'
+      - '`load_ncaa_baseball_pbp`'
       - '`load_ncaa_baseball_season_ids`'
   - title: NCAA Baseball 
   - subtitle: NCAA Baseball Data Functions

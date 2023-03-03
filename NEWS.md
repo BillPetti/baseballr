@@ -9,6 +9,7 @@
   - ```load_ncaa_baseball_teams()```
   - ```load_ncaa_baseball_season_ids()```
   - ```load_ncaa_baseball_schedule()```
+  - ```load_ncaa_baseball_pbp()```
   - ```ncaa_pbp()``` (see below)
   - ```ncaa_roster()``` (see below)
   - ```ncaa_team_player_stats()``` (see below)
