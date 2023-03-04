@@ -368,9 +368,6 @@ reference:
     desc: Data exported by baseballr for ease of use
     contents:
       - '`column_structure_draft_mlb`'
-      - '`ncaa_season_id_lu`'
-      - '`ncaa_school_id_lu`'
-      - '`ncaa_team_lu`'
       - '`teams_lu_table`'
       - '`stats_api_live_empty_df`'
       - '`statcast_impute`'
