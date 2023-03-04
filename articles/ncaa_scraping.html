@@ -200,7 +200,7 @@ directly from the NCAA website for a given year and division.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/ncaa_teams.html">ncaa_teams</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fu"><a href="../reference/most_recent_ncaa_baseball_season.html">most_recent_ncaa_baseball_season</a></span><span class="op">(</span><span class="op">)</span>, division <span class="op">=</span> <span class="st">"1"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── NCAA Baseball Teams data from stats.ncaa.org ───── <span style="font-style: italic;">baseballr 1.5.0</span> ──</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-03-04 03:59:27 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-03-04 04:56:57 UTC</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 305 × 8</span></span></span>
 <span><span class="co">#&gt;    team_id team_name      team_url confe…¹ confe…² divis…³  year seaso…⁴</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
@@ -235,7 +235,7 @@ season, you would use the following:</p>
 <span></span>
 <span><span class="fu"><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, year <span class="op">=</span> <span class="va">year</span>, <span class="st">"batting"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── NCAA Baseball Team Batting Stats data from stats.ncaa.org ───────────</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-03-04 03:59:29 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-03-04 04:56:59 UTC</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 33 × 35</span></span></span>
 <span><span class="co">#&gt;     year team_…¹ team_id confe…² confe…³ divis…⁴ playe…⁵ playe…⁶ playe…⁷</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
@@ -261,7 +261,7 @@ season, you would use the following:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, year <span class="op">=</span> <span class="va">year</span>,  <span class="st">"pitching"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── NCAA Baseball Team Pitching Stats data from stats.ncaa.org ──────────</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-03-04 03:59:31 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-03-04 04:57:00 UTC</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 33 × 43</span></span></span>
 <span><span class="co">#&gt;     year team_…¹ team_id confe…² confe…³ divis…⁴ playe…⁵ playe…⁶ playe…⁷</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
@@ -283,9 +283,9 @@ season, you would use the following:</p>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `Inh Run Score` &lt;dbl&gt;, SHA &lt;dbl&gt;, SFA &lt;dbl&gt;, Pitches &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   GO &lt;dbl&gt;, FO &lt;dbl&gt;, W &lt;dbl&gt;, L &lt;dbl&gt;, SV &lt;dbl&gt;, KL &lt;dbl&gt;, and …</span></span></span></code></pre></div>
 <p>Now, the function is dependent on the user knowing the
-<code>school_id</code> used by the NCAA website. Given that, I’ve
-included a <code>ncaa_school_id_lu</code> function so that users can
-find the <code>school_id</code> they need.</p>
+<code>team_id</code> used by the NCAA website. Given that, I’ve included
+a <code>ncaa_school_id_lu</code> function so that users can find the
+<code>team_id</code> they need.</p>
 <p>Just pass a string to the function and it will return possible
 matches based on the school’s name:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">

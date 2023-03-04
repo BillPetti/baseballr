@@ -139,8 +139,19 @@
 <div class="section level4">
 <h4 id="major-ncaa-function-changes-1-5-0">Major NCAA function changes<a class="anchor" aria-label="anchor" href="#major-ncaa-function-changes-1-5-0"></a></h4>
 <p><strong>New Functions</strong></p>
-<p>Adds the following NCAA baseball functions: - <code><a href="../reference/ncaa_teams.html">ncaa_teams()</a></code> - <code><a href="../reference/load_ncaa_baseball_teams.html">load_ncaa_baseball_teams()</a></code> - <code><a href="../reference/load_ncaa_baseball_season_ids.html">load_ncaa_baseball_season_ids()</a></code> - <code><a href="../reference/load_ncaa_baseball_schedule.html">load_ncaa_baseball_schedule()</a></code> - <code><a href="../reference/load_ncaa_baseball_pbp.html">load_ncaa_baseball_pbp()</a></code> - <code><a href="../reference/ncaa_pbp.html">ncaa_pbp()</a></code> (see below) - <code><a href="../reference/ncaa_roster.html">ncaa_roster()</a></code> (see below) - <code><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats()</a></code> (see below)</p>
-<p><strong>Parameter Changes</strong></p>
+<p>Adds the following NCAA baseball functions:</p>
+<ul><li><code><a href="../reference/ncaa_teams.html">ncaa_teams()</a></code></li>
+<li><code><a href="../reference/load_ncaa_baseball_teams.html">load_ncaa_baseball_teams()</a></code></li>
+<li><code><a href="../reference/load_ncaa_baseball_season_ids.html">load_ncaa_baseball_season_ids()</a></code></li>
+<li><code><a href="../reference/load_ncaa_baseball_schedule.html">load_ncaa_baseball_schedule()</a></code></li>
+<li><code><a href="../reference/load_ncaa_baseball_pbp.html">load_ncaa_baseball_pbp()</a></code></li>
+<li>
+<code><a href="../reference/ncaa_pbp.html">ncaa_pbp()</a></code> (see below)</li>
+<li>
+<code><a href="../reference/ncaa_roster.html">ncaa_roster()</a></code> (see below)</li>
+<li>
+<code><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats()</a></code> (see below)</li>
+</ul><p><strong>Parameter Changes</strong></p>
 <ul><li>
 <code>ncaa_*()</code> functions now return <code>team_id</code> and <code>team_name</code> instead of <code>school_id</code> and <code>school</code>
 </li>
@@ -161,8 +172,10 @@
 <code><a href="../reference/get_ncaa_baseball_roster.html">ncaa_baseball_roster()</a></code> has been aliased to <code><a href="../reference/ncaa_roster.html">ncaa_roster()</a></code> for naming consistency</li>
 <li>
 <code><a href="../reference/ncaa_scrape.html">ncaa_scrape()</a></code> has been aliased to <code><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats()</a></code> for more descriptive naming</li>
-</ul><p><strong>Notes</strong> * <code><a href="../reference/ncaa_schedule_info.html">ncaa_schedule_info()</a></code> runs much slower because it is gathering the information on all of the game play-by-play URLs for each game to get a proper <code>game_pbp_id</code> link as opposed to the <code>contest_id</code> link alone. These additional values are returned as <code>game_pbp_id</code> and <code>game_pbp_url</code> which can also now be used in the <code><a href="../reference/ncaa_pbp.html">ncaa_pbp()</a></code> function.</p>
-</div>
+</ul><p><strong>Notes</strong></p>
+<ul><li>
+<code><a href="../reference/ncaa_schedule_info.html">ncaa_schedule_info()</a></code> runs much slower because it is gathering the information on all of the game play-by-play URLs for each game to get a proper <code>game_pbp_id</code> link as opposed to the <code>contest_id</code> link alone. These additional values are returned as <code>game_pbp_id</code> and <code>game_pbp_url</code> which can also now be used in the <code><a href="../reference/ncaa_pbp.html">ncaa_pbp()</a></code> function.</li>
+</ul></div>
 <div class="section level4">
 <h4 id="other-fixes-1-5-0">Other Fixes<a class="anchor" aria-label="anchor" href="#other-fixes-1-5-0"></a></h4>
 <ul><li>
