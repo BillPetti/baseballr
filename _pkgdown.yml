@@ -213,6 +213,7 @@ reference:
   - subtitle: NCAA Baseball Data Functions
     desc: Functions exported by baseballr to access NCAA Baseball Data
     contents:
+      - '`ncaa`'
       - '`ncaa_schedule_info`'
       - '`ncaa_roster`'
       - '`ncaa_game_logs`'
