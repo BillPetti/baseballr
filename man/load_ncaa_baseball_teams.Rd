@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_ncaa_baseball_teams.R
 \name{load_ncaa_baseball_teams}
 \alias{load_ncaa_baseball_teams}
-\title{\strong{Load baseballr men's college baseball teams}}
+\title{\strong{Load cleaned NCAA men's college baseball teams from the baseballr data repo}}
 \usage{
 load_ncaa_baseball_teams(..., dbConnection = NULL, tablename = NULL)
 }

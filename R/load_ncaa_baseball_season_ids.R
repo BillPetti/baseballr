@@ -1,6 +1,3 @@
-#' **Load baseballr men's college baseball season IDs**
-#' @name load_ncaa_baseball_season_ids
-NULL
 #' @title
 #' **Load cleaned NCAA men's college baseball season IDs from the baseballr data repo**
 #' @rdname load_ncaa_baseball_season_ids

@@ -1,6 +1,3 @@
-#' **Load baseballr NCAA baseball play-by-play**
-#' @name load_ncaa_baseball_pbp
-NULL
 #' @title
 #' **Load cleaned NCAA baseball play-by-play data from the baseballr data repo**
 #' @rdname load_ncaa_baseball_pbp

@@ -1,6 +1,3 @@
-#' **Load baseballr men's college baseball teams**
-#' @name load_ncaa_baseball_teams
-NULL
 #' @title
 #' **Load cleaned NCAA men's college baseball teams from the baseballr data repo**
 #' @rdname load_ncaa_baseball_teams

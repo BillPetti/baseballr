@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_ncaa_baseball_pbp.R
 \name{load_ncaa_baseball_pbp}
 \alias{load_ncaa_baseball_pbp}
-\title{\strong{Load baseballr NCAA baseball play-by-play}}
+\title{\strong{Load cleaned NCAA baseball play-by-play data from the baseballr data repo}}
 \usage{
 load_ncaa_baseball_pbp(
   seasons = most_recent_ncaa_baseball_season(),

@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_ncaa_baseball_schedule.R
 \name{load_ncaa_baseball_schedule}
 \alias{load_ncaa_baseball_schedule}
-\title{\strong{Load baseballr NCAA baseball schedule}}
+\title{\strong{Load cleaned NCAA baseball schedule from the baseballr data repo}}
 \usage{
 load_ncaa_baseball_schedule(
   seasons = most_recent_ncaa_baseball_season(),

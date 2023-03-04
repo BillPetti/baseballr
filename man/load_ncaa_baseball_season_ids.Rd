@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_ncaa_baseball_season_ids.R
 \name{load_ncaa_baseball_season_ids}
 \alias{load_ncaa_baseball_season_ids}
-\title{\strong{Load baseballr men's college baseball season IDs}}
+\title{\strong{Load cleaned NCAA men's college baseball season IDs from the baseballr data repo}}
 \usage{
 load_ncaa_baseball_season_ids(..., dbConnection = NULL, tablename = NULL)
 }

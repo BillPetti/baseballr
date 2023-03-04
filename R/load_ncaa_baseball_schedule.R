@@ -1,6 +1,3 @@
-#' **Load baseballr NCAA baseball schedule**
-#' @name load_ncaa_baseball_schedule
-NULL
 #' @title
 #' **Load cleaned NCAA baseball schedule from the baseballr data repo**
 #' @rdname load_ncaa_baseball_schedule
