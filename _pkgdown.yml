@@ -169,6 +169,12 @@ navbar:
         href: https://js.sportsdataverse.org/
       - text: nfl-nerd
         href: https://github.com/nntrn/nfl-nerd/
+    data:
+      icon: "fas fa-database"
+      text: " Data"
+      menu:
+      - text: "Data Repository"
+        href: https://github.com/sportsdataverse/baseballr-data
     github:
       icon: "fab fa-github fa-lg"
       href: https://github.com/billpetti/baseballr/

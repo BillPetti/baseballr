@@ -10,7 +10,7 @@
 #' @return Returns a tibble
 #' @export
 #' @examples \donttest{
-#'   load_ncaa_baseball_pbp(seasons = 2022)
+#'   load_ncaa_baseball_pbp(seasons = 2021)
 #' }
 load_ncaa_baseball_pbp <- function(seasons = most_recent_ncaa_baseball_season(), ...,
                               dbConnection = NULL, tablename = NULL) {

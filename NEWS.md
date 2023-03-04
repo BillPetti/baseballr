@@ -5,6 +5,7 @@
  **New Functions**
  
  Adds the following NCAA baseball functions:
+ 
   - ```ncaa_teams()```
   - ```load_ncaa_baseball_teams()```
   - ```load_ncaa_baseball_season_ids()```
@@ -32,6 +33,7 @@
  * ```ncaa_scrape()``` has been aliased to ```ncaa_team_player_stats()``` for more descriptive naming
  
  **Notes**
+ 
  * ```ncaa_schedule_info()``` runs much slower because it is gathering the information on all of the game play-by-play URLs for each game to get a proper `game_pbp_id` link as opposed to the `contest_id` link alone. These additional values are returned as `game_pbp_id` and `game_pbp_url` which can also now be used in the `ncaa_pbp()` function.
  
 ### Other Fixes
