@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.5.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -164,21 +164,21 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_all_star_write_ins</span><span class="op">(</span>league_id <span class="op">=</span> <span class="fl">103</span>, season <span class="op">=</span> <span class="fl">2021</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB All-Star Write-Ins data from MLB.com ───────── <span style="font-style: italic;">baseballr 1.4.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-12-29 00:07:55 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB All-Star Write-Ins data from MLB.com ───────── <span style="font-style: italic;">baseballr 1.5.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-03-04 03:54:19 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 490 × 45</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    playe…¹ full_…² link  first…³ last_…⁴ prima…⁵ birth…⁶ curre…⁷ birth…⁸</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>  <span style="text-decoration: underline;">605</span>194 Jharel… /api… Jharel  Cotton  47      1992-0…      30 St. Th…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>  <span style="text-decoration: underline;">595</span>978 Austin… /api… Austin  Hedges  17      1992-0…      30 San Ju…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>  <span style="text-decoration: underline;">605</span>194 Jharel… /api… Jharel  Cotton  47      1992-0…      31 St. Th…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>  <span style="text-decoration: underline;">595</span>978 Austin… /api… Austin  Hedges  18      1992-0…      30 San Ju…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>  <span style="text-decoration: underline;">451</span>584 Wade D… /api… Wade    Davis   40      1985-0…      37 Lake W…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>  <span style="text-decoration: underline;">663</span>554 Casey … /api… Casey   Mize    12      1997-0…      25 Spring…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">642</span>048 Tayler… /api… Tayler  Saucedo <span style="color: #BB0000;">NA</span>      1993-0…      29 Honolu…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">521</span>230 Liam H… /api… Liam    Hendri… 31      1989-0…      33 Perth  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">609</span>280 Miguel… /api… Miguel  Andujar 26      1995-0…      27 San Cr…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">451</span>594 Dexter… /api… William Fowler  25      1986-0…      36 Atlanta</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">667</span>674 Jack K… /api… Timothy Kruger  36      1994-1…      28 Los An…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">667</span>670 Brent … /api… Terry   Rooker  <span style="color: #BB0000;">NA</span>      1994-1…      28 German…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">642</span>048 Tayler… /api… Tayler  Saucedo 60      1993-0…      29 Honolu…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">521</span>230 Liam H… /api… Liam    Hendri… 31      1989-0…      34 Perth  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">609</span>280 Miguel… /api… Miguel  Andujar 26      1995-0…      28 San Cr…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">451</span>594 Dexter… /api… Dexter  Fowler  25      1986-0…      36 Atlanta</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">667</span>674 Jack K… /api… Jack    Kruger  36      1994-1…      28 Los An…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">667</span>670 Brent … /api… Brent   Rooker  25      1994-1…      28 German…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 480 more rows, 36 more variables: birth_state_province &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   birth_country &lt;chr&gt;, height &lt;chr&gt;, weight &lt;int&gt;, active &lt;lgl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   use_name &lt;chr&gt;, use_last_name &lt;chr&gt;, middle_name &lt;chr&gt;,</span></span>

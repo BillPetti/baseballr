@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.5.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -174,8 +174,8 @@ Valid options include: '40Man', 'fullSeason', 'fullRoster', 'nonRosterInvitees',
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_rosters</span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">109</span>, season <span class="op">=</span> <span class="fl">2018</span>, roster_type <span class="op">=</span> <span class="st">'active'</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Roster data from MLB.com ───────────────────── <span style="font-style: italic;">baseballr 1.4.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-12-29 00:08:25 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Roster data from MLB.com ───────────────────── <span style="font-style: italic;">baseballr 1.5.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-03-04 03:54:58 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 49 × 15</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    jersey_number perso…¹ perso…² perso…³ posit…⁴ posit…⁵ posit…⁶ posit…⁷</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
@@ -196,8 +196,8 @@ Valid options include: '40Man', 'fullSeason', 'fullRoster', 'nonRosterInvitees',
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁴​position_code, ⁵​position_name, ⁶​position_type,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁷​position_abbreviation</span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_rosters</span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">109</span>, season <span class="op">=</span> <span class="fl">2018</span>, roster_type <span class="op">=</span> <span class="st">'coach'</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Roster data from MLB.com ───────────────────── <span style="font-style: italic;">baseballr 1.4.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-12-29 00:08:25 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Roster data from MLB.com ───────────────────── <span style="font-style: italic;">baseballr 1.5.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-03-04 03:54:58 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12 × 12</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    jersey_num…¹ job   job_id title perso…² perso…³ perso…⁴ link  team_id</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
@@ -205,7 +205,7 @@ Valid options include: '40Man', 'fullSeason', 'fullRoster', 'nonRosterInvitees',
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> <span style="color: #949494;">"</span>12<span style="color: #949494;">"</span>         Benc… COAB   Benc…  <span style="text-decoration: underline;">119</span>655 Jerry … /api/v… /api…     109</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> <span style="color: #949494;">"</span>23<span style="color: #949494;">"</span>         Pitc… COAP   Pitc…  <span style="text-decoration: underline;">111</span>807 Mike B… /api/v… /api…     109</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> <span style="color: #949494;">"</span>39<span style="color: #949494;">"</span>         Firs… COA1   Firs…  <span style="text-decoration: underline;">118</span>763 Dave M… /api/v… /api…     109</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> <span style="color: #949494;">"</span>3<span style="color: #949494;">"</span>          Thir… COA3   Thir…  <span style="text-decoration: underline;">120</span>418 Tony P… /api/v… /api…     109</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> <span style="color: #949494;">"</span>21<span style="color: #949494;">"</span>         Thir… COA3   Thir…  <span style="text-decoration: underline;">120</span>418 Tony P… /api/v… /api…     109</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> <span style="color: #949494;">"</span>71<span style="color: #949494;">"</span>         Bull… COAU   Bull…  <span style="text-decoration: underline;">114</span>097 Mike F… /api/v… /api…     109</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> <span style="color: #949494;">"</span>59<span style="color: #949494;">"</span>         Assi… COAA   Assi…  <span style="text-decoration: underline;">117</span>420 Tim La… /api/v… /api…     109</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> <span style="color: #949494;">"</span>7<span style="color: #949494;">"</span>          Qual… QCCC   Qual…  <span style="text-decoration: underline;">425</span>631 Robby … /api/v… /api…     109</span>

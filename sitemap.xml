@@ -190,6 +190,18 @@
     <loc>/reference/load_game_info_sup.html</loc>
   </url>
   <url>
+    <loc>/reference/load_ncaa_baseball_pbp.html</loc>
+  </url>
+  <url>
+    <loc>/reference/load_ncaa_baseball_schedule.html</loc>
+  </url>
+  <url>
+    <loc>/reference/load_ncaa_baseball_season_ids.html</loc>
+  </url>
+  <url>
+    <loc>/reference/load_ncaa_baseball_teams.html</loc>
+  </url>
+  <url>
     <loc>/reference/load_umpire_ids.html</loc>
   </url>
   <url>
@@ -481,12 +493,6 @@
     <loc>/reference/ncaa.html</loc>
   </url>
   <url>
-    <loc>/reference/ncaa_baseball_pbp.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ncaa_baseball_roster.html</loc>
-  </url>
-  <url>
     <loc>/reference/ncaa_game_logs.html</loc>
   </url>
   <url>
@@ -494,6 +500,12 @@
   </url>
   <url>
     <loc>/reference/ncaa_park_factor.html</loc>
+  </url>
+  <url>
+    <loc>/reference/ncaa_pbp.html</loc>
+  </url>
+  <url>
+    <loc>/reference/ncaa_roster.html</loc>
   </url>
   <url>
     <loc>/reference/ncaa_schedule_info.html</loc>
@@ -505,10 +517,10 @@
     <loc>/reference/ncaa_scrape.html</loc>
   </url>
   <url>
-    <loc>/reference/ncaa_season_id_lu.html</loc>
+    <loc>/reference/ncaa_team_player_stats.html</loc>
   </url>
   <url>
-    <loc>/reference/ncaa_team_lu.html</loc>
+    <loc>/reference/ncaa_teams.html</loc>
   </url>
   <url>
     <loc>/reference/pitcher_game_logs_fg.html</loc>
@@ -521,6 +533,9 @@
   </url>
   <url>
     <loc>/reference/rds_from_url.html</loc>
+  </url>
+  <url>
+    <loc>/reference/request_with_proxy.html</loc>
   </url>
   <url>
     <loc>/reference/retrosheet_data.html</loc>

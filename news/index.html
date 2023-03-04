@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.5.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -134,6 +134,43 @@
       <small>Source: <a href="https://github.com/billpetti/baseballr/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.5.0" id="baseballr-150">baseballr 1.5.0<a class="anchor" aria-label="anchor" href="#baseballr-150"></a></h2>
+<div class="section level4">
+<h4 id="major-ncaa-function-changes-1-5-0">Major NCAA function changes<a class="anchor" aria-label="anchor" href="#major-ncaa-function-changes-1-5-0"></a></h4>
+<p><strong>New Functions</strong></p>
+<p>Adds the following NCAA baseball functions: - <code><a href="../reference/ncaa_teams.html">ncaa_teams()</a></code> - <code><a href="../reference/load_ncaa_baseball_teams.html">load_ncaa_baseball_teams()</a></code> - <code><a href="../reference/load_ncaa_baseball_season_ids.html">load_ncaa_baseball_season_ids()</a></code> - <code><a href="../reference/load_ncaa_baseball_schedule.html">load_ncaa_baseball_schedule()</a></code> - <code><a href="../reference/load_ncaa_baseball_pbp.html">load_ncaa_baseball_pbp()</a></code> - <code><a href="../reference/ncaa_pbp.html">ncaa_pbp()</a></code> (see below) - <code><a href="../reference/ncaa_roster.html">ncaa_roster()</a></code> (see below) - <code><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats()</a></code> (see below)</p>
+<p><strong>Parameter Changes</strong></p>
+<ul><li>
+<code>ncaa_*()</code> functions now return <code>team_id</code> and <code>team_name</code> instead of <code>school_id</code> and <code>school</code>
+</li>
+<li>Add <code>proxy</code> rlang dots option for passing `<code><a href="https://httr.r-lib.org/reference/use_proxy.html" class="external-link">httr::use_proxy()</a></code> option to <code>ncaa_*()</code> functions</li>
+<li>
+<code><a href="../reference/ncaa_lineups.html">ncaa_lineups()</a></code> function removes the <code>year</code> parameter (was unnecessary)</li>
+<li>
+<code>ncaa_*()</code> functions now uniformly use <code>team_id</code> instead of <code>teamid</code>, <code>year</code> (vs. <code>team_year</code>). This affects the following functions:
+<ul><li><code><a href="../reference/ncaa_roster.html">ncaa_roster()</a></code></li>
+<li><code><a href="../reference/ncaa_schedule_info.html">ncaa_schedule_info()</a></code></li>
+<li><code><a href="../reference/ncaa_park_factor.html">ncaa_park_factor()</a></code></li>
+<li><code><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats()</a></code></li>
+</ul></li>
+</ul><p><strong>Function Aliasing</strong></p>
+<ul><li>
+<code><a href="../reference/get_ncaa_baseball_pbp.html">ncaa_baseball_pbp()</a></code> has been aliased to <code><a href="../reference/ncaa_pbp.html">ncaa_pbp()</a></code> for naming consistency</li>
+<li>
+<code><a href="../reference/get_ncaa_baseball_roster.html">ncaa_baseball_roster()</a></code> has been aliased to <code><a href="../reference/ncaa_roster.html">ncaa_roster()</a></code> for naming consistency</li>
+<li>
+<code><a href="../reference/ncaa_scrape.html">ncaa_scrape()</a></code> has been aliased to <code><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats()</a></code> for more descriptive naming</li>
+</ul><p><strong>Notes</strong> * <code><a href="../reference/ncaa_schedule_info.html">ncaa_schedule_info()</a></code> runs much slower because it is gathering the information on all of the game play-by-play URLs for each game to get a proper <code>game_pbp_id</code> link as opposed to the <code>contest_id</code> link alone. These additional values are returned as <code>game_pbp_id</code> and <code>game_pbp_url</code> which can also now be used in the <code><a href="../reference/ncaa_pbp.html">ncaa_pbp()</a></code> function.</p>
+</div>
+<div class="section level4">
+<h4 id="other-fixes-1-5-0">Other Fixes<a class="anchor" aria-label="anchor" href="#other-fixes-1-5-0"></a></h4>
+<ul><li>
+<code><a href="../reference/chadwick_player_lu.html">chadwick_player_lu()</a></code> function updated to address data source change</li>
+<li>Under the hood fixes for <code><a href="../reference/mlb_venues.html">mlb_venues()</a></code>, <code><a href="../reference/fg_team_batter.html">fg_team_batter()</a></code> (and other FanGraphs functions), <code><a href="../reference/chadwick_player_lu.html">chadwick_player_lu()</a></code>
+</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.4.0" id="baseballr-140">baseballr 1.4.0<a class="anchor" aria-label="anchor" href="#baseballr-140"></a></h2>
 <ul><li>Minor updates under the hood for tidyselect version changes affecting dplyr and tidyr functions under the hood</li>
@@ -393,10 +430,10 @@
 <td align="left"><code><a href="../reference/mlb_probables.html">mlb_probables()</a></code></td>
 <td align="left">R/mlb_probables.R</td>
 </tr><tr class="even"><td align="left">get_ncaa_baseball_pbp</td>
-<td align="left"><code><a href="../reference/ncaa_baseball_pbp.html">ncaa_baseball_pbp()</a></code></td>
+<td align="left"><code><a href="../reference/get_ncaa_baseball_pbp.html">ncaa_baseball_pbp()</a></code></td>
 <td align="left">R/ncaa_baseball_pbp.R</td>
 </tr><tr class="odd"><td align="left">get_ncaa_baseball_roster</td>
-<td align="left"><code><a href="../reference/ncaa_baseball_roster.html">ncaa_baseball_roster()</a></code></td>
+<td align="left"><code><a href="../reference/get_ncaa_baseball_roster.html">ncaa_baseball_roster()</a></code></td>
 <td align="left">R/ncaa_baseball_roster.R</td>
 </tr><tr class="even"><td align="left">get_ncaa_game_logs</td>
 <td align="left"><code><a href="../reference/ncaa_game_logs.html">ncaa_game_logs()</a></code></td>

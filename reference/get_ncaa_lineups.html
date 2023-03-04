@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.5.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -141,7 +141,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_ncaa_lineups</span><span class="op">(</span><span class="va">game_info_url</span>, <span class="va">year</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_ncaa_lineups</span><span class="op">(</span>game_info_url <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -150,8 +150,8 @@
 <dd><p>The unique game info url</p></dd>
 
 
-<dt>year</dt>
-<dd><p>The year the game was played in</p></dd>
+<dt>...</dt>
+<dd><p>Additional arguments passed to an underlying function like httr.</p></dd>
 
 </dl></div>
     <div class="section level2">

@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.5.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -168,22 +168,22 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_jobs</span><span class="op">(</span>job_type<span class="op">=</span><span class="st">'UMPR'</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Jobs data from MLB.com ─────────────────────── <span style="font-style: italic;">baseballr 1.4.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-12-29 00:08:14 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 107 × 7</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Jobs data from MLB.com ─────────────────────── <span style="font-style: italic;">baseballr 1.5.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-03-04 03:54:45 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 128 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    jersey_number job    job_code title  person_id person_full_…¹ perso…²</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 67            Umpire UMPR     Umpire    <span style="text-decoration: underline;">596</span>809 Ryan Additon   /api/v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 100           Umpire UMPR     Umpire    <span style="text-decoration: underline;">486</span>200 David Arrieta  /api/v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 101           Umpire UMPR     Umpire    <span style="text-decoration: underline;">623</span>938 Erich Bacchus  /api/v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 70            Umpire UMPR     Umpire    <span style="text-decoration: underline;">545</span>402 John Bacon     /api/v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 71            Umpire UMPR     Umpire    <span style="text-decoration: underline;">490</span>319 Jordan Baker   /api/v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 119           Umpire UMPR     Umpire    <span style="text-decoration: underline;">665</span>576 Brock Ballou   /api/v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 29            Umpire UMPR     Umpire    <span style="text-decoration: underline;">503</span>493 Sean Barber    /api/v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 23            Umpire UMPR     Umpire    <span style="text-decoration: underline;">427</span>013 Lance Barksda… /api/v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 16            Umpire UMPR     Umpire    <span style="text-decoration: underline;">483</span>561 Lance Barrett  /api/v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 65            Umpire UMPR     Umpire    <span style="text-decoration: underline;">427</span>019 Ted Barrett    /api/v…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 97 more rows, and abbreviated variable names</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> <span style="color: #949494;">"</span>67<span style="color: #949494;">"</span>          Umpire UMPR     Umpire    <span style="text-decoration: underline;">596</span>809 Ryan Additon   /api/v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> <span style="color: #949494;">""</span>            Umpire UMPR     Umpire    <span style="text-decoration: underline;">486</span>200 David Arrieta  /api/v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> <span style="color: #949494;">"</span>12<span style="color: #949494;">"</span>          Umpire UMPR     Umpire    <span style="text-decoration: underline;">623</span>938 Erich Bacchus  /api/v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> <span style="color: #949494;">""</span>            Umpire UMPR     Umpire    <span style="text-decoration: underline;">545</span>402 John Bacon     /api/v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> <span style="color: #949494;">"</span>71<span style="color: #949494;">"</span>          Umpire UMPR     Umpire    <span style="text-decoration: underline;">490</span>319 Jordan Baker   /api/v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> <span style="color: #949494;">"</span>119<span style="color: #949494;">"</span>         Umpire UMPR     Umpire    <span style="text-decoration: underline;">665</span>576 Brock Ballou   /api/v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> <span style="color: #949494;">"</span>29<span style="color: #949494;">"</span>          Umpire UMPR     Umpire    <span style="text-decoration: underline;">503</span>493 Sean Barber    /api/v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> <span style="color: #949494;">"</span>23<span style="color: #949494;">"</span>          Umpire UMPR     Umpire    <span style="text-decoration: underline;">427</span>013 Lance Barksda… /api/v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> <span style="color: #949494;">"</span>16<span style="color: #949494;">"</span>          Umpire UMPR     Umpire    <span style="text-decoration: underline;">483</span>561 Lance Barrett  /api/v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> <span style="color: #949494;">"</span>87<span style="color: #949494;">"</span>          Umpire UMPR     Umpire    <span style="text-decoration: underline;">482</span>608 Scott Barry    /api/v…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 118 more rows, and abbreviated variable names</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ¹​person_full_name, ²​person_link</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

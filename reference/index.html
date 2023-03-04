@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.5.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -218,6 +218,43 @@
         </dt>
         <dd><strong>Generate linear weight values for events using Baseball Savant data</strong></dd>
       </dl></div><div class="section level2">
+      <h2 id="baseballr-data-repository-ncaa">baseballr Data Repository - NCAA<a class="anchor" aria-label="anchor" href="#baseballr-data-repository-ncaa"></a></h2>
+      
+      
+
+      
+    </div><div class="section level2">
+      
+      <h3 id="baseballr-data-repository-ncaa-functions">baseballr Data Repository NCAA Functions<a class="anchor" aria-label="anchor" href="#baseballr-data-repository-ncaa-functions"></a></h3>
+      <p class="section-desc"></p><p>Functions exported by baseballr to access baseballr data repository NCAA data</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="load_ncaa_baseball_teams.html">load_ncaa_baseball_teams()</a></code> 
+        </dt>
+        <dd><strong>Load cleaned NCAA men's college baseball teams from the baseballr data repo</strong></dd>
+      </dl><dl><dt>
+          
+          <code><a href="load_ncaa_baseball_schedule.html">load_ncaa_baseball_schedule()</a></code> 
+        </dt>
+        <dd><strong>Load cleaned NCAA baseball schedule from the baseballr data repo</strong></dd>
+      </dl><dl><dt>
+          
+          <code><a href="load_ncaa_baseball_pbp.html">load_ncaa_baseball_pbp()</a></code> 
+        </dt>
+        <dd><strong>Load cleaned NCAA baseball play-by-play data from the baseballr data repo</strong></dd>
+      </dl><dl><dt>
+          
+          <code><a href="load_ncaa_baseball_season_ids.html">load_ncaa_baseball_season_ids()</a></code> 
+        </dt>
+        <dd><strong>Load cleaned NCAA men's college baseball season IDs from the baseballr data repo</strong></dd>
+      </dl></div><div class="section level2">
       <h2 id="ncaa-baseball">NCAA Baseball<a class="anchor" aria-label="anchor" href="#ncaa-baseball"></a></h2>
       
       
@@ -241,12 +278,12 @@
         <dd><strong>NCAA Functions Overview</strong></dd>
       </dl><dl><dt>
           
-          <code><a href="ncaa_baseball_pbp.html">ncaa_baseball_pbp()</a></code> 
+          <code><a href="ncaa_schedule_info.html">ncaa_schedule_info()</a></code> 
         </dt>
-        <dd><strong>Get Play-By-Play Data for NCAA Baseball Games</strong></dd>
+        <dd><strong>Get Schedule and Results for NCAA Baseball Teams</strong></dd>
       </dl><dl><dt>
           
-          <code><a href="ncaa_baseball_roster.html">ncaa_baseball_roster()</a></code> 
+          <code><a href="ncaa_roster.html">ncaa_roster()</a></code> 
         </dt>
         <dd><strong>Get NCAA Baseball Rosters</strong></dd>
       </dl><dl><dt>
@@ -266,29 +303,24 @@
         <dd><strong>Get Park Effects for NCAA Baseball Teams</strong></dd>
       </dl><dl><dt>
           
-          <code><a href="ncaa_schedule_info.html">ncaa_schedule_info()</a></code> 
-        </dt>
-        <dd><strong>Get Schedule and Results for NCAA Baseball Teams</strong></dd>
-      </dl><dl><dt>
-          
           <code><a href="ncaa_school_id_lu.html">ncaa_school_id_lu()</a></code> 
         </dt>
         <dd><strong>Lookup NCAA baseball school IDs (Division I, II, and III)</strong></dd>
       </dl><dl><dt>
           
-          <code><a href="ncaa_scrape.html">ncaa_scrape()</a></code> 
+          <code><a href="ncaa_teams.html">ncaa_teams()</a></code> 
         </dt>
-        <dd><strong>Scrape NCAA baseball data (Division I, II, and III)</strong></dd>
+        <dd><strong>Scrape NCAA baseball Teams (Division I, II, and III)</strong></dd>
       </dl><dl><dt>
           
-          <code><a href="ncaa_season_id_lu.html">ncaa_season_id_lu</a></code> 
+          <code><a href="ncaa_team_player_stats.html">ncaa_team_player_stats()</a></code> 
         </dt>
-        <dd><strong>A data set of college baseball seasons</strong></dd>
+        <dd><strong>Scrape NCAA baseball Team Player Stats (Division I, II, and III)</strong></dd>
       </dl><dl><dt>
           
-          <code><a href="ncaa_team_lu.html">ncaa_team_lu</a></code> 
+          <code><a href="ncaa_pbp.html">ncaa_pbp()</a></code> 
         </dt>
-        <dd><strong>A data set colleges and their athletic conferences and divisions</strong></dd>
+        <dd><strong>Get Play-By-Play Data for NCAA Baseball Games</strong></dd>
       </dl></div><div class="section level2">
       <h2 id="retrosheet">Retrosheet<a class="anchor" aria-label="anchor" href="#retrosheet"></a></h2>
       
@@ -1243,21 +1275,6 @@
         <dd><strong>Column structure of the MLB Draft data</strong></dd>
       </dl><dl><dt>
           
-          <code><a href="ncaa_season_id_lu.html">ncaa_season_id_lu</a></code> 
-        </dt>
-        <dd><strong>A data set of college baseball seasons</strong></dd>
-      </dl><dl><dt>
-          
-          <code><a href="ncaa_school_id_lu.html">ncaa_school_id_lu()</a></code> 
-        </dt>
-        <dd><strong>Lookup NCAA baseball school IDs (Division I, II, and III)</strong></dd>
-      </dl><dl><dt>
-          
-          <code><a href="ncaa_team_lu.html">ncaa_team_lu</a></code> 
-        </dt>
-        <dd><strong>A data set colleges and their athletic conferences and divisions</strong></dd>
-      </dl><dl><dt>
-          
           <code><a href="teams_lu_table.html">teams_lu_table</a></code> 
         </dt>
         <dd><strong>A Team Lookup Table</strong></dd>
@@ -1313,6 +1330,11 @@
           <code><a href="progressively.html">progressively()</a></code> 
         </dt>
         <dd><strong>Progressively</strong></dd>
+      </dl><dl><dt>
+          
+          <code><a href="request_with_proxy.html">request_with_proxy()</a></code> 
+        </dt>
+        <dd><strong>Retry http request with proxy</strong></dd>
       </dl></div><div class="section level2">
       <h2 id="legacy">Legacy<a class="anchor" aria-label="anchor" href="#legacy"></a></h2>
       
@@ -1382,12 +1404,12 @@
         <dd><strong>(legacy) Get MLB Game Info by Date and Level</strong></dd>
       </dl><dl><dt>
           
-          <code><a href="get_ncaa_baseball_pbp.html">get_ncaa_baseball_pbp()</a></code> 
+          <code><a href="get_ncaa_baseball_pbp.html">get_ncaa_baseball_pbp()</a></code> <code><a href="get_ncaa_baseball_pbp.html">ncaa_baseball_pbp()</a></code> 
         </dt>
         <dd><strong>(legacy) Get Play-By-Play Data for NCAA Baseball Games</strong></dd>
       </dl><dl><dt>
           
-          <code><a href="get_ncaa_baseball_roster.html">get_ncaa_baseball_roster()</a></code> 
+          <code><a href="get_ncaa_baseball_roster.html">ncaa_baseball_roster()</a></code> <code><a href="get_ncaa_baseball_roster.html">get_ncaa_baseball_roster()</a></code> 
         </dt>
         <dd><strong>(legacy) Get NCAA Baseball Rosters</strong></dd>
       </dl><dl><dt>
@@ -1440,6 +1462,11 @@
           <code><a href="milb_pitcher_game_logs_fg.html">milb_pitcher_game_logs_fg()</a></code> 
         </dt>
         <dd><strong>(legacy) Scrape MiLB game logs for pitchers from FanGraphs</strong></dd>
+      </dl><dl><dt>
+          
+          <code><a href="ncaa_scrape.html">ncaa_scrape()</a></code> 
+        </dt>
+        <dd><strong>(legacy) Scrape NCAA baseball Team Player Stats (Division I, II, and III)</strong></dd>
       </dl><dl><dt>
           
           <code><a href="pitcher_game_logs_fg.html">pitcher_game_logs_fg()</a></code> 
