@@ -201,14 +201,14 @@ reference:
       - '`statline_from_statcast`'
       - '`label_statcast_imputed_data`'
       - '`linear_weights_savant`'
-  - title: NCAA Baseball Loaders
-  - subtitle: NCAA Baseball Data Functions
-    desc: Functions exported by baseballr to access NCAA Baseball Data
+  - title: baseballr Data Repository - NCAA
+  - subtitle: baseballr Data Repository NCAA Functions
+    desc: Functions exported by baseballr to access baseballr data repository NCAA data
     contents:
-      - load_ncaa_baseball_teams
-      - load_ncaa_baseball_schedule
-      - load_ncaa_baseball_pbp
-      - load_ncaa_baseball_season_ids
+      - '`load_ncaa_baseball_teams`'
+      - '`load_ncaa_baseball_schedule`'
+      - '`load_ncaa_baseball_pbp`'
+      - '`load_ncaa_baseball_season_ids`'
   - title: NCAA Baseball 
   - subtitle: NCAA Baseball Data Functions
     desc: Functions exported by baseballr to access NCAA Baseball Data
@@ -343,14 +343,6 @@ reference:
     desc: Functions exported by baseballr to access MLB Stats - Jobs Data
     contents:
       - starts_with("mlb_job")
-
-  - title: baseballr Data Repository - NCAA
-  - subtitle: baseballr Data Repository NCAA Functions
-    desc: Functions exported by baseballr to access baseballr data repository NCAA data
-    contents:
-      - '`load_ncaa_baseball_teams()`'
-      - '`load_ncaa_baseball_season_ids()`'
-
   - title: baseballr Data Repository Misc. Lookup
   - subtitle: baseballr Data Repository Misc. Lookup Functions
     desc: Functions exported by baseballr to access baseballr data repository supplementary data
