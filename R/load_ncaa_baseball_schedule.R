@@ -1,6 +1,6 @@
+#' @rdname load_ncaa_baseball_schedule
 #' @title
 #' **Load cleaned NCAA baseball schedule from the baseballr data repo**
-#' @rdname load_ncaa_baseball_schedule
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
 #' @param seasons A vector of 4-digit years associated with given NCAA college baseball seasons. (Min: 2012)

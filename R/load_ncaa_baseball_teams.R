@@ -1,6 +1,6 @@
+#' @rdname load_ncaa_baseball_teams
 #' @title
 #' **Load cleaned NCAA men's college baseball teams from the baseballr data repo**
-#' @rdname load_ncaa_baseball_teams
 #' @description helper that loads multiple seasons of teams from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
 #'
