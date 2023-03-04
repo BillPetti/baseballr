@@ -108,6 +108,16 @@
     <a class="external-link dropdown-item" href="https://github.com/nntrn/nfl-nerd/">nfl-nerd</a>
   </div>
 </li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--data">
+    <span class="fas fa fas fa-database"></span>
+     
+     Data
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdown--data">
+    <a class="external-link dropdown-item" href="https://github.com/sportsdataverse/baseballr-data">Data Repository</a>
+  </div>
+</li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -155,9 +165,6 @@
 <ul><li>
 <code>ncaa_*()</code> functions now return <code>team_id</code> and <code>team_name</code> instead of <code>school_id</code> and <code>school</code>
 </li>
-<li>Add <code>proxy</code> rlang dots option for passing `<code><a href="https://httr.r-lib.org/reference/use_proxy.html" class="external-link">httr::use_proxy()</a></code> option to <code>ncaa_*()</code> functions</li>
-<li>
-<code><a href="../reference/ncaa_lineups.html">ncaa_lineups()</a></code> function removes the <code>year</code> parameter (was unnecessary)</li>
 <li>
 <code>ncaa_*()</code> functions now uniformly use <code>team_id</code> instead of <code>teamid</code>, <code>year</code> (vs. <code>team_year</code>). This affects the following functions:
 <ul><li><code><a href="../reference/ncaa_roster.html">ncaa_roster()</a></code></li>
@@ -165,6 +172,9 @@
 <li><code><a href="../reference/ncaa_park_factor.html">ncaa_park_factor()</a></code></li>
 <li><code><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats()</a></code></li>
 </ul></li>
+<li>
+<code><a href="../reference/ncaa_lineups.html">ncaa_lineups()</a></code> function removes the <code>year</code> parameter (was unnecessary)</li>
+<li>Add <code>proxy</code> rlang dots option for passing `<code><a href="https://httr.r-lib.org/reference/use_proxy.html" class="external-link">httr::use_proxy()</a></code> option to <code>ncaa_*()</code> functions</li>
 </ul><p><strong>Function Aliasing</strong></p>
 <ul><li>
 <code><a href="../reference/get_ncaa_baseball_pbp.html">ncaa_baseball_pbp()</a></code> has been aliased to <code><a href="../reference/ncaa_pbp.html">ncaa_pbp()</a></code> for naming consistency</li>
