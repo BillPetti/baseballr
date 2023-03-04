@@ -47,7 +47,7 @@ home:
 
 navbar:
   structure:
-    left:  [home, reference, articles, news, network, repo]
+    left:  [home, reference, articles, news, network, data, repo]
     right: [twitter, github]
   # icon: https://raw.githubusercontent.com/BillPetti/baseballR/master/man/figures/logo.ico
   title: "baseballr"
