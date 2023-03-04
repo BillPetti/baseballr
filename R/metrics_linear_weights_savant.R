@@ -57,7 +57,7 @@ linear_weights_savant <- function (df, level = "plate appearance"){
   else {
 
     df <- df %>%
-      dplyr::mutate(events = ifelse(is.na(.data$events), .data$type, .data$events)) %>%
+      dplyr::mutate(events = ifelse(is.na(.data$events) | .data$events == "", .data$type, .data$events)) %>%
       dplyr::mutate(events = ifelse(.data$events == "B", "ball",
                              ifelse(.data$events == "S", "strikes", .data$events)))
 

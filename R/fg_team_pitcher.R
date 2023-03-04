@@ -341,6 +341,7 @@ fg_team_pitcher <- function(x, y, league = "all", qual = 0,
         c <- gsub(" (pfx)", "_pfx", c, fixed = TRUE)
         c <- gsub(" (pi)", "_pi", c, fixed = TRUE)
         c <- gsub("/", "_", c, fixed = TRUE)
+        c <- gsub(" ", "_", c, fixed = TRUE)
         c <- ifelse(substr(c, nchar(c)-1+1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
         r <- c("Start_IP", "Relief_IP", "WPA_minus",
                "WPA_plus", "FBall_pct", "AgeRng")
@@ -399,6 +400,7 @@ fg_team_pitcher <- function(x, y, league = "all", qual = 0,
         c <- gsub(" (pfx)", "_pfx", c, fixed = TRUE)
         c <- gsub(" (pi)", "_pi", c, fixed = TRUE)
         c <- gsub("/", "_", c, fixed = TRUE)
+        c <- gsub(" ", "_", c, fixed = TRUE)
         c <- ifelse(substr(c, nchar(c)-1+1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
         r <- c("Start_IP", "Relief_IP", "WPA_minus",
                "WPA_plus", "FBall_pct", "AgeRng")

@@ -39,13 +39,29 @@ cols <- c(
   "LOB%",
   "FIP",
   "gamedate",
-  "dh"
+  "dh",
+  "UPId",
+  "MLBAMId",
+  "MinorMasterId",
+  "RRId",
+  "FirstName",
+  "LastName",
+  "firstLastName",
+  "Height",
+  "Weight",
+  "BirthDate",
+  "Bats",
+  "Throws",
+  "Position",
+  "BirthCity",
+  "College",
+  "Age"
 )
 
 test_that("FanGraphs MiLB Pitcher Game Logs", {
   skip_on_cran()
   
-  x <- fg_milb_pitcher_game_logs(playerid = "sa829043", year=2021)
+  x <- fg_milb_pitcher_game_logs(playerid = "sa829043", year = 2021)
   
   expect_equal(colnames(x), cols)
   expect_s3_class(x, "data.frame")

@@ -4,7 +4,7 @@
 \alias{ncaa_game_logs}
 \title{\strong{Get NCAA Baseball Game Logs}}
 \usage{
-ncaa_game_logs(player_id, year, type = "batting", span = "game")
+ncaa_game_logs(player_id, year, type = "batting", span = "game", ...)
 }
 \arguments{
 \item{player_id}{A player's unique id. Can be found using the
@@ -17,6 +17,8 @@ are 'batting' or 'pitching'.}
 
 \item{span}{The span of time; can either be 'game' for game logs in a season, or 'career' which
 returns seasonal stats for a player's career.}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 A data frame containing player and school information
@@ -68,6 +70,8 @@ as well as game by game statistics\tabular{ll}{
 \examples{
 \donttest{
   try(ncaa_game_logs(player_id = 2113782, year = 2021, type = "pitching", span = "game"))
+  try(ncaa_game_logs(player_id = 2113782, year = 2021, type = "pitching", span = "career"))
+  try(ncaa_game_logs(player_id = 1879650, year = 2019, type = "batting", span = "game"))
   try(ncaa_game_logs(player_id = 1879650, year = 2019, type = "batting", span = "career"))
 }
 }

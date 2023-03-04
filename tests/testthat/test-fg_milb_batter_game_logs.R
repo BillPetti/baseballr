@@ -41,7 +41,23 @@ cols <- c(
   "wRC+",
   "wBsR",
   "gamedate",
-  "dh"
+  "dh",
+  "UPId",
+  "MLBAMId",
+  "MinorMasterId",
+  "RRId",
+  "FirstName",
+  "LastName",
+  "firstLastName",
+  "Height",
+  "Weight",
+  "BirthDate",
+  "Bats",
+  "Throws",
+  "Position",
+  "BirthCity",
+  "College",
+  "Age"
 )
 
 test_that("FanGraphs MiLB Batter Game Logs", {

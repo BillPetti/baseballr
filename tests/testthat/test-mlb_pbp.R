@@ -131,6 +131,7 @@ cols <- c(
   "umpire.id",
   "umpire.link",
   "details.isOut",
+  "details.disengagementNum",
   "isBaseRunningPlay",
   "isSubstitution",
   "result.isOut",

@@ -4,24 +4,28 @@
 \alias{ncaa_school_id_lu}
 \title{\strong{Lookup NCAA baseball school IDs (Division I, II, and III)}}
 \usage{
-ncaa_school_id_lu(school_name = NULL)
+ncaa_school_id_lu(team_name = NULL)
 }
 \arguments{
-\item{school_name}{A string that will be searched for in the names of the schools.}
+\item{team_name}{A string that will be searched for in the names of the teams.}
 }
 \value{
-Returns a tibble with school identification data: school, conference, school_id, year, division, conference_id\tabular{ll}{
+Returns a tibble with school identification data: team_id, team_name, team_url,
+conference, conference_id, division, year, and season_id\tabular{ll}{
    col_name \tab types \cr
-   school \tab character \cr
-   conference \tab character \cr
-   school_id \tab numeric \cr
-   year \tab numeric \cr
-   division \tab numeric \cr
+   team_id \tab numeric \cr
+   team_name \tab character \cr
+   team_url \tab character \cr
    conference_id \tab numeric \cr
+   conference \tab character \cr
+   division \tab numeric \cr
+   year \tab numeric \cr
+   season_id \tab numeric \cr
 }
 }
 \description{
-This function allows the user to look up the \code{school_id} needed for the \code{ncaa_scrape()} function.
+This function allows the user to look up the \code{team_id} needed
+for the \code{ncaa_team_player_stats()} function.
 }
 \examples{
 \donttest{

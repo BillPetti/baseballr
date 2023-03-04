@@ -4,25 +4,40 @@
 \alias{ncaa_schedule_info}
 \title{\strong{Get Schedule and Results for NCAA Baseball Teams}}
 \usage{
-ncaa_schedule_info(teamid = NULL, year = NULL)
+ncaa_schedule_info(team_id = NULL, year = NULL, ...)
 }
 \arguments{
-\item{teamid}{The team's unique NCAA id.}
+\item{team_id}{The team's unique NCAA id.}
 
 \item{year}{The season (i.e. use 2016 for the 2015-2016 season,
 etc.)}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 A data frame with the following fields: date, opponent,
 result, score, innings (if more than regulation), and the url
 for the game itself.\tabular{ll}{
    col_name \tab types \cr
+   year \tab integer \cr
+   season_id \tab integer \cr
    date \tab character \cr
-   opponent \tab character \cr
+   home_team \tab character \cr
+   home_team_id \tab integer \cr
+   home_team_conference \tab character \cr
+   home_team_conference_id \tab integer \cr
+   home_team_slug \tab character \cr
+   home_team_division \tab integer \cr
+   away_team \tab character \cr
+   away_team_id \tab integer \cr
+   away_team_conference \tab character \cr
+   away_team_conference_id \tab integer \cr
+   away_team_slug \tab character \cr
+   away_team_division \tab integer \cr
+   neutral_site \tab character \cr
    result \tab character \cr
    score \tab character \cr
    innings \tab character \cr
-   opponent_slug \tab character \cr
    slug \tab character \cr
    game_info_url \tab character \cr
 }
@@ -30,8 +45,7 @@ for the game itself.\tabular{ll}{
 \description{
 \strong{Get Schedule and Results for NCAA Baseball Teams}
 }
-\examples{
-\donttest{
-  try(ncaa_schedule_info(teamid = 736, year = 2021))
-}
+\details{
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ try(ncaa_schedule_info(team_id = 736, year = 2019))
+}\if{html}{\out{</div>}}
 }

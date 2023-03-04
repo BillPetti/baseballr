@@ -4,10 +4,10 @@
 \alias{ncaa_park_factor}
 \title{\strong{Get Park Effects for NCAA Baseball Teams}}
 \usage{
-ncaa_park_factor(teamid, years, type = "conference")
+ncaa_park_factor(team_id, years, type = "conference", ...)
 }
 \arguments{
-\item{teamid}{The team's unique NCAA id.}
+\item{team_id}{The team's unique NCAA id.}
 
 \item{years}{The season or seasons (i.e. use 2016 for the 2015-2016 season,
 etc., limited to just 2013-2020 seasons).}
@@ -15,6 +15,8 @@ etc., limited to just 2013-2020 seasons).}
 \item{type}{default is conference. the conference parameter adjusts for the conference
 the school plays in, the division parameter calculates based on the division the school plays in 1,2,or 3.
 Defaults to 'conference'.}
+
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 A data frame with the following fields: school, home_game,
@@ -36,8 +38,7 @@ runs_allowed_away, base_pf (base park factor), home_game_adj (an adjustment for 
 \description{
 \strong{Get Park Effects for NCAA Baseball Teams}
 }
-\examples{
-\donttest{
-  try(ncaa_park_factor(teamid = 736, years = c(2017:2019), type = "conference"))
-}
+\details{
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  try(ncaa_park_factor(team_id = 736, years = c(2018:2019), type = "conference"))
+}\if{html}{\out{</div>}}
 }

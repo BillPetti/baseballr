@@ -1,3 +1,44 @@
+# baseballr 1.5.0
+
+### Major NCAA function changes
+
+ **New Functions**
+ 
+ Adds the following NCAA baseball functions:
+  - ```ncaa_teams()```
+  - ```load_ncaa_baseball_teams()```
+  - ```load_ncaa_baseball_season_ids()```
+  - ```load_ncaa_baseball_schedule()```
+  - ```load_ncaa_baseball_pbp()```
+  - ```ncaa_pbp()``` (see below)
+  - ```ncaa_roster()``` (see below)
+  - ```ncaa_team_player_stats()``` (see below)
+  
+ **Parameter Changes**
+ 
+ * `ncaa_*()` functions now return `team_id` and `team_name` instead of `school_id` and `school`
+ * Add `proxy` rlang dots option for passing ```httr::use_proxy()`` option to `ncaa_*()` functions
+ * ```ncaa_lineups()``` function removes the `year` parameter (was unnecessary)
+ * `ncaa_*()` functions now uniformly use `team_id` instead of `teamid`, `year` (vs. `team_year`). This affects the following functions:
+   - ```ncaa_roster()```
+   - ```ncaa_schedule_info()```
+   - ```ncaa_park_factor()```
+   - ```ncaa_team_player_stats()```
+   
+ **Function Aliasing**
+ 
+ * ```ncaa_baseball_pbp()``` has been aliased to ```ncaa_pbp()``` for naming consistency
+ * ```ncaa_baseball_roster()``` has been aliased to ```ncaa_roster()``` for naming consistency
+ * ```ncaa_scrape()``` has been aliased to ```ncaa_team_player_stats()``` for more descriptive naming
+ 
+ **Notes**
+ * ```ncaa_schedule_info()``` runs much slower because it is gathering the information on all of the game play-by-play URLs for each game to get a proper `game_pbp_id` link as opposed to the `contest_id` link alone. These additional values are returned as `game_pbp_id` and `game_pbp_url` which can also now be used in the `ncaa_pbp()` function.
+ 
+### Other Fixes
+
+ * ```chadwick_player_lu()``` function updated to address data source change
+ * Under the hood fixes for ```mlb_venues()```, ```fg_team_batter()``` (and other FanGraphs functions), ```chadwick_player_lu()```
+
 # baseballr 1.4.0
  * Minor updates under the hood for tidyselect version changes affecting dplyr and tidyr functions under the hood
 

@@ -4,21 +4,33 @@
 \alias{ncaa_lineups}
 \title{\strong{Retrieve lineups for a given NCAA game via its \code{game_info_url}}}
 \usage{
-ncaa_lineups(game_info_url, year)
+ncaa_lineups(game_info_url = NULL, ...)
 }
 \arguments{
 \item{game_info_url}{The unique game info url}
 
-\item{year}{The year the game was played in}
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Returns a tibble of each school's starting lineup and starting pitcher\tabular{ll}{
    col_name \tab types \cr
    year \tab numeric \cr
-   playerName \tab character \cr
+   player_name \tab character \cr
    position \tab character \cr
+   slug \tab character \cr
    batting_order \tab character \cr
-   school \tab character \cr
+   team_name \tab character \cr
+   sub \tab numeric \cr
+   attendance \tab character \cr
+   game_date \tab character \cr
+   location \tab character \cr
+   player_id \tab integer \cr
+   team_id \tab numeric \cr
+   team_url \tab character \cr
+   conference_id \tab numeric \cr
+   conference \tab character \cr
+   division \tab numeric \cr
+   season_id \tab numeric \cr
 }
 }
 \description{
@@ -26,6 +38,7 @@ Returns a tibble of each school's starting lineup and starting pitcher\tabular{l
 }
 \examples{
 \donttest{
-  try(ncaa_lineups(game_info_url="https://stats.ncaa.org/game/index/4587474?org_id=528",year=2018))
+  try(ncaa_lineups(game_info_url="https://stats.ncaa.org/contests/2167178/box_score"))
+  try(ncaa_lineups(game_info_url="https://stats.ncaa.org/game/index/4587474?org_id=528"))
 }
 }

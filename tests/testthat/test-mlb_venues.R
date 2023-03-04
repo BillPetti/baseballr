@@ -1,6 +1,6 @@
 
 cols <- c(
-  "venue_id", "venue_name", "venue_link", "active"
+  "venue_id", "venue_name", "venue_link", "active", "season"
 )
 
 test_that("MLB Venues", {

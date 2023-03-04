@@ -333,6 +333,7 @@ fg_batter_leaders <- function(x, y, league = "all", qual = "y", ind = 1, exc_p =
         c <- gsub(" (pi)", "_pi", c, fixed = TRUE)
         c <- gsub("/", "_", c, fixed = TRUE)
         c <- ifelse(substr(c, nchar(c)-1+1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
+        c <- gsub(" ", "_", c, fixed = TRUE)
         r <- c("wRC_plus", "WPA_minus", "WPA_plus", "FBall_pct", "AgeRng")
         c[c(62,64,65,74,202),] <- r
         Seasons <- ifelse(x == y, paste0(x), paste0(x, "-", y))
@@ -388,6 +389,7 @@ fg_batter_leaders <- function(x, y, league = "all", qual = "y", ind = 1, exc_p =
         c <- gsub(" (pfx)", "_pfx", c, fixed = TRUE)
         c <- gsub(" (pi)", "_pi", c, fixed = TRUE)
         c <- gsub("/", "_", c, fixed = TRUE)
+        c <- gsub(" ", "_", c, fixed = TRUE)
         c <- ifelse(substr(c, nchar(c)-1+1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
         r <- c("wRC_plus", "WPA_minus", "WPA_plus", "FBall_pct", "AgeRng")
         c[c(63, 65, 66, 74, 204),] <- r

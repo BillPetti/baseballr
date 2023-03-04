@@ -1,5 +1,20 @@
 .datatable.aware <- TRUE
 
+#' @title
+#' **Retry http request with proxy**
+#' @description
+#' This is a thin wrapper on httr::RETRY
+#' @param url Request url
+#' @param ... passed to httr::RETRY
+#' @keywords internal
+#' @importFrom httr RETRY
+request_with_proxy <- function(url, ...){
+  dots <- rlang::dots_list(..., .named = TRUE)
+  proxy <- dots$proxy
+  headers <- dots$headers
+  httr::RETRY("GET", url = {{url}}, ..., headers)
+}
+
 #' @title **Progressively**
 #'
 #' @description This function helps add progress-reporting to any function - given function `f()` and progressor `p()`, it will return a new function that calls `f()` and then (on-exiting) will call `p()` after every iteration.
@@ -12,8 +27,8 @@
 #'
 #' @return a function that does the same as `f` but it calls `p()` after iteration.
 progressively <- function(f, p = NULL){
-  if(!is.null(p) && !inherits(p, "progressor")) stop("`p` must be a progressor function!")
-  if(is.null(p)) p <- function(...) NULL
+  if (!is.null(p) && !inherits(p, "progressor")) stop("`p` must be a progressor function!")
+  if (is.null(p)) p <- function(...) NULL
   force(f)
   
   function(...){
@@ -113,7 +128,7 @@ rule_footer <- function(x) {
 #' @import rvest
 check_status <- function(res) {
   x = httr::status_code(res)
-  if(x != 200) stop("The API returned an error", call. = FALSE)
+  if (x != 200) stop(glue::glue("The API returned an error, HTTP Response Code {x}"), call. = FALSE)
 }
 
 #' @importFrom magrittr %>%
@@ -128,8 +143,8 @@ utils::globalVariables(c("where"))
 #' @importFrom RcppParallel defaultNumThreads
 NULL
 
-`%c%` <- function(x,y){
-  ifelse(!is.na(x),x,y)
+`%c%` <- function(x, y) {
+  ifelse(!is.na(x), x, y)
 }
 
 
@@ -139,9 +154,9 @@ NULL
 #' @export
 most_recent_ncaa_baseball_season <- function() {
   ifelse(
-    as.double(substr(Sys.Date(), 6, 7)) >= 3,
+    as.double(substr(Sys.Date(), 6, 7)) >= 1,
     as.double(substr(Sys.Date(), 1, 4)),
-    as.double(substr(Sys.Date(), 1, 4)-1)
+    as.double(substr(Sys.Date(), 1, 4)) - 1
   )
 }
 
@@ -153,12 +168,12 @@ most_recent_mlb_season <- function() {
   ifelse(
     as.double(substr(Sys.Date(), 6, 7)) >= 3,
     as.double(substr(Sys.Date(), 1, 4)),
-    as.double(substr(Sys.Date(), 1, 4)-1)
+    as.double(substr(Sys.Date(), 1, 4)) - 1
   )
 }
 # Functions for custom class
 # turn a data.frame into a tibble/baseballr_data
-make_baseballr_data <- function(df,type,timestamp){
+make_baseballr_data <- function(df, type, timestamp){
   out <- df %>%
     tidyr::as_tibble()
   
@@ -174,7 +189,7 @@ make_baseballr_data <- function(df,type,timestamp){
 print.baseballr_data <- function(x,...) {
   cli::cli_rule(left = "{attr(x,'baseballr_type')}",right = "{.emph baseballr {utils::packageVersion('baseballr')}}")
   
-  if(!is.null(attr(x,'baseballr_timestamp'))) {
+  if (!is.null(attr(x,'baseballr_timestamp'))) {
     cli::cli_alert_info(
       "Data updated: {.field {format(attr(x,'baseballr_timestamp'), tz = Sys.timezone(), usetz = TRUE)}}"
     )

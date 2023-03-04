@@ -81,9 +81,9 @@ library(dplyr)
 bref_standings_on_date("2015-08-01", "NL East", from = FALSE)
 ```
 
-    ## ── MLB Standings on Date data from baseball-reference.com ─── baseballr 1.3.0 ──
+    ## ── MLB Standings on Date data from baseball-reference.com ─── baseballr 1.5.0 ──
 
-    ## ℹ Data updated: 2022-09-08 20:13:31 EDT
+    ## ℹ Data updated: 2023-02-16 04:22:33 EST
 
     ## # A tibble: 5 × 8
     ##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`
@@ -180,7 +180,7 @@ data %>%
 
     ## Rows: 117
     ## Columns: 6
-    ## $ Name     <chr> "Edwin Encarnacion", "Bryce Harper", "David Ortiz", "Joey Vot…
+    ## $ Name     <chr> "Edwin EncarnaciÃ³n", "Bryce Harper", "David Ortiz", "Joey Vo…
     ## $ Team     <chr> "Toronto", "Washington", "Boston", "Cincinnati", "Baltimore",…
     ## $ season   <int> 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2…
     ## $ PA       <dbl> 216, 248, 213, 251, 253, 260, 245, 255, 223, 241, 223, 259, 2…
@@ -198,9 +198,9 @@ bref_daily_pitcher("2015-04-05", "2015-04-30") %>%
   head(10)
 ```
 
-    ## ── MLB Daily Pitcher data from baseball-reference.com ─────── baseballr 1.3.0 ──
+    ## ── MLB Daily Pitcher data from baseball-reference.com ─────── baseballr 1.5.0 ──
 
-    ## ℹ Data updated: 2022-09-08 20:13:44 EDT
+    ## ℹ Data updated: 2023-02-16 04:25:41 EST
 
     ## # A tibble: 10 × 11
     ##    season Name            IP   ERA    SO   uBB   HBP    HR   FIP wOBA_…¹ wOBA_…²
@@ -209,7 +209,7 @@ bref_daily_pitcher("2015-04-05", "2015-04-30") %>%
     ##  2   2015 Dallas Keuc…  37    0.73    22    11     0     0  2.84   0.169   0.151
     ##  3   2015 Sonny Gray    36.1  1.98    25     6     1     1  2.69   0.218   0.239
     ##  4   2015 Mike Leake    35.2  3.03    25     7     0     5  4.16   0.24    0.281
-    ##  5   2015 Felix Herna…  34.2  1.82    36     6     3     1  2.2    0.225   0.272
+    ##  5   2015 Félix Herná…  34.2  1.82    36     6     3     1  2.2    0.225   0.272
     ##  6   2015 Corey Kluber  34    4.24    36     5     2     2  2.4    0.295   0.391
     ##  7   2015 Jake Odoriz…  33.2  2.41    26     8     1     0  2.38   0.213   0.228
     ##  8   2015 Josh Collme…  32.2  2.76    16     3     0     1  2.82   0.29    0.33 

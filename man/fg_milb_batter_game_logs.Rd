@@ -56,6 +56,22 @@ Returns a tibble of Minor League batter game logs with the following columns:\ta
    wBsR \tab numeric \cr
    gamedate \tab character \cr
    dh \tab integer \cr
+   UPId \tab character \cr
+   MLBAMId \tab character \cr
+   MinorMasterId \tab character \cr
+   RRId \tab character \cr
+   FirstName \tab character \cr
+   LastName \tab character \cr
+   firstLastName \tab character \cr
+   Height \tab character \cr
+   Weight \tab character \cr
+   BirthDate \tab character \cr
+   Bats \tab character \cr
+   Throws \tab character \cr
+   Position \tab character \cr
+   BirthCity \tab character \cr
+   College \tab character \cr
+   Age \tab character \cr
 }
 }
 \description{

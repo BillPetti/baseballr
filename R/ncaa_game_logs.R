@@ -7,8 +7,10 @@
 #' are 'batting' or 'pitching'.
 #' @param span The span of time; can either be 'game' for game logs in a season, or 'career' which
 #' returns seasonal stats for a player's career.
+#' @param ... Additional arguments passed to an underlying function like httr.
 #' @return A data frame containing player and school information
 #' as well as game by game statistics
+#' 
 #'  |col_name      |types     |
 #'  |:-------------|:---------|
 #'  |player_id     |numeric   |
@@ -49,51 +51,80 @@
 #'  |OrdAppeared   |numeric   |
 #'  |KL            |numeric   |
 #'  |pickoffs      |character |
+#'  
 #' @importFrom tibble tibble
 #' @importFrom tidyr extract_numeric
 #' @import rvest
 #' @export
 #' @examples \donttest{
 #'   try(ncaa_game_logs(player_id = 2113782, year = 2021, type = "pitching", span = "game"))
+#'   try(ncaa_game_logs(player_id = 2113782, year = 2021, type = "pitching", span = "career"))
+#'   try(ncaa_game_logs(player_id = 1879650, year = 2019, type = "batting", span = "game"))
 #'   try(ncaa_game_logs(player_id = 1879650, year = 2019, type = "batting", span = "career"))
 #' }
 
-ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
+ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...) {
+  if (is.null(player_id)) {
+    cli::cli_abort("Enter valid player_id")
+  }
+  if (is.null(year)) {
+    cli::cli_abort("Enter valid year as a number (YYYY)")
+  }
+  if (is.null(type) | !(type %in% c("batting","pitching", "fielding"))) {
+    cli::cli_abort("Enter valid type: 'batting', 'pitching'")
+  }
+  if (is.null(span) | !(span %in% c("game","career"))) {
+    cli::cli_abort("Enter valid span: 'game', 'career'")
+  }
   
-  year_id <- baseballr::ncaa_season_id_lu %>% 
+  
+  season_ids <- load_ncaa_baseball_season_ids()
+  year_id <- season_ids %>% 
     dplyr::filter(.data$season == year) %>% 
     dplyr::select("id")
-  batting_id <- baseballr::ncaa_season_id_lu %>% 
+  batting_id <- season_ids %>% 
     dplyr::filter(.data$season == year) %>% 
     dplyr::select("batting_id")
-  pitching_id <- baseballr::ncaa_season_id_lu %>% 
+  pitching_id <- season_ids %>% 
     dplyr::filter(.data$season == year) %>% 
     dplyr::select("pitching_id")
   
+  headers <- httr::add_headers(.headers = .ncaa_headers())
   tryCatch(
-    expr={
+    expr = {
       if (type == "batting") {
         
         batting_url <- paste0("https://stats.ncaa.org/player/index?id=", year_id,"&stats_player_seq=", player_id,"&year_stat_category_id=", batting_id)
+        batting_resp <- request_with_proxy(url = batting_url, ..., headers)
         
-        batting_payload <- batting_url %>% 
+        check_status(batting_resp)
+        
+        batting_payload <- batting_resp %>% 
+          httr::content(as = "text", encoding = "UTF-8") %>% 
           xml2::read_html()
         
         player_name <- ((batting_payload %>% 
                            rvest::html_elements("select"))[3] %>% 
-                          rvest::html_elements(xpath="//option[@selected]") %>% 
+                          rvest::html_elements(xpath = "//option[@selected]") %>% 
                           rvest::html_text())[3]
+        player_name <- stringr::str_remove(stringr::str_extract(player_name,".*(?<= #)")," #")
       } else {
         
         pitching_url <- paste0("https://stats.ncaa.org/player/index?id=", year_id,"&stats_player_seq=", player_id,"&year_stat_category_id=", pitching_id)
         
-        pitching_payload <- pitching_url %>% 
+        pitching_resp <- request_with_proxy(url = pitching_url, ..., headers)
+        
+        check_status(pitching_resp)
+        
+        pitching_payload <- pitching_resp %>% 
+          httr::content(as = "text", encoding = "UTF-8") %>% 
           xml2::read_html()
         
         player_name <- ((pitching_payload %>% 
                            rvest::html_elements("select"))[3] %>% 
-                          rvest::html_elements(xpath="//option[@selected]") %>% 
+                          rvest::html_elements(xpath = "//option[@selected]") %>% 
                           rvest::html_text())[3]
+        player_name <- stringr::str_remove(stringr::str_extract(player_name,".*(?<= #)")," #")
       }
       
       if (span == 'game') {
@@ -115,10 +146,8 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
           payload_df <- payload_df %>% 
             dplyr::select(batting_cols)
           
-          payload_df <- payload_df %>%
-            dplyr::mutate_at(vars(.data$G:.data$RBI2out), extract_numeric)
           
-          if('OPP DP' %in% colnames(payload_df) == TRUE) {
+          if ('OPP DP' %in% colnames(payload_df) == TRUE) {
             
             payload_df <- payload_df %>%
               dplyr::rename("DP" = "OPP DP")
@@ -134,7 +163,8 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
           payload_df <- payload_df %>%
             dplyr::mutate(
               player_id = player_id,
-              player_name = player_name) %>%
+              player_name = player_name,
+              Year = year) %>%
             dplyr::select("player_id", "player_name", tidyr::everything())
           
         } else {
@@ -148,7 +178,7 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
           
           payload_df <- payload_df[-c(1:2),]
           
-          if('OPP DP' %in% colnames(payload_df) == TRUE) {
+          if ('OPP DP' %in% colnames(payload_df) == TRUE) {
             
             payload_df <- payload_df %>%
               dplyr::rename("DP" = "OPP DP")
@@ -164,12 +194,13 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
         payload_df <- payload_df %>%
           dplyr::mutate(
             player_id = player_id,
-            player_name = player_name) %>%
+            player_name = player_name,
+            Year = year) %>%
           dplyr::select("player_id", "player_name", tidyr::everything())
         
       } else {
         
-        if(type == 'batting') {
+        if (type == 'batting') {
           
           payload_df <- ((batting_payload %>%
                             rvest::html_elements('table'))[3] %>%
@@ -180,7 +211,7 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
           
           payload_df <- payload_df[-1,]
           
-          if('OPP DP' %in% colnames(payload_df) == TRUE) {
+          if ('OPP DP' %in% colnames(payload_df) == TRUE) {
             
             payload_df <- payload_df %>%
               dplyr::rename("DP" = "OPP DP")
@@ -220,8 +251,7 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game') {
               player_name = player_name) %>%
             dplyr::select("Year", "player_id", "player_name", tidyr::everything())
           
-        } 
-        else {
+        } else {
           
           payload_df <- ((pitching_payload %>%
                             rvest::html_elements('table'))[3] %>%

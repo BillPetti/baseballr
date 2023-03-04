@@ -4,12 +4,12 @@
 \alias{get_ncaa_lineups}
 \title{\strong{(legacy) Retrieve lineups for a given NCAA game via its \code{game_info_url}}}
 \usage{
-get_ncaa_lineups(game_info_url, year)
+get_ncaa_lineups(game_info_url = NULL, ...)
 }
 \arguments{
 \item{game_info_url}{The unique game info url}
 
-\item{year}{The year the game was played in}
+\item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
 Returns a tibble of each school's starting lineup and starting pitcher
