@@ -3,6 +3,7 @@
 #' @param team_id The team's unique NCAA id.
 #' @param year The season (i.e. use 2016 for the 2015-2016 season,
 #' etc.)
+#' @param pbp_links Logical parameter to run process for scraping play_by_play urls for each game
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return A data frame with the following fields: date, opponent,
 #' result, score, innings (if more than regulation), and the url
@@ -42,7 +43,7 @@
 #'  try(ncaa_schedule_info(team_id = 736, year = 2019))
 #' ````
 
-ncaa_schedule_info <- function(team_id = NULL, year = NULL, ...){
+ncaa_schedule_info <- function(team_id = NULL, year = NULL, pbp_links = FALSE, ...){
   if (is.null(team_id)) {
     cli::cli_abort("Enter valid team_id")
   }
@@ -172,48 +173,48 @@ ncaa_schedule_info <- function(team_id = NULL, year = NULL, ...){
         dplyr::mutate(
           Date = substr(.data$Date,1,10),
           game_info_url = ifelse(!is.na(.data$slug), paste0("https://stats.ncaa.org", .data$slug), NA_character_))
-      
-      sched_ids_links <- purrr::map(sched$game_info_url, function(x){
-        if (!is.na(x)) {
-          contest_id <- as.integer(stringr::str_extract(x, "\\d+"))
-          
-          content <- request_with_proxy(url = x, ..., headers)
-          
-          check_status(content)
-          
-          init_payload <- content %>% 
-            httr::content(as = "text", encoding = "UTF-8") %>%
-            xml2::read_html() 
-          
-          payload <- init_payload %>% 
-            rvest::html_elements("#root li:nth-child(3) a") %>%
-            rvest::html_attr("href") %>%
-            as.data.frame() %>%
-            dplyr::rename(pbp_url_slug = ".") %>%
-            dplyr::mutate(game_pbp_url = paste0("https://stats.ncaa.org", .data$pbp_url_slug)) %>%
-            dplyr::pull(.data$game_pbp_url) 
-          
-          payload_df <- data.frame(
-            game_pbp_url = payload,
-            contest_id = contest_id,
-            game_pbp_id = as.integer(stringr::str_extract(payload, "\\d+"))
-          )
-          Sys.sleep(0.2)
-          return(payload_df)
-        } else {
-          
-          payload_df <- data.frame(
-            game_pbp_url = NA_character_,
-            contest_id = NA_integer_,
-            game_pbp_id = NA_integer_
-          )
-          return(payload_df)
-        }
-      }) %>% 
-        rbindlist_with_attrs()
-      sched <- sched %>% 
-        dplyr::bind_cols(sched_ids_links)
-      
+      if (pbp_links == TRUE) {
+        sched_ids_links <- purrr::map(sched$game_info_url, function(x){
+          if (!is.na(x)) {
+            contest_id <- as.integer(stringr::str_extract(x, "\\d+"))
+            
+            content <- request_with_proxy(url = x, ..., headers)
+            
+            check_status(content)
+            
+            init_payload <- content %>% 
+              httr::content(as = "text", encoding = "UTF-8") %>%
+              xml2::read_html() 
+            
+            payload <- init_payload %>% 
+              rvest::html_elements("#root li:nth-child(3) a") %>%
+              rvest::html_attr("href") %>%
+              as.data.frame() %>%
+              dplyr::rename(pbp_url_slug = ".") %>%
+              dplyr::mutate(game_pbp_url = paste0("https://stats.ncaa.org", .data$pbp_url_slug)) %>%
+              dplyr::pull(.data$game_pbp_url) 
+            
+            payload_df <- data.frame(
+              game_pbp_url = payload,
+              contest_id = contest_id,
+              game_pbp_id = as.integer(stringr::str_extract(payload, "\\d+"))
+            )
+            Sys.sleep(1)
+            return(payload_df)
+          } else {
+            
+            payload_df <- data.frame(
+              game_pbp_url = NA_character_,
+              contest_id = NA_integer_,
+              game_pbp_id = NA_integer_
+            )
+            return(payload_df)
+          }
+        }) %>% 
+          rbindlist_with_attrs()
+        sched <- sched %>% 
+          dplyr::bind_cols(sched_ids_links)
+      }
       suppressWarnings(
         sched <- sched %>% 
           dplyr::mutate(
@@ -309,9 +310,11 @@ ncaa_schedule_info <- function(team_id = NULL, year = NULL, ...){
           "innings",
           "slug",
           "game_info_url",
-          "game_pbp_url",
-          "contest_id",
-          "game_pbp_id"
+          dplyr::any_of(c(
+            "game_pbp_url",
+            "contest_id",
+            "game_pbp_id"
+          ))
         )
       
       sched <- sched %>%

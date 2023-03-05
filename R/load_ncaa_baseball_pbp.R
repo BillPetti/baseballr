@@ -27,7 +27,7 @@ load_ncaa_baseball_pbp <- function(seasons = most_recent_ncaa_baseball_season(),
             seasons >= 2012,
             seasons <= most_recent_ncaa_baseball_season())
   
-  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/baseballr-data/main/ncaa/pbp/rds/ncaa_baseball_pbp_",seasons,".rds")
+  urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_baseball_pbp/ncaa_baseball_pbp_",seasons,".rds")
   
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)

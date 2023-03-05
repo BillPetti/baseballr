@@ -30,6 +30,6 @@ or writes it into a db using some forwarded arguments in the dots
 }
 \examples{
 \donttest{
-  load_ncaa_baseball_pbp(seasons = 2022)
+  load_ncaa_baseball_pbp(seasons = 2021)
 }
 }
