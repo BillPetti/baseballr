@@ -191,23 +191,23 @@ the season data into a database.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="fu">load_ncaa_baseball_pbp</span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2022</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">load_ncaa_baseball_pbp</span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2021</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── NCAA Play-by-Play Information from baseballr data repository ────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-03-03 03:26:33 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2,342,771 × 12</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-03-05 03:07:57 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,760,171 × 12</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    game_d…¹ locat…² atten…³ inning innin…⁴ score batting field…⁵ descr…⁶</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 06/26/2… Omaha,… <span style="color: #BB0000;">NA</span>      1      top     0-0   Oklaho… Ole Mi… Spiker…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 06/26/2… Omaha,… <span style="color: #BB0000;">NA</span>      1      top     0-0   Oklaho… Ole Mi… Graham…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 06/26/2… Omaha,… <span style="color: #BB0000;">NA</span>      1      top     0-0   Oklaho… Ole Mi… Robert…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 06/26/2… Omaha,… <span style="color: #BB0000;">NA</span>      1      top     0-0   Oklaho… Ole Mi… H: 1   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 06/26/2… Omaha,… <span style="color: #BB0000;">NA</span>      1      bot     0-0   Ole Mi… Oklaho… Bench …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 06/26/2… Omaha,… <span style="color: #BB0000;">NA</span>      1      bot     0-0   Ole Mi… Oklaho… Gonzal…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 06/26/2… Omaha,… <span style="color: #BB0000;">NA</span>      1      bot     0-0   Ole Mi… Oklaho… Elko s…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 06/26/2… Omaha,… <span style="color: #BB0000;">NA</span>      2      top     0-0   Oklaho… Ole Mi… Tredaw…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 06/26/2… Omaha,… <span style="color: #BB0000;">NA</span>      2      top     0-0   Oklaho… Ole Mi… Crooks…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 06/26/2… Omaha,… <span style="color: #BB0000;">NA</span>      2      top     0-0   Oklaho… Ole Mi… Clark …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 2,342,761 more rows, 3 more variables: year &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 06/30/2… Omaha,… <span style="color: #BB0000;">NA</span>      1      top     0-0   Missis… Vander… No pla…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 06/30/2… Omaha,… <span style="color: #BB0000;">NA</span>      1      top     0-0   Missis… Vander… R. Jor…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 06/30/2… Omaha,… <span style="color: #BB0000;">NA</span>      1      top     0-0   Missis… Vander… Allen …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 06/30/2… Omaha,… <span style="color: #BB0000;">NA</span>      1      top     0-0   Missis… Vander… James …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 06/30/2… Omaha,… <span style="color: #BB0000;">NA</span>      1      top     0-0   Missis… Vander… Delay …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 06/30/2… Omaha,… <span style="color: #BB0000;">NA</span>      1      top     1-0   Missis… Vander… Hancoc…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 06/30/2… Omaha,… <span style="color: #BB0000;">NA</span>      1      top     1-0   Missis… Vander… Tanner…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 06/30/2… Omaha,… <span style="color: #BB0000;">NA</span>      1      bot     1-0   Vander… Missis… Bradfi…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 06/30/2… Omaha,… <span style="color: #BB0000;">NA</span>      1      bot     1-0   Vander… Missis… Vaz wa…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 06/30/2… Omaha,… <span style="color: #BB0000;">NA</span>      1      bot     1-0   Vander… Missis… Keegan…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 1,760,161 more rows, 3 more variables: year &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   game_pbp_url &lt;chr&gt;, game_pbp_id &lt;int&gt;, and abbreviated variable</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   names ¹​game_date, ²​location, ³​attendance, ⁴​inning_top_bot,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁵​fielding, ⁶​description</span></span>
