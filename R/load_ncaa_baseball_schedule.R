@@ -27,7 +27,7 @@ load_ncaa_baseball_schedule <- function(seasons = most_recent_ncaa_baseball_seas
             seasons >= 2012,
             seasons <= most_recent_ncaa_baseball_season())
   
-  urls <- paste0("https://raw.githubusercontent.com/sportsdataverse/baseballr-data/main/ncaa/schedules/rds/ncaa_baseball_schedule_",seasons,".rds")
+  urls <- paste0("https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_baseball_schedules/ncaa_baseball_schedule_",seasons,".rds")
   
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)

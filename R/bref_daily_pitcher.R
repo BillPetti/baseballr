@@ -121,7 +121,7 @@ bref_daily_pitcher <- function(t1, t2) {
         dplyr::filter(grepl("players", .data$slug)) %>%
         dplyr::mutate(playerid = gsub("/players/gl.fcgi\\?id=",
                                       "", .data$slug)) %>% 
-        dplyr::mutate(playerid = gsub("&t.*","",playerid))
+        dplyr::mutate(playerid = gsub("&t.*","",.data$playerid))
       
       df <- df %>%
         dplyr::mutate(bbref_id = playerids$playerid) %>%
