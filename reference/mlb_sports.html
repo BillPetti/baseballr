@@ -171,8 +171,8 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_sports</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Sports data from MLB.com ───────────────────── <span style="font-style: italic;">baseballr 1.5.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-03-05 13:00:23 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 15 × 7</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-03-15 18:36:01 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 14 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    sport_id sport_code sport_link        sport…¹ sport…² sort_…³ activ…⁴</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>        1 mlb        /api/v1/sports/1  Major … MLB          11 TRUE   </span>
@@ -182,14 +182,13 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>       14 afx        /api/v1/sports/14 Single… A           401 TRUE   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>       16 rok        /api/v1/sports/16 Rookie  ROK         701 TRUE   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>       17 win        /api/v1/sports/17 Winter… WIN        <span style="text-decoration: underline;">1</span>301 TRUE   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>        8 bbl        /api/v1/sports/8  Organi… Pros       <span style="text-decoration: underline;">1</span>401 TRUE   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>       21 min        /api/v1/sports/21 Minor … Minors     <span style="text-decoration: underline;">1</span>402 TRUE   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>       23 ind        /api/v1/sports/23 Indepe… IND        <span style="text-decoration: underline;">2</span>101 TRUE   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span>       51 int        /api/v1/sports/51 Intern… INT        <span style="text-decoration: underline;">3</span>501 TRUE   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span>      509 nae        /api/v1/sports/5… Intern… 18U        <span style="text-decoration: underline;">3</span>503 TRUE   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span>      510 nas        /api/v1/sports/5… Intern… 16U        <span style="text-decoration: underline;">3</span>505 TRUE   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span>       22 bbc        /api/v1/sports/22 Colleg… College    <span style="text-decoration: underline;">5</span>101 TRUE   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span>      586 hsb        /api/v1/sports/5… High S… H.S.       <span style="text-decoration: underline;">6</span>201 TRUE   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>       21 min        /api/v1/sports/21 Minor … Minors     <span style="text-decoration: underline;">1</span>402 TRUE   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>       23 ind        /api/v1/sports/23 Indepe… IND        <span style="text-decoration: underline;">2</span>101 TRUE   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>       51 int        /api/v1/sports/51 Intern… INT        <span style="text-decoration: underline;">3</span>501 TRUE   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span>      509 nae        /api/v1/sports/5… Intern… 18U        <span style="text-decoration: underline;">3</span>503 TRUE   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span>      510 nas        /api/v1/sports/5… Intern… 16U        <span style="text-decoration: underline;">3</span>505 TRUE   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span>       22 bbc        /api/v1/sports/22 Colleg… College    <span style="text-decoration: underline;">5</span>101 TRUE   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span>      586 hsb        /api/v1/sports/5… High S… H.S.       <span style="text-decoration: underline;">6</span>201 TRUE   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with abbreviated variable names ¹​sport_name, ²​sport_abbreviation,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ³​sort_order, ⁴​active_status</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
