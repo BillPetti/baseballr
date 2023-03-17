@@ -329,7 +329,7 @@ fg_team_pitcher <- function(x, y, league = "all", qual = 0,
           xml2::read_html()
         
         leaders <- (payload %>%
-                      rvest::html_elements("table"))[[17]] %>% 
+                      rvest::html_elements("table"))[[9]] %>% 
           rvest::html_table()
         
         leaders <- leaders[-c(1,3),]
@@ -388,7 +388,7 @@ fg_team_pitcher <- function(x, y, league = "all", qual = 0,
           xml2::read_html()
         
         leaders <- (payload %>%
-                      rvest::html_elements("table"))[[17]] %>% 
+                      rvest::html_elements("table"))[[9]] %>% 
           rvest::html_table()
         
         leaders <- leaders[-c(1,3),]

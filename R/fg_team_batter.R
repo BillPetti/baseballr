@@ -318,7 +318,7 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
         
         
         leaders <- (payload %>%
-                      rvest::html_elements("table"))[[17]] %>%
+                      rvest::html_elements("table"))[[9]] %>%
           rvest::html_table()
         
         leaders <- leaders[-c(1,3),]
@@ -377,7 +377,7 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
         }
         
         leaders <- (payload %>%
-                      rvest::html_elements("table"))[[17]] %>% 
+                      rvest::html_elements("table"))[[9]] %>% 
           rvest::html_table()
         
         leaders <- leaders[-c(1,3),]

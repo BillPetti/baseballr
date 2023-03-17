@@ -321,7 +321,7 @@ fg_batter_leaders <- function(x, y, league = "all", qual = "y", ind = 1, exc_p =
         
         
         leaders <- (payload %>%
-                      rvest::html_elements("table"))[[17]] %>%
+                      rvest::html_elements("table"))[[9]] %>%
           rvest::html_table(fill=TRUE)
         
         leaders <- leaders[-c(1,3),]
@@ -353,7 +353,7 @@ fg_batter_leaders <- function(x, y, league = "all", qual = "y", ind = 1, exc_p =
         }
         
         playerids <- (payload %>%
-                        rvest::html_elements("table"))[[17]] %>%
+                        rvest::html_elements("table"))[[9]] %>%
           rvest::html_elements("a") %>%
           rvest::html_attr("href") %>%
           as.data.frame() %>%
@@ -378,7 +378,7 @@ fg_batter_leaders <- function(x, y, league = "all", qual = "y", ind = 1, exc_p =
         }
         
         leaders <- (payload %>%
-                      rvest::html_elements("table"))[[17]] %>% 
+                      rvest::html_elements("table"))[[9]] %>% 
           rvest::html_table(fill = TRUE)
         
         leaders <- leaders[-c(1,3),]
@@ -405,7 +405,7 @@ fg_batter_leaders <- function(x, y, league = "all", qual = "y", ind = 1, exc_p =
         }
         
         playerids <- (payload %>%
-                        rvest::html_elements("table"))[[17]] %>%
+                        rvest::html_elements("table"))[[9]] %>%
           rvest::html_elements("a") %>%
           rvest::html_attr("href") %>%
           as.data.frame() %>%
