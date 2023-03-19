@@ -32,6 +32,7 @@
 #'   |innings                 |character |
 #'   |slug                    |character |
 #'   |game_info_url           |character |
+#'   |contest_id              |integer   |
 #'    
 #' @importFrom tibble tibble rownames_to_column
 #' @importFrom tidyr separate
