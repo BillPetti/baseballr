@@ -31,7 +31,8 @@ This is a minor release that
  
  Makes these other fixes: 
  
-* Under the hood fixes for mlb_venues(), fg_team_batter(), chadwick_player_lu()
+* Under the hood fixes for mlb_venues(), fg_team_batter(), fg_team_pitcher(),
+  fg_batter_leaders(), fg_pitcher_leaders(), chadwick_player_lu()
 * Updates for tidyselect deprecation of data masking for related dplyr and tidyr functions
 * Also resolves the issue cited with vignette by CRAN maintainers
 

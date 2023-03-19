@@ -21,9 +21,7 @@ cols <- c(
   "innings",
   "slug",
   "game_info_url",
-  "game_pbp_url",
-  "contest_id",
-  "game_pbp_id"
+  "contest_id"
 )
 
 test_that("NCAA Get Schedule Info", {
