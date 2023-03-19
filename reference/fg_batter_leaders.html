@@ -189,10 +189,10 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">fg_batter_leaders</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">2015</span>, y <span class="op">=</span> <span class="fl">2015</span>, qual <span class="op">=</span> <span class="fl">400</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">fg_batter_leaders</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">2015</span>, y <span class="op">=</span> <span class="fl">2015</span>, qual <span class="op">=</span> <span class="fl">200</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Batter Leaders data from FanGraphs.com ─────── <span style="font-style: italic;">baseballr 1.5.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-03-15 18:34:12 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 211 × 289</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-03-19 21:38:59 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 352 × 289</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    playerid `#`   Season Name  Team    Age     G    AB    PA     H  `1B`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 11579    1     2015   Bryc… WSN      22   153   521   654   172    91</span>
@@ -201,11 +201,11 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 10155    4     2015   Mike… LAA      23   159   575   682   172    93</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1744     5     2015   Migu… DET      32   119   429   511   145    98</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 5038     6     2015   Josh… TOR      29   158   620   711   184   100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2434     7     2015   Nels… SEA      34   152   590   655   178   111</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2151     8     2015   Edwi… TOR      32   146   528   624   146    76</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 9272     9     2015   Chri… BAL      29   160   573   670   150    72</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1887     10    2015   Jose… TOR      34   153   543   666   136    64</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 201 more rows, and 278 more variables: `2B` &lt;dbl&gt;, `3B` &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2218     7     2015   Ryan… CLE      34    82   173   201    52    27</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2434     8     2015   Nels… SEA      34   152   590   655   178   111</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 4949     9     2015   Gian… MIA      25    74   279   318    74    34</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 12164    10    2015   Migu… MIN      22    80   279   335    75    39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 342 more rows, and 278 more variables: `2B` &lt;dbl&gt;, `3B` &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   HR &lt;dbl&gt;, R &lt;dbl&gt;, RBI &lt;dbl&gt;, BB &lt;dbl&gt;, IBB &lt;dbl&gt;, SO &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   HBP &lt;dbl&gt;, SF &lt;dbl&gt;, SH &lt;dbl&gt;, GDP &lt;dbl&gt;, SB &lt;dbl&gt;, CS &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   AVG &lt;dbl&gt;, GB &lt;dbl&gt;, FB &lt;dbl&gt;, LD &lt;dbl&gt;, IFFB &lt;dbl&gt;, Pitches &lt;dbl&gt;,</span></span>
