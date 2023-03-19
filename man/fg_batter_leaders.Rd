@@ -318,6 +318,6 @@ This function allows you to scrape all leaderboard statistics (basic and advance
 }
 \examples{
 \donttest{
-  try(fg_batter_leaders(x = 2015, y = 2015, qual = 400))
+  try(fg_batter_leaders(x = 2015, y = 2015, qual = 200))
 }
 }
