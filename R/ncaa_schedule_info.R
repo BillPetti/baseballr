@@ -32,6 +32,7 @@
 #'   |innings                 |character |
 #'   |slug                    |character |
 #'   |game_info_url           |character |
+#'   |contest_id              |integer   |
 #'    
 #' @importFrom tibble tibble rownames_to_column
 #' @importFrom tidyr separate
@@ -287,7 +288,8 @@ ncaa_schedule_info <- function(team_id = NULL, year = NULL, pbp_links = FALSE, .
           away_team_conference = ifelse(.data$home_team == .data$team_name, .data$opponent_conference, .data$conference),
           away_team_conference_id = ifelse(.data$home_team == .data$team_name, .data$opponent_conference_id, .data$conference_id),
           away_team_slug = ifelse(.data$home_team == .data$team_name, .data$opponent_team_slug, .data$team_url),
-          away_team_division = ifelse(.data$home_team == .data$team_name, .data$opponent_division, .data$division)) %>% 
+          away_team_division = ifelse(.data$home_team == .data$team_name, .data$opponent_division, .data$division),
+          contest_id = as.integer(stringr::str_extract(.data$game_info_url, "\\d+"))) %>% 
         dplyr::select(
           "year",
           "season_id",
@@ -310,9 +312,9 @@ ncaa_schedule_info <- function(team_id = NULL, year = NULL, pbp_links = FALSE, .
           "innings",
           "slug",
           "game_info_url",
+          "contest_id",
           dplyr::any_of(c(
             "game_pbp_url",
-            "contest_id",
             "game_pbp_id"
           ))
         )

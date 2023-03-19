@@ -39,7 +39,8 @@
 ### Other Fixes
 
  * ```chadwick_player_lu()``` function updated to address data source change
- * Under the hood fixes for ```mlb_venues()```, ```fg_team_batter()``` (and other FanGraphs functions), ```chadwick_player_lu()```
+ * Under the hood fixes for mlb_venues(), fg_team_batter(), fg_team_pitcher(),
+  fg_batter_leaders(), fg_pitcher_leaders(), chadwick_player_lu()
 
 # baseballr 1.4.0
  * Minor updates under the hood for tidyselect version changes affecting dplyr and tidyr functions under the hood

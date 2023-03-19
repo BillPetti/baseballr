@@ -299,9 +299,15 @@
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'   try(fg_team_batter(x = 2015, y = 2015, qual = 400))
+#'   try(fg_team_batter(x = 2015, y = 2015, qual = 200))
 #' }
-fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TRUE) {
+fg_team_batter <- function(
+    x, 
+    y, 
+    league = "all",
+    qual = "y",
+    ind = 1,
+    exc_p = TRUE) {
   
   if (ind == 0) {
     tryCatch(
@@ -317,11 +323,11 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
         }
         
         
-        leaders <- (payload %>%
-                      rvest::html_elements("table"))[[17]] %>%
+        leaders <- payload %>%
+          rvest::html_elements("table.rgMasterTable") %>%
           rvest::html_table()
         
-        leaders <- leaders[-c(1,3),]
+        leaders <- leaders[[1]][-c(1,3),]
         names(leaders) <- as.character(as.vector(leaders[1,]))
         leaders <- leaders[-1,]
         c <- as.matrix(names(leaders))
@@ -329,23 +335,23 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
         c <- gsub(" (pfx)", "_pfx", c, fixed = TRUE)
         c <- gsub(" (pi)", "_pi", c, fixed = TRUE)
         c <- gsub("/", "_", c, fixed = TRUE)
-        c <- ifelse(substr(c, nchar(c)-1+1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
+        c <- ifelse(substr(c, nchar(c) - 1 + 1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
         c <- gsub(" ", "_", c, fixed = TRUE)
         r <- c("wRC_plus", "WPA_minus", "WPA_plus", "FBall_pct", "AgeRng")
         c[c(60,62,63,71,201),] <- r
-        Seasons <- ifelse(x==y, paste0(x), paste0(x, "-", y))
+        Seasons <- ifelse(x == y, paste0(x), paste0(x, "-", y))
         names(leaders) <- c
         leaders <- leaders %>%
           dplyr::mutate(Season = Seasons) %>%
           dplyr::select("Season", tidyr::everything())
-        leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))), stringsAsFactors=F)
-        leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))), stringsAsFactors=F)
+        leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))), stringsAsFactors = FALSE)
+        leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))), stringsAsFactors = FALSE)
         leaders$Dol <- gsub("\\(", "-", leaders$Dol)
         leaders$Dol <- gsub("\\)", "", leaders$Dol)
         # Replace any empty cells with NA to avoid a warning message.
-        is.na(leaders) <- leaders==""
+        is.na(leaders) <- leaders == ""
         # Convert columns 5 to 287 to numeric, except column 201 "Age Rng"
-        for(i in c(4:201, 203:ncol(leaders))) {
+        for (i in c(4:201, 203:ncol(leaders))) {
           suppressWarnings(
             leaders[,i] <- as.numeric(as.character(leaders[,i]))
           )
@@ -376,11 +382,11 @@ fg_team_batter <- function(x, y, league = "all", qual = "y", ind = 1, exc_p = TR
             xml2::read_html()
         }
         
-        leaders <- (payload %>%
-                      rvest::html_elements("table"))[[17]] %>% 
+        leaders <- payload %>%
+          rvest::html_elements("table.rgMasterTable") %>% 
           rvest::html_table()
         
-        leaders <- leaders[-c(1,3),]
+        leaders <- leaders[[1]][-c(1,3),]
         names(leaders) <- as.character(as.vector(leaders[1,]))
         leaders <- leaders[-1,]
         leaders <- leaders[,-c(4)] # Remove age

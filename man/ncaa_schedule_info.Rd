@@ -42,6 +42,7 @@ for the game itself.\tabular{ll}{
    innings \tab character \cr
    slug \tab character \cr
    game_info_url \tab character \cr
+   contest_id \tab integer \cr
 }
 }
 \description{

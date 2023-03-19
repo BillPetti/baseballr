@@ -40,9 +40,9 @@
 #'   try(bref_team_results(Tm="TBR", year=2008))
 #' }
 
-bref_team_results <-function(Tm, year) {
+bref_team_results <- function(Tm, year) {
   
-  if(nchar(Tm)>3){
+  if (nchar(Tm) > 3) {
     teams_data <- baseballr::teams_lu_table
     Tm <- (teams_data %>% 
              dplyr::filter(.data$name == Tm) %>% 
