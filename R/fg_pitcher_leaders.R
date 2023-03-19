@@ -331,7 +331,7 @@ fg_pitcher_leaders <- function(x, y, league = "all", qual = "y",
           xml2::read_html()
         
         leaders <- (payload %>%
-                      rvest::html_elements("table"))[[17]] %>% 
+                      rvest::html_elements("table"))[[9]] %>% 
           rvest::html_table(fill=TRUE)
         
         leaders <- leaders[-c(1,3),]
@@ -366,7 +366,7 @@ fg_pitcher_leaders <- function(x, y, league = "all", qual = "y",
         }
         
         playerids <- (payload %>%
-                        rvest::html_elements("table"))[[17]] %>%
+                        rvest::html_elements("table"))[[9]] %>%
           rvest::html_elements("a") %>%
           rvest::html_attr("href") %>%
           as.data.frame() %>%
@@ -398,7 +398,7 @@ fg_pitcher_leaders <- function(x, y, league = "all", qual = "y",
           xml2::read_html()
         
         leaders <- (payload %>%
-                      rvest::html_elements("table"))[[17]] %>% 
+                      rvest::html_elements("table"))[[9]] %>% 
           rvest::html_table(fill=TRUE)
         
         leaders <- leaders[-c(1,3),]
@@ -426,7 +426,7 @@ fg_pitcher_leaders <- function(x, y, league = "all", qual = "y",
         }
         
         playerids <- (payload %>%
-                        rvest::html_elements("table"))[[17]] %>%
+                        rvest::html_elements("table"))[[9]] %>%
           rvest::html_elements("a") %>%
           rvest::html_attr("href") %>%
           as.data.frame() %>%
