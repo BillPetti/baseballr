@@ -22,7 +22,6 @@ helper that loads multiple seasons of season IDs from the data repo either into 
 or writes it into a db using some forwarded arguments in the dots
 }
 \examples{
-\donttest{
   load_ncaa_baseball_season_ids()
-}
+
 }

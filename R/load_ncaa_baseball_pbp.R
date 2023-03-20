@@ -9,9 +9,9 @@
 #' @param tablename The name of the schedule data table within the database
 #' @return Returns a tibble
 #' @export
-#' @examples \donttest{
+#' @examples 
 #'   load_ncaa_baseball_pbp(seasons = 2021)
-#' }
+#' 
 load_ncaa_baseball_pbp <- function(seasons = most_recent_ncaa_baseball_season(), ...,
                               dbConnection = NULL, tablename = NULL) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))

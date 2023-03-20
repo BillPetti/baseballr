@@ -9,9 +9,9 @@
 #' @param tablename The name of the data table within the database
 #' @return Returns a tibble
 #' @export
-#' @examples \donttest{
+#' @examples 
 #'   load_ncaa_baseball_season_ids()
-#' }
+#' 
 load_ncaa_baseball_season_ids <- function(...,
                               dbConnection = NULL, tablename = NULL) {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))

@@ -35,6 +35,13 @@ This is a minor release that
   fg_batter_leaders(), fg_pitcher_leaders(), chadwick_player_lu()
 * Updates for tidyselect deprecation of data masking for related dplyr and tidyr functions
 * Also resolves the issue cited with vignette by CRAN maintainers
+* Unwraps several examples for testing purposes. I will not unwrap more because they connect to 
+  outside internet resources. This can have adverse affects on the API's accessed. 
+  Our own testing is automated via GitHub Actions and is extensive enough that I feel confident 
+  we will catch errors in a sufficiently quick fashion. I simply am not interested in an API 
+  resource being temporarily down or misfiring triggering a CRAN alert for me. Everything in the 
+  package connects to the internet, so I try to be polite on giving examples that will be repeatedly
+  called. 
 
 ## R CMD check results
 

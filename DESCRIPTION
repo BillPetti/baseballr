@@ -10,8 +10,8 @@ Authors@R: c(
     person("Camden", "Kay", , "camden.kay23@gmail.com", role = "ctb")
   )
 Description: Provides numerous utilities for acquiring and analyzing
-    baseball data from online sources such as Baseball Reference <https://www.baseball-reference.com/>,
-    FanGraphs <https://www.fangraphs.com/>, and the MLB Stats API <https://www.mlb.com/>.
+    baseball data from online sources such as 'Baseball Reference' <https://www.baseball-reference.com/>,
+    'FanGraphs' <https://www.fangraphs.com/>, and the 'MLB Stats' API <https://www.mlb.com/>.
 License: MIT + file LICENSE
 URL: https://billpetti.github.io/baseballr/,
     https://github.com/BillPetti/baseballr
