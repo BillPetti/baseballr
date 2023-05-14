@@ -3,7 +3,7 @@
 #'
 #' @param team_id The team's unique NCAA id.
 #' @param years The season or seasons (i.e. use 2016 for the 2015-2016 season,
-#' etc., limited to just 2013-2020 seasons).
+#' etc., limited to just 2013-2022 seasons).
 #' @param type default is conference. the conference parameter adjusts for the conference
 #' the school plays in, the division parameter calculates based on the division the school plays in 1,2,or 3.
 #' Defaults to 'conference'.
@@ -61,18 +61,16 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
     dplyr::right_join(teams, by = c("conference_id","year")) %>% 
     dplyr::pull("n")
   
-  
-  
   school_name <- ncaa_team_lookup %>% 
-    dplyr::filter(.data$team_id == team_id) %>%
+    dplyr::filter(.data$team_id == {{team_id}}) %>%
     dplyr::select("team_name") %>%
     dplyr::distinct() %>% 
     dplyr::pull("team_name")
   
   y = length(years)
   y_all = vector(mode = "list", length = length(years))
-  if (sum(years < 2013) > 0 || sum(years > 2020) > 0) {
-    return("Please select only years between 2013 and 2020")
+  if (sum(years < 2013) > 0 || sum(years > 2022) > 0) {
+    return("Please select only years between 2013 and 2022")
   }
   
   
@@ -81,28 +79,29 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
     
     df = df %>%
       dplyr::mutate(
-        home_game = ifelse(stringr::str_detect(.data$opponent,"\\@") == TRUE, 0, 1),
+        home_game = ifelse(stringr::str_detect(.data$home_team_id, paste0("\\b", team_id, "\\b")) == TRUE, 1, 0),
         away_game = ifelse(.data$home_game == 1, 0, 1),
-        score = stringr::str_squish(.data$score),
-        score = stringr::str_remove_all(.data$score," "),
         runs_scored_home = as.numeric(ifelse(.data$home_game == 1, 
-                                             stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 1],0)),
+                                             .data$home_team_score, 0)),
         runs_allowed_home = as.numeric(ifelse(.data$home_game == 1, 
-                                              stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 2],0)),
+                                              .data$away_team_score, 0)),
         runs_scored_away = as.numeric(ifelse(.data$away_game == 1, 
-                                             stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 1],0)),
+                                             .data$away_team_score, 0)),
         runs_allowed_away = as.numeric(ifelse(.data$away_game == 1, 
-                                              stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 2],0)))
-    
+                                              .data$home_team_score, 0)))
+                                                                                                   
     dfa = janitor::adorn_totals(df %>% 
                                   dplyr::select(
-                                    "score",
+                                    "home_team",
                                     "home_game",
                                     "away_game",
                                     "runs_scored_home",
                                     "runs_allowed_home",
                                     "runs_scored_away",
-                                    "runs_allowed_away"), where = "row", name = .data$school_name) %>% tail(1)
+                                    "runs_allowed_away"), where = "row", name = school_name)
+    
+    dfa = dfa[nrow(dfa), ] %>%
+      rename("school" = "home_team")
     
     if (type == "division") {
       dfa = dfa %>% 
@@ -114,8 +113,7 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
           final_pf = (1 - (1 - .data$home_game_adj)*.6),
           base_pf = round(.data$base_pf, 3),
           home_game_adj = round(.data$home_game_adj, 3),
-          final_pf = round(.data$final_pf, 3)) %>% 
-        dplyr::rename("school" = "score")
+          final_pf = round(.data$final_pf, 3))
     } else {
       dfa = dfa %>% 
         dplyr::mutate(
@@ -128,8 +126,7 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
           base_pf = round(.data$base_pf,3),
           home_game_adj = round(.data$home_game_adj,3),
           final_pf = round(.data$final_pf,3)) %>% 
-        dplyr::select(-c("RPGH","RPGR","TM")) %>% 
-        dplyr::rename("school" = "score")
+        dplyr::select(-c("RPGH","RPGR","TM"))
     }
     
     return(dfa)
@@ -143,28 +140,30 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
     
     df = df %>%
       dplyr::mutate(
-        home_game = ifelse(stringr::str_detect(.data$opponent,"\\@") == TRUE,0,1),
-        away_game = ifelse(.data$home_game==1,0,1),
-        score = stringr::str_squish(.data$score),
-        score = stringr::str_remove_all(.data$score," "),
+        home_game = ifelse(stringr::str_detect(.data$home_team_id, paste0("\\b", team_id, "\\b")) == TRUE, 1, 0),
+        away_game = ifelse(.data$home_game == 1, 0, 1),
         runs_scored_home = as.numeric(ifelse(.data$home_game == 1, 
-                                             stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 1],0)),
+                                             .data$home_team_score, 0)),
         runs_allowed_home = as.numeric(ifelse(.data$home_game == 1, 
-                                              stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 2],0)),
+                                              .data$away_team_score, 0)),
         runs_scored_away = as.numeric(ifelse(.data$away_game == 1, 
-                                             stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 1],0)),
+                                             .data$away_team_score, 0)),
         runs_allowed_away = as.numeric(ifelse(.data$away_game == 1, 
-                                              stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 2],0)))
+                                              .data$home_team_score, 0)))
     
     dfa = janitor::adorn_totals(df %>% 
                                   dplyr::select(
-                                    "score",
+                                    "home_team",
                                     "home_game",
                                     "away_game",
                                     "runs_scored_home",
                                     "runs_allowed_home",
                                     "runs_scored_away",
-                                    "runs_allowed_away"), where = "row", name = school_name) %>% tail(1)
+                                    "runs_allowed_away"), where = "row", name = school_name)
+    
+    dfa = dfa[nrow(dfa), ] %>%
+      rename("school" = "home_team")
+    
     if (type == "division") {
       dfa = dfa %>% 
         dplyr::mutate(
@@ -175,8 +174,7 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
           final_pf = (1-(1-.data$home_game_adj)*.7),
           base_pf = round(.data$base_pf,3),
           home_game_adj = round(.data$home_game_adj,3),
-          final_pf = round(.data$final_pf,3)) %>% 
-        dplyr::rename("school" = "score")
+          final_pf = round(.data$final_pf,3))
     } else {
       dfa = dfa %>% 
         dplyr::mutate(
@@ -191,8 +189,7 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
           base_pf = round(.data$base_pf,3),
           home_game_adj = round(.data$home_game_adj,3),
           final_pf = round(.data$final_pf,3)) %>% 
-        dplyr::select(-c("RPGH","RPGR","TM")) %>% 
-        dplyr::rename("school" = "score")
+        dplyr::select(-c("RPGH","RPGR","TM"))
     }
     return(dfa)
   } else if (y == 3) {
@@ -205,29 +202,30 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
     
     df = df %>%
       dplyr::mutate(
-        home_game = ifelse(stringr::str_detect(.data$opponent,"\\@") == TRUE,0,1),
-        away_game = ifelse(.data$home_game==1,0,1),
-        score = stringr::str_squish(.data$score),
-        score = stringr::str_remove_all(.data$score," "),
+        home_game = ifelse(stringr::str_detect(.data$home_team_id, paste0("\\b", team_id, "\\b")) == TRUE, 1, 0),
+        away_game = ifelse(.data$home_game == 1, 0, 1),
         runs_scored_home = as.numeric(ifelse(.data$home_game == 1, 
-                                             stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 1],0)),
+                                             .data$home_team_score, 0)),
         runs_allowed_home = as.numeric(ifelse(.data$home_game == 1, 
-                                              stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 2],0)),
+                                              .data$away_team_score, 0)),
         runs_scored_away = as.numeric(ifelse(.data$away_game == 1, 
-                                             stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 1],0)),
+                                             .data$away_team_score, 0)),
         runs_allowed_away = as.numeric(ifelse(.data$away_game == 1, 
-                                              stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 2],0)))
+                                              .data$home_team_score, 0)))
     
     dfa = janitor::adorn_totals(df %>% 
                                   dplyr::select(
-                                    "score",
+                                    "home_team",
                                     "home_game",
                                     "away_game",
                                     "runs_scored_home",
                                     "runs_allowed_home",
                                     "runs_scored_away",
-                                    "runs_allowed_away"), where = "row", name = school_name) %>% 
-      tail(1)
+                                    "runs_allowed_away"), where = "row", name = school_name)
+    
+    dfa = dfa[nrow(dfa), ] %>%
+      rename("school" = "home_team")
+    
     if (type == "division") {
       dfa = dfa %>% 
         dplyr::mutate(
@@ -238,8 +236,7 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
           final_pf = (1-(1-.data$home_game_adj)*.8),
           base_pf = round(.data$base_pf,3),
           home_game_adj = round(.data$home_game_adj,3),
-          final_pf = round(.data$final_pf,3)) %>% 
-        dplyr::rename("school" = "score")
+          final_pf = round(.data$final_pf,3))
     } else {
       dfa = dfa %>%  
         dplyr::mutate(
@@ -253,8 +250,7 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
           base_pf = round(.data$base_pf,3),
           home_game_adj = round(.data$home_game_adj,3),
           final_pf = round(.data$final_pf,3)) %>% 
-        dplyr::select(-c("RPGH", "RPGR", "TM")) %>% 
-        dplyr::rename("school" = "score")
+        dplyr::select(-c("RPGH", "RPGR", "TM"))
     }
     return(dfa)
   } else if(y == 4) {
@@ -267,29 +263,30 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
     
     df = df %>%
       dplyr::mutate(
-        home_game = ifelse(stringr::str_detect(.data$opponent,"\\@") == TRUE,0,1),
-        away_game = ifelse(.data$home_game == 1,0,1),
-        score = stringr::str_squish(.data$score),
-        score = stringr::str_remove_all(.data$score," "),
-        runs_scored_home = as.numeric(ifelse(.data$home_game == 1,
-                                             stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 1],0)),
+        home_game = ifelse(stringr::str_detect(.data$home_team_id, paste0("\\b", team_id, "\\b")) == TRUE, 1, 0),
+        away_game = ifelse(.data$home_game == 1, 0, 1),
+        runs_scored_home = as.numeric(ifelse(.data$home_game == 1, 
+                                             .data$home_team_score, 0)),
         runs_allowed_home = as.numeric(ifelse(.data$home_game == 1, 
-                                              stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 2],0)),
+                                              .data$away_team_score, 0)),
         runs_scored_away = as.numeric(ifelse(.data$away_game == 1, 
-                                             stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 1],0)),
-        runs_allowed_away = as.numeric(ifelse(.data$away_game == 1, stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 2],0)))
-    
+                                             .data$away_team_score, 0)),
+        runs_allowed_away = as.numeric(ifelse(.data$away_game == 1, 
+                                              .data$home_team_score, 0)))
     
     dfa = janitor::adorn_totals(df %>% 
                                   dplyr::select(
-                                    "score",
+                                    "home_team",
                                     "home_game",
                                     "away_game",
                                     "runs_scored_home",
                                     "runs_allowed_home",
                                     "runs_scored_away",
-                                    "runs_allowed_away"), where = "row", name = school_name) %>% 
-      tail(1)
+                                    "runs_allowed_away"), where = "row", name = school_name)
+    
+    dfa = dfa[nrow(dfa), ] %>%
+      rename("school" = "home_team")
+    
     if (type == "division") {
       dfa = dfa %>% 
         dplyr::mutate(
@@ -300,8 +297,7 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
           final_pf = (1-(1-.data$home_game_adj)*.9),
           base_pf = round(.data$base_pf,3),
           home_game_adj = round(.data$home_game_adj,3),
-          final_pf = round(.data$final_pf,3)) %>% 
-        dplyr::rename("school" = "score")
+          final_pf = round(.data$final_pf,3))
     } else {
       dfa = dfa %>% 
         dplyr::mutate(
@@ -316,8 +312,7 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
           base_pf = round(.data$base_pf,3),
           home_game_adj = round(.data$home_game_adj,3),
           final_pf = round(.data$final_pf,3)) %>% 
-        dplyr::select(-c("RPGH", "RPGR", "TM")) %>% 
-        dplyr::rename("school" = "score")
+        dplyr::select(-c("RPGH", "RPGR", "TM"))
     }
     
     return(dfa)
@@ -331,30 +326,30 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
     
     df = df %>%
       dplyr::mutate(
-        home_game = ifelse(stringr::str_detect(.data$opponent,"\\@")==TRUE,0,1),
-        away_game = ifelse(.data$home_game==1,0,1),
-        score = stringr::str_squish(.data$score),
-        score = stringr::str_remove_all(.data$score," "),
+        home_game = ifelse(stringr::str_detect(.data$home_team_id, paste0("\\b", team_id, "\\b")) == TRUE, 1, 0),
+        away_game = ifelse(.data$home_game == 1, 0, 1),
         runs_scored_home = as.numeric(ifelse(.data$home_game == 1, 
-                                             stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 1],0)),
+                                             .data$home_team_score, 0)),
         runs_allowed_home = as.numeric(ifelse(.data$home_game == 1, 
-                                              stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 2],0)),
+                                              .data$away_team_score, 0)),
         runs_scored_away = as.numeric(ifelse(.data$away_game == 1, 
-                                             stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 1],0)),
+                                             .data$away_team_score, 0)),
         runs_allowed_away = as.numeric(ifelse(.data$away_game == 1, 
-                                              stringr::str_split_fixed(.data$score, stringr::fixed("-"), 2)[, 2],0)))
-    
+                                              .data$home_team_score, 0)))
     
     dfa = janitor::adorn_totals(df %>% 
                                   dplyr::select(
-                                    "score",
+                                    "home_team",
                                     "home_game",
                                     "away_game",
                                     "runs_scored_home",
                                     "runs_allowed_home",
                                     "runs_scored_away",
-                                    "runs_allowed_away"), where = "row", name = school_name) %>% 
-      tail(1)
+                                    "runs_allowed_away"), where = "row", name = school_name)
+    
+    dfa = dfa[nrow(dfa), ] %>%
+      rename("school" = "home_team")
+    
     if (type == "division") {
       
       dfa = dfa %>% 
@@ -364,8 +359,7 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
           final_pf = (1-(1-.data$home_game_adj)*.95),
           base_pf = round(.data$base_pf,3),
           home_game_adj = round(.data$home_game_adj,3),
-          final_pf = round(.data$final_pf,3)) %>% 
-        dplyr::rename("school" = "score")
+          final_pf = round(.data$final_pf,3))
     } else {
       dfa = dfa %>% 
         dplyr::mutate(
@@ -380,8 +374,7 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
           base_pf = round(.data$base_pf,3),
           home_game_adj = round(.data$home_game_adj,3),
           final_pf = round(.data$final_pf,3)) %>% 
-        dplyr::select(-c("RPGH", "RPGR", "TM")) %>% 
-        dplyr::rename("school" = "score")
+        dplyr::select(-c("RPGH", "RPGR", "TM"))
     }
     return(dfa)
   }
