@@ -10,7 +10,7 @@ get_ncaa_park_factor(team_id, years, type = "conference", ...)
 \item{team_id}{The team's unique NCAA id.}
 
 \item{years}{The season or seasons (i.e. use 2016 for the 2015-2016 season,
-etc., limited to just 2013-2020 seasons).}
+etc., limited to just 2013-2023 seasons).}
 
 \item{type}{default is conference. the conference parameter adjusts for the conference
 the school plays in, the division parameter calculates based on the division the school plays in 1,2,or 3.

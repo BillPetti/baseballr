@@ -32,16 +32,22 @@
 #'   try(ncaa_park_factor(team_id = 736, years = c(2018:2019), type = "conference"))
 #' ```
 
-ncaa_park_factor <- function(id, years, type = "conference", ...) {
-  if (is.null(id)) {
+ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
+  if (is.null(team_id)) {
     cli::cli_abort("Enter valid team_id")
   }
   if (is.null(years)) {
     cli::cli_abort("Enter valid years as a number (YYYY) or vector")
   }
-  ncaa_team_lookup <- load_ncaa_baseball_teams()
+  ncaa_team_lookup <- load_ncaa_baseball_teams() %>% 
+    dplyr::mutate(
+      team_id = as.integer(.data$team_id),
+      conference_id = as.integer(.data$conference_id),
+      year = as.integer(.data$year),
+      division = as.integer(.data$division)
+    )
   conference_pull <-  ncaa_team_lookup %>% 
-    dplyr::filter(.data$team_id == id) %>%
+    dplyr::filter(.data$team_id == {{team_id}}) %>%
     dplyr::select(
       "team_id",
       "conference_id",
@@ -63,9 +69,9 @@ ncaa_park_factor <- function(id, years, type = "conference", ...) {
   
   
   school_name <- ncaa_team_lookup %>% 
-    dplyr::filter(.data$team_id == id) %>%
+    dplyr::filter(.data$team_id == {{team_id}}) %>%
     dplyr::slice(1) %>%
-    dplyr::pull(team_name)
+    dplyr::pull("team_name")
   
   y = length(years)
   y_all = vector(mode = "list", length = length(years))
@@ -75,11 +81,11 @@ ncaa_park_factor <- function(id, years, type = "conference", ...) {
   
   
   if (y == 1) {
-    df = suppressWarnings(baseballr::ncaa_schedule_info(team_id = id, year = years, ...))
+    df = suppressWarnings(baseballr::ncaa_schedule_info(team_id = {{team_id}}, year = years, ...))
     
     df = df %>%
       dplyr::mutate(
-        home_game = as.numeric(ifelse(.data$home_team_id == id & is.na(.data$neutral_site), 1, 0)),
+        home_game = as.numeric(ifelse(.data$home_team_id == {{team_id}} & is.na(.data$neutral_site), 1, 0)),
         away_game = as.numeric(ifelse(.data$home_game == 1, 0, 1)),
         runs_scored_home = as.numeric(ifelse(.data$home_game == 1, .data$home_team_score,.data$away_team_score)),
         runs_allowed_home = as.numeric(ifelse(.data$home_game == 1, .data$away_team_score,.data$home_team_score)),
@@ -89,7 +95,8 @@ ncaa_park_factor <- function(id, years, type = "conference", ...) {
       dplyr::select("school","home_game","away_game","runs_scored_home","runs_allowed_home",
                     "runs_scored_away","runs_allowed_away")
     
-    dfa = janitor::adorn_totals(df, where = "row", name = "school") %>% dplyr::slice(nrow(.))
+    dfa = janitor::adorn_totals(df, where = "row", name = "school") 
+    dfa <- dfa %>% dplyr::slice(nrow(dfa))
     
     if (type == "division") {
       dfa = dfa %>%
@@ -125,14 +132,14 @@ ncaa_park_factor <- function(id, years, type = "conference", ...) {
     
   } else if (y == 2) {
     for (j in 1:length(years)) {
-      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(team_id = id, year = years[[j]], ...))
+      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(team_id = {{team_id}}, year = years[[j]], ...))
     }
     
     df = do.call(rbind,y_all)
     
     df = df %>%
       dplyr::mutate(
-        home_game = as.numeric(ifelse(.data$home_team_id == id & is.na(.data$neutral_site), 1, 0)),
+        home_game = as.numeric(ifelse(.data$home_team_id == {{team_id}} & is.na(.data$neutral_site), 1, 0)),
         away_game = as.numeric(ifelse(.data$home_game == 1, 0, 1)),
         runs_scored_home = as.numeric(ifelse(.data$home_game == 1, .data$home_team_score,.data$away_team_score)),
         runs_allowed_home = as.numeric(ifelse(.data$home_game == 1, .data$away_team_score,.data$home_team_score)),
@@ -142,13 +149,13 @@ ncaa_park_factor <- function(id, years, type = "conference", ...) {
       dplyr::select("school","home_game","away_game","runs_scored_home","runs_allowed_home",
                     "runs_scored_away","runs_allowed_away")
     
-    dfa = janitor::adorn_totals(df, where = "row", name = "school") %>% dplyr::slice(nrow(.))
+    dfa = janitor::adorn_totals(df, where = "row", name = "school") %>% tail(1)
     
     
     if (type == "division") {
       dfa = dfa %>%
         dplyr::mutate(
-          base_pf = ((.data$runs_scored_home+.dfa$runs_allowed_home)/(.data$home_game))/((.data$runs_scored_away+.data$runs_allowed_away)/(.data$away_game)),
+          base_pf = ((.data$runs_scored_home+ dfa$runs_allowed_home)/(.data$home_game))/((.data$runs_scored_away+.data$runs_allowed_away)/(.data$away_game)),
           home_game_adj = ifelse(.data$base_pf > 1,
                                  .data$base_pf-(abs(.data$base_pf-1)*(.data$home_game/(.data$home_game+.data$away_game))),
                                  .data$base_pf+(abs(.data$base_pf-1)*(.data$home_game/(.data$home_game+.data$away_game)))),
@@ -178,14 +185,14 @@ ncaa_park_factor <- function(id, years, type = "conference", ...) {
   } else if (y == 3) {
     
     for (j in 1:length(years)) {
-      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(team_id = id, year = years[[j]], ...))
+      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(team_id = {{team_id}}, year = years[[j]], ...))
     }
     
     df = do.call(rbind,y_all)
     
     df = df %>%
       dplyr::mutate(
-        home_game = as.numeric(ifelse(.data$home_team_id == id & is.na(.data$neutral_site), 1, 0)),
+        home_game = as.numeric(ifelse(.data$home_team_id == {{team_id}} & is.na(.data$neutral_site), 1, 0)),
         away_game = as.numeric(ifelse(.data$home_game == 1, 0, 1)),
         runs_scored_home = as.numeric(ifelse(.data$home_game == 1, .data$home_team_score,.data$away_team_score)),
         runs_allowed_home = as.numeric(ifelse(.data$home_game == 1, .data$away_team_score,.data$home_team_score)),
@@ -195,7 +202,7 @@ ncaa_park_factor <- function(id, years, type = "conference", ...) {
       dplyr::select("school","home_game","away_game","runs_scored_home","runs_allowed_home",
                     "runs_scored_away","runs_allowed_away")
     
-    dfa = janitor::adorn_totals(df, where = "row", name = "school") %>% dplyr::slice(nrow(.))
+    dfa = janitor::adorn_totals(df, where = "row", name = "school") %>% tail(1)
     
     if (type == "division") {
       dfa = dfa %>% 
@@ -229,14 +236,14 @@ ncaa_park_factor <- function(id, years, type = "conference", ...) {
   } else if(y == 4) {
     
     for (j in 1:length(years)) {
-      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(team_id = id, year = years[[j]], ...))
+      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(team_id = {{team_id}}, year = years[[j]], ...))
     }
     
     df = do.call(rbind, y_all)
     
     df = df %>%
       dplyr::mutate(
-        home_game = as.numeric(ifelse(.data$home_team_id == id & is.na(.data$neutral_site), 1, 0)),
+        home_game = as.numeric(ifelse(.data$home_team_id == {{team_id}} & is.na(.data$neutral_site), 1, 0)),
         away_game = as.numeric(ifelse(.data$home_game == 1, 0, 1)),
         runs_scored_home = as.numeric(ifelse(.data$home_game == 1, .data$home_team_score,.data$away_team_score)),
         runs_allowed_home = as.numeric(ifelse(.data$home_game == 1, .data$away_team_score,.data$home_team_score)),
@@ -246,7 +253,7 @@ ncaa_park_factor <- function(id, years, type = "conference", ...) {
       dplyr::select("school","home_game","away_game","runs_scored_home","runs_allowed_home",
                     "runs_scored_away","runs_allowed_away")
     
-    dfa = janitor::adorn_totals(df, where = "row", name = "school") %>% dplyr::slice(nrow(.))
+    dfa = janitor::adorn_totals(df, where = "row", name = "school") %>% tail(1)
     
     if (type == "division") {
       dfa = dfa %>% 
@@ -282,14 +289,14 @@ ncaa_park_factor <- function(id, years, type = "conference", ...) {
   } else if (y >= 5) {
     
     for (j in 1:length(years)) {
-      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(team_id = id, year = years[[j]], ...))
+      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(team_id = {{team_id}}, year = years[[j]], ...))
     }
     
     df = do.call(rbind,y_all)
     
     df = df %>%
       dplyr::mutate(
-        home_game = as.numeric(ifelse(.data$home_team_id == id & is.na(.data$neutral_site), 1, 0)),
+        home_game = as.numeric(ifelse(.data$home_team_id == {{team_id}} & is.na(.data$neutral_site), 1, 0)),
         away_game = as.numeric(ifelse(.data$home_game == 1, 0, 1)),
         runs_scored_home = as.numeric(ifelse(.data$home_game == 1, .data$home_team_score,.data$away_team_score)),
         runs_allowed_home = as.numeric(ifelse(.data$home_game == 1, .data$away_team_score,.data$home_team_score)),
@@ -299,7 +306,7 @@ ncaa_park_factor <- function(id, years, type = "conference", ...) {
       dplyr::select("school","home_game","away_game","runs_scored_home","runs_allowed_home",
                     "runs_scored_away","runs_allowed_away")
     
-    dfa = janitor::adorn_totals(df, where = "row", name = "school") %>% dplyr::slice(nrow(.))
+    dfa = janitor::adorn_totals(df, where = "row", name = "school") %>% tail(1)
     
     if (type == "division") {
       
