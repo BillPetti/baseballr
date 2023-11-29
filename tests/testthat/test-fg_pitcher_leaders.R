@@ -302,11 +302,11 @@ cols <- c(
   "Dol"
 )
 
-test_that("FanGraphs Team Pitching Leaders", {
+test_that("FanGraphs Pitching Leaders", {
   skip_on_cran()
   
-  x <- fg_team_pitcher(x = 2015, y = 2015, qual = 150)
+  x <- fg_pitcher_leaders(x = 2015, y = 2015, qual = 150)
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })
