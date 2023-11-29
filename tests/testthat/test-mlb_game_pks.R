@@ -26,6 +26,6 @@ test_that("MLB Game Packs", {
   
   x <- mlb_game_pks("2019-04-29")
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

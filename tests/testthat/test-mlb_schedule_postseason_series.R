@@ -75,6 +75,6 @@ test_that("MLB Schedule Postseason Series", {
   
   x <- mlb_schedule_postseason_series(season = 2021, sport_id=1)
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

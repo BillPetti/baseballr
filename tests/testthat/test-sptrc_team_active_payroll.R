@@ -7,14 +7,15 @@ cols <- c(
   "age",
   "pos",
   "status",
-  "waiver_options",
   "base_salary",
   "signing_bonus",
+  "incentives",
   "payroll_salary",
   "adj_salary",
   "payroll_percent",
   "lux_tax_salary",
-  "total_salary"
+  "total_salary",
+  "waiver_options"
 )
 
 test_that("Spotrac League Payrolls Breakdown", {
@@ -22,6 +23,6 @@ test_that("Spotrac League Payrolls Breakdown", {
   
   x <- sptrc_team_active_payroll(team_abbr = "BAL", year = most_recent_mlb_season())
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

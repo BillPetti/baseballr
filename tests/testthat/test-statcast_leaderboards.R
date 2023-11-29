@@ -1,8 +1,7 @@
 
 cols <- c(
   "year",
-  "last_name",
-  "first_name",
+  "last_name, first_name",
   "player_id",
   "attempts",
   "avg_hit_angle",

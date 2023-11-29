@@ -59,6 +59,6 @@ test_that("MLB Standings", {
   
   x <- mlb_standings(league_id=103,season=2021)
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

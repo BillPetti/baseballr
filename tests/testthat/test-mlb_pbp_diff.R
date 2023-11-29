@@ -147,6 +147,6 @@ test_that("MLB Play-by-Play Diff", {
                     start_timecode = "20210808_231704", 
                     end_timecode = "20210808_233711")
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

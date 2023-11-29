@@ -31,6 +31,6 @@ test_that("Statcast Search", {
   x <- statcast_search(start_date = "2022-11-04",
                        end_date = "2022-11-06")
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

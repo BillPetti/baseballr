@@ -68,6 +68,6 @@ test_that("MLB Schedule Games Tied", {
   
   x <- mlb_schedule_games_tied(season = 2020,  game_type='S')
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

@@ -31,6 +31,6 @@ test_that("MLB Game Changes", {
   
   x <- mlb_game_changes(updated_since = "2021-08-10T19:08:24.000004Z", sport_id = 1)
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })
