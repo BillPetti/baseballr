@@ -1,27 +1,37 @@
 on:
   push:
-    branches: [main, master]
-  release:
-    types: [published]
+    branches:
+      - main
+      - master
   workflow_dispatch:
 
 name: pkgdown
 
 jobs:
   pkgdown:
-    runs-on: ubuntu-22.04
+    runs-on: ${{ matrix.config.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - {os: 'ubuntu-latest',   r: 'release'}
     env:
+      R_KEEP_PKG_SOURCE: yes
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      RSPM: "https://packagemanager.rstudio.com/cran/__linux__/jammy/latest"
 
     steps:
-      - uses: actions/checkout@v2
-
-      - uses: r-lib/actions/setup-r@v2
-
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Setting up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: ${{ matrix.config.r }}
+          http-user-agent: ${{ matrix.config.http-user-agent }}
+          use-public-rspm: true
       - uses: r-lib/actions/setup-pandoc@v2
-
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - name: Setting up R dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
         with:
           cache-version: 1
           extra-packages: |
@@ -32,6 +42,7 @@ jobs:
             any::ggimage
             any::hoopR
             any::knitr
+            any::mlbplotR
             any::oddsapiR
             any::pacman
             any::pak
@@ -44,6 +55,11 @@ jobs:
             any::zoo
             local::.
           needs: website
+      - name: Install system dependencies
+        run: |
+          pak::pkg_install("hadley/emo")
+          pak::pkg_install("r-lib/pkgapi")
+        shell: Rscript {0}
 
       - name: Deploy package
         run: |
