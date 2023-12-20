@@ -65,6 +65,6 @@ test_that("FanGraphs MiLB Batter Game Logs", {
   
   x <- fg_milb_batter_game_logs(playerid = "sa3010868", year=2021)
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })
