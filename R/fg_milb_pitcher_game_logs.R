@@ -69,14 +69,14 @@
 #' @importFrom tidyr separate
 #' @export
 #' @examples \donttest{
-#'   fg_milb_pitcher_game_logs(playerid = "sa3005315", year=2021)
+#'   fg_milb_pitcher_game_logs(playerid = "sa3020682", year=2023)
 #' }
 
 fg_milb_pitcher_game_logs <- function(playerid, year) {
   tryCatch(
     expr = {
       # CDN API game-log
-      url <- paste0("https://cdn.fangraphs.com/api/players/game-log?position=P&type=-1&&gds=&gde=&z=1637230004112&playerid=",
+      url <- paste0("https://www.fangraphs.com/api/players/game-log?position=P&type=-1&&gds=&gde=&z=1703085978&playerid=",
                     playerid,
                     "&season=",
                     year)
@@ -97,9 +97,9 @@ fg_milb_pitcher_game_logs <- function(playerid, year) {
       )
       
       # url for player info table
-      url_basic <- paste0("https://cdn.fangraphs.com/api/players/stats?playerid=",
+      url_basic <- paste0("https://www.fangraphs.com/api/players/stats?playerid=",
                           playerid,
-                          "&position=P&z=1637230004112")
+                          "&position=P&z=1703085978")
       
       stats_res <- httr::RETRY("GET", url_basic)
       
@@ -114,9 +114,9 @@ fg_milb_pitcher_game_logs <- function(playerid, year) {
       team_payload <- team_df %>% 
         dplyr::pull("masterid")
       
-      url_player <- paste0("https://cdn.fangraphs.com/api/players/stats?playerid=",
+      url_player <- paste0("https://www.fangraphs.com/api/players/stats?playerid=",
                            team_payload,
-                           "&position=P&z=1637230004112")
+                           "&position=P&z=1703085978")
       player_res <- httr::RETRY("GET", url_player)
       
       player_resp <- player_res %>% 

@@ -287,14 +287,14 @@
 #' @import rvest
 #' @export
 #' @examples \donttest{
-#'   try(fg_batter_game_logs(playerid = 6184, year = 2017))
+#'   try(fg_batter_game_logs(playerid = 19755, year = 2023))
 #' }
 
-fg_batter_game_logs <- function(playerid, year = 2017) {
+fg_batter_game_logs <- function(playerid, year) {
   
-  url <- paste0("https://cdn.fangraphs.com/api/players/game-log?playerid=",
+  url <- paste0("https://www.fangraphs.com/api/players/game-log?playerid=",
                 playerid,
-                "&position=&type=0&gds=&gde=&z=1637143594112&season=",
+                "&position=&type=0&gds=&gde=&z=1703085978&season=",
                 year)
   tryCatch(
     expr = {
