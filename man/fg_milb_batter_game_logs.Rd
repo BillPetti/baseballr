@@ -79,6 +79,6 @@ This function allows you to scrape MiLB game logs for individual batters from Fa
 }
 \examples{
 \donttest{
-  try(fg_milb_batter_game_logs(playerid = "sa3010868", year=2021))
+  try(fg_milb_batter_game_logs(playerid = "sa3019999", year=2023))
 }
 }

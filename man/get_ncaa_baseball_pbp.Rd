@@ -32,7 +32,7 @@ found using the ncaa_schedule_info function.}
 \item{game_pbp_url}{The url for the game's play-by-play data. This can be
 found using the ncaa_schedule_info function.}
 
-\item{raw_html_to_disk}{Write raw html to disk (saves as {game_pbp_id}.html
+\item{raw_html_to_disk}{Write raw html to disk (saves as \code{{game_pbp_id}}.html
 in \code{raw_html_path} directory)}
 
 \item{raw_html_path}{Directory path to write raw html}

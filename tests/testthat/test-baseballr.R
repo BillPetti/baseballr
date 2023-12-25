@@ -27,6 +27,6 @@ test_that("MLB - Statcast Search", {
   
   expect_error(statcast_search(start_date = "1970-01-01"), "limited to the 2008")
   
-  expect_equal(nrow(playerid_lookup("Garcia", "Karim")), 1)
+  expect_equal(nrow(playerid_lookup("Ohtani", "Shohei")), 1)
   expect_equal(nrow(playerid_lookup("Baumer", "Ben")), 0)
 })

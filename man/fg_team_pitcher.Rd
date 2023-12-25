@@ -4,59 +4,112 @@
 \alias{fg_team_pitcher}
 \title{\strong{Scrape Team Pitcher Leaderboards from FanGraphs}}
 \usage{
-fg_team_pitcher(x, y, league = "all", qual = 0, pitcher_type = "pit", ind = 1)
+fg_team_pitcher(
+  age = "",
+  pos = "all",
+  stats = "pit",
+  lg = "all",
+  qual = "y",
+  startseason = "2023",
+  endseason = "2023",
+  startdate = "",
+  enddate = "",
+  month = "0",
+  hand = "",
+  team = "0,ts",
+  pageitems = "1000",
+  pagenum = "1",
+  ind = "0",
+  rost = "0",
+  players = "",
+  type = "8",
+  postseason = "",
+  sortdir = "default",
+  sortstat = "WAR"
+)
 }
 \arguments{
-\item{x}{First season for which you want data.}
+\item{age}{(integer) Age of players}
 
-\item{y}{Last season for which you want data. If multiple years selected, data returned will be aggregate data for the date range. If y = x, function will return single-season data.}
+\item{pos}{(character) Position of players, defaults to "all". To exclude pitchers, use "np".}
 
-\item{league}{Option for limiting results to different leagues or overall results. Options are "al", "nl", or "all".}
+\item{stats}{(character) Statistic to return. Defaults to "bat".}
 
-\item{qual}{Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimum number of plate appearaces/innings pitched, use the number desired. Defaults to "y".}
+\item{lg}{(character) League to return. Defaults to "all". Options are "al", "nl", or "all".}
 
-\item{pitcher_type}{Whether you want only starting pitchers, relievers, or all pitchers that meet the criteria specified in the qual argument. Options include "pit", "sta", "rel".}
+\item{qual}{(character) Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimum number of plate appearaces/innings pitched, use the number desired. Defaults to "y".}
 
-\item{ind}{Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.}
+\item{startseason}{(character) Season for which you want to scrape the data.}
+
+\item{endseason}{(character) Last season for which you want data.}
+
+\item{startdate}{(character) Start date for which you want data.}
+
+\item{enddate}{(character) End date for which you want data.}
+
+\item{month}{(character) Month for which you want data.}
+
+\item{hand}{(character) Handedness of batter. Options are "L", "R", or "B". Empty string returns all.}
+
+\item{team}{(character) Teams for which you want data, comma separated.}
+
+\item{pageitems}{(character) Number of items per page.}
+
+\item{pagenum}{(character) Page number.}
+
+\item{ind}{(character) Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.}
+
+\item{rost}{(character) Whether or not to include players on the roster. 1 = include, 0 = exclude.}
+
+\item{players}{(character) Whether or not to include players on the roster. 1 = include only active roster players, 0 = exclude.}
+
+\item{type}{(character) Defaults to 8, which is the standard leaderboard. The values for the leaderboards appear to go to from type = 0 to 48+, which correspond to links on the leaderboard page.}
+
+\item{postseason}{(logical) Whether or not to include postseason data. TRUE = include postseason, FALSE = exclude postseason.}
+
+\item{sortdir}{(character) Sort direction. Options are "asc" or "desc" or "default".}
+
+\item{sortstat}{(character) Sort by stat. Default is "WAR".}
 }
 \value{
 A data frame of pitcher data.\tabular{ll}{
    col_name \tab types \cr
-   Season \tab character \cr
-   # \tab character \cr
-   Team \tab character \cr
-   W \tab numeric \cr
-   L \tab numeric \cr
+   Season \tab integer \cr
+   team_name \tab character \cr
+   SeasonMin \tab integer \cr
+   SeasonMax \tab integer \cr
+   W \tab integer \cr
+   L \tab integer \cr
    ERA \tab numeric \cr
-   G \tab numeric \cr
-   GS \tab numeric \cr
-   CG \tab numeric \cr
-   ShO \tab numeric \cr
-   SV \tab numeric \cr
-   BS \tab numeric \cr
+   G \tab integer \cr
+   GS \tab integer \cr
+   CG \tab integer \cr
+   ShO \tab integer \cr
+   SV \tab integer \cr
+   BS \tab integer \cr
    IP \tab numeric \cr
-   TBF \tab numeric \cr
-   H \tab numeric \cr
-   R \tab numeric \cr
-   ER \tab numeric \cr
-   HR \tab numeric \cr
-   BB \tab numeric \cr
-   IBB \tab numeric \cr
-   HBP \tab numeric \cr
-   WP \tab numeric \cr
-   BK \tab numeric \cr
-   SO \tab numeric \cr
-   GB \tab numeric \cr
-   FB \tab numeric \cr
-   LD \tab numeric \cr
-   IFFB \tab numeric \cr
-   Balls \tab numeric \cr
-   Strikes \tab numeric \cr
-   Pitches \tab numeric \cr
-   RS \tab numeric \cr
-   IFH \tab numeric \cr
-   BU \tab numeric \cr
-   BUH \tab numeric \cr
+   TBF \tab integer \cr
+   H \tab integer \cr
+   R \tab integer \cr
+   ER \tab integer \cr
+   HR \tab integer \cr
+   BB \tab integer \cr
+   IBB \tab integer \cr
+   HBP \tab integer \cr
+   WP \tab integer \cr
+   BK \tab integer \cr
+   SO \tab integer \cr
+   GB \tab integer \cr
+   FB \tab integer \cr
+   LD \tab integer \cr
+   IFFB \tab integer \cr
+   Pitches \tab integer \cr
+   Balls \tab integer \cr
+   Strikes \tab integer \cr
+   RS \tab integer \cr
+   IFH \tab integer \cr
+   BU \tab integer \cr
+   BUH \tab integer \cr
    K_9 \tab numeric \cr
    BB_9 \tab numeric \cr
    K_BB \tab numeric \cr
@@ -75,6 +128,8 @@ A data frame of pitcher data.\tabular{ll}{
    HR_FB \tab numeric \cr
    IFH_pct \tab numeric \cr
    BUH_pct \tab numeric \cr
+   TTO_pct \tab numeric \cr
+   CFraming \tab numeric \cr
    Starting \tab numeric \cr
    Start_IP \tab numeric \cr
    Relieving \tab numeric \cr
@@ -82,6 +137,10 @@ A data frame of pitcher data.\tabular{ll}{
    RAR \tab numeric \cr
    WAR \tab numeric \cr
    Dollars \tab numeric \cr
+   RA9-Wins \tab numeric \cr
+   LOB-Wins \tab numeric \cr
+   BIP-Wins \tab numeric \cr
+   BS-Wins \tab numeric \cr
    tERA \tab numeric \cr
    xFIP \tab numeric \cr
    WPA \tab numeric \cr
@@ -93,7 +152,8 @@ A data frame of pitcher data.\tabular{ll}{
    inLI \tab numeric \cr
    gmLI \tab numeric \cr
    exLI \tab numeric \cr
-   Pulls \tab numeric \cr
+   Pulls \tab integer \cr
+   Games \tab integer \cr
    WPA_LI \tab numeric \cr
    Clutch \tab numeric \cr
    FBall_pct \tab numeric \cr
@@ -108,24 +168,19 @@ A data frame of pitcher data.\tabular{ll}{
    CHv \tab numeric \cr
    SF_pct \tab numeric \cr
    SFv \tab numeric \cr
-   KN_pct \tab numeric \cr
-   KNv \tab numeric \cr
    XX_pct \tab numeric \cr
-   PO_pct \tab numeric \cr
    wFB \tab numeric \cr
    wSL \tab numeric \cr
    wCT \tab numeric \cr
    wCB \tab numeric \cr
    wCH \tab numeric \cr
    wSF \tab numeric \cr
-   wKN \tab numeric \cr
    wFB_C \tab numeric \cr
    wSL_C \tab numeric \cr
    wCT_C \tab numeric \cr
    wCB_C \tab numeric \cr
    wCH_C \tab numeric \cr
    wSF_C \tab numeric \cr
-   wKN_C \tab numeric \cr
    O-Swing_pct \tab numeric \cr
    Z-Swing_pct \tab numeric \cr
    Swing_pct \tab numeric \cr
@@ -135,193 +190,235 @@ A data frame of pitcher data.\tabular{ll}{
    Zone_pct \tab numeric \cr
    F-Strike_pct \tab numeric \cr
    SwStr_pct \tab numeric \cr
-   HLD \tab numeric \cr
-   SD \tab numeric \cr
-   MD \tab numeric \cr
+   CStr_pct \tab numeric \cr
+   C+SwStr_pct \tab numeric \cr
+   HLD \tab integer \cr
+   SD \tab integer \cr
+   MD \tab integer \cr
    ERA- \tab numeric \cr
    FIP- \tab numeric \cr
    xFIP- \tab numeric \cr
    K_pct \tab numeric \cr
    BB_pct \tab numeric \cr
+   K-BB_pct \tab numeric \cr
    SIERA \tab numeric \cr
+   kwERA \tab numeric \cr
    RS_9 \tab numeric \cr
    E-F \tab numeric \cr
-   FA_pct (sc) \tab numeric \cr
-   FT_pct (sc) \tab numeric \cr
-   FC_pct (sc) \tab numeric \cr
-   FS_pct (sc) \tab numeric \cr
-   FO_pct (sc) \tab numeric \cr
-   SI_pct (sc) \tab numeric \cr
-   SL_pct (sc) \tab numeric \cr
-   CU_pct (sc) \tab numeric \cr
-   KC_pct (sc) \tab numeric \cr
-   EP_pct (sc) \tab numeric \cr
-   CH_pct (sc) \tab numeric \cr
-   SC_pct (sc) \tab numeric \cr
-   KN_pct (sc) \tab numeric \cr
-   UN_pct (sc) \tab numeric \cr
-   vFA (sc) \tab numeric \cr
-   vFT (sc) \tab numeric \cr
-   vFC (sc) \tab numeric \cr
-   vFS (sc) \tab numeric \cr
-   vFO (sc) \tab numeric \cr
-   vSI (sc) \tab numeric \cr
-   vSL (sc) \tab numeric \cr
-   vCU (sc) \tab numeric \cr
-   vKC (sc) \tab numeric \cr
-   vEP (sc) \tab numeric \cr
-   vCH (sc) \tab numeric \cr
-   vSC (sc) \tab numeric \cr
-   vKN (sc) \tab numeric \cr
-   FA-X (sc) \tab numeric \cr
-   FT-X (sc) \tab numeric \cr
-   FC-X (sc) \tab numeric \cr
-   FS-X (sc) \tab numeric \cr
-   FO-X (sc) \tab numeric \cr
-   SI-X (sc) \tab numeric \cr
-   SL-X (sc) \tab numeric \cr
-   CU-X (sc) \tab numeric \cr
-   KC-X (sc) \tab numeric \cr
-   EP-X (sc) \tab numeric \cr
-   CH-X (sc) \tab numeric \cr
-   SC-X (sc) \tab numeric \cr
-   KN-X (sc) \tab numeric \cr
-   FA-Z (sc) \tab numeric \cr
-   FT-Z (sc) \tab numeric \cr
-   FC-Z (sc) \tab numeric \cr
-   FS-Z (sc) \tab numeric \cr
-   FO-Z (sc) \tab numeric \cr
-   SI-Z (sc) \tab numeric \cr
-   SL-Z (sc) \tab numeric \cr
-   CU-Z (sc) \tab numeric \cr
-   KC-Z (sc) \tab numeric \cr
-   EP-Z (sc) \tab numeric \cr
-   CH-Z (sc) \tab numeric \cr
-   SC-Z (sc) \tab numeric \cr
-   KN-Z (sc) \tab numeric \cr
-   wFA (sc) \tab numeric \cr
-   wFT (sc) \tab numeric \cr
-   wFC (sc) \tab numeric \cr
-   wFS (sc) \tab numeric \cr
-   wFO (sc) \tab numeric \cr
-   wSI (sc) \tab numeric \cr
-   wSL (sc) \tab numeric \cr
-   wCU (sc) \tab numeric \cr
-   wKC (sc) \tab numeric \cr
-   wEP (sc) \tab numeric \cr
-   wCH (sc) \tab numeric \cr
-   wSC (sc) \tab numeric \cr
-   wKN (sc) \tab numeric \cr
-   wFA_C (sc) \tab numeric \cr
-   wFT_C (sc) \tab numeric \cr
-   wFC_C (sc) \tab numeric \cr
-   wFS_C (sc) \tab numeric \cr
-   wFO_C (sc) \tab numeric \cr
-   wSI_C (sc) \tab numeric \cr
-   wSL_C (sc) \tab numeric \cr
-   wCU_C (sc) \tab numeric \cr
-   wKC_C (sc) \tab numeric \cr
-   wEP_C (sc) \tab numeric \cr
-   wCH_C (sc) \tab numeric \cr
-   wSC_C (sc) \tab numeric \cr
-   wKN_C (sc) \tab numeric \cr
-   O-Swing_pct (sc) \tab numeric \cr
-   Z-Swing_pct (sc) \tab numeric \cr
-   Swing_pct (sc) \tab numeric \cr
-   O-Contact_pct (sc) \tab numeric \cr
-   Z-Contact_pct (sc) \tab numeric \cr
-   Contact_pct (sc) \tab numeric \cr
-   Zone_pct (sc) \tab numeric \cr
-   Pace \tab numeric \cr
-   RA9-WAR \tab numeric \cr
-   BIP-Wins \tab numeric \cr
-   LOB-Wins \tab numeric \cr
-   FDP-Wins \tab numeric \cr
-   AgeRng \tab numeric \cr
-   K-BB_pct \tab numeric \cr
+   Pull \tab integer \cr
+   Cent \tab integer \cr
+   Oppo \tab integer \cr
+   Soft \tab integer \cr
+   Med \tab integer \cr
+   Hard \tab integer \cr
+   bipCount \tab integer \cr
    Pull_pct \tab numeric \cr
    Cent_pct \tab numeric \cr
    Oppo_pct \tab numeric \cr
    Soft_pct \tab numeric \cr
    Med_pct \tab numeric \cr
    Hard_pct \tab numeric \cr
-   kwERA \tab numeric \cr
-   TTO_pct \tab numeric \cr
-   CH_pct_pi \tab numeric \cr
-   CS_pct_pi \tab numeric \cr
-   CU_pct_pi \tab numeric \cr
-   FA_pct_pi \tab numeric \cr
-   FC_pct_pi \tab numeric \cr
-   FS_pct_pi \tab numeric \cr
-   KN_pct_pi \tab numeric \cr
-   SB_pct_pi \tab numeric \cr
-   SI_pct_pi \tab numeric \cr
-   SL_pct_pi \tab numeric \cr
-   XX_pct_pi \tab numeric \cr
-   vCH_pi \tab numeric \cr
-   vCS_pi \tab numeric \cr
-   vCU_pi \tab numeric \cr
-   vFA_pi \tab numeric \cr
-   vFC_pi \tab numeric \cr
-   vFS_pi \tab numeric \cr
-   vKN_pi \tab numeric \cr
-   vSB_pi \tab numeric \cr
-   vSI_pi \tab numeric \cr
-   vSL_pi \tab numeric \cr
-   vXX_pi \tab numeric \cr
-   CH-X_pi \tab numeric \cr
-   CS-X_pi \tab numeric \cr
-   CU-X_pi \tab numeric \cr
-   FA-X_pi \tab numeric \cr
-   FC-X_pi \tab numeric \cr
-   FS-X_pi \tab numeric \cr
-   KN-X_pi \tab numeric \cr
-   SB-X_pi \tab numeric \cr
-   SI-X_pi \tab numeric \cr
-   SL-X_pi \tab numeric \cr
-   XX-X_pi \tab numeric \cr
-   CH-Z_pi \tab numeric \cr
-   CS-Z_pi \tab numeric \cr
-   CU-Z_pi \tab numeric \cr
-   FA-Z_pi \tab numeric \cr
-   FC-Z_pi \tab numeric \cr
-   FS-Z_pi \tab numeric \cr
-   KN-Z_pi \tab numeric \cr
-   SB-Z_pi \tab numeric \cr
-   SI-Z_pi \tab numeric \cr
-   SL-Z_pi \tab numeric \cr
-   XX-Z_pi \tab numeric \cr
-   wCH_pi \tab numeric \cr
-   wCS_pi \tab numeric \cr
-   wCU_pi \tab numeric \cr
-   wFA_pi \tab numeric \cr
-   wFC_pi \tab numeric \cr
-   wFS_pi \tab numeric \cr
-   wKN_pi \tab numeric \cr
-   wSB_pi \tab numeric \cr
-   wSI_pi \tab numeric \cr
-   wSL_pi \tab numeric \cr
-   wXX_pi \tab numeric \cr
-   wCH_C_pi \tab numeric \cr
-   wCS_C_pi \tab numeric \cr
-   wCU_C_pi \tab numeric \cr
-   wFA_C_pi \tab numeric \cr
-   wFC_C_pi \tab numeric \cr
-   wFS_C_pi \tab numeric \cr
-   wKN_C_pi \tab numeric \cr
-   wSB_C_pi \tab numeric \cr
-   wSI_C_pi \tab numeric \cr
-   wSL_C_pi \tab numeric \cr
-   wXX_C_pi \tab numeric \cr
-   O-Swing_pct_pi \tab numeric \cr
-   Z-Swing_pct_pi \tab numeric \cr
-   Swing_pct_pi \tab numeric \cr
-   O-Contact_pct_pi \tab numeric \cr
-   Z-Contact_pct_pi \tab numeric \cr
-   Contact_pct_pi \tab numeric \cr
-   Zone_pct_pi \tab numeric \cr
-   Pace_pi \tab numeric \cr
-   Dol \tab numeric \cr
+   K_9+ \tab numeric \cr
+   BB_9+ \tab numeric \cr
+   K_BB+ \tab numeric \cr
+   H_9+ \tab numeric \cr
+   HR_9+ \tab numeric \cr
+   AVG+ \tab numeric \cr
+   WHIP+ \tab numeric \cr
+   BABIP+ \tab numeric \cr
+   LOB_pct+ \tab numeric \cr
+   K_pct+ \tab numeric \cr
+   BB_pct+ \tab numeric \cr
+   LD_pct+ \tab numeric \cr
+   GB_pct+ \tab numeric \cr
+   FB_pct+ \tab numeric \cr
+   HRFB_pct+ \tab numeric \cr
+   Pull_pct+ \tab numeric \cr
+   Cent_pct+ \tab numeric \cr
+   Oppo_pct+ \tab numeric \cr
+   Soft_pct+ \tab numeric \cr
+   Med_pct+ \tab numeric \cr
+   Hard_pct+ \tab numeric \cr
+   rFTeamV \tab integer \cr
+   rBTeamV \tab integer \cr
+   rTV \tab integer \cr
+   pfx_FA_pct \tab numeric \cr
+   pfx_FT_pct \tab numeric \cr
+   pfx_FC_pct \tab numeric \cr
+   pfx_FS_pct \tab numeric \cr
+   pfx_SI_pct \tab numeric \cr
+   pfx_SL_pct \tab numeric \cr
+   pfx_CU_pct \tab numeric \cr
+   pfx_KC_pct \tab numeric \cr
+   pfx_CH_pct \tab numeric \cr
+   pfx_vFA \tab numeric \cr
+   pfx_vFT \tab numeric \cr
+   pfx_vFC \tab numeric \cr
+   pfx_vFS \tab numeric \cr
+   pfx_vSI \tab numeric \cr
+   pfx_vSL \tab numeric \cr
+   pfx_vCU \tab numeric \cr
+   pfx_vKC \tab numeric \cr
+   pfx_vCH \tab numeric \cr
+   pfx_FA-X \tab numeric \cr
+   pfx_FT-X \tab numeric \cr
+   pfx_FC-X \tab numeric \cr
+   pfx_FS-X \tab numeric \cr
+   pfx_SI-X \tab numeric \cr
+   pfx_SL-X \tab numeric \cr
+   pfx_CU-X \tab numeric \cr
+   pfx_KC-X \tab numeric \cr
+   pfx_CH-X \tab numeric \cr
+   pfx_FA-Z \tab numeric \cr
+   pfx_FT-Z \tab numeric \cr
+   pfx_FC-Z \tab numeric \cr
+   pfx_FS-Z \tab numeric \cr
+   pfx_SI-Z \tab numeric \cr
+   pfx_SL-Z \tab numeric \cr
+   pfx_CU-Z \tab numeric \cr
+   pfx_KC-Z \tab numeric \cr
+   pfx_CH-Z \tab numeric \cr
+   pfx_wFA \tab numeric \cr
+   pfx_wFT \tab numeric \cr
+   pfx_wFC \tab numeric \cr
+   pfx_wFS \tab numeric \cr
+   pfx_wSI \tab numeric \cr
+   pfx_wSL \tab numeric \cr
+   pfx_wCU \tab numeric \cr
+   pfx_wKC \tab numeric \cr
+   pfx_wCH \tab numeric \cr
+   pfx_wFA_C \tab numeric \cr
+   pfx_wFT_C \tab numeric \cr
+   pfx_wFC_C \tab numeric \cr
+   pfx_wFS_C \tab numeric \cr
+   pfx_wSI_C \tab numeric \cr
+   pfx_wSL_C \tab numeric \cr
+   pfx_wCU_C \tab numeric \cr
+   pfx_wKC_C \tab numeric \cr
+   pfx_wCH_C \tab numeric \cr
+   pfx_O-Swing_pct \tab numeric \cr
+   pfx_Z-Swing_pct \tab numeric \cr
+   pfx_Swing_pct \tab numeric \cr
+   pfx_O-Contact_pct \tab numeric \cr
+   pfx_Z-Contact_pct \tab numeric \cr
+   pfx_Contact_pct \tab numeric \cr
+   pfx_Zone_pct \tab numeric \cr
+   pfx_Pace \tab numeric \cr
+   pi_CH_pct \tab numeric \cr
+   pi_CU_pct \tab numeric \cr
+   pi_FA_pct \tab numeric \cr
+   pi_FC_pct \tab numeric \cr
+   pi_FS_pct \tab numeric \cr
+   pi_SI_pct \tab numeric \cr
+   pi_SL_pct \tab numeric \cr
+   pi_XX_pct \tab numeric \cr
+   pi_vCH \tab numeric \cr
+   pi_vCU \tab numeric \cr
+   pi_vFA \tab numeric \cr
+   pi_vFC \tab numeric \cr
+   pi_vFS \tab numeric \cr
+   pi_vSI \tab numeric \cr
+   pi_vSL \tab numeric \cr
+   pi_vXX \tab numeric \cr
+   pi_CH-X \tab numeric \cr
+   pi_CU-X \tab numeric \cr
+   pi_FA-X \tab numeric \cr
+   pi_FC-X \tab numeric \cr
+   pi_FS-X \tab numeric \cr
+   pi_SI-X \tab numeric \cr
+   pi_SL-X \tab numeric \cr
+   pi_XX-X \tab numeric \cr
+   pi_CH-Z \tab numeric \cr
+   pi_CU-Z \tab numeric \cr
+   pi_FA-Z \tab numeric \cr
+   pi_FC-Z \tab numeric \cr
+   pi_FS-Z \tab numeric \cr
+   pi_SI-Z \tab numeric \cr
+   pi_SL-Z \tab numeric \cr
+   pi_XX-Z \tab numeric \cr
+   pi_wCH \tab numeric \cr
+   pi_wCU \tab numeric \cr
+   pi_wFA \tab numeric \cr
+   pi_wFC \tab numeric \cr
+   pi_wFS \tab numeric \cr
+   pi_wSI \tab numeric \cr
+   pi_wSL \tab numeric \cr
+   pi_wXX \tab numeric \cr
+   pi_wCH_C \tab numeric \cr
+   pi_wCU_C \tab numeric \cr
+   pi_wFA_C \tab numeric \cr
+   pi_wFC_C \tab numeric \cr
+   pi_wFS_C \tab numeric \cr
+   pi_wSI_C \tab numeric \cr
+   pi_wSL_C \tab numeric \cr
+   pi_wXX_C \tab numeric \cr
+   pi_O-Swing_pct \tab numeric \cr
+   pi_Z-Swing_pct \tab numeric \cr
+   pi_Swing_pct \tab numeric \cr
+   pi_O-Contact_pct \tab numeric \cr
+   pi_Z-Contact_pct \tab numeric \cr
+   pi_Contact_pct \tab numeric \cr
+   pi_Zone_pct \tab numeric \cr
+   pi_Pace \tab numeric \cr
+   Events \tab integer \cr
+   EV \tab numeric \cr
+   LA \tab numeric \cr
+   Barrels \tab integer \cr
+   Barrel_pct \tab numeric \cr
+   maxEV \tab numeric \cr
+   HardHit \tab integer \cr
+   HardHit_pct \tab numeric \cr
+   Q \tab numeric \cr
+   TG \tab integer \cr
+   TIP \tab numeric \cr
+   team_name_abb \tab character \cr
+   teamid \tab integer \cr
+   pfx_EP_pct \tab numeric \cr
+   pfx_vEP \tab numeric \cr
+   pfx_EP-X \tab numeric \cr
+   pfx_EP-Z \tab numeric \cr
+   pfx_wEP \tab numeric \cr
+   pfx_wEP_C \tab numeric \cr
+   pi_SB_pct \tab numeric \cr
+   pi_vSB \tab numeric \cr
+   pi_SB-X \tab numeric \cr
+   pi_SB-Z \tab numeric \cr
+   pi_wSB \tab numeric \cr
+   pi_wSB_C \tab numeric \cr
+   pi_CS_pct \tab numeric \cr
+   pi_vCS \tab numeric \cr
+   pi_CS-X \tab numeric \cr
+   pi_CS-Z \tab numeric \cr
+   pi_wCS \tab numeric \cr
+   pi_wCS_C \tab numeric \cr
+   pi_KN_pct \tab numeric \cr
+   pi_vKN \tab numeric \cr
+   pi_KN-X \tab numeric \cr
+   pi_KN-Z \tab numeric \cr
+   pi_wKN \tab numeric \cr
+   pi_wKN_C \tab numeric \cr
+   KN_pct \tab numeric \cr
+   KNv \tab numeric \cr
+   wKN \tab numeric \cr
+   wKN_C \tab numeric \cr
+   pfx_KN_pct \tab numeric \cr
+   pfx_vKN \tab numeric \cr
+   pfx_KN-X \tab numeric \cr
+   pfx_KN-Z \tab numeric \cr
+   pfx_wKN \tab numeric \cr
+   pfx_wKN_C \tab numeric \cr
+   pfx_SC_pct \tab numeric \cr
+   pfx_vSC \tab numeric \cr
+   pfx_SC-X \tab numeric \cr
+   pfx_SC-Z \tab numeric \cr
+   pfx_wSC \tab numeric \cr
+   pfx_wSC_C \tab numeric \cr
+   pfx_FO_pct \tab numeric \cr
+   pfx_vFO \tab numeric \cr
+   pfx_FO-X \tab numeric \cr
+   pfx_FO-Z \tab numeric \cr
+   pfx_wFO \tab numeric \cr
+   pfx_wFO_C \tab numeric \cr
 }
 }
 \description{
@@ -329,6 +426,6 @@ A data frame of pitcher data.\tabular{ll}{
 }
 \examples{
 \donttest{
-  fg_team_pitcher(x = 2015, y = 2015, qual = 150)
+  fg_team_pitcher(startseason = 2015, endseason = 2015, qual = 150)
 }
 }

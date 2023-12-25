@@ -4,20 +4,72 @@
 \alias{fg_bat_leaders}
 \title{\strong{(legacy) Scrape Batter Leaderboards from FanGraphs}}
 \usage{
-fg_bat_leaders(x, y, league = "all", qual = "y", ind = 1, exc_p = TRUE)
+fg_bat_leaders(
+  age = "",
+  pos = "all",
+  stats = "bat",
+  lg = "all",
+  qual = "0",
+  startseason = "2023",
+  endseason = "2023",
+  startdate = "",
+  enddate = "",
+  month = "0",
+  hand = "",
+  team = "0",
+  pageitems = "10000",
+  pagenum = "1",
+  ind = "0",
+  rost = "0",
+  players = "",
+  type = "8",
+  postseason = "",
+  sortdir = "default",
+  sortstat = "WAR"
+)
 }
 \arguments{
-\item{x}{First season for which you want data.}
+\item{age}{(integer) Age of players}
 
-\item{y}{Last season for which you want data. If multiple years selected, data returned will be aggregate data for the date range. If y = x, function will return single-season data.}
+\item{pos}{(character) Position of players, defaults to "all". To exclude pitchers, use "np".}
 
-\item{league}{Option for limiting results to different leagues or overall results. Options are "al", "nl", or "all".}
+\item{stats}{(character) Statistic to return. Defaults to "bat".}
 
-\item{qual}{Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimum number of plate appearaces/innings pitched, use the number desired. Defaults to "y".}
+\item{lg}{(character) League to return. Defaults to "all". Options are "al", "nl", or "all".}
 
-\item{ind}{Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.}
+\item{qual}{(character) Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimum number of plate appearaces/innings pitched, use the number desired. Defaults to "y".}
 
-\item{exc_p}{(logical) Whether or not to exclude pitchers from the batter leaderboards. TRUE = exclude pitchers, FALSE = retain pitchers.}
+\item{startseason}{(character) Season for which you want to scrape the data.}
+
+\item{endseason}{(character) Last season for which you want data.}
+
+\item{startdate}{(character) Start date for which you want data.}
+
+\item{enddate}{(character) End date for which you want data.}
+
+\item{month}{(character) Month for which you want data.}
+
+\item{hand}{(character) Handedness of batter. Options are "L", "R", or "B". Empty string returns all.}
+
+\item{team}{(character) Teams for which you want data, comma separated.}
+
+\item{pageitems}{(character) Number of items per page.}
+
+\item{pagenum}{(character) Page number.}
+
+\item{ind}{(character) Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.}
+
+\item{rost}{(character) Whether or not to include players on the roster. 1 = include, 0 = exclude.}
+
+\item{players}{(character) Whether or not to include players on the roster. 1 = include only active roster players, 0 = exclude.}
+
+\item{type}{(character) Defaults to 8, which is the standard leaderboard. The values for the leaderboards appear to go to from type = 0 to 48+, which correspond to links on the leaderboard page.}
+
+\item{postseason}{(logical) Whether or not to include postseason data. TRUE = include postseason, FALSE = exclude postseason.}
+
+\item{sortdir}{(character) Sort direction. Options are "asc" or "desc" or "default".}
+
+\item{sortstat}{(character) Sort by stat. Default is "WAR".}
 }
 \value{
 A data frame of batter data.

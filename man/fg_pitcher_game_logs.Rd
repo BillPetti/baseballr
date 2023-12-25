@@ -4,7 +4,7 @@
 \alias{fg_pitcher_game_logs}
 \title{\strong{Scrape Pitcher Game Logs from FanGraphs}}
 \usage{
-fg_pitcher_game_logs(playerid, year = 2017)
+fg_pitcher_game_logs(playerid, year)
 }
 \arguments{
 \item{playerid}{This is the playerid used by FanGraphs for a given player}
@@ -155,6 +155,6 @@ This function allows you to scrape game logs by year for a pitcher from FanGraph
 }
 \examples{
 \donttest{
-  try(fg_pitcher_game_logs(playerid = 104, year = 2006))
+  try(fg_pitcher_game_logs(playerid = "19755", year = 2023))
 }
 }

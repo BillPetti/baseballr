@@ -4,7 +4,7 @@
 \alias{batter_game_logs_fg}
 \title{\strong{(legacy) Scrape Batter Game Logs from FanGraphs}}
 \usage{
-batter_game_logs_fg(playerid, year = 2017)
+batter_game_logs_fg(playerid, year)
 }
 \arguments{
 \item{playerid}{This is the playerid used by FanGraphs for a given player}
