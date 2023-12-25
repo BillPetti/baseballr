@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with baseballr"
 description: "Getting started with using <code>baseballr</code> and men's baseball data."
-author: "Saiem Gilani <br><a href='https://twitter.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
+author: "Saiem Gilani <br> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
 date: "`r Sys.Date()`"
 opengraph:
   image: 
@@ -87,7 +87,7 @@ pacman::p_load_current_gh("billpetti/baseballr")
 
 There are generally speaking **eight** men's baseball data sources accessible from this package:
 
--   [`baseballr-data` repo](https://github.com/sportsdataverse/baseballr-data) [![Twitter Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse)
+-   [`baseballr-data` repo](https://github.com/sportsdataverse/baseballr-data) (@SportsDataverse)
 -   [MLB Stats API](https://www.mlb.com/)
 -   [Baseball Savant's Statcast](https://baseballsavant.mlb.com/)
 -   [Chadwick Bureau's Public Register of Baseball Players](https://github.com/chadwickbureau/register/)
@@ -117,18 +117,18 @@ As of [baseballr v1.0.0](https://billpetti.github.io/baseballr/news/index.html#b
 -   Functions that use the NCAA website start with `ncaa_` by convention and should be assumed as `get` functions. As of `baseballr` version `r remote_version`, the package exports ~8 function covering the [NCAA Stats portal](https://stats.ncaa.org/).
 
 
-## Follow the [SportsDataverse](https://twitter.com/SportsDataverse) on Twitter and star this repo
+## Follow the SportsDataverse (@SportsDataverse) on Twitter and star this repo
 
-[![Twitter Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=twitter&style=for-the-badge)](https://twitter.com/SportsDataverse) 
+<!-- [![Twitter Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=twitter&style=for-the-badge)](https://twitter.com/SportsDataverse)  -->
 
 [![GitHub stars](https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&logo=github&style=for-the-badge&label=Star%20baseballr&maxAge=2592000)](https://github.com/billpetti/baseballr/stargazers/)
 
 ## **Our Authors**
 
--   [Bill Petti](https://twitter.com/BillPetti)       
-<a href="https://twitter.com/BillPetti" target="blank"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge" alt="@BillPetti" /></a>
+-   Bill Petti (@BillPetti)       
+<!-- <a href="https://twitter.com/BillPetti" target="blank"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge" alt="@BillPetti" /></a> -->
 <a href="https://github.com/BillPetti" target="blank"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&logo=Github&style=for-the-badge" alt="@BillPetti" /></a>
 
--   [Saiem Gilani](https://twitter.com/saiemgilani)       
-<a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
+-   Saiem Gilani (@saiemgilani)       
+<!-- <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a> -->
 <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>

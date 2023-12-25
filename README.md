@@ -83,7 +83,7 @@ bref_standings_on_date("2015-08-01", "NL East", from = FALSE)
 
     ## ── MLB Standings on Date data from baseball-reference.com ─── baseballr 1.5.0 ──
 
-    ## ℹ Data updated: 2023-02-16 04:22:33 EST
+    ## ℹ Data updated: 2023-12-25 02:24:44 EST
 
     ## # A tibble: 5 × 8
     ##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`
@@ -109,9 +109,9 @@ data %>%
 
     ## Rows: 764
     ## Columns: 30
-    ## $ bbref_id <chr> "547989", "554429", "542436", "571431", "501303", "346793", "…
+    ## $ bbref_id <chr> "machama01", "duffyma01", "altuvjo01", "eatonad02", "choosh01…
     ## $ season   <int> 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2…
-    ## $ Name     <chr> "Manny Machado", "Matt Duffy", "Jose Altuve", "Adam Eaton", "…
+    ## $ Name     <chr> "Manny Machado", "Matt Duffy", "José Altuve", "Adam Eaton", "…
     ## $ Age      <dbl> 22, 24, 25, 26, 32, 21, 27, 28, 36, 28, 29, 29, 27, 29, 27, 2…
     ## $ Level    <chr> "Maj-AL", "Maj-NL", "Maj-AL", "Maj-AL", "Maj-AL", "Maj-AL", "…
     ## $ Team     <chr> "Baltimore", "San Francisco", "Houston", "Chicago", "Texas", …
@@ -161,7 +161,7 @@ team_consistency(2015)
     ##  8 CLE    0.41   0.4           88           63
     ##  9 COL    0.35   0.34           7            3
     ## 10 DET    0.39   0.38          52           42
-    ## # … with 20 more rows
+    ## # ℹ 20 more rows
 
 You can also calculate wOBA per plate appearance and wOBA on contact for
 any set of data over any date range, provided you have the data
@@ -180,7 +180,7 @@ data %>%
 
     ## Rows: 117
     ## Columns: 6
-    ## $ Name     <chr> "Edwin EncarnaciÃ³n", "Bryce Harper", "David Ortiz", "Joey Vo…
+    ## $ Name     <chr> "Edwin Encarnación", "Bryce Harper", "David Ortiz", "Joey Vot…
     ## $ Team     <chr> "Toronto", "Washington", "Boston", "Cincinnati", "Baltimore",…
     ## $ season   <int> 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2…
     ## $ PA       <dbl> 216, 248, 213, 251, 253, 260, 245, 255, 223, 241, 223, 259, 2…
@@ -200,22 +200,22 @@ bref_daily_pitcher("2015-04-05", "2015-04-30") %>%
 
     ## ── MLB Daily Pitcher data from baseball-reference.com ─────── baseballr 1.5.0 ──
 
-    ## ℹ Data updated: 2023-02-16 04:25:41 EST
+    ## ℹ Data updated: 2023-12-25 02:27:52 EST
 
     ## # A tibble: 10 × 11
-    ##    season Name            IP   ERA    SO   uBB   HBP    HR   FIP wOBA_…¹ wOBA_…²
-    ##     <int> <chr>        <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>   <dbl>   <dbl>
-    ##  1   2015 Johnny Cueto  37    1.95    38     4     2     3  2.62   0.21    0.276
-    ##  2   2015 Dallas Keuc…  37    0.73    22    11     0     0  2.84   0.169   0.151
-    ##  3   2015 Sonny Gray    36.1  1.98    25     6     1     1  2.69   0.218   0.239
-    ##  4   2015 Mike Leake    35.2  3.03    25     7     0     5  4.16   0.24    0.281
-    ##  5   2015 Félix Herná…  34.2  1.82    36     6     3     1  2.2    0.225   0.272
-    ##  6   2015 Corey Kluber  34    4.24    36     5     2     2  2.4    0.295   0.391
-    ##  7   2015 Jake Odoriz…  33.2  2.41    26     8     1     0  2.38   0.213   0.228
-    ##  8   2015 Josh Collme…  32.2  2.76    16     3     0     1  2.82   0.29    0.33 
-    ##  9   2015 Bartolo Col…  32.2  3.31    25     1     0     4  3.29   0.28    0.357
-    ## 10   2015 Zack Greinke  32.2  1.93    27     7     1     2  3.01   0.24    0.274
-    ## # … with abbreviated variable names ¹​wOBA_against, ²​wOBA_CON_against
+    ##    season Name               IP   ERA    SO   uBB   HBP    HR   FIP wOBA_against
+    ##     <int> <chr>           <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>        <dbl>
+    ##  1   2015 Johnny Cueto     37    1.95    38     4     2     3  2.62        0.21 
+    ##  2   2015 Dallas Keuchel   37    0.73    22    11     0     0  2.84        0.169
+    ##  3   2015 Sonny Gray       36.1  1.98    25     6     1     1  2.69        0.218
+    ##  4   2015 Mike Leake       35.2  3.03    25     7     0     5  4.16        0.24 
+    ##  5   2015 Félix Hernández  34.2  1.82    36     6     3     1  2.2         0.225
+    ##  6   2015 Corey Kluber     34    4.24    36     5     2     2  2.4         0.295
+    ##  7   2015 Jake Odorizzi    33.2  2.41    26     8     1     0  2.38        0.213
+    ##  8   2015 Josh Collmenter  32.2  2.76    16     3     0     1  2.82        0.29 
+    ##  9   2015 Bartolo Colón    32.2  3.31    25     1     0     4  3.29        0.28 
+    ## 10   2015 Zack Greinke     32.2  1.93    27     7     1     2  3.01        0.24 
+    ## # ℹ 1 more variable: wOBA_CON_against <dbl>
 
 ## **Issues**
 
@@ -235,41 +235,40 @@ for review.
 [**Full News on
 Releases**](https://billpetti.github.io/baseballr/news/index.html)
 
-## Follow the [SportsDataverse](https://twitter.com/SportsDataverse) on Twitter and star this repo
+## Follow the SportsDataverse (@SportsDataverse) on Twitter and star this repo
 
-[![Twitter
-Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=twitter&style=for-the-badge)](https://twitter.com/SportsDataverse)
+<!-- [![Twitter Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=twitter&style=for-the-badge)](https://twitter.com/SportsDataverse)  -->
 
 [![GitHub
 stars](https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&logo=github&style=for-the-badge&label=Star%20baseballr&maxAge=2592000)](https://github.com/billpetti/baseballr/stargazers/)
 
 ## **Our Authors**
 
--   [Bill Petti](https://twitter.com/BillPetti)  
-    <a href="https://twitter.com/BillPetti" target="blank"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge" alt="@BillPetti" /></a>
-    <a href="https://github.com/BillPetti" target="blank"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&logo=Github&style=for-the-badge" alt="@BillPetti" /></a>
+- Bill Petti (@BillPetti)  
+  <!-- <a href="https://twitter.com/BillPetti" target="blank"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge" alt="@BillPetti" /></a> -->
+  <a href="https://github.com/BillPetti" target="blank"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&logo=Github&style=for-the-badge" alt="@BillPetti" /></a>
 
--   [Saiem Gilani](https://twitter.com/saiemgilani)  
-    <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
-    <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
+- Saiem Gilani (@saiemgilani)  
+  <!-- <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a> -->
+  <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
 
 ## **Our Contributors (they’re awesome)**
 
--   [Ben Baumer](https://twitter.com/BaumerBen)  
-    <a href="https://twitter.com/BaumerBen" target="blank"><img src="https://img.shields.io/twitter/follow/BaumerBen?color=blue&label=%40BaumerBen&logo=twitter&style=for-the-badge" alt="@BaumerBen" /></a>
-    <a href="https://github.com/beanumber" target="blank"><img src="https://img.shields.io/github/followers/beanumber?color=eee&logo=Github&style=for-the-badge" alt="@beanumber" /></a>
+- Ben Baumer (@BaumerBen)  
+  <!-- <a href="https://twitter.com/BaumerBen" target="blank"><img src="https://img.shields.io/twitter/follow/BaumerBen?color=blue&label=%40BaumerBen&logo=twitter&style=for-the-badge" alt="@BaumerBen" /></a> -->
+  <a href="https://github.com/beanumber" target="blank"><img src="https://img.shields.io/github/followers/beanumber?color=eee&logo=Github&style=for-the-badge" alt="@beanumber" /></a>
 
--   [Ben Dilday](https://twitter.com/BenDilday)  
-    <a href="https://twitter.com/BenDilday" target="blank"><img src="https://img.shields.io/twitter/follow/BenDilday?color=blue&label=%40BenDilday&logo=twitter&style=for-the-badge" alt="@BenDilday" /></a>
-    <a href="https://github.com/bdilday" target="blank"><img src="https://img.shields.io/github/followers/bdilday?color=eee&logo=Github&style=for-the-badge" alt="@bdilday" /></a>
+- Ben Dilday (@BenDilday)  
+  <!-- <a href="https://twitter.com/BenDilday" target="blank"><img src="https://img.shields.io/twitter/follow/BenDilday?color=blue&label=%40BenDilday&logo=twitter&style=for-the-badge" alt="@BenDilday" /></a>  -->
+  <a href="https://github.com/bdilday" target="blank"><img src="https://img.shields.io/github/followers/bdilday?color=eee&logo=Github&style=for-the-badge" alt="@bdilday" /></a>
 
--   [Robert Frey](https://twitter.com/RobertFrey40)  
-    <a href="https://twitter.com/RobertFrey40" target="blank"><img src="https://img.shields.io/twitter/follow/RobertFrey40?color=blue&label=%40RobertFrey40&logo=twitter&style=for-the-badge" alt="@RobertFrey40" /></a>
-    <a href="https://github.com/robert-frey" target="blank"><img src="https://img.shields.io/github/followers/robert-frey?color=eee&logo=Github&style=for-the-badge" alt="@robert-frey" /></a>
+- Robert Frey (@RobertFrey40)  
+  <!-- <a href="https://twitter.com/RobertFrey40" target="blank"><img src="https://img.shields.io/twitter/follow/RobertFrey40?color=blue&label=%40RobertFrey40&logo=twitter&style=for-the-badge" alt="@RobertFrey40" /></a>  -->
+  <a href="https://github.com/robert-frey" target="blank"><img src="https://img.shields.io/github/followers/robert-frey?color=eee&logo=Github&style=for-the-badge" alt="@robert-frey" /></a>
 
--   [Camden Kay](https://twitter.com/k_camden)  
-    <a href="https://twitter.com/k_camden" target="blank"><img src="https://img.shields.io/twitter/follow/k_camden?color=blue&label=%40k_camden&logo=twitter&style=for-the-badge" alt="@k_camden" /></a>
-    <a href="https://github.com/camdenk" target="blank"><img src="https://img.shields.io/github/followers/camdenk?color=eee&logo=Github&style=for-the-badge" alt="@camdenk" /></a>
+- Camden Kay (@k_camden)  
+  <!-- <a href="https://twitter.com/k_camden" target="blank"><img src="https://img.shields.io/twitter/follow/k_camden?color=blue&label=%40k_camden&logo=twitter&style=for-the-badge" alt="@k_camden" /></a>  -->
+  <a href="https://github.com/camdenk" target="blank"><img src="https://img.shields.io/github/followers/camdenk?color=eee&logo=Github&style=for-the-badge" alt="@camdenk" /></a>
 
 ## **Citations**
 
