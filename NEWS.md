@@ -1,3 +1,38 @@
+# baseballr 1.6.0
+
+Primarily focused on parameter changes to the `fg_*()` functions to allow for more flexible data retrieval. See below for details.
+
+The parameters are now as follows for the leaderboard functions:
+
+- `age` (integer) Age of players
+- `pos` (character) Position of players, defaults to "all". To exclude pitchers, use  "np".
+- `stats` (character) Statistic to return. Defaults to "bat".
+- `lg` (character) League to return. Defaults to "all". Options are "al", "nl", or  "all".
+- `qual` (character) Whether you want only batters/pitchers that qualified in a given - season, or the minimum number of plate appearances for inclusion. If you only want - qualified hitters, use qual. If a minimum number of plate appearaces/innings - pitched, use the number desired. Defaults to "y".
+- `startseason` (character) Season for which you want to scrape the data.
+- `endseason` (character) Last season for which you want data.
+- `startdate` (character) Start date for which you want data.
+- `enddate` (character) End date for which you want data.
+- `month` (character) Month for which you want data.
+- `hand` (character) Handedness of batter. Options are "L", "R", or "B". Empty string - returns all.
+- `team` (character) Teams for which you want data, comma separated.
+- `pageitems` (character) Number of items per page.
+- `pagenum` (character) Page number.
+- `ind` (character) Whether or not to break the seasons out individual, or roll them  up together. 1 = split seasons, 0 = aggregate seasons.
+- `rost` (character) Whether or not to include players on the roster. 1 = include, 0 = - exclude.
+- `players` (character) Whether or not to include players on the roster. 1 = include  only active roster players, 0 = exclude.
+- `type` (character) Defaults to 8, which is the standard leaderboard. The values for - the leaderboards appear to go to from type = 0 to 48+, which correspond to links - on the leaderboard page.
+- `postseason` (logical) Whether or not to include postseason data. TRUE = include  postseason, FALSE = exclude postseason.
+- `sortdir` (character) Sort direction. Options are "asc" or "desc" or "default".
+- `sortstat` (character) Sort by stat. Default is "WAR".
+
+This change affects the following functions:
+- `fg_team_batter()`
+- `fg_team_pitcher()`
+- `fg_batter_leaders()`
+- `fg_pitcher_leaders()`
+
+
 # baseballr 1.5.0
 
 ### Major NCAA function changes
