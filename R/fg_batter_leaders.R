@@ -1,429 +1,479 @@
 #' @rdname fg_batter_leaders
 #' @title **Scrape Batter Leaderboards from FanGraphs**
 #' @description This function allows you to scrape all leaderboard statistics (basic and advanced) from FanGraphs.com.
-#' @param x First season for which you want data.
-#' @param y Last season for which you want data. If multiple years selected, data returned will be aggregate data for the date range. If y = x, function will return single-season data.
-#' @param league Option for limiting results to different leagues or overall results. Options are "al", "nl", or "all".
-#' @param qual Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimum number of plate appearaces/innings pitched, use the number desired. Defaults to "y".
-#' @param ind Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.
-#' @param exc_p (logical) Whether or not to exclude pitchers from the batter leaderboards. TRUE = exclude pitchers, FALSE = retain pitchers.
+#' @param age (integer) Age of players
+#' @param pos (character) Position of players, defaults to "all". To exclude pitchers, use "np".
+#' @param stats (character) Statistic to return. Defaults to "bat".
+#' @param lg (character) League to return. Defaults to "all". Options are "al", "nl", or "all".
+#' @param qual (character) Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimum number of plate appearaces/innings pitched, use the number desired. Defaults to "y".
+#' @param startseason (character) Season for which you want to scrape the data.
+#' @param endseason (character) Last season for which you want data.
+#' @param startdate (character) Start date for which you want data.
+#' @param enddate (character) End date for which you want data.
+#' @param month (character) Month for which you want data.
+#' @param hand (character) Handedness of batter. Options are "L", "R", or "B". Empty string returns all.
+#' @param team (character) Teams for which you want data, comma separated.
+#' @param pageitems (character) Number of items per page.
+#' @param pagenum (character) Page number.
+#' @param ind (character) Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.
+#' @param rost (character) Whether or not to include players on the roster. 1 = include, 0 = exclude.
+#' @param players (character) Whether or not to include players on the roster. 1 = include only active roster players, 0 = exclude.
+#' @param type (character) Defaults to 8, which is the standard leaderboard. The values for the leaderboards appear to go to from type = 0 to 48+, which correspond to links on the leaderboard page.
+#' @param postseason (logical) Whether or not to include postseason data. TRUE = include postseason, FALSE = exclude postseason.
+#' @param sortdir (character) Sort direction. Options are "asc" or "desc" or "default".
+#' @param sortstat (character) Sort by stat. Default is "WAR".
 #' @return A data frame of batter data.
-#'  |col_name           |types     |
-#'  |:------------------|:---------|
-#'  |playerid           |character |
-#'  |#                  |character |
-#'  |Season             |character |
-#'  |Name               |character |
-#'  |Team               |character |
-#'  |Age                |numeric   |
-#'  |G                  |numeric   |
-#'  |AB                 |numeric   |
-#'  |PA                 |numeric   |
-#'  |H                  |numeric   |
-#'  |1B                 |numeric   |
-#'  |2B                 |numeric   |
-#'  |3B                 |numeric   |
-#'  |HR                 |numeric   |
-#'  |R                  |numeric   |
-#'  |RBI                |numeric   |
-#'  |BB                 |numeric   |
-#'  |IBB                |numeric   |
-#'  |SO                 |numeric   |
-#'  |HBP                |numeric   |
-#'  |SF                 |numeric   |
-#'  |SH                 |numeric   |
-#'  |GDP                |numeric   |
-#'  |SB                 |numeric   |
-#'  |CS                 |numeric   |
-#'  |AVG                |numeric   |
-#'  |GB                 |numeric   |
-#'  |FB                 |numeric   |
-#'  |LD                 |numeric   |
-#'  |IFFB               |numeric   |
-#'  |Pitches            |numeric   |
-#'  |Balls              |numeric   |
-#'  |Strikes            |numeric   |
-#'  |IFH                |numeric   |
-#'  |BU                 |numeric   |
-#'  |BUH                |numeric   |
-#'  |BB_pct             |numeric   |
-#'  |K_pct              |numeric   |
-#'  |BB_K               |numeric   |
-#'  |OBP                |numeric   |
-#'  |SLG                |numeric   |
-#'  |OPS                |numeric   |
-#'  |ISO                |numeric   |
-#'  |BABIP              |numeric   |
-#'  |GB_FB              |numeric   |
-#'  |LD_pct             |numeric   |
-#'  |GB_pct             |numeric   |
-#'  |FB_pct             |numeric   |
-#'  |IFFB_pct           |numeric   |
-#'  |HR_FB              |numeric   |
-#'  |IFH_pct            |numeric   |
-#'  |BUH_pct            |numeric   |
-#'  |wOBA               |numeric   |
-#'  |wRAA               |numeric   |
-#'  |wRC                |numeric   |
-#'  |Bat                |numeric   |
-#'  |Fld                |numeric   |
-#'  |Rep                |numeric   |
-#'  |Pos                |numeric   |
-#'  |RAR                |numeric   |
-#'  |WAR                |numeric   |
-#'  |Dol                |numeric   |
-#'  |Spd                |numeric   |
-#'  |wRC_plus           |numeric   |
-#'  |WPA                |numeric   |
-#'  |WPA_minus          |numeric   |
-#'  |WPA_plus           |numeric   |
-#'  |RE24               |numeric   |
-#'  |REW                |numeric   |
-#'  |pLI                |numeric   |
-#'  |phLI               |numeric   |
-#'  |PH                 |numeric   |
-#'  |WPA_LI             |numeric   |
-#'  |Clutch             |numeric   |
-#'  |FBall_pct          |numeric   |
-#'  |FBv                |numeric   |
-#'  |SL_pct             |numeric   |
-#'  |SLv                |numeric   |
-#'  |CT_pct             |numeric   |
-#'  |CTv                |numeric   |
-#'  |CB_pct             |numeric   |
-#'  |CBv                |numeric   |
-#'  |CH_pct             |numeric   |
-#'  |CHv                |numeric   |
-#'  |SF_pct             |numeric   |
-#'  |SFv                |numeric   |
-#'  |KN_pct             |numeric   |
-#'  |KNv                |numeric   |
-#'  |XX_pct             |numeric   |
-#'  |PO_pct             |numeric   |
-#'  |wFB                |numeric   |
-#'  |wSL                |numeric   |
-#'  |wCT                |numeric   |
-#'  |wCB                |numeric   |
-#'  |wCH                |numeric   |
-#'  |wSF                |numeric   |
-#'  |wKN                |numeric   |
-#'  |wFB_C              |numeric   |
-#'  |wSL_C              |numeric   |
-#'  |wCT_C              |numeric   |
-#'  |wCB_C              |numeric   |
-#'  |wCH_C              |numeric   |
-#'  |wSF_C              |numeric   |
-#'  |wKN_C              |numeric   |
-#'  |O-Swing_pct        |numeric   |
-#'  |Z-Swing_pct        |numeric   |
-#'  |Swing_pct          |numeric   |
-#'  |O-Contact_pct      |numeric   |
-#'  |Z-Contact_pct      |numeric   |
-#'  |Contact_pct        |numeric   |
-#'  |Zone_pct           |numeric   |
-#'  |F-Strike_pct       |numeric   |
-#'  |SwStr_pct          |numeric   |
-#'  |BsR                |numeric   |
-#'  |FA_pct (sc)        |numeric   |
-#'  |FT_pct (sc)        |numeric   |
-#'  |FC_pct (sc)        |numeric   |
-#'  |FS_pct (sc)        |numeric   |
-#'  |FO_pct (sc)        |numeric   |
-#'  |SI_pct (sc)        |numeric   |
-#'  |SL_pct (sc)        |numeric   |
-#'  |CU_pct (sc)        |numeric   |
-#'  |KC_pct (sc)        |numeric   |
-#'  |EP_pct (sc)        |numeric   |
-#'  |CH_pct (sc)        |numeric   |
-#'  |SC_pct (sc)        |numeric   |
-#'  |KN_pct (sc)        |numeric   |
-#'  |UN_pct (sc)        |numeric   |
-#'  |vFA (sc)           |numeric   |
-#'  |vFT (sc)           |numeric   |
-#'  |vFC (sc)           |numeric   |
-#'  |vFS (sc)           |numeric   |
-#'  |vFO (sc)           |numeric   |
-#'  |vSI (sc)           |numeric   |
-#'  |vSL (sc)           |numeric   |
-#'  |vCU (sc)           |numeric   |
-#'  |vKC (sc)           |numeric   |
-#'  |vEP (sc)           |numeric   |
-#'  |vCH (sc)           |numeric   |
-#'  |vSC (sc)           |numeric   |
-#'  |vKN (sc)           |numeric   |
-#'  |FA-X (sc)          |numeric   |
-#'  |FT-X (sc)          |numeric   |
-#'  |FC-X (sc)          |numeric   |
-#'  |FS-X (sc)          |numeric   |
-#'  |FO-X (sc)          |numeric   |
-#'  |SI-X (sc)          |numeric   |
-#'  |SL-X (sc)          |numeric   |
-#'  |CU-X (sc)          |numeric   |
-#'  |KC-X (sc)          |numeric   |
-#'  |EP-X (sc)          |numeric   |
-#'  |CH-X (sc)          |numeric   |
-#'  |SC-X (sc)          |numeric   |
-#'  |KN-X (sc)          |numeric   |
-#'  |FA-Z (sc)          |numeric   |
-#'  |FT-Z (sc)          |numeric   |
-#'  |FC-Z (sc)          |numeric   |
-#'  |FS-Z (sc)          |numeric   |
-#'  |FO-Z (sc)          |numeric   |
-#'  |SI-Z (sc)          |numeric   |
-#'  |SL-Z (sc)          |numeric   |
-#'  |CU-Z (sc)          |numeric   |
-#'  |KC-Z (sc)          |numeric   |
-#'  |EP-Z (sc)          |numeric   |
-#'  |CH-Z (sc)          |numeric   |
-#'  |SC-Z (sc)          |numeric   |
-#'  |KN-Z (sc)          |numeric   |
-#'  |wFA (sc)           |numeric   |
-#'  |wFT (sc)           |numeric   |
-#'  |wFC (sc)           |numeric   |
-#'  |wFS (sc)           |numeric   |
-#'  |wFO (sc)           |numeric   |
-#'  |wSI (sc)           |numeric   |
-#'  |wSL (sc)           |numeric   |
-#'  |wCU (sc)           |numeric   |
-#'  |wKC (sc)           |numeric   |
-#'  |wEP (sc)           |numeric   |
-#'  |wCH (sc)           |numeric   |
-#'  |wSC (sc)           |numeric   |
-#'  |wKN (sc)           |numeric   |
-#'  |wFA_C (sc)         |numeric   |
-#'  |wFT_C (sc)         |numeric   |
-#'  |wFC_C (sc)         |numeric   |
-#'  |wFS_C (sc)         |numeric   |
-#'  |wFO_C (sc)         |numeric   |
-#'  |wSI_C (sc)         |numeric   |
-#'  |wSL_C (sc)         |numeric   |
-#'  |wCU_C (sc)         |numeric   |
-#'  |wKC_C (sc)         |numeric   |
-#'  |wEP_C (sc)         |numeric   |
-#'  |wCH_C (sc)         |numeric   |
-#'  |wSC_C (sc)         |numeric   |
-#'  |wKN_C (sc)         |numeric   |
-#'  |O-Swing_pct (sc)   |numeric   |
-#'  |Z-Swing_pct (sc)   |numeric   |
-#'  |Swing_pct (sc)     |numeric   |
-#'  |O-Contact_pct (sc) |numeric   |
-#'  |Z-Contact_pct (sc) |numeric   |
-#'  |Contact_pct (sc)   |numeric   |
-#'  |Zone_pct (sc)      |numeric   |
-#'  |Pace               |numeric   |
-#'  |Def                |numeric   |
-#'  |wSB                |numeric   |
-#'  |UBR                |numeric   |
-#'  |AgeRng             |numeric   |
-#'  |Off                |numeric   |
-#'  |Lg                 |numeric   |
-#'  |wGDP               |numeric   |
-#'  |Pull_pct           |numeric   |
-#'  |Cent_pct           |numeric   |
-#'  |Oppo_pct           |numeric   |
-#'  |Soft_pct           |numeric   |
-#'  |Med_pct            |numeric   |
-#'  |Hard_pct           |numeric   |
-#'  |TTO_pct            |numeric   |
-#'  |CH_pct_pi          |numeric   |
-#'  |CS_pct_pi          |numeric   |
-#'  |CU_pct_pi          |numeric   |
-#'  |FA_pct_pi          |numeric   |
-#'  |FC_pct_pi          |numeric   |
-#'  |FS_pct_pi          |numeric   |
-#'  |KN_pct_pi          |numeric   |
-#'  |SB_pct_pi          |numeric   |
-#'  |SI_pct_pi          |numeric   |
-#'  |SL_pct_pi          |numeric   |
-#'  |XX_pct_pi          |numeric   |
-#'  |vCH_pi             |numeric   |
-#'  |vCS_pi             |numeric   |
-#'  |vCU_pi             |numeric   |
-#'  |vFA_pi             |numeric   |
-#'  |vFC_pi             |numeric   |
-#'  |vFS_pi             |numeric   |
-#'  |vKN_pi             |numeric   |
-#'  |vSB_pi             |numeric   |
-#'  |vSI_pi             |numeric   |
-#'  |vSL_pi             |numeric   |
-#'  |vXX_pi             |numeric   |
-#'  |CH-X_pi            |numeric   |
-#'  |CS-X_pi            |numeric   |
-#'  |CU-X_pi            |numeric   |
-#'  |FA-X_pi            |numeric   |
-#'  |FC-X_pi            |numeric   |
-#'  |FS-X_pi            |numeric   |
-#'  |KN-X_pi            |numeric   |
-#'  |SB-X_pi            |numeric   |
-#'  |SI-X_pi            |numeric   |
-#'  |SL-X_pi            |numeric   |
-#'  |XX-X_pi            |numeric   |
-#'  |CH-Z_pi            |numeric   |
-#'  |CS-Z_pi            |numeric   |
-#'  |CU-Z_pi            |numeric   |
-#'  |FA-Z_pi            |numeric   |
-#'  |FC-Z_pi            |numeric   |
-#'  |FS-Z_pi            |numeric   |
-#'  |KN-Z_pi            |numeric   |
-#'  |SB-Z_pi            |numeric   |
-#'  |SI-Z_pi            |numeric   |
-#'  |SL-Z_pi            |numeric   |
-#'  |XX-Z_pi            |numeric   |
-#'  |wCH_pi             |numeric   |
-#'  |wCS_pi             |numeric   |
-#'  |wCU_pi             |numeric   |
-#'  |wFA_pi             |numeric   |
-#'  |wFC_pi             |numeric   |
-#'  |wFS_pi             |numeric   |
-#'  |wKN_pi             |numeric   |
-#'  |wSB_pi             |numeric   |
-#'  |wSI_pi             |numeric   |
-#'  |wSL_pi             |numeric   |
-#'  |wXX_pi             |numeric   |
-#'  |wCH_C_pi           |numeric   |
-#'  |wCS_C_pi           |numeric   |
-#'  |wCU_C_pi           |numeric   |
-#'  |wFA_C_pi           |numeric   |
-#'  |wFC_C_pi           |numeric   |
-#'  |wFS_C_pi           |numeric   |
-#'  |wKN_C_pi           |numeric   |
-#'  |wSB_C_pi           |numeric   |
-#'  |wSI_C_pi           |numeric   |
-#'  |wSL_C_pi           |numeric   |
-#'  |wXX_C_pi           |numeric   |
-#'  |O-Swing_pct_pi     |numeric   |
-#'  |Z-Swing_pct_pi     |numeric   |
-#'  |Swing_pct_pi       |numeric   |
-#'  |O-Contact_pct_pi   |numeric   |
-#'  |Z-Contact_pct_pi   |numeric   |
-#'  |Contact_pct_pi     |numeric   |
-#'  |Zone_pct_pi        |numeric   |
-#'  |Pace_pi            |numeric   |
+#' 
+#'    |col_name          |types     |
+#'    |:-----------------|:---------|
+#'    |Season            |integer   |
+#'    |team_name         |character |
+#'    |Bats              |character |
+#'    |xMLBAMID          |integer   |
+#'    |PlayerNameRoute   |character |
+#'    |PlayerName        |character |
+#'    |playerid          |integer   |
+#'    |Age               |integer   |
+#'    |AgeRng            |character |
+#'    |SeasonMin         |integer   |
+#'    |SeasonMax         |integer   |
+#'    |G                 |integer   |
+#'    |AB                |integer   |
+#'    |PA                |integer   |
+#'    |H                 |integer   |
+#'    |1B                |integer   |
+#'    |2B                |integer   |
+#'    |3B                |integer   |
+#'    |HR                |integer   |
+#'    |R                 |integer   |
+#'    |RBI               |integer   |
+#'    |BB                |integer   |
+#'    |IBB               |integer   |
+#'    |SO                |integer   |
+#'    |HBP               |integer   |
+#'    |SF                |integer   |
+#'    |SH                |integer   |
+#'    |GDP               |integer   |
+#'    |SB                |integer   |
+#'    |CS                |integer   |
+#'    |AVG               |numeric   |
+#'    |GB                |integer   |
+#'    |FB                |integer   |
+#'    |LD                |integer   |
+#'    |IFFB              |integer   |
+#'    |Pitches           |integer   |
+#'    |Balls             |integer   |
+#'    |Strikes           |integer   |
+#'    |IFH               |integer   |
+#'    |BU                |integer   |
+#'    |BUH               |integer   |
+#'    |BB_pct            |numeric   |
+#'    |K_pct             |numeric   |
+#'    |BB_K              |numeric   |
+#'    |OBP               |numeric   |
+#'    |SLG               |numeric   |
+#'    |OPS               |numeric   |
+#'    |ISO               |numeric   |
+#'    |BABIP             |numeric   |
+#'    |GB_FB             |numeric   |
+#'    |LD_pct            |numeric   |
+#'    |GB_pct            |numeric   |
+#'    |FB_pct            |numeric   |
+#'    |IFFB_pct          |numeric   |
+#'    |HR_FB             |numeric   |
+#'    |IFH_pct           |numeric   |
+#'    |BUH_pct           |numeric   |
+#'    |TTO_pct           |numeric   |
+#'    |wOBA              |numeric   |
+#'    |wRAA              |numeric   |
+#'    |wRC               |numeric   |
+#'    |Batting           |numeric   |
+#'    |Fielding          |numeric   |
+#'    |Replacement       |numeric   |
+#'    |Positional        |numeric   |
+#'    |wLeague           |numeric   |
+#'    |Defense           |numeric   |
+#'    |Offense           |numeric   |
+#'    |RAR               |numeric   |
+#'    |WAR               |numeric   |
+#'    |WAROld            |numeric   |
+#'    |Dollars           |numeric   |
+#'    |BaseRunning       |numeric   |
+#'    |Spd               |numeric   |
+#'    |wRC_plus          |numeric   |
+#'    |wBsR              |numeric   |
+#'    |WPA               |numeric   |
+#'    |WPA_minus         |numeric   |
+#'    |WPA_plus          |numeric   |
+#'    |RE24              |numeric   |
+#'    |REW               |numeric   |
+#'    |pLI               |numeric   |
+#'    |PH                |integer   |
+#'    |WPA_LI            |numeric   |
+#'    |Clutch            |numeric   |
+#'    |FBall_pct         |numeric   |
+#'    |FBv               |numeric   |
+#'    |SL_pct            |numeric   |
+#'    |SLv               |numeric   |
+#'    |CT_pct            |numeric   |
+#'    |CTv               |numeric   |
+#'    |CB_pct            |numeric   |
+#'    |CBv               |numeric   |
+#'    |CH_pct            |numeric   |
+#'    |CHv               |numeric   |
+#'    |SF_pct            |numeric   |
+#'    |SFv               |numeric   |
+#'    |XX_pct            |numeric   |
+#'    |wFB               |numeric   |
+#'    |wSL               |numeric   |
+#'    |wCT               |numeric   |
+#'    |wCB               |numeric   |
+#'    |wCH               |numeric   |
+#'    |wSF               |numeric   |
+#'    |wFB_C             |numeric   |
+#'    |wSL_C             |numeric   |
+#'    |wCT_C             |numeric   |
+#'    |wCB_C             |numeric   |
+#'    |wCH_C             |numeric   |
+#'    |wSF_C             |numeric   |
+#'    |O-Swing_pct       |numeric   |
+#'    |Z-Swing_pct       |numeric   |
+#'    |Swing_pct         |numeric   |
+#'    |O-Contact_pct     |numeric   |
+#'    |Z-Contact_pct     |numeric   |
+#'    |Contact_pct       |numeric   |
+#'    |Zone_pct          |numeric   |
+#'    |F-Strike_pct      |numeric   |
+#'    |SwStr_pct         |numeric   |
+#'    |CStr_pct          |numeric   |
+#'    |C+SwStr_pct       |numeric   |
+#'    |Pull              |integer   |
+#'    |Cent              |integer   |
+#'    |Oppo              |integer   |
+#'    |Soft              |integer   |
+#'    |Med               |integer   |
+#'    |Hard              |integer   |
+#'    |bipCount          |integer   |
+#'    |Pull_pct          |numeric   |
+#'    |Cent_pct          |numeric   |
+#'    |Oppo_pct          |numeric   |
+#'    |Soft_pct          |numeric   |
+#'    |Med_pct           |numeric   |
+#'    |Hard_pct          |numeric   |
+#'    |UBR               |numeric   |
+#'    |GDPRuns           |numeric   |
+#'    |AVG+              |numeric   |
+#'    |BB_pct+           |numeric   |
+#'    |K_pct+            |numeric   |
+#'    |OBP+              |numeric   |
+#'    |SLG+              |numeric   |
+#'    |ISO+              |numeric   |
+#'    |BABIP+            |numeric   |
+#'    |LD_pct+           |numeric   |
+#'    |GB_pct+           |numeric   |
+#'    |FB_pct+           |numeric   |
+#'    |HRFB_pct+         |numeric   |
+#'    |Pull_pct+         |numeric   |
+#'    |Cent_pct+         |numeric   |
+#'    |Oppo_pct+         |numeric   |
+#'    |Soft_pct+         |numeric   |
+#'    |Med_pct+          |numeric   |
+#'    |Hard_pct+         |numeric   |
+#'    |xwOBA             |numeric   |
+#'    |xAVG              |numeric   |
+#'    |xSLG              |numeric   |
+#'    |PPTV              |integer   |
+#'    |CPTV              |integer   |
+#'    |BPTV              |integer   |
+#'    |DSV               |integer   |
+#'    |DGV               |integer   |
+#'    |BTV               |integer   |
+#'    |rPPTV             |numeric   |
+#'    |rBPTV             |numeric   |
+#'    |EBV               |integer   |
+#'    |ESV               |integer   |
+#'    |rFTeamV           |numeric   |
+#'    |rBTeamV           |numeric   |
+#'    |rTV               |numeric   |
+#'    |pfx_FA_pct        |numeric   |
+#'    |pfx_FC_pct        |numeric   |
+#'    |pfx_FS_pct        |numeric   |
+#'    |pfx_FO_pct        |numeric   |
+#'    |pfx_SI_pct        |numeric   |
+#'    |pfx_SL_pct        |numeric   |
+#'    |pfx_CU_pct        |numeric   |
+#'    |pfx_KC_pct        |numeric   |
+#'    |pfx_EP_pct        |numeric   |
+#'    |pfx_CH_pct        |numeric   |
+#'    |pfx_SC_pct        |numeric   |
+#'    |pfx_vFA           |numeric   |
+#'    |pfx_vFC           |numeric   |
+#'    |pfx_vFS           |numeric   |
+#'    |pfx_vFO           |numeric   |
+#'    |pfx_vSI           |numeric   |
+#'    |pfx_vSL           |numeric   |
+#'    |pfx_vCU           |numeric   |
+#'    |pfx_vKC           |numeric   |
+#'    |pfx_vEP           |numeric   |
+#'    |pfx_vCH           |numeric   |
+#'    |pfx_vSC           |numeric   |
+#'    |pfx_FA-X          |numeric   |
+#'    |pfx_FC-X          |numeric   |
+#'    |pfx_FS-X          |numeric   |
+#'    |pfx_FO-X          |numeric   |
+#'    |pfx_SI-X          |numeric   |
+#'    |pfx_SL-X          |numeric   |
+#'    |pfx_CU-X          |numeric   |
+#'    |pfx_KC-X          |numeric   |
+#'    |pfx_EP-X          |numeric   |
+#'    |pfx_CH-X          |numeric   |
+#'    |pfx_SC-X          |numeric   |
+#'    |pfx_FA-Z          |numeric   |
+#'    |pfx_FC-Z          |numeric   |
+#'    |pfx_FS-Z          |numeric   |
+#'    |pfx_FO-Z          |numeric   |
+#'    |pfx_SI-Z          |numeric   |
+#'    |pfx_SL-Z          |numeric   |
+#'    |pfx_CU-Z          |numeric   |
+#'    |pfx_KC-Z          |numeric   |
+#'    |pfx_EP-Z          |numeric   |
+#'    |pfx_CH-Z          |numeric   |
+#'    |pfx_SC-Z          |numeric   |
+#'    |pfx_wFA           |numeric   |
+#'    |pfx_wFC           |numeric   |
+#'    |pfx_wFS           |numeric   |
+#'    |pfx_wFO           |numeric   |
+#'    |pfx_wSI           |numeric   |
+#'    |pfx_wSL           |numeric   |
+#'    |pfx_wCU           |numeric   |
+#'    |pfx_wKC           |numeric   |
+#'    |pfx_wEP           |numeric   |
+#'    |pfx_wCH           |numeric   |
+#'    |pfx_wSC           |numeric   |
+#'    |pfx_wFA_C         |numeric   |
+#'    |pfx_wFC_C         |numeric   |
+#'    |pfx_wFS_C         |numeric   |
+#'    |pfx_wFO_C         |numeric   |
+#'    |pfx_wSI_C         |numeric   |
+#'    |pfx_wSL_C         |numeric   |
+#'    |pfx_wCU_C         |numeric   |
+#'    |pfx_wKC_C         |numeric   |
+#'    |pfx_wEP_C         |numeric   |
+#'    |pfx_wCH_C         |numeric   |
+#'    |pfx_wSC_C         |numeric   |
+#'    |pfx_O-Swing_pct   |numeric   |
+#'    |pfx_Z-Swing_pct   |numeric   |
+#'    |pfx_Swing_pct     |numeric   |
+#'    |pfx_O-Contact_pct |numeric   |
+#'    |pfx_Z-Contact_pct |numeric   |
+#'    |pfx_Contact_pct   |numeric   |
+#'    |pfx_Zone_pct      |numeric   |
+#'    |pfx_Pace          |numeric   |
+#'    |pi_CH_pct         |numeric   |
+#'    |pi_CU_pct         |numeric   |
+#'    |pi_FA_pct         |numeric   |
+#'    |pi_FC_pct         |numeric   |
+#'    |pi_FS_pct         |numeric   |
+#'    |pi_SB_pct         |numeric   |
+#'    |pi_SI_pct         |numeric   |
+#'    |pi_SL_pct         |numeric   |
+#'    |pi_vCH            |numeric   |
+#'    |pi_vCU            |numeric   |
+#'    |pi_vFA            |numeric   |
+#'    |pi_vFC            |numeric   |
+#'    |pi_vFS            |numeric   |
+#'    |pi_vSB            |numeric   |
+#'    |pi_vSI            |numeric   |
+#'    |pi_vSL            |numeric   |
+#'    |pi_CH-X           |numeric   |
+#'    |pi_CU-X           |numeric   |
+#'    |pi_FA-X           |numeric   |
+#'    |pi_FC-X           |numeric   |
+#'    |pi_FS-X           |numeric   |
+#'    |pi_SB-X           |numeric   |
+#'    |pi_SI-X           |numeric   |
+#'    |pi_SL-X           |numeric   |
+#'    |pi_CH-Z           |numeric   |
+#'    |pi_CU-Z           |numeric   |
+#'    |pi_FA-Z           |numeric   |
+#'    |pi_FC-Z           |numeric   |
+#'    |pi_FS-Z           |numeric   |
+#'    |pi_SB-Z           |numeric   |
+#'    |pi_SI-Z           |numeric   |
+#'    |pi_SL-Z           |numeric   |
+#'    |pi_wCH            |numeric   |
+#'    |pi_wCU            |numeric   |
+#'    |pi_wFA            |numeric   |
+#'    |pi_wFC            |numeric   |
+#'    |pi_wFS            |numeric   |
+#'    |pi_wSB            |numeric   |
+#'    |pi_wSI            |numeric   |
+#'    |pi_wSL            |numeric   |
+#'    |pi_wCH_C          |numeric   |
+#'    |pi_wCU_C          |numeric   |
+#'    |pi_wFA_C          |numeric   |
+#'    |pi_wFC_C          |numeric   |
+#'    |pi_wFS_C          |numeric   |
+#'    |pi_wSB_C          |numeric   |
+#'    |pi_wSI_C          |numeric   |
+#'    |pi_wSL_C          |numeric   |
+#'    |pi_O-Swing_pct    |numeric   |
+#'    |pi_Z-Swing_pct    |numeric   |
+#'    |pi_Swing_pct      |numeric   |
+#'    |pi_O-Contact_pct  |numeric   |
+#'    |pi_Z-Contact_pct  |numeric   |
+#'    |pi_Contact_pct    |numeric   |
+#'    |pi_Zone_pct       |numeric   |
+#'    |pi_Pace           |numeric   |
+#'    |Events            |integer   |
+#'    |EV                |numeric   |
+#'    |LA                |numeric   |
+#'    |Barrels           |integer   |
+#'    |Barrel_pct        |numeric   |
+#'    |maxEV             |numeric   |
+#'    |HardHit           |integer   |
+#'    |HardHit_pct       |numeric   |
+#'    |Q                 |numeric   |
+#'    |TG                |integer   |
+#'    |TPA               |integer   |
+#'    |team_name_abb     |character |
+#'    |teamid            |integer   |
+#'    |Pos               |numeric   |
+#'    |phLI              |numeric   |
+#'    |pi_XX_pct         |numeric   |
+#'    |pi_vXX            |numeric   |
+#'    |pi_XX-X           |numeric   |
+#'    |pi_XX-Z           |numeric   |
+#'    |pi_wXX            |numeric   |
+#'    |pi_wXX_C          |numeric   |
+#'    |rBTV              |numeric   |
+#'    |pi_CS_pct         |numeric   |
+#'    |pi_vCS            |numeric   |
+#'    |pi_CS-X           |numeric   |
+#'    |pi_CS-Z           |numeric   |
+#'    |pi_wCS            |numeric   |
+#'    |pi_wCS_C          |numeric   |
+#'    |KN_pct            |numeric   |
+#'    |KNv               |numeric   |
+#'    |wKN               |numeric   |
+#'    |wKN_C             |numeric   |
+#'    |pfx_KN_pct        |numeric   |
+#'    |pfx_vKN           |numeric   |
+#'    |pfx_KN-X          |numeric   |
+#'    |pfx_KN-Z          |numeric   |
+#'    |pfx_wKN           |numeric   |
+#'    |pfx_wKN_C         |numeric   |
+#'    |pi_KN_pct         |numeric   |
+#'    |pi_vKN            |numeric   |
+#'    |pi_KN-X           |numeric   |
+#'    |pi_KN-Z           |numeric   |
+#'    |pi_wKN            |numeric   |
+#'    |pi_wKN_C          |numeric   |
+#'    |rCPTV             |numeric   |
+#'    |CFraming          |numeric   |
+#'    |rDGV              |numeric   |
+#'    |rDSV              |numeric   |
+#' 
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'   try(fg_batter_leaders(x = 2015, y = 2015, qual = 400))
+#'   try(fg_batter_leaders(startseason = 2023, endseason = 2023))
 #' }
 fg_batter_leaders <- function(
-    x, 
-    y, 
-    league = "all", 
-    qual = "y", 
-    ind = 1, 
-    exc_p = TRUE) {
+    age = "",
+    pos = "all",
+    stats = "bat",
+    lg = "all",
+    qual = "0",
+    startseason = "2023",
+    endseason = "2023",
+    startdate = "",
+    enddate = "",
+    month = "0",
+    hand = "",
+    team = "0",
+    pageitems = "10000",
+    pagenum = "1",
+    ind = "0",
+    rost = "0",
+    players = "",
+    type = "8",
+    postseason = "",
+    sortdir = "default",
+    sortstat = "WAR") {
+  
+  params <- list(
+    age = age,
+    pos = pos,
+    stats = stats,
+    lg = lg,
+    qual = qual,
+    season = startseason,
+    season1 = endseason,
+    startdate = startdate,
+    enddate = enddate,
+    month = month,
+    hand = hand,
+    team = team,
+    pageitems = pageitems,
+    pagenum = pagenum,
+    ind = ind,
+    rost = rost,
+    players = players,
+    type = type,
+    postseason = postseason,
+    sortdir = sortdir,
+    sortstat = sortstat
+  )
+  
+  url <- "https://www.fangraphs.com/api/leaders/major-league/data"
+  
+  fg_endpoint <- httr::modify_url(url, query = params)
   
   tryCatch(
     expr = {
-      if (ind == 0) {
-        if (exc_p) {
-          payload <- paste0("http://www.fangraphs.com/leaders-legacy.aspx?pos=np&stats=bat&lg=", league, "&qual=", qual,
-                            "&type=c,-1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286&season=", y, "&month=0&season1=", x, "&ind=", ind, "&team=&rost=&age=&filter=&players=&v_cr=legacy&page=1_100000") %>% 
-            xml2::read_html()
-        } else {
-          payload <- paste0("http://www.fangraphs.com/leaders-legacy.aspx?pos=all&stats=bat&lg=", league, "&qual=", qual,
-                            "&type=c,-1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286&season=", y, "&month=0&season1=", x, "&ind=", ind, "&team=&rost=&age=&filter=&players=&v_cr=legacy&page=1_100000") %>% 
-            xml2::read_html()
-        }
-        
-        
-        leaders <- (payload %>%
-                      rvest::html_nodes("table.rgMasterTable"))[[1]] %>%
-          rvest::html_table() 
-        
-        leaders <- leaders[-c(1,3),]
-        colnames(leaders) <- leaders[1,]
-        leaders <- leaders[-1,]
-        c <- as.matrix(names(leaders))
-        c <- gsub("%", "_pct", c, fixed = TRUE)
-        c <- gsub(" (pfx)", "_pfx", c, fixed = TRUE)
-        c <- gsub(" (pi)", "_pi", c, fixed = TRUE)
-        c <- gsub("/", "_", c, fixed = TRUE)
-        c <- ifelse(substr(c, nchar(c) - 1 + 1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
-        c <- gsub(" ", "_", c, fixed = TRUE)
-        r <- c("wRC_plus", "WPA_minus", "WPA_plus", "FBall_pct", "AgeRng")
-        c[c(62,64,65,74,202),] <- r
-        Seasons <- ifelse(x == y, paste0(x), paste0(x, "-", y))
-        names(leaders) <- c
-        leaders <- cbind(Seasons, leaders)
-        leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))), stringsAsFactors = FALSE)
-        leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))), stringsAsFactors = FALSE)
-        leaders$Dol <- gsub("\\(", "-", leaders$Dol)
-        leaders$Dol <- gsub("\\)", "", leaders$Dol)
-        # Replace any empty cells with NA to avoid a warning message.
-        is.na(leaders) <- leaders == ""
-        # Convert columns 5 to 213 to numeric, exept column 204 "Age Rng"
-        for (i in c(5:203, 205:ncol(leaders))) {
-          suppressWarnings(
-            leaders[,i] <- as.numeric(as.character(leaders[,i]))
-          )
-        }
-        
-        playerids <- (payload %>%
-                        rvest::html_elements("table.rgMasterTable"))[[1]] %>%
-          rvest::html_elements("a") %>%
-          rvest::html_attr("href") %>%
-          as.data.frame() %>%
-          dplyr::rename("slug" = ".") %>%
-          dplyr::filter(grepl("playerid", .data$slug)) %>%
-          dplyr::mutate(playerid = sub(".*[=] *(.*?) *[&].*", "\\1", .data$slug))
-        leaders$playerid <- playerids$playerid
-        leaders <- leaders %>%
-          dplyr::select("playerid", tidyr::everything())
-        leaders <- leaders %>%
-          make_baseballr_data("MLB Batter Leaders data from FanGraphs.com",Sys.time())
-      } else {
-        
-        if (exc_p) {
-          payload <- paste0("http://www.fangraphs.com/leaders-legacy.aspx?pos=np&stats=bat&lg=", league, "&qual=", qual, "&type=c,-1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286&season=", y, "&month=0&season1=", x, "&ind=", ind, "&team=&rost=&age=&filter=&players=&v_cr=legacy&page=1_100000") %>% 
-            xml2::read_html()
-        } else {
-          payload <- paste0("http://www.fangraphs.com/leaders-legacy.aspx?pos=all&stats=bat&lg=", league, "&qual=", qual, "&type=c,-1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286&season=", y, "&month=0&season1=", x, "&ind=", ind, "&team=&rost=&age=&filter=&players=&v_cr=legacy&page=1_100000") %>% 
-            xml2::read_html()
-        }
-        
-        leaders <- (payload %>%
-                      rvest::html_nodes("table.rgMasterTable"))[[1]] %>% 
-          rvest::html_table()
-        
-        leaders <- leaders[-c(1,3),]
-        colnames(leaders) <- leaders[1,]
-        leaders <- leaders[-1,]
-        c <- as.matrix(names(leaders))
-        c <- gsub("%", "_pct", c, fixed = TRUE)
-        c <- gsub(" (pfx)", "_pfx", c, fixed = TRUE)
-        c <- gsub(" (pi)", "_pi", c, fixed = TRUE)
-        c <- gsub("/", "_", c, fixed = TRUE)
-        c <- gsub(" ", "_", c, fixed = TRUE)
-        c <- ifelse(substr(c, nchar(c) - 1 + 1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
-        r <- c("wRC_plus", "WPA_minus", "WPA_plus", "FBall_pct", "AgeRng")
-        c[c(63, 65, 66, 74, 204),] <- r
-        names(leaders) <- c
-        leaders <- as.data.frame(sapply(leaders, function(x) (gsub("%", "", x))))
-        leaders <- as.data.frame(sapply(leaders, function(x) (gsub("$", "", x, fixed = TRUE))))
-        leaders$Dol <- gsub("\\(", "-", leaders$Dol)
-        leaders$Dol <- gsub("\\)", "", leaders$Dol)
-        for (i in c(5:ncol(leaders))) {
-          suppressWarnings(
-            leaders[,i] <- as.numeric(as.character(leaders[,i]))
-          )
-        }
-        
-        playerids <- (payload %>%
-                        rvest::html_elements("table.rgMasterTable"))[[1]] %>%
-          rvest::html_elements("a") %>%
-          rvest::html_attr("href") %>%
-          as.data.frame() %>%
-          dplyr::rename("slug" = ".") %>%
-          dplyr::filter(grepl("playerid", .data$slug)) %>%
-          dplyr::mutate(playerid = sub(".*[=] *(.*?) *[&].*", "\\1", .data$slug))
-        
-        leaders <- leaders %>%
-          dplyr::mutate(playerid = playerids$playerid) %>%
-          dplyr::select("playerid", everything())
-        
-        leaders <- leaders %>%
-          make_baseballr_data("MLB Batter Leaders data from FanGraphs.com",Sys.time())
-      }
+      
+      resp <- fg_endpoint %>% 
+        mlb_api_call()
+      
+      fg_df <- resp$data %>% 
+        jsonlite::toJSON() %>%
+        jsonlite::fromJSON(flatten=TRUE)
+      
+      c <- colnames(fg_df)
+      c <- gsub("%", "_pct", c, fixed = TRUE)
+      c <- gsub("/", "_", c, fixed = TRUE)
+      c <- ifelse(substr(c, nchar(c) - 1 + 1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
+      c <- gsub(" ", "_", c, fixed = TRUE)
+      colnames(fg_df) <- c
+      leaders <- fg_df %>% 
+        dplyr::rename_with(~ gsub("pi", "pi_", .x), starts_with("pi")) %>% 
+        dplyr::rename_with(~ gsub("pfx", "pfx_", .x), starts_with("pfx")) %>%
+        dplyr::rename(
+          "wRC_plus" = "wRC+",
+          "WPA_minus" = "-WPA",
+          "WPA_plus" = "+WPA", 
+          "FBall_pct" = "FB_pct1",
+          "AgeRng" = "AgeR",
+          "team_name" = "TeamName",
+          "team_name_abb" = "TeamNameAbb") %>%
+        dplyr::select(-dplyr::any_of(c(
+          "Name", 
+          "Team"
+        ))) %>%
+        dplyr::select(
+          "Season",
+          "team_name",
+          "Bats", 
+          "xMLBAMID", 
+          "PlayerNameRoute",
+          "PlayerName",
+          "playerid",
+          "Age",
+          "AgeRng",
+          tidyr::everything()) %>% 
+        make_baseballr_data("MLB Team Batting data from FanGraphs.com",Sys.time())
+      
     },
     error = function(e) {
       message(glue::glue("{Sys.time()}: Invalid arguments or no batter leaders data available!"))
