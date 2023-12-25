@@ -4,7 +4,7 @@
 #'  found using the ncaa_schedule_info function.
 #' @param game_pbp_url The url for the game's play-by-play data. This can be 
 #'  found using the ncaa_schedule_info function.
-#' @param raw_html_to_disk Write raw html to disk (saves as {game_pbp_id}.html
+#' @param raw_html_to_disk Write raw html to disk (saves as `{game_pbp_id}`.html
 #'  in `raw_html_path` directory)
 #' @param raw_html_path Directory path to write raw html
 #' @param read_from_file Read from raw html on disk
