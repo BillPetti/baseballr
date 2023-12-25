@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.5.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.6.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -173,13 +173,39 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="fu">fg_milb_pitcher_game_logs</span><span class="op">(</span>playerid <span class="op">=</span> <span class="st">"sa3005315"</span>, year<span class="op">=</span><span class="fl">2021</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Error in curl::curl_fetch_memory(url, handle = handle): Could not resolve host: cdn.fangraphs.com</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Request failed [ERROR]. Retrying in 1 seconds...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Error in curl::curl_fetch_memory(url, handle = handle): Could not resolve host: cdn.fangraphs.com</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Request failed [ERROR]. Retrying in 1 seconds...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 2023-11-29 05:55:22.060881: Invalid arguments or no MiLB pitcher game logs data available!</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in fg_milb_pitcher_game_logs(playerid = "sa3005315", year = 2021):</span> object 'payload' not found</span>
+<span class="r-in"><span>  <span class="fu">fg_milb_pitcher_game_logs</span><span class="op">(</span>playerid <span class="op">=</span> <span class="st">"sa3020682"</span>, year<span class="op">=</span><span class="fl">2023</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MiLB Pitcher Game Logs data from FanGraphs.com ─── <span style="font-style: italic;">baseballr 1.6.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-12-25 08:51:30 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 20 × 56</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    player_name  minor_playerid Date  Team  Level Opp       W     L   ERA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Chase Hampt… sa3020682      2023… NYY   (AA)  COL       0     0  0   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Chase Hampt… sa3020682      2023… NYY   (AA)  @PHI      1     0  3   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Chase Hampt… sa3020682      2023… NYY   (AA)  NYM       0     1 11.2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Chase Hampt… sa3020682      2023… NYY   (AA)  @CLE      0     1  3.6 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Chase Hampt… sa3020682      2023… NYY   (AA)  BAL       0     0  7.2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Chase Hampt… sa3020682      2023… NYY   (AA)  @COL      0     0  5.14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Chase Hampt… sa3020682      2023… NYY   (AA)  @NYM      1     0  3.38</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Chase Hampt… sa3020682      2023… NYY   (AA)  PHI       0     0  3.6 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Chase Hampt… sa3020682      2023… NYY   (AA)  @BAL      0     0  7.94</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Chase Hampt… sa3020682      2023… NYY   (AA)  TOR       0     0  1.59</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> Chase Hampt… sa3020682      2023… NYY   (AA)  PIT       0     0  3   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> Chase Hampt… sa3020682      2023… NYY   (A+)  @PHI      1     0  0   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> Chase Hampt… sa3020682      2023… NYY   (A+)  BAL       0     0  2.57</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> Chase Hampt… sa3020682      2023… NYY   (A+)  @WSN      0     0  3.38</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> Chase Hampt… sa3020682      2023… NYY   (A+)  NYM       0     1  3.38</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> Chase Hampt… sa3020682      2023… NYY   (A+)  @BAL      1     0  0   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> Chase Hampt… sa3020682      2023… NYY   (A+)  WSN       0     0  1.8 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">18</span> Chase Hampt… sa3020682      2023… NYY   (A+)  @BOS      0     0  9.64</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">19</span> Chase Hampt… sa3020682      2023… NYY   (A+)  @ATL      0     0  3.86</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">20</span> Chase Hampt… sa3020682      2023… NYY   (A+)  BAL       0     0  0   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 47 more variables: G &lt;dbl&gt;, GS &lt;dbl&gt;, CG &lt;dbl&gt;, ShO &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   SV &lt;dbl&gt;, IP &lt;dbl&gt;, TBF &lt;dbl&gt;, H &lt;dbl&gt;, R &lt;dbl&gt;, ER &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   HR &lt;dbl&gt;, BB &lt;dbl&gt;, IBB &lt;dbl&gt;, HBP &lt;dbl&gt;, WP &lt;dbl&gt;, BK &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   SO &lt;dbl&gt;, `K/9` &lt;dbl&gt;, `BB/9` &lt;dbl&gt;, `K/BB` &lt;dbl&gt;, `HR/9` &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `K%` &lt;dbl&gt;, `K-BB%` &lt;dbl&gt;, `BB%` &lt;dbl&gt;, AVG &lt;dbl&gt;, WHIP &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   BABIP &lt;dbl&gt;, `LOB%` &lt;dbl&gt;, FIP &lt;dbl&gt;, gamedate &lt;chr&gt;, dh &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   UPId &lt;chr&gt;, MLBAMId &lt;chr&gt;, MinorMasterId &lt;chr&gt;, RRId &lt;chr&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

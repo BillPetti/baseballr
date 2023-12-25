@@ -37,7 +37,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.5.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.6.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -178,11 +178,10 @@
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Getting Started with baseballr</h1>
                         <h4 data-toc-skip class="author">Saiem Gilani
-<br><a href="https://twitter.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge" alt="@saiemgilani"></a>
-<a href="https://github.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a>
+<br><a href="https://github.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a>
 </h4>
             
-            <h4 data-toc-skip class="date">2023-11-29</h4>
+            <h4 data-toc-skip class="date">2023-12-25</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballr/blob/master/vignettes/baseballr.Rmd" class="external-link"><code>vignettes/baseballr.Rmd</code></a></small>
       <div class="d-none name"><code>baseballr.Rmd</code></div>
@@ -253,8 +252,7 @@ data sources accessible from this package:</p>
 <ul>
 <li>
 <a href="https://github.com/sportsdataverse/baseballr-data" class="external-link"><code>baseballr-data</code>
-repo</a> <a href="https://twitter.com/sportsdataverse" class="external-link"><img src="https://img.shields.io/twitter/follow/sportsdataverse?color=blue&amp;label=%40sportsdataverse&amp;logo=twitter&amp;style=for-the-badge" alt="Twitter Follow"></a>
-</li>
+repo</a> (<span class="citation">@SportsDataverse</span>)</li>
 <li><a href="https://www.mlb.com/" class="external-link">MLB Stats API</a></li>
 <li><a href="https://baseballsavant.mlb.com/" class="external-link">Baseball Savant’s
 Statcast</a></li>
@@ -280,13 +278,13 @@ in the function name and would be considered loading functions for the
 play-by-play data, team box scores, and player box scores.</p></li>
 <li><p>Functions that use the MLB Stats API start with <code>mlb_</code>
 by convention and should be assumed as <code>get</code> functions. As of
-<code>baseballr</code> version 1.5.0, the package exports ~88 functions
+<code>baseballr</code> version 1.6.0, the package exports ~88 functions
 covering the MLB Stats API.</p></li>
 <li><p>Functions that use one of <a href="https://baseballsavant.mlb.com/" class="external-link">Baseball Savant’s Statcast</a>
 APIs start with <code>statcast_</code> by convention and should be
 assumed as <code>get</code> functions. These functions allow for live
 access to Statcast data for the MLB games in-progress. As of
-<code>baseballr</code> version 1.5.0, the package exports ~5
+<code>baseballr</code> version 1.6.0, the package exports ~5
 Statcast-related functions.</p></li>
 <li><p>Functions that use <a href="https://github.com/chadwickbureau/register/" class="external-link">Chadwick Bureau’s
 Public Register of Baseball Players</a> start with
@@ -294,25 +292,25 @@ Public Register of Baseball Players</a> start with
 <code>playername_</code> by convention and should be assumed as
 <code>get</code> functions. These functions allow for access to the
 Bureau’s public register of baseball players. As of
-<code>baseballr</code> version 1.5.0, the package exports 3 functions
+<code>baseballr</code> version 1.6.0, the package exports 3 functions
 sourced using the Chadwick Bureau’s public register of baseball
 players.</p></li>
 <li><p>Functions that use Baseball Reference’s website start with
 <code>bref_</code> by convention and should be assumed as
-<code>get</code> functions. As of <code>baseballr</code> version 1.5.0,
+<code>get</code> functions. As of <code>baseballr</code> version 1.6.0,
 the package exports ~4 functions covering <a href="https://www.baseball-reference.com/" class="external-link">Baseball
 Reference</a>.</p></li>
 <li><p>Functions that use FanGraphs’s baseball website start with
 <code>fg_</code> by convention and should be assumed as <code>get</code>
-functions. As of <code>baseballr</code> version 1.5.0, the package
+functions. As of <code>baseballr</code> version 1.6.0, the package
 exports ~11 functions covering <a href="https://www.fangraphs.com/" class="external-link">FanGraphs.com</a>.</p></li>
 <li><p>Functions that use Retrosheet’s baseball data start with
 <code>retrosheet_</code> by convention and should be assumed as
-<code>get</code> functions. As of <code>baseballr</code> version 1.5.0,
+<code>get</code> functions. As of <code>baseballr</code> version 1.6.0,
 the package exports 1 function for <a href="https://www.retrosheet.org/" class="external-link">Retrosheet Data</a>.</p></li>
 <li><p>Functions that use the NCAA website start with <code>ncaa_</code>
 by convention and should be assumed as <code>get</code> functions. As of
-<code>baseballr</code> version 1.5.0, the package exports ~8 function
+<code>baseballr</code> version 1.6.0, the package exports ~8 function
 covering the <a href="https://stats.ncaa.org/" class="external-link">NCAA Stats
 portal</a>.</p></li>
 </ul>
@@ -320,10 +318,10 @@ portal</a>.</p></li>
 </div>
 </div>
 <div class="section level2">
-<h2 id="follow-the-sportsdataverse-on-twitter-and-star-this-repo">Follow the <a href="https://twitter.com/SportsDataverse" class="external-link">SportsDataverse</a> on
-Twitter and star this repo<a class="anchor" aria-label="anchor" href="#follow-the-sportsdataverse-on-twitter-and-star-this-repo"></a>
+<h2 id="follow-the-sportsdataverse-sportsdataverse-on-twitter-and-star-this-repo">Follow the SportsDataverse (<span class="citation">@SportsDataverse</span>) on Twitter and star this
+repo<a class="anchor" aria-label="anchor" href="#follow-the-sportsdataverse-sportsdataverse-on-twitter-and-star-this-repo"></a>
 </h2>
-<p><a href="https://twitter.com/SportsDataverse" class="external-link"><img src="https://img.shields.io/twitter/follow/SportsDataverse?color=blue&amp;label=%40SportsDataverse&amp;logo=twitter&amp;style=for-the-badge" alt="Twitter Follow"></a></p>
+<!-- [![Twitter Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=twitter&style=for-the-badge)](https://twitter.com/SportsDataverse)  -->
 <p><a href="https://github.com/billpetti/baseballr/stargazers/" class="external-link"><img src="https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&amp;logo=github&amp;style=for-the-badge&amp;label=Star%20baseballr&amp;maxAge=2592000" alt="GitHub stars"></a></p>
 </div>
 <div class="section level2">
@@ -331,10 +329,8 @@ Twitter and star this repo<a class="anchor" aria-label="anchor" href="#follow-th
 <strong>Our Authors</strong><a class="anchor" aria-label="anchor" href="#our-authors"></a>
 </h2>
 <ul>
-<li><p><a href="https://twitter.com/BillPetti" class="external-link">Bill Petti</a><br><a href="https://twitter.com/BillPetti" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&amp;label=%40BillPetti&amp;logo=twitter&amp;style=for-the-badge" alt="@BillPetti"></a>
-<a href="https://github.com/BillPetti" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@BillPetti"></a></p></li>
-<li><p><a href="https://twitter.com/saiemgilani" class="external-link">Saiem Gilani</a><br><a href="https://twitter.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge" alt="@saiemgilani"></a>
-<a href="https://github.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a></p></li>
+<li><p>Bill Petti (<span class="citation">@BillPetti</span>)<br><!-- <a href="https://twitter.com/BillPetti" target="blank"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge" alt="@BillPetti" /></a> --><a href="https://github.com/BillPetti" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@BillPetti"></a></p></li>
+<li><p>Saiem Gilani (<span class="citation">@saiemgilani</span>)<br><!-- <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a> --><a href="https://github.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a></p></li>
 </ul>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

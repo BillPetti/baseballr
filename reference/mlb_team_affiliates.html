@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.5.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.6.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -178,21 +178,22 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_team_affiliates</span><span class="op">(</span>team_ids <span class="op">=</span> <span class="fl">147</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Team Affiliates data from MLB.com ──────────── <span style="font-style: italic;">baseballr 1.5.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-11-29 05:56:34 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 35</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Team Affiliates data from MLB.com ──────────── <span style="font-style: italic;">baseballr 1.6.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-12-25 08:53:19 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 11 × 35</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    all_star_status team_id team_full_name         link  season team_code</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> N                   147 New York Yankees       /api…   <span style="text-decoration: underline;">2</span>023 nya      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> N                  <span style="text-decoration: underline;">1</span>956 Somerset Patriots      /api…   <span style="text-decoration: underline;">2</span>023 som      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> N                   587 Tampa Tarpons          /api…   <span style="text-decoration: underline;">2</span>023 tpa      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> N                  <span style="text-decoration: underline;">3</span>308 Yankees Alternate Tra… /api…   <span style="text-decoration: underline;">2</span>023 nys      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> O                  <span style="text-decoration: underline;">3</span>309 Yankees Organization   /api…   <span style="text-decoration: underline;">2</span>023 nyo      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> N                   475 FCL Yankees            /api…   <span style="text-decoration: underline;">2</span>023 yan      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> N                   635 DSL NYY Yankees        /api…   <span style="text-decoration: underline;">2</span>023 dyn      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> F                   386 New York Yankees Futu… /api…   <span style="text-decoration: underline;">2</span>023 nyf      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> N                  <span style="text-decoration: underline;">3</span>308 Yankees Alternate Tra… /api…   <span style="text-decoration: underline;">2</span>023 nys      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> O                  <span style="text-decoration: underline;">3</span>309 Yankees Organization   /api…   <span style="text-decoration: underline;">2</span>023 nyo      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> N                   475 FCL Yankees            /api…   <span style="text-decoration: underline;">2</span>023 fya      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> N                   531 Scranton/Wilkes-Barre… /api…   <span style="text-decoration: underline;">2</span>023 swb      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> N                   634 DSL NYY Bombers        /api…   <span style="text-decoration: underline;">2</span>023 dya      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> N                   537 Hudson Valley Renegad… /api…   <span style="text-decoration: underline;">2</span>023 hvr      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> N                   635 DSL NYY Yankees        /api…   <span style="text-decoration: underline;">2</span>023 dya      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> N                   634 DSL NYY Bombers        /api…   <span style="text-decoration: underline;">2</span>023 dyb      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> N                   537 Hudson Valley Renegad… /api…   <span style="text-decoration: underline;">2</span>023 hvr      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 29 more variables: file_code &lt;chr&gt;, team_abbreviation &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_name &lt;chr&gt;, location_name &lt;chr&gt;, first_year_of_play &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   short_name &lt;chr&gt;, franchise_name &lt;chr&gt;, club_name &lt;chr&gt;,</span></span>

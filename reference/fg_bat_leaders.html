@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.5.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.6.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -151,33 +151,115 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">fg_bat_leaders</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, league <span class="op">=</span> <span class="st">"all"</span>, qual <span class="op">=</span> <span class="st">"y"</span>, ind <span class="op">=</span> <span class="fl">1</span>, exc_p <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">fg_bat_leaders</span><span class="op">(</span></span>
+<span>  age <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  pos <span class="op">=</span> <span class="st">"all"</span>,</span>
+<span>  stats <span class="op">=</span> <span class="st">"bat"</span>,</span>
+<span>  lg <span class="op">=</span> <span class="st">"all"</span>,</span>
+<span>  qual <span class="op">=</span> <span class="st">"0"</span>,</span>
+<span>  startseason <span class="op">=</span> <span class="st">"2023"</span>,</span>
+<span>  endseason <span class="op">=</span> <span class="st">"2023"</span>,</span>
+<span>  startdate <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  enddate <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  month <span class="op">=</span> <span class="st">"0"</span>,</span>
+<span>  hand <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  team <span class="op">=</span> <span class="st">"0"</span>,</span>
+<span>  pageitems <span class="op">=</span> <span class="st">"10000"</span>,</span>
+<span>  pagenum <span class="op">=</span> <span class="st">"1"</span>,</span>
+<span>  ind <span class="op">=</span> <span class="st">"0"</span>,</span>
+<span>  rost <span class="op">=</span> <span class="st">"0"</span>,</span>
+<span>  players <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  type <span class="op">=</span> <span class="st">"8"</span>,</span>
+<span>  postseason <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  sortdir <span class="op">=</span> <span class="st">"default"</span>,</span>
+<span>  sortstat <span class="op">=</span> <span class="st">"WAR"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>x</dt>
-<dd><p>First season for which you want data.</p></dd>
+    <dl><dt>age</dt>
+<dd><p>(integer) Age of players</p></dd>
 
 
-<dt>y</dt>
-<dd><p>Last season for which you want data. If multiple years selected, data returned will be aggregate data for the date range. If y = x, function will return single-season data.</p></dd>
+<dt>pos</dt>
+<dd><p>(character) Position of players, defaults to "all". To exclude pitchers, use "np".</p></dd>
 
 
-<dt>league</dt>
-<dd><p>Option for limiting results to different leagues or overall results. Options are "al", "nl", or "all".</p></dd>
+<dt>stats</dt>
+<dd><p>(character) Statistic to return. Defaults to "bat".</p></dd>
+
+
+<dt>lg</dt>
+<dd><p>(character) League to return. Defaults to "all". Options are "al", "nl", or "all".</p></dd>
 
 
 <dt>qual</dt>
-<dd><p>Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimum number of plate appearaces/innings pitched, use the number desired. Defaults to "y".</p></dd>
+<dd><p>(character) Whether you want only batters/pitchers that qualified in a given season, or the minimum number of plate appearances for inclusion. If you only want qualified hitters, use qual. If a minimum number of plate appearaces/innings pitched, use the number desired. Defaults to "y".</p></dd>
+
+
+<dt>startseason</dt>
+<dd><p>(character) Season for which you want to scrape the data.</p></dd>
+
+
+<dt>endseason</dt>
+<dd><p>(character) Last season for which you want data.</p></dd>
+
+
+<dt>startdate</dt>
+<dd><p>(character) Start date for which you want data.</p></dd>
+
+
+<dt>enddate</dt>
+<dd><p>(character) End date for which you want data.</p></dd>
+
+
+<dt>month</dt>
+<dd><p>(character) Month for which you want data.</p></dd>
+
+
+<dt>hand</dt>
+<dd><p>(character) Handedness of batter. Options are "L", "R", or "B". Empty string returns all.</p></dd>
+
+
+<dt>team</dt>
+<dd><p>(character) Teams for which you want data, comma separated.</p></dd>
+
+
+<dt>pageitems</dt>
+<dd><p>(character) Number of items per page.</p></dd>
+
+
+<dt>pagenum</dt>
+<dd><p>(character) Page number.</p></dd>
 
 
 <dt>ind</dt>
-<dd><p>Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.</p></dd>
+<dd><p>(character) Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.</p></dd>
 
 
-<dt>exc_p</dt>
-<dd><p>(logical) Whether or not to exclude pitchers from the batter leaderboards. TRUE = exclude pitchers, FALSE = retain pitchers.</p></dd>
+<dt>rost</dt>
+<dd><p>(character) Whether or not to include players on the roster. 1 = include, 0 = exclude.</p></dd>
+
+
+<dt>players</dt>
+<dd><p>(character) Whether or not to include players on the roster. 1 = include only active roster players, 0 = exclude.</p></dd>
+
+
+<dt>type</dt>
+<dd><p>(character) Defaults to 8, which is the standard leaderboard. The values for the leaderboards appear to go to from type = 0 to 48+, which correspond to links on the leaderboard page.</p></dd>
+
+
+<dt>postseason</dt>
+<dd><p>(logical) Whether or not to include postseason data. TRUE = include postseason, FALSE = exclude postseason.</p></dd>
+
+
+<dt>sortdir</dt>
+<dd><p>(character) Sort direction. Options are "asc" or "desc" or "default".</p></dd>
+
+
+<dt>sortstat</dt>
+<dd><p>(character) Sort by stat. Default is "WAR".</p></dd>
 
 </dl></div>
     <div class="section level2">

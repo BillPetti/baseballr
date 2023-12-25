@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.5.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.6.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -144,6 +144,54 @@
       <small>Source: <a href="https://github.com/billpetti/baseballr/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.6.0" id="baseballr-160">baseballr 1.6.0<a class="anchor" aria-label="anchor" href="#baseballr-160"></a></h2>
+<p>Primarily focused on parameter changes to the <code>fg_*()</code> functions to allow for more flexible data retrieval. See below for details.</p>
+<p>The parameters are now as follows for the leaderboard functions:</p>
+<ul><li>
+<code>age</code> (integer) Age of players</li>
+<li>
+<code>pos</code> (character) Position of players, defaults to “all”. To exclude pitchers, use “np”.</li>
+<li>
+<code>stats</code> (character) Statistic to return. Defaults to “bat”.</li>
+<li>
+<code>lg</code> (character) League to return. Defaults to “all”. Options are “al”, “nl”, or “all”.</li>
+<li>
+<code>qual</code> (character) Whether you want only batters/pitchers that qualified in a given - season, or the minimum number of plate appearances for inclusion. If you only want - qualified hitters, use qual. If a minimum number of plate appearaces/innings - pitched, use the number desired. Defaults to “y”.</li>
+<li>
+<code>startseason</code> (character) Season for which you want to scrape the data.</li>
+<li>
+<code>endseason</code> (character) Last season for which you want data.</li>
+<li>
+<code>startdate</code> (character) Start date for which you want data.</li>
+<li>
+<code>enddate</code> (character) End date for which you want data.</li>
+<li>
+<code>month</code> (character) Month for which you want data.</li>
+<li>
+<code>hand</code> (character) Handedness of batter. Options are “L”, “R”, or “B”. Empty string - returns all.</li>
+<li>
+<code>team</code> (character) Teams for which you want data, comma separated.</li>
+<li>
+<code>pageitems</code> (character) Number of items per page.</li>
+<li>
+<code>pagenum</code> (character) Page number.</li>
+<li>
+<code>ind</code> (character) Whether or not to break the seasons out individual, or roll them up together. 1 = split seasons, 0 = aggregate seasons.</li>
+<li>
+<code>rost</code> (character) Whether or not to include players on the roster. 1 = include, 0 = - exclude.</li>
+<li>
+<code>players</code> (character) Whether or not to include players on the roster. 1 = include only active roster players, 0 = exclude.</li>
+<li>
+<code>type</code> (character) Defaults to 8, which is the standard leaderboard. The values for - the leaderboards appear to go to from type = 0 to 48+, which correspond to links - on the leaderboard page.</li>
+<li>
+<code>postseason</code> (logical) Whether or not to include postseason data. TRUE = include postseason, FALSE = exclude postseason.</li>
+<li>
+<code>sortdir</code> (character) Sort direction. Options are “asc” or “desc” or “default”.</li>
+<li>
+<code>sortstat</code> (character) Sort by stat. Default is “WAR”.</li>
+</ul><p>This change affects the following functions: - <code><a href="../reference/fg_team_batter.html">fg_team_batter()</a></code> - <code><a href="../reference/fg_team_pitcher.html">fg_team_pitcher()</a></code> - <code><a href="../reference/fg_batter_leaders.html">fg_batter_leaders()</a></code> - <code><a href="../reference/fg_pitcher_leaders.html">fg_pitcher_leaders()</a></code></p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.5.0" id="baseballr-150">baseballr 1.5.0<a class="anchor" aria-label="anchor" href="#baseballr-150"></a></h2><p class="text-muted">CRAN release: 2023-03-21</p>
 <div class="section level4">

@@ -41,7 +41,7 @@
     
     <a class="navbar-brand me-2" href="index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.5.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.6.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -225,7 +225,7 @@
 <span><span class="fu"><a href="reference/bref_standings_on_date.html">bref_standings_on_date</a></span><span class="op">(</span><span class="st">"2015-08-01"</span>, <span class="st">"NL East"</span>, from <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ── MLB Standings on Date data from baseball-reference.com ─── baseballr 1.5.0 ──</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="do">## ℹ Data updated: 2023-02-16 04:22:33 EST</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="do">## ℹ Data updated: 2023-12-25 02:24:44 EST</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 5 × 8</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="do">##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`</span></span>
@@ -243,9 +243,9 @@
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Rows: 764</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Columns: 30</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="do">## $ bbref_id &lt;chr&gt; "547989", "554429", "542436", "571431", "501303", "346793", "…</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="do">## $ bbref_id &lt;chr&gt; "machama01", "duffyma01", "altuvjo01", "eatonad02", "choosh01…</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="do">## $ season   &lt;int&gt; 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2…</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="do">## $ Name     &lt;chr&gt; "Manny Machado", "Matt Duffy", "Jose Altuve", "Adam Eaton", "…</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="do">## $ Name     &lt;chr&gt; "Manny Machado", "Matt Duffy", "José Altuve", "Adam Eaton", "…</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="do">## $ Age      &lt;dbl&gt; 22, 24, 25, 26, 32, 21, 27, 28, 36, 28, 29, 29, 27, 29, 27, 2…</span></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="do">## $ Level    &lt;chr&gt; "Maj-AL", "Maj-NL", "Maj-AL", "Maj-AL", "Maj-AL", "Maj-AL", "…</span></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="do">## $ Team     &lt;chr&gt; "Baltimore", "San Francisco", "Houston", "Chicago", "Texas", …</span></span>
@@ -289,7 +289,7 @@
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  8 CLE    0.41   0.4           88           63</span></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  9 COL    0.35   0.34           7            3</span></span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 10 DET    0.39   0.38          52           42</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="do">## # … with 20 more rows</span></span></code></pre></div>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="do">## # ℹ 20 more rows</span></span></code></pre></div>
 <p>You can also calculate wOBA per plate appearance and wOBA on contact for any set of data over any date range, provided you have the data available.</p>
 <p>Simply pass the proper data frame to <code>woba_plus</code>:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
@@ -301,7 +301,7 @@
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Rows: 117</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Columns: 6</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="do">## $ Name     &lt;chr&gt; "Edwin EncarnaciÃ³n", "Bryce Harper", "David Ortiz", "Joey Vo…</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="do">## $ Name     &lt;chr&gt; "Edwin Encarnación", "Bryce Harper", "David Ortiz", "Joey Vot…</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="do">## $ Team     &lt;chr&gt; "Toronto", "Washington", "Boston", "Cincinnati", "Baltimore",…</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="do">## $ season   &lt;int&gt; 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2…</span></span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="do">## $ PA       &lt;dbl&gt; 216, 248, 213, 251, 253, 260, 245, 255, 223, 241, 223, 259, 2…</span></span>
@@ -316,22 +316,22 @@
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb14"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ── MLB Daily Pitcher data from baseball-reference.com ─────── baseballr 1.5.0 ──</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="do">## ℹ Data updated: 2023-02-16 04:25:41 EST</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="do">## ℹ Data updated: 2023-12-25 02:27:52 EST</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 10 × 11</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="do">##    season Name            IP   ERA    SO   uBB   HBP    HR   FIP wOBA_…¹ wOBA_…²</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="do">##     &lt;int&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  1   2015 Johnny Cueto  37    1.95    38     4     2     3  2.62   0.21    0.276</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  2   2015 Dallas Keuc…  37    0.73    22    11     0     0  2.84   0.169   0.151</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  3   2015 Sonny Gray    36.1  1.98    25     6     1     1  2.69   0.218   0.239</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  4   2015 Mike Leake    35.2  3.03    25     7     0     5  4.16   0.24    0.281</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  5   2015 Félix Herná…  34.2  1.82    36     6     3     1  2.2    0.225   0.272</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  6   2015 Corey Kluber  34    4.24    36     5     2     2  2.4    0.295   0.391</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  7   2015 Jake Odoriz…  33.2  2.41    26     8     1     0  2.38   0.213   0.228</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  8   2015 Josh Collme…  32.2  2.76    16     3     0     1  2.82   0.29    0.33 </span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  9   2015 Bartolo Col…  32.2  3.31    25     1     0     4  3.29   0.28    0.357</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="do">## 10   2015 Zack Greinke  32.2  1.93    27     7     1     2  3.01   0.24    0.274</span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="do">## # … with abbreviated variable names ¹​wOBA_against, ²​wOBA_CON_against</span></span></code></pre></div>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="do">##    season Name               IP   ERA    SO   uBB   HBP    HR   FIP wOBA_against</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="do">##     &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;        &lt;dbl&gt;</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  1   2015 Johnny Cueto     37    1.95    38     4     2     3  2.62        0.21 </span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  2   2015 Dallas Keuchel   37    0.73    22    11     0     0  2.84        0.169</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  3   2015 Sonny Gray       36.1  1.98    25     6     1     1  2.69        0.218</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  4   2015 Mike Leake       35.2  3.03    25     7     0     5  4.16        0.24 </span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  5   2015 Félix Hernández  34.2  1.82    36     6     3     1  2.2         0.225</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  6   2015 Corey Kluber     34    4.24    36     5     2     2  2.4         0.295</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  7   2015 Jake Odorizzi    33.2  2.41    26     8     1     0  2.38        0.213</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  8   2015 Josh Collmenter  32.2  2.76    16     3     0     1  2.82        0.29 </span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  9   2015 Bartolo Colón    32.2  3.31    25     1     0     4  3.29        0.28 </span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="do">## 10   2015 Zack Greinke     32.2  1.93    27     7     1     2  3.01        0.24 </span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="do">## # ℹ 1 more variable: wOBA_CON_against &lt;dbl&gt;</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="issues">
@@ -352,9 +352,9 @@
 <p><a href="https://billpetti.github.io/baseballr/news/index.html" class="external-link"><strong>Full News on Releases</strong></a></p>
 </div>
 <div class="section level2">
-<h2 id="follow-the-sportsdataverse-on-twitter-and-star-this-repo">Follow the <a href="https://twitter.com/SportsDataverse" class="external-link">SportsDataverse</a> on Twitter and star this repo<a class="anchor" aria-label="anchor" href="#follow-the-sportsdataverse-on-twitter-and-star-this-repo"></a>
+<h2 id="follow-the-sportsdataverse-sportsdataverse-on-twitter-and-star-this-repo">Follow the SportsDataverse (@SportsDataverse) on Twitter and star this repo<a class="anchor" aria-label="anchor" href="#follow-the-sportsdataverse-sportsdataverse-on-twitter-and-star-this-repo"></a>
 </h2>
-<p><a href="https://twitter.com/SportsDataverse" class="external-link"><img src="https://img.shields.io/twitter/follow/SportsDataverse?color=blue&amp;label=%40SportsDataverse&amp;logo=twitter&amp;style=for-the-badge" alt="Twitter Follow"></a></p>
+<!-- [![Twitter Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=twitter&style=for-the-badge)](https://twitter.com/SportsDataverse)  -->
 <p><a href="https://github.com/billpetti/baseballr/stargazers/" class="external-link"><img src="https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&amp;logo=github&amp;style=for-the-badge&amp;label=Star%20baseballr&amp;maxAge=2592000" alt="GitHub stars"></a></p>
 </div>
 <div class="section level2">
@@ -362,8 +362,8 @@
 <strong>Our Authors</strong><a class="anchor" aria-label="anchor" href="#our-authors"></a>
 </h2>
 <ul>
-<li><p><a href="https://twitter.com/BillPetti" class="external-link">Bill Petti</a><br><a href="https://twitter.com/BillPetti" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&amp;label=%40BillPetti&amp;logo=twitter&amp;style=for-the-badge" alt="@BillPetti"></a> <a href="https://github.com/BillPetti" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@BillPetti"></a></p></li>
-<li><p><a href="https://twitter.com/saiemgilani" class="external-link">Saiem Gilani</a><br><a href="https://twitter.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge" alt="@saiemgilani"></a> <a href="https://github.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a></p></li>
+<li><p>Bill Petti (@BillPetti)<br><!-- <a href="https://twitter.com/BillPetti" target="blank"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge" alt="@BillPetti" /></a> --><a href="https://github.com/BillPetti" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@BillPetti"></a></p></li>
+<li><p>Saiem Gilani (@saiemgilani)<br><!-- <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a> --><a href="https://github.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a></p></li>
 </ul>
 </div>
 <div class="section level2">
@@ -371,10 +371,10 @@
 <strong>Our Contributors (they’re awesome)</strong><a class="anchor" aria-label="anchor" href="#our-contributors-theyre-awesome"></a>
 </h2>
 <ul>
-<li><p><a href="https://twitter.com/BaumerBen" class="external-link">Ben Baumer</a><br><a href="https://twitter.com/BaumerBen" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/BaumerBen?color=blue&amp;label=%40BaumerBen&amp;logo=twitter&amp;style=for-the-badge" alt="@BaumerBen"></a> <a href="https://github.com/beanumber" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/beanumber?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@beanumber"></a></p></li>
-<li><p><a href="https://twitter.com/BenDilday" class="external-link">Ben Dilday</a><br><a href="https://twitter.com/BenDilday" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/BenDilday?color=blue&amp;label=%40BenDilday&amp;logo=twitter&amp;style=for-the-badge" alt="@BenDilday"></a> <a href="https://github.com/bdilday" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/bdilday?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@bdilday"></a></p></li>
-<li><p><a href="https://twitter.com/RobertFrey40" class="external-link">Robert Frey</a><br><a href="https://twitter.com/RobertFrey40" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/RobertFrey40?color=blue&amp;label=%40RobertFrey40&amp;logo=twitter&amp;style=for-the-badge" alt="@RobertFrey40"></a> <a href="https://github.com/robert-frey" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/robert-frey?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@robert-frey"></a></p></li>
-<li><p><a href="https://twitter.com/k_camden" class="external-link">Camden Kay</a><br><a href="https://twitter.com/k_camden" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/k_camden?color=blue&amp;label=%40k_camden&amp;logo=twitter&amp;style=for-the-badge" alt="@k_camden"></a> <a href="https://github.com/camdenk" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/camdenk?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@camdenk"></a></p></li>
+<li><p>Ben Baumer (@BaumerBen)<br><!-- <a href="https://twitter.com/BaumerBen" target="blank"><img src="https://img.shields.io/twitter/follow/BaumerBen?color=blue&label=%40BaumerBen&logo=twitter&style=for-the-badge" alt="@BaumerBen" /></a> --><a href="https://github.com/beanumber" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/beanumber?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@beanumber"></a></p></li>
+<li><p>Ben Dilday (@BenDilday)<br><!-- <a href="https://twitter.com/BenDilday" target="blank"><img src="https://img.shields.io/twitter/follow/BenDilday?color=blue&label=%40BenDilday&logo=twitter&style=for-the-badge" alt="@BenDilday" /></a>  --><a href="https://github.com/bdilday" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/bdilday?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@bdilday"></a></p></li>
+<li><p>Robert Frey (@RobertFrey40)<br><!-- <a href="https://twitter.com/RobertFrey40" target="blank"><img src="https://img.shields.io/twitter/follow/RobertFrey40?color=blue&label=%40RobertFrey40&logo=twitter&style=for-the-badge" alt="@RobertFrey40" /></a>  --><a href="https://github.com/robert-frey" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/robert-frey?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@robert-frey"></a></p></li>
+<li><p>Camden Kay (@k_camden)<br><!-- <a href="https://twitter.com/k_camden" target="blank"><img src="https://img.shields.io/twitter/follow/k_camden?color=blue&label=%40k_camden&logo=twitter&style=for-the-badge" alt="@k_camden" /></a>  --><a href="https://github.com/camdenk" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/camdenk?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@camdenk"></a></p></li>
 </ul>
 </div>
 <div class="section level2">

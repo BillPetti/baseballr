@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.5.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.6.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -151,7 +151,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">fg_batter_game_logs</span><span class="op">(</span><span class="va">playerid</span>, year <span class="op">=</span> <span class="fl">2017</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">fg_batter_game_logs</span><span class="op">(</span><span class="va">playerid</span>, <span class="va">year</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -449,14 +449,29 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">fg_batter_game_logs</span><span class="op">(</span>playerid <span class="op">=</span> <span class="fl">6184</span>, year <span class="op">=</span> <span class="fl">2017</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Error in curl::curl_fetch_memory(url, handle = handle): Could not resolve host: cdn.fangraphs.com</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Request failed [ERROR]. Retrying in 1.7 seconds...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Error in curl::curl_fetch_memory(url, handle = handle): Could not resolve host: cdn.fangraphs.com</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Request failed [ERROR]. Retrying in 3.8 seconds...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> 2023-11-29 05:55:11.188575: Invalid arguments or no batter game logs data available!</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in fg_batter_game_logs(playerid = 6184, year = 2017) : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   object 'payload' not found</span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">fg_batter_game_logs</span><span class="op">(</span>playerid <span class="op">=</span> <span class="fl">19755</span>, year <span class="op">=</span> <span class="fl">2023</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Batter Game Logs data from FanGraphs.com ───── <span style="font-style: italic;">baseballr 1.6.0</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-12-25 08:51:25 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 135 × 250</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    PlayerName    playerid Date   Team  Opp   season   Age BatOrder Pos  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-… LAA   @OAK    <span style="text-decoration: underline;">2</span>023    28 2        DH   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-… LAA   @OAK    <span style="text-decoration: underline;">2</span>023    28 2        DH   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-… LAA   @OAK    <span style="text-decoration: underline;">2</span>023    28 3        DH   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-… LAA   @PHI    <span style="text-decoration: underline;">2</span>023    28 3        DH   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-… LAA   @PHI    <span style="text-decoration: underline;">2</span>023    28 2        DH   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-… LAA   @PHI    <span style="text-decoration: underline;">2</span>023    28 2        DH   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-… LAA   @NYM    <span style="text-decoration: underline;">2</span>023    28 2        DH   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-… LAA   @NYM    <span style="text-decoration: underline;">2</span>023    28 2        DH   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-… LAA   @NYM    <span style="text-decoration: underline;">2</span>023    28 2        DH   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-… LAA   CIN     <span style="text-decoration: underline;">2</span>023    28 2        DH   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 125 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 241 more variables: G &lt;dbl&gt;, AB &lt;dbl&gt;, PA &lt;dbl&gt;, H &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `1B` &lt;dbl&gt;, `2B` &lt;dbl&gt;, `3B` &lt;dbl&gt;, HR &lt;dbl&gt;, R &lt;dbl&gt;, RBI &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   BB &lt;dbl&gt;, IBB &lt;dbl&gt;, SO &lt;dbl&gt;, HBP &lt;dbl&gt;, SF &lt;dbl&gt;, SH &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   GDP &lt;dbl&gt;, SB &lt;dbl&gt;, CS &lt;dbl&gt;, AVG &lt;dbl&gt;, GB &lt;dbl&gt;, FB &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   LD &lt;dbl&gt;, IFFB &lt;dbl&gt;, Pitches &lt;dbl&gt;, Balls &lt;dbl&gt;, Strikes &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   IFH &lt;dbl&gt;, BU &lt;dbl&gt;, BUH &lt;dbl&gt;, `BB%` &lt;dbl&gt;, `K%` &lt;dbl&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
