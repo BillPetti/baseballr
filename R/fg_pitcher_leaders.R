@@ -526,7 +526,6 @@ fg_pitcher_leaders <- function(
           "Relief_IP" = "Relief-IP",
           "WPA_minus" = "-WPA",
           "WPA_plus" = "+WPA", 
-          "FBall_pct" = "FB_pct1",
           "AgeRng" = "AgeR",
           "team_name" = "TeamName",
           "team_name_abb" = "TeamNameAbb") %>%
