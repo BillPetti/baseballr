@@ -210,20 +210,20 @@ directly from the NCAA website for a given year and division.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/ncaa_teams.html">ncaa_teams</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fu"><a href="../reference/most_recent_ncaa_baseball_season.html">most_recent_ncaa_baseball_season</a></span><span class="op">(</span><span class="op">)</span>, division <span class="op">=</span> <span class="st">"1"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── NCAA Baseball Teams data from stats.ncaa.org ───── <span style="font-style: italic;">baseballr 1.6.0</span> ──</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-12-25 08:58:03 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2024-01-09 04:23:47 UTC</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 305 × 8</span></span></span>
 <span><span class="co">#&gt;    team_id team_name    team_url conference_id conference division  year</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 140     Cincinnati   /team/1… 823           AAC        1         <span style="text-decoration: underline;">2</span>023</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 196     East Caroli… /team/1… 823           AAC        1         <span style="text-decoration: underline;">2</span>023</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 288     Houston      /team/2… 823           AAC        1         <span style="text-decoration: underline;">2</span>023</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 404     Memphis      /team/4… 823           AAC        1         <span style="text-decoration: underline;">2</span>023</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 651     South Fla.   /team/6… 823           AAC        1         <span style="text-decoration: underline;">2</span>023</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 718     Tulane       /team/7… 823           AAC        1         <span style="text-decoration: underline;">2</span>023</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 128     UCF          /team/1… 823           AAC        1         <span style="text-decoration: underline;">2</span>023</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 782     Wichita St.  /team/7… 823           AAC        1         <span style="text-decoration: underline;">2</span>023</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 67      Boston Coll… /team/6… 821           ACC        1         <span style="text-decoration: underline;">2</span>023</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 147     Clemson      /team/1… 821           ACC        1         <span style="text-decoration: underline;">2</span>023</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 458     Charlotte    /team/4… 823           AAC        1         <span style="text-decoration: underline;">2</span>024</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 196     East Caroli… /team/1… 823           AAC        1         <span style="text-decoration: underline;">2</span>024</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 229     Fla. Atlant… /team/2… 823           AAC        1         <span style="text-decoration: underline;">2</span>024</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 404     Memphis      /team/4… 823           AAC        1         <span style="text-decoration: underline;">2</span>024</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 574     Rice         /team/5… 823           AAC        1         <span style="text-decoration: underline;">2</span>024</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 651     South Fla.   /team/6… 823           AAC        1         <span style="text-decoration: underline;">2</span>024</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 718     Tulane       /team/7… 823           AAC        1         <span style="text-decoration: underline;">2</span>024</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 9       UAB          /team/9… 823           AAC        1         <span style="text-decoration: underline;">2</span>024</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 706     UTSA         /team/7… 823           AAC        1         <span style="text-decoration: underline;">2</span>024</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 782     Wichita St.  /team/7… 823           AAC        1         <span style="text-decoration: underline;">2</span>024</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 295 more rows</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1 more variable: season_id &lt;chr&gt;</span></span></span></code></pre></div>
 <p>The function, <code><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats()</a></code>, requires the
@@ -231,7 +231,7 @@ user to pass values for three parameters for the function to work:</p>
 <p><code>team_id</code>: numerical code used by the NCAA for each school
 <code>year</code>: a four-digit year <code>type</code>: whether to pull
 data for batters or pitchers</p>
-<p>If you want to pull batting statistics for Florida State for the 2023
+<p>If you want to pull batting statistics for Florida State for the 2024
 season, you would use the following:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
@@ -244,54 +244,32 @@ season, you would use the following:</p>
 <span><span class="va">year</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/most_recent_ncaa_baseball_season.html">most_recent_ncaa_baseball_season</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, year <span class="op">=</span> <span class="va">year</span>, <span class="st">"batting"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ── NCAA Baseball Team Batting Stats data from stats.ncaa.org ───────────</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-12-25 08:58:05 UTC</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 38 × 35</span></span></span>
-<span><span class="co">#&gt;     year team_name   team_id conference_id conference division player_id</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">649</span>339</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">649</span>334</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">468</span>075</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">112</span>619</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">797</span>459</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">478</span>605</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">649</span>307</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">797</span>428</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">797</span>460</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">797</span>482</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 28 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 28 more variables: player_url &lt;chr&gt;, player_name &lt;chr&gt;, Yr &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   Pos &lt;chr&gt;, Jersey &lt;chr&gt;, GP &lt;dbl&gt;, GS &lt;dbl&gt;, BA &lt;dbl&gt;, OBPct &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   SlgPct &lt;dbl&gt;, R &lt;dbl&gt;, AB &lt;dbl&gt;, H &lt;dbl&gt;, `2B` &lt;dbl&gt;, `3B` &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   TB &lt;dbl&gt;, HR &lt;dbl&gt;, RBI &lt;dbl&gt;, BB &lt;dbl&gt;, HBP &lt;dbl&gt;, SF &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   SH &lt;dbl&gt;, K &lt;dbl&gt;, DP &lt;dbl&gt;, CS &lt;dbl&gt;, Picked &lt;dbl&gt;, SB &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   RBI2out &lt;dbl&gt;</span></span></span></code></pre></div>
+<span><span class="co">#&gt; Request failed [404]. Retrying in 1 seconds...</span></span>
+<span><span class="co">#&gt; Request failed [404]. Retrying in 3.3 seconds...</span></span>
+<span><span class="co">#&gt; 2024-01-09 04:23:52.423038: Invalid arguments provided</span></span>
+<span><span class="co">#&gt; function (x, df1, df2, ncp, log = FALSE) </span></span>
+<span><span class="co">#&gt; {</span></span>
+<span><span class="co">#&gt;     if (missing(ncp)) </span></span>
+<span><span class="co">#&gt;         .Call(C_df, x, df1, df2, log)</span></span>
+<span><span class="co">#&gt;     else .Call(C_dnf, x, df1, df2, ncp, log)</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; &lt;bytecode: 0x55b64fe7a7c0&gt;</span></span>
+<span><span class="co">#&gt; &lt;environment: namespace:stats&gt;</span></span></code></pre></div>
 <p>The same can be done for pitching, just by changing the
 <code>type</code> parameter:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, year <span class="op">=</span> <span class="va">year</span>,  <span class="st">"pitching"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ── NCAA Baseball Team Pitching Stats data from stats.ncaa.org ──────────</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-12-25 08:58:06 UTC</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 38 × 43</span></span></span>
-<span><span class="co">#&gt;     year team_name   team_id conference_id conference division player_id</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">649</span>339</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">649</span>334</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">468</span>075</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">112</span>619</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">797</span>459</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">478</span>605</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">649</span>307</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">797</span>428</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">797</span>460</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">2</span>023 Florida St.     234           821 ACC               1   2<span style="text-decoration: underline;">797</span>482</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 28 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 36 more variables: player_url &lt;chr&gt;, player_name &lt;chr&gt;, Yr &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   Pos &lt;chr&gt;, Jersey &lt;chr&gt;, GP &lt;dbl&gt;, App &lt;dbl&gt;, GS &lt;dbl&gt;, ERA &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   IP &lt;dbl&gt;, H &lt;dbl&gt;, R &lt;dbl&gt;, ER &lt;dbl&gt;, BB &lt;dbl&gt;, SO &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   SHO &lt;dbl&gt;, BF &lt;dbl&gt;, `P-OAB` &lt;dbl&gt;, `2B-A` &lt;dbl&gt;, `3B-A` &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   Bk &lt;dbl&gt;, `HR-A` &lt;dbl&gt;, WP &lt;dbl&gt;, HB &lt;dbl&gt;, IBB &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `Inh Run` &lt;dbl&gt;, `Inh Run Score` &lt;dbl&gt;, SHA &lt;dbl&gt;, SFA &lt;dbl&gt;, …</span></span></span></code></pre></div>
+<span><span class="co">#&gt; Request failed [404]. Retrying in 1 seconds...</span></span>
+<span><span class="co">#&gt; Request failed [404]. Retrying in 2 seconds...</span></span>
+<span><span class="co">#&gt; 2024-01-09 04:23:56.056325: Invalid arguments provided</span></span>
+<span><span class="co">#&gt; function (x, df1, df2, ncp, log = FALSE) </span></span>
+<span><span class="co">#&gt; {</span></span>
+<span><span class="co">#&gt;     if (missing(ncp)) </span></span>
+<span><span class="co">#&gt;         .Call(C_df, x, df1, df2, log)</span></span>
+<span><span class="co">#&gt;     else .Call(C_dnf, x, df1, df2, ncp, log)</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; &lt;bytecode: 0x55b64fe7a7c0&gt;</span></span>
+<span><span class="co">#&gt; &lt;environment: namespace:stats&gt;</span></span></code></pre></div>
 <p>Now, the function is dependent on the user knowing the
 <code>team_id</code> used by the NCAA website. Given that, I’ve included
 a <code>ncaa_school_id_lu</code> function so that users can find the
