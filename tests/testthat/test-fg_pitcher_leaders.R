@@ -87,7 +87,7 @@ cols <- c(
   "Games",
   "WPA_LI",
   "Clutch",
-  "FBall_pct",
+  "FB_pct1",
   "FBv",
   "SL_pct",
   "SLv",
