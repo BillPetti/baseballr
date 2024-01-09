@@ -8,6 +8,7 @@ cols <- c(
   "anglesweetspotpercent",
   "max_hit_speed",
   "avg_hit_speed",
+  "ev50",
   "fbld",
   "gb",
   "max_distance",
