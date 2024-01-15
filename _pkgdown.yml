@@ -243,6 +243,7 @@ reference:
       - starts_with("fg_guts")
       - starts_with("fg_batter")
       - starts_with("fg_pitcher")
+      - starts_with("fg_fielder")
       - starts_with("fg_milb")
       - starts_with("fg_team")
   - title: Baseball Reference
