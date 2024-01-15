@@ -11,6 +11,10 @@
 \item{\code{fg_milb_batter_game_logs()}:}{ Scrape MiLB game logs for batters from Fangraphs, combining 'standard' and 'advanced' tabs.}
 \item{\code{fg_batter_leaders()}:}{ Scrape Batter Leaderboards from FanGraphs.}
 \item{\code{fg_pitcher_leaders()}:}{ Scrape Pitcher Leaderboards from FanGraphs.}
+\item{\code{fg_fielder_leaders()}:}{ Scrape Fielder Leaderboards from FanGraphs.}
+\item{\code{fg_team_batter()}:}{ Scrape Team Batter Leaderboards from FanGraphs.}
+\item{\code{fg_team_pitcher()}:}{ Scrape Team Pitcher Leaderboards from FanGraphs.}
+\item{\code{fg_team_fielder()}:}{ Scrape Team Fielder Leaderboards from FanGraphs.}
 \item{\code{fg_guts()}:}{ Scrape FanGraphs.com Guts!.}
 \item{\code{fg_park()}:}{ Scrape Park Factors from FanGraphs.com.}
 \item{\code{fg_park_hand()}:}{ Scrape Park Factors by handedness from FanGraphs.com.}
@@ -43,13 +47,37 @@
 
 \subsection{\strong{Scrape Batter Leaderboards from FanGraphs}}{
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_batter_leaders(x = 2015, y = 2015, qual = 400)
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_batter_leaders(startseason = 2015, endseason = 2015, qual = 400)
 }\if{html}{\out{</div>}}
 }
 
 \subsection{\strong{Scrape Pitcher Leaderboards from FanGraphs}}{
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_pitcher_leaders(x = 2015, y = 2015, qual = 150)
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_pitcher_leaders(startseason = 2015, endseason = 2015, qual = 150)
+}\if{html}{\out{</div>}}
+}
+
+\subsection{\strong{Scrape Fielder Leaderboards from FanGraphs}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_fielder_leaders(startseason = 2015, endseason = 2015, qual = 150)
+}\if{html}{\out{</div>}}
+}
+
+\subsection{\strong{Scrape Team Batter Leaderboards from FanGraphs}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_team_batter(startseason = 2015, endseason = 2015, qual = 400)
+}\if{html}{\out{</div>}}
+}
+
+\subsection{\strong{Scrape Team Pitcher Leaderboards from FanGraphs}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_team_pitcher(startseason = 2015, endseason = 2015, qual = 150)
+}\if{html}{\out{</div>}}
+}
+
+\subsection{\strong{Scrape Team Fielder Leaderboards from FanGraphs}}{
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fg_team_fielder(startseason = 2015, endseason = 2015, qual = 150)
 }\if{html}{\out{</div>}}
 }
 
