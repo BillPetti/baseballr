@@ -26,7 +26,7 @@
 #' @export
 #' @examples
 #' \donttest{
-#'   try(ncaa_roster(team_id = 104, year = 2021))
+#'   try(ncaa_roster(team_id = 104, year = 2023))
 #' }
 
 ncaa_roster <- function(team_id = NULL, year, ...){
