@@ -103,6 +103,9 @@
     <loc>/reference/fg_batter_leaders.html</loc>
   </url>
   <url>
+    <loc>/reference/fg_fielder_leaders.html</loc>
+  </url>
+  <url>
     <loc>/reference/fg_guts.html</loc>
   </url>
   <url>
@@ -125,6 +128,9 @@
   </url>
   <url>
     <loc>/reference/fg_team_batter.html</loc>
+  </url>
+  <url>
+    <loc>/reference/fg_team_fielder.html</loc>
   </url>
   <url>
     <loc>/reference/fg_team_pitcher.html</loc>

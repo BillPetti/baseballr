@@ -210,7 +210,7 @@ directly from the NCAA website for a given year and division.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/ncaa_teams.html">ncaa_teams</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fu"><a href="../reference/most_recent_ncaa_baseball_season.html">most_recent_ncaa_baseball_season</a></span><span class="op">(</span><span class="op">)</span>, division <span class="op">=</span> <span class="st">"1"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── NCAA Baseball Teams data from stats.ncaa.org ───── <span style="font-style: italic;">baseballr 1.6.0</span> ──</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2024-01-09 04:45:58 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2024-01-15 03:41:29 UTC</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 305 × 8</span></span></span>
 <span><span class="co">#&gt;    team_id team_name    team_url conference_id conference division  year</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -244,32 +244,28 @@ season, you would use the following:</p>
 <span><span class="va">year</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/most_recent_ncaa_baseball_season.html">most_recent_ncaa_baseball_season</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, year <span class="op">=</span> <span class="va">year</span>, <span class="st">"batting"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Request failed [404]. Retrying in 1 seconds...</span></span>
-<span><span class="co">#&gt; Request failed [404]. Retrying in 2.1 seconds...</span></span>
-<span><span class="co">#&gt; 2024-01-09 04:46:02.79996: Invalid arguments provided</span></span>
-<span><span class="co">#&gt; function (x, df1, df2, ncp, log = FALSE) </span></span>
-<span><span class="co">#&gt; {</span></span>
-<span><span class="co">#&gt;     if (missing(ncp)) </span></span>
-<span><span class="co">#&gt;         .Call(C_df, x, df1, df2, log)</span></span>
-<span><span class="co">#&gt;     else .Call(C_dnf, x, df1, df2, ncp, log)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; &lt;bytecode: 0x55610d5e3ba8&gt;</span></span>
-<span><span class="co">#&gt; &lt;environment: namespace:stats&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; 2024-01-15 03:41:29.913256: Invalid arguments provided</span></span>
+<span><span class="co">#&gt;  [1] Jersey  Player  Yr      Pos     GP      GS      G       BA     </span></span>
+<span><span class="co">#&gt;  [9] OBPct   SlgPct  R       AB      H       2B      3B      TB     </span></span>
+<span><span class="co">#&gt; [17] HR      RBI     BB      HBP     SF      SH      K       OPP DP </span></span>
+<span><span class="co">#&gt; [25] CS      Picked  SB      IBB     GDP     RBI2out</span></span>
+<span><span class="co">#&gt; &lt;0 rows&gt; (or 0-length row.names)</span></span></code></pre></div>
 <p>The same can be done for pitching, just by changing the
 <code>type</code> parameter:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, year <span class="op">=</span> <span class="va">year</span>,  <span class="st">"pitching"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Request failed [404]. Retrying in 1.9 seconds...</span></span>
-<span><span class="co">#&gt; Request failed [404]. Retrying in 2.8 seconds...</span></span>
-<span><span class="co">#&gt; 2024-01-09 04:46:08.222058: Invalid arguments provided</span></span>
-<span><span class="co">#&gt; function (x, df1, df2, ncp, log = FALSE) </span></span>
-<span><span class="co">#&gt; {</span></span>
-<span><span class="co">#&gt;     if (missing(ncp)) </span></span>
-<span><span class="co">#&gt;         .Call(C_df, x, df1, df2, log)</span></span>
-<span><span class="co">#&gt;     else .Call(C_dnf, x, df1, df2, ncp, log)</span></span>
-<span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; &lt;bytecode: 0x55610d5e3ba8&gt;</span></span>
-<span><span class="co">#&gt; &lt;environment: namespace:stats&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; 2024-01-15 03:41:30.690407: Invalid arguments provided</span></span>
+<span><span class="co">#&gt;  [1] Jersey        Player        Yr            Pos          </span></span>
+<span><span class="co">#&gt;  [5] GP            G             App           GS           </span></span>
+<span><span class="co">#&gt;  [9] ERA           IP            CG            H            </span></span>
+<span><span class="co">#&gt; [13] R             ER            BB            SO           </span></span>
+<span><span class="co">#&gt; [17] SHO           BF            P-OAB         2B-A         </span></span>
+<span><span class="co">#&gt; [21] 3B-A          Bk            HR-A          WP           </span></span>
+<span><span class="co">#&gt; [25] HB            IBB           Inh Run       Inh Run Score</span></span>
+<span><span class="co">#&gt; [29] SHA           SFA           Pitches       GO           </span></span>
+<span><span class="co">#&gt; [33] FO            W             L             SV           </span></span>
+<span><span class="co">#&gt; [37] KL            pickoffs     </span></span>
+<span><span class="co">#&gt; &lt;0 rows&gt; (or 0-length row.names)</span></span></code></pre></div>
 <p>Now, the function is dependent on the user knowing the
 <code>team_id</code> used by the NCAA website. Given that, I’ve included
 a <code>ncaa_school_id_lu</code> function so that users can find the
@@ -278,24 +274,26 @@ a <code>ncaa_school_id_lu</code> function so that users can find the
 matches based on the school’s name:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ncaa_school_id_lu.html">ncaa_school_id_lu</a></span><span class="op">(</span><span class="st">"Vand"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ───────────────────────────────────────────────────── <span style="font-style: italic;">baseballr 1.6.0</span> ──</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 14 × 8</span></span></span>
+<span><span class="co">#&gt; ── NCAA Baseball Teams Information from baseballr data repository ──────</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2024-01-09 04:44:08 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 15 × 8</span></span></span>
 <span><span class="co">#&gt;    team_id team_name  team_url   conference_id conference division  year</span></span>
 <span><span class="co">#&gt;      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>023</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>022</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>021</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>020</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>019</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>018</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>017</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>016</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>015</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>014</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>013</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>012</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>011</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">14</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>010</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>024</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>023</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>022</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>021</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>020</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>019</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>018</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>017</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>016</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>015</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>014</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>013</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>012</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">14</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>011</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">15</span>     736 Vanderbilt /team/736…           911 SEC               1  <span style="text-decoration: underline;">2</span>010</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1 more variable: season_id &lt;dbl&gt;</span></span></span></code></pre></div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
