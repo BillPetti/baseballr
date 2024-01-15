@@ -57,10 +57,10 @@
 #' @import rvest
 #' @export
 #' @examples \donttest{
-#'   try(ncaa_game_logs(player_id = 2113782, year = 2021, type = "pitching", span = "game"))
-#'   try(ncaa_game_logs(player_id = 2113782, year = 2021, type = "pitching", span = "career"))
-#'   try(ncaa_game_logs(player_id = 1879650, year = 2019, type = "batting", span = "game"))
-#'   try(ncaa_game_logs(player_id = 1879650, year = 2019, type = "batting", span = "career"))
+#'   try(ncaa_game_logs(player_id = 2649785, year = 2023, type = "pitching", span = "game"))
+#'   try(ncaa_game_logs(player_id = 2477974, year = 2023, type = "pitching", span = "career"))
+#'   try(ncaa_game_logs(player_id = 2680961, year = 2023, type = "batting", span = "game"))
+#'   try(ncaa_game_logs(player_id = 2486588, year = 2023, type = "batting", span = "career"))
 #' }
 
 ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...) {
@@ -139,19 +139,20 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...
           colnames(payload_df) <- payload_df[2,]
           
           payload_df <- payload_df[-c(1:2),]
+          payload_df <- payload_df[!is.na(names(payload_df))]
+          
+          if ('OPP DP' %in% colnames(payload_df) == TRUE) {
+            payload_df <- payload_df %>%
+              dplyr::rename("DP" = "OPP DP")
+          }
+          
           batting_cols <- c("Date", "Opponent", "Result",
                             "G", "R", "AB", "H", "2B", "3B", "TB", "HR", "RBI",
                             "BB", "HBP", "SF", "SH", "K", "DP", "CS", "Picked",
                             "SB", "IBB", "RBI2out")
+          
           payload_df <- payload_df %>% 
             dplyr::select(batting_cols)
-          
-          
-          if ('OPP DP' %in% colnames(payload_df) == TRUE) {
-            
-            payload_df <- payload_df %>%
-              dplyr::rename("DP" = "OPP DP")
-          }
           
           cols_to_num <- c("G", "R", "AB", "H", "2B", "3B", "TB", "HR", "RBI",
                            "BB", "HBP", "SF", "SH", "K", "DP", "CS", "Picked",
@@ -175,6 +176,7 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...
                            as.data.frame())
           
           colnames(payload_df) <- payload_df[2,]
+          payload_df <- payload_df[!is.na(names(payload_df))]
           
           payload_df <- payload_df[-c(1:2),]
           
@@ -208,6 +210,7 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...
                            as.data.frame())[-1,]
           
           colnames(payload_df) <- payload_df[1,]
+          payload_df <- payload_df[!is.na(names(payload_df))]
           
           payload_df <- payload_df[-1,]
           
@@ -259,6 +262,7 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...
                            as.data.frame())[-1,]
           
           colnames(payload_df) <- payload_df[1,]
+          payload_df <- payload_df[!is.na(names(payload_df))]
           
           payload_df <- payload_df[-1,]
           
