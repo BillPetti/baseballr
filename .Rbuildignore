@@ -33,3 +33,4 @@
 logo.png
 ^CRAN-SUBMISSION$
 ^\.pre-commit-config\.yaml$
+^vignettes
