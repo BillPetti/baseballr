@@ -173,7 +173,7 @@ fg_team_fielder <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no fielder leaders data available!"))
+      message(glue::glue("{Sys.time()}: Invalid arguments or no team fielding data available!"))
     },
     finally = {
     }

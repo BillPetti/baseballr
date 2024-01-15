@@ -544,11 +544,11 @@ fg_pitcher_leaders <- function(
           "Age",
           "AgeRng",
           tidyr::everything()) %>% 
-        make_baseballr_data("MLB Team Batting data from FanGraphs.com",Sys.time())
+        make_baseballr_data("MLB Player Pitching Leaders data from FanGraphs.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no batter leaders data available!"))
+      message(glue::glue("{Sys.time()}: Invalid arguments or no player pitching leaders data available!"))
     },
     finally = {
     }

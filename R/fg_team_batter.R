@@ -455,7 +455,7 @@ fg_team_batter <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no batter leaders data available!"))
+      message(glue::glue("{Sys.time()}: Invalid arguments or no team batting data available!"))
     },
     finally = {
     }
