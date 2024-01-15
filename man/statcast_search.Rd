@@ -356,15 +356,19 @@ This function allows you to query Statcast data as provided on \url{https://base
                       end_date = "2022-11-06"))
 }
 \donttest{
-  correa <- statcast_search_batters(start_date = "2016-04-06",
-    end_date = "2016-04-15", batterid = 621043)
-  daily <- statcast_search_batters(start_date = "2016-04-06",
-    end_date = "2016-04-06", batterid = NULL)
+  try({
+    correa <- statcast_search_batters(start_date = "2016-04-06",
+      end_date = "2016-04-15", batterid = 621043)
+    daily <- statcast_search_batters(start_date = "2016-04-06",
+      end_date = "2016-04-06", batterid = NULL)
+  })
 }
 \donttest{
-  x <- statcast_search_pitchers(start_date = "2016-04-06",
-    end_date = "2016-04-15", pitcherid = 592789)
-  daily <- statcast_search_pitchers(start_date = "2016-04-06",
-    end_date = "2016-04-06", pitcherid = NULL)
+  try({
+    x <- statcast_search_pitchers(start_date = "2016-04-06",
+      end_date = "2016-04-15", pitcherid = 592789)
+    daily <- statcast_search_pitchers(start_date = "2016-04-06",
+      end_date = "2016-04-06", pitcherid = NULL)
+  })
 }
 }

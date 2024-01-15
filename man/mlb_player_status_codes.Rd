@@ -18,6 +18,6 @@ Returns a tibble with the following columns\tabular{ll}{
 }
 \examples{
 \donttest{
-  mlb_player_status_codes()
+  try(mlb_player_status_codes())
 }
 }

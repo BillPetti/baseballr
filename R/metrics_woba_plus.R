@@ -43,8 +43,10 @@
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'   df <- bref_daily_batter("2015-08-01", "2015-10-03") 
-#'   try(woba_plus(df))
+#'  try({
+#'    df <- bref_daily_batter("2015-08-01", "2015-10-03") 
+#'    woba_plus(df)
+#'  })
 #' }
 woba_plus <- function(df) {
   

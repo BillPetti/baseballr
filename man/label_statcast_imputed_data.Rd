@@ -129,8 +129,10 @@ have been imputed.
 }
 \examples{
 \donttest{
-  statcast_df <- statcast_search("2017-05-01", "2017-05-02")
-  sc_df <- label_statcast_imputed_data(statcast_df)
-  mean(sc_df$imputed)
+  try({
+    statcast_df <- statcast_search("2017-05-01", "2017-05-02")
+    sc_df <- label_statcast_imputed_data(statcast_df)
+    mean(sc_df$imputed)
+  })
 }
 }

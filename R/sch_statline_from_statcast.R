@@ -8,7 +8,7 @@
 #' @export
 #' @details
 #' ```r
-#' statline_from_statcast(df, base = "contact")
+#'   statline_from_statcast(df, base = "contact")
 #' ```
 
 statline_from_statcast <- function(df, base = "pa") {

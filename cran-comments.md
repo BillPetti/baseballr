@@ -7,6 +7,8 @@ This is a minor release that primarily focused on parameter changes to the `fg_*
 - `fg_batter_leaders()`
 - `fg_pitcher_leaders()`
 - `fg_fielder_leaders()`
+
+Examples made more robust to adhere to graceful failing policies per CRAN review. Vignettes removed from package for simplicity. 
  
  
 

@@ -22,6 +22,7 @@ helper that loads multiple seasons of teams from the data repo either into memor
 or writes it into a db using some forwarded arguments in the dots
 }
 \examples{
-  load_ncaa_baseball_teams()
-
+\donttest{
+  try(load_ncaa_baseball_teams())
+}
 }

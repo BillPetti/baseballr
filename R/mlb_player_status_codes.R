@@ -6,7 +6,7 @@
 #'  |player_status_description  |character |
 #' @export
 #' @examples \donttest{
-#'   mlb_player_status_codes()
+#'   try(mlb_player_status_codes())
 #' }
 mlb_player_status_codes <- function(){
   

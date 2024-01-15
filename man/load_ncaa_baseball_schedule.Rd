@@ -29,6 +29,7 @@ helper that loads multiple seasons from the data repo either into memory
 or writes it into a db using some forwarded arguments in the dots
 }
 \examples{
-  load_ncaa_baseball_schedule(seasons = 2022)
-
+\donttest{
+  try(load_ncaa_baseball_schedule(seasons = 2022))
+}
 }

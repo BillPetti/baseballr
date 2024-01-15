@@ -449,7 +449,7 @@
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'   fg_pitcher_leaders(startseason = 2023, endseason = 2023)
+#'   try(fg_pitcher_leaders(startseason = 2023, endseason = 2023))
 #' }
 fg_pitcher_leaders <- function(
     age = "",

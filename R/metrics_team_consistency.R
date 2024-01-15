@@ -13,8 +13,9 @@
 #' @import rvest 
 #' @export
 #' @details 
+#' ```r
 #'   try(team_consistency(year=2021))
-#' 
+#' ```
 
 team_consistency <- function(year) {
   

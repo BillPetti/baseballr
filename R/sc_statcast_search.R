@@ -411,10 +411,12 @@ statcast_search.default <- function(start_date = Sys.Date() - 1, end_date = Sys.
 #' @export
 #' @examples
 #' \donttest{
-#'   correa <- statcast_search_batters(start_date = "2016-04-06",
-#'     end_date = "2016-04-15", batterid = 621043)
-#'   daily <- statcast_search_batters(start_date = "2016-04-06",
-#'     end_date = "2016-04-06", batterid = NULL)
+#'   try({
+#'     correa <- statcast_search_batters(start_date = "2016-04-06",
+#'       end_date = "2016-04-15", batterid = 621043)
+#'     daily <- statcast_search_batters(start_date = "2016-04-06",
+#'       end_date = "2016-04-06", batterid = NULL)
+#'   })
 #' }
 
 statcast_search_batters <- function(start_date, end_date, batterid = NULL, ...) {
@@ -525,10 +527,12 @@ statcast_search_batters <- function(start_date, end_date, batterid = NULL, ...) 
 #' @export
 #' @examples
 #' \donttest{
-#'   x <- statcast_search_pitchers(start_date = "2016-04-06",
-#'     end_date = "2016-04-15", pitcherid = 592789)
-#'   daily <- statcast_search_pitchers(start_date = "2016-04-06",
-#'     end_date = "2016-04-06", pitcherid = NULL)
+#'   try({
+#'     x <- statcast_search_pitchers(start_date = "2016-04-06",
+#'       end_date = "2016-04-15", pitcherid = 592789)
+#'     daily <- statcast_search_pitchers(start_date = "2016-04-06",
+#'       end_date = "2016-04-06", pitcherid = NULL)
+#'   })
 #' }
 
 statcast_search_pitchers <- function(start_date, end_date, pitcherid = NULL, ...) {

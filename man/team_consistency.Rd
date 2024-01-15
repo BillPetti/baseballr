@@ -23,5 +23,6 @@ Returns a tibble with the following columns\tabular{ll}{
 This function allows you to calculate team-level consistency in run scoring and run prevention over the course of an entire season.
 }
 \details{
-try(team_consistency(year=2021))
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  try(team_consistency(year=2021))
+}\if{html}{\out{</div>}}
 }

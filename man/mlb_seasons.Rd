@@ -42,6 +42,6 @@ Returns a tibble with the following columns:\tabular{ll}{
 }
 \examples{
 \donttest{
- mlb_seasons(sport_id = 1)
+ try(mlb_seasons(sport_id = 1))
 }
 }

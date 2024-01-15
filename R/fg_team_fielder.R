@@ -81,7 +81,7 @@
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'   fg_team_fielder(startseason = 2023, endseason = 2023, qual = 150)
+#'   try(fg_team_fielder(startseason = 2023, endseason = 2023, qual = 150))
 #' }
 
 fg_team_fielder <- function(

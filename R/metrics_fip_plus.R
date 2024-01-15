@@ -60,8 +60,10 @@
 #' @import rvest
 #' @export
 #' @examples \donttest{
-#'   df <- bref_daily_pitcher("2015-04-05", "2015-04-30")
-#'   try(fip_plus(df))
+#'   try({
+#'     df <- bref_daily_pitcher("2015-04-05", "2015-04-30")
+#'     fip_plus(df)
+#'   })
 #' }
 
 fip_plus <- function(df) {
