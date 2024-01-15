@@ -6,7 +6,7 @@
 #' @export
 
 code_barrel <- function(df) {
-  df$barrel <- with(df, ifelse(launch_angle <= 50 & launch_speed >= 98 & launch_speed * 1.5 - 
-                                 launch_angle >= 117 & launch_speed + launch_angle >= 124, 1, 0))
+  df$barrel <- with(df, ifelse(launch_angle <= 50 & launch_speed >= 97 & launch_speed * 1.5 - 
+                                 launch_angle >= 117 & launch_speed + launch_angle >= 123, 1, 0))
   return(df)
 }
