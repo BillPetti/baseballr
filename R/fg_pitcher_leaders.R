@@ -534,7 +534,7 @@ fg_pitcher_leaders <- function(
           "Team"
         ))) %>%
         dplyr::select(
-          "Season",
+          "season",
           "team_name",
           "Throws", 
           "xMLBAMID", 
