@@ -6,7 +6,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary"><div class="container">
+    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary" data-bs-theme="dark"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
@@ -273,27 +273,27 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">fg_fielder_leaders</span><span class="op">(</span>startseason <span class="op">=</span> <span class="fl">2023</span>, endseason <span class="op">=</span> <span class="fl">2023</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Player Fielding Leaders data from FanGraphs.com ─────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2024-01-15 11:29:12 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2,293 × 54</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2024-04-13 21:55:03 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2,293 × 59</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Season team_name xMLBAMID PlayerNameRoute   PlayerName       playerid</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>023 SFG         <span style="text-decoration: underline;">672</span>275 Patrick Bailey    Patrick Bailey      <span style="text-decoration: underline;">27</span>478</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   <span style="text-decoration: underline;">2</span>023 TEX         <span style="text-decoration: underline;">641</span>680 Jonah Heim        Jonah Heim          <span style="text-decoration: underline;">16</span>930</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   <span style="text-decoration: underline;">2</span>023 SEA         <span style="text-decoration: underline;">663</span>728 Cal Raleigh       Cal Raleigh         <span style="text-decoration: underline;">21</span>534</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>   <span style="text-decoration: underline;">2</span>023 COL         <span style="text-decoration: underline;">686</span>668 Brenton Doyle     Brenton Doyle       <span style="text-decoration: underline;">25</span>479</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>   <span style="text-decoration: underline;">2</span>023 MIL         <span style="text-decoration: underline;">661</span>388 William Contreras William Contrer…    <span style="text-decoration: underline;">20</span>503</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>   <span style="text-decoration: underline;">2</span>023 - - -       <span style="text-decoration: underline;">595</span>978 Austin Hedges     Austin Hedges       <span style="text-decoration: underline;">12</span>976</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>   <span style="text-decoration: underline;">2</span>023 CHC         <span style="text-decoration: underline;">621</span>020 Dansby Swanson    Dansby Swanson      <span style="text-decoration: underline;">18</span>314</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   <span style="text-decoration: underline;">2</span>023 NYM         <span style="text-decoration: underline;">682</span>626 Francisco Alvarez Francisco Alvar…    <span style="text-decoration: underline;">26</span>121</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   <span style="text-decoration: underline;">2</span>023 COL         <span style="text-decoration: underline;">678</span>662 Ezequiel Tovar    Ezequiel Tovar      <span style="text-decoration: underline;">24</span>064</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   <span style="text-decoration: underline;">2</span>023 MIL         <span style="text-decoration: underline;">642</span>715 Willy Adames      Willy Adames        <span style="text-decoration: underline;">15</span>986</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   <span style="text-decoration: underline;">2</span>023 - - -       <span style="text-decoration: underline;">595</span>978 Austin Hedges     Austin Hedges       <span style="text-decoration: underline;">12</span>976</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   <span style="text-decoration: underline;">2</span>023 MIL         <span style="text-decoration: underline;">661</span>388 William Contreras William Contrer…    <span style="text-decoration: underline;">20</span>503</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>   <span style="text-decoration: underline;">2</span>023 NYM         <span style="text-decoration: underline;">682</span>626 Francisco Alvarez Francisco Alvar…    <span style="text-decoration: underline;">26</span>121</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>   <span style="text-decoration: underline;">2</span>023 TEX         <span style="text-decoration: underline;">641</span>680 Jonah Heim        Jonah Heim          <span style="text-decoration: underline;">16</span>930</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>   <span style="text-decoration: underline;">2</span>023 CHC         <span style="text-decoration: underline;">621</span>020 Dansby Swanson    Dansby Swanson      <span style="text-decoration: underline;">18</span>314</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>   <span style="text-decoration: underline;">2</span>023 ATL         <span style="text-decoration: underline;">669</span>221 Sean Murphy       Sean Murphy         <span style="text-decoration: underline;">19</span>352</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   <span style="text-decoration: underline;">2</span>023 TOR         <span style="text-decoration: underline;">672</span>386 Alejandro Kirk    Alejandro Kirk      <span style="text-decoration: underline;">22</span>581</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   <span style="text-decoration: underline;">2</span>023 SEA         <span style="text-decoration: underline;">663</span>728 Cal Raleigh       Cal Raleigh         <span style="text-decoration: underline;">21</span>534</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   <span style="text-decoration: underline;">2</span>023 COL         <span style="text-decoration: underline;">678</span>662 Ezequiel Tovar    Ezequiel Tovar      <span style="text-decoration: underline;">24</span>064</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2,283 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 48 more variables: SeasonMin &lt;int&gt;, SeasonMax &lt;int&gt;, Pos &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 53 more variables: SeasonMin &lt;int&gt;, SeasonMax &lt;int&gt;, Pos &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   G &lt;int&gt;, GS &lt;int&gt;, Inn &lt;dbl&gt;, PO &lt;int&gt;, A &lt;int&gt;, E &lt;int&gt;, FE &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   TE &lt;int&gt;, DP &lt;int&gt;, DPS &lt;int&gt;, DPT &lt;int&gt;, DPF &lt;int&gt;, SB &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   CS &lt;int&gt;, PB &lt;int&gt;, WP &lt;int&gt;, FP &lt;dbl&gt;, rSB &lt;int&gt;, rGFP &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   rSZ &lt;dbl&gt;, rCERA &lt;int&gt;, DRS &lt;int&gt;, Defense &lt;dbl&gt;, CStrikes &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   CFraming &lt;dbl&gt;, Q &lt;dbl&gt;, TInn &lt;dbl&gt;, teamid &lt;int&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   CFraming &lt;dbl&gt;, bFRP &lt;int&gt;, tFRP &lt;int&gt;, fFRP &lt;int&gt;, FRP &lt;int&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
@@ -306,7 +306,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.8.</p>
 </div>
 
     </footer></div>

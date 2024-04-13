@@ -6,7 +6,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary"><div class="container">
+    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary" data-bs-theme="dark"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
@@ -185,7 +185,7 @@ Valid options include: '40Man', 'fullSeason', 'fullRoster', 'nonRosterInvitees',
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_rosters</span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">109</span>, season <span class="op">=</span> <span class="fl">2018</span>, roster_type <span class="op">=</span> <span class="st">'active'</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Roster data from MLB.com ───────────────────── <span style="font-style: italic;">baseballr 1.6.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2024-01-15 11:30:34 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2024-04-13 21:56:40 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 49 × 15</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    jersey_number person_id person_full_name person_link    position_code</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
@@ -196,7 +196,7 @@ Valid options include: '40Man', 'fullSeason', 'fullRoster', 'nonRosterInvitees',
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 31               <span style="text-decoration: underline;">502</span>202 Brad Boxberger   /api/v1/peopl… 1            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 61               <span style="text-decoration: underline;">611</span>093 Silvino Bracho   /api/v1/peopl… 1            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 25               <span style="text-decoration: underline;">605</span>151 Archie Bradley   /api/v1/peopl… 1            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 19               <span style="text-decoration: underline;">593</span>647 Socrates Brito   /api/v1/peopl… 9            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 19               <span style="text-decoration: underline;">593</span>647 Sócrates Brito   /api/v1/peopl… 9            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 32               <span style="text-decoration: underline;">453</span>329 Clay Buchholz    /api/v1/peopl… 1            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 40               <span style="text-decoration: underline;">605</span>177 Andrew Chafin    /api/v1/peopl… 1            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 39 more rows</span></span>
@@ -206,7 +206,7 @@ Valid options include: '40Man', 'fullSeason', 'fullRoster', 'nonRosterInvitees',
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   roster_type &lt;chr&gt;, season &lt;dbl&gt;, date &lt;chr&gt;</span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_rosters</span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">109</span>, season <span class="op">=</span> <span class="fl">2018</span>, roster_type <span class="op">=</span> <span class="st">'coach'</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Roster data from MLB.com ───────────────────── <span style="font-style: italic;">baseballr 1.6.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2024-01-15 11:30:34 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2024-04-13 21:56:40 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 20 × 12</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    jersey_number job             job_id title person_id person_full_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
@@ -244,7 +244,7 @@ Valid options include: '40Man', 'fullSeason', 'fullRoster', 'nonRosterInvitees',
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.8.</p>
 </div>
 
     </footer></div>

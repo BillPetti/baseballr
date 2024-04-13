@@ -6,7 +6,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary"><div class="container">
+    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary" data-bs-theme="dark"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">baseballr</a>
 
@@ -171,20 +171,20 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">sptrc_league_payrolls</span><span class="op">(</span>year <span class="op">=</span> <span class="fu"><a href="most_recent_mlb_season.html">most_recent_mlb_season</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Payroll data from Spotrac.com ──────────────── <span style="font-style: italic;">baseballr 1.6.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2024-01-15 11:31:15 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2024-04-13 21:57:24 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 30 × 12</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    year  team      team_abbr  rank win_percent roster active_man_payroll</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2023  New York… NYM           1       0.463     28          104<span style="text-decoration: underline;">157</span>606</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2023  New York… NYY           2       0.506     28          181<span style="text-decoration: underline;">566</span>625</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2023  San Dieg… SD            3       0.506     28          164<span style="text-decoration: underline;">623</span>555</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2023  Texas Ra… TEX           4       0.556     28          148<span style="text-decoration: underline;">828</span>188</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2023  Philadel… PHI           5       0.556     28          218<span style="text-decoration: underline;">609</span>553</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2023  Los Ange… LAD           6       0.617     28          149<span style="text-decoration: underline;">705</span>968</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2023  Houston … HOU           7       0.556     28          211<span style="text-decoration: underline;">270</span>410</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2023  Los Ange… LAA           8       0.451     28           43<span style="text-decoration: underline;">769</span>159</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2023  Toronto … TOR           9       0.549     28          194<span style="text-decoration: underline;">200</span>854</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2023  Atlanta … ATL          10       0.642     30          158<span style="text-decoration: underline;">186</span>507</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2024  New York… NYM           1       0.462     26          212<span style="text-decoration: underline;">393</span>173</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2024  New York… NYY           2       0.786     26          225<span style="text-decoration: underline;">310</span>294</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2024  Houston … HOU           3       0.267     27          180<span style="text-decoration: underline;">214</span>325</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2024  Philadel… PHI           4       0.5       26          221<span style="text-decoration: underline;">317</span>653</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2024  Texas Ra… TEX           5       0.571     26          147<span style="text-decoration: underline;">600</span>597</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2024  Atlanta … ATL           6       0.667     26          190<span style="text-decoration: underline;">598</span>303</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2024  Toronto … TOR           7       0.429     26          204<span style="text-decoration: underline;">547</span>890</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2024  Los Ange… LAD           8       0.625     26          184<span style="text-decoration: underline;">038</span>062</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2024  Chicago … CHC           9       0.538     26          176<span style="text-decoration: underline;">362</span>453</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2024  San Fran… SF           10       0.357     26          144<span style="text-decoration: underline;">576</span>435</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 20 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5 more variables: injured_reserve &lt;dbl&gt;, retained &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   buried &lt;dbl&gt;, suspended &lt;dbl&gt;, yearly_total_payroll &lt;dbl&gt;</span></span>
@@ -200,7 +200,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.8.</p>
 </div>
 
     </footer></div>
