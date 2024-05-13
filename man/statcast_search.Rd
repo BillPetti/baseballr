@@ -140,6 +140,8 @@ Returns a tibble with Statcast data with the following columns:\tabular{ll}{
    spin_axis \tab numeric \cr
    delta_home_win_exp \tab numeric \cr
    delta_run_exp \tab numeric \cr
+   bat_speed \tab numeric \cr
+   swing_length \tab numeric \cr
 }
 
 Returns a tibble with Statcast data.
@@ -238,6 +240,8 @@ Returns a tibble with Statcast data with the following columns:\tabular{ll}{
    spin_axis \tab numeric \cr
    delta_home_win_exp \tab numeric \cr
    delta_run_exp \tab numeric \cr
+   bat_speed \tab numeric \cr
+   swing_length \tab numeric \cr
 }
 
 Returns a tibble with Statcast data with the following columns:\tabular{ll}{
@@ -334,6 +338,8 @@ Returns a tibble with Statcast data with the following columns:\tabular{ll}{
    spin_axis \tab numeric \cr
    delta_home_win_exp \tab numeric \cr
    delta_run_exp \tab numeric \cr
+   bat_speed \tab numeric \cr
+   swing_length \tab numeric \cr
 }
 }
 \description{
