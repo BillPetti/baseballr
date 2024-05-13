@@ -106,6 +106,8 @@
 #'   |spin_axis                       |numeric   |
 #'   |delta_home_win_exp              |numeric   |
 #'   |delta_run_exp                   |numeric   |
+#'   |bat_speed                       |numeric   |
+#'   |swing_length                    |numeric   |
 #' 
 #' @importFrom tibble tribble
 #' @importFrom lubridate year
@@ -242,7 +244,7 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
                         "pitch_number", "pitch_name", "home_score", "away_score", "bat_score",
                         "fld_score", "post_away_score", "post_home_score", "post_bat_score",
                         "post_fld_score", "if_fielding_alignment", "of_fielding_alignment",
-                        "spin_axis", "delta_home_win_exp", "delta_run_exp")
+                        "spin_axis", "delta_home_win_exp", "delta_run_exp", "bat_speed", "swing_length")
     payload <- process_statcast_payload(payload) %>%
       make_baseballr_data("MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com",Sys.time())
     return(payload)
@@ -268,7 +270,7 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
                         "pitch_number", "pitch_name", "home_score", "away_score", "bat_score",
                         "fld_score", "post_away_score", "post_home_score", "post_bat_score",
                         "post_fld_score", "if_fielding_alignment", "of_fielding_alignment",
-                        "spin_axis", "delta_home_win_exp", "delta_run_exp")
+                        "spin_axis", "delta_home_win_exp", "delta_run_exp", "bat_speed", "swing_length")
     payload <- payload %>%
       make_baseballr_data("MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com",Sys.time())
     return(payload)
@@ -407,6 +409,8 @@ statcast_search.default <- function(start_date = Sys.Date() - 1, end_date = Sys.
 #'   |spin_axis                       |numeric   |
 #'   |delta_home_win_exp              |numeric   |
 #'   |delta_run_exp                   |numeric   |
+#'   |bat_speed                       |numeric   |
+#'   |swing_length                    |numeric   |   
 #'   
 #' @export
 #' @examples
@@ -523,6 +527,8 @@ statcast_search_batters <- function(start_date, end_date, batterid = NULL, ...) 
 #'   |spin_axis                       |numeric   |
 #'   |delta_home_win_exp              |numeric   |
 #'   |delta_run_exp                   |numeric   |
+#'   |bat_speed                       |numeric   |
+#'   |swing_length                    |numeric   |
 #' 
 #' @export
 #' @examples

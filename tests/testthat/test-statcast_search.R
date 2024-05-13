@@ -22,7 +22,7 @@ cols <- c(
   "away_score", "bat_score", "fld_score", "post_away_score", 
   "post_home_score", "post_bat_score", "post_fld_score",
   "if_fielding_alignment", "of_fielding_alignment",
-  "spin_axis", "delta_home_win_exp", "delta_run_exp"
+  "spin_axis", "delta_home_win_exp", "delta_run_exp", "bat_speed", "swing_length"
 )
 
 test_that("Statcast Search", {
