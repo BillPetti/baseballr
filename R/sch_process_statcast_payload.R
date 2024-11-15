@@ -61,7 +61,7 @@ process_statcast_payload <- function(payload) {
 
   # Format player IDs as character
 
-  cols_to_transform <- c("batter", "pitcher", "fielder_2", "pitcher_1", "fielder_2_1",
+  cols_to_transform <- c("batter", "pitcher", "fielder_2",
                          "fielder_3", "fielder_4", "fielder_5", "fielder_6", "fielder_7",
                          "fielder_8", "fielder_9")
 

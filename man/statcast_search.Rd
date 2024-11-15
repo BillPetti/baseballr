@@ -107,8 +107,6 @@ Returns a tibble with Statcast data with the following columns:\tabular{ll}{
    release_spin_rate \tab numeric \cr
    release_extension \tab numeric \cr
    game_pk \tab numeric \cr
-   pitcher_1 \tab numeric \cr
-   fielder_2_1 \tab numeric \cr
    fielder_3 \tab numeric \cr
    fielder_4 \tab numeric \cr
    fielder_5 \tab numeric \cr
@@ -140,8 +138,29 @@ Returns a tibble with Statcast data with the following columns:\tabular{ll}{
    spin_axis \tab numeric \cr
    delta_home_win_exp \tab numeric \cr
    delta_run_exp \tab numeric \cr
-   bat_speed \tab numeric \cr
-   swing_length \tab numeric \cr
+   bat_speed \tab character \cr
+   swing_length \tab character \cr
+   estimated_slg_using_speedangle \tab numeric \cr
+   delta_pitcher_run_exp \tab numeric \cr
+   hyper_speed \tab numeric \cr
+   home_score_diff \tab numeric \cr
+   bat_score_diff \tab numeric \cr
+   home_win_exp \tab numeric \cr
+   bat_win_exp \tab numeric \cr
+   age_pit_legacy \tab numeric \cr
+   age_bat_legacy \tab numeric \cr
+   age_pit \tab numeric \cr
+   age_bat \tab numeric \cr
+   n_thruorder_pitcher \tab numeric \cr
+   n_priorpa_thisgame_player_at_bat \tab numeric \cr
+   pitcher_days_since_prev_game \tab numeric \cr
+   batter_days_since_prev_game \tab numeric \cr
+   pitcher_days_until_next_game \tab numeric \cr
+   batter_days_until_next_game \tab numeric \cr
+   api_break_z_with_gravity \tab numeric \cr
+   api_break_x_arm \tab numeric \cr
+   api_break_x_batter_in \tab numeric \cr
+   arm_angle \tab numeric \cr
 }
 
 Returns a tibble with Statcast data.
