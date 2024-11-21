@@ -480,8 +480,8 @@ fg_pitcher_leaders <- function(
     stats = stats,
     lg = lg,
     qual = qual,
-    season = startseason,
-    season1 = endseason,
+    season = endseason,
+    season1 = startseason,
     startdate = startdate,
     enddate = enddate,
     month = month,
@@ -534,7 +534,7 @@ fg_pitcher_leaders <- function(
           "Team"
         ))) %>%
         dplyr::select(
-          "season",
+          "Season",
           "team_name",
           "Throws", 
           "xMLBAMID", 
