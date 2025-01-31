@@ -17,7 +17,7 @@ URL: https://billpetti.github.io/baseballr/,
     https://github.com/BillPetti/baseballr
 BugReports: https://github.com/BillPetti/baseballr/issues
 Depends:
-    R (>= 4.0.0)
+    R (>= 4.1.0)
 Imports: 
     cli (>= 3.4.1),
     data.table (>= 1.14.0),
