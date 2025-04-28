@@ -116,7 +116,7 @@ Field number,Description,Header
 17,ID of the batter on deck,BAT_ON_DECK_ID
 18,ID of the batter in the hold,BAT_IN_HOLD_ID
 19,pitcher is starter flag,PIT_START_FL
-20,result pitcher is starter flag,RESP_PIT_START_FL,
+20,result pitcher is starter flag,RESP_PIT_START_FL
 21,defensive position of runner on first,RUN1_FLD_CD
 22,lineup position of runner on first,RUN1_LINEUP_CD
 23,event number on which runner on first reached base,RUN1_ORIGIN_EVENT_ID
