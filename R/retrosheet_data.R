@@ -180,7 +180,16 @@ create.csv.file <- function(wd, year){
                       'BATTEDBALL_LOC_TX', 'ERR1_CD', 'ERR2_CD',
                       'ERR3_CD', 'RUN1_RESP_PIT_ID', 'RUN2_RESP_PIT_ID',
                       'RUN3_RESP_PIT_ID', 'REMOVED_FOR_PR_RUN1_ID',
-                      'REMOVED_FOR_PR_RUN2_ID', 'REMOVED_FOR_PH_BAT_ID')
+                      'REMOVED_FOR_PR_RUN2_ID', 'REMOVED_FOR_PH_BAT_ID',
+                      'HOME_TEAM_ID','BAT_TEAM_ID','FLD_TEAM_ID',
+                      'START_BASES_CD','END_BASES_CD','BAT_ON_DECK_ID',
+                      'BAT_IN_HOLD_ID',
+                      'RUN1_FLD_CD','RUN1_LINEUP_CD','RUN1_ORIGIN_EVENT_ID',
+                      'RUN2_FLD_CD','RUN2_LINEUP_CD','RUN2_ORIGIN_EVENT_ID',
+                      'RUN3_FLD_CD','RUN3_LINEUP_CD','RUN3_ORIGIN_EVENT_ID',
+                      'RUN1_RESP_CAT_ID','RUN2_RESP_CAT_ID','RUN3_RESP_CAT_ID',
+                      'FLD_ID','BAT_FATE_ID','RUN1_FATE_ID','RUN2_FATE_ID',
+                      'RUN3_FATE_ID')
   
   numeric_vars <- c('INN_CT', 'BAT_HOME_ID', 'OUTS_CT',
                     'BALLS_CT', 'STRIKES_CT', 'AWAY_SCORE_CT',
@@ -193,7 +202,17 @@ create.csv.file <- function(wd, year){
                     'RUN2_PLAY_TX', 'REMOVED_FOR_PH_BAT_FLD_CD',
                     'PO1_FLD_CD', 'PO2_FLD_CD', 'PO3_FLD_CD',
                     'ASS1_FLD_CD', 'ASS2_FLD_CD', 'ASS3_FLD_CD',
-                    'ASS4_FLD_CD', 'ASS5_FLD_CD', 'EVENT_ID', 'year')
+                    'ASS4_FLD_CD', 'ASS5_FLD_CD', 'EVENT_ID',
+                    'START_BAT_SCORE_CT','START_FLD_SCORE_CT',
+                    'INN_RUNS_CT','GAME_PA_CT','INN_PA_CT',
+                    'PA_BALL_CT','PA_CALLED_BALL_CT','PA_INTENT_BALL_CT',
+                    'PA_PITCHOUT_BALL_CT','PA_HITBATTER_BALL_CT',
+                    'PA_OTHER_BALL_CT','PA_STRIKE_CT','PA_CALLED_STRIKE_CT',
+                    'PA_SWINGMISS_STRIKE_CT','PA_FOUL_STRIKE_CT',
+                    'PA_INPLAY_STRIKE_CT','PA_OTHER_STRIKE_CT',
+                    'EVENT_RUNS_CT','FATE_RUNS_CT'
+                    'ASS6_FLD_CD','ASS7_FLD_CD','ASS8_FLD_CD','ASS9_FLD_CD',
+                    'ASS10_FLD_CD', 'year')
   
   logical_vars <- c('LEADOFF_FL', 'PH_FL', 'BAT_EVENT_FL',
                     'AB_FL', 'SH_FL', 'SF_FL', 'DP_FL',
@@ -203,14 +222,19 @@ create.csv.file <- function(wd, year){
                     'RUN2_CS_FL', 'RUN3_CS_FL', 'RUN1_PK_FL',
                     'RUN2_PK_FL', 'RUN3_PK_FL', 'GAME_NEW_FL',
                     'GAME_END_FL', 'PR_RUN1_FL', 'PR_RUN2_FL',
-                    'PR_RUN3_FL', 'REMOVED_FOR_PR_RUN3_ID')
+                    'PR_RUN3_FL', 'REMOVED_FOR_PR_RUN3_ID',
+                    'INN_NEW_FL','INN_END_FL','PA_NEW_FL','PA_TRUNC_FL',
+                    'BAT_START_FL','RESP_BAT_START_FL','PIT_START_FL',
+                    'RESP_PIT_START_FL',
+                    'BASE2_FORCE_FL','BASE3_FORCE_FL','BASE4_FORCE_FL',
+                    'BAT_SAFE_ERR_FL','UNKNOWN_OUT_EXC_FL','UNCERTAIN_PLAY_EXC_FL')
   
   if (.Platform$OS.type == "unix"){
-    system(paste(paste("cwevent -y", year, "-f 0-96 -q"),
+    system(paste(paste("cwevent -y", year, "-f 0-96 -x 0-62 -q"),
                  paste(year,"*.EV*",sep=""),
                  paste("> all", year, ".csv", sep="")))
   } else {
-    shell(paste(paste("cwevent -y", year, "-f 0-96 -q"),
+    shell(paste(paste("cwevent -y", year, "-f 0-96 -x 0-62 -q"),
                 paste(year,"*.EV*",sep=""),
                 paste("> all", year, ".csv", sep="")))
   }
