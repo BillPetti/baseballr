@@ -501,6 +501,6 @@ A data frame of pitcher data.\tabular{ll}{
 }
 \examples{
 \donttest{
-  fg_pitcher_leaders(startseason = 2023, endseason = 2023)
+  try(fg_pitcher_leaders(startseason = 2023, endseason = 2023))
 }
 }

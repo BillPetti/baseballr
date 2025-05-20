@@ -449,7 +449,7 @@
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'   fg_pitcher_leaders(startseason = 2023, endseason = 2023)
+#'   try(fg_pitcher_leaders(startseason = 2023, endseason = 2023))
 #' }
 fg_pitcher_leaders <- function(
     age = "",
@@ -534,7 +534,7 @@ fg_pitcher_leaders <- function(
           "Team"
         ))) %>%
         dplyr::select(
-          "Season",
+          "season",
           "team_name",
           "Throws", 
           "xMLBAMID", 
@@ -544,11 +544,11 @@ fg_pitcher_leaders <- function(
           "Age",
           "AgeRng",
           tidyr::everything()) %>% 
-        make_baseballr_data("MLB Team Batting data from FanGraphs.com",Sys.time())
+        make_baseballr_data("MLB Player Pitching Leaders data from FanGraphs.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no batter leaders data available!"))
+      message(glue::glue("{Sys.time()}: Invalid arguments or no player pitching leaders data available!"))
     },
     finally = {
     }

@@ -32,7 +32,7 @@
 #' @export
 #'
 #' @examples \donttest{
-#'  mlb_seasons(sport_id = 1)
+#'  try(mlb_seasons(sport_id = 1))
 #' }
 
 mlb_seasons <- function(sport_id = 1,

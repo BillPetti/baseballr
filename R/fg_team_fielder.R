@@ -81,7 +81,7 @@
 #' @import rvest 
 #' @export
 #' @examples \donttest{
-#'   fg_team_fielder(startseason = 2023, endseason = 2023, qual = 150)
+#'   try(fg_team_fielder(startseason = 2023, endseason = 2023, qual = 150))
 #' }
 
 fg_team_fielder <- function(
@@ -173,7 +173,7 @@ fg_team_fielder <- function(
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no fielder leaders data available!"))
+      message(glue::glue("{Sys.time()}: Invalid arguments or no team fielding data available!"))
     },
     finally = {
     }

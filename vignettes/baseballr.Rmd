@@ -9,11 +9,7 @@ opengraph:
   twitter:
     card: summary_large_image
     creator: "@saiemgilani"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Getting Started with baseballr}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+output: html_document
 ---
 
 ```{r setup, include=FALSE}

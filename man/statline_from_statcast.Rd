@@ -18,6 +18,6 @@ A tibble with the additional columns calculated using the Statcast data.
 This function allows you to create stat lines of statistics for players or groups of players from raw Statcast. When calculating wOBA, the most recent year in the data frame is used for weighting.
 }
 \details{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{statline_from_statcast(df, base = "contact")
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  statline_from_statcast(df, base = "contact")
 }\if{html}{\out{</div>}}
 }

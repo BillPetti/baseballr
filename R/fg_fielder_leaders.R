@@ -171,11 +171,11 @@ fg_fielder_leaders <- function(
           "PlayerName",
           "playerid",
           tidyr::everything()) %>% 
-        make_baseballr_data("MLB Player Fielding data from FanGraphs.com",Sys.time())
+        make_baseballr_data("MLB Player Fielding Leaders data from FanGraphs.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no fielding leaders data available!"))
+      message(glue::glue("{Sys.time()}: Invalid arguments or no player fielding leaders data available!"))
     },
     finally = {
     }

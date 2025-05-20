@@ -121,18 +121,17 @@
 #'   |n_priorpa_thisgame_player_at_bat             |numeric   |
 #'   |pitcher_days_since_prev_game                 |numeric   |
 #'   |batter_days_since_prev_game                  |numeric   |
-#'   |pitcher_days_until_next_game	               |numeric   |
-#'   |batter_days_until_next_game	                 |numeric   |
+#'   |pitcher_days_until_next_game                 |numeric   |
+#'   |batter_days_until_next_game                  |numeric   |
 #'   |api_break_z_with_gravity	                   |numeric   |
-#'   |api_break_x_arm	                             |numeric   |
-#'   |api_break_x_batter_in	                       |numeric   |
+#'   |api_break_x_arm                              |numeric   |
+#'   |api_break_x_batter_in                        |numeric   |
 #'   |arm_angle	                                   |numeric   |
-#'   |attack_angle	                               |numeric   |
+#'   |attack_angle                                 |numeric   |
 #'   |attack_direction	                           |numeric   |
-#'   |swing_path_tilt	                             |numeric   |
+#'   |swing_path_tilt                              |numeric   |
 #'   |intercept_ball_minus_batter_pos_x_inches     |numeric   |	
 #'   |intercept_ball_minus_batter_pos_y_inches     |numeric   |
-
 #' 
 #' @importFrom tibble tribble
 #' @importFrom lubridate year
@@ -155,8 +154,8 @@
 #' }
 
 statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
-                                   playerid = NULL,
-                                   player_type = "batter", ...) {
+                            playerid = NULL,
+                            player_type = "batter", ...) {
   # Check for other user errors.
   if (start_date <= "2015-03-01") { # March 1, 2015 was the first date of Spring Training.
     message("Some metrics such as Exit Velocity and Batted Ball Events have only been compiled since 2015.")
@@ -172,10 +171,10 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
     stop("The start date is later than the end date.")
     return(NULL)
   }
-
+  
   playerid_var <- ifelse(player_type == "pitcher",
                          "pitchers_lookup%5B%5D", "batters_lookup%5B%5D")
-
+  
   vars <- tibble::tribble(
     ~var, ~value,
     "all", "true",
@@ -218,17 +217,17 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
     "min_abs", "0",
     "type", "details") %>%
     dplyr::mutate(pairs = paste0(.data$var, "=", .data$value))
-
+  
   if (is.null(playerid)) {
     # message("No playerid specified. Collecting data for all batters/pitchers.")
     vars <- vars %>% 
       dplyr::filter(!grepl("lookup", .data$var))
   }
-
+  
   url_vars <- paste0(vars$pairs, collapse = "&")
   url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?", url_vars)
   # message(url)
-
+  
   # Do a try/catch to show errors that the user may encounter while downloading.
   tryCatch(
     { 
@@ -249,7 +248,7 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
   )
   # returns 0 rows on failure but > 1 columns
   if (nrow(payload) > 1) {
-
+    
     names(payload) <- c("pitch_type", "game_date", "release_speed", "release_pos_x",
                         "release_pos_z", "player_name", "batter", "pitcher", "events",
                         "description", "spin_dir", "spin_rate_deprecated", "break_angle_deprecated",
@@ -287,7 +286,7 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
     return(payload)
   } else {
     warning("No valid data found")
-
+    
     names(payload) <- c("pitch_type", "game_date", "release_speed", "release_pos_x",
                         "release_pos_z", "player_name", "batter", "pitcher", "events",
                         "description", "spin_dir", "spin_rate_deprecated", "break_angle_deprecated",
@@ -330,7 +329,7 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
 #' @return Returns a tibble with Statcast data.
 #' @export
 statcast_search.default <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
-                                             playerid = NULL, player_type = "batter", ...) {
+                                    playerid = NULL, player_type = "batter", ...) {
   # Check to make sure args are in the correct format.
   # if(!is.character(start_date) | !is.character(end_date)) {
   #   warning("Please wrap your dates in quotations in 'yyyy-mm-dd' format.")
@@ -338,7 +337,7 @@ statcast_search.default <- function(start_date = Sys.Date() - 1, end_date = Sys.
   # }
   message(paste0(start_date, " is not a date. Attempting to coerce..."))
   start_Date <- as.Date(start_date)
-
+  
   tryCatch(
     {
       end_Date <- as.Date(end_date)
@@ -350,10 +349,10 @@ statcast_search.default <- function(start_date = Sys.Date() - 1, end_date = Sys.
       message(cond)
     }
   )
-
+  
   statcast_search(start_Date, end_Date,
-                         playerid, player_type, ...)
-
+                  playerid, player_type, ...)
+  
 }
 
 #' @rdname statcast_search
@@ -458,19 +457,23 @@ statcast_search.default <- function(start_date = Sys.Date() - 1, end_date = Sys.
 #'   |spin_axis                       |numeric   |
 #'   |delta_home_win_exp              |numeric   |
 #'   |delta_run_exp                   |numeric   |
+#'   |bat_speed                       |numeric   |
+#'   |swing_length                    |numeric   |   
 #'   
 #' @export
 #' @examples
 #' \donttest{
-#'   correa <- statcast_search_batters(start_date = "2016-04-06",
-#'     end_date = "2016-04-15", batterid = 621043)
-#'   daily <- statcast_search_batters(start_date = "2016-04-06",
-#'     end_date = "2016-04-06", batterid = NULL)
+#'   try({
+#'     correa <- statcast_search_batters(start_date = "2016-04-06",
+#'       end_date = "2016-04-15", batterid = 621043)
+#'     daily <- statcast_search_batters(start_date = "2016-04-06",
+#'       end_date = "2016-04-06", batterid = NULL)
+#'   })
 #' }
 
 statcast_search_batters <- function(start_date, end_date, batterid = NULL, ...) {
   statcast_search(start_date, end_date, playerid = batterid,
-                         player_type = "batter", ...)
+                  player_type = "batter", ...)
 }
 
 
@@ -572,14 +575,18 @@ statcast_search_batters <- function(start_date, end_date, batterid = NULL, ...) 
 #'   |spin_axis                       |numeric   |
 #'   |delta_home_win_exp              |numeric   |
 #'   |delta_run_exp                   |numeric   |
+#'   |bat_speed                       |numeric   |
+#'   |swing_length                    |numeric   |
 #' 
 #' @export
 #' @examples
 #' \donttest{
-#'   x <- statcast_search_pitchers(start_date = "2016-04-06",
-#'     end_date = "2016-04-15", pitcherid = 592789)
-#'   daily <- statcast_search_pitchers(start_date = "2016-04-06",
-#'     end_date = "2016-04-06", pitcherid = NULL)
+#'   try({
+#'     x <- statcast_search_pitchers(start_date = "2016-04-06",
+#'       end_date = "2016-04-15", pitcherid = 592789)
+#'     daily <- statcast_search_pitchers(start_date = "2016-04-06",
+#'       end_date = "2016-04-06", pitcherid = NULL)
+#'   })
 #' }
 
 statcast_search_pitchers <- function(start_date, end_date, pitcherid = NULL, ...) {

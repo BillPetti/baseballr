@@ -132,6 +132,6 @@ A data frame of fielder data.\tabular{ll}{
 }
 \examples{
 \donttest{
-  fg_team_fielder(startseason = 2023, endseason = 2023, qual = 150)
+  try(fg_team_fielder(startseason = 2023, endseason = 2023, qual = 150))
 }
 }

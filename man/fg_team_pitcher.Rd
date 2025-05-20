@@ -426,6 +426,6 @@ A data frame of pitcher data.\tabular{ll}{
 }
 \examples{
 \donttest{
-  fg_team_pitcher(startseason = 2015, endseason = 2015, qual = 150)
+  try(fg_team_pitcher(startseason = 2015, endseason = 2015, qual = 150))
 }
 }

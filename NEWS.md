@@ -1,3 +1,7 @@
+# baseballr (development version)
+
+- Hotfix for `statcast_search` with the new column definitions v(1.6.0.9001)
+
 # baseballr 1.6.0
 
 Primarily focused on parameter changes to the `fg_*()` functions to allow for more flexible data retrieval. See below for details.
