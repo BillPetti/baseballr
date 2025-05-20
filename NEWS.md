@@ -29,10 +29,8 @@ The parameters are now as follows for the leaderboard functions:
 This change affects the following functions:
 - `fg_team_batter()`
 - `fg_team_pitcher()`
-- `fg_team_fielder()` (new function)
 - `fg_batter_leaders()`
 - `fg_pitcher_leaders()`
-- `fg_fielder_leaders()` (new function)
 
 
 # baseballr 1.5.0
