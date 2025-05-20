@@ -12,100 +12,127 @@
 #' @param ... currently ignored
 #' @return Returns a tibble with Statcast data with the following columns:
 #' 
-#'   |col_name                        |types     |
-#'   |:-------------------------------|:---------|
-#'   |pitch_type                      |character |
-#'   |game_date                       |Date      |
-#'   |release_speed                   |numeric   |
-#'   |release_pos_x                   |numeric   |
-#'   |release_pos_z                   |numeric   |
-#'   |player_name                     |character |
-#'   |batter                          |numeric   |
-#'   |pitcher                         |numeric   |
-#'   |events                          |character |
-#'   |description                     |character |
-#'   |spin_dir                        |logical   |
-#'   |spin_rate_deprecated            |logical   |
-#'   |break_angle_deprecated          |logical   |
-#'   |break_length_deprecated         |logical   |
-#'   |zone                            |numeric   |
-#'   |des                             |character |
-#'   |game_type                       |character |
-#'   |stand                           |character |
-#'   |p_throws                        |character |
-#'   |home_team                       |character |
-#'   |away_team                       |character |
-#'   |type                            |character |
-#'   |hit_location                    |integer   |
-#'   |bb_type                         |character |
-#'   |balls                           |integer   |
-#'   |strikes                         |integer   |
-#'   |game_year                       |integer   |
-#'   |pfx_x                           |numeric   |
-#'   |pfx_z                           |numeric   |
-#'   |plate_x                         |numeric   |
-#'   |plate_z                         |numeric   |
-#'   |on_3b                           |numeric   |
-#'   |on_2b                           |numeric   |
-#'   |on_1b                           |numeric   |
-#'   |outs_when_up                    |integer   |
-#'   |inning                          |numeric   |
-#'   |inning_topbot                   |character |
-#'   |hc_x                            |numeric   |
-#'   |hc_y                            |numeric   |
-#'   |tfs_deprecated                  |logical   |
-#'   |tfs_zulu_deprecated             |logical   |
-#'   |fielder_2                       |numeric   |
-#'   |umpire                          |logical   |
-#'   |sv_id                           |character |
-#'   |vx0                             |numeric   |
-#'   |vy0                             |numeric   |
-#'   |vz0                             |numeric   |
-#'   |ax                              |numeric   |
-#'   |ay                              |numeric   |
-#'   |az                              |numeric   |
-#'   |sz_top                          |numeric   |
-#'   |sz_bot                          |numeric   |
-#'   |hit_distance_sc                 |numeric   |
-#'   |launch_speed                    |numeric   |
-#'   |launch_angle                    |numeric   |
-#'   |effective_speed                 |numeric   |
-#'   |release_spin_rate               |numeric   |
-#'   |release_extension               |numeric   |
-#'   |game_pk                         |numeric   |
-#'   |pitcher_1                       |numeric   |
-#'   |fielder_2_1                     |numeric   |
-#'   |fielder_3                       |numeric   |
-#'   |fielder_4                       |numeric   |
-#'   |fielder_5                       |numeric   |
-#'   |fielder_6                       |numeric   |
-#'   |fielder_7                       |numeric   |
-#'   |fielder_8                       |numeric   |
-#'   |fielder_9                       |numeric   |
-#'   |release_pos_y                   |numeric   |
-#'   |estimated_ba_using_speedangle   |numeric   |
-#'   |estimated_woba_using_speedangle |numeric   |
-#'   |woba_value                      |numeric   |
-#'   |woba_denom                      |integer   |
-#'   |babip_value                     |integer   |
-#'   |iso_value                       |integer   |
-#'   |launch_speed_angle              |integer   |
-#'   |at_bat_number                   |numeric   |
-#'   |pitch_number                    |numeric   |
-#'   |pitch_name                      |character |
-#'   |home_score                      |numeric   |
-#'   |away_score                      |numeric   |
-#'   |bat_score                       |numeric   |
-#'   |fld_score                       |numeric   |
-#'   |post_away_score                 |numeric   |
-#'   |post_home_score                 |numeric   |
-#'   |post_bat_score                  |numeric   |
-#'   |post_fld_score                  |numeric   |
-#'   |if_fielding_alignment           |character |
-#'   |of_fielding_alignment           |character |
-#'   |spin_axis                       |numeric   |
-#'   |delta_home_win_exp              |numeric   |
-#'   |delta_run_exp                   |numeric   |
+#'   |col_name                                     |types     |
+#'   |:--------------------------------------------|:---------|
+#'   |pitch_type                                   |character |
+#'   |game_date                                    |Date      |
+#'   |release_speed                                |numeric   |
+#'   |release_pos_x                                |numeric   |
+#'   |release_pos_z                                |numeric   |
+#'   |player_name                                  |character |
+#'   |batter                                       |numeric   |
+#'   |pitcher                                      |numeric   |
+#'   |events                                       |character |
+#'   |description                                  |character |
+#'   |spin_dir                                     |logical   |
+#'   |spin_rate_deprecated                         |logical   |
+#'   |break_angle_deprecated                       |logical   |
+#'   |break_length_deprecated                      |logical   |
+#'   |zone                                         |numeric   |
+#'   |des                                          |character |
+#'   |game_type                                    |character |
+#'   |stand                                        |character |
+#'   |p_throws                                     |character |
+#'   |home_team                                    |character |
+#'   |away_team                                    |character |
+#'   |type                                         |character |
+#'   |hit_location                                 |integer   |
+#'   |bb_type                                      |character |
+#'   |balls                                        |integer   |
+#'   |strikes                                      |integer   |
+#'   |game_year                                    |integer   |
+#'   |pfx_x                                        |numeric   |
+#'   |pfx_z                                        |numeric   |
+#'   |plate_x                                      |numeric   |
+#'   |plate_z                                      |numeric   |
+#'   |on_3b                                        |numeric   |
+#'   |on_2b                                        |numeric   |
+#'   |on_1b                                        |numeric   |
+#'   |outs_when_up                                 |integer   |
+#'   |inning                                       |numeric   |
+#'   |inning_topbot                                |character |
+#'   |hc_x                                         |numeric   |
+#'   |hc_y                                         |numeric   |
+#'   |tfs_deprecated                               |logical   |
+#'   |tfs_zulu_deprecated                          |logical   |
+#'   |umpire                                       |logical   |
+#'   |sv_id                                        |character |
+#'   |vx0                                          |numeric   |
+#'   |vy0                                          |numeric   |
+#'   |vz0                                          |numeric   |
+#'   |ax                                           |numeric   |
+#'   |ay                                           |numeric   |
+#'   |az                                           |numeric   |
+#'   |sz_top                                       |numeric   |
+#'   |sz_bot                                       |numeric   |
+#'   |hit_distance_sc                              |numeric   |
+#'   |launch_speed                                 |numeric   |
+#'   |launch_angle                                 |numeric   |
+#'   |effective_speed                              |numeric   |
+#'   |release_spin_rate                            |numeric   |
+#'   |release_extension                            |numeric   |
+#'   |game_pk                                      |numeric   |
+#'   |fielder_2                                    |numeric   |
+#'   |fielder_3                                    |numeric   |
+#'   |fielder_4                                    |numeric   |
+#'   |fielder_5                                    |numeric   |
+#'   |fielder_6                                    |numeric   |
+#'   |fielder_7                                    |numeric   |
+#'   |fielder_8                                    |numeric   |
+#'   |fielder_9                                    |numeric   |
+#'   |release_pos_y                                |numeric   |
+#'   |estimated_ba_using_speedangle                |numeric   |
+#'   |estimated_woba_using_speedangle              |numeric   |
+#'   |woba_value                                   |numeric   |
+#'   |woba_denom                                   |integer   |
+#'   |babip_value                                  |integer   |
+#'   |iso_value                                    |integer   |
+#'   |launch_speed_angle                           |integer   |
+#'   |at_bat_number                                |numeric   |
+#'   |pitch_number                                 |numeric   |
+#'   |pitch_name                                   |character |
+#'   |home_score                                   |numeric   |
+#'   |away_score                                   |numeric   |
+#'   |bat_score                                    |numeric   |
+#'   |fld_score                                    |numeric   |
+#'   |post_away_score                              |numeric   |
+#'   |post_home_score                              |numeric   |
+#'   |post_bat_score                               |numeric   |
+#'   |post_fld_score                               |numeric   |
+#'   |if_fielding_alignment                        |character |
+#'   |of_fielding_alignment                        |character |
+#'   |spin_axis                                    |numeric   |
+#'   |delta_home_win_exp                           |numeric   |
+#'   |delta_run_exp                                |numeric   |
+#'   |bat_speed                                    |numeric   |
+#'   |swing_length                                 |numeric   |
+#'   |estimated_slg_using_speedangle               |numeric   |
+#'   |delta_pitcher_run_exp                        |numeric   |
+#'   |hyper_speed                                  |numeric   |
+#'   |home_score_diff                              |numeric   |
+#'   |bat_score_diff                               |numeric   |
+#'   |home_win_exp                                 |numeric   |
+#'   |bat_win_exp                                  |numeric   |
+#'   |age_pit_legacy                               |numeric   |
+#'   |age_bat_legacy                               |numeric   |
+#'   |age_pit                                      |numeric   |
+#'   |age_bat                                      |numeric   |
+#'   |n_thruorder_pitcher                          |numeric   |
+#'   |n_priorpa_thisgame_player_at_bat             |numeric   |
+#'   |pitcher_days_since_prev_game                 |numeric   |
+#'   |batter_days_since_prev_game                  |numeric   |
+#'   |pitcher_days_until_next_game	               |numeric   |
+#'   |batter_days_until_next_game	                 |numeric   |
+#'   |api_break_z_with_gravity	                   |numeric   |
+#'   |api_break_x_arm	                             |numeric   |
+#'   |api_break_x_batter_in	                       |numeric   |
+#'   |arm_angle	                                   |numeric   |
+#'   |attack_angle	                               |numeric   |
+#'   |attack_direction	                           |numeric   |
+#'   |swing_path_tilt	                             |numeric   |
+#'   |intercept_ball_minus_batter_pos_x_inches     |numeric   |	
+#'   |intercept_ball_minus_batter_pos_y_inches     |numeric   |
+
 #' 
 #' @importFrom tibble tribble
 #' @importFrom lubridate year
@@ -231,10 +258,10 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
                         "bb_type", "balls", "strikes", "game_year", "pfx_x", "pfx_z",
                         "plate_x", "plate_z", "on_3b", "on_2b", "on_1b", "outs_when_up",
                         "inning", "inning_topbot", "hc_x", "hc_y", "tfs_deprecated",
-                        "tfs_zulu_deprecated", "fielder_2", "umpire", "sv_id", "vx0",
+                        "tfs_zulu_deprecated", "umpire", "sv_id", "vx0",
                         "vy0", "vz0", "ax", "ay", "az", "sz_top", "sz_bot", "hit_distance_sc",
                         "launch_speed", "launch_angle", "effective_speed", "release_spin_rate",
-                        "release_extension", "game_pk", "pitcher_1", "fielder_2_1",
+                        "release_extension", "game_pk", "fielder_2",
                         "fielder_3", "fielder_4", "fielder_5", "fielder_6", "fielder_7",
                         "fielder_8", "fielder_9", "release_pos_y", "estimated_ba_using_speedangle",
                         "estimated_woba_using_speedangle", "woba_value", "woba_denom",
@@ -242,7 +269,19 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
                         "pitch_number", "pitch_name", "home_score", "away_score", "bat_score",
                         "fld_score", "post_away_score", "post_home_score", "post_bat_score",
                         "post_fld_score", "if_fielding_alignment", "of_fielding_alignment",
-                        "spin_axis", "delta_home_win_exp", "delta_run_exp")
+                        "spin_axis", "delta_home_win_exp", "delta_run_exp",
+                        "bat_speed",	"swing_length",	"estimated_slg_using_speedangle",	
+                        "delta_pitcher_run_exp",	"hyper_speed",	"home_score_diff",
+                        "bat_score_diff",	"home_win_exp",	"bat_win_exp",	"age_pit_legacy",
+                        "age_bat_legacy",	"age_pit",	"age_bat",	"n_thruorder_pitcher",
+                        "n_priorpa_thisgame_player_at_bat",	"pitcher_days_since_prev_game",
+                        "batter_days_since_prev_game",	"pitcher_days_until_next_game",
+                        "batter_days_until_next_game",	"api_break_z_with_gravity",
+                        "api_break_x_arm",	"api_break_x_batter_in",
+                        "arm_angle",	"attack_angle",	"attack_direction",
+                        "swing_path_tilt",	"intercept_ball_minus_batter_pos_x_inches",
+                        "intercept_ball_minus_batter_pos_y_inches")
+    
     payload <- process_statcast_payload(payload) %>%
       make_baseballr_data("MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com",Sys.time())
     return(payload)
@@ -257,10 +296,10 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
                         "bb_type", "balls", "strikes", "game_year", "pfx_x", "pfx_z",
                         "plate_x", "plate_z", "on_3b", "on_2b", "on_1b", "outs_when_up",
                         "inning", "inning_topbot", "hc_x", "hc_y", "tfs_deprecated",
-                        "tfs_zulu_deprecated", "fielder_2", "umpire", "sv_id", "vx0",
+                        "tfs_zulu_deprecated", "umpire", "sv_id", "vx0",
                         "vy0", "vz0", "ax", "ay", "az", "sz_top", "sz_bot", "hit_distance_sc",
                         "launch_speed", "launch_angle", "effective_speed", "release_spin_rate",
-                        "release_extension", "game_pk", "pitcher_1", "fielder_2_1",
+                        "release_extension", "game_pk", "fielder_2",
                         "fielder_3", "fielder_4", "fielder_5", "fielder_6", "fielder_7",
                         "fielder_8", "fielder_9", "release_pos_y", "estimated_ba_using_speedangle",
                         "estimated_woba_using_speedangle", "woba_value", "woba_denom",
@@ -268,7 +307,19 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
                         "pitch_number", "pitch_name", "home_score", "away_score", "bat_score",
                         "fld_score", "post_away_score", "post_home_score", "post_bat_score",
                         "post_fld_score", "if_fielding_alignment", "of_fielding_alignment",
-                        "spin_axis", "delta_home_win_exp", "delta_run_exp")
+                        "spin_axis", "delta_home_win_exp", "delta_run_exp",
+                        "bat_speed",	"swing_length",	"estimated_slg_using_speedangle",	
+                        "delta_pitcher_run_exp",	"hyper_speed",	"home_score_diff",
+                        "bat_score_diff",	"home_win_exp",	"bat_win_exp",	"age_pit_legacy",
+                        "age_bat_legacy",	"age_pit",	"age_bat",	"n_thruorder_pitcher",
+                        "n_priorpa_thisgame_player_at_bat",	"pitcher_days_since_prev_game",
+                        "batter_days_since_prev_game",	"pitcher_days_until_next_game",
+                        "batter_days_until_next_game",	"api_break_z_with_gravity",
+                        "api_break_x_arm",	"api_break_x_batter_in",
+                        "arm_angle",	"attack_angle",	"attack_direction",
+                        "swing_path_tilt",	"intercept_ball_minus_batter_pos_x_inches",
+                        "intercept_ball_minus_batter_pos_y_inches")
+    
     payload <- payload %>%
       make_baseballr_data("MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com",Sys.time())
     return(payload)
