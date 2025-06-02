@@ -1,6 +1,7 @@
 # baseballr (development version)
 
 - Hotfix for `statcast_search` with the new column definitions v(1.6.0.9001)
+- Hotfix for `statcast_search` with the new column definitions v(1.6.0.9002)
 
 # baseballr 1.6.0
 
