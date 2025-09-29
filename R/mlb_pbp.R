@@ -210,8 +210,26 @@ mlb_pbp <- function(game_pk) {
       at_bats <- at_bats %>%
         dplyr::select(-c(tidyr::one_of(list_columns)))
       
-      pbp <- plays %>%
-        dplyr::left_join(at_bats, by = c("endTime" = "playEndTime"))
+      if (all(!is.na(plays$startTime)) & all(!is.na(plays$endTime))) {
+        pbp <- plays %>%
+          dplyr::left_join(at_bats, by = c("endTime" = "playEndTime"))
+      }
+      else {
+        plays <- plays %>%
+          dplyr::mutate(atBatIndex_from_id = as.integer(substring(playId, 11, 12)),
+                        pitchNumber_from_id = as.numeric(substring(playId, 16, 17))) %>%
+          dplyr::filter(!is.na(atBatIndex_from_id)) %>%
+          group_by(atBatIndex_from_id) %>%
+          mutate(is_final_pitch = pitchNumber_from_id == max(pitchNumber_from_id, na.rm = TRUE)) %>%
+          ungroup() %>%
+          dplyr::select(-any_of(c("count.balls", "count.strikes", "count.outs")))
+
+        pbp <- plays %>%
+          dplyr::left_join(at_bats, by = c("atBatIndex_from_id" = "atBatIndex"))
+        
+        pbp <- pbp %>%
+          dplyr::rename(atBatIndex = atBatIndex_from_id)
+      }
       
       pbp <- pbp %>%
         tidyr::fill("atBatIndex":"matchup.splits.menOnBase", .direction = "up") %>%
