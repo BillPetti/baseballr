@@ -216,7 +216,7 @@ mlb_pbp <- function(game_pk) {
       }
       else {
         plays <- plays %>%
-          dplyr::mutate(atBatIndex_from_id = as.integer(substring(playId, 11, 12)),
+          dplyr::mutate(atBatIndex_from_id = as.integer(substring(playId, 11, 12)) - 1,
                         pitchNumber_from_id = as.numeric(substring(playId, 16, 17))) %>%
           dplyr::filter(!is.na(atBatIndex_from_id)) %>%
           group_by(atBatIndex_from_id) %>%
