@@ -28,23 +28,26 @@ sptrc_league_payrolls <- function(year = most_recent_mlb_season()){
   
   stopifnot("'year' can't be further than two seasons ago" = 2 >= most_recent_mlb_season()-year)
   
-  url <- paste0("https://www.spotrac.com/mlb/payroll/", year, "/")
-  
-  
+  # Spotrac moved the year out of the path and behind a "/_/year/" segment in
+  # 2025; the old "/payroll/<year>/" URL now 302-redirects here (#392).
+  url <- paste0("https://www.spotrac.com/mlb/payroll/_/year/", year, "/")
+
+  # Initialise the return value before the tryCatch so a failed request returns
+  # an empty frame with a message instead of "object 'league_payroll' not found".
+  league_payroll <- data.frame()
+
   tryCatch(
     expr = {
-      page_data <- rvest::read_html(url) %>% rvest::html_elements("table")
+      page_data <- rvest::read_html(url) |> rvest::html_elements("table")
       
-      league_payroll <- (page_data)[[1]] %>% 
-        rvest::html_table() %>% 
-        janitor::clean_names() %>% 
-        dplyr::filter(.data$team != "League Average") %>%
-        dplyr::rename("active_man_payroll" = 5,
-                      "yearly_total_payroll" = 10) %>%  
+      league_payroll <- (page_data)[[1]] |> 
+        rvest::html_table() |> 
+        janitor::clean_names() |> 
+        dplyr::filter(.data$team != "League Average") |>
         dplyr::mutate(year = year,
-                      team_abbr = gsub(".*\\t","", .data$team),
-                      team = gsub("\\n.*","", .data$team),
-                      dplyr::across(tidyr::everything(), as.character)) %>% 
+                      team_abbr = sub("(?s)[\\n\\t].*", "", .data$team, perl = TRUE),
+                      team = trimws(sub("(?s).*[\\t\\n]\\s*", "", .data$team, perl = TRUE)),
+                      dplyr::across(tidyr::everything(), as.character)) |>
         dplyr::select(
           "year", 
           "team", 
@@ -63,12 +66,12 @@ sptrc_league_payrolls <- function(year = most_recent_mlb_season()){
         )
       }
       
-      league_payroll <- league_payroll %>%
+      league_payroll <- league_payroll |>
         make_baseballr_data("MLB Payroll data from Spotrac.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no contract data available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no contract data available!")
     },
     finally = {
     }
