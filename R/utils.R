@@ -161,6 +161,55 @@ check_status <- function(res) {
   if (x != 200) stop(glue::glue("The API returned an error, HTTP Response Code {x}"), call. = FALSE)
 }
 
+#' @title **Detect a stats.ncaa.org Akamai interstitial challenge**
+#' @description
+#' Some `stats.ncaa.org` routes (e.g. `/teams/{id}/season_to_date_stats`) are
+#' gated behind Akamai Bot Manager. When challenged, the server returns HTTP 200
+#' but the body is a short interstitial shell (a `bm-verify` meta-refresh, an
+#' `akamai_validation.html` iframe, or a `request_quota_reached.html` notice)
+#' rather than the data page. A static request cannot solve the challenge, so we
+#' detect the shell and degrade gracefully instead of silently scraping a page
+#' that has no data tables.
+#' @param body A character scalar: the response body (HTML) as text.
+#' @keywords internal
+#' @return `TRUE` when `body` looks like an Akamai interstitial, else `FALSE`.
+.ncaa_is_interstitial <- function(body) {
+  if (length(body) != 1 || is.na(body)) return(TRUE)
+  grepl("bm-verify|akamai_validation|request_quota_reached", body, ignore.case = TRUE)
+}
+
+#' @title **Resolve a stats.ncaa.org season-team id**
+#' @description
+#' `stats.ncaa.org` migrated team statistics from the franchise-centric
+#' `/team/{team_id}/stats?...` query form to a season-team resource at
+#' `/teams/{season_team_id}/season_to_date_stats`. The `season_team_id` is
+#' year-specific and is **not** the franchise `team_id`. This helper resolves it
+#' by reading the still-working roster page
+#' (`/team/{team_id}/roster/{season_id}`) and extracting the "Team Statistics"
+#' link it points to.
+#' @param team_id Franchise team id used by the NCAA site.
+#' @param season_id Season id from [load_ncaa_baseball_season_ids()] (the `id`
+#'   column), i.e. the value the roster URL expects.
+#' @param ... Passed through to [request_with_proxy()] (e.g. `proxy`).
+#' @keywords internal
+#' @return A length-1 character season-team id, or `NA_character_` if the roster
+#'   page could not be read (e.g. challenged) or the link was not found.
+#' @import rvest
+.ncaa_resolve_season_team_id <- function(team_id, season_id, ...) {
+  roster_url <- paste0("https://stats.ncaa.org/team/", team_id, "/roster/", season_id)
+  resp <- request_with_proxy(url = roster_url, ...)
+  body <- httr2::resp_body_string(resp)
+  if (.ncaa_is_interstitial(body)) return(NA_character_)
+
+  hrefs <- body |>
+    xml2::read_html() |>
+    rvest::html_elements("a") |>
+    rvest::html_attr("href")
+  hit <- stringr::str_extract(hrefs, "teams/(\\d+)/season_to_date_stats", group = 1)
+  hit <- hit[!is.na(hit)]
+  if (length(hit) == 0) NA_character_ else hit[[1]]
+}
+
 #' @importFrom magrittr %>%
 #' @usage lhs \%>\% rhs
 NULL
