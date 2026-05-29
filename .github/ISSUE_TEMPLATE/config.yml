@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: baseballr documentation
+    url: https://billpetti.github.io/baseballr/
+    about: Read the package documentation, reference index, and articles before opening an issue.
+  - name: GitHub Discussions
+    url: https://github.com/BillPetti/baseballr/discussions
+    about: Ask questions, share usage tips, and discuss ideas with the community.
+  - name: SportsDataverse Discord
+    url: https://discord.gg/sportsdataverse
+    about: Chat with the SportsDataverse community for help and discussion.
