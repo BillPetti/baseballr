@@ -44,7 +44,7 @@ ncaa_teams <- function(year = most_recent_ncaa_baseball_season(), division = 1, 
     expr = {
       
       
-      url <- paste0("http://stats.ncaa.org/team/inst_team_list?academic_year=",
+      url <- paste0("https://stats.ncaa.org/team/inst_team_list?academic_year=",
                     year,
                     "&conf_id=-1",
                     "&division=", division,
@@ -82,7 +82,7 @@ ncaa_teams <- function(year = most_recent_ncaa_baseball_season(), division = 1, 
       conference_df <- data.frame(conference = conference_names, conference_id = conference_ids)
       
       conferences_team_df <- lapply(conference_df$conference_id, function(x){
-        conf_team_urls <- paste0("http://stats.ncaa.org/team/inst_team_list?academic_year=",
+        conf_team_urls <- paste0("https://stats.ncaa.org/team/inst_team_list?academic_year=",
                                  year,
                                  "&conf_id=", x,
                                  "&division=", division,
@@ -108,9 +108,8 @@ ncaa_teams <- function(year = most_recent_ncaa_baseball_season(), division = 1, 
                            division = division, 
                            year = year,
                            conference_id = x)
-        data <- data %>% 
+        data <- data %>%
           dplyr::left_join(conference_df, by = c("conference_id"))
-        Sys.sleep(5)
         return(data)
       })
       

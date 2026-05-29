@@ -2,16 +2,25 @@
 % Please edit documentation in R/utils.R
 \name{request_with_proxy}
 \alias{request_with_proxy}
-\title{\strong{Retry http request with proxy}}
+\title{\strong{Retry an http request (with optional proxy) and rate-limit}}
 \usage{
 request_with_proxy(url, ...)
 }
 \arguments{
 \item{url}{Request url}
 
-\item{...}{passed to httr::RETRY}
+\item{...}{passed to \code{httr::RETRY} (e.g. \code{httr::use_proxy()}, \code{httr::add_headers()})}
 }
 \description{
-This is a thin wrapper on httr::RETRY
+Thin wrapper on \code{httr::RETRY} used by the NCAA (\code{stats.ncaa.org}) scrapers.
+Pass an \code{httr::use_proxy()} object through \code{...} to route the request through
+a proxy, e.g.
+\preformatted{
+ncaa_roster(team_id = 104, year = 2023,
+  httr::use_proxy("http://HOST:PORT", username = "USER", password = "PASS"))
+}
+The \code{stats.ncaa.org} edge (Akamai) rate-limits and IP-bans aggressive
+scrapers, so this helper sleeps 5 seconds after every request. Rotate proxies
+across calls to spread load.
 }
 \keyword{internal}

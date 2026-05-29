@@ -4,3 +4,8 @@
 .DS_Store
 ^data-raw$
 docs
+
+# local proxy list (secrets, never commit)
+.ncaa_proxies.csv
+.ncaa_*.R
+.ncaa_*.log

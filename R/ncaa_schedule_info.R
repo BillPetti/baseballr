@@ -200,7 +200,6 @@ ncaa_schedule_info <- function(team_id = NULL, year = NULL, pbp_links = FALSE, .
               contest_id = contest_id,
               game_pbp_id = as.integer(stringr::str_extract(payload, "\\d+"))
             )
-            Sys.sleep(1)
             return(payload_df)
           } else {
             

@@ -1,18 +1,30 @@
 .datatable.aware <- TRUE
 
 #' @title
-#' **Retry http request with proxy**
+#' **Retry an http request (with optional proxy) and rate-limit**
 #' @description
-#' This is a thin wrapper on httr::RETRY
+#' Thin wrapper on `httr::RETRY` used by the NCAA (`stats.ncaa.org`) scrapers.
+#' Pass an `httr::use_proxy()` object through `...` to route the request through
+#' a proxy, e.g.
+#' \preformatted{
+#' ncaa_roster(team_id = 104, year = 2023,
+#'   httr::use_proxy("http://HOST:PORT", username = "USER", password = "PASS"))
+#' }
+#' The `stats.ncaa.org` edge (Akamai) rate-limits and IP-bans aggressive
+#' scrapers, so this helper sleeps 5 seconds after every request. Rotate proxies
+#' across calls to spread load.
 #' @param url Request url
-#' @param ... passed to httr::RETRY
+#' @param ... passed to `httr::RETRY` (e.g. `httr::use_proxy()`, `httr::add_headers()`)
 #' @keywords internal
 #' @importFrom httr RETRY
 request_with_proxy <- function(url, ...){
   dots <- rlang::dots_list(..., .named = TRUE)
   proxy <- dots$proxy
   headers <- dots$headers
-  httr::RETRY("GET", url = {{url}}, ..., headers, httr::timeout(15))
+  resp <- httr::RETRY("GET", url = {{url}}, ..., headers, httr::timeout(15))
+  # Mandatory courtesy delay: stats.ncaa.org aggressively rate-limits/IP-bans.
+  Sys.sleep(5)
+  resp
 }
 
 #' @title **Progressively**

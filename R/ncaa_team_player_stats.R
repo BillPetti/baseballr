@@ -79,7 +79,7 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
         type_id <- load_ncaa_baseball_season_ids() %>% 
           dplyr::filter(.data$season == year) %>% 
           dplyr::select("batting_id")
-        url <- paste0("http://stats.ncaa.org/team/",team_id,"/stats?game_sport_year_ctl_id=", id, "&id=", id)
+        url <- paste0("https://stats.ncaa.org/team/",team_id,"/stats?game_sport_year_ctl_id=", id, "&id=", id)
         
         team_stats_resp <- request_with_proxy(url = url, ..., headers)
         
@@ -141,7 +141,7 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
         type_id <- load_ncaa_baseball_season_ids() %>% 
           dplyr::filter(.data$season == year) %>% 
           dplyr::select("pitching_id")
-        url <- paste0("http://stats.ncaa.org/team/", team_id, "/stats?id=", year_id, "&year_stat_category_id=", type_id)
+        url <- paste0("https://stats.ncaa.org/team/", team_id, "/stats?id=", year_id, "&year_stat_category_id=", type_id)
         
         team_stats_resp <- request_with_proxy(url = url, ..., headers)
         
@@ -197,7 +197,7 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
         html_attr('href') %>%
         as.data.frame() %>%
         dplyr::rename("player_url" = ".") %>%
-        dplyr::mutate(player_url = paste0('http://stats.ncaa.org', .data$player_url))
+        dplyr::mutate(player_url = paste0('https://stats.ncaa.org', .data$player_url))
       
       player_names_join <- data_read %>%
         html_elements('#stat_grid a') %>%
