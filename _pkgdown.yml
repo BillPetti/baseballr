@@ -189,13 +189,12 @@ repo:
     issue: https://github.com/billpetti/baseballr/issues/
     user: https://github.com/billpetti/
 reference:
-  - title: Baseball Savant
-  - subtitle: Baseball Savant MLB Data Functions
-    desc: Functions exported by baseballr to access Baseball Savant MLB Data
+  - title: Baseball Savant (Statcast)
+  - subtitle: Baseball Savant / Statcast Data Functions
+    desc: Functions exported by baseballr to access Baseball Savant (Statcast) MLB Data
     contents:
       - '`statcast`'
-      - '`statcast_leaderboards`'
-      - '`statcast_search`'
+      - starts_with("statcast_")
   - title: Baseball Savant Helpers
   - subtitle: Baseball Savant MLB Helper Functions
     desc: Functions exported by baseballr to process Baseball Savant MLB Data
@@ -207,45 +206,28 @@ reference:
       - '`statline_from_statcast`'
       - '`label_statcast_imputed_data`'
       - '`linear_weights_savant`'
-  - title: baseballr Data Repository - NCAA
-  - subtitle: baseballr Data Repository NCAA Functions
-    desc: Functions exported by baseballr to access baseballr data repository NCAA data
+  - title: baseballr Data Repository
+  - subtitle: baseballr Data Repository Loader Functions
+    desc: Functions exported by baseballr to access data hosted in the baseballr data repository
     contents:
-      - '`load_ncaa_baseball_teams`'
-      - '`load_ncaa_baseball_schedule`'
-      - '`load_ncaa_baseball_pbp`'
-      - '`load_ncaa_baseball_season_ids`'
-  - title: NCAA Baseball 
+      - starts_with("load_")
+  - title: NCAA Baseball
   - subtitle: NCAA Baseball Data Functions
     desc: Functions exported by baseballr to access NCAA Baseball Data
     contents:
       - '`ncaa`'
-      - '`ncaa_schedule_info`'
-      - '`ncaa_roster`'
-      - '`ncaa_game_logs`'
-      - '`ncaa_lineups`'
-      - '`ncaa_park_factor`'
-      - '`ncaa_school_id_lu`'
-      - '`ncaa_teams`'
-      - '`ncaa_team_player_stats`'
-      - '`ncaa_pbp`'
+      - starts_with("ncaa_")
   - title: Retrosheet
   - subtitle: Retrosheet Data Functions
     desc: Functions exported by baseballr to access Retrosheet Data
     contents:
-      - '`retrosheet_data`'
+      - starts_with("retrosheet_")
   - title: FanGraphs
   - subtitle: FanGraphs MLB and MiLB Data Functions
     desc: Functions exported by baseballr to access FanGraphs' MLB and MiLB Data
     contents:
       - '`fangraphs`'
-      - starts_with("fg_park")
-      - starts_with("fg_guts")
-      - starts_with("fg_batter")
-      - starts_with("fg_pitcher")
-      - starts_with("fg_fielder")
-      - starts_with("fg_milb")
-      - starts_with("fg_team")
+      - starts_with("fg_")
   - title: Baseball Reference
   - subtitle: Baseball Reference MLB Data Functions
     desc: Functions exported by baseballr to access Baseball Reference's MLB Data
@@ -351,12 +333,6 @@ reference:
     desc: Functions exported by baseballr to access MLB Stats - Jobs Data
     contents:
       - starts_with("mlb_job")
-  - title: baseballr Data Repository Misc. Lookup
-  - subtitle: baseballr Data Repository Misc. Lookup Functions
-    desc: Functions exported by baseballr to access baseballr data repository supplementary data
-    contents:
-      - '`load_umpire_ids`'
-      - '`load_game_info_sup`'
   - title: Metrics
   - subtitle: Metrics Functions
     desc: Functions exported by baseballr to calculate metrics
