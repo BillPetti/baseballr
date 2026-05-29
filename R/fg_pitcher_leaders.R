@@ -480,8 +480,8 @@ fg_pitcher_leaders <- function(
     stats = stats,
     lg = lg,
     qual = qual,
-    season = startseason,
-    season1 = endseason,
+    season = endseason,
+    season1 = startseason,
     startdate = startdate,
     enddate = enddate,
     month = month,
@@ -522,20 +522,20 @@ fg_pitcher_leaders <- function(
       leaders <- fg_df |> 
         dplyr::rename_with(~ gsub("pi", "pi_", .x), starts_with("pi")) |> 
         dplyr::rename_with(~ gsub("pfx", "pfx_", .x), starts_with("pfx")) |>
-        dplyr::rename(
+        dplyr::rename(dplyr::any_of(c(
           "Start_IP" = "Start-IP",
           "Relief_IP" = "Relief-IP",
           "WPA_minus" = "-WPA",
-          "WPA_plus" = "+WPA", 
+          "WPA_plus" = "+WPA",
           "AgeRng" = "AgeR",
           "team_name" = "TeamName",
-          "team_name_abb" = "TeamNameAbb") |>
+          "team_name_abb" = "TeamNameAbb"))) |>
         dplyr::select(-dplyr::any_of(c(
-          "Name", 
+          "Name",
           "Team"
         ))) |>
         dplyr::select(
-          "season",
+          "Season",
           "team_name",
           "Throws", 
           "xMLBAMID", 
