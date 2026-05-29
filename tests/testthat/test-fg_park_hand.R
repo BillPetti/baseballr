@@ -10,7 +10,11 @@ test_that("FanGraphs Park Factors", {
   skip_on_cran()
   
   x <- fg_park_hand(2013)
-  
+
+  if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
+    skip("No data returned from FanGraphs at test time")
+  }
+
   expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

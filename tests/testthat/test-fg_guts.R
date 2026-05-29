@@ -10,7 +10,11 @@ test_that("FanGraphs GUTS Factors", {
   skip_on_cran()
   
   x <- fg_guts()
-  
+
+  if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
+    skip("No data returned from FanGraphs at test time")
+  }
+
   expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })
