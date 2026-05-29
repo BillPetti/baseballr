@@ -7,6 +7,7 @@
 - Wrappers that build their result inside `tryCatch()` now initialize the return value first, so an API error returns an empty value with a `cli` message instead of an `object '<var>' not found` error.
 - `mlb_game_timecodes()` no longer returns `NULL`; it renamed its single column by the literal name `"."`, which newer R versions no longer use for the coerced column, so it now renames by position.
 - `mlb_homerun_derby()` and `mlb_homerun_derby_bracket()` return data again; their column selections are now wrapped in `dplyr::any_of()` so the dropped `num_batters` column (no longer in the MLB Stats API response) no longer errors the parse.
+- The FanGraphs leaders and team functions (`fg_batter_leaders()`, `fg_pitcher_leaders()`, `fg_fielder_leaders()`, `fg_team_batter()`, `fg_team_pitcher()`, `fg_team_fielder()`) return data again. They route through an internal helper that had been sending a browser `User-Agent`, which triggers FanGraphs' Cloudflare "Just a moment..." challenge (HTTP 403); the helper now sends a plain package `User-Agent`, which is not challenged (#385, #397, #369, #343, #312, #308, #299, #296, #353, #317, #310, #306).
 
 ### Documentation
 

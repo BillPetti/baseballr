@@ -1,28 +1,26 @@
 mlb_api_call <- function(url){
-  # Send browser-like headers and back off on transient failures. The MLB Stats
-  # API does not require this, but the FanGraphs leaders endpoints
-  # (fg_*_leaders(), fg_team_*()) route through here and intermittently return
-  # 403 for requests that look automated (#385, #397).
+  # Identify with a plain package User-Agent and back off on transient failures.
+  # IMPORTANT: do NOT send a browser User-Agent here. The FanGraphs leaders
+  # endpoints (fg_*_leaders(), fg_team_*()) route through this helper and sit
+  # behind Cloudflare, which serves a "Just a moment..." JS challenge (HTTP 403)
+  # to requests that *claim to be a browser* but cannot solve the challenge. A
+  # plain library/package User-Agent is not challenged and returns the data
+  # (#385, #397, #369, #343). The MLB Stats API ignores the User-Agent.
   res <- httr::RETRY(
     "GET", url,
-    httr::user_agent(paste0(
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ",
-      "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")),
-    httr::add_headers(
-      Accept = "application/json, text/plain, */*",
-      `Accept-Language` = "en-US,en;q=0.9"),
+    httr::user_agent("baseballr (https://github.com/BillPetti/baseballr)"),
     times = 3,
     pause_base = 1,
     quiet = TRUE
   )
 
-  # Surface FanGraphs' anti-bot 403 with a clear message instead of a cryptic
-  # downstream parse error.
+  # If FanGraphs ever tightens Cloudflare to challenge all clients, surface the
+  # 403 with a clear message instead of a cryptic downstream parse error.
   if (httr::status_code(res) == 403) {
     cli::cli_alert_danger("Request returned HTTP 403 (Forbidden) for {.url {url}}.")
     cli::cli_alert_info(paste0(
-      "FanGraphs intermittently enables anti-bot protection that blocks ",
-      "programmatic access; wait and retry later, or route requests through a proxy."))
+      "FanGraphs is serving a Cloudflare anti-bot challenge; wait and retry ",
+      "later, or route requests through a proxy."))
   }
 
   json <- res$content |>
