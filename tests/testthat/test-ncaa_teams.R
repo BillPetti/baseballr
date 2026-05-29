@@ -11,6 +11,7 @@ cols <- c(
 )
 
 test_that("NCAA Teams", {
+  skip_ncaa_test()
   skip_on_cran()
   skip_on_ci()
   

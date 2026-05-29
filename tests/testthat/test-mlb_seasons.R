@@ -24,6 +24,7 @@ cols <- c(
 )
 
 test_that("MLB Seasons", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_seasons(sport_id = 1)

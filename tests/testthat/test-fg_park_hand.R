@@ -6,6 +6,7 @@ cols <- c(
 )
 
 test_that("FanGraphs Park Factors", {
+  skip_fangraphs_test()
   skip_on_cran()
   
   x <- fg_park_hand(2013)

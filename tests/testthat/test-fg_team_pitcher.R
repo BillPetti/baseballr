@@ -347,6 +347,7 @@ cols <- c(
 )
 
 test_that("FanGraphs Team Pitching", {
+  skip_fangraphs_test()
   skip_on_cran()
   
   x <- fg_team_pitcher(startseason = 2015, endseason = 2015, qual = 150)

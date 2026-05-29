@@ -247,6 +247,35 @@ Tests live in `tests/testthat/`. Many hit live sites and are gated / skipped
 > running them once and reusing fixtures, never in a tight loop, and keep them
 > skipped on CI.
 
+### Environment-variable gates
+
+Every test that hits an external service is gated behind a source-specific
+helper in `tests/testthat/helper-skip.R`. Each helper `skip()`s unless its
+environment variable is set to `"1"`, so `R CMD check` (and CI) never fails when
+an upstream site is down, rate-limiting, has changed its schema, or is blocking
+automated access. **The first line of every live `test_that()` block is its
+source gate.**
+
+| Source                  | Env var                  | Helper                  |
+| ----------------------- | ------------------------ | ----------------------- |
+| FanGraphs (`fg_*`)      | `FANGRAPHS_TESTS=1`      | `skip_fangraphs_test()` |
+| MLB Stats API (`mlb_*`) | `MLB_STATS_TESTS=1`      | `skip_mlb_test()`       |
+| Baseball Reference      | `BREF_TESTS=1`           | `skip_bref_test()`      |
+| Baseball Savant         | `STATCAST_TESTS=1`       | `skip_statcast_test()`  |
+| NCAA (`ncaa_*`)         | `NCAA_TESTS=1`           | `skip_ncaa_test()`      |
+| Spotrac (`sptrc_*`)     | `SPOTRAC_TESTS=1`        | `skip_sptrc_test()`     |
+| Chadwick (`chadwick_*`) | `CHADWICK_TESTS=1`       | `skip_chadwick_test()`  |
+| Data loaders (`load_*`) | `BASEBALLR_LOAD_TESTS=1` | `skip_load_test()`      |
+
+```r
+# Run one source's live tests locally:
+Sys.setenv(MLB_STATS_TESTS = "1"); devtools::test()
+```
+
+Set `NCAA_TESTS=1` only deliberately and sparingly (the NCAA site IP-bans
+scrapers). Purely computational tests (e.g. `metrics_*` on a supplied data
+frame) are **not** gated.
+
 ### Test Pattern
 
 **Always use the subset direction for column assertions.** Because the upstream
@@ -255,8 +284,8 @@ is: the *expected* list must be a subset of the *actual* columns.
 
 ```r
 test_that("mlb_function returns expected columns", {
+  skip_mlb_test()          # source gate -- always the first line
   skip_on_cran()
-  skip_on_ci()
 
   x <- mlb_function(game_pk = 632970)
 

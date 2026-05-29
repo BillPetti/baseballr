@@ -10,6 +10,7 @@
 # )
 # 
 # test_that("Daily Pitcher logs Baseball-Reference", {
+  skip_bref_test()
 #   skip_on_cran()
 #   skip_on_ci()
 #   

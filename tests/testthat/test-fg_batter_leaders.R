@@ -349,6 +349,7 @@ cols <- c(
 )
 
 test_that("FanGraphs Batting Leaders", {
+  skip_fangraphs_test()
   skip_on_cran()
   
   x <- fg_batter_leaders(startseason = 2023, endseason = 2023)

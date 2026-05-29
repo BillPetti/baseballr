@@ -6,6 +6,7 @@ cols <- c(
 )
 
 test_that("FanGraphs GUTS Factors", {
+  skip_fangraphs_test()
   skip_on_cran()
   
   x <- fg_guts()

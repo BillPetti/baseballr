@@ -4,6 +4,7 @@ cols <- c(
 )
 
 test_that("MLB Job Types", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_job_types()

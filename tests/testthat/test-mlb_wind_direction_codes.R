@@ -4,6 +4,7 @@ cols <- c(
 )
 
 test_that("MLB Wind Direction Codes", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_wind_direction_codes()

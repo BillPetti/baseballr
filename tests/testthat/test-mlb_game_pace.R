@@ -30,6 +30,7 @@ cols <- c(
 )
 
 test_that("MLB Game Pace", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_game_pace(season = 2021, start_date = "09/14/2021", end_date = "09/16/2021")

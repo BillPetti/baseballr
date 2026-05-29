@@ -61,6 +61,7 @@ cols <- c(
 )
 
 test_that("FanGraphs MiLB Batter Game Logs", {
+  skip_fangraphs_test()
   skip_on_cran()
   
   x <- fg_milb_batter_game_logs(playerid = "sa3010868", year=2021)

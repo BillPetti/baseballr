@@ -53,6 +53,7 @@ cols <- c(
 )
 
 test_that("MLB Sports Players", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_sports_players(sport_id=1,season=2021)

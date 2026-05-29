@@ -4,6 +4,7 @@ cols <- c(
 )
 
 test_that("MLB Schedule Event Types", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_schedule_event_types()

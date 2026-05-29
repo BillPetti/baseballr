@@ -18,6 +18,7 @@ cols <- c(
 )
 
 test_that("NCAA Roster", {
+  skip_ncaa_test()
   skip_on_cran()
   x <- ncaa_roster(team_id = 104, year = 2019)
   

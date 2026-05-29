@@ -4,6 +4,7 @@ cols <- c(
 )
 
 test_that("MLB Standing Types", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_standings_types()

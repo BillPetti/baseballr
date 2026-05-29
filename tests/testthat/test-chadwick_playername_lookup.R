@@ -6,6 +6,7 @@ cols <- c(
 )
 
 test_that("Chadwick Player Name Lookup", {
+  skip_chadwick_test()
   skip_on_cran()
   
   x <- playername_lookup("kaaihki01")

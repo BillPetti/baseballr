@@ -11,6 +11,7 @@ cols <- c(
 )
 
 test_that("NCAA School ID Lookup", {
+  skip_ncaa_test()
   skip_on_cran()
   
   x <- ncaa_school_id_lu("Van")

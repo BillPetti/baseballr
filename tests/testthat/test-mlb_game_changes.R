@@ -27,6 +27,7 @@ cols <- c(
 )
 
 test_that("MLB Game Changes", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_game_changes(updated_since = "2021-08-10T19:08:24.000004Z", sport_id = 1)

@@ -17,6 +17,7 @@ cols <- c(
 )
 
 test_that("MLB Teams", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_teams() %>% 

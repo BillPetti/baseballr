@@ -6,6 +6,7 @@ cols <- c(
 )
 
 test_that("MLB Conferences", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_conferences()

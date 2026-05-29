@@ -148,6 +148,7 @@ cols <- c(
 )
 
 test_that("MLB Play-by-Play", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_pbp(game_pk = 575156)

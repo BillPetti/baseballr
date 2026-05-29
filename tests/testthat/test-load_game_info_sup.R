@@ -8,6 +8,7 @@ cols <- c(
 )
 
 test_that("Load MLB Game Info Supplement", {
+  skip_load_test()
   skip_on_cran()
   
   x <- load_game_info_sup()

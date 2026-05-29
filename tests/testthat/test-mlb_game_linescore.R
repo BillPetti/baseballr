@@ -98,6 +98,7 @@ cols <- c(
 )
 
 test_that("MLB Game Linescores", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_game_linescore(game_pk = 566001)

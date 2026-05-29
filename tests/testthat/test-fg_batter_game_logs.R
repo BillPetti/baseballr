@@ -276,6 +276,7 @@ cols <- c(
 )
 
 test_that("Fangraphs Batter Game Logs", {
+  skip_fangraphs_test()
   skip_on_cran()
   x <- fg_batter_game_logs(playerid = 6184, year = 2017)
   

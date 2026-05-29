@@ -13,6 +13,7 @@ cols <- c(
 )
 
 test_that("MLB Pitch Codes", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_pitch_codes()

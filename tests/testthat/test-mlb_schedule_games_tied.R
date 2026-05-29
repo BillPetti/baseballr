@@ -63,6 +63,7 @@ cols <- c(
   "events"
 )
 test_that("MLB Schedule Games Tied", {
+  skip_mlb_test()
   
   skip_on_cran()
   

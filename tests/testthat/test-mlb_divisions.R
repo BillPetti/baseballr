@@ -8,6 +8,7 @@ cols <- c(
 )
 
 test_that("MLB Divisions", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_divisions(sport_id = 1)

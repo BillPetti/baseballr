@@ -4,6 +4,7 @@ cols <- c(
 )
 
 test_that("MLB Player Status Codes", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_player_status_codes()

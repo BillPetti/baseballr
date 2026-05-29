@@ -331,6 +331,7 @@ cols <- c(
 )
 
 test_that("FanGraphs Team Batting", {
+  skip_fangraphs_test()
   skip_on_cran()
   
   x <- fg_team_batter(startseason = 2015, endseason = 2015, qual = 400)

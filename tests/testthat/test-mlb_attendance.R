@@ -16,6 +16,7 @@ cols <- c(
 )
 
 test_that("MLB Attendance", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_attendance(team_id = 109, season = 2021)

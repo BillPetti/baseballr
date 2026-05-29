@@ -8,6 +8,7 @@ cols <- c(
 )
 
 test_that("MLB Game Content", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_game_content(game_pk = 566001)

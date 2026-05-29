@@ -1,4 +1,5 @@
 test_that("MLB - Statcast Search", {
+  skip_statcast_test()
   skip_on_cran()
   correa <- statcast_search(start_date = "2016-04-15",
                             end_date = "2016-04-15",

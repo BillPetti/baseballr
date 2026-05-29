@@ -5,6 +5,7 @@ cols <- c(
 )
 
 test_that("MLB Probables", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_probables(game_pk = 566001)

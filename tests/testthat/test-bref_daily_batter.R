@@ -6,6 +6,7 @@
 # )
 # 
 # test_that("Daily Batter logs Baseball-Reference", {
+  skip_bref_test()
 #   skip_on_cran()
 #   skip_on_ci()
 #   x <- bref_daily_batter("2021-05-10", "2021-06-20")

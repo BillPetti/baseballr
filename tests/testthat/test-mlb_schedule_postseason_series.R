@@ -70,6 +70,7 @@ cols <- c(
   "series_game_type"
 )
 test_that("MLB Schedule Postseason Series", {
+  skip_mlb_test()
   
   skip_on_cran()
   

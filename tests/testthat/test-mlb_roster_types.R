@@ -5,6 +5,7 @@ cols <- c(
 )
 
 test_that("MLB Roster Types", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_roster_types()

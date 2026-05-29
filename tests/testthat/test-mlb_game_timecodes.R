@@ -4,6 +4,7 @@ cols <- c(
 )
 
 test_that("MLB Game Time Codes", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_game_timecodes(game_pk = 632970)

@@ -30,6 +30,7 @@ cols <- c(
 # statcast_search() from breaking when Baseball Savant adds columns
 # (#337, #354, #371, #390).
 test_that("Statcast Search", {
+  skip_statcast_test()
   skip_on_cran()
   skip_on_ci()
 

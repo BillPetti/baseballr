@@ -7,6 +7,7 @@ cols <- c(
 )
 
 test_that("Chadwick PlayerID Lookup", {
+  skip_chadwick_test()
   skip_on_cran()
   
   x <- playerid_lookup("Ohtani", "Shohei")

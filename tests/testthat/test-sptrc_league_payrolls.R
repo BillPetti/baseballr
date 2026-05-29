@@ -11,6 +11,7 @@ cols <- c(
 )
 
 test_that("Spotrac League Payrolls Breakdown", {
+  skip_sptrc_test()
   skip_on_cran()
   skip_on_ci()
 

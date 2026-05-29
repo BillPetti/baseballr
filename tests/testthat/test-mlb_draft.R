@@ -33,6 +33,7 @@ cols <- c(
 )
 
 test_that("MLB Draft", {
+  skip_mlb_test()
   skip_on_ci()
   skip_on_cran()
 

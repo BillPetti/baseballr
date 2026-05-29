@@ -5,6 +5,7 @@ cols <- c(
 )
 
 test_that("MLB Stat High/Low Types", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_high_low_types()

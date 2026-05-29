@@ -35,6 +35,7 @@ cols <- c(
 )
 
 test_that("MLB Stat Highs/Lows", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_high_low_stats(org_type = 'Team', season = 2020, sort_stat = 'atBats')

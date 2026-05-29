@@ -16,6 +16,7 @@ cols <- c(
 )
 
 test_that("MLB Chadwick Lookup", {
+  skip_chadwick_test()
   skip_on_cran()
   
   x <- chadwick_player_lu()

@@ -5,6 +5,7 @@ cols <- c(
 )
 
 test_that("MLB Game Win Probability", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_game_wp(game_pk = 531060)

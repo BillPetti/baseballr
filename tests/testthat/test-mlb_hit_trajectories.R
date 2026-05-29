@@ -4,6 +4,7 @@ cols <- c(
 )
 
 test_that("MLB Hit Trajectories", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_hit_trajectories()

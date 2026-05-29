@@ -25,6 +25,7 @@ cols <- c(
 )
 
 test_that("NCAA Get Schedule Info", {
+  skip_ncaa_test()
   skip_on_cran()
   skip_on_ci()
   x <- ncaa_schedule_info(736, 2019)

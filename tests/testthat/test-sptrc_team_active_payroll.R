@@ -14,6 +14,7 @@ cols <- c(
 )
 
 test_that("Spotrac Team Active Payroll Breakdown", {
+  skip_sptrc_test()
   skip_on_cran()
   skip_on_ci()
 

@@ -15,6 +15,7 @@ cols <- c(
 )
 
 test_that("NCAA PBP", {
+  skip_ncaa_test()
   skip_on_cran()
   
   y <- ncaa_pbp(game_info_url = "https://stats.ncaa.org/contests/2016254/box_score")

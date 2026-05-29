@@ -22,6 +22,7 @@ cols <- c(
 )
 
 test_that("MLB Game Packs", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_game_pks("2019-04-29")

@@ -10,6 +10,7 @@ cols <- c(
 )
 
 test_that("MLB Jobs - Datacasters", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_jobs_datacasters(sport_id = 1)

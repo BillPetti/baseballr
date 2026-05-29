@@ -68,6 +68,7 @@
 # )
 # 
 # test_that("MLB Umpire Games", {
+  skip_mlb_test()
 #   skip_on_cran()
 #   
 #   x <- mlb_umpire_games(umpire_id = 596809, season = 2018)

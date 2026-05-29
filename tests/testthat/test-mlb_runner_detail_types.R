@@ -4,6 +4,7 @@ cols <- c(
 )
 
 test_that("MLB Runner Detail Types", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_runner_detail_types()

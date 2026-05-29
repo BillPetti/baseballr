@@ -54,6 +54,7 @@ cols <- c(
 )
 
 test_that("FanGraphs Team Fielder Leaders", {
+  skip_fangraphs_test()
   skip_on_cran()
   
   x <- fg_team_fielder(startseason = 2023, endseason = 2023, qual = 0)

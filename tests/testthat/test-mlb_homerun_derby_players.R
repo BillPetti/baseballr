@@ -58,6 +58,7 @@ cols <- c(
 )
 
 test_that("MLB Homerun Derby", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <-  mlb_homerun_derby_players(game_pk = 511101)

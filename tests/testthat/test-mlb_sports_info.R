@@ -5,6 +5,7 @@ cols <- c(
 )
 
 test_that("MLB Sports Info", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_sports_info(sport_id=1)

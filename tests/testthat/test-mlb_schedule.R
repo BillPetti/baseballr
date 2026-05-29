@@ -30,6 +30,7 @@ cols <- c(
 )
 
 test_that("MLB Schedule", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_schedule(season = "2019")

@@ -4,6 +4,7 @@ cols <- c(
 )
 
 test_that("Load Umpire IDs", {
+  skip_load_test()
   skip_on_cran()
   
   x <-load_umpire_ids()

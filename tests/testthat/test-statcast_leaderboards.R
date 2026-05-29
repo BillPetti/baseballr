@@ -22,6 +22,7 @@ cols <- c(
 )
 
 test_that("Statcast Leaderboards", {
+  skip_statcast_test()
   skip_on_cran()
   
   x <- statcast_leaderboards(leaderboard = "exit_velocity_barrels", year = 2018)

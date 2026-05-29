@@ -137,6 +137,7 @@ cols <- c(
 )
 
 test_that("FanGraphs Pitcher Game Logs", {
+  skip_fangraphs_test()
   skip_on_cran()
   
   x <- fg_pitcher_game_logs(playerid = 104, year = 2006)

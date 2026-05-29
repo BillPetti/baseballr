@@ -55,6 +55,7 @@ cols <- c(
 )
 
 test_that("MLB Standings", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_standings(league_id=103,season=2021)

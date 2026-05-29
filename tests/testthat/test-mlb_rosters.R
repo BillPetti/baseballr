@@ -7,6 +7,7 @@ cols <- c(
 )
 
 test_that("MLB Rosters", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_rosters(team_id = 109, season = 2018, roster_type = 'active')
