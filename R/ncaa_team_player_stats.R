@@ -74,29 +74,22 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
 
   tryCatch(
     expr = {
-      # stats.ncaa.org migrated team stats off the franchise-centric
-      # /team/{team_id}/stats?game_sport_year_ctl_id=... form (now dead -- it
-      # returns table-less 200s) to a season-team resource at
-      # /teams/{season_team_id}/season_to_date_stats. The season_team_id is
-      # year-specific, so resolve it from the still-working roster page.
+      # Team stats live at /team/{team_id}/stats, keyed by the season id and the
+      # per-type stat-category id (batting_id / pitching_id) from the season-id
+      # lookup. The previous batting branch passed `id` twice and never sent the
+      # category id; both branches now use year_stat_category_id correctly.
+      # NOTE: this endpoint is currently gated behind Akamai's bm-verify
+      # interstitial, which a static request cannot solve (it works in a real
+      # browser that runs the challenge JS). When challenged the function
+      # degrades gracefully via .ncaa_is_interstitial() below.
       season_ids <- load_ncaa_baseball_season_ids() %>%
         dplyr::filter(.data$season == year)
       season_id <- season_ids %>% dplyr::pull("id")
       type_id <- season_ids %>%
         dplyr::pull(if (type == "pitching") "pitching_id" else "batting_id")
 
-      season_team_id <- .ncaa_resolve_season_team_id(team_id, season_id, ...)
-      if (is.na(season_team_id)) {
-        cli::cli_alert_warning(
-          paste0("{Sys.time()}: Could not resolve the stats.ncaa.org season-team ",
-                 "id for team {team_id} ({year}); the roster page was unavailable ",
-                 "or returned a bot-challenge.")
-        )
-        return(df)
-      }
-
-      url <- paste0("https://stats.ncaa.org/teams/", season_team_id,
-                    "/season_to_date_stats?year_stat_category_id=", type_id)
+      url <- paste0("https://stats.ncaa.org/team/", team_id,
+                    "/stats?id=", season_id, "&year_stat_category_id=", type_id)
 
       team_stats_resp <- request_with_proxy(url = url, ...)
       payload_txt <- httr2::resp_body_string(team_stats_resp)
