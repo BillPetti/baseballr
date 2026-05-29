@@ -3,26 +3,44 @@
 #' @title
 #' **Retry an http request (with optional proxy) and rate-limit**
 #' @description
-#' Thin wrapper on `httr::RETRY` used by the NCAA (`stats.ncaa.org`) scrapers.
-#' Pass an `httr::use_proxy()` object through `...` to route the request through
-#' a proxy, e.g.
+#' `httr2`-based GET helper used by the NCAA (`stats.ncaa.org`) scrapers. Pass a
+#' `proxy` through `...` to route the request through a proxy, e.g.
 #' \preformatted{
 #' ncaa_roster(team_id = 104, year = 2023,
-#'   httr::use_proxy("http://HOST:PORT", username = "USER", password = "PASS"))
+#'   proxy = list(url = "http://HOST:PORT", username = "USER", password = "PASS"))
 #' }
 #' The `stats.ncaa.org` edge (Akamai) rate-limits and IP-bans aggressive
 #' scrapers, so this helper sleeps 5 seconds after every request. Rotate proxies
 #' across calls to spread load.
 #' @param url Request url
-#' @param ... passed to `httr::RETRY` (e.g. `httr::use_proxy()`, `httr::add_headers()`)
+#' @param ... currently unused (kept for backwards compatibility)
+#' @param headers A named character vector of request headers. Defaults to
+#'   `.ncaa_headers()` (a modern browser header set that passes the
+#'   `stats.ncaa.org` Akamai edge).
+#' @param proxy Optional proxy. Either a URL string (e.g.
+#'   `"http://user:pass@host:port"`) or a list of arguments for
+#'   [httr2::req_proxy()] (e.g. `list(url = "http://host:port", username = "u",
+#'   password = "p")`). Defaults to `getOption("baseballr.proxy")`, so a proxy
+#'   can be set once per session with
+#'   `options(baseballr.proxy = list(url = ..., username = ..., password = ...))`.
 #' @keywords internal
-#' @importFrom httr RETRY
-request_with_proxy <- function(url, ...){
-  dots <- rlang::dots_list(..., .named = TRUE)
-  proxy <- dots$proxy
-  headers <- dots$headers
-  resp <- httr::RETRY("GET", url = {{url}}, ..., headers, httr::timeout(15))
-  # Mandatory courtesy delay: stats.ncaa.org aggressively rate-limits/IP-bans.
+#' @return An [httr2::response] object.
+request_with_proxy <- function(url, ..., headers = .ncaa_headers(),
+                               proxy = getOption("baseballr.proxy")){
+  req <- httr2::request(url) |>
+    httr2::req_headers(!!!headers) |>
+    httr2::req_timeout(15) |>
+    httr2::req_retry(max_tries = 3) |>
+    httr2::req_error(is_error = function(resp) FALSE)
+  if (!is.null(proxy)) {
+    req <- if (is.list(proxy)) {
+      do.call(httr2::req_proxy, c(list(req), proxy))
+    } else {
+      httr2::req_proxy(req, url = proxy)
+    }
+  }
+  resp <- httr2::req_perform(req)
+  # Mandatory courtesy delay: stats.ncaa.org aggressively rate-limits / IP-bans.
   Sys.sleep(5)
   resp
 }
@@ -139,7 +157,7 @@ rule_footer <- function(x) {
 
 #' @import rvest
 check_status <- function(res) {
-  x = httr::status_code(res)
+  x = httr2::resp_status(res)
   if (x != 200) stop(glue::glue("The API returned an error, HTTP Response Code {x}"), call. = FALSE)
 }
 

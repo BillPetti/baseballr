@@ -69,7 +69,6 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
   if (year < 2013) {
     stop('you must provide a year that is greater than or equal to 2013')
   }
-  headers <- httr::add_headers(.headers = .ncaa_headers())
   tryCatch(
     expr = {
       if (type == "batting") {
@@ -81,12 +80,12 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
           dplyr::select("batting_id")
         url <- paste0("https://stats.ncaa.org/team/",team_id,"/stats?game_sport_year_ctl_id=", id, "&id=", id)
         
-        team_stats_resp <- request_with_proxy(url = url, ..., headers)
+        team_stats_resp <- request_with_proxy(url = url, ...)
         
         check_status(team_stats_resp)
         
         payload <- team_stats_resp %>% 
-          httr::content(as = "text", encoding = "UTF-8") %>% 
+          httr2::resp_body_string() %>% 
           xml2::read_html()
         
         data_read <- payload
@@ -143,12 +142,12 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
           dplyr::select("pitching_id")
         url <- paste0("https://stats.ncaa.org/team/", team_id, "/stats?id=", year_id, "&year_stat_category_id=", type_id)
         
-        team_stats_resp <- request_with_proxy(url = url, ..., headers)
+        team_stats_resp <- request_with_proxy(url = url, ...)
         
         check_status(team_stats_resp)
         
         payload <- team_stats_resp %>% 
-          httr::content(as = "text", encoding = "UTF-8") %>% 
+          httr2::resp_body_string() %>% 
           xml2::read_html()
         
         data_read <- payload

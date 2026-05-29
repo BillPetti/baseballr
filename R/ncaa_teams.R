@@ -39,7 +39,6 @@ ncaa_teams <- function(year = most_recent_ncaa_baseball_season(), division = 1, 
   
   df <- data.frame()
   
-  headers <- httr::add_headers(.headers = .ncaa_headers())
   tryCatch(
     expr = {
       
@@ -50,10 +49,10 @@ ncaa_teams <- function(year = most_recent_ncaa_baseball_season(), division = 1, 
                     "&division=", division,
                     "&sport_code=MBA")
       
-      resp <- request_with_proxy(url = url, ..., headers)
+      resp <- request_with_proxy(url = url, ...)
       
       data_read <- resp %>% 
-        httr::content(as = "text", encoding = "UTF-8") %>% 
+        httr2::resp_body_string() %>% 
         xml2::read_html()      
       
       team_urls <- data_read %>% 
@@ -87,17 +86,17 @@ ncaa_teams <- function(year = most_recent_ncaa_baseball_season(), division = 1, 
                                  "&conf_id=", x,
                                  "&division=", division,
                                  "&sport_code=MBA")
-        resp <- request_with_proxy(url = conf_team_urls, ..., headers)
+        resp <- request_with_proxy(url = conf_team_urls, ...)
         
         team_urls <- resp %>% 
-          httr::content(as = "text", encoding = "UTF-8") %>% 
+          httr2::resp_body_string() %>% 
           xml2::read_html() %>% 
           rvest::html_elements("table") %>% 
           rvest::html_elements("a") %>% 
           rvest::html_attr("href")
         
         team_names <- resp %>% 
-          httr::content(as = "text", encoding = "UTF-8") %>% 
+          httr2::resp_body_string() %>% 
           xml2::read_html() %>% 
           rvest::html_elements("table") %>% 
           rvest::html_elements("a") %>% 

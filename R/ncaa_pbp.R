@@ -44,7 +44,6 @@ ncaa_pbp <- function(game_info_url = NA_character_,
                               file = NA_character_,
                               ...) {
   
-  headers <- httr::add_headers(.headers = .ncaa_headers())
   
   tryCatch(
     expr = {
@@ -54,12 +53,12 @@ ncaa_pbp <- function(game_info_url = NA_character_,
       if (read_from_file == FALSE && !is.na(game_info_url)) {
         contest_id <- as.integer(stringr::str_extract(game_info_url, "\\d+"))
         
-        game_info_resp <- request_with_proxy(url = game_info_url, ..., headers)
+        game_info_resp <- request_with_proxy(url = game_info_url, ...)
 
         check_status(game_info_resp)
         
         init_payload <- game_info_resp %>% 
-          httr::content(as = "text", encoding = "UTF-8") %>% 
+          httr2::resp_body_string() %>% 
           xml2::read_html() 
         
         game_pbp_url <- init_payload %>% 
@@ -70,12 +69,12 @@ ncaa_pbp <- function(game_info_url = NA_character_,
           dplyr::mutate(game_pbp_url = paste0("https://stats.ncaa.org", .data$pbp_url_slug)) %>%
           dplyr::pull(.data$game_pbp_url)
         
-        pbp_payload_resp <-  request_with_proxy(url = game_pbp_url, ..., headers)
+        pbp_payload_resp <-  request_with_proxy(url = game_pbp_url, ...)
         
         check_status(pbp_payload_resp)
         
         pbp_payload <- pbp_payload_resp %>% 
-          httr::content(as = "text", encoding = "UTF-8") %>% 
+          httr2::resp_body_string() %>% 
           xml2::read_html()
         
         if (raw_html_to_disk == TRUE) {
@@ -85,12 +84,12 @@ ncaa_pbp <- function(game_info_url = NA_character_,
       }
       if (read_from_file == FALSE && !is.na(game_pbp_url)) {
         payload <- game_pbp_url
-        pbp_payload_resp <- request_with_proxy(url = game_pbp_url, ..., headers)
+        pbp_payload_resp <- request_with_proxy(url = game_pbp_url, ...)
         
         check_status(pbp_payload_resp)
         
         pbp_payload <- pbp_payload_resp %>% 
-          httr::content(as = "text", encoding = "UTF-8") %>% 
+          httr2::resp_body_string() %>% 
           xml2::read_html()
         
         if (raw_html_to_disk == TRUE) {
