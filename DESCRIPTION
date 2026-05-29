@@ -48,7 +48,6 @@ Suggests:
     knitr,
     pacman,
     progressr (>= 0.6.0),
-    qs (>= 0.25.1),
     reshape2,
     rmarkdown,
     RSQLite,
