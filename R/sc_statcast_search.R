@@ -158,14 +158,14 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
                             player_type = "batter", ...) {
   # Check for other user errors.
   if (start_date <= "2015-03-01") { # March 1, 2015 was the first date of Spring Training.
-    message("Some metrics such as Exit Velocity and Batted Ball Events have only been compiled since 2015.")
+    cli::cli_alert_info("Some metrics such as Exit Velocity and Batted Ball Events have only been compiled since 2015.")
   }
   if (start_date < "2008-03-25") { # March 25, 2008 was the first date of the 2008 season.
     stop("The data are limited to the 2008 MLB season and after.")
     return(NULL)
   }
   if (start_date == Sys.Date()) {
-    message("The data are collected daily at 3 a.m. Some of today's games may not be included.")
+    cli::cli_alert_info("The data are collected daily at 3 a.m. Some of today's games may not be included.")
   }
   if (start_date > as.Date(end_date)) {
     stop("The start date is later than the end date.")
@@ -215,12 +215,12 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
     "player_event_sort", "h_launch_speed",
     "sort_order", "desc",
     "min_abs", "0",
-    "type", "details") %>%
+    "type", "details") |>
     dplyr::mutate(pairs = paste0(.data$var, "=", .data$value))
   
   if (is.null(playerid)) {
     # message("No playerid specified. Collecting data for all batters/pitchers.")
-    vars <- vars %>% 
+    vars <- vars |> 
       dplyr::filter(!grepl("lookup", .data$var))
   }
   
@@ -229,6 +229,7 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
   # message(url)
   
   # Do a try/catch to show errors that the user may encounter while downloading.
+  payload <- NULL
   tryCatch(
     { 
       suppressMessages(
@@ -238,91 +239,66 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
       )
     },
     error = function(cond) {
-      message(cond)
+      cli::cli_alert_danger(cond)
       stop("No payload acquired")
     },
     # this will never run??
     warning = function(cond) {
-      message(cond)
+      cli::cli_alert_warning(cond)
     }
   )
+  # Baseball Savant periodically appends new columns to the CSV export (for
+  # example bat_speed/swing_length, arm_angle, and the attack_* family). The
+  # download already carries a header row, so rather than overwrite every name
+  # from a fixed-length vector -- which errors the moment the column count
+  # changes ("can't assign N names to an M column data.table", #337, #354,
+  # #371, #390) -- assign the known names positionally and leave any extra
+  # trailing columns under the names Savant already supplied.
+  statcast_columns <- c(
+    "pitch_type", "game_date", "release_speed", "release_pos_x",
+    "release_pos_z", "player_name", "batter", "pitcher",
+    "events", "description", "spin_dir", "spin_rate_deprecated",
+    "break_angle_deprecated", "break_length_deprecated", "zone", "des",
+    "game_type", "stand", "p_throws", "home_team",
+    "away_team", "type", "hit_location", "bb_type",
+    "balls", "strikes", "game_year", "pfx_x",
+    "pfx_z", "plate_x", "plate_z", "on_3b",
+    "on_2b", "on_1b", "outs_when_up", "inning",
+    "inning_topbot", "hc_x", "hc_y", "tfs_deprecated",
+    "tfs_zulu_deprecated", "umpire", "sv_id", "vx0",
+    "vy0", "vz0", "ax", "ay",
+    "az", "sz_top", "sz_bot", "hit_distance_sc",
+    "launch_speed", "launch_angle", "effective_speed", "release_spin_rate",
+    "release_extension", "game_pk", "fielder_2", "fielder_3",
+    "fielder_4", "fielder_5", "fielder_6", "fielder_7",
+    "fielder_8", "fielder_9", "release_pos_y", "estimated_ba_using_speedangle",
+    "estimated_woba_using_speedangle", "woba_value", "woba_denom", "babip_value",
+    "iso_value", "launch_speed_angle", "at_bat_number", "pitch_number",
+    "pitch_name", "home_score", "away_score", "bat_score",
+    "fld_score", "post_away_score", "post_home_score", "post_bat_score",
+    "post_fld_score", "if_fielding_alignment", "of_fielding_alignment", "spin_axis",
+    "delta_home_win_exp", "delta_run_exp", "bat_speed", "swing_length",
+    "estimated_slg_using_speedangle", "delta_pitcher_run_exp", "hyper_speed", "home_score_diff",
+    "bat_score_diff", "home_win_exp", "bat_win_exp", "age_pit_legacy",
+    "age_bat_legacy", "age_pit", "age_bat", "n_thruorder_pitcher",
+    "n_priorpa_thisgame_player_at_bat", "pitcher_days_since_prev_game", "batter_days_since_prev_game", "pitcher_days_until_next_game",
+    "batter_days_until_next_game", "api_break_z_with_gravity", "api_break_x_arm", "api_break_x_batter_in",
+    "arm_angle", "attack_angle", "attack_direction", "swing_path_tilt",
+    "intercept_ball_minus_batter_pos_x_inches", "intercept_ball_minus_batter_pos_y_inches"
+  )
+  n_known <- min(length(statcast_columns), ncol(payload))
+  names(payload)[seq_len(n_known)] <- statcast_columns[seq_len(n_known)]
+
   # returns 0 rows on failure but > 1 columns
   if (nrow(payload) > 1) {
-    
-    names(payload) <- c("pitch_type", "game_date", "release_speed", "release_pos_x",
-                        "release_pos_z", "player_name", "batter", "pitcher", "events",
-                        "description", "spin_dir", "spin_rate_deprecated", "break_angle_deprecated",
-                        "break_length_deprecated", "zone", "des", "game_type", "stand",
-                        "p_throws", "home_team", "away_team", "type", "hit_location",
-                        "bb_type", "balls", "strikes", "game_year", "pfx_x", "pfx_z",
-                        "plate_x", "plate_z", "on_3b", "on_2b", "on_1b", "outs_when_up",
-                        "inning", "inning_topbot", "hc_x", "hc_y", "tfs_deprecated",
-                        "tfs_zulu_deprecated", "umpire", "sv_id", "vx0",
-                        "vy0", "vz0", "ax", "ay", "az", "sz_top", "sz_bot", "hit_distance_sc",
-                        "launch_speed", "launch_angle", "effective_speed", "release_spin_rate",
-                        "release_extension", "game_pk", "fielder_2",
-                        "fielder_3", "fielder_4", "fielder_5", "fielder_6", "fielder_7",
-                        "fielder_8", "fielder_9", "release_pos_y", "estimated_ba_using_speedangle",
-                        "estimated_woba_using_speedangle", "woba_value", "woba_denom",
-                        "babip_value", "iso_value", "launch_speed_angle", "at_bat_number",
-                        "pitch_number", "pitch_name", "home_score", "away_score", "bat_score",
-                        "fld_score", "post_away_score", "post_home_score", "post_bat_score",
-                        "post_fld_score", "if_fielding_alignment", "of_fielding_alignment",
-                        "spin_axis", "delta_home_win_exp", "delta_run_exp",
-                        "bat_speed",	"swing_length",	"estimated_slg_using_speedangle",	
-                        "delta_pitcher_run_exp",	"hyper_speed",	"home_score_diff",
-                        "bat_score_diff",	"home_win_exp",	"bat_win_exp",	"age_pit_legacy",
-                        "age_bat_legacy",	"age_pit",	"age_bat",	"n_thruorder_pitcher",
-                        "n_priorpa_thisgame_player_at_bat",	"pitcher_days_since_prev_game",
-                        "batter_days_since_prev_game",	"pitcher_days_until_next_game",
-                        "batter_days_until_next_game",	"api_break_z_with_gravity",
-                        "api_break_x_arm",	"api_break_x_batter_in",
-                        "arm_angle",	"attack_angle",	"attack_direction",
-                        "swing_path_tilt",	"intercept_ball_minus_batter_pos_x_inches",
-                        "intercept_ball_minus_batter_pos_y_inches")
-    
-    payload <- process_statcast_payload(payload) %>%
-      make_baseballr_data("MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com",Sys.time())
-    return(payload)
+    payload <- process_statcast_payload(payload) |>
+      make_baseballr_data("MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com", Sys.time())
   } else {
-    warning("No valid data found")
-    
-    names(payload) <- c("pitch_type", "game_date", "release_speed", "release_pos_x",
-                        "release_pos_z", "player_name", "batter", "pitcher", "events",
-                        "description", "spin_dir", "spin_rate_deprecated", "break_angle_deprecated",
-                        "break_length_deprecated", "zone", "des", "game_type", "stand",
-                        "p_throws", "home_team", "away_team", "type", "hit_location",
-                        "bb_type", "balls", "strikes", "game_year", "pfx_x", "pfx_z",
-                        "plate_x", "plate_z", "on_3b", "on_2b", "on_1b", "outs_when_up",
-                        "inning", "inning_topbot", "hc_x", "hc_y", "tfs_deprecated",
-                        "tfs_zulu_deprecated", "umpire", "sv_id", "vx0",
-                        "vy0", "vz0", "ax", "ay", "az", "sz_top", "sz_bot", "hit_distance_sc",
-                        "launch_speed", "launch_angle", "effective_speed", "release_spin_rate",
-                        "release_extension", "game_pk", "fielder_2",
-                        "fielder_3", "fielder_4", "fielder_5", "fielder_6", "fielder_7",
-                        "fielder_8", "fielder_9", "release_pos_y", "estimated_ba_using_speedangle",
-                        "estimated_woba_using_speedangle", "woba_value", "woba_denom",
-                        "babip_value", "iso_value", "launch_speed_angle", "at_bat_number",
-                        "pitch_number", "pitch_name", "home_score", "away_score", "bat_score",
-                        "fld_score", "post_away_score", "post_home_score", "post_bat_score",
-                        "post_fld_score", "if_fielding_alignment", "of_fielding_alignment",
-                        "spin_axis", "delta_home_win_exp", "delta_run_exp",
-                        "bat_speed",	"swing_length",	"estimated_slg_using_speedangle",	
-                        "delta_pitcher_run_exp",	"hyper_speed",	"home_score_diff",
-                        "bat_score_diff",	"home_win_exp",	"bat_win_exp",	"age_pit_legacy",
-                        "age_bat_legacy",	"age_pit",	"age_bat",	"n_thruorder_pitcher",
-                        "n_priorpa_thisgame_player_at_bat",	"pitcher_days_since_prev_game",
-                        "batter_days_since_prev_game",	"pitcher_days_until_next_game",
-                        "batter_days_until_next_game",	"api_break_z_with_gravity",
-                        "api_break_x_arm",	"api_break_x_batter_in",
-                        "arm_angle",	"attack_angle",	"attack_direction",
-                        "swing_path_tilt",	"intercept_ball_minus_batter_pos_x_inches",
-                        "intercept_ball_minus_batter_pos_y_inches")
-    
-    payload <- payload %>%
-      make_baseballr_data("MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com",Sys.time())
-    return(payload)
+    cli::cli_warn("No valid data found")
+    payload <- payload |>
+      make_baseballr_data("MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com", Sys.time())
   }
+  return(payload)
 }
 
 #' @rdname statcast_search
@@ -335,7 +311,7 @@ statcast_search.default <- function(start_date = Sys.Date() - 1, end_date = Sys.
   #   warning("Please wrap your dates in quotations in 'yyyy-mm-dd' format.")
   #   return(NULL)
   # }
-  message(paste0(start_date, " is not a date. Attempting to coerce..."))
+  cli::cli_alert_warning(paste0(start_date, " is not a date. Attempting to coerce..."))
   start_Date <- as.Date(start_date)
   
   tryCatch(
@@ -343,10 +319,10 @@ statcast_search.default <- function(start_date = Sys.Date() - 1, end_date = Sys.
       end_Date <- as.Date(end_date)
     },
     warning = function(cond) {
-      message(paste0(end_date, " was not coercible into a date. Using today."))
+      cli::cli_alert_warning(paste0(end_date, " was not coercible into a date. Using today."))
       end_Date <- Sys.Date()
-      message("Original warning message:")
-      message(cond)
+      cli::cli_alert_warning("Original warning message:")
+      cli::cli_alert_warning(cond)
     }
   )
   
