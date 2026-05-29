@@ -18,18 +18,20 @@ A data frame of contract data.\tabular{ll}{
    team \tab character \cr
    player_name \tab character \cr
    roster_status \tab character \cr
-   age \tab numeric \cr
-   pos \tab numeric \cr
-   status \tab numeric \cr
-   waiver_options \tab numeric \cr
+   pos \tab character \cr
+   exp \tab character \cr
+   options_minor \tab character \cr
+   status \tab character \cr
+   payroll_salary \tab numeric \cr
+   payroll_salary_adjusted \tab numeric \cr
    base_salary \tab numeric \cr
    signing_bonus \tab numeric \cr
-   payroll_salary \tab numeric \cr
-   adj_salary \tab numeric \cr
-   payroll_percent \tab numeric \cr
-   lux_tax_salary \tab numeric \cr
-   total_salary \tab numeric \cr
+   waiver_options \tab character \cr
 }
+
+
+Columns after \code{roster_status} mirror Spotrac's current payroll table and may
+change as Spotrac updates its layout.
 }
 \description{
 This function allows you to scrape a team's active payroll from Spotrac.

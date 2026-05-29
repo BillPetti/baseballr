@@ -5,24 +5,25 @@
 #' @param year Year to load
 #' @return A data frame of contract data.
 #' 
-#'  |col_name           |types     |
-#'  |:------------------|:---------|
-#'  |year               |numeric   |
-#'  |team               |character |
-#'  |player_name        |character |
-#'  |roster_status      |character |
-#'  |age                |numeric   |
-#'  |pos                |numeric   |
-#'  |status             |numeric   |
-#'  |waiver_options     |numeric   |
-#'  |base_salary        |numeric   |
-#'  |signing_bonus      |numeric   |
-#'  |payroll_salary     |numeric   |
-#'  |adj_salary         |numeric   |
-#'  |payroll_percent    |numeric   |
-#'  |lux_tax_salary     |numeric   |
-#'  |total_salary       |numeric   |
-#'  
+#'  |col_name                |types     |
+#'  |:-----------------------|:---------|
+#'  |year                    |numeric   |
+#'  |team                    |character |
+#'  |player_name             |character |
+#'  |roster_status           |character |
+#'  |pos                     |character |
+#'  |exp                     |character |
+#'  |options_minor           |character |
+#'  |status                  |character |
+#'  |payroll_salary          |numeric   |
+#'  |payroll_salary_adjusted |numeric   |
+#'  |base_salary             |numeric   |
+#'  |signing_bonus           |numeric   |
+#'  |waiver_options          |character |
+#'
+#'  Columns after `roster_status` mirror Spotrac's current payroll table and may
+#'  change as Spotrac updates its layout.
+#'
 #' @import rvest 
 #' @import dplyr
 #' @importFrom janitor clean_names

@@ -16,15 +16,18 @@ A data frame of contract data.\tabular{ll}{
    team \tab character \cr
    team_abbr \tab character \cr
    rank \tab numeric \cr
-   win_percent \tab numeric \cr
-   roster \tab numeric \cr
-   active_man_payroll \tab numeric \cr
-   injured_reserve \tab numeric \cr
+   record \tab character \cr
+   avg_age_team \tab character \cr
+   total_payroll_allocations \tab numeric \cr
+   active_26_man \tab numeric \cr
+   injured \tab numeric \cr
    retained \tab numeric \cr
    buried \tab numeric \cr
-   suspended \tab numeric \cr
-   yearly_total_payroll \tab numeric \cr
 }
+
+
+Column names after \code{rank} mirror Spotrac's current league-payroll table and
+may change as Spotrac updates its layout.
 }
 \description{
 This function allows you to scrape each team's payroll from Spotrac.

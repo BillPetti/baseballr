@@ -3,20 +3,22 @@
 #' @description This function allows you to scrape each team's payroll from Spotrac.
 #' @param year Year to load
 #' @return A data frame of contract data.
-#'  |col_name             |types     |
-#'  |:--------------------|:---------|
-#'  |year                 |character |
-#'  |team                 |character |
-#'  |team_abbr            |character |
-#'  |rank                 |numeric   |
-#'  |win_percent          |numeric   |
-#'  |roster               |numeric   |
-#'  |active_man_payroll   |numeric   |
-#'  |injured_reserve      |numeric   |
-#'  |retained             |numeric   |
-#'  |buried               |numeric   |
-#'  |suspended            |numeric   |
-#'  |yearly_total_payroll |numeric   |
+#'  |col_name                  |types     |
+#'  |:--------------------------|:---------|
+#'  |year                       |character |
+#'  |team                       |character |
+#'  |team_abbr                  |character |
+#'  |rank                       |numeric   |
+#'  |record                     |character |
+#'  |avg_age_team               |character |
+#'  |total_payroll_allocations  |numeric   |
+#'  |active_26_man              |numeric   |
+#'  |injured                    |numeric   |
+#'  |retained                   |numeric   |
+#'  |buried                     |numeric   |
+#'
+#'  Column names after `rank` mirror Spotrac's current league-payroll table and
+#'  may change as Spotrac updates its layout.
 #' @import rvest 
 #' @import dplyr
 #' @importFrom janitor clean_names
