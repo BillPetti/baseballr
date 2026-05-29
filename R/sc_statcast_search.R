@@ -239,12 +239,12 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
       )
     },
     error = function(cond) {
-      cli::cli_alert_danger(cond)
+      cli::cli_alert_danger("{conditionMessage(cond)}")
       stop("No payload acquired")
     },
     # this will never run??
     warning = function(cond) {
-      cli::cli_alert_warning(cond)
+      cli::cli_alert_warning("{conditionMessage(cond)}")
     }
   )
   # Baseball Savant periodically appends new columns to the CSV export (for
@@ -322,7 +322,7 @@ statcast_search.default <- function(start_date = Sys.Date() - 1, end_date = Sys.
       cli::cli_alert_warning(paste0(end_date, " was not coercible into a date. Using today."))
       end_Date <- Sys.Date()
       cli::cli_alert_warning("Original warning message:")
-      cli::cli_alert_warning(cond)
+      cli::cli_alert_warning("{conditionMessage(cond)}")
     }
   )
   

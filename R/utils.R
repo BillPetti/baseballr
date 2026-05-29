@@ -62,7 +62,7 @@ rds_from_url <- function(url) {
   load <- try(readRDS(con), silent = TRUE)
   
   if (inherits(load, "try-error")) {
-    cli::cli_warn(paste0("Failed to readRDS from <", url, ">"), call. = FALSE)
+    cli::cli_warn("Failed to readRDS from {.url {url}}")
     return(data.table::data.table())
   }
   

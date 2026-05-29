@@ -143,7 +143,9 @@ mlb_stats <- function(stat_type = NULL,
   )
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
-  
+
+  stats <- NULL
+
   tryCatch(
     expr = {
       resp <- mlb_endpoint |> 
@@ -164,7 +166,9 @@ mlb_stats <- function(stat_type = NULL,
     finally = {
     }
   )
-  colnames(stats)<-gsub("stat_", "", colnames(stats))
+  if (!is.null(stats)) {
+    colnames(stats) <- gsub("stat_", "", colnames(stats))
+  }
   return(stats)
 }
 

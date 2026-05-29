@@ -58,13 +58,15 @@ sptrc_league_payrolls <- function(year = most_recent_mlb_season()){
       
       league_payroll[] <- lapply(league_payroll, gsub, pattern="\\$", replacement="")
       league_payroll[] <- lapply(league_payroll, gsub, pattern=",", replacement="")
-      league_payroll[] <- lapply(league_payroll, gsub, pattern="-", replacement="")
-      
-      for(i in c(4:ncol(league_payroll))) {
-        suppressWarnings(
-          league_payroll[,i] <- as.numeric(unlist(league_payroll[,i]))
-        )
-      }
+
+      # Coerce the numeric columns by name rather than position so a change in
+      # Spotrac's column order can't silently NA-coerce a text column (#392).
+      num_cols <- c("rank",
+                    grep("payroll|salary|allocation|active|injured|retained|buried|suspended",
+                         names(league_payroll), value = TRUE, ignore.case = TRUE))
+      league_payroll <- league_payroll |>
+        dplyr::mutate(dplyr::across(dplyr::any_of(num_cols),
+                                    ~ suppressWarnings(as.numeric(gsub("-", "", .x)))))
       
       league_payroll <- league_payroll |>
         make_baseballr_data("MLB Payroll data from Spotrac.com",Sys.time())

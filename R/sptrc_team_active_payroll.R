@@ -144,12 +144,15 @@ sptrc_team_active_payroll <- function(team_abbr, year = most_recent_mlb_season()
       
       Active_Payroll[] <- lapply(Active_Payroll, gsub, pattern="\\$", replacement="")
       Active_Payroll[] <- lapply(Active_Payroll, gsub, pattern=",", replacement="")
-      
-      for(i in c(1, 5,8:ncol(Active_Payroll))) {
-        suppressWarnings(
-          Active_Payroll[,i] <- as.numeric(unlist(Active_Payroll[,i]))
-        )
-      }
+
+      # Coerce the numeric columns by name rather than position so a change in
+      # Spotrac's column order can't silently NA-coerce a text column (#392).
+      num_cols <- c("year", "age",
+                    grep("salary|bonus|payroll|tax|percent",
+                         names(Active_Payroll), value = TRUE, ignore.case = TRUE))
+      Active_Payroll <- Active_Payroll |>
+        dplyr::mutate(dplyr::across(dplyr::any_of(num_cols),
+                                    ~ suppressWarnings(as.numeric(.x))))
       
       Active_Payroll <- Active_Payroll |>
         make_baseballr_data("MLB Active Payroll data from Spotrac.com",Sys.time())
