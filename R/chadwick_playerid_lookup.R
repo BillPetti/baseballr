@@ -5,19 +5,19 @@
 #' @param last_name A text string used to return results for players with that string in their last name.
 #' @param first_name A text string used to return results for players with that string in their first name.
 #' @return A data frame of baseball players and the various IDs associated with them in different systems of record.
-#'   |col_name         |types     |
-#'   |:----------------|:---------|
-#'   |first_name       |character |
-#'   |last_name        |character |
-#'   |given_name       |character |
-#'   |name_suffix      |character |
-#'   |nick_name        |character |
-#'   |birth_year       |integer   |
-#'   |mlb_played_first |integer   |
-#'   |mlbam_id         |integer   |
-#'   |retrosheet_id    |character |
-#'   |bbref_id         |character |
-#'   |fangraphs_id     |integer   |
+#'   |col_name         |types     |description |
+#'   |:----------------|:---------|:-----------|
+#'   |first_name       |character |Player first name. |
+#'   |last_name        |character |Player last name. |
+#'   |given_name       |character |Player full given (legal) name. |
+#'   |name_suffix      |character |Name suffix (e.g. Jr., Sr., III). |
+#'   |nick_name        |character |Player nickname. |
+#'   |birth_year       |integer   |Year of birth. |
+#'   |mlb_played_first |integer   |First MLB season as a player. |
+#'   |mlbam_id         |integer   |MLB Advanced Media (MLBAM) player ID. |
+#'   |retrosheet_id    |character |Retrosheet player ID. |
+#'   |bbref_id         |character |Baseball-Reference player ID. |
+#'   |fangraphs_id     |integer   |FanGraphs player ID. |
 #' @export
 #' @examples \donttest{
 #'   try(playerid_lookup("Garcia", "Karim"))

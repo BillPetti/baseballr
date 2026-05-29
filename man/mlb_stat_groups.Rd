@@ -7,9 +7,9 @@
 mlb_stat_groups()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   stat_group_name \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   stat_group_name \tab character \tab Stat group display name (e.g., hitting). \cr
 }
 }
 \description{

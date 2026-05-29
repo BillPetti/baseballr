@@ -7,16 +7,16 @@
 mlb_situation_codes()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   situation_code \tab character \cr
-   sort_order \tab integer \cr
-   navigation_menu \tab character \cr
-   situation_code_description \tab character \cr
-   team \tab logical \cr
-   batting \tab logical \cr
-   fielding \tab logical \cr
-   pitching \tab logical \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   situation_code \tab character \tab Code identifying the game situation. \cr
+   sort_order \tab integer \tab Display sort order for the situation code. \cr
+   navigation_menu \tab character \tab Navigation menu grouping (e.g. 'Game'). \cr
+   situation_code_description \tab character \tab Description of the situation (e.g. 'Home Games'). \cr
+   team \tab logical \tab Whether the situation applies to team stats. \cr
+   batting \tab logical \tab Whether the situation applies to batting stats. \cr
+   fielding \tab logical \tab Whether the situation applies to fielding stats. \cr
+   pitching \tab logical \tab Whether the situation applies to pitching stats. \cr
 }
 }
 \description{

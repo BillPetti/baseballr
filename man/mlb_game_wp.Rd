@@ -12,13 +12,13 @@ mlb_game_wp(game_pk, timecode = NULL)
 \item{timecode}{The time code for the MLB game (format: MMDDYYYY_HHMMSS)}
 }
 \value{
-Returns a tibble that includes time codes from the game_pk requested\tabular{ll}{
-   col_name \tab types \cr
-   home_team_win_probability \tab numeric \cr
-   away_team_win_probability \tab numeric \cr
-   home_team_win_probability_added \tab numeric \cr
-   at_bat_index \tab integer \cr
-   leverage_index \tab numeric \cr
+Returns a tibble that includes time codes from the game_pk requested\tabular{lll}{
+   col_name \tab types \tab description \cr
+   home_team_win_probability \tab numeric \tab Home team win probability (percent) entering the at-bat. \cr
+   away_team_win_probability \tab numeric \tab Away team win probability (percent) entering the at-bat. \cr
+   home_team_win_probability_added \tab numeric \tab Change in home team win probability attributed to the at-bat. \cr
+   at_bat_index \tab integer \tab Zero-based index of the at-bat within the game. \cr
+   leverage_index \tab numeric \tab Leverage index quantifying the importance of the at-bat situation. \cr
 }
 }
 \description{

@@ -72,39 +72,40 @@
 #'  |streak          |
 #' @param limit Number of records as the limit of the return.  
 #' @return Returns a tibble with the following columns 
-#'   |col_name               |types     |
-#'   |:----------------------|:---------|
-#'   |total_splits           |integer   |
-#'   |season                 |integer   |
-#'   |date                   |character |
-#'   |is_home                |logical   |
-#'   |rank                   |integer   |
-#'   |game_innings           |integer   |
-#'   |stat_at_bats           |integer   |
-#'   |team_id                |integer   |
-#'   |team_name              |character |
-#'   |team_link              |character |
-#'   |opponent_id            |integer   |
-#'   |opponent_name          |character |
-#'   |opponent_link          |character |
-#'   |game_pk                |integer   |
-#'   |game_link              |character |
-#'   |game_number            |integer   |
-#'   |game_content_link      |character |
-#'   |home_team_id           |integer   |
-#'   |home_team_name         |character |
-#'   |home_team_link         |character |
-#'   |away_team_id           |integer   |
-#'   |away_team_name         |character |
-#'   |away_team_link         |character |
-#'   |combined_stats         |logical   |
-#'   |group_display_name     |character |
-#'   |game_type_id           |character |
-#'   |game_type_description  |character |
-#'   |sort_stat_name         |character |
-#'   |sort_stat_lookup_param |character |
-#'   |sort_stat_is_counting  |logical   |
-#'   |sort_stat_label        |character |
+#'   |col_name               |types     |description                                                       |
+#'   |:----------------------|:---------|:-----------------------------------------------------------------|
+#'   |total_splits           |integer   |Total number of split records matching the query.                 |
+#'   |season                 |integer   |Season year for the split.                                        |
+#'   |date                   |character |Date of the game (YYYY-MM-DD).                                    |
+#'   |is_home                |logical   |Whether the subject team was the home team.                       |
+#'   |rank                   |integer   |Rank of the split within the high/low leaderboard.                |
+#'   |game_innings           |integer   |Number of innings played in the game.                             |
+#'   |stat_at_bats           |integer   |Value of the sorted statistic (here at bats) for the split.       |
+#'   |team_id                |integer   |MLB team id for the subject team.                                 |
+#'   |team_name              |character |Subject team name.                                                |
+#'   |team_link              |character |API relative link to the subject team.                            |
+#'   |opponent_id            |integer   |MLB team id for the opponent.                                     |
+#'   |opponent_name          |character |Opponent team name.                                               |
+#'   |opponent_link          |character |API relative link to the opponent team.                           |
+#'   |game_pk                |integer   |MLB game primary key.                                             |
+#'   |game_link              |character |API relative link to the game live feed.                          |
+#'   |game_number            |integer   |Game number within a day (1 unless a doubleheader).               |
+#'   |game_day_night         |character |Day/night designation of the game ('day' or 'night').             |
+#'   |game_content_link      |character |API relative link to the game content endpoint.                   |
+#'   |home_team_id           |integer   |Home team id (populated for game-level org types).                |
+#'   |home_team_name         |character |Home team name (populated for game-level org types).              |
+#'   |home_team_link         |character |API relative link to the home team.                               |
+#'   |away_team_id           |integer   |Away team id (populated for game-level org types).                |
+#'   |away_team_name         |character |Away team name (populated for game-level org types).              |
+#'   |away_team_link         |character |API relative link to the away team.                              |
+#'   |combined_stats         |logical   |Whether the stat combines multiple split sources.                 |
+#'   |group_display_name     |character |Stat group display name (e.g. 'hitting').                         |
+#'   |game_type_id           |character |Single-letter game type code (e.g. 'R').                         |
+#'   |game_type_description  |character |Game type description (e.g. 'Regular Season').                    |
+#'   |sort_stat_name         |character |Snake-case name of the sorted statistic (e.g. 'at_bats').         |
+#'   |sort_stat_lookup_param |character |API lookup parameter for the sorted statistic (e.g. 'atBats').    |
+#'   |sort_stat_is_counting  |logical   |Whether the sorted statistic is a counting stat.                  |
+#'   |sort_stat_label        |character |Human-readable label of the sorted statistic (e.g. 'At bats').    |
 #'  
 #' @importFrom jsonlite fromJSON
 #' @export

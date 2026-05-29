@@ -46,325 +46,137 @@ Default is \code{batter}}
 \item{pitcherid}{The MLBAM ID for the pitcher whose data you want to query.}
 }
 \value{
-Returns a tibble with Statcast data with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   pitch_type \tab character \cr
-   game_date \tab Date \cr
-   release_speed \tab numeric \cr
-   release_pos_x \tab numeric \cr
-   release_pos_z \tab numeric \cr
-   player_name \tab character \cr
-   batter \tab numeric \cr
-   pitcher \tab numeric \cr
-   events \tab character \cr
-   description \tab character \cr
-   spin_dir \tab logical \cr
-   spin_rate_deprecated \tab logical \cr
-   break_angle_deprecated \tab logical \cr
-   break_length_deprecated \tab logical \cr
-   zone \tab numeric \cr
-   des \tab character \cr
-   game_type \tab character \cr
-   stand \tab character \cr
-   p_throws \tab character \cr
-   home_team \tab character \cr
-   away_team \tab character \cr
-   type \tab character \cr
-   hit_location \tab integer \cr
-   bb_type \tab character \cr
-   balls \tab integer \cr
-   strikes \tab integer \cr
-   game_year \tab integer \cr
-   pfx_x \tab numeric \cr
-   pfx_z \tab numeric \cr
-   plate_x \tab numeric \cr
-   plate_z \tab numeric \cr
-   on_3b \tab numeric \cr
-   on_2b \tab numeric \cr
-   on_1b \tab numeric \cr
-   outs_when_up \tab integer \cr
-   inning \tab numeric \cr
-   inning_topbot \tab character \cr
-   hc_x \tab numeric \cr
-   hc_y \tab numeric \cr
-   tfs_deprecated \tab logical \cr
-   tfs_zulu_deprecated \tab logical \cr
-   umpire \tab logical \cr
-   sv_id \tab character \cr
-   vx0 \tab numeric \cr
-   vy0 \tab numeric \cr
-   vz0 \tab numeric \cr
-   ax \tab numeric \cr
-   ay \tab numeric \cr
-   az \tab numeric \cr
-   sz_top \tab numeric \cr
-   sz_bot \tab numeric \cr
-   hit_distance_sc \tab numeric \cr
-   launch_speed \tab numeric \cr
-   launch_angle \tab numeric \cr
-   effective_speed \tab numeric \cr
-   release_spin_rate \tab numeric \cr
-   release_extension \tab numeric \cr
-   game_pk \tab numeric \cr
-   fielder_2 \tab numeric \cr
-   fielder_3 \tab numeric \cr
-   fielder_4 \tab numeric \cr
-   fielder_5 \tab numeric \cr
-   fielder_6 \tab numeric \cr
-   fielder_7 \tab numeric \cr
-   fielder_8 \tab numeric \cr
-   fielder_9 \tab numeric \cr
-   release_pos_y \tab numeric \cr
-   estimated_ba_using_speedangle \tab numeric \cr
-   estimated_woba_using_speedangle \tab numeric \cr
-   woba_value \tab numeric \cr
-   woba_denom \tab integer \cr
-   babip_value \tab integer \cr
-   iso_value \tab integer \cr
-   launch_speed_angle \tab integer \cr
-   at_bat_number \tab numeric \cr
-   pitch_number \tab numeric \cr
-   pitch_name \tab character \cr
-   home_score \tab numeric \cr
-   away_score \tab numeric \cr
-   bat_score \tab numeric \cr
-   fld_score \tab numeric \cr
-   post_away_score \tab numeric \cr
-   post_home_score \tab numeric \cr
-   post_bat_score \tab numeric \cr
-   post_fld_score \tab numeric \cr
-   if_fielding_alignment \tab character \cr
-   of_fielding_alignment \tab character \cr
-   spin_axis \tab numeric \cr
-   delta_home_win_exp \tab numeric \cr
-   delta_run_exp \tab numeric \cr
-   bat_speed \tab numeric \cr
-   swing_length \tab numeric \cr
-   estimated_slg_using_speedangle \tab numeric \cr
-   delta_pitcher_run_exp \tab numeric \cr
-   hyper_speed \tab numeric \cr
-   home_score_diff \tab numeric \cr
-   bat_score_diff \tab numeric \cr
-   home_win_exp \tab numeric \cr
-   bat_win_exp \tab numeric \cr
-   age_pit_legacy \tab numeric \cr
-   age_bat_legacy \tab numeric \cr
-   age_pit \tab numeric \cr
-   age_bat \tab numeric \cr
-   n_thruorder_pitcher \tab numeric \cr
-   n_priorpa_thisgame_player_at_bat \tab numeric \cr
-   pitcher_days_since_prev_game \tab numeric \cr
-   batter_days_since_prev_game \tab numeric \cr
-   pitcher_days_until_next_game \tab numeric \cr
-   batter_days_until_next_game \tab numeric \cr
-   api_break_z_with_gravity \tab numeric \cr
-   api_break_x_arm \tab numeric \cr
-   api_break_x_batter_in \tab numeric \cr
-   arm_angle \tab numeric \cr
-   attack_angle \tab numeric \cr
-   attack_direction \tab numeric \cr
-   swing_path_tilt \tab numeric \cr
-   intercept_ball_minus_batter_pos_x_inches \tab numeric \cr
-   intercept_ball_minus_batter_pos_y_inches \tab numeric \cr
+Returns a tibble with Statcast data with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   pitch_type \tab character \tab Abbreviation of the pitch type thrown (e.g. FF, SL, CH). \cr
+   game_date \tab Date \tab Date the game was played. \cr
+   release_speed \tab numeric \tab Pitch velocity out of the hand (mph). \cr
+   release_pos_x \tab numeric \tab Horizontal release position of the ball, catcher's perspective (feet). \cr
+   release_pos_z \tab numeric \tab Vertical release position of the ball, catcher's perspective (feet). \cr
+   player_name \tab character \tab Pitcher (or batter, by query) name, Last, First. \cr
+   batter \tab numeric \tab MLBAM ID for the batter. \cr
+   pitcher \tab numeric \tab MLBAM ID for the pitcher. \cr
+   events \tab character \tab Plate-appearance outcome (e.g. single, strikeout, home_run). \cr
+   description \tab character \tab Pitch-level result description (e.g. ball, called_strike, hit_into_play). \cr
+   spin_dir \tab logical \tab Deprecated spin direction field, no longer populated. \cr
+   spin_rate_deprecated \tab logical \tab Deprecated legacy spin-rate field, no longer populated. \cr
+   break_angle_deprecated \tab logical \tab Deprecated legacy break-angle field, no longer populated. \cr
+   break_length_deprecated \tab logical \tab Deprecated legacy break-length field, no longer populated. \cr
+   zone \tab numeric \tab Strike-zone region the pitch crossed (1-14 Gameday zone). \cr
+   des \tab character \tab Full text description of the play. \cr
+   game_type \tab character \tab Type of game: R (regular), PO/F/D/L/W (postseason), S (spring). \cr
+   stand \tab character \tab Side of the plate the batter is standing (L or R). \cr
+   p_throws \tab character \tab Hand the pitcher throws with (L or R). \cr
+   home_team \tab character \tab Home team abbreviation. \cr
+   away_team \tab character \tab Away team abbreviation. \cr
+   type \tab character \tab Pitch result code: B (ball), S (strike), X (in play). \cr
+   hit_location \tab integer \tab Fielder position number that fielded the ball. \cr
+   bb_type \tab character \tab Batted-ball type (ground_ball, line_drive, fly_ball, popup). \cr
+   balls \tab integer \tab Ball count before the pitch. \cr
+   strikes \tab integer \tab Strike count before the pitch. \cr
+   game_year \tab integer \tab Season year of the game. \cr
+   pfx_x \tab numeric \tab Horizontal pitch movement from the catcher's perspective (feet). \cr
+   pfx_z \tab numeric \tab Vertical pitch movement from the catcher's perspective (feet). \cr
+   plate_x \tab numeric \tab Horizontal position of the pitch crossing the plate (feet from center). \cr
+   plate_z \tab numeric \tab Vertical position of the pitch crossing the plate (feet above ground). \cr
+   on_3b \tab numeric \tab MLBAM ID of the runner on third base, if any. \cr
+   on_2b \tab numeric \tab MLBAM ID of the runner on second base, if any. \cr
+   on_1b \tab numeric \tab MLBAM ID of the runner on first base, if any. \cr
+   outs_when_up \tab integer \tab Number of outs when the batter came to the plate. \cr
+   inning \tab numeric \tab Inning number. \cr
+   inning_topbot \tab character \tab Half of the inning (Top or Bot). \cr
+   hc_x \tab numeric \tab Hit coordinate X on the field diagram. \cr
+   hc_y \tab numeric \tab Hit coordinate Y on the field diagram. \cr
+   tfs_deprecated \tab logical \tab Deprecated time-from-start field, no longer populated. \cr
+   tfs_zulu_deprecated \tab logical \tab Deprecated Zulu time-from-start field, no longer populated. \cr
+   umpire \tab logical \tab Deprecated umpire field, no longer populated. \cr
+   sv_id \tab logical \tab Deprecated Sportvision/Statcast pitch identifier, no longer populated. \cr
+   vx0 \tab numeric \tab Velocity of the pitch in the x-direction at y=50 ft (ft/s). \cr
+   vy0 \tab numeric \tab Velocity of the pitch in the y-direction at y=50 ft (ft/s). \cr
+   vz0 \tab numeric \tab Velocity of the pitch in the z-direction at y=50 ft (ft/s). \cr
+   ax \tab numeric \tab Acceleration of the pitch in the x-direction at y=50 ft (ft/s^2). \cr
+   ay \tab numeric \tab Acceleration of the pitch in the y-direction at y=50 ft (ft/s^2). \cr
+   az \tab numeric \tab Acceleration of the pitch in the z-direction at y=50 ft (ft/s^2). \cr
+   sz_top \tab numeric \tab Top of the batter's strike zone for the pitch (feet). \cr
+   sz_bot \tab numeric \tab Bottom of the batter's strike zone for the pitch (feet). \cr
+   hit_distance_sc \tab numeric \tab Statcast-measured projected distance of the batted ball (feet). \cr
+   launch_speed \tab numeric \tab Exit velocity of the batted ball (mph). \cr
+   launch_angle \tab numeric \tab Vertical launch angle of the batted ball (degrees). \cr
+   effective_speed \tab numeric \tab Perceived velocity adjusted for release extension (mph). \cr
+   release_spin_rate \tab numeric \tab Spin rate of the pitch at release (rpm). \cr
+   release_extension \tab numeric \tab Distance toward the plate at release (feet). \cr
+   game_pk \tab numeric \tab Unique MLB game identifier. \cr
+   fielder_2 \tab numeric \tab MLBAM ID of the catcher. \cr
+   fielder_3 \tab numeric \tab MLBAM ID of the first baseman. \cr
+   fielder_4 \tab numeric \tab MLBAM ID of the second baseman. \cr
+   fielder_5 \tab numeric \tab MLBAM ID of the third baseman. \cr
+   fielder_6 \tab numeric \tab MLBAM ID of the shortstop. \cr
+   fielder_7 \tab numeric \tab MLBAM ID of the left fielder. \cr
+   fielder_8 \tab numeric \tab MLBAM ID of the center fielder. \cr
+   fielder_9 \tab numeric \tab MLBAM ID of the right fielder. \cr
+   release_pos_y \tab numeric \tab Release position of the ball toward the plate (feet). \cr
+   estimated_ba_using_speedangle \tab numeric \tab Expected batting average based on exit velocity and launch angle. \cr
+   estimated_woba_using_speedangle \tab numeric \tab Expected wOBA based on exit velocity and launch angle. \cr
+   woba_value \tab numeric \tab wOBA value assigned to the event. \cr
+   woba_denom \tab integer \tab wOBA denominator (plate-appearance weight) for the event. \cr
+   babip_value \tab integer \tab BABIP value assigned to the event (0 or 1). \cr
+   iso_value \tab integer \tab Isolated power value assigned to the event. \cr
+   launch_speed_angle \tab integer \tab Batted-ball classification code (1-6) from exit velocity and angle. \cr
+   at_bat_number \tab numeric \tab Sequential plate-appearance number within the game. \cr
+   pitch_number \tab numeric \tab Pitch number within the plate appearance. \cr
+   pitch_name \tab character \tab Full name of the pitch type (e.g. 4-Seam Fastball, Slider). \cr
+   home_score \tab numeric \tab Home team score before the pitch. \cr
+   away_score \tab numeric \tab Away team score before the pitch. \cr
+   bat_score \tab numeric \tab Batting team score before the pitch. \cr
+   fld_score \tab numeric \tab Fielding team score before the pitch. \cr
+   post_away_score \tab numeric \tab Away team score after the pitch. \cr
+   post_home_score \tab numeric \tab Home team score after the pitch. \cr
+   post_bat_score \tab numeric \tab Batting team score after the pitch. \cr
+   post_fld_score \tab numeric \tab Fielding team score after the pitch. \cr
+   if_fielding_alignment \tab character \tab Infield defensive alignment (Standard, Strategic, Infield shift). \cr
+   of_fielding_alignment \tab character \tab Outfield defensive alignment (Standard, Strategic, 4th outfielder). \cr
+   spin_axis \tab numeric \tab Spin axis of the pitch as a clock-face angle (degrees). \cr
+   delta_home_win_exp \tab numeric \tab Change in home team win expectancy on the play. \cr
+   delta_run_exp \tab numeric \tab Change in run expectancy on the play. \cr
+   bat_speed \tab numeric \tab Bat speed at the point of contact (mph). \cr
+   swing_length \tab numeric \tab Length of the swing path to contact (feet). \cr
+   estimated_slg_using_speedangle \tab numeric \tab Expected slugging based on exit velocity and launch angle. \cr
+   delta_pitcher_run_exp \tab numeric \tab Change in run expectancy credited to the pitcher. \cr
+   hyper_speed \tab numeric \tab Adjusted (90th-percentile) exit velocity (mph). \cr
+   home_score_diff \tab integer \tab Home team score minus away team score before the pitch. \cr
+   bat_score_diff \tab integer \tab Batting team score minus fielding team score before the pitch. \cr
+   home_win_exp \tab numeric \tab Home team win expectancy before the play. \cr
+   bat_win_exp \tab numeric \tab Batting team win expectancy before the play. \cr
+   age_pit_legacy \tab integer \tab Pitcher age using the legacy calculation. \cr
+   age_bat_legacy \tab integer \tab Batter age using the legacy calculation. \cr
+   age_pit \tab integer \tab Pitcher age for the season. \cr
+   age_bat \tab integer \tab Batter age for the season. \cr
+   n_thruorder_pitcher \tab integer \tab Times through the order the pitcher is facing the lineup. \cr
+   n_priorpa_thisgame_player_at_bat \tab integer \tab Number of prior plate appearances by the batter in the game. \cr
+   pitcher_days_since_prev_game \tab integer \tab Days since the pitcher's previous game appearance. \cr
+   batter_days_since_prev_game \tab integer \tab Days since the batter's previous game appearance. \cr
+   pitcher_days_until_next_game \tab integer \tab Days until the pitcher's next game appearance. \cr
+   batter_days_until_next_game \tab integer \tab Days until the batter's next game appearance. \cr
+   api_break_z_with_gravity \tab numeric \tab Vertical pitch break including gravity (inches). \cr
+   api_break_x_arm \tab numeric \tab Horizontal pitch break to the pitcher's arm side (inches). \cr
+   api_break_x_batter_in \tab numeric \tab Horizontal pitch break toward/away from the batter (inches). \cr
+   arm_angle \tab numeric \tab Pitcher's arm angle at release (degrees). \cr
+   attack_angle \tab numeric \tab Angle of the bat's path at contact (degrees). \cr
+   attack_direction \tab numeric \tab Horizontal direction of the swing at contact (degrees). \cr
+   swing_path_tilt \tab numeric \tab Vertical tilt of the swing path (degrees). \cr
+   intercept_ball_minus_batter_pos_x_inches \tab numeric \tab Horizontal offset of ball-bat intercept from batter position (inches). \cr
+   intercept_ball_minus_batter_pos_y_inches \tab numeric \tab Depth offset of ball-bat intercept from batter position (inches). \cr
 }
 
 Returns a tibble with Statcast data.
 
-Returns a tibble with Statcast data with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   pitch_type \tab character \cr
-   game_date \tab Date \cr
-   release_speed \tab numeric \cr
-   release_pos_x \tab numeric \cr
-   release_pos_z \tab numeric \cr
-   player_name \tab character \cr
-   batter \tab numeric \cr
-   pitcher \tab numeric \cr
-   events \tab character \cr
-   description \tab character \cr
-   spin_dir \tab logical \cr
-   spin_rate_deprecated \tab logical \cr
-   break_angle_deprecated \tab logical \cr
-   break_length_deprecated \tab logical \cr
-   zone \tab numeric \cr
-   des \tab character \cr
-   game_type \tab character \cr
-   stand \tab character \cr
-   p_throws \tab character \cr
-   home_team \tab character \cr
-   away_team \tab character \cr
-   type \tab character \cr
-   hit_location \tab integer \cr
-   bb_type \tab character \cr
-   balls \tab integer \cr
-   strikes \tab integer \cr
-   game_year \tab integer \cr
-   pfx_x \tab numeric \cr
-   pfx_z \tab numeric \cr
-   plate_x \tab numeric \cr
-   plate_z \tab numeric \cr
-   on_3b \tab numeric \cr
-   on_2b \tab numeric \cr
-   on_1b \tab numeric \cr
-   outs_when_up \tab integer \cr
-   inning \tab numeric \cr
-   inning_topbot \tab character \cr
-   hc_x \tab numeric \cr
-   hc_y \tab numeric \cr
-   tfs_deprecated \tab logical \cr
-   tfs_zulu_deprecated \tab logical \cr
-   fielder_2 \tab numeric \cr
-   umpire \tab logical \cr
-   sv_id \tab character \cr
-   vx0 \tab numeric \cr
-   vy0 \tab numeric \cr
-   vz0 \tab numeric \cr
-   ax \tab numeric \cr
-   ay \tab numeric \cr
-   az \tab numeric \cr
-   sz_top \tab numeric \cr
-   sz_bot \tab numeric \cr
-   hit_distance_sc \tab numeric \cr
-   launch_speed \tab numeric \cr
-   launch_angle \tab numeric \cr
-   effective_speed \tab numeric \cr
-   release_spin_rate \tab numeric \cr
-   release_extension \tab numeric \cr
-   game_pk \tab numeric \cr
-   pitcher_1 \tab numeric \cr
-   fielder_2_1 \tab numeric \cr
-   fielder_3 \tab numeric \cr
-   fielder_4 \tab numeric \cr
-   fielder_5 \tab numeric \cr
-   fielder_6 \tab numeric \cr
-   fielder_7 \tab numeric \cr
-   fielder_8 \tab numeric \cr
-   fielder_9 \tab numeric \cr
-   release_pos_y \tab numeric \cr
-   estimated_ba_using_speedangle \tab numeric \cr
-   estimated_woba_using_speedangle \tab numeric \cr
-   woba_value \tab numeric \cr
-   woba_denom \tab integer \cr
-   babip_value \tab integer \cr
-   iso_value \tab integer \cr
-   launch_speed_angle \tab integer \cr
-   at_bat_number \tab numeric \cr
-   pitch_number \tab numeric \cr
-   pitch_name \tab character \cr
-   home_score \tab numeric \cr
-   away_score \tab numeric \cr
-   bat_score \tab numeric \cr
-   fld_score \tab numeric \cr
-   post_away_score \tab numeric \cr
-   post_home_score \tab numeric \cr
-   post_bat_score \tab numeric \cr
-   post_fld_score \tab numeric \cr
-   if_fielding_alignment \tab character \cr
-   of_fielding_alignment \tab character \cr
-   spin_axis \tab numeric \cr
-   delta_home_win_exp \tab numeric \cr
-   delta_run_exp \tab numeric \cr
-   bat_speed \tab numeric \cr
-   swing_length \tab numeric \cr
-}
+Returns a tibble with the same Statcast pitch-level columns as
+\code{\link[=statcast_search]{statcast_search()}}, filtered to the requested batter. See the
+\code{\link[=statcast_search]{statcast_search()}} return value for the full column-by-column reference.
 
-Returns a tibble with Statcast data with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   pitch_type \tab character \cr
-   game_date \tab Date \cr
-   release_speed \tab numeric \cr
-   release_pos_x \tab numeric \cr
-   release_pos_z \tab numeric \cr
-   player_name \tab character \cr
-   batter \tab numeric \cr
-   pitcher \tab numeric \cr
-   events \tab character \cr
-   description \tab character \cr
-   spin_dir \tab logical \cr
-   spin_rate_deprecated \tab logical \cr
-   break_angle_deprecated \tab logical \cr
-   break_length_deprecated \tab logical \cr
-   zone \tab numeric \cr
-   des \tab character \cr
-   game_type \tab character \cr
-   stand \tab character \cr
-   p_throws \tab character \cr
-   home_team \tab character \cr
-   away_team \tab character \cr
-   type \tab character \cr
-   hit_location \tab integer \cr
-   bb_type \tab character \cr
-   balls \tab integer \cr
-   strikes \tab integer \cr
-   game_year \tab integer \cr
-   pfx_x \tab numeric \cr
-   pfx_z \tab numeric \cr
-   plate_x \tab numeric \cr
-   plate_z \tab numeric \cr
-   on_3b \tab numeric \cr
-   on_2b \tab numeric \cr
-   on_1b \tab numeric \cr
-   outs_when_up \tab integer \cr
-   inning \tab numeric \cr
-   inning_topbot \tab character \cr
-   hc_x \tab numeric \cr
-   hc_y \tab numeric \cr
-   tfs_deprecated \tab logical \cr
-   tfs_zulu_deprecated \tab logical \cr
-   fielder_2 \tab numeric \cr
-   umpire \tab logical \cr
-   sv_id \tab character \cr
-   vx0 \tab numeric \cr
-   vy0 \tab numeric \cr
-   vz0 \tab numeric \cr
-   ax \tab numeric \cr
-   ay \tab numeric \cr
-   az \tab numeric \cr
-   sz_top \tab numeric \cr
-   sz_bot \tab numeric \cr
-   hit_distance_sc \tab numeric \cr
-   launch_speed \tab numeric \cr
-   launch_angle \tab numeric \cr
-   effective_speed \tab numeric \cr
-   release_spin_rate \tab numeric \cr
-   release_extension \tab numeric \cr
-   game_pk \tab numeric \cr
-   pitcher_1 \tab numeric \cr
-   fielder_2_1 \tab numeric \cr
-   fielder_3 \tab numeric \cr
-   fielder_4 \tab numeric \cr
-   fielder_5 \tab numeric \cr
-   fielder_6 \tab numeric \cr
-   fielder_7 \tab numeric \cr
-   fielder_8 \tab numeric \cr
-   fielder_9 \tab numeric \cr
-   release_pos_y \tab numeric \cr
-   estimated_ba_using_speedangle \tab numeric \cr
-   estimated_woba_using_speedangle \tab numeric \cr
-   woba_value \tab numeric \cr
-   woba_denom \tab integer \cr
-   babip_value \tab integer \cr
-   iso_value \tab integer \cr
-   launch_speed_angle \tab integer \cr
-   at_bat_number \tab numeric \cr
-   pitch_number \tab numeric \cr
-   pitch_name \tab character \cr
-   home_score \tab numeric \cr
-   away_score \tab numeric \cr
-   bat_score \tab numeric \cr
-   fld_score \tab numeric \cr
-   post_away_score \tab numeric \cr
-   post_home_score \tab numeric \cr
-   post_bat_score \tab numeric \cr
-   post_fld_score \tab numeric \cr
-   if_fielding_alignment \tab character \cr
-   of_fielding_alignment \tab character \cr
-   spin_axis \tab numeric \cr
-   delta_home_win_exp \tab numeric \cr
-   delta_run_exp \tab numeric \cr
-   bat_speed \tab numeric \cr
-   swing_length \tab numeric \cr
-}
+Returns a tibble with the same Statcast pitch-level columns as
+\code{\link[=statcast_search]{statcast_search()}}, filtered to the requested pitcher. See the
+\code{\link[=statcast_search]{statcast_search()}} return value for the full column-by-column reference.
 }
 \description{
 This function allows you to query Statcast data as provided on \url{https://baseballsavant.mlb.com}

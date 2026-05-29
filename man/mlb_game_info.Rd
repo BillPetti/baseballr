@@ -11,26 +11,26 @@ mlb_game_info(game_pk)
 }
 \value{
 Returns a tibble that includes supplemental information, such as
-weather, official scorer, attendance, etc., for the game_pk provided\tabular{ll}{
-   col_name \tab types \cr
-   game_date \tab character \cr
-   game_pk \tab numeric \cr
-   venue_name \tab character \cr
-   venue_id \tab integer \cr
-   temperature \tab character \cr
-   other_weather \tab character \cr
-   wind \tab character \cr
-   attendance \tab character \cr
-   start_time \tab character \cr
-   elapsed_time \tab character \cr
-   game_id \tab character \cr
-   game_type \tab character \cr
-   home_sport_code \tab character \cr
-   official_scorer \tab character \cr
-   date \tab character \cr
-   status_ind \tab character \cr
-   home_league_id \tab integer \cr
-   gameday_sw \tab character \cr
+weather, official scorer, attendance, etc., for the game_pk provided\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_date \tab character \tab Game date (YYYY-MM-DD). \cr
+   game_pk \tab numeric \tab Unique game identifier. \cr
+   venue_name \tab character \tab Stadium name. \cr
+   venue_id \tab integer \tab Venue ID. \cr
+   temperature \tab character \tab Game-time temperature (degrees F). \cr
+   other_weather \tab character \tab Weather condition description. \cr
+   wind \tab character \tab Wind speed and direction. \cr
+   attendance \tab character \tab Reported game attendance. \cr
+   start_time \tab character \tab First-pitch local start time. \cr
+   elapsed_time \tab character \tab Total elapsed game time (H:MM). \cr
+   game_id \tab character \tab Human-readable game ID slug. \cr
+   game_type \tab character \tab Game type code (R, P, etc.). \cr
+   home_sport_code \tab character \tab Home sport code (always 'mlb'). \cr
+   official_scorer \tab character \tab Official scorer name. \cr
+   date \tab character \tab Long-form game date label. \cr
+   status_ind \tab character \tab Game status code. \cr
+   home_league_id \tab integer \tab Home team league ID. \cr
+   gameday_sw \tab character \tab Gameday data type code. \cr
 }
 }
 \description{

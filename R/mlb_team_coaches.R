@@ -4,15 +4,15 @@
 #' @param season Year to return team coach information for. 
 #' 
 #' @return Returns a tibble with the following columns
-#'    |col_name         |types     |
-#'    |:----------------|:---------|
-#'    |jersey_number    |character |
-#'    |job              |character |
-#'    |job_id           |character |
-#'    |title            |character |
-#'    |person_id        |integer   |
-#'    |person_full_name |character |
-#'    |person_link      |character |
+#'    |col_name         |types     |description                          |
+#'    |:----------------|:---------|:------------------------------------|
+#'    |jersey_number    |character |Coach uniform number.                |
+#'    |job              |character |Job name (e.g., Manager).            |
+#'    |job_id           |character |Job code identifier.                 |
+#'    |title            |character |Full coaching title.                 |
+#'    |person_id        |integer   |Coach MLBAM person ID.               |
+#'    |person_full_name |character |Coach full name.                     |
+#'    |person_link      |character |API link to the coach.               |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_team_coaches(team_id = 137, season = 2021))

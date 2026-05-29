@@ -12,15 +12,15 @@ mlb_jobs_official_scorers(sport_id = NULL, date = NULL)
 \item{date}{Return information for a given date.}
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   jersey_number \tab character \cr
-   job \tab character \cr
-   job_code \tab character \cr
-   title \tab character \cr
-   person_id \tab integer \cr
-   person_full_name \tab character \cr
-   person_link \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   jersey_number \tab character \tab Jersey number (typically blank for official scorers). \cr
+   job \tab character \tab Job title (e.g. 'Official Scorer'). \cr
+   job_code \tab character \tab Four-letter job type code (e.g. 'SCOR'). \cr
+   title \tab character \tab Specific role title for the assignment. \cr
+   person_id \tab integer \tab MLB person id for the official scorer. \cr
+   person_full_name \tab character \tab Full name of the official scorer. \cr
+   person_link \tab character \tab API relative link to the person. \cr
 }
 }
 \description{

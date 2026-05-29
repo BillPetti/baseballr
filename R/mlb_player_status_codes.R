@@ -1,9 +1,9 @@
 #' @title **MLB Player Status Codes** 
 #' @return Returns a tibble with the following columns
-#'  |col_name                   |types     |
-#'  |:--------------------------|:---------|
-#'  |player_status_code         |character |
-#'  |player_status_description  |character |
+#'  |col_name                  |types     |description                                       |
+#'  |:-------------------------|:---------|:-------------------------------------------------|
+#'  |player_status_code        |character |Short code for the player status (e.g. 'A').      |
+#'  |player_status_description |character |Description of the player status (e.g. 'Active'). |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_player_status_codes())

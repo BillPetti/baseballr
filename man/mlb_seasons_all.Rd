@@ -21,29 +21,29 @@ mlb_seasons_all(
 \item{with_game_type_dates}{with_game_type_dates to return season information for.}
 }
 \value{
-Returns a tibble with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   season_id \tab character \cr
-   has_wildcard \tab logical \cr
-   pre_season_start_date \tab character \cr
-   season_start_date \tab character \cr
-   regular_season_start_date \tab character \cr
-   regular_season_end_date \tab character \cr
-   season_end_date \tab character \cr
-   offseason_start_date \tab character \cr
-   off_season_end_date \tab character \cr
-   season_level_gameday_type \tab character \cr
-   game_level_gameday_type \tab character \cr
-   qualifier_plate_appearances \tab numeric \cr
-   qualifier_outs_pitched \tab integer \cr
-   post_season_start_date \tab character \cr
-   post_season_end_date \tab character \cr
-   last_date1st_half \tab character \cr
-   all_star_date \tab character \cr
-   first_date2nd_half \tab character \cr
-   pre_season_end_date \tab character \cr
-   spring_start_date \tab character \cr
-   spring_end_date \tab character \cr
+Returns a tibble with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season_id \tab character \tab Season year identifier. \cr
+   has_wildcard \tab logical \tab Whether the season has a wild card round. \cr
+   pre_season_start_date \tab character \tab Pre-season start date. \cr
+   season_start_date \tab character \tab Season start date. \cr
+   regular_season_start_date \tab character \tab Regular season start date. \cr
+   regular_season_end_date \tab character \tab Regular season end date. \cr
+   season_end_date \tab character \tab Season end date. \cr
+   offseason_start_date \tab character \tab Off-season start date. \cr
+   off_season_end_date \tab character \tab Off-season end date. \cr
+   season_level_gameday_type \tab character \tab Season-level Gameday data feed type. \cr
+   game_level_gameday_type \tab character \tab Game-level Gameday data feed type. \cr
+   qualifier_plate_appearances \tab numeric \tab Plate appearances per team game to qualify. \cr
+   qualifier_outs_pitched \tab integer \tab Outs pitched per team game to qualify. \cr
+   post_season_start_date \tab character \tab Post-season start date. \cr
+   post_season_end_date \tab character \tab Post-season end date. \cr
+   last_date1st_half \tab character \tab Last date of the first half. \cr
+   all_star_date \tab character \tab All-Star Game date. \cr
+   first_date2nd_half \tab character \tab First date of the second half. \cr
+   pre_season_end_date \tab character \tab Pre-season end date. \cr
+   spring_start_date \tab character \tab Spring training start date. \cr
+   spring_end_date \tab character \tab Spring training end date. \cr
 }
 }
 \description{

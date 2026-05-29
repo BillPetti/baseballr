@@ -2,58 +2,63 @@
 #' @param sport_id The sport_id to return information for.
 #' @param season The season to return information for.
 #' @return Returns a tibble with the following columns:
-#' 
-#'   |col_name                      |types     |
-#'   |:-----------------------------|:---------|
-#'   |player_id                     |integer   |
-#'   |full_name                     |character |
-#'   |link                          |character |
-#'   |first_name                    |character |
-#'   |last_name                     |character |
-#'   |primary_number                |character |
-#'   |birth_date                    |character |
-#'   |current_age                   |integer   |
-#'   |birth_city                    |character |
-#'   |birth_country                 |character |
-#'   |height                        |character |
-#'   |weight                        |integer   |
-#'   |active                        |logical   |
-#'   |use_name                      |character |
-#'   |middle_name                   |character |
-#'   |boxscore_name                 |character |
-#'   |nick_name                     |character |
-#'   |gender                        |character |
-#'   |is_player                     |logical   |
-#'   |is_verified                   |logical   |
-#'   |pronunciation                 |character |
-#'   |mlb_debut_date                |character |
-#'   |name_first_last               |character |
-#'   |name_slug                     |character |
-#'   |first_last_name               |character |
-#'   |last_first_name               |character |
-#'   |last_init_name                |character |
-#'   |init_last_name                |character |
-#'   |full_fml_name                 |character |
-#'   |full_lfm_name                 |character |
-#'   |strike_zone_top               |numeric   |
-#'   |strike_zone_bottom            |numeric   |
-#'   |birth_state_province          |character |
-#'   |draft_year                    |integer   |
-#'   |name_matrilineal              |character |
-#'   |name_title                    |character |
-#'   |last_played_date              |character |
-#'   |current_team_id               |integer   |
-#'   |current_team_name             |character |
-#'   |current_team_link             |character |
-#'   |primary_position_code         |character |
-#'   |primary_position_name         |character |
-#'   |primary_position_type         |character |
-#'   |primary_position_abbreviation |character |
-#'   |bat_side_code                 |character |
-#'   |bat_side_description          |character |
-#'   |pitch_hand_code               |character |
-#'   |pitch_hand_description        |character |
-#'  
+#'
+#'   |col_name                      |types     |description                                          |
+#'   |:-----------------------------|:---------|:----------------------------------------------------|
+#'   |player_id                     |integer   |MLBAM player ID.                                     |
+#'   |full_name                     |character |Player full name.                                    |
+#'   |link                          |character |API link to the player resource.                     |
+#'   |first_name                    |character |Player first name.                                   |
+#'   |last_name                     |character |Player last name.                                    |
+#'   |primary_number                |character |Primary uniform number.                              |
+#'   |birth_date                    |character |Date of birth (YYYY-MM-DD).                          |
+#'   |current_age                   |integer   |Current age in years.                                |
+#'   |birth_city                    |character |City of birth.                                       |
+#'   |birth_country                 |character |Country of birth.                                    |
+#'   |height                        |character |Listed height (feet and inches).                     |
+#'   |weight                        |integer   |Listed weight in pounds.                             |
+#'   |active                        |logical   |Whether the player is currently active.              |
+#'   |use_name                      |character |Preferred first name for display.                    |
+#'   |use_last_name                 |character |Preferred last name for display.                     |
+#'   |middle_name                   |character |Player middle name.                                  |
+#'   |boxscore_name                 |character |Name as shown in box scores.                         |
+#'   |nick_name                     |character |Player nickname.                                     |
+#'   |gender                        |character |Player gender code.                                  |
+#'   |is_player                     |logical   |Whether the person is a player.                      |
+#'   |is_verified                   |logical   |Whether the profile is verified.                     |
+#'   |pronunciation                 |character |Phonetic pronunciation of the name.                  |
+#'   |mlb_debut_date                |character |MLB debut date (YYYY-MM-DD).                         |
+#'   |name_first_last               |character |Name in first-last order.                            |
+#'   |name_slug                     |character |URL slug for the player.                             |
+#'   |first_last_name               |character |First and last name display.                         |
+#'   |last_first_name               |character |Last, first name display.                            |
+#'   |last_init_name                |character |Last name with first initial.                        |
+#'   |init_last_name                |character |First initial with last name.                        |
+#'   |full_fml_name                 |character |Full first-middle-last name.                         |
+#'   |full_lfm_name                 |character |Full last-first-middle name.                         |
+#'   |strike_zone_top               |numeric   |Top of the player's strike zone (feet).              |
+#'   |strike_zone_bottom            |numeric   |Bottom of the player's strike zone (feet).           |
+#'   |birth_state_province          |character |State or province of birth.                          |
+#'   |draft_year                    |integer   |Year the player was drafted.                         |
+#'   |name_matrilineal              |character |Matrilineal (maternal) surname.                      |
+#'   |last_played_date              |character |Date of last MLB appearance.                         |
+#'   |name_title                    |character |Name title prefix.                                   |
+#'   |name_suffix                   |character |Name suffix (e.g., Jr., III).                        |
+#'   |death_date                    |character |Date of death (YYYY-MM-DD).                          |
+#'   |death_city                    |character |City of death.                                       |
+#'   |death_country                 |character |Country of death.                                    |
+#'   |current_team_id               |integer   |Current team MLBAM ID.                               |
+#'   |current_team_name             |character |Current team name.                                   |
+#'   |current_team_link             |character |API link to the current team.                        |
+#'   |primary_position_code         |character |Primary position code.                               |
+#'   |primary_position_name         |character |Primary position name.                               |
+#'   |primary_position_type         |character |Primary position type.                               |
+#'   |primary_position_abbreviation |character |Primary position abbreviation.                       |
+#'   |bat_side_code                 |character |Batting side code (L/R/S).                           |
+#'   |bat_side_description          |character |Batting side description.                             |
+#'   |pitch_hand_code               |character |Throwing hand code (L/R).                            |
+#'   |pitch_hand_description        |character |Throwing hand description.                            |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_sports_players(sport_id = 1, season = 2021))

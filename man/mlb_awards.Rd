@@ -7,17 +7,18 @@
 mlb_awards()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   award_id \tab character \cr
-   award_name \tab character \cr
-   award_description \tab character \cr
-   sort_order \tab integer \cr
-   notes \tab character \cr
-   sport_id \tab integer \cr
-   sport_link \tab character \cr
-   league_id \tab integer \cr
-   league_link \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   award_id \tab character \tab Award identifier code. \cr
+   award_name \tab character \tab Award name. \cr
+   award_description \tab character \tab Award description. \cr
+   sort_order \tab integer \tab Display sort order for the award. \cr
+   active \tab logical \tab Whether the award is currently active. \cr
+   notes \tab character \tab Additional notes about the award. \cr
+   sport_id \tab integer \tab MLB sport ID associated with the award. \cr
+   sport_link \tab character \tab MLB Stats API relative sport link. \cr
+   league_id \tab integer \tab MLB league ID associated with the award. \cr
+   league_link \tab character \tab MLB Stats API relative league link. \cr
 }
 }
 \description{

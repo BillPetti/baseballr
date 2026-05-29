@@ -10,99 +10,99 @@ mlb_homerun_derby_players(game_pk)
 \item{game_pk}{The game_pk for which you want to return data}
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   game_pk \tab integer \cr
-   event_name \tab character \cr
-   event_date \tab character \cr
-   event_type_code \tab character \cr
-   event_type_name \tab character \cr
-   venue_id \tab integer \cr
-   venue_name \tab character \cr
-   player_id \tab integer \cr
-   player_full_name \tab character \cr
-   player_link \tab character \cr
-   player_first_name \tab character \cr
-   player_last_name \tab character \cr
-   player_primary_number \tab character \cr
-   player_birth_date \tab character \cr
-   player_current_age \tab integer \cr
-   player_birth_city \tab character \cr
-   player_birth_state_province \tab character \cr
-   player_birth_country \tab character \cr
-   player_height \tab character \cr
-   player_weight \tab integer \cr
-   player_active \tab logical \cr
-   player_use_name \tab character \cr
-   player_middle_name \tab character \cr
-   player_boxscore_name \tab character \cr
-   player_nick_name \tab character \cr
-   player_gender \tab character \cr
-   player_is_player \tab logical \cr
-   player_is_verified \tab logical \cr
-   player_draft_year \tab integer \cr
-   player_pronunciation \tab character \cr
-   player_mlb_debut_date \tab character \cr
-   player_name_first_last \tab character \cr
-   player_name_slug \tab character \cr
-   player_first_last_name \tab character \cr
-   player_last_first_name \tab character \cr
-   player_last_init_name \tab character \cr
-   player_init_last_name \tab character \cr
-   player_full_fml_name \tab character \cr
-   player_full_lfm_name \tab character \cr
-   player_strike_zone_top \tab numeric \cr
-   player_strike_zone_bottom \tab numeric \cr
-   player_name_matrilineal \tab character \cr
-   player_current_team_id \tab integer \cr
-   player_current_team_name \tab character \cr
-   player_current_team_link \tab character \cr
-   player_current_team_season \tab integer \cr
-   player_current_team_team_code \tab character \cr
-   player_current_team_file_code \tab character \cr
-   player_current_team_abbreviation \tab character \cr
-   player_current_team_team_name \tab character \cr
-   player_current_team_location_name \tab character \cr
-   player_current_team_first_year_of_play \tab character \cr
-   player_current_team_short_name \tab character \cr
-   player_current_team_franchise_name \tab character \cr
-   player_current_team_club_name \tab character \cr
-   player_current_team_all_star_status \tab character \cr
-   player_current_team_active \tab logical \cr
-   player_current_team_parent_org_name \tab character \cr
-   player_current_team_parent_org_id \tab integer \cr
-   player_current_team_venue_id \tab integer \cr
-   player_current_team_venue_name \tab character \cr
-   player_current_team_venue_link \tab character \cr
-   player_current_team_spring_venue_id \tab integer \cr
-   player_current_team_spring_venue_link \tab character \cr
-   player_current_team_league_id \tab integer \cr
-   player_current_team_league_name \tab character \cr
-   player_current_team_league_link \tab character \cr
-   player_current_team_division_id \tab integer \cr
-   player_current_team_division_name \tab character \cr
-   player_current_team_division_link \tab character \cr
-   player_current_team_sport_id \tab integer \cr
-   player_current_team_sport_link \tab character \cr
-   player_current_team_sport_name \tab character \cr
-   player_current_team_spring_league_id \tab integer \cr
-   player_current_team_spring_league_name \tab character \cr
-   player_current_team_spring_league_link \tab character \cr
-   player_current_team_spring_league_abbreviation \tab character \cr
-   player_primary_position_code \tab character \cr
-   player_primary_position_name \tab character \cr
-   player_primary_position_type \tab character \cr
-   player_primary_position_abbreviation \tab character \cr
-   player_bat_side_code \tab character \cr
-   player_bat_side_description \tab character \cr
-   player_pitch_hand_code \tab character \cr
-   player_pitch_hand_description \tab character \cr
-   venue_link \tab character \cr
-   is_multi_day \tab logical \cr
-   is_primary_calendar \tab logical \cr
-   file_code \tab character \cr
-   event_number \tab integer \cr
-   public_facing \tab logical \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_pk \tab integer \tab MLB game primary key for the Home Run Derby event. \cr
+   event_name \tab character \tab Event name (e.g. 'All-Star Workout Day: Home Run Derby'). \cr
+   event_date \tab character \tab Event date-time in ISO 8601 (e.g. '2017-07-11T00:00:00Z'). \cr
+   event_type_code \tab character \tab Single-letter event type code (e.g. 'O'). \cr
+   event_type_name \tab character \tab Event type name (e.g. 'Other'). \cr
+   venue_id \tab integer \tab MLB venue id hosting the event. \cr
+   venue_name \tab character \tab Venue name (e.g. 'Marlins Park'). \cr
+   player_id \tab integer \tab MLB player id of the participant. \cr
+   player_full_name \tab character \tab Participant full name. \cr
+   player_link \tab character \tab API relative link to the player. \cr
+   player_first_name \tab character \tab Participant first name. \cr
+   player_last_name \tab character \tab Participant last name. \cr
+   player_primary_number \tab character \tab Participant primary jersey number. \cr
+   player_birth_date \tab character \tab Participant birth date (YYYY-MM-DD). \cr
+   player_current_age \tab integer \tab Participant current age in years. \cr
+   player_birth_city \tab character \tab Participant birth city. \cr
+   player_birth_state_province \tab character \tab Participant birth state or province. \cr
+   player_birth_country \tab character \tab Participant birth country. \cr
+   player_height \tab character \tab Participant height (e.g. "6' 5\""). \cr
+   player_weight \tab integer \tab Participant weight in pounds. \cr
+   player_active \tab logical \tab Whether the participant is currently an active player. \cr
+   player_use_name \tab character \tab Participant preferred display first name. \cr
+   player_middle_name \tab character \tab Participant middle name. \cr
+   player_boxscore_name \tab character \tab Participant short box score name. \cr
+   player_nick_name \tab character \tab Participant nickname. \cr
+   player_gender \tab character \tab Participant gender code (e.g. 'M'). \cr
+   player_is_player \tab logical \tab Whether the person is classified as a player. \cr
+   player_is_verified \tab logical \tab Whether the player profile is verified. \cr
+   player_draft_year \tab integer \tab Year the participant was drafted. \cr
+   player_pronunciation \tab character \tab Phonetic pronunciation of the participant's name. \cr
+   player_mlb_debut_date \tab character \tab Participant MLB debut date (YYYY-MM-DD). \cr
+   player_name_first_last \tab character \tab Participant name in first-last order. \cr
+   player_name_slug \tab character \tab URL slug for the participant (name plus id). \cr
+   player_first_last_name \tab character \tab Participant name in first-last order. \cr
+   player_last_first_name \tab character \tab Participant name in last, first order. \cr
+   player_last_init_name \tab character \tab Participant name as last, first initial. \cr
+   player_init_last_name \tab character \tab Participant name as first initial last. \cr
+   player_full_fml_name \tab character \tab Participant full first-middle-last name. \cr
+   player_full_lfm_name \tab character \tab Participant full last, first-middle name. \cr
+   player_strike_zone_top \tab numeric \tab Top of the participant's strike zone (feet). \cr
+   player_strike_zone_bottom \tab numeric \tab Bottom of the participant's strike zone (feet). \cr
+   player_name_matrilineal \tab character \tab Participant matrilineal name when provided. \cr
+   player_current_team_id \tab integer \tab Participant current team id. \cr
+   player_current_team_name \tab character \tab Participant current team name. \cr
+   player_current_team_link \tab character \tab API relative link to the current team. \cr
+   player_current_team_season \tab integer \tab Season of the current team reference. \cr
+   player_current_team_team_code \tab character \tab Current team three-letter team code. \cr
+   player_current_team_file_code \tab character \tab Current team file code. \cr
+   player_current_team_abbreviation \tab character \tab Current team abbreviation (e.g. 'NYY'). \cr
+   player_current_team_team_name \tab character \tab Current team short team name (e.g. 'Yankees'). \cr
+   player_current_team_location_name \tab character \tab Current team location name. \cr
+   player_current_team_first_year_of_play \tab character \tab Franchise first year of play. \cr
+   player_current_team_short_name \tab character \tab Current team short name. \cr
+   player_current_team_franchise_name \tab character \tab Current team franchise name. \cr
+   player_current_team_club_name \tab character \tab Current team club name. \cr
+   player_current_team_all_star_status \tab character \tab Current team all-star status flag. \cr
+   player_current_team_active \tab logical \tab Whether the current team is active. \cr
+   player_current_team_parent_org_name \tab character \tab Parent organization name (minors). \cr
+   player_current_team_parent_org_id \tab integer \tab Parent organization id (minors). \cr
+   player_current_team_venue_id \tab integer \tab Current team home venue id. \cr
+   player_current_team_venue_name \tab character \tab Current team home venue name. \cr
+   player_current_team_venue_link \tab character \tab API relative link to the team venue. \cr
+   player_current_team_spring_venue_id \tab integer \tab Current team spring training venue id. \cr
+   player_current_team_spring_venue_link \tab character \tab API relative link to the spring venue. \cr
+   player_current_team_league_id \tab integer \tab Current team league id (e.g. 103, 104). \cr
+   player_current_team_league_name \tab character \tab Current team league name. \cr
+   player_current_team_league_link \tab character \tab API relative link to the league. \cr
+   player_current_team_division_id \tab integer \tab Current team division id. \cr
+   player_current_team_division_name \tab character \tab Current team division name. \cr
+   player_current_team_division_link \tab character \tab API relative link to the division. \cr
+   player_current_team_sport_id \tab integer \tab Current team sport id (1 for MLB). \cr
+   player_current_team_sport_link \tab character \tab API relative link to the sport. \cr
+   player_current_team_sport_name \tab character \tab Current team sport name. \cr
+   player_current_team_spring_league_id \tab integer \tab Spring league id. \cr
+   player_current_team_spring_league_name \tab character \tab Spring league name (e.g. 'Grapefruit League'). \cr
+   player_current_team_spring_league_link \tab character \tab API relative link to the spring league. \cr
+   player_current_team_spring_league_abbreviation \tab character \tab Spring league abbreviation (e.g. 'GL'). \cr
+   player_primary_position_code \tab character \tab Participant primary position code. \cr
+   player_primary_position_name \tab character \tab Participant primary position name. \cr
+   player_primary_position_type \tab character \tab Participant primary position type (e.g. 'Hitter'). \cr
+   player_primary_position_abbreviation \tab character \tab Participant primary position abbreviation (e.g. 'DH'). \cr
+   player_bat_side_code \tab character \tab Participant batting side code (e.g. 'R'). \cr
+   player_bat_side_description \tab character \tab Participant batting side description (e.g. 'Right'). \cr
+   player_pitch_hand_code \tab character \tab Participant throwing hand code (e.g. 'R'). \cr
+   player_pitch_hand_description \tab character \tab Participant throwing hand description (e.g. 'Right'). \cr
+   venue_link \tab character \tab API relative link to the event venue. \cr
+   is_multi_day \tab logical \tab Whether the event spans multiple days. \cr
+   is_primary_calendar \tab logical \tab Whether the event is on the primary calendar. \cr
+   file_code \tab character \tab Internal file code for the event. \cr
+   event_number \tab integer \tab Event number identifier. \cr
+   public_facing \tab logical \tab Whether the event is public facing. \cr
 }
 }
 \description{

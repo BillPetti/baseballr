@@ -7,12 +7,12 @@
 mlb_metrics()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   metric_name \tab character \cr
-   metric_id \tab integer \cr
-   stat_group \tab character \cr
-   metric_unit \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   metric_name \tab character \tab Metric name (e.g. 'releaseSpinRate'). \cr
+   metric_id \tab integer \tab Numeric metric identifier. \cr
+   stat_group \tab character \tab Stat group the metric belongs to (e.g. 'pitching'). \cr
+   metric_unit \tab character \tab Unit of measure for the metric (e.g. 'RPM'). \cr
 }
 }
 \description{

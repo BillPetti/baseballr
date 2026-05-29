@@ -1,8 +1,8 @@
 #' @title **MLB Stat Types** 
 #' @return Returns a tibble with the following columns
-#'  |col_name              |types     |
-#'  |:---------------------|:---------|
-#'  |stat_type_name        |character |
+#'  |col_name              |types     |description                                |
+#'  |:---------------------|:---------|:------------------------------------------|
+#'  |stat_type_name        |character |Stat type display name (e.g., projected).  |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_stat_types())

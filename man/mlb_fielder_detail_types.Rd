@@ -7,13 +7,13 @@
 mlb_fielder_detail_types()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   stat_name \tab character \cr
-   code \tab character \cr
-   names \tab character \cr
-   chance \tab logical \cr
-   error \tab logical \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   stat_name \tab character \tab Internal fielder detail stat name. \cr
+   code \tab character \tab Fielder detail type code. \cr
+   names \tab list \tab Associated detail names for the type. \cr
+   chance \tab logical \tab Whether the detail counts as a fielding chance. \cr
+   error \tab logical \tab Whether the detail counts as an error. \cr
 }
 }
 \description{

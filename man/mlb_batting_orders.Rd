@@ -14,16 +14,16 @@ batters that appeared ('all')}
 }
 \value{
 Returns a tibble that includes probable starting pitchers and
-the home plate umpire for the \code{game_pk} requested\tabular{ll}{
-   col_name \tab types \cr
-   id \tab integer \cr
-   fullName \tab character \cr
-   abbreviation \tab character \cr
-   batting_order \tab character \cr
-   batting_position_num \tab character \cr
-   team \tab character \cr
-   teamName \tab character \cr
-   teamID \tab integer \cr
+the home plate umpire for the \code{game_pk} requested\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab MLB player ID. \cr
+   fullName \tab character \tab Player full name. \cr
+   abbreviation \tab character \tab Fielding position abbreviation. \cr
+   batting_order \tab character \tab Spot in the batting order (1-9). \cr
+   batting_position_num \tab character \tab Sub-position within the lineup spot (0 = starter). \cr
+   team \tab character \tab Side of the matchup ('home' or 'away'). \cr
+   teamName \tab character \tab Team name. \cr
+   teamID \tab integer \tab MLB team ID. \cr
 }
 }
 \description{

@@ -1,9 +1,9 @@
 #' @title **MLB Sky (Weather) Codes** 
 #' @return Returns a tibble with the following columns
-#'  |col_name            |types     |
-#'  |:-------------------|:---------|
-#'  |sky_code            |character |
-#'  |sky_description     |character |
+#'  |col_name        |types     |description                                       |
+#'  |:---------------|:---------|:-------------------------------------------------|
+#'  |sky_code        |character |Code for the sky/weather condition.               |
+#'  |sky_description |character |Description of the sky condition (e.g. 'Clear').  |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_sky())

@@ -14,22 +14,22 @@ mlb_divisions(division_id = NULL, league_id = NULL, sport_id = NULL)
 \item{sport_id}{Return division(s) for all divisions in a specific sport.}
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   division_id \tab integer \cr
-   division_name \tab character \cr
-   season \tab character \cr
-   division_name_short \tab character \cr
-   division_link \tab character \cr
-   division_abbreviation \tab character \cr
-   has_wildcard \tab logical \cr
-   sort_order \tab integer \cr
-   num_playoff_teams \tab integer \cr
-   active \tab logical \cr
-   league_id \tab integer \cr
-   league_link \tab character \cr
-   sport_id \tab integer \cr
-   sport_link \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   division_id \tab integer \tab MLB division ID. \cr
+   division_name \tab character \tab Division name. \cr
+   season \tab character \tab Season (YYYY). \cr
+   division_name_short \tab character \tab Short division name. \cr
+   division_link \tab character \tab MLB Stats API relative division link. \cr
+   division_abbreviation \tab character \tab Division abbreviation. \cr
+   has_wildcard \tab logical \tab Whether the division has a wild card. \cr
+   sort_order \tab integer \tab Display sort order for the division. \cr
+   num_playoff_teams \tab integer \tab Number of playoff teams from the division. \cr
+   active \tab logical \tab Whether the division is currently active. \cr
+   league_id \tab integer \tab MLB league ID. \cr
+   league_link \tab character \tab MLB Stats API relative league link. \cr
+   sport_id \tab integer \tab MLB sport ID. \cr
+   sport_link \tab character \tab MLB Stats API relative sport link. \cr
 }
 }
 \description{

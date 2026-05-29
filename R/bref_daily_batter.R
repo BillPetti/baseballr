@@ -4,40 +4,39 @@
 #' @description This function allows you to scrape basic batter statistics over a custom time frame. Data is sourced from Baseball-Reference.com.
 #' @param t1 First date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @param t2 Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
-#' @return Returns a tibble of batter performance with the following columns:
-#' 
-#'  |col_name |types     |
-#'  |:--------|:---------|
-#'  |bbref_id |character |
-#'  |season   |integer   |
-#'  |Name     |character |
-#'  |Age      |numeric   |
-#'  |Level    |character |
-#'  |Team     |character |
-#'  |G        |numeric   |
-#'  |PA       |numeric   |
-#'  |AB       |numeric   |
-#'  |R        |numeric   |
-#'  |H        |numeric   |
-#'  |X1B      |numeric   |
-#'  |X2B      |numeric   |
-#'  |X3B      |numeric   |
-#'  |HR       |numeric   |
-#'  |RBI      |numeric   |
-#'  |BB       |numeric   |
-#'  |IBB      |numeric   |
-#'  |uBB      |numeric   |
-#'  |SO       |numeric   |
-#'  |HBP      |numeric   |
-#'  |SH       |numeric   |
-#'  |SF       |numeric   |
-#'  |GDP      |numeric   |
-#'  |SB       |numeric   |
-#'  |CS       |numeric   |
-#'  |BA       |numeric   |
-#'  |OBP      |numeric   |
-#'  |SLG      |numeric   |
-#'  |OPS      |numeric   |
+#' @return Returns a tibble of batter performance over the requested date range, one row per player, with the following columns:
+#'
+#'  |col_name |types     |description                                              |
+#'  |:--------|:---------|:--------------------------------------------------------|
+#'  |season   |integer   |Season year.                                             |
+#'  |Name     |character |Player name.                                             |
+#'  |Age      |numeric   |Player age during the season.                            |
+#'  |Level    |character |League level (e.g. Maj-AL, Maj-NL).                      |
+#'  |Team     |character |Team name.                                               |
+#'  |G        |numeric   |Games played.                                            |
+#'  |PA       |numeric   |Plate appearances.                                       |
+#'  |AB       |numeric   |At-bats.                                                 |
+#'  |R        |numeric   |Runs scored.                                             |
+#'  |H        |numeric   |Hits.                                                    |
+#'  |X1B      |numeric   |Singles.                                                 |
+#'  |X2B      |numeric   |Doubles.                                                 |
+#'  |X3B      |numeric   |Triples.                                                 |
+#'  |HR       |numeric   |Home runs.                                               |
+#'  |RBI      |numeric   |Runs batted in.                                          |
+#'  |BB       |numeric   |Walks (bases on balls).                                  |
+#'  |IBB      |numeric   |Intentional walks.                                       |
+#'  |uBB      |numeric   |Unintentional walks.                                     |
+#'  |SO       |numeric   |Strikeouts.                                              |
+#'  |HBP      |numeric   |Times hit by pitch.                                      |
+#'  |SH       |numeric   |Sacrifice hits (bunts).                                  |
+#'  |SF       |numeric   |Sacrifice flies.                                         |
+#'  |GDP      |numeric   |Grounded into double plays.                              |
+#'  |SB       |numeric   |Stolen bases.                                            |
+#'  |CS       |numeric   |Times caught stealing.                                   |
+#'  |BA       |numeric   |Batting average.                                         |
+#'  |OBP      |numeric   |On-base percentage.                                      |
+#'  |SLG      |numeric   |Slugging percentage.                                     |
+#'  |OPS      |numeric   |On-base plus slugging.                                   |
 #'
 #' @importFrom rlang .data
 #' @importFrom dplyr filter mutate arrange desc rename select

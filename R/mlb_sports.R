@@ -1,17 +1,17 @@
 #' @title **MLB Sport IDs**
 #' @param sport_id The sport_id to return information for.
 #' @return Returns a tibble with the following columns
-#'  |col_name           |types     |
-#'  |:------------------|:---------|
-#'  |sport_id           |integer   |
-#'  |sport_code         |character |
-#'  |sport_link         |character |
-#'  |sport_name         |character |
-#'  |sport_abbreviation |character |
-#'  |sort_order         |integer   |
-#'  |active_status      |logical   |
-#'  
-#'  and the following values: 
+#'  |col_name           |types     |description                                       |
+#'  |:------------------|:---------|:-------------------------------------------------|
+#'  |sport_id           |integer   |MLBAM sport (level) identifier.                   |
+#'  |sport_code         |character |Short sport code (e.g. 'mlb', 'aaa').             |
+#'  |sport_link         |character |API link to the sport resource.                  |
+#'  |sport_name         |character |Full sport/level name.                            |
+#'  |sport_abbreviation |character |Sport abbreviation (e.g. 'MLB').                  |
+#'  |sort_order         |integer   |Display sort order for the sport.                 |
+#'  |active_status      |logical   |Whether the sport/level is active.                |
+#'
+#'  and the following values:
 #'  
 #'  | sport_id|sport_code |sport_link         |sport_name                            |sport_abbreviation | sort_order|active_status |
 #'  |--------:|:----------|:------------------|:-------------------------------------|:------------------|----------:|:-------------|

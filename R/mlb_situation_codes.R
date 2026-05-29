@@ -1,15 +1,15 @@
 #' @title **MLB Situation Codes** 
 #' @return Returns a tibble with the following columns
-#'  |col_name                   |types     |
-#'  |:--------------------------|:---------|
-#'  |situation_code             |character |
-#'  |sort_order                 |integer   |
-#'  |navigation_menu            |character |
-#'  |situation_code_description |character |
-#'  |team                       |logical   |
-#'  |batting                    |logical   |
-#'  |fielding                   |logical   |
-#'  |pitching                   |logical   |
+#'  |col_name                   |types     |description                                       |
+#'  |:--------------------------|:---------|:-------------------------------------------------|
+#'  |situation_code             |character |Code identifying the game situation.              |
+#'  |sort_order                 |integer   |Display sort order for the situation code.        |
+#'  |navigation_menu            |character |Navigation menu grouping (e.g. 'Game').           |
+#'  |situation_code_description |character |Description of the situation (e.g. 'Home Games'). |
+#'  |team                       |logical   |Whether the situation applies to team stats.      |
+#'  |batting                    |logical   |Whether the situation applies to batting stats.   |
+#'  |fielding                   |logical   |Whether the situation applies to fielding stats.  |
+#'  |pitching                   |logical   |Whether the situation applies to pitching stats.  |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_situation_codes())

@@ -1,18 +1,18 @@
 #' @title **MLB Positions** 
 #' @return Returns a tibble with the following columns
-#'  |col_name              |types     |
-#'  |:---------------------|:---------|
-#'  |position_short_name   |character |
-#'  |position_full_name    |character |
-#'  |position_abbreviation |character |
-#'  |position_code         |character |
-#'  |position_type         |character |
-#'  |position_formal_name  |character |
-#'  |game_position         |logical   |
-#'  |pitcher               |logical   |
-#'  |fielder               |logical   |
-#'  |outfield              |logical   |
-#'  |position_display_name |character |
+#'  |col_name              |types     |description                                          |
+#'  |:---------------------|:---------|:----------------------------------------------------|
+#'  |position_short_name   |character |Short position name (e.g. 'Pitcher').                |
+#'  |position_full_name    |character |Full position name.                                  |
+#'  |position_abbreviation |character |Position abbreviation (e.g. 'P', 'SS').              |
+#'  |position_code         |character |Numeric scorekeeping position code.                  |
+#'  |position_type         |character |Position category (e.g. 'Pitcher', 'Infielder').     |
+#'  |position_formal_name  |character |Formal position name.                                |
+#'  |position_display_name |character |Display name for the position.                       |
+#'  |outfield              |logical   |Whether the position is an outfield position.        |
+#'  |game_position         |logical   |Whether it is an on-field game position.             |
+#'  |pitcher               |logical   |Whether the position is a pitcher.                   |
+#'  |fielder               |logical   |Whether the position is a fielder.                   |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_positions())

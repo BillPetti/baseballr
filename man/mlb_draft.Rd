@@ -10,81 +10,85 @@ mlb_draft(year)
 \item{year}{The year for which to return data}
 }
 \value{
-Returns a tibble with information for every draft pick in every round for the year requested\tabular{ll}{
-   col_name \tab types \cr
-   bis_player_id \tab integer \cr
-   pick_round \tab character \cr
-   pick_number \tab integer \cr
-   round_pick_number \tab integer \cr
-   rank \tab integer \cr
-   pick_value \tab character \cr
-   signing_bonus \tab character \cr
-   scouting_report \tab character \cr
-   blurb \tab character \cr
-   headshot_link \tab character \cr
-   is_drafted \tab logical \cr
-   is_pass \tab logical \cr
-   year \tab character \cr
-   home_city \tab character \cr
-   home_state \tab character \cr
-   home_country \tab character \cr
-   school_name \tab character \cr
-   school_school_class \tab character \cr
-   school_country \tab character \cr
-   school_state \tab character \cr
-   person_id \tab integer \cr
-   person_full_name \tab character \cr
-   person_link \tab character \cr
-   person_first_name \tab character \cr
-   person_last_name \tab character \cr
-   person_primary_number \tab character \cr
-   person_birth_date \tab character \cr
-   person_current_age \tab integer \cr
-   person_birth_city \tab character \cr
-   person_birth_state_province \tab character \cr
-   person_birth_country \tab character \cr
-   person_height \tab character \cr
-   person_weight \tab integer \cr
-   person_active \tab logical \cr
-   person_use_name \tab character \cr
-   person_middle_name \tab character \cr
-   person_boxscore_name \tab character \cr
-   person_gender \tab character \cr
-   person_is_player \tab logical \cr
-   person_is_verified \tab logical \cr
-   person_draft_year \tab integer \cr
-   person_name_first_last \tab character \cr
-   person_name_slug \tab character \cr
-   person_first_last_name \tab character \cr
-   person_last_first_name \tab character \cr
-   person_last_init_name \tab character \cr
-   person_init_last_name \tab character \cr
-   person_full_fml_name \tab character \cr
-   person_full_lfm_name \tab character \cr
-   person_strike_zone_top \tab numeric \cr
-   person_strike_zone_bottom \tab numeric \cr
-   person_pronunciation \tab character \cr
-   person_name_title \tab character \cr
-   person_mlb_debut_date \tab character \cr
-   person_name_matrilineal \tab character \cr
-   person_primary_position_code \tab character \cr
-   person_primary_position_name \tab character \cr
-   person_primary_position_type \tab character \cr
-   person_primary_position_abbreviation \tab character \cr
-   person_bat_side_code \tab character \cr
-   person_bat_side_description \tab character \cr
-   person_pitch_hand_code \tab character \cr
-   person_pitch_hand_description \tab character \cr
-   team_id \tab integer \cr
-   team_name \tab character \cr
-   team_link \tab character \cr
-   team_all_star_status \tab character \cr
-   team_spring_league_id \tab integer \cr
-   team_spring_league_name \tab character \cr
-   team_spring_league_link \tab character \cr
-   team_spring_league_abbreviation \tab character \cr
-   draft_type_code \tab character \cr
-   draft_type_description \tab character \cr
+Returns a tibble with information for every draft pick in every round for the year requested\tabular{lll}{
+   col_name \tab types \tab description \cr
+   bis_player_id \tab integer \tab BIS (Baseball Info Solutions) player ID. \cr
+   pick_round \tab character \tab Draft round. \cr
+   pick_number \tab integer \tab Overall pick number. \cr
+   display_pick_number \tab integer \tab Pick number as displayed. \cr
+   round_pick_number \tab integer \tab Pick number within the round. \cr
+   rank \tab integer \tab Prospect rank. \cr
+   pick_value \tab character \tab Assigned slot/pick value (dollars). \cr
+   signing_bonus \tab character \tab Signing bonus (dollars). \cr
+   scouting_report \tab character \tab Link to the scouting report. \cr
+   blurb \tab character \tab Prospect scouting blurb. \cr
+   headshot_link \tab character \tab URL to the player's headshot image. \cr
+   is_drafted \tab logical \tab Whether the prospect was drafted. \cr
+   is_pass \tab logical \tab Whether the pick was a pass. \cr
+   year \tab character \tab Draft year (YYYY). \cr
+   home_city \tab character \tab Prospect home city. \cr
+   home_state \tab character \tab Prospect home state. \cr
+   home_country \tab character \tab Prospect home country. \cr
+   school_name \tab character \tab School name. \cr
+   school_school_class \tab character \tab School class (e.g. 4YR JR, HS SR). \cr
+   school_country \tab character \tab School country. \cr
+   school_state \tab character \tab School state. \cr
+   person_id \tab integer \tab MLB player ID. \cr
+   person_full_name \tab character \tab Player full name. \cr
+   person_link \tab character \tab MLB Stats API relative player link. \cr
+   person_first_name \tab character \tab Player first name. \cr
+   person_last_name \tab character \tab Player last name. \cr
+   person_primary_number \tab character \tab Player uniform number. \cr
+   person_birth_date \tab character \tab Birth date (YYYY-MM-DD). \cr
+   person_current_age \tab integer \tab Current age in years. \cr
+   person_birth_city \tab character \tab City of birth. \cr
+   person_birth_state_province \tab character \tab State or province of birth. \cr
+   person_birth_country \tab character \tab Country of birth. \cr
+   person_height \tab character \tab Height (feet and inches). \cr
+   person_weight \tab integer \tab Weight in pounds. \cr
+   person_active \tab logical \tab Whether the player is currently active. \cr
+   person_use_name \tab character \tab Preferred first name. \cr
+   person_use_last_name \tab character \tab Preferred last name. \cr
+   person_middle_name \tab character \tab Player middle name. \cr
+   person_boxscore_name \tab character \tab Name as shown in box scores. \cr
+   person_gender \tab character \tab Player gender. \cr
+   person_is_player \tab logical \tab Whether the person is a player. \cr
+   person_is_verified \tab logical \tab Whether the player profile is verified. \cr
+   person_draft_year \tab integer \tab Year the player was drafted. \cr
+   person_mlb_debut_date \tab character \tab MLB debut date (YYYY-MM-DD). \cr
+   person_name_first_last \tab character \tab Name in first-last order. \cr
+   person_name_slug \tab character \tab URL-friendly name slug. \cr
+   person_first_last_name \tab character \tab First and last name. \cr
+   person_last_first_name \tab character \tab Name in last, first order. \cr
+   person_last_init_name \tab character \tab Last name with first initial. \cr
+   person_init_last_name \tab character \tab First initial with last name. \cr
+   person_full_fml_name \tab character \tab Full name (first-middle-last). \cr
+   person_full_lfm_name \tab character \tab Full name (last-first-middle). \cr
+   person_strike_zone_top \tab numeric \tab Top of the player's strike zone (feet). \cr
+   person_strike_zone_bottom \tab numeric \tab Bottom of the player's strike zone (feet). \cr
+   person_pronunciation \tab character \tab Phonetic name pronunciation. \cr
+   person_name_title \tab character \tab Name title. \cr
+   person_name_suffix \tab character \tab Name suffix (e.g. Jr., III). \cr
+   person_nick_name \tab character \tab Player nickname. \cr
+   person_name_matrilineal \tab character \tab Maternal family name. \cr
+   person_primary_position_code \tab character \tab Primary fielding position code. \cr
+   person_primary_position_name \tab character \tab Primary fielding position name. \cr
+   person_primary_position_type \tab character \tab Primary position type (e.g. Infielder). \cr
+   person_primary_position_abbreviation \tab character \tab Primary position abbreviation. \cr
+   person_bat_side_code \tab character \tab Batting side code (L/R/S). \cr
+   person_bat_side_description \tab character \tab Batting side description. \cr
+   person_pitch_hand_code \tab character \tab Throwing hand code (L/R). \cr
+   person_pitch_hand_description \tab character \tab Throwing hand description. \cr
+   team_all_star_status \tab character \tab Team all-star status flag. \cr
+   team_id \tab integer \tab MLB team ID of the drafting team. \cr
+   team_name \tab character \tab Drafting team name. \cr
+   team_link \tab character \tab MLB Stats API relative team link. \cr
+   team_spring_league_id \tab integer \tab Spring training league ID. \cr
+   team_spring_league_name \tab character \tab Spring training league name. \cr
+   team_spring_league_link \tab character \tab MLB Stats API relative spring league link. \cr
+   team_spring_league_abbreviation \tab character \tab Spring training league abbreviation. \cr
+   draft_type_code \tab character \tab Draft type code. \cr
+   draft_type_description \tab character \tab Draft type description. \cr
 }
 }
 \description{

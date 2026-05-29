@@ -10,19 +10,19 @@ sptrc_league_payrolls(year = most_recent_mlb_season())
 \item{year}{Year to load}
 }
 \value{
-A data frame of contract data.\tabular{ll}{
-   col_name \tab types \cr
-   year \tab character \cr
-   team \tab character \cr
-   team_abbr \tab character \cr
-   rank \tab numeric \cr
-   record \tab character \cr
-   avg_age_team \tab character \cr
-   total_payroll_allocations \tab numeric \cr
-   active_26_man \tab numeric \cr
-   injured \tab numeric \cr
-   retained \tab numeric \cr
-   buried \tab numeric \cr
+A data frame of contract data.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   year \tab character \tab Payroll season. \cr
+   team \tab character \tab Full team name. \cr
+   team_abbr \tab character \tab Team abbreviation. \cr
+   rank \tab numeric \tab League rank by total payroll allocations. \cr
+   record \tab character \tab Team win-loss record for the season. \cr
+   avg_age_team \tab character \tab Roster-weighted average age of the team. \cr
+   total_payroll_allocations \tab numeric \tab Total payroll allocations across all roster statuses (USD). \cr
+   active_26_man \tab numeric \tab Payroll allocated to the active 26-man roster (USD). \cr
+   injured \tab numeric \tab Payroll allocated to players on the injured list (USD). \cr
+   retained \tab numeric \tab Retained salary owed to players no longer on the roster (USD). \cr
+   buried \tab numeric \tab Payroll for players assigned to the minors ("buried" contracts) (USD). \cr
 }
 
 

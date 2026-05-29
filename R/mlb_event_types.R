@@ -1,12 +1,12 @@
 #' @title **MLB Event Types** 
 #' @return Returns a tibble with the following columns
-#'  |col_name           |types     |
-#'  |:------------------|:---------|
-#'  |plate_appearance   |logical   |
-#'  |hit                |logical   |
-#'  |event_code         |character |
-#'  |base_running_event |logical   |
-#'  |event_description  |character |
+#'  |col_name           |types     |description                                       |
+#'  |:------------------|:---------|:-------------------------------------------------|
+#'  |plate_appearance   |logical   |Whether the event counts as a plate appearance.   |
+#'  |hit                |logical   |Whether the event is a hit.                       |
+#'  |event_code         |character |Event type code.                                  |
+#'  |base_running_event |logical   |Whether the event is a base-running event.        |
+#'  |event_description  |character |Human-readable event description.                 |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_event_types())

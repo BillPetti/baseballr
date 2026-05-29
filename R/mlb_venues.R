@@ -3,13 +3,13 @@
 #' @param sport_ids The sport_id(s) for which to return venue directorial information.
 #' @param season Year for which to return venue directorial information for a given season.
 #' @return Returns a tibble with the following columns:
-#'  |col_name   |types     |
-#'  |:----------|:---------|
-#'  |venue_id   |integer   |
-#'  |venue_name |character |
-#'  |venue_link |character |
-#'  |active     |logical   |
-#'  |season     |logical   |
+#'  |col_name   |types     |description                       |
+#'  |:----------|:---------|:---------------------------------|
+#'  |venue_id   |integer   |Venue MLBAM ID.                   |
+#'  |venue_name |character |Venue name.                       |
+#'  |venue_link |character |API link to the venue.            |
+#'  |active     |logical   |Whether the venue is active.      |
+#'  |season     |character |Season the venue record applies to.|
 #' @importFrom jsonlite fromJSON 
 #' @export
 #' @examples \donttest{

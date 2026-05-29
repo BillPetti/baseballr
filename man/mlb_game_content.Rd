@@ -10,26 +10,29 @@ mlb_game_content(game_pk)
 \item{game_pk}{The unique game_pk identifier for the game}
 }
 \value{
-Returns a tibble of game content data with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   title \tab character \cr
-   epg_id \tab integer \cr
-   content_id \tab character \cr
-   media_id \tab character \cr
-   media_state \tab character \cr
-   media_feed_type \tab character \cr
-   media_feed_sub_type \tab character \cr
-   call_letters \tab character \cr
-   fox_auth_required \tab logical \cr
-   tbs_auth_required \tab logical \cr
-   espn_auth_required \tab logical \cr
-   fs1auth_required \tab logical \cr
-   mlbn_auth_required \tab logical \cr
-   free_game \tab logical \cr
-   type \tab character \cr
-   description \tab character \cr
-   rendition_name \tab character \cr
-   language \tab character \cr
+Returns a tibble of game content data with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   title \tab character \tab Media/EPG title (e.g. MLBTV). \cr
+   call_letters \tab character \tab Broadcaster call letters. \cr
+   espn_auth_required \tab logical \tab Whether ESPN authentication is required. \cr
+   tbs_auth_required \tab logical \tab Whether TBS authentication is required. \cr
+   espn2auth_required \tab logical \tab Whether ESPN2 authentication is required. \cr
+   game_date \tab character \tab Game date associated with the content. \cr
+   content_id \tab character \tab Content identifier. \cr
+   fs1auth_required \tab logical \tab Whether FS1 authentication is required. \cr
+   media_id \tab character \tab Media identifier. \cr
+   media_feed_type \tab character \tab Media feed type (HOME/AWAY/NATIONAL). \cr
+   mlbn_auth_required \tab logical \tab Whether MLB Network authentication is required. \cr
+   fox_auth_required \tab logical \tab Whether FOX authentication is required. \cr
+   media_feed_sub_type \tab character \tab Media feed sub-type code. \cr
+   free_game \tab logical \tab Whether the broadcast is a free game. \cr
+   epg_id \tab integer \tab Electronic programming guide identifier. \cr
+   media_state \tab character \tab Media state (e.g. MEDIA_ARCHIVE). \cr
+   abc_auth_required \tab logical \tab Whether ABC authentication is required. \cr
+   rendition_name \tab character \tab Media rendition name. \cr
+   description \tab character \tab Content description. \cr
+   language \tab character \tab Broadcast language. \cr
+   type \tab character \tab Content/media type. \cr
 }
 }
 \description{

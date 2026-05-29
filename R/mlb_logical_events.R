@@ -1,8 +1,8 @@
 #' @title **MLB Logical Events** 
 #' @return Returns a tibble with the following columns
-#'  |col_name      |types     |
-#'  |:-------------|:---------|
-#'  |event_code    |character |
+#'  |col_name      |types     |description                                                          |
+#'  |:-------------|:---------|:--------------------------------------------------------------------|
+#'  |event_code    |character |Logical event code used by the MLB Gameday feed (e.g. 'newBatter').  |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_logical_events())

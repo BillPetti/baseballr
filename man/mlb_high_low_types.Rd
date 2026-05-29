@@ -7,15 +7,15 @@
 mlb_high_low_types()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   stat_name \tab character \cr
-   stat_lookup_param \tab character \cr
-   is_counting \tab logical \cr
-   stat_label \tab character \cr
-   stat_groups \tab list \cr
-   org_types \tab list \cr
-   high_low_types \tab list \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   stat_name \tab character \tab Snake-case name of the statistic (e.g. 'at_bats'). \cr
+   stat_lookup_param \tab character \tab API lookup parameter for the statistic (e.g. 'atBats'). \cr
+   is_counting \tab logical \tab Whether the statistic is a counting stat. \cr
+   stat_label \tab character \tab Human-readable label of the statistic (e.g. 'At bats'). \cr
+   stat_groups \tab list \tab List-column of stat group display names the stat belongs to. \cr
+   org_types \tab list \tab List-column of organization types the stat applies to (e.g. PLAYER). \cr
+   high_low_types \tab list \tab List-column of high/low aggregation types (e.g. PLAYER, TEAM, GAME). \cr
 }
 }
 \description{

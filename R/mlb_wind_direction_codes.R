@@ -1,9 +1,9 @@
 #' @title **MLB Wind Direction Codes** 
 #' @return Returns a tibble with the following columns
-#'  |col_name                   |types     |
-#'  |:--------------------------|:---------|
-#'  |wind_direction_code        |character |
-#'  |wind_direction_description |character |
+#'  |col_name                   |types     |description                            |
+#'  |:--------------------------|:---------|:--------------------------------------|
+#'  |wind_direction_code        |character |Wind direction code (e.g., In From CF).|
+#'  |wind_direction_description |character |Wind direction description.            |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_wind_direction_codes())

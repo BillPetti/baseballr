@@ -13,31 +13,19 @@
 #' @param stat_type The stat_type to return information and ranking for a particular statistic for a particular stat type.
 #' @param limit A limit to limit return to a particular number of records.
 #' @return Returns a tibble with the following columns
-#'   |col_name              |types     |
-#'   |:---------------------|:---------|
-#'   |leader_category       |character |
-#'   |rank                  |integer   |
-#'   |value                 |character |
-#'   |season                |character |
-#'   |num_teams             |integer   |
-#'   |team_id               |integer   |
-#'   |team_name             |character |
-#'   |team_link             |character |
-#'   |league_id             |integer   |
-#'   |league_name           |character |
-#'   |league_link           |character |
-#'   |person_id             |integer   |
-#'   |person_full_name      |character |
-#'   |person_link           |character |
-#'   |person_first_name     |character |
-#'   |person_last_name      |character |
-#'   |sport_id              |integer   |
-#'   |sport_link            |character |
-#'   |sport_abbreviation    |character |
-#'   |stat_group            |character |
-#'   |total_splits          |integer   |
-#'   |game_type_id          |character |
-#'   |game_type_description |character |
+#'   |col_name              |types     |description                                  |
+#'   |:---------------------|:---------|:--------------------------------------------|
+#'   |leader_category       |character |Team leader category (e.g., homeRuns).       |
+#'   |rank                  |integer   |Rank within the team leaderboard.            |
+#'   |value                 |character |Statistic value for the team.                |
+#'   |season                |character |Season year.                                 |
+#'   |team_id               |integer   |Team MLBAM ID.                               |
+#'   |team_name             |character |Team name.                                   |
+#'   |team_link             |character |API link to the team.                        |
+#'   |stat_group            |character |Stat group (e.g., hitting).                  |
+#'   |total_splits          |integer   |Total number of splits in the leaderboard.   |
+#'   |game_type_id          |character |Game type code (e.g., R for regular season). |
+#'   |game_type_description |character |Game type description.                       |
 #' @export
 #' @examples \donttest{
 #'  try(mlb_teams_stats_leaders(leader_categories='homeRuns',sport_id=1, season = 2021))

@@ -61,28 +61,27 @@
 #' 99 = RF - Close to Line 
 #' @return Returns a tibble of Statcast leaderboard data with the following columns (for leaderboard: 'exit_velocity_barrels'):
 #' 
-#'   |col_name              |types     |
-#'   |:---------------------|:---------|
-#'   |year                  |numeric   |
-#'   |last_name             |character |
-#'   |first_name            |character |
-#'   |player_id             |integer   |
-#'   |attempts              |integer   |
-#'   |avg_hit_angle         |numeric   |
-#'   |anglesweetspotpercent |numeric   |
-#'   |max_hit_speed         |numeric   |
-#'   |avg_hit_speed         |numeric   |
-#'   |fbld                  |numeric   |
-#'   |gb                    |numeric   |
-#'   |max_distance          |integer   |
-#'   |avg_distance          |integer   |
-#'   |avg_hr_distance       |integer   |
-#'   |ev95plus              |integer   |
-#'   |ev95per-swing         |numeric   |
-#'   |ev95percent           |numeric   |
-#'   |barrels               |integer   |
-#'   |brl_percent           |numeric   |
-#'   |brl_pa                |numeric   |
+#'   |col_name              |types     |description |
+#'   |:---------------------|:---------|:-----------|
+#'   |year                  |numeric   |Leaderboard season. |
+#'   |last_name, first_name |character |Player name as "Last, First". |
+#'   |player_id             |integer   |MLBAM player ID. |
+#'   |attempts              |integer   |Number of batted-ball events (attempts). |
+#'   |avg_hit_angle         |numeric   |Average launch angle on batted balls (degrees). |
+#'   |anglesweetspotpercent |numeric   |Share of batted balls hit in the 8-32 degree sweet-spot range (percent). |
+#'   |max_hit_speed         |numeric   |Maximum exit velocity recorded (mph). |
+#'   |avg_hit_speed         |numeric   |Average exit velocity on batted balls (mph). |
+#'   |ev50                  |numeric   |Average of the top 50% of hardest-hit batted balls by exit velocity (mph). |
+#'   |fbld                  |numeric   |Average exit velocity on fly balls and line drives (mph). |
+#'   |gb                    |numeric   |Average exit velocity on ground balls (mph). |
+#'   |max_distance          |integer   |Maximum batted-ball distance (feet). |
+#'   |avg_distance          |integer   |Average batted-ball distance (feet). |
+#'   |avg_hr_distance       |integer   |Average home-run distance (feet). |
+#'   |ev95plus              |integer   |Number of batted balls hit at 95+ mph. |
+#'   |ev95percent           |numeric   |Share of batted balls hit at 95+ mph (percent). |
+#'   |barrels               |integer   |Number of barreled batted balls. |
+#'   |brl_percent           |numeric   |Barrels per batted-ball event (percent). |
+#'   |brl_pa                |numeric   |Barrels per plate appearance (percent). |
 #' 
 #' @export
 #' @examples \donttest{

@@ -2,15 +2,15 @@
 #' @param sport_id Return information for a given sport_id. 
 #' @param date Return information for a given date. 
 #' @return Returns a tibble with the following columns
-#'  |col_name         |types     |
-#'  |:----------------|:---------|
-#'  |jersey_number    |character |
-#'  |job              |character |
-#'  |job_code         |character |
-#'  |title            |character |
-#'  |person_id        |integer   |
-#'  |person_full_name |character |
-#'  |person_link      |character |
+#'  |col_name         |types     |description                                                          |
+#'  |:----------------|:---------|:--------------------------------------------------------------------|
+#'  |jersey_number    |character |Umpire jersey number.                                                |
+#'  |job              |character |Job title (e.g. 'Umpire').                                          |
+#'  |job_code         |character |Four-letter job type code (e.g. 'UMPR').                            |
+#'  |title            |character |Specific role title for the assignment.                              |
+#'  |person_id        |integer   |MLB person id for the umpire.                                        |
+#'  |person_full_name |character |Full name of the umpire.                                             |
+#'  |person_link      |character |API relative link to the person.                                     |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_jobs_umpires(sport_id=1))

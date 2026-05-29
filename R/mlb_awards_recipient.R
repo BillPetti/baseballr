@@ -4,23 +4,23 @@
 #' @param league_id league_id(s) to return a directory of players for a given award in a specific league. Format '103,104'
 #' @param season Year(s) to return a directory of players for a given award in a given season.
 #' @return Returns a tibble with the following columns
-#'  |col_name                             |types     |
-#'  |:------------------------------------|:---------|
-#'  |award_id                             |character |
-#'  |award_name                           |character |
-#'  |date                                 |character |
-#'  |season                               |character |
-#'  |votes                                |integer   |
-#'  |notes                                |character |
-#'  |player_id                            |integer   |
-#'  |player_link                          |character |
-#'  |player_name_first_last               |character |
-#'  |player_primary_position_code         |character |
-#'  |player_primary_position_name         |character |
-#'  |player_primary_position_type         |character |
-#'  |player_primary_position_abbreviation |character |
-#'  |team_id                              |integer   |
-#'  |team_link                            |character |
+#'  |col_name                             |types     |description                                  |
+#'  |:------------------------------------|:---------|:--------------------------------------------|
+#'  |award_id                             |character |Award identifier code.                       |
+#'  |award_name                           |character |Award name.                                  |
+#'  |date                                 |character |Date the award was given (YYYY-MM-DD).       |
+#'  |season                               |character |Season the award was given (YYYY).           |
+#'  |votes                                |integer   |Number of votes received.                    |
+#'  |notes                                |character |Additional notes about the recipient.        |
+#'  |player_id                            |integer   |MLB player ID of the recipient.              |
+#'  |player_link                          |character |MLB Stats API relative player link.          |
+#'  |player_name_first_last               |character |Recipient name in first-last order.          |
+#'  |player_primary_position_code         |character |Recipient primary fielding position code.    |
+#'  |player_primary_position_name         |character |Recipient primary fielding position name.    |
+#'  |player_primary_position_type         |character |Recipient primary position type.             |
+#'  |player_primary_position_abbreviation |character |Recipient primary position abbreviation.     |
+#'  |team_id                              |integer   |MLB team ID of the recipient.                |
+#'  |team_link                            |character |MLB Stats API relative team link.            |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_awards_recipient(award_id = 'MLBHOF', season = 2020))

@@ -12,56 +12,57 @@
 #' @param end_date Date of last game for which you want data.
 #' Format must be in MM/DD/YYYY format.
 #' @return Returns a tibble with the following columns
-#'   |col_name                                            |types     |
-#'   |:---------------------------------------------------|:---------|
-#'   |hits_per9inn                                        |numeric   |
-#'   |runs_per9inn                                        |numeric   |
-#'   |pitches_per9inn                                     |numeric   |
-#'   |plate_appearances_per9inn                           |numeric   |
-#'   |hits_per_game                                       |numeric   |
-#'   |runs_per_game                                       |numeric   |
-#'   |innings_played_per_game                             |numeric   |
-#'   |pitches_per_game                                    |numeric   |
-#'   |pitchers_per_game                                   |numeric   |
-#'   |plate_appearances_per_game                          |numeric   |
-#'   |total_game_time                                     |character |
-#'   |total_innings_played                                |integer   |
-#'   |total_hits                                          |integer   |
-#'   |total_runs                                          |integer   |
-#'   |total_plate_appearances                             |integer   |
-#'   |total_pitchers                                      |integer   |
-#'   |total_pitches                                       |integer   |
-#'   |total_games                                         |integer   |
-#'   |total7inn_games                                     |integer   |
-#'   |total9inn_games                                     |integer   |
-#'   |total_extra_inn_games                               |integer   |
-#'   |time_per_game                                       |character |
-#'   |time_per_pitch                                      |character |
-#'   |time_per_hit                                        |character |
-#'   |time_per_run                                        |character |
-#'   |time_per_plate_appearance                           |character |
-#'   |time_per9inn                                        |character |
-#'   |time_per77plate_appearances                         |character |
-#'   |total_extra_inn_time                                |character |
-#'   |time_per7inn_game                                   |character |
-#'   |time_per7inn_game_without_extra_inn                 |character |
-#'   |total7inn_games_scheduled                           |integer   |
-#'   |total7inn_games_without_extra_inn                   |integer   |
-#'   |total9inn_games_completed_early                     |integer   |
-#'   |total9inn_games_without_extra_inn                   |integer   |
-#'   |total9inn_games_scheduled                           |integer   |
-#'   |hits_per_run                                        |numeric   |
-#'   |pitches_per_pitcher                                 |numeric   |
-#'   |season                                              |character |
-#'   |sport_id                                            |integer   |
-#'   |sport_code                                          |character |
-#'   |sport_link                                          |character |
-#'   |pr_portal_calculated_fields_total7inn_games         |integer   |
-#'   |pr_portal_calculated_fields_total9inn_games         |integer   |
-#'   |pr_portal_calculated_fields_total_extra_inn_games   |integer   |
-#'   |pr_portal_calculated_fields_time_per7inn_game       |character |
-#'   |pr_portal_calculated_fields_time_per9inn_game       |character |
-#'   |pr_portal_calculated_fields_time_per_extra_inn_game |character |
+#'   |col_name                                            |types     |description                                       |
+#'   |:---------------------------------------------------|:---------|:-------------------------------------------------|
+#'   |hits_per9inn                                        |numeric   |Hits per 9 innings.                               |
+#'   |runs_per9inn                                        |numeric   |Runs per 9 innings.                               |
+#'   |pitches_per9inn                                     |numeric   |Pitches per 9 innings.                            |
+#'   |plate_appearances_per9inn                           |numeric   |Plate appearances per 9 innings.                  |
+#'   |hits_per_game                                       |numeric   |Hits per game.                                    |
+#'   |runs_per_game                                       |numeric   |Runs per game.                                    |
+#'   |innings_played_per_game                             |numeric   |Innings played per game.                          |
+#'   |pitches_per_game                                    |numeric   |Pitches per game.                                 |
+#'   |pitchers_per_game                                   |numeric   |Pitchers used per game.                           |
+#'   |plate_appearances_per_game                          |numeric   |Plate appearances per game.                       |
+#'   |total_game_time                                     |character |Total game time (HHH:MM:SS).                      |
+#'   |total_innings_played                                |numeric   |Total innings played.                             |
+#'   |total_hits                                          |integer   |Total hits.                                       |
+#'   |total_runs                                          |integer   |Total runs.                                       |
+#'   |total_plate_appearances                             |integer   |Total plate appearances.                          |
+#'   |total_pitchers                                      |integer   |Total pitchers used.                              |
+#'   |total_pitches                                       |integer   |Total pitches thrown.                             |
+#'   |total_games                                         |integer   |Total games.                                      |
+#'   |total7inn_games                                     |integer   |Total 7-inning games.                             |
+#'   |total9inn_games                                     |integer   |Total 9-inning games.                             |
+#'   |total_extra_inn_games                               |integer   |Total extra-inning games.                         |
+#'   |time_per_game                                       |character |Average time per game (HH:MM:SS).                 |
+#'   |time_per_pitch                                      |character |Average time per pitch (HH:MM:SS).                |
+#'   |time_per_hit                                        |character |Average time per hit (HH:MM:SS).                  |
+#'   |time_per_run                                        |character |Average time per run (HH:MM:SS).                  |
+#'   |time_per_plate_appearance                           |character |Average time per plate appearance (HH:MM:SS).     |
+#'   |time_per9inn                                        |character |Average time per 9 innings (HH:MM:SS).            |
+#'   |time_per77plate_appearances                         |character |Average time per 77 plate appearances.            |
+#'   |total_extra_inn_time                                |character |Total extra-inning time (HHH:MM:SS).              |
+#'   |time_per7inn_game                                   |character |Average time per 7-inning game (HH:MM:SS).        |
+#'   |time_per7inn_game_without_extra_inn                 |character |Average time per 7-inning game excl. extras.      |
+#'   |total7inn_games_scheduled                           |integer   |Total 7-inning games scheduled.                   |
+#'   |total7inn_games_without_extra_inn                   |integer   |Total 7-inning games without extra innings.       |
+#'   |total9inn_games_without_extra_inn                   |integer   |Total 9-inning games without extra innings.       |
+#'   |total9inn_games_scheduled                           |integer   |Total 9-inning games scheduled.                   |
+#'   |hits_per_run                                        |numeric   |Hits per run.                                     |
+#'   |pitches_per_pitcher                                 |numeric   |Pitches per pitcher.                              |
+#'   |season                                              |character |Season (YYYY).                                    |
+#'   |total9inn_games_completed_early                     |integer   |9-inning games completed early.                   |
+#'   |total7inn_games_completed_early                     |integer   |7-inning games completed early.                   |
+#'   |sport_id                                            |integer   |MLB sport ID.                                     |
+#'   |sport_code                                          |character |Sport code (e.g. mlb, aaa).                       |
+#'   |sport_link                                          |character |MLB Stats API relative sport link.                |
+#'   |pr_portal_calculated_fields_total7inn_games         |integer   |Portal-calculated total 7-inning games.           |
+#'   |pr_portal_calculated_fields_total9inn_games         |integer   |Portal-calculated total 9-inning games.           |
+#'   |pr_portal_calculated_fields_total_extra_inn_games   |integer   |Portal-calculated total extra-inning games.       |
+#'   |pr_portal_calculated_fields_time_per7inn_game       |character |Portal-calculated time per 7-inning game.         |
+#'   |pr_portal_calculated_fields_time_per9inn_game       |character |Portal-calculated time per 9-inning game.         |
+#'   |pr_portal_calculated_fields_time_per_extra_inn_game |character |Portal-calculated time per extra-inning game.     |
 #' @importFrom jsonlite fromJSON
 #' @importFrom tidyr spread
 #' @importFrom tibble tibble

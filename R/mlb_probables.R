@@ -8,16 +8,16 @@
 #' @return Returns a tiible that includes probable starting pitchers and
 #' the home plate umpire for the `game_pk` requested including the following columns:
 #' 
-#'  |col_name             |types     |
-#'  |:--------------------|:---------|
-#'  |game_pk              |integer   |
-#'  |game_date            |character |
-#'  |fullName             |character |
-#'  |id                   |integer   |
-#'  |team                 |character |
-#'  |team_id              |integer   |
-#'  |home_plate_full_name |character |
-#'  |home_plate_id        |integer   |
+#'  |col_name             |types     |description                                           |
+#'  |:--------------------|:---------|:-----------------------------------------------------|
+#'  |game_pk              |integer   |Unique game identifier.                               |
+#'  |game_date            |character |Date of the game (YYYY-MM-DD).                        |
+#'  |fullName             |character |Full name of the probable starting pitcher.           |
+#'  |id                   |integer   |MLBAM player ID of the probable starting pitcher.     |
+#'  |team                 |character |Team name for the probable pitcher.                   |
+#'  |team_id              |integer   |MLBAM team ID for the probable pitcher.               |
+#'  |home_plate_full_name |character |Full name of the home plate umpire.                   |
+#'  |home_plate_id        |integer   |MLBAM ID of the home plate umpire.                    |
 #'  
 #' @export
 #' @examples \donttest{

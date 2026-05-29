@@ -7,10 +7,10 @@
 mlb_hit_trajectories()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   hit_trajectory_code \tab character \cr
-   hit_trajectory_description \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   hit_trajectory_code \tab character \tab Hit trajectory code (e.g. 'bunt_grounder', 'bunt_popup'). \cr
+   hit_trajectory_description \tab character \tab Hit trajectory description (e.g. 'Bunt - Ground Ball', 'Bunt - Popup'). \cr
 }
 }
 \description{

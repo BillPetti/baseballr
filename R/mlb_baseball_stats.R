@@ -2,13 +2,13 @@
 #' @title **MLB Baseball Stats** 
 #' @return Returns a tibble with the following columns:
 #' 
-#'  |col_name          |types     |
-#'  |:-----------------|:---------|
-#'  |stat_name         |character |
-#'  |stat_lookup_param |character |
-#'  |is_counting       |logical   |
-#'  |stat_label        |character |
-#'  |stat_group        |character |
+#'  |col_name          |types     |description                                      |
+#'  |:-----------------|:---------|:------------------------------------------------|
+#'  |stat_name         |character |Internal stat name.                              |
+#'  |stat_lookup_param |character |Lookup parameter/abbreviation for the stat.      |
+#'  |is_counting       |logical   |Whether the stat is a counting stat.             |
+#'  |stat_label        |character |Human-readable stat label.                       |
+#'  |stat_group        |character |Stat group (e.g. hitting, pitching, fielding).   |
 #' 
 #' @importFrom jsonlite fromJSON
 #' @importFrom janitor clean_names 

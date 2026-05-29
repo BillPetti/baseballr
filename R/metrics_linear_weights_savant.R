@@ -8,11 +8,11 @@
 #' level. Defaults to 'plate appearance'.
 #' @return Returns a tibble with the following columns:
 #' 
-#'   |col_name                     |types     |
-#'   |:----------------------------|:---------|
-#'   |events                       |character |
-#'   |linear_weights_above_average |numeric   |
-#'   |linear_weights_above_outs    |numeric   |
+#'   |col_name                     |types     |description |
+#'   |:----------------------------|:---------|:-----------|
+#'   |events                       |character |Event type (e.g. home_run, triple, double, single, walk, hit_by_pitch, outs). |
+#'   |linear_weights_above_average |numeric   |Average change in run expectancy (RE24) for the event, i.e. linear weight above average. |
+#'   |linear_weights_above_outs    |numeric   |Linear weight expressed above the value of an out (above-average value plus the absolute out value). |
 #'   
 #' @export 
 #' @examples \donttest{

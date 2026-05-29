@@ -7,9 +7,9 @@
 mlb_runner_detail_types()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   stat_name \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   stat_name \tab character \tab Name of the runner detail stat (e.g. 'r_force_out'). \cr
 }
 }
 \description{

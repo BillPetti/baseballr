@@ -7,13 +7,13 @@
 #' @importFrom jsonlite fromJSON
 #' @return Returns a tibble that includes time codes from the game_pk requested
 #' 
-#'  |col_name                        |types   |
-#'  |:-------------------------------|:-------|
-#'  |home_team_win_probability       |numeric |
-#'  |away_team_win_probability       |numeric |
-#'  |home_team_win_probability_added |numeric |
-#'  |at_bat_index                    |integer |
-#'  |leverage_index                  |numeric |
+#'  |col_name                        |types   |description                                                       |
+#'  |:-------------------------------|:-------|:-----------------------------------------------------------------|
+#'  |home_team_win_probability       |numeric |Home team win probability (percent) entering the at-bat.          |
+#'  |away_team_win_probability       |numeric |Away team win probability (percent) entering the at-bat.          |
+#'  |home_team_win_probability_added |numeric |Change in home team win probability attributed to the at-bat.     |
+#'  |at_bat_index                    |integer |Zero-based index of the at-bat within the game.                   |
+#'  |leverage_index                  |numeric |Leverage index quantifying the importance of the at-bat situation.|
 #'  
 #' @export
 #' @examples \donttest{

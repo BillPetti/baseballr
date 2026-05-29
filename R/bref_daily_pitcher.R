@@ -4,57 +4,56 @@
 #' @description This function allows you to scrape basic pitcher statistics over a custom time frame. Data is sourced from Baseball-Reference.com.
 #' @param t1 First date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
 #' @param t2 Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"
-#' @return Returns a tibble of pitcher performance with the following columns: 
-#' 
-#'  |col_name |types     |
-#'  |:--------|:---------|
-#'  |bbref_id |character |
-#'  |season   |integer   |
-#'  |Name     |character |
-#'  |Age      |numeric   |
-#'  |Level    |character |
-#'  |Team     |character |
-#'  |G        |numeric   |
-#'  |GS       |numeric   |
-#'  |W        |numeric   |
-#'  |L        |numeric   |
-#'  |SV       |numeric   |
-#'  |IP       |numeric   |
-#'  |H        |numeric   |
-#'  |R        |numeric   |
-#'  |ER       |numeric   |
-#'  |uBB      |numeric   |
-#'  |BB       |numeric   |
-#'  |SO       |numeric   |
-#'  |HR       |numeric   |
-#'  |HBP      |numeric   |
-#'  |ERA      |numeric   |
-#'  |AB       |numeric   |
-#'  |X1B      |numeric   |
-#'  |X2B      |numeric   |
-#'  |X3B      |numeric   |
-#'  |IBB      |numeric   |
-#'  |GDP      |numeric   |
-#'  |SF       |numeric   |
-#'  |SB       |numeric   |
-#'  |CS       |numeric   |
-#'  |PO       |numeric   |
-#'  |BF       |numeric   |
-#'  |Pit      |numeric   |
-#'  |Str      |numeric   |
-#'  |StL      |numeric   |
-#'  |StS      |numeric   |
-#'  |GB.FB    |numeric   |
-#'  |LD       |numeric   |
-#'  |PU       |numeric   |
-#'  |WHIP     |numeric   |
-#'  |BAbip    |numeric   |
-#'  |SO9      |numeric   |
-#'  |SO.W     |numeric   |
-#'  |SO_perc  |numeric   |
-#'  |uBB_perc |numeric   |
-#'  |SO_uBB   |numeric   |
-#'  
+#' @return Returns a tibble of pitcher performance over the requested date range, one row per player, with the following columns:
+#'
+#'  |col_name |types     |description                                              |
+#'  |:--------|:---------|:--------------------------------------------------------|
+#'  |season   |integer   |Season year.                                             |
+#'  |Name     |character |Player name.                                             |
+#'  |Age      |numeric   |Player age during the season.                            |
+#'  |Level    |character |League level (e.g. Maj-AL, Maj-NL).                      |
+#'  |Team     |character |Team name.                                               |
+#'  |G        |numeric   |Games pitched.                                           |
+#'  |GS       |numeric   |Games started.                                           |
+#'  |W        |numeric   |Wins.                                                    |
+#'  |L        |numeric   |Losses.                                                  |
+#'  |SV       |numeric   |Saves.                                                   |
+#'  |IP       |numeric   |Innings pitched.                                         |
+#'  |H        |numeric   |Hits allowed.                                            |
+#'  |R        |numeric   |Runs allowed.                                            |
+#'  |ER       |numeric   |Earned runs allowed.                                     |
+#'  |uBB      |numeric   |Unintentional walks allowed.                             |
+#'  |BB       |numeric   |Walks allowed.                                           |
+#'  |SO       |numeric   |Strikeouts.                                              |
+#'  |HR       |numeric   |Home runs allowed.                                       |
+#'  |HBP      |numeric   |Batters hit by pitch.                                    |
+#'  |ERA      |numeric   |Earned run average (per 9 innings).                      |
+#'  |AB       |numeric   |At-bats against.                                         |
+#'  |X1B      |numeric   |Singles allowed.                                         |
+#'  |X2B      |numeric   |Doubles allowed.                                         |
+#'  |X3B      |numeric   |Triples allowed.                                         |
+#'  |IBB      |numeric   |Intentional walks allowed.                               |
+#'  |GDP      |numeric   |Double plays induced.                                    |
+#'  |SF       |numeric   |Sacrifice flies allowed.                                 |
+#'  |SB       |numeric   |Stolen bases allowed.                                    |
+#'  |CS       |numeric   |Runners caught stealing.                                 |
+#'  |PO       |numeric   |Pickoffs.                                                |
+#'  |BF       |numeric   |Batters faced.                                           |
+#'  |Pit      |numeric   |Total pitches thrown.                                    |
+#'  |Str      |numeric   |Strikes thrown (as a share of pitches).                  |
+#'  |StL      |numeric   |Looking (called) strikes share.                          |
+#'  |StS      |numeric   |Swinging strikes share.                                  |
+#'  |GB.FB    |numeric   |Ground ball to fly ball share.                           |
+#'  |LD       |numeric   |Line drive share.                                        |
+#'  |PU       |numeric   |Pop-up (infield fly) share.                              |
+#'  |WHIP     |numeric   |Walks plus hits per inning pitched.                      |
+#'  |BAbip    |numeric   |Batting average on balls in play allowed.                |
+#'  |SO9      |numeric   |Strikeouts per 9 innings.                                |
+#'  |SO.W     |numeric   |Strikeout-to-walk ratio.                                 |
+#'  |SO_perc  |numeric   |Strikeout rate (per batter faced).                       |
+#'  |uBB_perc |numeric   |Unintentional walk rate (per batter faced).              |
+#'  |SO_uBB   |numeric   |Strikeouts minus unintentional walks.                    |
+#'
 #' @importFrom rlang .data
 #' @importFrom dplyr filter mutate arrange desc rename select
 #' @importFrom tidyr everything

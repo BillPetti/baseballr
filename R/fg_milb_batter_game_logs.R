@@ -3,69 +3,51 @@
 #' @description This function allows you to scrape MiLB game logs for individual batters from FanGraphs.
 #' @param playerid The batter's minor league ID from FanGraphs.
 #' @param year The season for which game logs should be returned.
-#' @return Returns a tibble of Minor League batter game logs with the following columns:
-#' 
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |player_name    |character |
-#'    |minor_playerid |character |
-#'    |Date           |character |
-#'    |Team           |character |
-#'    |Level          |character |
-#'    |Opp            |character |
-#'    |G              |numeric   |
-#'    |AB             |numeric   |
-#'    |PA             |numeric   |
-#'    |H              |numeric   |
-#'    |1B             |numeric   |
-#'    |2B             |numeric   |
-#'    |3B             |numeric   |
-#'    |HR             |numeric   |
-#'    |R              |numeric   |
-#'    |RBI            |numeric   |
-#'    |BB             |numeric   |
-#'    |IBB            |numeric   |
-#'    |SO             |numeric   |
-#'    |HBP            |numeric   |
-#'    |SF             |numeric   |
-#'    |SH             |numeric   |
-#'    |GDP            |numeric   |
-#'    |SB             |numeric   |
-#'    |CS             |numeric   |
-#'    |AVG            |numeric   |
-#'    |BB%            |numeric   |
-#'    |K%             |numeric   |
-#'    |BB/K           |numeric   |
-#'    |OBP            |numeric   |
-#'    |SLG            |numeric   |
-#'    |OPS            |numeric   |
-#'    |ISO            |numeric   |
-#'    |Spd            |numeric   |
-#'    |BABIP          |numeric   |
-#'    |wRC            |numeric   |
-#'    |wRAA           |numeric   |
-#'    |wOBA           |numeric   |
-#'    |wRC+           |numeric   |
-#'    |wBsR           |numeric   |
-#'    |gamedate       |character |
-#'    |dh             |integer   |
-#'    |UPId           |character |
-#'    |MLBAMId        |character |
-#'    |MinorMasterId  |character |
-#'    |RRId           |character |
-#'    |FirstName      |character |
-#'    |LastName       |character |
-#'    |firstLastName  |character |
-#'    |Height         |character |
-#'    |Weight         |character |
-#'    |BirthDate      |character |
-#'    |Bats           |character |
-#'    |Throws         |character |
-#'    |Position       |character |
-#'    |BirthCity      |character |
-#'    |College        |character |
-#'    |Age            |character |
-#'  
+#' @return Returns a tibble of Minor League batter game logs, one row per game, with the following columns:
+#'
+#'    |col_name |types     |description                                              |
+#'    |:--------|:---------|:--------------------------------------------------------|
+#'    |Date     |character |Calendar date of the game (YYYY-MM-DD).                  |
+#'    |Team     |character |Minor league team the batter played for.                 |
+#'    |Level    |character |Minor league classification level (e.g. (AA), (AAA)).    |
+#'    |Opp      |character |Opponent team; leading @ indicates a road game.          |
+#'    |G        |numeric   |Games played (1 per row).                                |
+#'    |AB       |numeric   |At-bats.                                                 |
+#'    |PA       |numeric   |Plate appearances.                                       |
+#'    |H        |numeric   |Hits.                                                    |
+#'    |1B       |numeric   |Singles.                                                 |
+#'    |2B       |numeric   |Doubles.                                                 |
+#'    |3B       |numeric   |Triples.                                                 |
+#'    |HR       |numeric   |Home runs.                                               |
+#'    |R        |numeric   |Runs scored.                                             |
+#'    |RBI      |numeric   |Runs batted in.                                          |
+#'    |BB       |numeric   |Walks (bases on balls).                                  |
+#'    |IBB      |numeric   |Intentional walks.                                       |
+#'    |SO       |numeric   |Strikeouts.                                              |
+#'    |HBP      |numeric   |Times hit by pitch.                                      |
+#'    |SF       |numeric   |Sacrifice flies.                                         |
+#'    |SH       |numeric   |Sacrifice hits (bunts).                                  |
+#'    |GDP      |numeric   |Grounded into double plays.                              |
+#'    |SB       |numeric   |Stolen bases.                                            |
+#'    |CS       |numeric   |Times caught stealing.                                   |
+#'    |AVG      |numeric   |Batting average (H/AB).                                  |
+#'    |BB%      |numeric   |Walk rate (BB per plate appearance).                     |
+#'    |K%       |numeric   |Strikeout rate (SO per plate appearance).                |
+#'    |BB/K     |numeric   |Walk-to-strikeout ratio.                                 |
+#'    |OBP      |numeric   |On-base percentage.                                      |
+#'    |SLG      |numeric   |Slugging percentage.                                     |
+#'    |OPS      |numeric   |On-base plus slugging.                                   |
+#'    |ISO      |numeric   |Isolated power (SLG minus AVG).                          |
+#'    |Spd      |numeric   |Bill James Speed Score.                                  |
+#'    |BABIP    |numeric   |Batting average on balls in play.                        |
+#'    |wRC      |numeric   |Weighted runs created.                                   |
+#'    |wRAA     |numeric   |Weighted runs above average.                             |
+#'    |wOBA     |numeric   |Weighted on-base average.                                |
+#'    |wRC+     |numeric   |Weighted runs created plus (league/park adjusted, 100=avg). |
+#'    |wBsR     |numeric   |Weighted base running runs.                              |
+#'    |gamedate |character |Game date as parsed from the source feed.                |
+#'    |dh       |integer   |Doubleheader game indicator (0 = single game).           |
+#'
 #' @importFrom tidyr separate everything
 #' @importFrom dplyr mutate select
 #' @importFrom jsonlite fromJSON

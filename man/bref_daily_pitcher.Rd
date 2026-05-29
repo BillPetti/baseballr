@@ -12,54 +12,53 @@ bref_daily_pitcher(t1, t2)
 \item{t2}{Last date data should be scraped from. Should take the form "YEAR-MONTH-DAY"}
 }
 \value{
-Returns a tibble of pitcher performance with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   bbref_id \tab character \cr
-   season \tab integer \cr
-   Name \tab character \cr
-   Age \tab numeric \cr
-   Level \tab character \cr
-   Team \tab character \cr
-   G \tab numeric \cr
-   GS \tab numeric \cr
-   W \tab numeric \cr
-   L \tab numeric \cr
-   SV \tab numeric \cr
-   IP \tab numeric \cr
-   H \tab numeric \cr
-   R \tab numeric \cr
-   ER \tab numeric \cr
-   uBB \tab numeric \cr
-   BB \tab numeric \cr
-   SO \tab numeric \cr
-   HR \tab numeric \cr
-   HBP \tab numeric \cr
-   ERA \tab numeric \cr
-   AB \tab numeric \cr
-   X1B \tab numeric \cr
-   X2B \tab numeric \cr
-   X3B \tab numeric \cr
-   IBB \tab numeric \cr
-   GDP \tab numeric \cr
-   SF \tab numeric \cr
-   SB \tab numeric \cr
-   CS \tab numeric \cr
-   PO \tab numeric \cr
-   BF \tab numeric \cr
-   Pit \tab numeric \cr
-   Str \tab numeric \cr
-   StL \tab numeric \cr
-   StS \tab numeric \cr
-   GB.FB \tab numeric \cr
-   LD \tab numeric \cr
-   PU \tab numeric \cr
-   WHIP \tab numeric \cr
-   BAbip \tab numeric \cr
-   SO9 \tab numeric \cr
-   SO.W \tab numeric \cr
-   SO_perc \tab numeric \cr
-   uBB_perc \tab numeric \cr
-   SO_uBB \tab numeric \cr
+Returns a tibble of pitcher performance over the requested date range, one row per player, with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season \tab integer \tab Season year. \cr
+   Name \tab character \tab Player name. \cr
+   Age \tab numeric \tab Player age during the season. \cr
+   Level \tab character \tab League level (e.g. Maj-AL, Maj-NL). \cr
+   Team \tab character \tab Team name. \cr
+   G \tab numeric \tab Games pitched. \cr
+   GS \tab numeric \tab Games started. \cr
+   W \tab numeric \tab Wins. \cr
+   L \tab numeric \tab Losses. \cr
+   SV \tab numeric \tab Saves. \cr
+   IP \tab numeric \tab Innings pitched. \cr
+   H \tab numeric \tab Hits allowed. \cr
+   R \tab numeric \tab Runs allowed. \cr
+   ER \tab numeric \tab Earned runs allowed. \cr
+   uBB \tab numeric \tab Unintentional walks allowed. \cr
+   BB \tab numeric \tab Walks allowed. \cr
+   SO \tab numeric \tab Strikeouts. \cr
+   HR \tab numeric \tab Home runs allowed. \cr
+   HBP \tab numeric \tab Batters hit by pitch. \cr
+   ERA \tab numeric \tab Earned run average (per 9 innings). \cr
+   AB \tab numeric \tab At-bats against. \cr
+   X1B \tab numeric \tab Singles allowed. \cr
+   X2B \tab numeric \tab Doubles allowed. \cr
+   X3B \tab numeric \tab Triples allowed. \cr
+   IBB \tab numeric \tab Intentional walks allowed. \cr
+   GDP \tab numeric \tab Double plays induced. \cr
+   SF \tab numeric \tab Sacrifice flies allowed. \cr
+   SB \tab numeric \tab Stolen bases allowed. \cr
+   CS \tab numeric \tab Runners caught stealing. \cr
+   PO \tab numeric \tab Pickoffs. \cr
+   BF \tab numeric \tab Batters faced. \cr
+   Pit \tab numeric \tab Total pitches thrown. \cr
+   Str \tab numeric \tab Strikes thrown (as a share of pitches). \cr
+   StL \tab numeric \tab Looking (called) strikes share. \cr
+   StS \tab numeric \tab Swinging strikes share. \cr
+   GB.FB \tab numeric \tab Ground ball to fly ball share. \cr
+   LD \tab numeric \tab Line drive share. \cr
+   PU \tab numeric \tab Pop-up (infield fly) share. \cr
+   WHIP \tab numeric \tab Walks plus hits per inning pitched. \cr
+   BAbip \tab numeric \tab Batting average on balls in play allowed. \cr
+   SO9 \tab numeric \tab Strikeouts per 9 innings. \cr
+   SO.W \tab numeric \tab Strikeout-to-walk ratio. \cr
+   SO_perc \tab numeric \tab Strikeout rate (per batter faced). \cr
+   uBB_perc \tab numeric \tab Unintentional walk rate (per batter faced). \cr
+   SO_uBB \tab numeric \tab Strikeouts minus unintentional walks. \cr
 }
 }
 \description{

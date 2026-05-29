@@ -4,33 +4,27 @@
 #' @description This function allows you to scrape schedule and results for a major league team from Baseball-Reference.com
 #' @param Tm The abbreviation used by Baseball-Reference.com for the team whose results you want to scrape.
 #' @param year Season for which you want to scrape the park factors.
-#' @return Returns a tibble of MLB team results and the following columns:
-#' 
-#'  |col_name       |types     |
-#'  |:--------------|:---------|
-#'  |Gm             |numeric   |
-#'  |Date           |character |
-#'  |Tm             |character |
-#'  |H_A            |character |
-#'  |Opp            |character |
-#'  |Result         |character |
-#'  |R              |numeric   |
-#'  |RA             |numeric   |
-#'  |Inn            |character |
-#'  |Record         |character |
-#'  |Rank           |numeric   |
-#'  |GB             |character |
-#'  |Win            |character |
-#'  |Loss           |character |
-#'  |Save           |character |
-#'  |Time           |character |
-#'  |D/N            |character |
-#'  |Attendance     |numeric   |
-#'  |cLI            |numeric   |
-#'  |Streak         |numeric   |
-#'  |Orig_Scheduled |character |
-#'  |Year           |numeric   |
-#'  
+#' @return Returns a tibble of MLB team results, one row per game on the team's schedule, with the following columns:
+#'
+#'  |col_name |types     |description                                              |
+#'  |:--------|:---------|:--------------------------------------------------------|
+#'  |Gm       |character |Game number / label in the schedule (includes postseason labels). |
+#'  |Date     |character |Day-of-week and calendar date of the game.               |
+#'  |Tm       |character |Team abbreviation.                                       |
+#'  |H_A      |character |Home/away indicator (A denotes a road game).             |
+#'  |Opp      |character |Opponent team abbreviation.                              |
+#'  |Result   |character |Game outcome from the team's perspective (W/L).          |
+#'  |R        |integer   |Runs scored by the team.                                 |
+#'  |RA       |integer   |Runs allowed (opponent runs).                            |
+#'  |Inn      |integer   |Innings played when not nine (e.g. extra innings).       |
+#'  |Record   |character |Team's cumulative win-loss record after the game.        |
+#'  |Rank     |character |Team's standing/rank in its division after the game.     |
+#'  |GB       |character |Games behind the division leader after the game.         |
+#'  |Win      |character |Winning pitcher.                                         |
+#'  |Loss     |character |Losing pitcher.                                          |
+#'  |Save     |character |Pitcher credited with the save (N if none).              |
+#'  |Time     |character |Duration of the game.                                    |
+#'
 #' @importFrom dplyr filter select mutate_at
 #' @import rvest 
 #' @export

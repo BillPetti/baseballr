@@ -7,11 +7,11 @@
 mlb_roster_types()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   roster_type_description \tab character \cr
-   roster_type_lookup_name \tab character \cr
-   roster_type_parameter \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   roster_type_description \tab character \tab Description of the roster type. \cr
+   roster_type_lookup_name \tab character \tab Lookup name for the roster type. \cr
+   roster_type_parameter \tab character \tab Parameter value to pass as \code{roster_type} in API calls. \cr
 }
 }
 \description{

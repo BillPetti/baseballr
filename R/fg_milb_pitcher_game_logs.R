@@ -4,67 +4,53 @@
 #' @description This function allows you to scrape MiLB game logs for individual batters from FanGraphs.com.
 #' @param playerid The pitcher's minor league ID from FanGraphs.com.
 #' @param year The season for which game logs should be returned.
-#' @return Returns a tibble of Minor League pitcher game logs.
-#' 
-#'    |col_name       |types     |
-#'    |:--------------|:---------|
-#'    |player_name    |character |
-#'    |minor_playerid |character |
-#'    |Date           |character |
-#'    |Team           |character |
-#'    |Level          |character |
-#'    |Opp            |character |
-#'    |W              |numeric   |
-#'    |L              |numeric   |
-#'    |ERA            |numeric   |
-#'    |G              |numeric   |
-#'    |GS             |numeric   |
-#'    |CG             |numeric   |
-#'    |ShO            |numeric   |
-#'    |SV             |numeric   |
-#'    |IP             |numeric   |
-#'    |TBF            |numeric   |
-#'    |H              |numeric   |
-#'    |R              |numeric   |
-#'    |ER             |numeric   |
-#'    |HR             |numeric   |
-#'    |BB             |numeric   |
-#'    |IBB            |numeric   |
-#'    |HBP            |numeric   |
-#'    |WP             |numeric   |
-#'    |BK             |numeric   |
-#'    |SO             |numeric   |
-#'    |K/9            |numeric   |
-#'    |BB/9           |numeric   |
-#'    |K/BB           |numeric   |
-#'    |HR/9           |numeric   |
-#'    |K%             |numeric   |
-#'    |K-BB%          |numeric   |
-#'    |BB%            |numeric   |
-#'    |AVG            |numeric   |
-#'    |WHIP           |numeric   |
-#'    |BABIP          |numeric   |
-#'    |LOB%           |numeric   |
-#'    |FIP            |numeric   |
-#'    |gamedate       |character |
-#'    |dh             |integer   |
-#'    |UPId           |character |
-#'    |MLBAMId        |character |
-#'    |MinorMasterId  |character |
-#'    |RRId           |character |
-#'    |FirstName      |character |
-#'    |LastName       |character |
-#'    |firstLastName  |character |
-#'    |Height         |character |
-#'    |Weight         |character |
-#'    |BirthDate      |character |
-#'    |Bats           |character |
-#'    |Throws         |character |
-#'    |Position       |character |
-#'    |BirthCity      |character |
-#'    |College        |character |
-#'    |Age            |character |
-#'    
+#' @return Returns a tibble of Minor League pitcher game logs, one row per game, with the following columns:
+#'
+#'    |col_name |types     |description                                              |
+#'    |:--------|:---------|:--------------------------------------------------------|
+#'    |Date     |character |Calendar date of the game (YYYY-MM-DD).                  |
+#'    |Team     |character |Minor league team the pitcher played for.                |
+#'    |Level    |character |Minor league classification level (e.g. (AA), (AAA)).    |
+#'    |Opp      |character |Opponent team; leading @ indicates a road game.          |
+#'    |W        |numeric   |Wins.                                                    |
+#'    |L        |numeric   |Losses.                                                  |
+#'    |ERA      |numeric   |Earned run average (per 9 innings).                      |
+#'    |G        |numeric   |Games pitched (1 per row).                               |
+#'    |GS       |numeric   |Games started.                                           |
+#'    |QS       |numeric   |Quality starts (6+ IP, 3 or fewer earned runs).          |
+#'    |CG       |numeric   |Complete games.                                          |
+#'    |ShO      |numeric   |Shutouts.                                                |
+#'    |SV       |numeric   |Saves.                                                   |
+#'    |IP       |numeric   |Innings pitched.                                         |
+#'    |TBF      |numeric   |Total batters faced.                                     |
+#'    |H        |numeric   |Hits allowed.                                            |
+#'    |R        |numeric   |Runs allowed.                                            |
+#'    |ER       |numeric   |Earned runs allowed.                                     |
+#'    |HR       |numeric   |Home runs allowed.                                       |
+#'    |BB       |numeric   |Walks allowed.                                           |
+#'    |IBB      |numeric   |Intentional walks allowed.                               |
+#'    |HBP      |numeric   |Batters hit by pitch.                                    |
+#'    |WP       |numeric   |Wild pitches.                                            |
+#'    |BK       |numeric   |Balks.                                                   |
+#'    |SO       |numeric   |Strikeouts.                                              |
+#'    |K/9      |numeric   |Strikeouts per 9 innings.                                |
+#'    |BB/9     |numeric   |Walks per 9 innings.                                     |
+#'    |K/BB     |numeric   |Strikeout-to-walk ratio.                                 |
+#'    |HR/9     |numeric   |Home runs allowed per 9 innings.                         |
+#'    |K%       |numeric   |Strikeout rate (per batter faced).                       |
+#'    |K-BB%    |numeric   |Strikeout rate minus walk rate.                          |
+#'    |BB%      |numeric   |Walk rate (per batter faced).                            |
+#'    |AVG      |numeric   |Opponent batting average allowed.                        |
+#'    |WHIP     |numeric   |Walks plus hits per inning pitched.                      |
+#'    |BABIP    |numeric   |Batting average on balls in play allowed.                |
+#'    |LOB%     |numeric   |Left-on-base percentage (strand rate).                   |
+#'    |FIP      |numeric   |Fielding independent pitching.                           |
+#'    |ERA-     |numeric   |ERA scaled to league/park (100 = average, lower better). |
+#'    |FIP-     |numeric   |FIP scaled to league/park (100 = average, lower better). |
+#'    |xFIP-    |numeric   |Expected FIP scaled to league/park (100 = average).      |
+#'    |gamedate |character |Game date as parsed from the source feed.                |
+#'    |dh       |integer   |Doubleheader game indicator (0 = single game).           |
+#'
 #' @import rvest 
 #' @importFrom tidyr separate
 #' @export

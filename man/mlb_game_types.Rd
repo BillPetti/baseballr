@@ -7,10 +7,10 @@
 mlb_game_types()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   game_type_id \tab character \cr
-   game_type_description \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_type_id \tab character \tab Single-letter game type code (e.g. 'S', 'R', 'P', 'W'). \cr
+   game_type_description \tab character \tab Game type description (e.g. 'Spring Training', 'Regular Season'). \cr
 }
 }
 \description{

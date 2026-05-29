@@ -1,16 +1,17 @@
 #' @title **MLB Awards** 
 #' @return Returns a tibble with the following columns
-#'  |col_name          |types     |
-#'  |:-----------------|:---------|
-#'  |award_id          |character |
-#'  |award_name        |character |
-#'  |award_description |character |
-#'  |sort_order        |integer   |
-#'  |notes             |character |
-#'  |sport_id          |integer   |
-#'  |sport_link        |character |
-#'  |league_id         |integer   |
-#'  |league_link       |character |
+#'  |col_name          |types     |description                                  |
+#'  |:-----------------|:---------|:--------------------------------------------|
+#'  |award_id          |character |Award identifier code.                       |
+#'  |award_name        |character |Award name.                                  |
+#'  |award_description |character |Award description.                           |
+#'  |sort_order        |integer   |Display sort order for the award.            |
+#'  |active            |logical   |Whether the award is currently active.       |
+#'  |notes             |character |Additional notes about the award.            |
+#'  |sport_id          |integer   |MLB sport ID associated with the award.      |
+#'  |sport_link        |character |MLB Stats API relative sport link.           |
+#'  |league_id         |integer   |MLB league ID associated with the award.     |
+#'  |league_link       |character |MLB Stats API relative league link.          |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_awards())

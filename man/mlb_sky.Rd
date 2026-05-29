@@ -7,10 +7,10 @@
 mlb_sky()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   sky_code \tab character \cr
-   sky_description \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   sky_code \tab character \tab Code for the sky/weather condition. \cr
+   sky_description \tab character \tab Description of the sky condition (e.g. 'Clear'). \cr
 }
 }
 \description{

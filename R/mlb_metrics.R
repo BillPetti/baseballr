@@ -1,11 +1,11 @@
 #' @title **MLB Metrics** 
 #' @return Returns a tibble with the following columns
-#'  |col_name    |types     |
-#'  |:-----------|:---------|
-#'  |metric_name |character |
-#'  |metric_id   |integer   |
-#'  |stat_group  |character |
-#'  |metric_unit |character |
+#'  |col_name    |types     |description                                                          |
+#'  |:-----------|:---------|:--------------------------------------------------------------------|
+#'  |metric_name |character |Metric name (e.g. 'releaseSpinRate').                               |
+#'  |metric_id   |integer   |Numeric metric identifier.                                          |
+#'  |stat_group  |character |Stat group the metric belongs to (e.g. 'pitching').                 |
+#'  |metric_unit |character |Unit of measure for the metric (e.g. 'RPM').                        |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_metrics())

@@ -7,10 +7,10 @@
 mlb_review_reasons()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   review_reason_code \tab character \cr
-   review_reason_description \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   review_reason_code \tab character \tab Short code for the replay review reason. \cr
+   review_reason_description \tab character \tab Description of the review reason (e.g. 'Tag play'). \cr
 }
 }
 \description{

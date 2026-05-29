@@ -7,19 +7,19 @@
 #' @param from a logical indicating whether you want standings up to and
 #' including the date (FALSE, default) or rather standings for games played
 #' after the date
-#' @return Returns a tibble of MLB standings with the following columns:
-#' 
-#' |col_name |types     |
-#' |:--------|:---------|
-#' |Tm       |character |
-#' |W        |integer   |
-#' |L        |integer   |
-#' |W-L%     |numeric   |
-#' |GB       |character |
-#' |RS       |integer   |
-#' |RA       |integer   |
-#' |pythW-L% |numeric   |
-#' 
+#' @return Returns a tibble of MLB standings, one row per team in the requested division, with the following columns:
+#'
+#' |col_name |types     |description                                              |
+#' |:--------|:---------|:--------------------------------------------------------|
+#' |Tm       |character |Team abbreviation.                                       |
+#' |W        |integer   |Wins as of the requested date.                           |
+#' |L        |integer   |Losses as of the requested date.                         |
+#' |W-L%     |numeric   |Winning percentage.                                      |
+#' |GB       |character |Games behind the division leader (-- for the leader).    |
+#' |RS       |integer   |Runs scored.                                             |
+#' |RA       |integer   |Runs allowed.                                            |
+#' |pythW-L% |numeric   |Pythagorean (expected) winning percentage from RS/RA.    |
+#'
 #' @import rvest 
 #' @importFrom lubridate day month year
 #' @export

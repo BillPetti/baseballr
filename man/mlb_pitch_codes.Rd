@@ -7,10 +7,20 @@
 mlb_pitch_codes()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   pitch_code \tab character \cr
-   pitch_description \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   pitch_code \tab character \tab Single-character code identifying the pitch result. \cr
+   pitch_description \tab character \tab Human-readable description of the pitch code. \cr
+   swing_status \tab logical \tab Whether the code represents a swing. \cr
+   swing_miss_status \tab logical \tab Whether the code represents a swinging strike (miss). \cr
+   swing_contact_status \tab logical \tab Whether the code represents a swing that made contact. \cr
+   sort_order \tab integer \tab Display sort order for the pitch code. \cr
+   strike_status \tab logical \tab Whether the code counts as a strike. \cr
+   ball_status \tab logical \tab Whether the code counts as a ball. \cr
+   pitch_status \tab logical \tab Whether the code represents a pitch (vs. non-pitch event). \cr
+   pitch_result_text \tab character \tab Display text for the pitch result. \cr
+   bunt_attempt_status \tab logical \tab Whether the code represents a bunt attempt. \cr
+   contact_status \tab logical \tab Whether the code represents bat-ball contact. \cr
 }
 }
 \description{

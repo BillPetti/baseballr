@@ -1,9 +1,9 @@
 #' @title **MLB Hit Trajectories** 
 #' @return Returns a tibble with the following columns
-#'  |col_name                   |types     |
-#'  |:--------------------------|:---------|
-#'  |hit_trajectory_code        |character |
-#'  |hit_trajectory_description |character |
+#'  |col_name                   |types     |description                                                          |
+#'  |:--------------------------|:---------|:--------------------------------------------------------------------|
+#'  |hit_trajectory_code        |character |Hit trajectory code (e.g. 'bunt_grounder', 'bunt_popup').            |
+#'  |hit_trajectory_description |character |Hit trajectory description (e.g. 'Bunt - Ground Ball', 'Bunt - Popup').|
 #' @export
 #' @examples \donttest{
 #'   try(mlb_hit_trajectories())

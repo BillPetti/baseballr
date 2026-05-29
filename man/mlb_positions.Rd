@@ -7,19 +7,19 @@
 mlb_positions()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   position_short_name \tab character \cr
-   position_full_name \tab character \cr
-   position_abbreviation \tab character \cr
-   position_code \tab character \cr
-   position_type \tab character \cr
-   position_formal_name \tab character \cr
-   game_position \tab logical \cr
-   pitcher \tab logical \cr
-   fielder \tab logical \cr
-   outfield \tab logical \cr
-   position_display_name \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   position_short_name \tab character \tab Short position name (e.g. 'Pitcher'). \cr
+   position_full_name \tab character \tab Full position name. \cr
+   position_abbreviation \tab character \tab Position abbreviation (e.g. 'P', 'SS'). \cr
+   position_code \tab character \tab Numeric scorekeeping position code. \cr
+   position_type \tab character \tab Position category (e.g. 'Pitcher', 'Infielder'). \cr
+   position_formal_name \tab character \tab Formal position name. \cr
+   position_display_name \tab character \tab Display name for the position. \cr
+   outfield \tab logical \tab Whether the position is an outfield position. \cr
+   game_position \tab logical \tab Whether it is an on-field game position. \cr
+   pitcher \tab logical \tab Whether the position is a pitcher. \cr
+   fielder \tab logical \tab Whether the position is a fielder. \cr
 }
 }
 \description{

@@ -1,9 +1,9 @@
 #' @title **MLB Schedule Event Types** 
 #' @return Returns a tibble with the following columns
-#'  |col_name                 |types     |
-#'  |:------------------------|:---------|
-#'  |schedule_event_type_code |character |
-#'  |schedule_event_type_name |character |
+#'  |col_name                 |types     |description                                          |
+#'  |:------------------------|:---------|:----------------------------------------------------|
+#'  |schedule_event_type_code |character |Short code for the schedule event type.              |
+#'  |schedule_event_type_name |character |Name of the event type (e.g. 'All-Star Weekend Event').|
 #' @export
 #' @examples \donttest{
 #'   try(mlb_schedule_event_types())

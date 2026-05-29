@@ -21,23 +21,23 @@ mlb_awards_recipient(
 \item{season}{Year(s) to return a directory of players for a given award in a given season.}
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   award_id \tab character \cr
-   award_name \tab character \cr
-   date \tab character \cr
-   season \tab character \cr
-   votes \tab integer \cr
-   notes \tab character \cr
-   player_id \tab integer \cr
-   player_link \tab character \cr
-   player_name_first_last \tab character \cr
-   player_primary_position_code \tab character \cr
-   player_primary_position_name \tab character \cr
-   player_primary_position_type \tab character \cr
-   player_primary_position_abbreviation \tab character \cr
-   team_id \tab integer \cr
-   team_link \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   award_id \tab character \tab Award identifier code. \cr
+   award_name \tab character \tab Award name. \cr
+   date \tab character \tab Date the award was given (YYYY-MM-DD). \cr
+   season \tab character \tab Season the award was given (YYYY). \cr
+   votes \tab integer \tab Number of votes received. \cr
+   notes \tab character \tab Additional notes about the recipient. \cr
+   player_id \tab integer \tab MLB player ID of the recipient. \cr
+   player_link \tab character \tab MLB Stats API relative player link. \cr
+   player_name_first_last \tab character \tab Recipient name in first-last order. \cr
+   player_primary_position_code \tab character \tab Recipient primary fielding position code. \cr
+   player_primary_position_name \tab character \tab Recipient primary fielding position name. \cr
+   player_primary_position_type \tab character \tab Recipient primary position type. \cr
+   player_primary_position_abbreviation \tab character \tab Recipient primary position abbreviation. \cr
+   team_id \tab integer \tab MLB team ID of the recipient. \cr
+   team_link \tab character \tab MLB Stats API relative team link. \cr
 }
 }
 \description{

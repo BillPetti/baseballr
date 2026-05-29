@@ -1,13 +1,13 @@
 #' @title **MLB Game Status Codes** 
 #' @return Returns a tibble with the following columns
-#'  |col_name            |types     |
-#'  |:-------------------|:---------|
-#'  |abstract_game_state |character |
-#'  |coded_game_state    |character |
-#'  |detailed_state      |character |
-#'  |status_code         |character |
-#'  |reason              |character |
-#'  |abstract_game_code  |character |
+#'  |col_name            |types     |description                                                              |
+#'  |:-------------------|:---------|:------------------------------------------------------------------------|
+#'  |abstract_game_state |character |Abstract game state grouping (e.g. 'Preview', 'Live', 'Final').           |
+#'  |coded_game_state    |character |Single-letter coded game state (e.g. 'S', 'P', 'I', 'F').                |
+#'  |detailed_state      |character |Detailed status description (e.g. 'Scheduled', 'Pre-Game', 'In Progress').|
+#'  |status_code         |character |Status code identifier (e.g. 'S', 'P', 'I', 'F').                        |
+#'  |reason              |character |Reason text for the status when applicable (e.g. delay/postponement).     |
+#'  |abstract_game_code  |character |Single-letter abstract game code (e.g. 'P', 'L', 'F').                   |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_game_status_codes())

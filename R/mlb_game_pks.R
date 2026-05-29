@@ -10,62 +10,65 @@
 #' @return Returns a tibble that includes game_pk values and additional
 #' information for games scheduled or played with the following columns:
 #' 
-#'  |col_name                       |types     |
-#'  |:------------------------------|:---------|
-#'  |game_pk                        |integer   |
-#'  |link                           |character |
-#'  |gameType                       |character |
-#'  |season                         |character |
-#'  |gameDate                       |character |
-#'  |officialDate                   |character |
-#'  |isTie                          |logical   |
-#'  |gameNumber                     |integer   |
-#'  |publicFacing                   |logical   |
-#'  |doubleHeader                   |character |
-#'  |gamedayType                    |character |
-#'  |tiebreaker                     |character |
-#'  |calendarEventID                |character |
-#'  |seasonDisplay                  |character |
-#'  |dayNight                       |character |
-#'  |scheduledInnings               |integer   |
-#'  |reverseHomeAwayStatus          |logical   |
-#'  |inningBreakLength              |integer   |
-#'  |gamesInSeries                  |integer   |
-#'  |seriesGameNumber               |integer   |
-#'  |seriesDescription              |character |
-#'  |recordSource                   |character |
-#'  |ifNecessary                    |character |
-#'  |ifNecessaryDescription         |character |
-#'  |status.abstractGameState       |character |
-#'  |status.codedGameState          |character |
-#'  |status.detailedState           |character |
-#'  |status.statusCode              |character |
-#'  |status.startTimeTBD            |logical   |
-#'  |status.abstractGameCode        |character |
-#'  |teams.away.score               |integer   |
-#'  |teams.away.isWinner            |logical   |
-#'  |teams.away.splitSquad          |logical   |
-#'  |teams.away.seriesNumber        |integer   |
-#'  |teams.away.leagueRecord.wins   |integer   |
-#'  |teams.away.leagueRecord.losses |integer   |
-#'  |teams.away.leagueRecord.pct    |character |
-#'  |teams.away.team.id             |integer   |
-#'  |teams.away.team.name           |character |
-#'  |teams.away.team.link           |character |
-#'  |teams.home.score               |integer   |
-#'  |teams.home.isWinner            |logical   |
-#'  |teams.home.splitSquad          |logical   |
-#'  |teams.home.seriesNumber        |integer   |
-#'  |teams.home.leagueRecord.wins   |integer   |
-#'  |teams.home.leagueRecord.losses |integer   |
-#'  |teams.home.leagueRecord.pct    |character |
-#'  |teams.home.team.id             |integer   |
-#'  |teams.home.team.name           |character |
-#'  |teams.home.team.link           |character |
-#'  |venue.id                       |integer   |
-#'  |venue.name                     |character |
-#'  |venue.link                     |character |
-#'  |content.link                   |character |
+#'  |col_name                       |types     |description                                       |
+#'  |:------------------------------|:---------|:-------------------------------------------------|
+#'  |game_pk                        |integer   |Unique game identifier.                           |
+#'  |gameGuid                       |character |Globally unique game identifier.                  |
+#'  |link                           |character |MLB Stats API relative game link.                 |
+#'  |gameType                       |character |Game type code (R, P, etc.).                      |
+#'  |season                         |character |Season (YYYY).                                    |
+#'  |gameDate                       |character |Game date-time (ISO 8601, UTC).                   |
+#'  |officialDate                   |character |Official game date (YYYY-MM-DD).                  |
+#'  |isTie                          |logical   |Whether the game ended in a tie.                  |
+#'  |gameNumber                     |integer   |Game number within a doubleheader.                |
+#'  |publicFacing                   |logical   |Whether the game is public-facing.                |
+#'  |doubleHeader                   |character |Doubleheader indicator (N/Y/S).                   |
+#'  |gamedayType                    |character |Gameday data type code.                           |
+#'  |tiebreaker                     |character |Tiebreaker indicator.                             |
+#'  |calendarEventID                |character |Calendar event identifier.                        |
+#'  |seasonDisplay                  |character |Display season (YYYY).                            |
+#'  |dayNight                       |character |Day/night designation.                            |
+#'  |scheduledInnings               |integer   |Number of scheduled innings.                      |
+#'  |reverseHomeAwayStatus          |logical   |Whether home/away designation is reversed.        |
+#'  |inningBreakLength              |integer   |Length of the inning break (seconds).             |
+#'  |gamesInSeries                  |integer   |Total games in the series.                        |
+#'  |seriesGameNumber               |integer   |Game number within the series.                    |
+#'  |seriesDescription              |character |Series description.                               |
+#'  |recordSource                   |character |Source of the record data.                        |
+#'  |ifNecessary                    |character |Whether the game is played only if necessary.     |
+#'  |ifNecessaryDescription         |character |If-necessary description.                         |
+#'  |status.abstractGameState       |character |Abstract game state (e.g. Final).                 |
+#'  |status.codedGameState          |character |Coded game state.                                 |
+#'  |status.detailedState           |character |Detailed game state.                              |
+#'  |status.statusCode              |character |Game status code.                                 |
+#'  |status.startTimeTBD            |logical   |Whether the start time is TBD.                    |
+#'  |status.abstractGameCode        |character |Abstract game code.                               |
+#'  |teams.away.score               |integer   |Away team score.                                  |
+#'  |teams.away.isWinner            |logical   |Whether the away team won.                        |
+#'  |teams.away.splitSquad          |logical   |Whether the away team is a split squad.           |
+#'  |teams.away.seriesNumber        |integer   |Away team series number.                          |
+#'  |teams.away.team.id             |integer   |Away team MLB ID.                                 |
+#'  |teams.away.team.name           |character |Away team name.                                   |
+#'  |teams.away.team.link           |character |MLB Stats API relative away team link.            |
+#'  |teams.away.leagueRecord.wins   |integer   |Away team league-record wins.                     |
+#'  |teams.away.leagueRecord.losses |integer   |Away team league-record losses.                   |
+#'  |teams.away.leagueRecord.ties   |integer   |Away team league-record ties.                     |
+#'  |teams.away.leagueRecord.pct    |character |Away team winning percentage.                     |
+#'  |teams.home.score               |integer   |Home team score.                                  |
+#'  |teams.home.isWinner            |logical   |Whether the home team won.                        |
+#'  |teams.home.splitSquad          |logical   |Whether the home team is a split squad.           |
+#'  |teams.home.seriesNumber        |integer   |Home team series number.                          |
+#'  |teams.home.team.id             |integer   |Home team MLB ID.                                 |
+#'  |teams.home.team.name           |character |Home team name.                                   |
+#'  |teams.home.team.link           |character |MLB Stats API relative home team link.            |
+#'  |teams.home.leagueRecord.wins   |integer   |Home team league-record wins.                     |
+#'  |teams.home.leagueRecord.losses |integer   |Home team league-record losses.                   |
+#'  |teams.home.leagueRecord.ties   |integer   |Home team league-record ties.                     |
+#'  |teams.home.leagueRecord.pct    |character |Home team winning percentage.                     |
+#'  |venue.id                       |integer   |Venue ID.                                         |
+#'  |venue.name                     |character |Venue name.                                       |
+#'  |venue.link                     |character |MLB Stats API relative venue link.                |
+#'  |content.link                   |character |MLB Stats API relative game content link.         |
 #'  
 #' @details Level IDs:
 #'

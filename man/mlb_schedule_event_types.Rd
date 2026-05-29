@@ -7,10 +7,10 @@
 mlb_schedule_event_types()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   schedule_event_type_code \tab character \cr
-   schedule_event_type_name \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   schedule_event_type_code \tab character \tab Short code for the schedule event type. \cr
+   schedule_event_type_name \tab character \tab Name of the event type (e.g. 'All-Star Weekend Event'). \cr
 }
 }
 \description{

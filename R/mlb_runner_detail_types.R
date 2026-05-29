@@ -1,8 +1,8 @@
 #' @title **MLB Runner Detail Types** 
 #' @return Returns a tibble with the following columns
-#'  |col_name  |types     |
-#'  |:---------|:---------|
-#'  |stat_name |character |
+#'  |col_name  |types     |description                                            |
+#'  |:---------|:---------|:------------------------------------------------------|
+#'  |stat_name |character |Name of the runner detail stat (e.g. 'r_force_out').   |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_runner_detail_types())

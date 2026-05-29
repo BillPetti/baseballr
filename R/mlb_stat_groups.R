@@ -1,8 +1,8 @@
 #' @title **MLB Stat Groups** 
 #' @return Returns a tibble with the following columns
-#'  |col_name               |types     |
-#'  |:----------------------|:---------|
-#'  |stat_group_name        |character |
+#'  |col_name               |types     |description                              |
+#'  |:----------------------|:---------|:----------------------------------------|
+#'  |stat_group_name        |character |Stat group display name (e.g., hitting). |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_stat_groups())

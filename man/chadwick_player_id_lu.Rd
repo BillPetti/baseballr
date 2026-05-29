@@ -12,19 +12,19 @@ playerid_lookup(last_name = NULL, first_name = NULL)
 \item{first_name}{A text string used to return results for players with that string in their first name.}
 }
 \value{
-A data frame of baseball players and the various IDs associated with them in different systems of record.\tabular{ll}{
-   col_name \tab types \cr
-   first_name \tab character \cr
-   last_name \tab character \cr
-   given_name \tab character \cr
-   name_suffix \tab character \cr
-   nick_name \tab character \cr
-   birth_year \tab integer \cr
-   mlb_played_first \tab integer \cr
-   mlbam_id \tab integer \cr
-   retrosheet_id \tab character \cr
-   bbref_id \tab character \cr
-   fangraphs_id \tab integer \cr
+A data frame of baseball players and the various IDs associated with them in different systems of record.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   given_name \tab character \tab Player full given (legal) name. \cr
+   name_suffix \tab character \tab Name suffix (e.g. Jr., Sr., III). \cr
+   nick_name \tab character \tab Player nickname. \cr
+   birth_year \tab integer \tab Year of birth. \cr
+   mlb_played_first \tab integer \tab First MLB season as a player. \cr
+   mlbam_id \tab integer \tab MLB Advanced Media (MLBAM) player ID. \cr
+   retrosheet_id \tab character \tab Retrosheet player ID. \cr
+   bbref_id \tab character \tab Baseball-Reference player ID. \cr
+   fangraphs_id \tab integer \tab FanGraphs player ID. \cr
 }
 }
 \description{

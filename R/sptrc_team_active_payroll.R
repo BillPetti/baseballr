@@ -5,21 +5,21 @@
 #' @param year Year to load
 #' @return A data frame of contract data.
 #' 
-#'  |col_name                |types     |
-#'  |:-----------------------|:---------|
-#'  |year                    |numeric   |
-#'  |team                    |character |
-#'  |player_name             |character |
-#'  |roster_status           |character |
-#'  |pos                     |character |
-#'  |exp                     |character |
-#'  |options_minor           |character |
-#'  |status                  |character |
-#'  |payroll_salary          |numeric   |
-#'  |payroll_salary_adjusted |numeric   |
-#'  |base_salary             |numeric   |
-#'  |signing_bonus           |numeric   |
-#'  |waiver_options          |character |
+#'  |col_name                |types     |description |
+#'  |:-----------------------|:---------|:-----------|
+#'  |year                    |numeric   |Payroll season. |
+#'  |team                    |character |Team abbreviation supplied to the function. |
+#'  |player_name             |character |Player name. |
+#'  |roster_status           |character |Payroll table the row came from: Active, IL, or Retained Salary. |
+#'  |pos                     |character |Player position. |
+#'  |exp                     |character |Years of MLB service experience. |
+#'  |options_minor           |character |Remaining minor-league option years. |
+#'  |status                  |character |Contract status (e.g. signed, arbitration, pre-arbitration). |
+#'  |payroll_salary          |numeric   |Salary counted against the team payroll (USD). |
+#'  |payroll_salary_adjusted |numeric   |Payroll salary adjusted for prorated and retained amounts (USD). |
+#'  |base_salary             |numeric   |Player base salary for the season (USD). |
+#'  |signing_bonus           |numeric   |Signing bonus allocated to the season (USD). |
+#'  |waiver_options          |character |Waiver and option flags reported by Spotrac. |
 #'
 #'  Columns after `roster_status` mirror Spotrac's current payroll table and may
 #'  change as Spotrac updates its layout.

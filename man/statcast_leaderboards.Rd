@@ -76,28 +76,27 @@ position categories.}
 \item{hand}{The handedness of the pitcher. One of 'R' or 'L'. Can be left blank.}
 }
 \value{
-Returns a tibble of Statcast leaderboard data with the following columns (for leaderboard: 'exit_velocity_barrels'):\tabular{ll}{
-   col_name \tab types \cr
-   year \tab numeric \cr
-   last_name \tab character \cr
-   first_name \tab character \cr
-   player_id \tab integer \cr
-   attempts \tab integer \cr
-   avg_hit_angle \tab numeric \cr
-   anglesweetspotpercent \tab numeric \cr
-   max_hit_speed \tab numeric \cr
-   avg_hit_speed \tab numeric \cr
-   fbld \tab numeric \cr
-   gb \tab numeric \cr
-   max_distance \tab integer \cr
-   avg_distance \tab integer \cr
-   avg_hr_distance \tab integer \cr
-   ev95plus \tab integer \cr
-   ev95per-swing \tab numeric \cr
-   ev95percent \tab numeric \cr
-   barrels \tab integer \cr
-   brl_percent \tab numeric \cr
-   brl_pa \tab numeric \cr
+Returns a tibble of Statcast leaderboard data with the following columns (for leaderboard: 'exit_velocity_barrels'):\tabular{lll}{
+   col_name \tab types \tab description \cr
+   year \tab numeric \tab Leaderboard season. \cr
+   last_name, first_name \tab character \tab Player name as "Last, First". \cr
+   player_id \tab integer \tab MLBAM player ID. \cr
+   attempts \tab integer \tab Number of batted-ball events (attempts). \cr
+   avg_hit_angle \tab numeric \tab Average launch angle on batted balls (degrees). \cr
+   anglesweetspotpercent \tab numeric \tab Share of batted balls hit in the 8-32 degree sweet-spot range (percent). \cr
+   max_hit_speed \tab numeric \tab Maximum exit velocity recorded (mph). \cr
+   avg_hit_speed \tab numeric \tab Average exit velocity on batted balls (mph). \cr
+   ev50 \tab numeric \tab Average of the top 50\% of hardest-hit batted balls by exit velocity (mph). \cr
+   fbld \tab numeric \tab Average exit velocity on fly balls and line drives (mph). \cr
+   gb \tab numeric \tab Average exit velocity on ground balls (mph). \cr
+   max_distance \tab integer \tab Maximum batted-ball distance (feet). \cr
+   avg_distance \tab integer \tab Average batted-ball distance (feet). \cr
+   avg_hr_distance \tab integer \tab Average home-run distance (feet). \cr
+   ev95plus \tab integer \tab Number of batted balls hit at 95+ mph. \cr
+   ev95percent \tab numeric \tab Share of batted balls hit at 95+ mph (percent). \cr
+   barrels \tab integer \tab Number of barreled batted balls. \cr
+   brl_percent \tab numeric \tab Barrels per batted-ball event (percent). \cr
+   brl_pa \tab numeric \tab Barrels per plate appearance (percent). \cr
 }
 }
 \description{

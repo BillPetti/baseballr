@@ -3,19 +3,19 @@
 #' @description This function allows you to scrape each team's payroll from Spotrac.
 #' @param year Year to load
 #' @return A data frame of contract data.
-#'  |col_name                  |types     |
-#'  |:--------------------------|:---------|
-#'  |year                       |character |
-#'  |team                       |character |
-#'  |team_abbr                  |character |
-#'  |rank                       |numeric   |
-#'  |record                     |character |
-#'  |avg_age_team               |character |
-#'  |total_payroll_allocations  |numeric   |
-#'  |active_26_man              |numeric   |
-#'  |injured                    |numeric   |
-#'  |retained                   |numeric   |
-#'  |buried                     |numeric   |
+#'  |col_name                  |types     |description |
+#'  |:--------------------------|:---------|:-----------|
+#'  |year                       |character |Payroll season. |
+#'  |team                       |character |Full team name. |
+#'  |team_abbr                  |character |Team abbreviation. |
+#'  |rank                       |numeric   |League rank by total payroll allocations. |
+#'  |record                     |character |Team win-loss record for the season. |
+#'  |avg_age_team               |character |Roster-weighted average age of the team. |
+#'  |total_payroll_allocations  |numeric   |Total payroll allocations across all roster statuses (USD). |
+#'  |active_26_man              |numeric   |Payroll allocated to the active 26-man roster (USD). |
+#'  |injured                    |numeric   |Payroll allocated to players on the injured list (USD). |
+#'  |retained                   |numeric   |Retained salary owed to players no longer on the roster (USD). |
+#'  |buried                     |numeric   |Payroll for players assigned to the minors ("buried" contracts) (USD). |
 #'
 #'  Column names after `rank` mirror Spotrac's current league-payroll table and
 #'  may change as Spotrac updates its layout.

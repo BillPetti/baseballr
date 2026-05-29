@@ -3,22 +3,22 @@
 #' @param league_id Return division(s) data for all divisions in a specific league
 #' @param sport_id Return division(s) for all divisions in a specific sport.
 #' @return Returns a tibble with the following columns
-#'  |col_name              |types     |
-#'  |:---------------------|:---------|
-#'  |division_id           |integer   |
-#'  |division_name         |character |
-#'  |season                |character |
-#'  |division_name_short   |character |
-#'  |division_link         |character |
-#'  |division_abbreviation |character |
-#'  |has_wildcard          |logical   |
-#'  |sort_order            |integer   |
-#'  |num_playoff_teams     |integer   |
-#'  |active                |logical   |
-#'  |league_id             |integer   |
-#'  |league_link           |character |
-#'  |sport_id              |integer   |
-#'  |sport_link            |character |
+#'  |col_name              |types     |description                                     |
+#'  |:---------------------|:---------|:-----------------------------------------------|
+#'  |division_id           |integer   |MLB division ID.                                |
+#'  |division_name         |character |Division name.                                  |
+#'  |season                |character |Season (YYYY).                                  |
+#'  |division_name_short   |character |Short division name.                            |
+#'  |division_link         |character |MLB Stats API relative division link.           |
+#'  |division_abbreviation |character |Division abbreviation.                          |
+#'  |has_wildcard          |logical   |Whether the division has a wild card.           |
+#'  |sort_order            |integer   |Display sort order for the division.            |
+#'  |num_playoff_teams     |integer   |Number of playoff teams from the division.      |
+#'  |active                |logical   |Whether the division is currently active.       |
+#'  |league_id             |integer   |MLB league ID.                                  |
+#'  |league_link           |character |MLB Stats API relative league link.             |
+#'  |sport_id              |integer   |MLB sport ID.                                   |
+#'  |sport_link            |character |MLB Stats API relative sport link.              |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_divisions(sport_id = 1))

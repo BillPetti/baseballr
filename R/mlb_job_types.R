@@ -1,10 +1,10 @@
 #' @title **MLB Job Types** 
 #' @return Returns a tibble with the following columns
-#'  |col_name   |types     |
-#'  |:----------|:---------|
-#'  |job_code   |character |
-#'  |job        |character |
-#'  |sort_order |integer   |
+#'  |col_name   |types     |description                                                          |
+#'  |:----------|:---------|:--------------------------------------------------------------------|
+#'  |job_code   |character |Four-letter job type code (e.g. 'UMPR', 'UDIR').                     |
+#'  |job        |character |Job title (e.g. 'Umpire', 'Director of Instant Replay').            |
+#'  |sort_order |integer   |Display sort order for the job type.                                 |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_job_types())

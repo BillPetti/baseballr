@@ -1,12 +1,12 @@
 #' @title **MLB Fielder Detail Types** 
 #' @return Returns a tibble with the following columns
-#'  |col_name  |types     |
-#'  |:---------|:---------|
-#'  |stat_name |character |
-#'  |code      |character |
-#'  |names     |character |
-#'  |chance    |logical   |
-#'  |error     |logical   |
+#'  |col_name  |types     |description                                       |
+#'  |:---------|:---------|:-------------------------------------------------|
+#'  |stat_name |character |Internal fielder detail stat name.                |
+#'  |code      |character |Fielder detail type code.                         |
+#'  |names     |list      |Associated detail names for the type.             |
+#'  |chance    |logical   |Whether the detail counts as a fielding chance.   |
+#'  |error     |logical   |Whether the detail counts as an error.            |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_fielder_detail_types())

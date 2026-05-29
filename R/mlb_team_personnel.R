@@ -3,15 +3,15 @@
 #' @param date Date to return team coach information for.
 #' 
 #' @return Returns a tibble with the following columns
-#'    |col_name         |types     |
-#'    |:----------------|:---------|
-#'    |jersey_number    |character |
-#'    |job              |character |
-#'    |job_id           |character |
-#'    |title            |character |
-#'    |person_id        |integer   |
-#'    |person_full_name |character |
-#'    |person_link      |character |
+#'    |col_name         |types     |description                          |
+#'    |:----------------|:---------|:------------------------------------|
+#'    |jersey_number    |character |Personnel uniform number.            |
+#'    |job              |character |Job name (e.g., Special Assistant).  |
+#'    |job_id           |character |Job code identifier.                 |
+#'    |title            |character |Full personnel title.                |
+#'    |person_id        |integer   |Personnel MLBAM person ID.           |
+#'    |person_full_name |character |Personnel full name.                 |
+#'    |person_link      |character |API link to the person.              |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_team_personnel(team_id = 137, date = "08/28/2016"))

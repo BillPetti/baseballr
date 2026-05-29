@@ -11,16 +11,16 @@ mlb_probables(game_pk)
 }
 \value{
 Returns a tiible that includes probable starting pitchers and
-the home plate umpire for the \code{game_pk} requested including the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   game_pk \tab integer \cr
-   game_date \tab character \cr
-   fullName \tab character \cr
-   id \tab integer \cr
-   team \tab character \cr
-   team_id \tab integer \cr
-   home_plate_full_name \tab character \cr
-   home_plate_id \tab integer \cr
+the home plate umpire for the \code{game_pk} requested including the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_pk \tab integer \tab Unique game identifier. \cr
+   game_date \tab character \tab Date of the game (YYYY-MM-DD). \cr
+   fullName \tab character \tab Full name of the probable starting pitcher. \cr
+   id \tab integer \tab MLBAM player ID of the probable starting pitcher. \cr
+   team \tab character \tab Team name for the probable pitcher. \cr
+   team_id \tab integer \tab MLBAM team ID for the probable pitcher. \cr
+   home_plate_full_name \tab character \tab Full name of the home plate umpire. \cr
+   home_plate_id \tab integer \tab MLBAM ID of the home plate umpire. \cr
 }
 }
 \description{

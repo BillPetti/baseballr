@@ -81,67 +81,69 @@ Acceptable values include:
 \item{offset}{An offset to returns i+1 as the first record in the set of players.}
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   total_splits \tab integer \cr
-   season \tab character \cr
-   num_teams \tab integer \cr
-   rank \tab integer \cr
-   games_played \tab integer \cr
-   ground_outs \tab integer \cr
-   air_outs \tab integer \cr
-   runs \tab integer \cr
-   doubles \tab integer \cr
-   triples \tab integer \cr
-   home_runs \tab integer \cr
-   strike_outs \tab integer \cr
-   base_on_balls \tab integer \cr
-   intentional_walks \tab integer \cr
-   hits \tab integer \cr
-   hit_by_pitch \tab integer \cr
-   avg \tab character \cr
-   at_bats \tab integer \cr
-   obp \tab character \cr
-   slg \tab character \cr
-   ops \tab character \cr
-   caught_stealing \tab integer \cr
-   stolen_bases \tab integer \cr
-   stolen_base_percentage \tab character \cr
-   ground_into_double_play \tab integer \cr
-   number_of_pitches \tab integer \cr
-   plate_appearances \tab integer \cr
-   total_bases \tab integer \cr
-   rbi \tab integer \cr
-   left_on_base \tab integer \cr
-   sac_bunts \tab integer \cr
-   sac_flies \tab integer \cr
-   babip \tab character \cr
-   ground_outs_to_airouts \tab character \cr
-   catchers_interference \tab integer \cr
-   at_bats_per_home_run \tab character \cr
-   team_id \tab integer \cr
-   team_name \tab character \cr
-   team_link \tab character \cr
-   player_id \tab integer \cr
-   player_full_name \tab character \cr
-   player_link \tab character \cr
-   player_first_name \tab character \cr
-   player_last_name \tab character \cr
-   league_id \tab integer \cr
-   league_name \tab character \cr
-   league_link \tab character \cr
-   sport_id \tab integer \cr
-   sport_link \tab character \cr
-   sport_abbreviation \tab character \cr
-   position_code \tab character \cr
-   position_name \tab character \cr
-   position_type \tab character \cr
-   position_abbreviation \tab character \cr
-   splits_tied_with_offset \tab list \cr
-   splits_tied_with_limit \tab list \cr
-   player_pool \tab character \cr
-   type_display_name \tab character \cr
-   group_display_name \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   total_splits \tab integer \tab Total number of splits in the response. \cr
+   season \tab character \tab Season year for the statistic. \cr
+   num_teams \tab integer \tab Number of teams the player appeared for. \cr
+   rank \tab integer \tab Rank of the player for the sorted statistic. \cr
+   age \tab integer \tab Player age during the season. \cr
+   games_played \tab integer \tab Games played. \cr
+   ground_outs \tab integer \tab Ground outs. \cr
+   air_outs \tab integer \tab Air outs (fly outs). \cr
+   runs \tab integer \tab Runs scored. \cr
+   doubles \tab integer \tab Doubles. \cr
+   triples \tab integer \tab Triples. \cr
+   home_runs \tab integer \tab Home runs. \cr
+   strike_outs \tab integer \tab Strikeouts. \cr
+   base_on_balls \tab integer \tab Walks (bases on balls). \cr
+   intentional_walks \tab integer \tab Intentional walks. \cr
+   hits \tab integer \tab Hits. \cr
+   hit_by_pitch \tab integer \tab Times hit by pitch. \cr
+   avg \tab character \tab Batting average. \cr
+   at_bats \tab integer \tab At bats. \cr
+   obp \tab character \tab On-base percentage. \cr
+   slg \tab character \tab Slugging percentage. \cr
+   ops \tab character \tab On-base plus slugging. \cr
+   caught_stealing \tab integer \tab Times caught stealing. \cr
+   stolen_bases \tab integer \tab Stolen bases. \cr
+   stolen_base_percentage \tab character \tab Stolen base success percentage. \cr
+   caught_stealing_percentage \tab character \tab Caught stealing percentage. \cr
+   ground_into_double_play \tab integer \tab Grounded into double plays. \cr
+   number_of_pitches \tab integer \tab Total pitches seen. \cr
+   plate_appearances \tab integer \tab Plate appearances. \cr
+   total_bases \tab integer \tab Total bases. \cr
+   rbi \tab integer \tab Runs batted in. \cr
+   left_on_base \tab integer \tab Runners left on base. \cr
+   sac_bunts \tab integer \tab Sacrifice bunts. \cr
+   sac_flies \tab integer \tab Sacrifice flies. \cr
+   babip \tab character \tab Batting average on balls in play. \cr
+   ground_outs_to_airouts \tab character \tab Ratio of ground outs to air outs. \cr
+   catchers_interference \tab integer \tab Times reached on catcher's interference. \cr
+   at_bats_per_home_run \tab character \tab At bats per home run. \cr
+   team_id \tab integer \tab Team MLBAM ID. \cr
+   team_name \tab character \tab Team name. \cr
+   team_link \tab character \tab API link to the team. \cr
+   player_id \tab integer \tab Player MLBAM ID. \cr
+   player_full_name \tab character \tab Player full name. \cr
+   player_link \tab character \tab API link to the player. \cr
+   player_first_name \tab character \tab Player first name. \cr
+   player_last_name \tab character \tab Player last name. \cr
+   league_id \tab integer \tab League MLBAM ID. \cr
+   league_name \tab character \tab League name. \cr
+   league_link \tab character \tab API link to the league. \cr
+   sport_id \tab integer \tab Sport MLBAM ID. \cr
+   sport_link \tab character \tab API link to the sport. \cr
+   sport_abbreviation \tab character \tab Sport abbreviation (e.g., MLB). \cr
+   position_code \tab character \tab Primary position code. \cr
+   position_name \tab character \tab Primary position name. \cr
+   position_type \tab character \tab Primary position type. \cr
+   position_abbreviation \tab character \tab Primary position abbreviation. \cr
+   splits_tied_with_offset \tab list \tab Players tied at the offset boundary. \cr
+   splits_tied_with_limit \tab list \tab Players tied at the limit boundary. \cr
+   player_pool \tab character \tab Player pool used (e.g., QUALIFIED). \cr
+   type_display_name \tab character \tab Stat type display name. \cr
+   group_display_name \tab character \tab Stat group display name. \cr
 }
 }
 \description{

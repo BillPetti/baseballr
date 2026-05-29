@@ -3,34 +3,34 @@
 #' @param start_season The start_season to return historical data for from the given year to present.
 #' @param end_season The end_season to return historical data for from the the creation to the given year.
 #' @return Returns a tibble with the following columns
-#'   |col_name           |types     |
-#'   |:------------------|:---------|
-#'   |all_star_status    |character |
-#'   |team_id            |integer   |
-#'   |team_full_name     |character |
-#'   |link               |character |
-#'   |season             |integer   |
-#'   |team_code          |character |
-#'   |file_code          |character |
-#'   |team_abbreviation  |character |
-#'   |team_name          |character |
-#'   |location_name      |character |
-#'   |first_year_of_play |character |
-#'   |short_name         |character |
-#'   |franchise_name     |character |
-#'   |club_name          |character |
-#'   |active             |logical   |
-#'   |venue_id           |integer   |
-#'   |venue_name         |character |
-#'   |venue_link         |character |
-#'   |spring_venue_id    |integer   |
-#'   |spring_venue_link  |character |
-#'   |league_id          |integer   |
-#'   |league_name        |character |
-#'   |league_link        |character |
-#'   |sport_id           |integer   |
-#'   |sport_link         |character |
-#'   |sport_name         |character |
+#'   |col_name           |types     |description                                |
+#'   |:------------------|:---------|:------------------------------------------|
+#'   |all_star_status    |character |All-star status flag.                      |
+#'   |team_id            |integer   |Team MLBAM ID.                             |
+#'   |team_full_name     |character |Full team name.                            |
+#'   |link               |character |API link to the team.                      |
+#'   |season             |integer   |Season year for the historical record.     |
+#'   |team_code          |character |Internal team code.                        |
+#'   |file_code          |character |File code abbreviation.                    |
+#'   |team_abbreviation  |character |Team abbreviation.                         |
+#'   |team_name          |character |Short team name.                           |
+#'   |location_name      |character |Team location (city).                      |
+#'   |first_year_of_play |character |First year the franchise played.           |
+#'   |short_name         |character |Short display name.                        |
+#'   |franchise_name     |character |Franchise name.                            |
+#'   |club_name          |character |Club name.                                 |
+#'   |active             |logical   |Whether the team is active.                |
+#'   |venue_id           |integer   |Home venue MLBAM ID for that season.       |
+#'   |venue_name         |character |Home venue name for that season.           |
+#'   |venue_link         |character |API link to the venue.                     |
+#'   |spring_venue_id    |integer   |Spring training venue MLBAM ID.            |
+#'   |spring_venue_link  |character |API link to the spring venue.              |
+#'   |league_id          |integer   |League MLBAM ID.                           |
+#'   |league_name        |character |League name.                               |
+#'   |league_link        |character |API link to the league.                    |
+#'   |sport_id           |integer   |Sport MLBAM ID.                            |
+#'   |sport_link         |character |API link to the sport.                     |
+#'   |sport_name         |character |Sport name (e.g., Major League Baseball).  |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_team_history(team_ids = 147))

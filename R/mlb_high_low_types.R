@@ -1,14 +1,14 @@
 #' @title **MLB Stat High/Low Types** 
 #' @return Returns a tibble with the following columns
-#'  |col_name          |types     |
-#'  |:-----------------|:---------|
-#'  |stat_name         |character |
-#'  |stat_lookup_param |character |
-#'  |is_counting       |logical   |
-#'  |stat_label        |character |
-#'  |stat_groups       |list      |
-#'  |org_types         |list      |
-#'  |high_low_types    |list      |
+#'  |col_name          |types     |description                                                          |
+#'  |:-----------------|:---------|:--------------------------------------------------------------------|
+#'  |stat_name         |character |Snake-case name of the statistic (e.g. 'at_bats').                   |
+#'  |stat_lookup_param |character |API lookup parameter for the statistic (e.g. 'atBats').              |
+#'  |is_counting       |logical   |Whether the statistic is a counting stat.                            |
+#'  |stat_label        |character |Human-readable label of the statistic (e.g. 'At bats').              |
+#'  |stat_groups       |list      |List-column of stat group display names the stat belongs to.         |
+#'  |org_types         |list      |List-column of organization types the stat applies to (e.g. PLAYER). |
+#'  |high_low_types    |list      |List-column of high/low aggregation types (e.g. PLAYER, TEAM, GAME). |
 #' @export
 #' @examples \donttest{
 #'   try(mlb_high_low_types())
