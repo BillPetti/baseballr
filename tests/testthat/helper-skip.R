@@ -9,7 +9,7 @@
 #   MLB_STATS_TESTS=1   MLB Stats API       (mlb_*)
 #   BREF_TESTS=1        Baseball Reference  (bref_*)
 #   STATCAST_TESTS=1    Baseball Savant     (statcast_*, label_statcast_*)
-#   NCAA_TESTS=1        NCAA stats site     (ncaa_*)  -- see note below
+#   NCAA_BASEBALL_TESTS=1        NCAA stats site     (ncaa_*)  -- see note below
 #   SPOTRAC_TESTS=1     Spotrac             (sptrc_*)
 #   CHADWICK_TESTS=1    Chadwick register   (chadwick_*)
 #   BASEBALLR_LOAD_TESTS=1  data-repo loaders (load_*)
@@ -18,7 +18,7 @@
 #   Sys.setenv(MLB_STATS_TESTS = "1"); devtools::test()
 #
 # NOTE: the NCAA stats site aggressively IP-bans scrapers. Only set
-# NCAA_TESTS=1 deliberately and sparingly, ideally from an IP you are willing
+# NCAA_BASEBALL_TESTS=1 deliberately and sparingly, ideally from an IP you are willing
 # to have rate-limited.
 
 skip_fangraphs_test <- function() {
@@ -54,8 +54,8 @@ skip_statcast_test <- function() {
 }
 
 skip_ncaa_test <- function() {
-  if (Sys.getenv("NCAA_TESTS") != "1") {
-    skip("Set NCAA_TESTS=1 to run NCAA tests (note: NCAA IP-bans scrapers)")
+  if (Sys.getenv("NCAA_BASEBALL_TESTS") != "1") {
+    skip("Set NCAA_BASEBALL_TESTS=1 to run NCAA tests (note: NCAA IP-bans scrapers)")
   } else {
     invisible()
   }

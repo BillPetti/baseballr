@@ -262,7 +262,7 @@ source gate.**
 | MLB Stats API (`mlb_*`) | `MLB_STATS_TESTS=1`      | `skip_mlb_test()`       |
 | Baseball Reference      | `BREF_TESTS=1`           | `skip_bref_test()`      |
 | Baseball Savant         | `STATCAST_TESTS=1`       | `skip_statcast_test()`  |
-| NCAA (`ncaa_*`)         | `NCAA_TESTS=1`           | `skip_ncaa_test()`      |
+| NCAA (`ncaa_*`)         | `NCAA_BASEBALL_TESTS=1`           | `skip_ncaa_test()`      |
 | Spotrac (`sptrc_*`)     | `SPOTRAC_TESTS=1`        | `skip_sptrc_test()`     |
 | Chadwick (`chadwick_*`) | `CHADWICK_TESTS=1`       | `skip_chadwick_test()`  |
 | Data loaders (`load_*`) | `BASEBALLR_LOAD_TESTS=1` | `skip_load_test()`      |
@@ -272,7 +272,7 @@ source gate.**
 Sys.setenv(MLB_STATS_TESTS = "1"); devtools::test()
 ```
 
-Set `NCAA_TESTS=1` only deliberately and sparingly (the NCAA site IP-bans
+Set `NCAA_BASEBALL_TESTS=1` only deliberately and sparingly (the NCAA site IP-bans
 scrapers). Purely computational tests (e.g. `metrics_*` on a supplied data
 frame) are **not** gated.
 
