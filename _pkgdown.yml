@@ -84,7 +84,27 @@ navbar:
         href: reference/ggspraychart.html
       - text: "Player Lookup"
         href: reference/chadwick.html
-        
+      - text: "Spotrac"
+        href: reference/spotrac.html
+      - text: "baseballr Data"
+        href: reference/load_baseball.html
+      - text: "MLB Stats"
+        href: reference/mlb_stats_endpoints.html
+      - text: "MLB Game"
+        href: reference/mlb_game_endpoints.html
+      - text: "MLB Schedule"
+        href: reference/mlb_schedule_endpoints.html
+      - text: "MLB Teams"
+        href: reference/mlb_team_endpoints.html
+      - text: "MLB Draft"
+        href: reference/mlb_draft_endpoints.html
+      - text: "MLB Jobs"
+        href: reference/mlb_jobs_endpoints.html
+      - text: "MLB All-Star"
+        href: reference/mlb_all_star.html
+      - text: "MLB Home Run Derby"
+        href: reference/mlb_homerun_derby_endpoints.html
+
     articles:
       icon: "fas fa-book-reader"
       text: " Articles"
@@ -244,6 +264,7 @@ reference:
   - subtitle: MLB Contracts Data functions
     desc: Functions exported by baseballr to access Spotrac Contracts Data
     contents:
+      - '`spotrac`'
       - starts_with("sptrc")
   - title: MLB Stats - Overview
     contents:
