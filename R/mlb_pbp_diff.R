@@ -168,7 +168,7 @@ mlb_pbp_diff <- function(
     startTimecode = start_timecode, 
     endTimecode = end_timecode
   )
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   pbp <- NULL
   tryCatch(

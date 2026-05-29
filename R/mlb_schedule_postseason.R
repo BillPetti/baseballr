@@ -116,7 +116,7 @@ mlb_schedule_postseason <- function(season = 2021,
     sportId = sport_id
   )
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   
   games <- data.frame()

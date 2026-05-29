@@ -16,6 +16,7 @@
 
 ### Internal / infrastructure
 
+- Migrated the HTTP layer from `httr` to `httr2`: `httr::modify_url()` -> `httr2::url_modify_query()`, and the request helpers now use `httr2::request()` / `req_retry()` / `req_perform()` / `resp_body_string()`. (The NCAA request helpers `request_with_proxy()` / `check_status()` remain on `httr` for now.)
 - Migrated the package's internal code from the magrittr pipe (`%>%`) to the native pipe (`|>`); `Depends` is now `R (>= 4.1.0)`.
 - User-facing messages migrated to the `cli` package.
 - Column selections that drop known-transient columns now use `dplyr::any_of()` for resilience to upstream schema drift.

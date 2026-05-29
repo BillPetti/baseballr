@@ -36,7 +36,7 @@ mlb_divisions <- function(division_id = NULL,
     sportId = sport_id
   )
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   divisions <- NULL
   tryCatch(

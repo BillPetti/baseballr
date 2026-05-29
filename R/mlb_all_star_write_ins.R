@@ -64,7 +64,7 @@ mlb_all_star_write_ins <- function(league_id = NULL,
     season = season
   )
 
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
 
   write_ins <- NULL
   tryCatch(

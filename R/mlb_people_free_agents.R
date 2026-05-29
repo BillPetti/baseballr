@@ -33,7 +33,7 @@ mlb_people_free_agents <- function(season = NULL){
     season = season
   )
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   free_agents <- NULL
   tryCatch(

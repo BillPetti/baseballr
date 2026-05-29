@@ -71,7 +71,7 @@ mlb_sports_players <- function(sport_id = 1,
     season = season
   )
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   players <- NULL
   tryCatch(

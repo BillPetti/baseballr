@@ -98,7 +98,7 @@ mlb_homerun_derby <- function(game_pk){
   query_params <- list()
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/homeRunDerby/{game_pk}"))
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   rounds_hits <- NULL
   tryCatch(
@@ -262,7 +262,7 @@ mlb_homerun_derby_bracket <- function(game_pk){
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/homeRunDerby/{game_pk}/bracket"))
   query_params <- list()
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   bracket <- NULL
   tryCatch(
@@ -431,7 +431,7 @@ mlb_homerun_derby_players <- function(game_pk){
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/homeRunDerby/{game_pk}/pool"))
   query_params <- list()
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   players <- NULL
   tryCatch(

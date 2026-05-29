@@ -26,7 +26,7 @@ mlb_team_personnel <- function(team_id = NULL,
     date = date
   )
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   team_personnel <- NULL
   tryCatch(

@@ -21,7 +21,7 @@ mlb_situation_codes <- function(){
   mlb_endpoint <- mlb_stats_endpoint("v1/situationCodes")
   query_params <- list()
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   situation_codes <- NULL
   tryCatch(

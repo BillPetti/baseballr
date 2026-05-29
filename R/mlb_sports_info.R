@@ -21,7 +21,7 @@ mlb_sports_info <- function(sport_id = 1){
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/sports/{sport_id}"))
   query_params <- list()
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   sports <- NULL
   tryCatch(

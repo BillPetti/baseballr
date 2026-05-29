@@ -36,7 +36,7 @@ mlb_awards_recipient <- function(award_id = NULL, sport_id = NULL, league_id = N
     season = season
   )
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   awards <- NULL
   tryCatch(

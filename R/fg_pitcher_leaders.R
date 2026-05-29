@@ -600,7 +600,7 @@ fg_pitcher_leaders <- function(
   
   url <- "https://www.fangraphs.com/api/leaders/major-league/data"
   
-  fg_endpoint <- httr::modify_url(url, query = params)
+  fg_endpoint <- httr2::url_modify_query(url, !!!params)
   
   leaders <- NULL
   tryCatch(

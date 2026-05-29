@@ -27,7 +27,7 @@ mlb_venues <- function(venue_ids = NULL, sport_ids = NULL, season = NULL){
     season = season
   )
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   venues <- NULL
   tryCatch(

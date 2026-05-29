@@ -15,7 +15,7 @@ mlb_standings_types <- function(){
   mlb_endpoint <- mlb_stats_endpoint("v1/standingsTypes")
   query_params <- list()
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   standings_types <- NULL
   tryCatch(

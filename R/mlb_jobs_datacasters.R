@@ -30,7 +30,7 @@ mlb_jobs_datacasters <- function(
         date = date
       )
       
-      mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+      mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
       
       resp <- mlb_endpoint |> 
         mlb_api_call()

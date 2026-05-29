@@ -6,25 +6,25 @@ mlb_api_call <- function(url){
   # to requests that *claim to be a browser* but cannot solve the challenge. A
   # plain library/package User-Agent is not challenged and returns the data
   # (#385, #397, #369, #343). The MLB Stats API ignores the User-Agent.
-  res <- httr::RETRY(
-    "GET", url,
-    httr::user_agent("baseballr (https://github.com/BillPetti/baseballr)"),
-    times = 3,
-    pause_base = 1,
-    quiet = TRUE
-  )
+  resp <- httr2::request(url) |>
+    httr2::req_user_agent("baseballr (https://github.com/BillPetti/baseballr)") |>
+    httr2::req_retry(max_tries = 3) |>
+    # Don't error on HTTP status; we inspect it (e.g. FanGraphs 403) and let the
+    # body parse fail through the caller's tryCatch on a genuine error.
+    httr2::req_error(is_error = function(resp) FALSE) |>
+    httr2::req_perform()
 
   # If FanGraphs ever tightens Cloudflare to challenge all clients, surface the
   # 403 with a clear message instead of a cryptic downstream parse error.
-  if (httr::status_code(res) == 403) {
+  if (httr2::resp_status(resp) == 403) {
     cli::cli_alert_danger("Request returned HTTP 403 (Forbidden) for {.url {url}}.")
     cli::cli_alert_info(paste0(
       "FanGraphs is serving a Cloudflare anti-bot challenge; wait and retry ",
       "later, or route requests through a proxy."))
   }
 
-  json <- res$content |>
-    rawToChar() |>
+  json <- resp |>
+    httr2::resp_body_string() |>
     jsonlite::fromJSON(simplifyVector = TRUE)
 
   return(json)

@@ -102,7 +102,7 @@ mlb_schedule_games_tied <- function(season = 2021, game_type = 'S'){
     gameTypes = game_type
   )
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   games <- NULL
   tryCatch(

@@ -91,7 +91,7 @@ mlb_game_changes <- function(updated_since, sport_id) {
     sportId = sport_id,
     updatedSince = updated_since
   )
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   changes <- NULL
   tryCatch(
     expr = {

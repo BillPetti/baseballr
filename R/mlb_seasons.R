@@ -43,7 +43,7 @@ mlb_seasons <- function(sport_id = 1,
     sportId = sport_id
   )
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   
   seasons <- NULL

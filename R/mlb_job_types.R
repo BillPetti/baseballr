@@ -16,7 +16,7 @@ mlb_job_types <- function(){
   mlb_endpoint <- mlb_stats_endpoint("v1/jobTypes")
   query_params <- list()
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   job_types <- NULL
   tryCatch(

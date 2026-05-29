@@ -161,7 +161,7 @@ mlb_schedule <- function(season = 2019, level_ids = '1'){
     season = season
   )
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   games <- data.frame()
   tryCatch(

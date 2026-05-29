@@ -50,7 +50,7 @@ mlb_team_leaders <- function(team_id = NULL,
     limit = limit
   )
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   team_leaders <- NULL
   tryCatch(

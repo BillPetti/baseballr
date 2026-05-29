@@ -88,7 +88,7 @@ mlb_player_game_stats <- function(person_id = NULL,
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/people/{person_id}/stats/game/{game_pk}"))
   query_params <- list()
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   stats <- NULL
   tryCatch(

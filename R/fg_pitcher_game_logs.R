@@ -397,10 +397,10 @@ fg_pitcher_game_logs <- function(playerid, year) {
   payload <- NULL
   tryCatch(
     expr = {
-      res <- httr::RETRY("GET", url)
+      res <- httr2::request(url) |> httr2::req_retry(max_tries = 3) |> httr2::req_perform()
       
       resp <- res |> 
-        httr::content(as = "text", encoding = "UTF-8")
+        httr2::resp_body_string()
       
       payload <- jsonlite::fromJSON(resp)[['mlb']] |> 
         as.data.frame()

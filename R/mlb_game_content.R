@@ -44,7 +44,7 @@ mlb_game_content <- function(game_pk) {
   
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/game/{game_pk}/content"))
   query_params <- list()
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   epg <- NULL
   tryCatch(
     expr = {

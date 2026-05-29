@@ -48,7 +48,7 @@ mlb_team_history <- function(team_ids = NULL,
     endSeason = end_season
   )
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   teams <- NULL
   tryCatch(
