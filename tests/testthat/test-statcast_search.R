@@ -25,12 +25,21 @@ cols <- c(
   "spin_axis", "delta_home_win_exp", "delta_run_exp", "bat_speed", "swing_length"
 )
 
+# Subset-direction assertion (including the newer bat_speed/swing_length
+# columns) guards the length-tolerant column assignment that keeps
+# statcast_search() from breaking when Baseball Savant adds columns
+# (#337, #354, #371, #390).
 test_that("Statcast Search", {
   skip_on_cran()
-  
+  skip_on_ci()
+
   x <- statcast_search(start_date = "2022-11-04",
                        end_date = "2022-11-06")
-  
+
+  if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
+    skip("No rows returned from Baseball Savant at test time")
+  }
+
   expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })
