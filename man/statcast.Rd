@@ -4,11 +4,11 @@
 \alias{statcast}
 \title{\strong{Statcast Functions Overview}}
 \description{
-\describe{
-\item{\code{statcast_search()}:}{ Query Statcast by Date Range and Players.}
-\item{\code{statcast_search_batters()}:}{ Query Statcast Batters by Date Range and Player.}
-\item{\code{statcast_search_pitchers()}:}{ Query Statcast Pitchers by Date Range and Player.}
-\item{\code{statcast_leaderboards()}:}{ Query Baseball Savant Leaderboards.}
+\itemize{
+\item \code{statcast_search()}: Query Statcast by Date Range and Players.
+\item \code{statcast_search_batters()}: Query Statcast Batters by Date Range and Player.
+\item \code{statcast_search_pitchers()}: Query Statcast Pitchers by Date Range and Player.
+\item \code{statcast_leaderboards()}: Query Baseball Savant Leaderboards.
 }
 }
 \details{

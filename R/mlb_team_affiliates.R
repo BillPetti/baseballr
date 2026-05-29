@@ -3,6 +3,7 @@
 #' @param season The season to return team affiliates data for the particular season.
 #' @param sport_ids The sport_id to return team affiliates information for.
 #' @return Returns a tibble with the following columns
+#'
 #'    |col_name                   |types     |description                                       |
 #'    |:--------------------------|:---------|:-------------------------------------------------|
 #'    |all_star_status            |character |All-star status flag.                             |
@@ -40,6 +41,7 @@
 #'    |sport_id                   |integer   |Sport MLBAM ID.                                   |
 #'    |sport_link                 |character |API link to the sport.                            |
 #'    |sport_name                 |character |Sport name (e.g., Major League Baseball).         |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_team_affiliates(team_ids = 147))

@@ -1,5 +1,6 @@
 #' @title **MLB Situation Codes** 
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name                   |types     |description                                       |
 #'  |:--------------------------|:---------|:-------------------------------------------------|
 #'  |situation_code             |character |Code identifying the game situation.              |
@@ -10,6 +11,7 @@
 #'  |batting                    |logical   |Whether the situation applies to batting stats.   |
 #'  |fielding                   |logical   |Whether the situation applies to fielding stats.  |
 #'  |pitching                   |logical   |Whether the situation applies to pitching stats.  |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_situation_codes())

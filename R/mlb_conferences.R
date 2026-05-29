@@ -2,6 +2,7 @@
 #' @param season Year to return to return conference information for.
 #' @param conference_id Conference ID to return information for.
 #' @return Returns a tibble with the following columns
+#'
 #'   |col_name                |types     |description                                  |
 #'   |:-----------------------|:---------|:--------------------------------------------|
 #'   |conference_id           |integer   |MLB conference ID.                           |
@@ -14,6 +15,7 @@
 #'   |league_link             |character |MLB Stats API relative league link.          |
 #'   |sport_id                |integer   |MLB sport ID.                                |
 #'   |sport_link              |character |MLB Stats API relative sport link.           |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_conferences())

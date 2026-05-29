@@ -151,6 +151,7 @@
 #'  |matchup.postOnFirst.id         |integer   |Runner id on first base after the play.                           |
 #'  |matchup.postOnFirst.fullName   |character |Runner name on first base after the play.                         |
 #'  |matchup.postOnFirst.link       |character |API relative link to the first base runner.                       |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_pbp_diff(game_pk = 632970, 

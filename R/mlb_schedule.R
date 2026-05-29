@@ -1,3 +1,24 @@
+#' @rdname mlb_schedule_endpoints
+#' @name mlb_schedule_endpoints
+#' @aliases mlb_schedule_endpoints schedule game_pk
+#' @title
+#' **MLB Schedule Endpoint Overview**
+#' @description
+#'
+#' * `mlb_schedule()`: Find game_pk values for professional baseball games (major and minor leagues).
+#' * `mlb_schedule_postseason()`: Find game_pk values for professional baseball postseason games (major and minor leagues).
+#' * `mlb_schedule_postseason_series()`: Find game_pk values for professional baseball postseason series games (major and minor leagues).
+#' * `mlb_schedule_games_tied()`: Find game_pk values for professional baseball games (major and minor leagues) that are tied.
+#' * `mlb_schedule_event_types()`: MLB Schedule Event Types.
+#'
+#' @details
+#' ## **MLB Schedule**
+#'
+#' These functions retrieve MLB schedule, postseason, tied-game, and event-type information from the MLB Stats API.
+#'
+#' @family MLB Schedule
+NULL
+
 #' @rdname mlb_schedule
 #' @title **Find game_pk values for professional baseball games (major and minor leagues)**
 #' 
@@ -102,6 +123,7 @@
 #'  |resumed_from                    |character |Date-time the game was resumed from.                   |
 #'  |resumed_from_date               |character |Date the game was resumed from.                        |
 #'  |events                          |list      |Nested list of non-game events.                        |
+#'
 #' @section Level IDs:
 #'
 #' The following IDs can be passed to the level_ids argument:

@@ -1,9 +1,11 @@
 #' @title **MLB Game Types** 
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name              |types     |description                                                          |
 #'  |:---------------------|:---------|:--------------------------------------------------------------------|
 #'  |game_type_id          |character |Single-letter game type code (e.g. 'S', 'R', 'P', 'W').              |
 #'  |game_type_description |character |Game type description (e.g. 'Spring Training', 'Regular Season').    |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_game_types())

@@ -4,6 +4,7 @@
 #' @param season Year to return information and ranking for a particular statistic in a given year. 
 #' 
 #' @return Returns a tibble with the following columns
+#'
 #'    |col_name                      |types     |description                                  |
 #'    |:-----------------------------|:---------|:--------------------------------------------|
 #'    |player_id                     |integer   |MLBAM player ID.                             |

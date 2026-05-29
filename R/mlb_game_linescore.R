@@ -2,6 +2,7 @@
 #' @title **Retrieve game linescores for major and minor league games**
 #' @param game_pk The unique game_pk identifier for the game
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name                                  |types     |description                                       |
 #'  |:-----------------------------------------|:---------|:-------------------------------------------------|
 #'  |game_pk                                   |numeric   |Unique game identifier.                           |
@@ -99,6 +100,7 @@
 #'  |away_team_franchise_name                  |character |Away franchise name.                              |
 #'  |away_team_club_name                       |character |Away club name.                                   |
 #'  |away_team_active                          |character |Whether the away team is active.                  |
+#'
 #' @importFrom jsonlite fromJSON
 #' @importFrom tidyr spread
 #' @importFrom tibble tibble

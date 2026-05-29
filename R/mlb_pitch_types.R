@@ -1,9 +1,11 @@
 #' @title **MLB Pitch Types** 
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name               |types     |description                                       |
 #'  |:----------------------|:---------|:-------------------------------------------------|
 #'  |pitch_type_code        |character |Short code identifying the pitch type (e.g. 'FA').|
 #'  |pitch_type_description |character |Full name of the pitch type (e.g. 'Fastball').    |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_pitch_types())

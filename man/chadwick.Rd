@@ -4,10 +4,10 @@
 \alias{chadwick}
 \title{\strong{Chadwick Bureau Register Player Lookup}}
 \description{
-\describe{
-\item{\code{chadwick_player_lu()}:}{ Directly download the Chadwick Bureau's public register of baseball players and the various IDs associated with them in different systems of record.}
-\item{\code{playername_lookup()}:}{ Look up Baseball Player Name.}
-\item{\code{playerid_lookup()}:}{ Look up Baseball Player IDs.}
+\itemize{
+\item \code{chadwick_player_lu()}: Directly download the Chadwick Bureau's public register of baseball players and the various IDs associated with them in different systems of record.
+\item \code{playername_lookup()}: Look up Baseball Player Name.
+\item \code{playerid_lookup()}: Look up Baseball Player IDs.
 }
 }
 \details{

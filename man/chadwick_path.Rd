@@ -36,7 +36,7 @@ variable is not set by default during the Chadwick installation.
 \code{chadwick_ld_library_path()} checks to find the Chadwick shared libraries, and then
 set the \code{LD_LIBRARY_PATH} environment variable.
 If \code{chadwick_ld_library_path()} returns \code{TRUE}, the \code{cwevent} command line program
-that \code{\link{retrosheet_data}}
+that \code{\link[=retrosheet_data]{retrosheet_data()}}
 depends on should work.
 
 The other functions documented here are mostly for internal use.

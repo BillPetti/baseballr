@@ -7,8 +7,8 @@
 #' @param end_date Date of last game for which you want data.
 #' Format must be in YYYY-MM-DD format.
 #' @param playerid The MLBAM ID for the player whose data you want to query.
-#' @param player_type The player type. Can be \code{batter} or \code{pitcher}.
-#' Default is \code{batter}
+#' @param player_type The player type. Can be `batter` or `pitcher`.
+#' Default is `batter`
 #' @param ... currently ignored
 #' @return Returns a tibble with Statcast data with the following columns:
 #' 

@@ -26,6 +26,7 @@
 #'    * mlb_milb_win
 #'    * baseball_all
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name                          |types     |description                                          |
 #'  |:---------------------------------|:---------|:----------------------------------------------------|
 #'  |openings_total                    |integer   |Total number of openings (games eligible to open).   |
@@ -60,6 +61,7 @@
 #'  |team_id                           |integer   |MLB team ID.                                         |
 #'  |team_name                         |character |Team name.                                           |
 #'  |team_link                         |character |MLB Stats API relative team link.                    |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_attendance(team_id = 109, season = 2021))

@@ -8,6 +8,7 @@
 #' @param order Order return based on either desc or asc.
 #' 
 #' @return Returns a tibble with the following columns
+#'
 #'   |col_name                   |types     |description                              |
 #'   |:--------------------------|:---------|:----------------------------------------|
 #'   |total_splits               |integer   |Total number of splits in the response.  |
@@ -53,6 +54,7 @@
 #'   |splits_tied_with_limit     |list      |Teams tied at the limit boundary.        |
 #'   |type_display_name          |character |Stat type display name.                  |
 #'   |group_display_name         |character |Stat group display name.                 |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_teams_stats(stat_type = 'season', stat_group = 'hitting', season = 2021))

@@ -101,6 +101,7 @@
 #'  |is_drafted                           |logical   |Whether the prospect was drafted.                 |
 #'  |is_pass                              |logical   |Whether the pick was a pass.                      |
 #'  |year                                 |character |Draft year (YYYY).                                |
+#'
 #' @export
 #' @examples \donttest{
 #'  try(mlb_draft_latest(year = 2020))

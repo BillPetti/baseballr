@@ -4,6 +4,7 @@
 #' @param league_id league_id(s) to return a directory of players for a given award in a specific league. Format '103,104'
 #' @param season Year(s) to return a directory of players for a given award in a given season.
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name                             |types     |description                                  |
 #'  |:------------------------------------|:---------|:--------------------------------------------|
 #'  |award_id                             |character |Award identifier code.                       |
@@ -21,6 +22,7 @@
 #'  |player_primary_position_abbreviation |character |Recipient primary position abbreviation.     |
 #'  |team_id                              |integer   |MLB team ID of the recipient.                |
 #'  |team_link                            |character |MLB Stats API relative team link.            |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_awards_recipient(award_id = 'MLBHOF', season = 2020))

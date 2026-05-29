@@ -1,4 +1,31 @@
-#' @title **MLB Teams** 
+#' @rdname mlb_team_endpoints
+#' @name mlb_team_endpoints
+#' @aliases mlb_team_endpoints teams team
+#' @title
+#' **MLB Teams Endpoint Overview**
+#' @description
+#'
+#' * `mlb_teams()`: MLB Teams.
+#' * `mlb_team_info()`: MLB Team Info.
+#' * `mlb_team_affiliates()`: MLB Team Affiliates.
+#' * `mlb_team_alumni()`: MLB Team Alumni.
+#' * `mlb_team_coaches()`: MLB Team Coaches.
+#' * `mlb_team_history()`: MLB Teams History.
+#' * `mlb_team_leaders()`: MLB Team Leaders.
+#' * `mlb_team_personnel()`: MLB Team Personnel.
+#' * `mlb_team_stats()`: MLB Team Individual Stats.
+#' * `mlb_teams_stats()`: MLB Teams Stats.
+#' * `mlb_teams_stats_leaders()`: MLB Teams Stats Leaders.
+#'
+#' @details
+#' ## **MLB Teams**
+#'
+#' These functions retrieve MLB team, affiliate, alumni, coach, history, leader, personnel, and stats information from the MLB Stats API.
+#'
+#' @family MLB Teams
+NULL
+
+#' @title **MLB Teams**
 #' @param season Year to return to return team information for.
 #' @param active_status The active statuses to populate teams for a given season.
 #' @param all_star_statuses The all-star statuses to populate teams for a given season.
@@ -6,6 +33,7 @@
 #' @param sport_ids The sport_id(s) to return team information for.
 #' @param game_type The game_type to return team information for.
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name                   |types     |description                                |
 #'  |:--------------------------|:---------|:------------------------------------------|
 #'  |all_star_status            |character |All-star status flag.                      |
@@ -41,6 +69,7 @@
 #'  |sport_id                   |integer   |Sport MLBAM ID.                            |
 #'  |sport_link                 |character |API link to the sport.                     |
 #'  |sport_name                 |character |Sport name (e.g., Major League Baseball).  |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_teams(season = 2021, sport_ids = c(1)))

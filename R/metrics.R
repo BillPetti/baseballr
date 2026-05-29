@@ -2,14 +2,14 @@
 #' @title **Metrics Functions Overview** 
 #' 
 #' @description
-#' \describe{
-#'   \item{```fip_plus()```:}{ Calculate FIP and related metrics for any set of data.}
-#'   \item{```woba_plus()```}{ Calculate wOBA and related metrics for any set of data.}
-#'   \item{```team_consistency()```}{ Calculate Team-level Consistency.}
-#'   \item{```label_statcast_imputed_data()```}{ Label Statcast data as imputed.}
-#'   \item{```run_expectancy_code()```}{ Generate run expectancy and related measures from Baseball Savant data.}
-#'   \item{```linear_weights_savant()```}{ Generate linear weight values for events using Baseball Savant data.}
-#' }
+#'
+#' * `fip_plus()`: Calculate FIP and related metrics for any set of data.
+#' * `woba_plus()`: Calculate wOBA and related metrics for any set of data.
+#' * `team_consistency()`: Calculate Team-level Consistency.
+#' * `label_statcast_imputed_data()`: Label Statcast data as imputed.
+#' * `run_expectancy_code()`: Generate run expectancy and related measures from Baseball Savant data.
+#' * `linear_weights_savant()`: Generate linear weight values for events using Baseball Savant data.
+#'
 #' @details
 #' ### **Calculate Team-level Consistency**
 #' ```r

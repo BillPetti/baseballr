@@ -3,6 +3,7 @@
 #' @description This function allows you to query the Chadwick Bureau's public register of baseball players and the various IDs associated with them in different systems of record.
 #' @param id An integer or character string representing a player ID in a baseball database, cross-referenced through the Chadwick Bureau's public register of baseball players.
 #' @return A data frame of baseball players and the various IDs associated with them in different systems of record.
+#'
 #'  |col_name         |types     |description |
 #'  |:----------------|:---------|:-----------|
 #'  |name_first       |character |Player first name. |
@@ -16,6 +17,7 @@
 #'  |key_retro        |character |Retrosheet player ID. |
 #'  |key_bbref        |character |Baseball-Reference player ID. |
 #'  |key_fangraphs    |integer   |FanGraphs player ID. |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(playername_lookup(4885))

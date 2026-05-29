@@ -3,6 +3,7 @@
 #' @description This function allows you to scrape each team's payroll from Spotrac.
 #' @param year Year to load
 #' @return A data frame of contract data.
+#'
 #'  |col_name                  |types     |description |
 #'  |:--------------------------|:---------|:-----------|
 #'  |year                       |character |Payroll season. |

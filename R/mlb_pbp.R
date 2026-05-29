@@ -168,6 +168,7 @@
 #'  |matchup.postOnThird.id         |integer   |Runner id on third base after the play.                           |
 #'  |matchup.postOnThird.fullName   |character |Runner name on third base after the play.                         |
 #'  |matchup.postOnThird.link       |character |API relative link to the third base runner.                       |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_pbp(game_pk = 632970))

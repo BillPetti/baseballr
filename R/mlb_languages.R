@@ -1,11 +1,13 @@
 #' @title **MLB API Language Options** 
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name      |types     |description                                                          |
 #'  |:-------------|:---------|:--------------------------------------------------------------------|
 #'  |language_id   |integer   |Numeric language identifier.                                         |
 #'  |language_code |character |Short language code (e.g. 'en', 'xe').                              |
 #'  |language_name |character |Language display name (e.g. 'English', 'Elias').                    |
 #'  |locale        |character |Locale string for the language (e.g. 'en_US').                      |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_languages())

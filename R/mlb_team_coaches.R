@@ -4,6 +4,7 @@
 #' @param season Year to return team coach information for. 
 #' 
 #' @return Returns a tibble with the following columns
+#'
 #'    |col_name         |types     |description                          |
 #'    |:----------------|:---------|:------------------------------------|
 #'    |jersey_number    |character |Coach uniform number.                |
@@ -13,6 +14,7 @@
 #'    |person_id        |integer   |Coach MLBAM person ID.               |
 #'    |person_full_name |character |Coach full name.                     |
 #'    |person_link      |character |API link to the coach.               |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_team_coaches(team_id = 137, season = 2021))

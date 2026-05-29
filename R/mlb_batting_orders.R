@@ -8,6 +8,7 @@
 #' @importFrom tibble tibble
 #' @return Returns a tibble that includes probable starting pitchers and
 #' the home plate umpire for the `game_pk` requested
+#'
 #'  |col_name             |types     |description                                            |
 #'  |:--------------------|:---------|:------------------------------------------------------|
 #'  |id                   |integer   |MLB player ID.                                         |
@@ -18,6 +19,7 @@
 #'  |team                 |character |Side of the matchup ('home' or 'away').                |
 #'  |teamName             |character |Team name.                                             |
 #'  |teamID               |integer   |MLB team ID.                                           |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_batting_orders(game_pk=566001))

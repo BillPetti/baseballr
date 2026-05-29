@@ -2,17 +2,17 @@
 #' @title
 #' **NCAA Functions Overview**
 #' @description
-#' \describe{
-#'   \item{```ncaa_team_player_stats()```:}{ This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a tibble.}
-#'   \item{```ncaa_pbp()```:}{ Get Play-By-Play Data for NCAA Baseball Games.}
-#'   \item{```ncaa_roster()```:}{ Get NCAA Baseball Rosters.}
-#'   \item{```ncaa_game_logs()```:}{ Get NCAA Baseball Game Logs.}
-#'   \item{```ncaa_lineups()```:}{ Get NCAA Baseball Game Lineups.}
-#'   \item{```ncaa_park_factor()```:}{ Get Park Effects for NCAA Baseball Teams.}
-#'   \item{```ncaa_schedule_info()```:}{ Get Schedule and Results for NCAA Baseball Teams.}
-#'   \item{```ncaa_school_id_lu()```:}{Lookup NCAA School IDs (Division I, II, and III)}
-#'   \item{```ncaa_teams()```:}{Lookup NCAA Teams by Division (I, II, and III) and Season}
-#' }
+#'
+#' * `ncaa_team_player_stats()`: This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a tibble.
+#' * `ncaa_pbp()`: Get Play-By-Play Data for NCAA Baseball Games.
+#' * `ncaa_roster()`: Get NCAA Baseball Rosters.
+#' * `ncaa_game_logs()`: Get NCAA Baseball Game Logs.
+#' * `ncaa_lineups()`: Get NCAA Baseball Game Lineups.
+#' * `ncaa_park_factor()`: Get Park Effects for NCAA Baseball Teams.
+#' * `ncaa_schedule_info()`: Get Schedule and Results for NCAA Baseball Teams.
+#' * `ncaa_school_id_lu()`: Lookup NCAA School IDs (Division I, II, and III)
+#' * `ncaa_teams()`: Lookup NCAA Teams by Division (I, II, and III) and Season
+#'
 #' @details
 #' ### **Scrape NCAA baseball data (Division I, II, and III)**
 #' ```r

@@ -4,6 +4,7 @@
 #' @description This function allows you to scrape park factors for a given season from FanGraphs.com.
 #' @param yr Season for which you want to scrape the park factors.
 #' @return Returns a tibble of park factors.
+#'
 #'  |col_name  |types     |
 #'  |:---------|:---------|
 #'  |season    |integer   |
@@ -22,6 +23,7 @@
 #'  |LD        |integer   |
 #'  |IFFB      |integer   |
 #'  |FIP       |integer   |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(fg_park(2013))
@@ -56,6 +58,7 @@ fg_park <- function(yr) {
 #' @description This function allows you to scrape park factors by handedness from FanGraphs.com for a given single year.
 #' @param yr Season for which you want to scrape the park factors.
 #' @return Returns a tibble of park factors by handedness.
+#'
 #'  |col_name      |types     |
 #'  |:-------------|:---------|
 #'  |season        |integer   |
@@ -68,6 +71,7 @@ fg_park <- function(yr) {
 #'  |triple_as_RHH |integer   |
 #'  |hr_as_LHH     |integer   |
 #'  |hr_as_RHH     |integer   |
+#'
 #' @importFrom stats setNames
 #' @export
 #' @examples \donttest{

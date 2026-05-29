@@ -7,6 +7,7 @@
 #' @param sport_ids The sport_id(s) to return information and ranking information for.
 #' 
 #' @return Returns a tibble with the following columns
+#'
 #'    |col_name                   |types     |description                              |
 #'    |:--------------------------|:---------|:----------------------------------------|
 #'    |season                     |character |Season year for the statistic.           |
@@ -48,6 +49,7 @@
 #'    |team_link                  |character |API link to the team.                    |
 #'    |type_display_name          |character |Stat type display name.                  |
 #'    |group_display_name         |character |Stat group display name.                 |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_team_stats(team_id = 137, stat_type = 'season', stat_group = 'hitting', season = 2021))

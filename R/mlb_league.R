@@ -3,6 +3,7 @@
 #' @param sport_id The sport_id to return league information for.
 #' @param league_id The league_id(s) to return league information for.
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name                                     |types     |description                                              |
 #'  |:--------------------------------------------|:---------|:--------------------------------------------------------|
 #'  |league_id                                    |integer   |MLB league id (e.g. 103 for AL, 104 for NL).            |
@@ -45,6 +46,7 @@
 #'  |season_date_info_qualifier_outs_pitched      |integer   |Outs pitched per game needed to qualify.                 |
 #'  |sport_id                                     |integer   |Sport id associated with the league (1 for MLB).         |
 #'  |sport_link                                   |character |API relative link to the sport.                          |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_league(seasons = 2021, sport_id = 1))

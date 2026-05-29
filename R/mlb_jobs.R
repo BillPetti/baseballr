@@ -1,8 +1,30 @@
-#' @title **MLB Jobs** 
+#' @rdname mlb_jobs_endpoints
+#' @name mlb_jobs_endpoints
+#' @aliases mlb_jobs_endpoints jobs
+#' @title
+#' **MLB Jobs Endpoint Overview**
+#' @description
+#'
+#' * `mlb_jobs()`: MLB Jobs.
+#' * `mlb_jobs_datacasters()`: MLB Jobs Datacasters.
+#' * `mlb_jobs_official_scorers()`: MLB Jobs Official Scorers.
+#' * `mlb_jobs_umpires()`: MLB Jobs Umpires.
+#' * `mlb_job_types()`: MLB Job Types.
+#'
+#' @details
+#' ## **MLB Jobs**
+#'
+#' These functions retrieve MLB job, datacaster, official scorer, umpire, and job-type information from the MLB Stats API.
+#'
+#' @family MLB Jobs
+NULL
+
+#' @title **MLB Jobs**
 #' @param job_type Return information for a given job_type. See ```mlb_job_types()```
 #' @param sport_id Return information for a given sport_id. 
 #' @param date Return information for a given date. 
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name         |types     |description                                                          |
 #'  |:----------------|:---------|:--------------------------------------------------------------------|
 #'  |jersey_number    |character |Jersey number worn (often blank for non-uniformed roles).            |
@@ -12,6 +34,7 @@
 #'  |person_id        |integer   |MLB person id for the individual.                                    |
 #'  |person_full_name |character |Full name of the individual.                                         |
 #'  |person_link      |character |API relative link to the person.                                     |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_jobs(job_type='UMPR'))

@@ -1,9 +1,11 @@
 #' @title **MLB Standings Types** 
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name                   |types     |description                                  |
 #'  |:--------------------------|:---------|:--------------------------------------------|
 #'  |standings_type_name        |character |Standings type identifier (e.g., wildCard).  |
 #'  |standings_type_description |character |Human-readable description of the type.      |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_standings_types())

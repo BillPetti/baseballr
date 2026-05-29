@@ -1,6 +1,7 @@
 #' @title **MLB Sport IDs Information**
 #' @param sport_id The sport_id to return information for.
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name           |types     |description                                       |
 #'  |:------------------|:---------|:-------------------------------------------------|
 #'  |sport_id           |integer   |MLBAM sport (level) identifier.                   |

@@ -2,6 +2,7 @@
 #' @param league_id League ID for league all-star ballot of interest.
 #' @param season The season of the all-star ballot.
 #' @return Returns a tibble with the following columns:
+#'
 #'   |col_name                      |types     |description                                       |
 #'   |:-----------------------------|:---------|:-------------------------------------------------|
 #'   |player_id                     |integer   |MLB player ID.                                    |
@@ -49,6 +50,7 @@
 #'   |pitch_hand_description        |character |Throwing hand description.                        |
 #'   |league_id                     |numeric   |MLB league ID.                                    |
 #'   |season                        |numeric   |Season (YYYY).                                    |
+#'
 #' @export
 #' @examples \donttest{
 #'  try(mlb_all_star_write_ins(league_id = 103, season = 2021))

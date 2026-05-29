@@ -9,6 +9,7 @@
 #'   columns (player roster types). The `coach` roster type instead returns
 #'   `job`, `job_id`, and `title` columns in place of the position/status
 #'   columns:
+#'
 #'  |col_name              |types     |description                                       |
 #'  |:---------------------|:---------|:-------------------------------------------------|
 #'  |jersey_number         |character |Player's uniform number.                          |

@@ -3,6 +3,7 @@
 #' @param season The season to return team data for the given year.
 #' @param sport_id The sport_id to return a directory of team data for a particular club in a sport.
 #' @return Returns a tibble with the following columns
+#'
 #'   |col_name                   |types     |description                                |
 #'   |:--------------------------|:---------|:------------------------------------------|
 #'   |all_star_status            |character |All-star status flag.                      |
@@ -38,6 +39,7 @@
 #'   |sport_id                   |integer   |Sport MLBAM ID.                            |
 #'   |sport_link                 |character |API link to the sport.                     |
 #'   |sport_name                 |character |Sport name (e.g., Major League Baseball).  |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_team_info(team_id = 147))

@@ -1,8 +1,28 @@
+#' @rdname mlb_homerun_derby_endpoints
+#' @name mlb_homerun_derby_endpoints
+#' @aliases mlb_homerun_derby_endpoints homerun_derby hr_derby
+#' @title
+#' **MLB Home Run Derby Endpoint Overview**
+#' @description
+#'
+#' * `mlb_homerun_derby()`: Retrieve Homerun Derby data.
+#' * `mlb_homerun_derby_bracket()`: Retrieve Homerun Derby Bracket.
+#' * `mlb_homerun_derby_players()`: Retrieve Homerun Derby Players.
+#'
+#' @details
+#' ## **MLB Home Run Derby**
+#'
+#' These functions retrieve MLB Home Run Derby data, bracket, and player information from the MLB Stats API.
+#'
+#' @family MLB Home Run Derby
+NULL
+
 #' @rdname mlb_homerun_derby
 #' @title **Retrieve Homerun Derby data**
 #'
 #' @param game_pk The game_pk for which you want to return data
 #' @return Returns a tibble with the following columns
+#'
 #'   |col_name                                         |types     |description                                                       |
 #'   |:------------------------------------------------|:---------|:-----------------------------------------------------------------|
 #'   |game_pk                                          |integer   |MLB game primary key for the Home Run Derby event.                |
@@ -66,6 +86,7 @@
 #'   |file_code                                        |character |Internal file code for the event.                                 |
 #'   |event_number                                     |integer   |Event number identifier.                                          |
 #'   |public_facing                                    |logical   |Whether the event is public facing.                               |
+#'
 #' @importFrom jsonlite fromJSON
 #' @export
 #' @examples \donttest{
@@ -186,6 +207,7 @@ mlb_homerun_derby <- function(game_pk){
 #'
 #' @param game_pk The game_pk for which you want to return data
 #' @return Returns a tibble with the following columns
+#'
 #'    |col_name                                      |types     |description                                                   |
 #'    |:---------------------------------------------|:---------|:-------------------------------------------------------------|
 #'    |game_pk                                       |integer   |MLB game primary key for the Home Run Derby event.            |
@@ -303,6 +325,7 @@ mlb_homerun_derby_bracket <- function(game_pk){
 #'
 #' @param game_pk The game_pk for which you want to return data
 #' @return Returns a tibble with the following columns 
+#'
 #'   |col_name                                       |types     |description                                                       |
 #'   |:----------------------------------------------|:---------|:-----------------------------------------------------------------|
 #'   |game_pk                                        |integer   |MLB game primary key for the Home Run Derby event.                |

@@ -1,5 +1,6 @@
 #' @title **MLB Awards** 
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name          |types     |description                                  |
 #'  |:-----------------|:---------|:--------------------------------------------|
 #'  |award_id          |character |Award identifier code.                       |
@@ -12,6 +13,7 @@
 #'  |sport_link        |character |MLB Stats API relative sport link.           |
 #'  |league_id         |integer   |MLB league ID associated with the award.     |
 #'  |league_link       |character |MLB Stats API relative league link.          |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_awards())

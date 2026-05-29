@@ -107,6 +107,7 @@
 #'  |team_sport_id                        |integer   |MLB sport ID.                                     |
 #'  |team_sport_link                      |character |MLB Stats API relative sport link.                |
 #'  |team_sport_name                      |character |Sport name.                                       |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_draft_prospects(year = 2020))

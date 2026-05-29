@@ -1,7 +1,27 @@
-#' @rdname mlb_draft 
+#' @rdname mlb_draft_endpoints
+#' @name mlb_draft_endpoints
+#' @aliases mlb_draft_endpoints mlb_draft draft
+#' @title
+#' **MLB Draft Endpoint Overview**
+#' @description
+#'
+#' * `mlb_draft()`: Retrieve draft pick information by year.
+#' * `mlb_draft_latest()`: Retrieve latest draft information by year.
+#' * `mlb_draft_prospects()`: Retrieve draft prospect information by year.
+#'
+#' @details
+#' ## **MLB Draft**
+#'
+#' These functions retrieve MLB Draft pick, latest pick, and prospect information from the MLB Stats API.
+#'
+#' @family MLB Draft
+NULL
+
+#' @rdname mlb_draft
 #' @title **Retrieve draft pick information by year**
 #' @param year The year for which to return data
 #' @return Returns a tibble with information for every draft pick in every round for the year requested
+#'
 #'  |col_name                             |types     |description                                       |
 #'  |:------------------------------------|:---------|:-------------------------------------------------|
 #'  |bis_player_id                        |integer   |BIS (Baseball Info Solutions) player ID.          |
@@ -81,6 +101,7 @@
 #'  |team_spring_league_abbreviation      |character |Spring training league abbreviation.              |
 #'  |draft_type_code                      |character |Draft type code.                                  |
 #'  |draft_type_description               |character |Draft type description.                           |
+#'
 #' @export 
 #' @examples \donttest{
 #'   try(mlb_draft(year = 2020))

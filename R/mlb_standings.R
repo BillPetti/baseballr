@@ -16,6 +16,7 @@
 #'   11. byLeague - Standings by League
 #' @param league_id The league_id(s) to return standings information for.
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name                                   |types     |description                                              |
 #'  |:------------------------------------------|:---------|:--------------------------------------------------------|
 #'  |standings_type                             |character |Type of standings returned (e.g., regularSeason).        |

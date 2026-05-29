@@ -3,6 +3,7 @@
 #' @param league_id Return division(s) data for all divisions in a specific league
 #' @param sport_id Return division(s) for all divisions in a specific sport.
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name              |types     |description                                     |
 #'  |:---------------------|:---------|:-----------------------------------------------|
 #'  |division_id           |integer   |MLB division ID.                                |
@@ -19,6 +20,7 @@
 #'  |league_link           |character |MLB Stats API relative league link.             |
 #'  |sport_id              |integer   |MLB sport ID.                                   |
 #'  |sport_link            |character |MLB Stats API relative sport link.              |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_divisions(sport_id = 1))

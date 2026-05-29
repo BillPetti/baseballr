@@ -1,5 +1,6 @@
 #' @title **MLB Positions** 
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name              |types     |description                                          |
 #'  |:---------------------|:---------|:----------------------------------------------------|
 #'  |position_short_name   |character |Short position name (e.g. 'Pitcher').                |
@@ -13,6 +14,7 @@
 #'  |game_position         |logical   |Whether it is an on-field game position.             |
 #'  |pitcher               |logical   |Whether the position is a pitcher.                   |
 #'  |fielder               |logical   |Whether the position is a fielder.                   |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_positions())

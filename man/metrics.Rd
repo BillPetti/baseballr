@@ -4,13 +4,13 @@
 \alias{metrics}
 \title{\strong{Metrics Functions Overview}}
 \description{
-\describe{
-\item{\code{fip_plus()}:}{ Calculate FIP and related metrics for any set of data.}
-\item{\code{woba_plus()}}{ Calculate wOBA and related metrics for any set of data.}
-\item{\code{team_consistency()}}{ Calculate Team-level Consistency.}
-\item{\code{label_statcast_imputed_data()}}{ Label Statcast data as imputed.}
-\item{\code{run_expectancy_code()}}{ Generate run expectancy and related measures from Baseball Savant data.}
-\item{\code{linear_weights_savant()}}{ Generate linear weight values for events using Baseball Savant data.}
+\itemize{
+\item \code{fip_plus()}: Calculate FIP and related metrics for any set of data.
+\item \code{woba_plus()}: Calculate wOBA and related metrics for any set of data.
+\item \code{team_consistency()}: Calculate Team-level Consistency.
+\item \code{label_statcast_imputed_data()}: Label Statcast data as imputed.
+\item \code{run_expectancy_code()}: Generate run expectancy and related measures from Baseball Savant data.
+\item \code{linear_weights_savant()}: Generate linear weight values for events using Baseball Savant data.
 }
 }
 \details{

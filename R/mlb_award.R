@@ -2,16 +2,16 @@
 #' @title
 #' **MLB All-Star, Awards, Home Run Derby Functions**
 #' @description
-#' \describe{
-#'   \item{```mlb_all_star_ballots()```:}{ Find MLB All-Star Ballots.}
-#'   \item{```mlb_all_star_final_vote()```:}{ Find MLB All-Star Final Vote.}
-#'   \item{```mlb_all_star_write_ins()```:}{ Find MLB All-Star Write-ins.}
-#'   \item{```mlb_awards()```:}{ Find MLB Awards.}
-#'   \item{```mlb_awards_recipient()```:}{ Find MLB Award Recipients.}
-#'   \item{```mlb_homerun_derby()```:}{ Retrieve MLB Home Run Derby Data.}
-#'   \item{```mlb_homerun_derby_bracket()```:}{ Retrieve MLB Home Run Derby Bracket.}
-#'   \item{```mlb_homerun_derby_players()```:}{ Retrieve MLB Home Run Derby Players.}
-#' }
+#'
+#' * `mlb_all_star_ballots()`: Find MLB All-Star Ballots.
+#' * `mlb_all_star_final_vote()`: Find MLB All-Star Final Vote.
+#' * `mlb_all_star_write_ins()`: Find MLB All-Star Write-ins.
+#' * `mlb_awards()`: Find MLB Awards.
+#' * `mlb_awards_recipient()`: Find MLB Award Recipients.
+#' * `mlb_homerun_derby()`: Retrieve MLB Home Run Derby Data.
+#' * `mlb_homerun_derby_bracket()`: Retrieve MLB Home Run Derby Bracket.
+#' * `mlb_homerun_derby_players()`: Retrieve MLB Home Run Derby Players.
+#'
 #' @details
 #' ### **Find MLB All-Star Ballots**
 #' ```r

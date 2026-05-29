@@ -48,6 +48,7 @@
 #'  |bat_side_description           |character |Batting side description (e.g. 'Right').                         |
 #'  |pitch_hand_code                |character |Throwing hand code (e.g. 'R').                                  |
 #'  |pitch_hand_description         |character |Throwing hand description (e.g. 'Right').                        |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_people(person_ids = 502671))

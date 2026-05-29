@@ -55,11 +55,13 @@
 #'  |inning                   |innings              |TRUE        |Inning                   |game                         |TEAM         |GAME                 |
 #'  |win_streak               |winStreak            |TRUE        |Win streak               |streak                       |TEAM         |                     |
 #'  |loss_streak              |lossStreak           |TRUE        |Loss streak              |streak                       |TEAM         |                     |
+#'
 #' @param team_ids The team_id(s) for which to return information.
 #' @param league_ids The league_id(s) for which to return information.
 #' @param sport_ids The sport_id(s) for which to return information.
 #' @param game_type The game_type for which to return information.
 #' @param stat_group Stat group for which to return information. Valid values include:
+#'
 #'  |stat_group      |
 #'  |:---------------|
 #'  |hitting         |
@@ -70,8 +72,10 @@
 #'  |game            |
 #'  |team            |
 #'  |streak          |
+#'
 #' @param limit Number of records as the limit of the return.  
 #' @return Returns a tibble with the following columns 
+#'
 #'   |col_name               |types     |description                                                       |
 #'   |:----------------------|:---------|:-----------------------------------------------------------------|
 #'   |total_splits           |integer   |Total number of split records matching the query.                 |

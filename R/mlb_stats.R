@@ -1,3 +1,25 @@
+#' @rdname mlb_stats_endpoints
+#' @name mlb_stats_endpoints
+#' @aliases mlb_stats_endpoints stats
+#' @title
+#' **MLB Stats Endpoint Overview**
+#' @description
+#'
+#' * `mlb_stats()`: MLB Stats.
+#' * `mlb_stats_leaders()`: MLB Stats Leaders.
+#' * `mlb_stats_streaks()`: MLB Stats Streaks.
+#' * `mlb_stat_groups()`: MLB Stat Groups.
+#' * `mlb_stat_types()`: MLB Stat Types.
+#' * `mlb_baseball_stats()`: MLB Baseball Stats.
+#'
+#' @details
+#' ## **MLB Stats**
+#'
+#' These functions retrieve MLB statistics, leaders, streaks, stat groups, stat types, and baseball stat metadata from the MLB Stats API.
+#'
+#' @family MLB Stats
+NULL
+
 #' @title **MLB Stats**
 #' @param stat_type Stat type to return statistics for.
 #' @param player_pool There are 4 different types of player pools to return statistics for a particular player pool across a sport. 
@@ -45,6 +67,7 @@
 #' @param offset An offset to returns i+1 as the first record in the set of players.
 #' 
 #' @return Returns a tibble with the following columns
+#'
 #'   |col_name                   |types     |description                                      |
 #'   |:--------------------------|:---------|:------------------------------------------------|
 #'   |total_splits               |integer   |Total number of splits in the response.          |
@@ -108,6 +131,7 @@
 #'   |player_pool                |character |Player pool used (e.g., QUALIFIED).              |
 #'   |type_display_name          |character |Stat type display name.                          |
 #'   |group_display_name         |character |Stat group display name.                         |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_stats(stat_type = 'season', stat_group = 'hitting', season = 2021))

@@ -1,7 +1,27 @@
+#' @rdname mlb_all_star
+#' @name mlb_all_star
+#' @aliases mlb_all_star all_star allstar
+#' @title
+#' **MLB All-Star Endpoint Overview**
+#' @description
+#'
+#' * `mlb_all_star_ballots()`: Find MLB All-Star Ballots.
+#' * `mlb_all_star_final_vote()`: Find MLB All-Star Final Vote.
+#' * `mlb_all_star_write_ins()`: Find MLB All-Star Write-ins.
+#'
+#' @details
+#' ## **MLB All-Star**
+#'
+#' These functions retrieve MLB All-Star ballot, final vote, and write-in information from the MLB Stats API.
+#'
+#' @family MLB All-Star
+NULL
+
 #' @title **Find MLB All-Star Ballots**
 #' @param league_id League ID for league all-star ballot of interest.
 #' @param season The season of the all-star ballot.
 #' @return Returns a tibble with the following columns:
+#'
 #'   |col_name                      |types     |description                                       |
 #'   |:-----------------------------|:---------|:-------------------------------------------------|
 #'   |player_id                     |integer   |MLB player ID.                                    |
@@ -53,6 +73,7 @@
 #'   |pitch_hand_description        |character |Throwing hand description.                        |
 #'   |league_id                     |numeric   |MLB league ID.                                    |
 #'   |season                        |numeric   |Season (YYYY).                                    |
+#'
 #' @export
 #' @examples \donttest{
 #'  try(mlb_all_star_ballots(league_id = 103, season = 2021))

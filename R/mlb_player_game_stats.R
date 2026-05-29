@@ -3,6 +3,7 @@
 #' @param game_pk The game_pk to return game_log statistics for a specific player in a specific game and to complete the call.
 #' @return Returns a tibble with one row per stat group (fielding, hitting,
 #'   pitching) for the player in the game, with the following columns:
+#'
 #'   |col_name                   |types     |description                                              |
 #'   |:--------------------------|:---------|:--------------------------------------------------------|
 #'   |type                       |character |Stat type returned (e.g. 'gameLog').                     |
@@ -75,6 +76,7 @@
 #'   |group_display_name         |character |Display name of the stat group.                          |
 #'   |player_id                  |numeric   |MLBAM player ID supplied in the request.                 |
 #'   |game_pk                    |numeric   |Game ID supplied in the request.                         |
+#'
 #' @export
 #' @examples \donttest{
 #'  try(mlb_player_game_stats(person_id = 605151, game_pk = 531368))

@@ -1,9 +1,11 @@
 #' @title **MLB Review Reasons** 
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name                  |types     |description                                          |
 #'  |:-------------------------|:---------|:----------------------------------------------------|
 #'  |review_reason_code        |character |Short code for the replay review reason.             |
 #'  |review_reason_description |character |Description of the review reason (e.g. 'Tag play').  |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_review_reasons())

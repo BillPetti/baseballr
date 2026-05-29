@@ -12,6 +12,7 @@
 #' @param end_date Date of last game for which you want data.
 #' Format must be in MM/DD/YYYY format.
 #' @return Returns a tibble with the following columns
+#'
 #'   |col_name                                            |types     |description                                       |
 #'   |:---------------------------------------------------|:---------|:-------------------------------------------------|
 #'   |hits_per9inn                                        |numeric   |Hits per 9 innings.                               |
@@ -63,6 +64,7 @@
 #'   |pr_portal_calculated_fields_time_per7inn_game       |character |Portal-calculated time per 7-inning game.         |
 #'   |pr_portal_calculated_fields_time_per9inn_game       |character |Portal-calculated time per 9-inning game.         |
 #'   |pr_portal_calculated_fields_time_per_extra_inn_game |character |Portal-calculated time per extra-inning game.     |
+#'
 #' @importFrom jsonlite fromJSON
 #' @importFrom tidyr spread
 #' @importFrom tibble tibble

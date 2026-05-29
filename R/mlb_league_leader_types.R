@@ -1,8 +1,10 @@
 #' @title **MLB League Leader Types** 
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name      |types     |description                                                          |
 #'  |:-------------|:---------|:--------------------------------------------------------------------|
 #'  |leader_type   |character |League leader category display name (e.g. 'assists', 'shutouts').    |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_league_leader_types())

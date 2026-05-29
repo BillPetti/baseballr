@@ -76,7 +76,7 @@ chadwick_set_ld_library_path <- function() {
 #' `chadwick_ld_library_path()` checks to find the Chadwick shared libraries, and then
 #' set the `LD_LIBRARY_PATH` environment variable. 
 #' If `chadwick_ld_library_path()` returns `TRUE`, the `cwevent` command line program 
-#' that \code{\link{retrosheet_data}}
+#' that [retrosheet_data()]
 #' depends on should work. 
 #' 
 #' The other functions documented here are mostly for internal use. 

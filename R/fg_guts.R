@@ -2,6 +2,7 @@
 #' @title **Scrape FanGraphs.com Guts!**
 #' @description Scrape historical FanGraphs Guts! table, wOBA, FIP coefficients and constants
 #' @return Returns a tibble of seasonal constants from FanGraphs
+#'
 #'  |col_name   |types   |
 #'  |:----------|:-------|
 #'  |season     |integer |
@@ -18,6 +19,7 @@
 #'  |lg_r_pa    |numeric |
 #'  |lg_r_w     |numeric |
 #'  |cFIP       |numeric |
+#'
 #' @import rvest
 #' @export
 #' @examples \donttest{

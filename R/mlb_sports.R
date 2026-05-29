@@ -1,6 +1,7 @@
 #' @title **MLB Sport IDs**
 #' @param sport_id The sport_id to return information for.
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name           |types     |description                                       |
 #'  |:------------------|:---------|:-------------------------------------------------|
 #'  |sport_id           |integer   |MLBAM sport (level) identifier.                   |
@@ -31,6 +32,7 @@
 #'  |      510|nas        |/api/v1/sports/510 |International Baseball (16 and under) |16U                |       3505|TRUE          |
 #'  |       22|bbc        |/api/v1/sports/22  |College Baseball                      |College            |       5101|TRUE          |
 #'  |      586|hsb        |/api/v1/sports/586 |High School Baseball                  |H.S.               |       6201|TRUE      
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_sports())

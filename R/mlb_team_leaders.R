@@ -5,6 +5,7 @@
 #' @param season Season to return team leader information for.
 #' @param limit A limit to limit return to a particular number of records.
 #' @return Returns a tibble with the following columns
+#'
 #'   |col_name              |types     |description                                  |
 #'   |:---------------------|:---------|:--------------------------------------------|
 #'   |leader_category       |character |Team leader category (e.g., homeRuns).       |
@@ -29,6 +30,7 @@
 #'   |total_splits          |integer   |Total number of splits in the leaderboard.   |
 #'   |game_type_id          |character |Game type code (e.g., R for regular season). |
 #'   |game_type_description |character |Game type description.                       |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_team_leaders(team_id = 137, leader_categories = "homeRuns", season = 2021))

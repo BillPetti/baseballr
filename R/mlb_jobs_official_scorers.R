@@ -2,6 +2,7 @@
 #' @param sport_id Return information for a given sport_id. 
 #' @param date Return information for a given date. 
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name         |types     |description                                                          |
 #'  |:----------------|:---------|:--------------------------------------------------------------------|
 #'  |jersey_number    |character |Jersey number (typically blank for official scorers).                |
@@ -11,6 +12,7 @@
 #'  |person_id        |integer   |MLB person id for the official scorer.                               |
 #'  |person_full_name |character |Full name of the official scorer.                                    |
 #'  |person_link      |character |API relative link to the person.                                     |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_jobs_official_scorers(sport_id=1))

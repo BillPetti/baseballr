@@ -4,15 +4,15 @@
 \alias{mlb_award}
 \title{\strong{MLB All-Star, Awards, Home Run Derby Functions}}
 \description{
-\describe{
-\item{\code{mlb_all_star_ballots()}:}{ Find MLB All-Star Ballots.}
-\item{\code{mlb_all_star_final_vote()}:}{ Find MLB All-Star Final Vote.}
-\item{\code{mlb_all_star_write_ins()}:}{ Find MLB All-Star Write-ins.}
-\item{\code{mlb_awards()}:}{ Find MLB Awards.}
-\item{\code{mlb_awards_recipient()}:}{ Find MLB Award Recipients.}
-\item{\code{mlb_homerun_derby()}:}{ Retrieve MLB Home Run Derby Data.}
-\item{\code{mlb_homerun_derby_bracket()}:}{ Retrieve MLB Home Run Derby Bracket.}
-\item{\code{mlb_homerun_derby_players()}:}{ Retrieve MLB Home Run Derby Players.}
+\itemize{
+\item \code{mlb_all_star_ballots()}: Find MLB All-Star Ballots.
+\item \code{mlb_all_star_final_vote()}: Find MLB All-Star Final Vote.
+\item \code{mlb_all_star_write_ins()}: Find MLB All-Star Write-ins.
+\item \code{mlb_awards()}: Find MLB Awards.
+\item \code{mlb_awards_recipient()}: Find MLB Award Recipients.
+\item \code{mlb_homerun_derby()}: Retrieve MLB Home Run Derby Data.
+\item \code{mlb_homerun_derby_bracket()}: Retrieve MLB Home Run Derby Bracket.
+\item \code{mlb_homerun_derby_players()}: Retrieve MLB Home Run Derby Players.
 }
 }
 \details{

@@ -102,6 +102,7 @@
 #'   |group_display_name            |character |
 #'   |player_id                     |numeric   |
 #'   |game_pk                       |numeric   |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_player_game_stats_current(person_id = 660271))

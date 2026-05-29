@@ -1,3 +1,29 @@
+#' @rdname mlb_game_endpoints
+#' @name mlb_game_endpoints
+#' @aliases mlb_game_endpoints game pbp
+#' @title
+#' **MLB Game Endpoint Overview**
+#' @description
+#'
+#' * `mlb_game_info()`: Retrieve additional game information for major and minor league games.
+#' * `mlb_game_pks()`: Get MLB Game Info by Date and Level.
+#' * `mlb_game_content()`: Retrieve additional game content for major and minor league games.
+#' * `mlb_game_linescore()`: Retrieve game linescores for major and minor league games.
+#' * `mlb_game_wp()`: Acquire win probability for Major and Minor League games.
+#' * `mlb_game_pace()`: Retrieve game pace metrics for major and minor league.
+#' * `mlb_game_changes()`: Acquire time codes for Major and Minor League games.
+#' * `mlb_game_context_metrics()`: Acquire game context metrics for Major and Minor League games.
+#' * `mlb_pbp()`: Acquire pitch-by-pitch data for Major and Minor League games.
+#' * `mlb_pbp_diff()`: Acquire pitch-by-pitch data between two timecodes for Major and Minor League games.
+#'
+#' @details
+#' ## **MLB Game**
+#'
+#' These functions retrieve MLB game information, content, linescores, win probability, pace, changes, context metrics, and pitch-by-pitch data from the MLB Stats API.
+#'
+#' @family MLB Game
+NULL
+
 #' @rdname mlb_game_info
 #' @title **Retrieve additional game information for major and minor league games**
 #' @param game_pk The unique game_pk identifier for the game
@@ -7,6 +33,7 @@
 #' @importFrom stringr str_sub
 #' @return Returns a tibble that includes supplemental information, such as
 #' weather, official scorer, attendance, etc., for the game_pk provided
+#'
 #'  |col_name        |types     |description                                       |
 #'  |:---------------|:---------|:-------------------------------------------------|
 #'  |game_date       |character |Game date (YYYY-MM-DD).                           |
@@ -27,6 +54,7 @@
 #'  |status_ind      |character |Game status code.                                 |
 #'  |home_league_id  |integer   |Home team league ID.                              |
 #'  |gameday_sw      |character |Gameday data type code.                           |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_game_info(game_pk = 566001))
