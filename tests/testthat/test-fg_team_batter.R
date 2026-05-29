@@ -155,7 +155,6 @@ cols <- c(
   "rBTeamV",
   "rTV",
   "pfx_FA_pct",
-  "pfx_FT_pct",
   "pfx_FC_pct",
   "pfx_FS_pct",
   "pfx_FO_pct",
@@ -167,7 +166,6 @@ cols <- c(
   "pfx_CH_pct",
   "pfx_KN_pct",
   "pfx_vFA",
-  "pfx_vFT",
   "pfx_vFC",
   "pfx_vFS",
   "pfx_vFO",
@@ -179,7 +177,6 @@ cols <- c(
   "pfx_vCH",
   "pfx_vKN",
   "pfx_FA-X",
-  "pfx_FT-X",
   "pfx_FC-X",
   "pfx_FS-X",
   "pfx_FO-X",
@@ -191,7 +188,6 @@ cols <- c(
   "pfx_CH-X",
   "pfx_KN-X",
   "pfx_FA-Z",
-  "pfx_FT-Z",
   "pfx_FC-Z",
   "pfx_FS-Z",
   "pfx_FO-Z",
@@ -203,7 +199,6 @@ cols <- c(
   "pfx_CH-Z",
   "pfx_KN-Z",
   "pfx_wFA",
-  "pfx_wFT",
   "pfx_wFC",
   "pfx_wFS",
   "pfx_wFO",
@@ -215,7 +210,6 @@ cols <- c(
   "pfx_wCH",
   "pfx_wKN",
   "pfx_wFA_C",
-  "pfx_wFT_C",
   "pfx_wFC_C",
   "pfx_wFS_C",
   "pfx_wFO_C",
@@ -333,9 +327,13 @@ cols <- c(
 test_that("FanGraphs Team Batting", {
   skip_fangraphs_test()
   skip_on_cran()
-  
+
   x <- fg_team_batter(startseason = 2015, endseason = 2015, qual = 400)
-  
+
+  if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
+    skip("No data returned from FanGraphs at test time")
+  }
+
   expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

@@ -72,59 +72,68 @@ fg_team_fielder(
 \item{sortstat}{(character) Sort by stat. Default is "Defense".}
 }
 \value{
-A data frame of fielder data.\tabular{ll}{
-   col_name \tab types \cr
-   Season \tab integer \cr
-   team_name \tab character \cr
-   SeasonMin \tab integer \cr
-   SeasonMax \tab integer \cr
-   Pos \tab character \cr
-   G \tab integer \cr
-   GS \tab integer \cr
-   Inn \tab integer \cr
-   PO \tab integer \cr
-   A \tab integer \cr
-   E \tab integer \cr
-   FE \tab integer \cr
-   TE \tab integer \cr
-   DP \tab integer \cr
-   DPS \tab integer \cr
-   DPT \tab integer \cr
-   DPF \tab integer \cr
-   Scp \tab integer \cr
-   SB \tab integer \cr
-   CS \tab integer \cr
-   PB \tab integer \cr
-   WP \tab integer \cr
-   FP \tab numeric \cr
-   rSB \tab integer \cr
-   rGDP \tab integer \cr
-   rARM \tab integer \cr
-   rGFP \tab integer \cr
-   rPM \tab integer \cr
-   rSZ \tab numeric \cr
-   rTS \tab integer \cr
-   rCERA \tab integer \cr
-   DRS \tab integer \cr
-   BIZ \tab integer \cr
-   Plays \tab integer \cr
-   RZR \tab numeric \cr
-   OOZ \tab integer \cr
-   ARM \tab numeric \cr
-   DPR \tab numeric \cr
-   RngR \tab numeric \cr
-   ErrR \tab numeric \cr
-   UZR \tab numeric \cr
-   UZR_150 \tab numeric \cr
-   Defense \tab numeric \cr
-   CStrikes \tab numeric \cr
-   CFraming \tab numeric \cr
-   OAA \tab integer \cr
-   rFRP \tab integer \cr
-   Q \tab numeric \cr
-   TInn \tab numeric \cr
-   teamid \tab integer \cr
-   team_name_abb \tab character \cr
+A data frame of fielder data.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   Season \tab integer \tab Season (YYYY). \cr
+   team_name \tab character \tab Team name. \cr
+   SeasonMin \tab integer \tab First season in the queried span. \cr
+   SeasonMax \tab integer \tab Last season in the queried span. \cr
+   Pos \tab character \tab Primary position. \cr
+   Position \tab character \tab Position played. \cr
+   G \tab integer \tab Games played. \cr
+   GS \tab integer \tab Games started. \cr
+   Inn \tab integer \tab Innings played in the field. \cr
+   PO \tab integer \tab Putouts. \cr
+   A \tab integer \tab Assists. \cr
+   E \tab integer \tab Errors. \cr
+   FE \tab integer \tab Fielding errors. \cr
+   TE \tab integer \tab Throwing errors. \cr
+   DP \tab integer \tab Double plays. \cr
+   DPS \tab integer \tab Double plays started. \cr
+   DPT \tab integer \tab Double plays turned. \cr
+   DPF \tab integer \tab Double plays finished. \cr
+   Scp \tab integer \tab Scoops (first-base picks). \cr
+   SB \tab integer \tab Stolen bases. \cr
+   CS \tab integer \tab Caught stealing. \cr
+   PB \tab integer \tab Passed balls. \cr
+   WP \tab integer \tab Wild pitches. \cr
+   FP \tab numeric \tab Fielding percentage. \cr
+   rSB \tab integer \tab Stolen-base runs (catcher arm). \cr
+   rGDP \tab integer \tab Double-play runs. \cr
+   rARM \tab integer \tab Outfield-arm runs. \cr
+   rGFP \tab integer \tab Good-fielding-play runs. \cr
+   rPM \tab integer \tab Plus/minus range runs. \cr
+   rSZ \tab numeric \tab Strike-zone (framing) runs. \cr
+   rTS \tab integer \tab Team-stolen-base runs. \cr
+   rCERA \tab integer \tab Catcher-ERA runs. \cr
+   DRS \tab integer \tab Defensive Runs Saved. \cr
+   BIZ \tab integer \tab Balls hit in defensive zone. \cr
+   Plays \tab integer \tab Plays made in zone. \cr
+   RZR \tab numeric \tab Revised Zone Rating. \cr
+   OOZ \tab integer \tab Plays made out of zone. \cr
+   ARM \tab numeric \tab Outfield-arm runs (UZR component). \cr
+   DPR \tab numeric \tab Double-play runs (UZR component). \cr
+   RngR \tab numeric \tab Range runs (UZR component). \cr
+   ErrR \tab numeric \tab Error runs (UZR component). \cr
+   UZR \tab numeric \tab Ultimate Zone Rating. \cr
+   UZR_150 \tab numeric \tab Ultimate Zone Rating per 150 defensive games. \cr
+   Defense \tab numeric \tab Total defensive value (runs above average). \cr
+   CStrikes \tab numeric \tab Catcher framing called strikes above average. \cr
+   CFraming \tab numeric \tab Catcher framing runs. \cr
+   OAA \tab integer \tab Outs Above Average (Statcast). \cr
+   rFRP \tab integer \tab Range component of Fielding Run Prevention. \cr
+   aFRP \tab integer \tab Arm component of Fielding Run Prevention. \cr
+   dFRP \tab integer \tab Double-play component of Fielding Run Prevention. \cr
+   bFRP \tab integer \tab Bunt component of Fielding Run Prevention. \cr
+   tFRP \tab integer \tab Throwing component of Fielding Run Prevention. \cr
+   fFRP \tab integer \tab Framing component of Fielding Run Prevention. \cr
+   FRP \tab integer \tab Total Fielding Run Prevention. \cr
+   Q \tab numeric \tab Quality of contact / quality score. \cr
+   TInn \tab numeric \tab Total innings played in the field. \cr
+   positionDB \tab character \tab Position code from the database. \cr
+   teamid \tab integer \tab FanGraphs team ID. \cr
+   team_name_abb \tab character \tab Team name abbreviation. \cr
+   playerTeamId \tab integer \tab FanGraphs player-team ID. \cr
 }
 }
 \description{

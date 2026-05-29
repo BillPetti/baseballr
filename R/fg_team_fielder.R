@@ -23,61 +23,70 @@
 #' @param sortdir (character) Sort direction. Options are "asc" or "desc" or "default".
 #' @param sortstat (character) Sort by stat. Default is "Defense".
 #' @return A data frame of fielder data.
-#' 
-#'   |col_name      |types     |
-#'   |:-------------|:---------|
-#'   |Season        |integer   |
-#'   |team_name     |character |
-#'   |SeasonMin     |integer   |
-#'   |SeasonMax     |integer   |
-#'   |Pos           |character |
-#'   |G             |integer   |
-#'   |GS            |integer   |
-#'   |Inn           |integer   |
-#'   |PO            |integer   |
-#'   |A             |integer   |
-#'   |E             |integer   |
-#'   |FE            |integer   |
-#'   |TE            |integer   |
-#'   |DP            |integer   |
-#'   |DPS           |integer   |
-#'   |DPT           |integer   |
-#'   |DPF           |integer   |
-#'   |Scp           |integer   |
-#'   |SB            |integer   |
-#'   |CS            |integer   |
-#'   |PB            |integer   |
-#'   |WP            |integer   |
-#'   |FP            |numeric   |
-#'   |rSB           |integer   |
-#'   |rGDP          |integer   |
-#'   |rARM          |integer   |
-#'   |rGFP          |integer   |
-#'   |rPM           |integer   |
-#'   |rSZ           |numeric   |
-#'   |rTS           |integer   |
-#'   |rCERA         |integer   |
-#'   |DRS           |integer   |
-#'   |BIZ           |integer   |
-#'   |Plays         |integer   |
-#'   |RZR           |numeric   |
-#'   |OOZ           |integer   |
-#'   |ARM           |numeric   |
-#'   |DPR           |numeric   |
-#'   |RngR          |numeric   |
-#'   |ErrR          |numeric   |
-#'   |UZR           |numeric   |
-#'   |UZR_150       |numeric   |
-#'   |Defense       |numeric   |
-#'   |CStrikes      |numeric   |
-#'   |CFraming      |numeric   |
-#'   |OAA           |integer   |
-#'   |rFRP          |integer   |
-#'   |Q             |numeric   |
-#'   |TInn          |numeric   |
-#'   |teamid        |integer   |
-#'   |team_name_abb |character |
-#'    
+#'
+#'  |col_name      |types     |description                                       |
+#'  |:------------ |:-------- |:------------------------------------------------ |
+#'  |Season        |integer   |Season (YYYY).                                    |
+#'  |team_name     |character |Team name.                                        |
+#'  |SeasonMin     |integer   |First season in the queried span.                 |
+#'  |SeasonMax     |integer   |Last season in the queried span.                  |
+#'  |Pos           |character |Primary position.                                 |
+#'  |Position      |character |Position played.                                  |
+#'  |G             |integer   |Games played.                                     |
+#'  |GS            |integer   |Games started.                                    |
+#'  |Inn           |integer   |Innings played in the field.                      |
+#'  |PO            |integer   |Putouts.                                          |
+#'  |A             |integer   |Assists.                                          |
+#'  |E             |integer   |Errors.                                           |
+#'  |FE            |integer   |Fielding errors.                                  |
+#'  |TE            |integer   |Throwing errors.                                  |
+#'  |DP            |integer   |Double plays.                                     |
+#'  |DPS           |integer   |Double plays started.                             |
+#'  |DPT           |integer   |Double plays turned.                              |
+#'  |DPF           |integer   |Double plays finished.                            |
+#'  |Scp           |integer   |Scoops (first-base picks).                        |
+#'  |SB            |integer   |Stolen bases.                                     |
+#'  |CS            |integer   |Caught stealing.                                  |
+#'  |PB            |integer   |Passed balls.                                     |
+#'  |WP            |integer   |Wild pitches.                                     |
+#'  |FP            |numeric   |Fielding percentage.                              |
+#'  |rSB           |integer   |Stolen-base runs (catcher arm).                   |
+#'  |rGDP          |integer   |Double-play runs.                                 |
+#'  |rARM          |integer   |Outfield-arm runs.                                |
+#'  |rGFP          |integer   |Good-fielding-play runs.                          |
+#'  |rPM           |integer   |Plus/minus range runs.                            |
+#'  |rSZ           |numeric   |Strike-zone (framing) runs.                       |
+#'  |rTS           |integer   |Team-stolen-base runs.                            |
+#'  |rCERA         |integer   |Catcher-ERA runs.                                 |
+#'  |DRS           |integer   |Defensive Runs Saved.                             |
+#'  |BIZ           |integer   |Balls hit in defensive zone.                      |
+#'  |Plays         |integer   |Plays made in zone.                               |
+#'  |RZR           |numeric   |Revised Zone Rating.                              |
+#'  |OOZ           |integer   |Plays made out of zone.                           |
+#'  |ARM           |numeric   |Outfield-arm runs (UZR component).                |
+#'  |DPR           |numeric   |Double-play runs (UZR component).                 |
+#'  |RngR          |numeric   |Range runs (UZR component).                       |
+#'  |ErrR          |numeric   |Error runs (UZR component).                       |
+#'  |UZR           |numeric   |Ultimate Zone Rating.                             |
+#'  |UZR_150       |numeric   |Ultimate Zone Rating per 150 defensive games.     |
+#'  |Defense       |numeric   |Total defensive value (runs above average).       |
+#'  |CStrikes      |numeric   |Catcher framing called strikes above average.     |
+#'  |CFraming      |numeric   |Catcher framing runs.                             |
+#'  |OAA           |integer   |Outs Above Average (Statcast).                    |
+#'  |rFRP          |integer   |Range component of Fielding Run Prevention.       |
+#'  |aFRP          |integer   |Arm component of Fielding Run Prevention.         |
+#'  |dFRP          |integer   |Double-play component of Fielding Run Prevention. |
+#'  |bFRP          |integer   |Bunt component of Fielding Run Prevention.        |
+#'  |tFRP          |integer   |Throwing component of Fielding Run Prevention.    |
+#'  |fFRP          |integer   |Framing component of Fielding Run Prevention.     |
+#'  |FRP           |integer   |Total Fielding Run Prevention.                    |
+#'  |Q             |numeric   |Quality of contact / quality score.               |
+#'  |TInn          |numeric   |Total innings played in the field.                |
+#'  |positionDB    |character |Position code from the database.                  |
+#'  |teamid        |integer   |FanGraphs team ID.                                |
+#'  |team_name_abb |character |Team name abbreviation.                           |
+#'  |playerTeamId  |integer   |FanGraphs player-team ID.                         |
+#'
 #' @import rvest 
 #' @export
 #' @examples \donttest{

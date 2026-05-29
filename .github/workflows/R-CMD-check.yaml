@@ -38,7 +38,7 @@ jobs:
       # tests/testthat/helper-skip.R). Set a value to "0" (or remove it) to
       # skip that source's tests -- e.g. if FanGraphs is 403-ing or you do not
       # want CI hitting the NCAA stats site.
-      FANGRAPHS_TESTS: "0"
+      FANGRAPHS_TESTS: "1"
       MLB_STATS_TESTS: "1"
       BREF_TESTS: "0"
       STATCAST_TESTS: "1"

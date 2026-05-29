@@ -58,7 +58,11 @@ test_that("FanGraphs Team Fielder Leaders", {
   skip_on_cran()
   
   x <- fg_team_fielder(startseason = 2023, endseason = 2023, qual = 0)
-  
+
+  if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
+    skip("No data returned from FanGraphs at test time")
+  }
+
   expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })
