@@ -2,7 +2,6 @@
 % Please edit documentation in R/mlb_draft.R
 \name{mlb_draft_endpoints}
 \alias{mlb_draft_endpoints}
-\alias{mlb_draft}
 \alias{draft}
 \title{\strong{MLB Draft Endpoint Overview}}
 \description{

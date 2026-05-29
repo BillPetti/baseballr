@@ -1,6 +1,6 @@
 #' @rdname mlb_draft_endpoints
 #' @name mlb_draft_endpoints
-#' @aliases mlb_draft_endpoints mlb_draft draft
+#' @aliases mlb_draft_endpoints draft
 #' @title
 #' **MLB Draft Endpoint Overview**
 #' @description
