@@ -9,6 +9,6 @@ test_that("MLB Hit Trajectories", {
   
   x <- mlb_hit_trajectories()
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

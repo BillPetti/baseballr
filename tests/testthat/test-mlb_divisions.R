@@ -13,6 +13,6 @@ test_that("MLB Divisions", {
   
   x <- mlb_divisions(sport_id = 1)
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

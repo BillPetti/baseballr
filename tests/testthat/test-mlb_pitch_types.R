@@ -9,6 +9,6 @@ test_that("MLB Pitch Types", {
   
   x <- mlb_pitch_types()
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

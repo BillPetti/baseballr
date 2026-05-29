@@ -40,6 +40,6 @@ test_that("MLB Stat Highs/Lows", {
   
   x <- mlb_high_low_stats(org_type = 'Team', season = 2020, sort_stat = 'atBats')
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

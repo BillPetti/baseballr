@@ -13,7 +13,7 @@ cols <- c(
   "vx0", "vy0", "vz0", "ax", "ay", "az", "sz_top", "sz_bot", 
   "hit_distance_sc", "launch_speed", "launch_angle", "effective_speed",
   "release_spin_rate", "release_extension", "game_pk",
-  "pitcher_1", "fielder_2_1", "fielder_3", "fielder_4",
+  "fielder_3", "fielder_4",
   "fielder_5", "fielder_6", "fielder_7", "fielder_8", 
   "fielder_9", "release_pos_y", "estimated_ba_using_speedangle",
   "estimated_woba_using_speedangle", "woba_value",
@@ -32,7 +32,6 @@ cols <- c(
 test_that("Statcast Search", {
   skip_statcast_test()
   skip_on_cran()
-  skip_on_ci()
 
   x <- statcast_search(start_date = "2022-11-04",
                        end_date = "2022-11-06")

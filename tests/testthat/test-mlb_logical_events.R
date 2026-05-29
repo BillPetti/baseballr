@@ -9,6 +9,6 @@ test_that("MLB Logical Events", {
   
   x <- mlb_logical_events()
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

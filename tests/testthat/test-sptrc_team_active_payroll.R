@@ -16,7 +16,6 @@ cols <- c(
 test_that("Spotrac Team Active Payroll Breakdown", {
   skip_sptrc_test()
   skip_on_cran()
-  skip_on_ci()
 
   x <- sptrc_team_active_payroll(team_abbr = "BAL", year = most_recent_mlb_season())
 

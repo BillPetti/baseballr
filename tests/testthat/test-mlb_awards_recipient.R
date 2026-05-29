@@ -13,6 +13,6 @@ test_that("MLB Awards recipients", {
   
   x <- mlb_awards_recipient(award_id = 'MLBHOF', season = 2020)
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

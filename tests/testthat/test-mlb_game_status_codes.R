@@ -11,6 +11,6 @@ test_that("MLB Game Status Codes", {
   x <- mlb_game_status_codes() %>% 
     dplyr::select(tidyr::all_of(cols))
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

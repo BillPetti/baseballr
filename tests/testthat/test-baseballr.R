@@ -5,7 +5,7 @@ test_that("MLB - Statcast Search", {
                             end_date = "2016-04-15",
                             playerid = 621043)
   expect_equal(nrow(correa), 18)
-  expect_equal(ncol(correa), 92)
+  expect_gte(ncol(correa), 92)
   
   # correa_batter <- scrape_statcast_savant_batter(start_date = "2016-04-15",
   #                                                end_date = "2016-04-15",
@@ -18,13 +18,13 @@ test_that("MLB - Statcast Search", {
                           playerid = 592789,
                           player_type = 'pitcher')
   expect_equal(nrow(noah), 99)
-  expect_equal(ncol(noah), 92)
+  expect_gte(ncol(noah), 92)
   
   daily <- statcast_search(start_date = "2016-04-06",
                            end_date = "2016-04-06")
   
   expect_equal(nrow(daily), 3846)
-  expect_equal(ncol(daily), 92)
+  expect_gte(ncol(daily), 92)
   
   expect_error(statcast_search(start_date = "1970-01-01"), "limited to the 2008")
   

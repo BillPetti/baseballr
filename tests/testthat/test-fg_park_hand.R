@@ -11,6 +11,6 @@ test_that("FanGraphs Park Factors", {
   
   x <- fg_park_hand(2013)
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

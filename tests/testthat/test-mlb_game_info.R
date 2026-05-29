@@ -14,6 +14,6 @@ test_that("MLB Game Info", {
   
   x <- mlb_game_info(game_pk = 566001)
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

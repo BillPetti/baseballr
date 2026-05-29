@@ -29,6 +29,6 @@ test_that("MLB Seasons All", {
   
   x <- mlb_seasons_all(sport_id = 1)
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

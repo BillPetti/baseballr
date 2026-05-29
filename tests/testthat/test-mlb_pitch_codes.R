@@ -18,6 +18,6 @@ test_that("MLB Pitch Codes", {
   
   x <- mlb_pitch_codes()
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

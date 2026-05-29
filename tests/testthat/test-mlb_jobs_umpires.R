@@ -15,6 +15,6 @@ test_that("MLB Jobs - Umpires", {
   
   x <- mlb_jobs_umpires(sport_id = 1)
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

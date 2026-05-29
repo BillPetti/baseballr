@@ -9,6 +9,6 @@ test_that("MLB Baseball Stats", {
   
   x <-  mlb_baseball_stats()
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

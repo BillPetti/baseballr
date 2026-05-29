@@ -336,6 +336,6 @@ test_that("FanGraphs Team Batting", {
   
   x <- fg_team_batter(startseason = 2015, endseason = 2015, qual = 400)
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

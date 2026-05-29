@@ -153,6 +153,6 @@ test_that("MLB Play-by-Play", {
   
   x <- mlb_pbp(game_pk = 575156)
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

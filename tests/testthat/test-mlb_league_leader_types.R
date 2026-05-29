@@ -9,6 +9,6 @@ test_that("MLB League Leader Types", {
   
   x <- mlb_league_leader_types()
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

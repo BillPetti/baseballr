@@ -13,7 +13,6 @@ cols <- c(
 test_that("Spotrac League Payrolls Breakdown", {
   skip_sptrc_test()
   skip_on_cran()
-  skip_on_ci()
 
   x <- sptrc_league_payrolls(year = most_recent_mlb_season())
 

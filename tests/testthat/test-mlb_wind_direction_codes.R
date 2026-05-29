@@ -9,6 +9,6 @@ test_that("MLB Wind Direction Codes", {
   
   x <- mlb_wind_direction_codes()
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

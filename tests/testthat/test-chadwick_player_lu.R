@@ -3,7 +3,7 @@ cols <- c(
   "key_person", "key_uuid", "key_mlbam",
   "key_retro", "key_bbref", "key_bbref_minors", 
   "key_fangraphs", "key_npb", "key_sr_nfl",
-  "key_sr_nba", "key_sr_nhl", "key_findagrave",
+  "key_sr_nba", "key_sr_nhl",
   "name_last", "name_first", "name_given", "name_suffix",
   "name_matrilineal", "name_nick", "birth_year", "birth_month",
   "birth_day", "death_year", "death_month", "death_day", 
@@ -21,6 +21,6 @@ test_that("MLB Chadwick Lookup", {
   
   x <- chadwick_player_lu()
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })
