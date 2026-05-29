@@ -142,20 +142,20 @@ mlb_schedule <- function(season = 2019, level_ids = '1'){
   tryCatch(
     expr = {
       
-      resp <- mlb_endpoint %>% 
-        mlb_api_call() %>% 
-        jsonlite::toJSON() %>% 
+      resp <- mlb_endpoint |> 
+        mlb_api_call() |> 
+        jsonlite::toJSON() |> 
         jsonlite::fromJSON(flatten = TRUE)
       
-      games <- resp$dates %>% 
-        tidyr::unnest("games") %>%
-        as.data.frame() %>%
-        janitor::clean_names() %>%
+      games <- resp$dates |> 
+        tidyr::unnest("games") |>
+        as.data.frame() |>
+        janitor::clean_names() |>
         make_baseballr_data("MLB Schedule data from MLB.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

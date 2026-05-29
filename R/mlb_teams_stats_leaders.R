@@ -72,21 +72,22 @@ mlb_teams_stats_leaders <- function(leader_categories = NULL,
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
+  stats_leaders <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
       stats_leaders <- jsonlite::fromJSON(jsonlite::toJSON(resp[['leagueLeaders']]), flatten = TRUE)  
       stats_leaders$season <- NULL
-      stats_leaders <- stats_leaders %>% 
-        tidyr::unnest("leaders") %>% 
-        janitor::clean_names()  %>% 
-        as.data.frame()  %>%
+      stats_leaders <- stats_leaders |> 
+        tidyr::unnest("leaders") |> 
+        janitor::clean_names()  |> 
+        as.data.frame()  |>
         make_baseballr_data("MLB Teams Stats Leaders data from MLB.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

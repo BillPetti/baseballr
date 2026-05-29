@@ -132,10 +132,10 @@ label_statcast_imputed_data <- function(statcast_df, impute_file = NULL,
   }
   
   imputed_df$imputed <- 1
-  tmp <- statcast_df %>% 
+  tmp <- statcast_df |> 
     dplyr::mutate(
       ila = as.integer(.data$launch_angle * inverse_precision), 
-      ils = as.integer(.data$launch_speed * inverse_precision)) %>% 
+      ils = as.integer(.data$launch_speed * inverse_precision)) |> 
     dplyr::left_join(imputed_df, by = c("ils", "ila", "bb_type", "events"))
   tmp$imputed <- ifelse(is.na(tmp$imputed), 0, 1)
   return(tmp)

@@ -68,7 +68,7 @@ chadwick_player_lu <- function() {
   class(df) <- c("baseballr_data","tbl_df","tbl","data.table","data.frame")
   
   
-  df <- df %>%
+  df <- df |>
     make_baseballr_data("Player Lookup from the Chadwick Bureau's public register of baseball players",Sys.time())
   return(df)
 }

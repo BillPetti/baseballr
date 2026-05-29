@@ -66,13 +66,14 @@
 
 bref_daily_pitcher <- function(t1, t2) {
   
+  df <- NULL
   tryCatch(
     expr = {
-      payload <- paste0("http://www.baseball-reference.com/leagues/daily.cgi?user_team=&bust_cache=&type=p&lastndays=7&dates=fromandto&fromandto=", t1, ".", t2, "&level=mlb&franch=&stat=&stat_value=0") %>% 
+      payload <- paste0("http://www.baseball-reference.com/leagues/daily.cgi?user_team=&bust_cache=&type=p&lastndays=7&dates=fromandto&fromandto=", t1, ".", t2, "&level=mlb&franch=&stat=&stat_value=0") |> 
         xml2::read_html()
       
-      df <- payload %>%
-        rvest::html_elements(xpath = '//*[@id="daily"]') %>%
+      df <- payload |>
+        rvest::html_elements(xpath = '//*[@id="daily"]') |>
         rvest::html_table(fill = TRUE)
       
       df <- as.data.frame(df)[-c(1,3,5)]
@@ -109,31 +110,31 @@ bref_daily_pitcher <- function(t1, t2) {
       df$uBB_perc <- with(df, round(uBB/BF,3))
       df$SO_uBB <- with(df, round(SO_perc - uBB_perc))
       df$Team <- gsub(" $", "", df$Team, perl=T)
-      df <- df %>% 
+      df <- df |> 
         dplyr::filter(.data$Name != "Name")
       
-      playerids <- payload %>%
-        rvest::html_elements("table") %>%
-        rvest::html_elements("a") %>%
-        rvest::html_attr("href") %>%
-        as.data.frame() %>%
-        dplyr::rename(slug = ".") %>%
-        dplyr::filter(grepl("players", .data$slug)) %>%
+      playerids <- payload |>
+        rvest::html_elements("table") |>
+        rvest::html_elements("a") |>
+        rvest::html_attr("href") |>
+        as.data.frame() |>
+        dplyr::rename(slug = ".") |>
+        dplyr::filter(grepl("players", .data$slug)) |>
         dplyr::mutate(playerid = gsub("/players/gl.fcgi\\?id=",
-                                      "", .data$slug)) %>% 
+                                      "", .data$slug)) |> 
         dplyr::mutate(playerid = gsub("&t.*","",.data$playerid))
       
-      df <- df %>%
-        dplyr::mutate(bbref_id = playerids$playerid) %>%
-        dplyr::select("bbref_id", tidyr::everything()) %>%
+      df <- df |>
+        dplyr::mutate(bbref_id = playerids$playerid) |>
+        dplyr::select("bbref_id", tidyr::everything()) |>
         dplyr::arrange(desc(.data$IP), desc(.data$WHIP))
       
-      df <- df %>%
+      df <- df |>
         make_baseballr_data("MLB Daily Pitcher data from baseball-reference.com",Sys.time())
       Sys.sleep(5)
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no daily pitcher data available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no daily pitcher data available!")
     },
     finally = {
     }

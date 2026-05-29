@@ -65,23 +65,24 @@ mlb_all_star_write_ins <- function(league_id = NULL,
 
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
 
+  write_ins <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>%
+      resp <- mlb_endpoint |>
         mlb_api_call()
-      write_ins <- jsonlite::fromJSON(jsonlite::toJSON(resp$people), flatten = TRUE) %>%
-        janitor::clean_names() %>% 
-        as.data.frame() %>% 
+      write_ins <- jsonlite::fromJSON(jsonlite::toJSON(resp$people), flatten = TRUE) |>
+        janitor::clean_names() |> 
+        as.data.frame() |> 
         dplyr::mutate(
           league_id = as.numeric(league_id),
-          season = as.numeric(season)) %>% 
+          season = as.numeric(season)) |> 
         dplyr::rename(
-          "player_id" = "id") %>%
+          "player_id" = "id") |>
         make_baseballr_data("MLB All-Star Write-Ins data from MLB.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

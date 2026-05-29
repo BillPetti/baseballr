@@ -146,20 +146,20 @@ mlb_stats <- function(stat_type = NULL,
   
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
       stats_leaders <- jsonlite::fromJSON(jsonlite::toJSON(resp[['stats']]), flatten = TRUE)  
       stats_leaders$season <- NULL
-      stats <- stats_leaders %>% 
-        tidyr::unnest("splits") %>% 
-        janitor::clean_names()  %>% 
-        as.data.frame() %>% 
-        dplyr::select(-"exemptions") %>%
+      stats <- stats_leaders |> 
+        tidyr::unnest("splits") |> 
+        janitor::clean_names()  |> 
+        as.data.frame() |> 
+        dplyr::select(-dplyr::any_of("exemptions")) |>
         make_baseballr_data("MLB Stats data from MLB.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

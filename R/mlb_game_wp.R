@@ -30,20 +30,21 @@ mlb_game_wp <- function(game_pk,
   )
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
+  wp <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call() 
       
-      wp <- resp %>% 
-        jsonlite::toJSON() %>% 
-        jsonlite::fromJSON(flatten = TRUE) %>% 
-        as.data.frame() %>% 
-        janitor::clean_names() %>%
+      wp <- resp |> 
+        jsonlite::toJSON() |> 
+        jsonlite::fromJSON(flatten = TRUE) |> 
+        as.data.frame() |> 
+        janitor::clean_names() |>
         make_baseballr_data("MLB Game Win Probability data from MLB.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

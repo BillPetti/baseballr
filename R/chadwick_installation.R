@@ -17,7 +17,7 @@ chadwick_path <- function() {
   path <- tryCatch(
     system2(cmd, "cwevent", stdout = TRUE),
     warning = function(w) {
-      message("cwevent is not installed. Please see https://github.com/chadwickbureau/chadwick/releases for installation instructions. ")
+      cli::cli_alert_warning("cwevent is not installed. Please see https://github.com/chadwickbureau/chadwick/releases for installation instructions. ")
     }
   )
   if (!is.null(path) && file.exists(path)) {

@@ -39,17 +39,18 @@ bref_standings_on_date <- function(date, division, from = FALSE) {
                 sprintf("%02i", lubridate::month(date)), "&day=", sprintf("%02i",
                                                                           lubridate::day(date)))
   
+  x <- NULL
   tryCatch(
     expr = {
-      html_doc <- url %>% 
+      html_doc <- url |> 
         xml2::read_html()
       
-      tables <- html_doc %>% 
+      tables <- html_doc |> 
         rvest::html_elements("table")
       min <- length(tables)
       max <- length(tables) - 15
-      tables <- tables[min:max] %>% html_table
-      #table_names <- html_doc %>% rvest::html_elements(".section_heading") %>% rvest::html_text() %>% gsub(pattern = "\\s+", replacement = " ") %>% gsub(pattern = " Division", replacement = "") %>% trimws(which = c("left")) %>% trimws(which = c("right")) %>% .[1:16]
+      tables <- tables[min:max] |> rvest::html_table()
+      #table_names <- html_doc |> rvest::html_elements(".section_heading") |> rvest::html_text() |> gsub(pattern = "\\s+", replacement = " ") |> gsub(pattern = " Division", replacement = "") |> trimws(which = c("left")) |> trimws(which = c("right")) |> .[1:16]
       
       table_names <- c("NL Overall", "AL Overall", "NL West" , "NL Central", "NL East", "AL West", "AL Central", "AL East", "NL Overall", "AL Overall", "NL West" , "NL Central", "NL East", "AL West", "AL Central", "AL East")
       table_names[1:8] <- paste0(table_names[1:8], "_after_", date)     # Customizing list names for "After this Date" case
@@ -70,12 +71,12 @@ bref_standings_on_date <- function(date, division, from = FALSE) {
         x <- after[div_date]
         x <- x[[1]]
       }
-      x <- x %>%
+      x <- x |>
         make_baseballr_data("MLB Standings on Date data from baseball-reference.com",Sys.time())
       Sys.sleep(5)
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no standings on date data available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no standings on date data available!")
     },
     finally = {
     }

@@ -30,21 +30,22 @@ mlb_conferences <- function(conference_id = NULL,
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
+  conferences <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
-      conferences <- jsonlite::fromJSON(jsonlite::toJSON(resp$conferences), flatten = TRUE)  %>% 
-        janitor::clean_names() %>% 
+      conferences <- jsonlite::fromJSON(jsonlite::toJSON(resp$conferences), flatten = TRUE)  |> 
+        janitor::clean_names() |> 
         dplyr::rename(
           "conference_id" = "id",
           "conference_name" = "name",
           "conference_abbreviation" = "abbreviation",
-          "conference_name_short" = "name_short") %>%
+          "conference_name_short" = "name_short") |>
         make_baseballr_data("MLB Conferences data from MLB.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

@@ -15,21 +15,22 @@ mlb_wind_direction_codes <- function(){
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
+  wind_direction_codes <- NULL
   tryCatch(
     expr={
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
-      wind_direction_codes <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  %>% 
-        janitor::clean_names() %>% 
-        as.data.frame() %>% 
+      wind_direction_codes <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  |> 
+        janitor::clean_names() |> 
+        as.data.frame() |> 
         dplyr::rename(
           "wind_direction_code" = "code",
-          "wind_direction_description" = "description") %>%
+          "wind_direction_description" = "description") |>
         make_baseballr_data("MLB Wind Direction Codes data from MLB.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

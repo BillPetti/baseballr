@@ -30,9 +30,10 @@ mlb_batting_orders <- function (game_pk,
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
+  final_batting_order_table <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
       list <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)
       home_team <- tibble::tibble(
@@ -54,50 +55,50 @@ mlb_batting_orders <- function (game_pk,
         helper_players(list = list, team = "home", playerid = x)
       })
       
-      home_players <- home_players %>%
+      home_players <- home_players |>
         dplyr::mutate(
           batting_order = as.character(.data$batting_order),
           batting_position_num = as.character(.data$batting_position_num))
       
       
-      home_players <- dplyr::bind_rows(home_players) %>%
+      home_players <- dplyr::bind_rows(home_players) |>
         dplyr::mutate(
           team = "home",
           teamName = home_team$homeTeam,
-          teamID = home_team$homeTeamId) %>%
+          teamID = home_team$homeTeamId) |>
         dplyr::arrange(.data$batting_order)
       away_players <- unique(away_players$playerid)
       away_players <- purrr::map_df(away_players, function(x){
         helper_players(list = list, team = "away", playerid = x)
       })
       
-      away_players <- away_players %>%
+      away_players <- away_players |>
         dplyr::mutate(
           batting_order = as.character(.data$batting_order),
           batting_position_num = as.character(.data$batting_position_num))
       
-      away_players <- dplyr::bind_rows(away_players) %>%
+      away_players <- dplyr::bind_rows(away_players) |>
         dplyr::mutate(
           team = "away",
           teamName = away_team$awayTeam,
-          teamID = away_team$awayTeamId) %>%
+          teamID = away_team$awayTeamId) |>
         dplyr::arrange(.data$batting_order)
       
-      final_batting_order_table <- dplyr::bind_rows(away_players, home_players) %>%
-        dplyr::select(-c("link", "code", "name", "type")) %>%
-        dplyr::arrange(.data$team, .data$batting_order, .data$batting_position_num) %>%
-        dplyr::filter(!is.na(.data$batting_order)) %>%
+      final_batting_order_table <- dplyr::bind_rows(away_players, home_players) |>
+        dplyr::select(-dplyr::any_of(c("link", "code", "name", "type"))) |>
+        dplyr::arrange(.data$team, .data$batting_order, .data$batting_position_num) |>
+        dplyr::filter(!is.na(.data$batting_order)) |>
         make_baseballr_data("MLB Game Batting Order data from MLB.com",Sys.time())
       
       if (type == "starting") {
-        final_batting_order_table <- final_batting_order_table %>%
-          dplyr::filter(.data$batting_position_num == 0) %>%
+        final_batting_order_table <- final_batting_order_table |>
+          dplyr::filter(.data$batting_position_num == 0) |>
           make_baseballr_data("MLB Game Starting Batting Order data from MLB.com",Sys.time())
       }
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }
@@ -117,13 +118,13 @@ get_batting_orders <- mlb_batting_orders
 
 
 helper_players <- function(list, team = "home", playerid) {
-  person <- list[["liveData"]][["boxscore"]][["teams"]][[team]][["players"]][[playerid]][["person"]] %>%
+  person <- list[["liveData"]][["boxscore"]][["teams"]][[team]][["players"]][[playerid]][["person"]] |>
     dplyr::bind_rows()
-  position <- list[["liveData"]][["boxscore"]][["teams"]][[team]][["players"]][[playerid]][["position"]] %>%
+  position <- list[["liveData"]][["boxscore"]][["teams"]][[team]][["players"]][[playerid]][["position"]] |>
     dplyr::bind_rows()
   batting_position <- list[["liveData"]][["boxscore"]][["teams"]][[team]][["players"]][[playerid]][["battingOrder"]]
   final_table <- bind_cols(person, position) 
-  final_table <- final_table %>% 
+  final_table <- final_table |> 
     dplyr::mutate(
       batting_order = ifelse(is.null(batting_position),
                              NA, substr(batting_position, 1, 1)), 

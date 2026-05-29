@@ -412,14 +412,15 @@ fg_team_batter <- function(
   
   fg_endpoint <- httr::modify_url(url, query = params)
   
+  leaders <- NULL
   tryCatch(
     expr = {
       
-      resp <- fg_endpoint %>% 
+      resp <- fg_endpoint |> 
         mlb_api_call()
       
-      fg_df <- resp$data %>% 
-        jsonlite::toJSON() %>%
+      fg_df <- resp$data |> 
+        jsonlite::toJSON() |>
         jsonlite::fromJSON(flatten=TRUE)
       
       c <- colnames(fg_df)
@@ -428,9 +429,9 @@ fg_team_batter <- function(
       c <- ifelse(substr(c, nchar(c) - 1 + 1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
       c <- gsub(" ", "_", c, fixed = TRUE)
       colnames(fg_df) <- c
-      leaders <- fg_df %>% 
-        dplyr::rename_with(~ gsub("pi", "pi_", .x), starts_with("pi")) %>% 
-        dplyr::rename_with(~ gsub("pfx", "pfx_", .x), starts_with("pfx")) %>%
+      leaders <- fg_df |> 
+        dplyr::rename_with(~ gsub("pi", "pi_", .x), starts_with("pi")) |> 
+        dplyr::rename_with(~ gsub("pfx", "pfx_", .x), starts_with("pfx")) |>
         dplyr::rename(
           "wRC_plus" = "wRC+",
           "WPA_minus" = "-WPA",
@@ -438,7 +439,7 @@ fg_team_batter <- function(
           "FBall_pct" = "FB_pct1",
           "AgeRng" = "AgeR",
           "team_name" = "TeamName",
-          "team_name_abb" = "TeamNameAbb") %>%
+          "team_name_abb" = "TeamNameAbb") |>
         dplyr::select(-dplyr::any_of(c(
           "Bats", 
           "xMLBAMID", 
@@ -449,13 +450,13 @@ fg_team_batter <- function(
           "playerid",
           "Age",
           "AgeRng"
-          ))) %>%
-        dplyr::select("Season","team_name", tidyr::everything()) %>% 
+          ))) |>
+        dplyr::select("Season","team_name", tidyr::everything()) |> 
         make_baseballr_data("MLB Team Batting data from FanGraphs.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team batting data available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team batting data available!")
     },
     finally = {
     }

@@ -44,19 +44,20 @@ bref_team_results <- function(Tm, year) {
   
   if (nchar(Tm) > 3) {
     teams_data <- baseballr::teams_lu_table
-    Tm <- (teams_data %>% 
-             dplyr::filter(.data$name == Tm) %>% 
+    Tm <- (teams_data |> 
+             dplyr::filter(.data$name == Tm) |> 
              dplyr::select("bref_abbreviation"))[[1]]
   }
   url <- paste0("https://www.baseball-reference.com/teams/", Tm, "/", year, "-schedule-scores.shtml")
   
+  data <- NULL
   tryCatch(
     expr = {
-      data <- url %>% 
-        xml2::read_html() %>%
+      data <- url |> 
+        xml2::read_html() |>
         rvest::html_elements("table")
       
-      data <- data[[length(data)]] %>%
+      data <- data[[length(data)]] |>
         rvest::html_table() 
       data <- data[-3]
       
@@ -71,21 +72,21 @@ bref_team_results <- function(Tm, year) {
       
       data$Streak <- ifelse(grepl("-", data$Streak, fixed = TRUE), nchar(data$Streak) * -1, nchar(data$Streak) * 1)
       suppressWarnings(
-        data <- data %>%
-          dplyr::filter(!is.na(as.numeric(.data$R))) %>%
+        data <- data |>
+          dplyr::filter(!is.na(as.numeric(.data$R))) |>
           dplyr::mutate_at(c("Gm","R","RA", "Rank", "Attendance","cLI"), as.numeric) 
       )
       data$Year <- year
       data <- data[, 1:ncol(data)]
-      data <- data %>%
+      data <- data |>
         dplyr::filter(!grepl("Gm#", .data$Gm))
       
-      data <- data %>%
+      data <- data |>
         make_baseballr_data("MLB Team Results data from baseball-reference.com",Sys.time())
       Sys.sleep(5)
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team results data available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team results data available!")
     },
     finally = {
     }

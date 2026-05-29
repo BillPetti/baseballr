@@ -19,6 +19,7 @@ mlb_jobs_datacasters <- function(
   sport_id = NULL,
   date = NULL){
   
+  jobs <- NULL
   tryCatch(
     expr = {
       mlb_endpoint <- mlb_stats_endpoint("v1/jobs/datacasters")
@@ -29,17 +30,17 @@ mlb_jobs_datacasters <- function(
       
       mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
       
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
-      jobs <- jsonlite::fromJSON(jsonlite::toJSON(resp$roster), flatten = TRUE)  %>% 
-        janitor::clean_names() %>% 
-        as.data.frame() %>% 
+      jobs <- jsonlite::fromJSON(jsonlite::toJSON(resp$roster), flatten = TRUE)  |> 
+        janitor::clean_names() |> 
+        as.data.frame() |> 
         dplyr::rename(
-          "job_code" = "job_id") %>%
+          "job_code" = "job_id") |>
         make_baseballr_data("MLB Jobs Datacasters data from MLB.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

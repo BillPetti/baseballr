@@ -87,12 +87,12 @@
 #   games <- data.frame()
 #   tryCatch(
 #     expr = {
-#       resp <- mlb_endpoint %>% 
+#       resp <- mlb_endpoint |> 
 #         mlb_api_call()
-#       games <- jsonlite::fromJSON(jsonlite::toJSON(resp$dates), flatten = TRUE) %>% 
-#         tidyr::unnest("games") %>% 
-#         janitor::clean_names() %>% 
-#         as.data.frame() %>% 
+#       games <- jsonlite::fromJSON(jsonlite::toJSON(resp$dates), flatten = TRUE) |> 
+#         tidyr::unnest("games") |> 
+#         janitor::clean_names() |> 
+#         as.data.frame() |> 
 #         dplyr::select(-"events")
 #       
 #     },

@@ -14,19 +14,20 @@ mlb_league_leader_types <- function(){
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
+  league_leader_types <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
-      league_leader_types <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  %>% 
-        janitor::clean_names() %>% 
-        as.data.frame() %>% 
+      league_leader_types <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  |> 
+        janitor::clean_names() |> 
+        as.data.frame() |> 
         dplyr::rename(
-          "leader_type" = "display_name") %>%
+          "leader_type" = "display_name") |>
         make_baseballr_data("MLB League Leader Types data from MLB.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

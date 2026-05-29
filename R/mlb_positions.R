@@ -24,13 +24,14 @@ mlb_positions <- function(){
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
+  positions <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
-      positions <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  %>% 
-        janitor::clean_names() %>% 
-        as.data.frame() %>% 
+      positions <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  |> 
+        janitor::clean_names() |> 
+        as.data.frame() |> 
         dplyr::rename(
           "position_short_name" = "short_name",
           "position_full_name" = "full_name",
@@ -38,18 +39,18 @@ mlb_positions <- function(){
           "position_code" = "code",
           "position_type" = "type",
           "position_formal_name" = "formal_name",
-          "position_display_name" = "display_name") %>% 
+          "position_display_name" = "display_name") |> 
         dplyr::select(c(
           "position_short_name", "position_full_name",
           "position_abbreviation", "position_code", 
           "position_type", "position_formal_name",
           "position_display_name", "outfield", "game_position",
-          "pitcher", "fielder")) %>%
+          "pitcher", "fielder")) |>
         make_baseballr_data("MLB Positions data from MLB.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

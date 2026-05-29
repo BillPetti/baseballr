@@ -31,7 +31,7 @@ playerid_lookup <- function(last_name = NULL, first_name = NULL) {
 
     names(x) <- c("first_name", "last_name", "given_name", "name_suffix", "nick_name", "birth_year", "mlb_played_first", "mlbam_id", "retrosheet_id", "bbref_id", "fangraphs_id")
 	
-    x <- x %>%
+    x <- x |>
       make_baseballr_data("Player ID Lookup from the Chadwick Bureau's public register of baseball players",Sys.time())
     return(x)
 	
@@ -42,16 +42,16 @@ playerid_lookup <- function(last_name = NULL, first_name = NULL) {
     
     names(x) <- c("first_name", "last_name", "given_name", "name_suffix", "nick_name", "birth_year", "mlb_played_first", "mlbam_id", "retrosheet_id", "bbref_id", "fangraphs_id")
     suppressWarnings(
-      x$fangraphs_id <- x$fangraphs_id %>% 
-        as.character() %>% 
+      x$fangraphs_id <- x$fangraphs_id |> 
+        as.character() |> 
         as.numeric()
     )
     suppressWarnings(
-      x$birth_year <- x$birth_year %>% 
-        as.character() %>% 
+      x$birth_year <- x$birth_year |> 
+        as.character() |> 
         as.numeric()
     )
-    x <- x %>%
+    x <- x |>
       make_baseballr_data("Player ID Lookup from the Chadwick Bureau's public register of baseball players",Sys.time())
     return(x)
   }
@@ -63,16 +63,16 @@ process_player_name <- function(last_name = NULL, first_name = NULL, chadwick_pl
     chadwick_player_lu_table <- chadwick_player_lu()
   }
   if (is.null(first_name)) {
-    x <- chadwick_player_lu_table %>%
-      dplyr::filter(grepl(last_name, .data$name_last)) %>%
+    x <- chadwick_player_lu_table |>
+      dplyr::filter(grepl(last_name, .data$name_last)) |>
       dplyr::select("name_first", "name_last", "name_given", "name_suffix", 
                     "name_nick", "birth_year", "mlb_played_first", "key_mlbam", 
                     "key_retro", "key_bbref", "key_fangraphs")
   }
   else {
-    x <- chadwick_player_lu_table %>%
-      dplyr::filter(grepl(last_name, .data$name_last)) %>%
-      dplyr::filter(grepl(first_name, .data$name_first)) %>%
+    x <- chadwick_player_lu_table |>
+      dplyr::filter(grepl(last_name, .data$name_last)) |>
+      dplyr::filter(grepl(first_name, .data$name_first)) |>
       dplyr::select("name_first", "name_last", "name_given", "name_suffix", 
                     "name_nick", "birth_year", "mlb_played_first", 
                     "key_mlbam", "key_retro", "key_bbref", "key_fangraphs")

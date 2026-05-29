@@ -68,23 +68,24 @@ mlb_team_alumni <- function(team_id = NULL,
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
+  team_alumni <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
       team_alumni <- jsonlite::fromJSON(jsonlite::toJSON(resp[['people']]), flatten = TRUE)  
       team_alumni$season <- NULL
-      team_alumni <- team_alumni %>% 
-        janitor::clean_names() %>% 
-        as.data.frame()  %>% 
+      team_alumni <- team_alumni |> 
+        janitor::clean_names() |> 
+        as.data.frame()  |> 
         dplyr::rename(
           "player_id" = "id",
-          "player_full_name" = "full_name") %>%
+          "player_full_name" = "full_name") |>
         make_baseballr_data("MLB Team Alumni data from MLB.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

@@ -15,20 +15,21 @@ mlb_pitch_types <- function(){
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
+  pitch_types <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
-      pitch_types <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  %>% 
-        janitor::clean_names() %>% 
-        as.data.frame() %>% 
+      pitch_types <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  |> 
+        janitor::clean_names() |> 
+        as.data.frame() |> 
         dplyr::rename(
           "pitch_type_code" = "code",
-          "pitch_type_description" = "description") %>%
+          "pitch_type_description" = "description") |>
         make_baseballr_data("MLB Pitch Types data from MLB.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

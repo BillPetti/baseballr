@@ -95,19 +95,20 @@ mlb_game_pace <- function(season,
   )
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
+  game_pace <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
-        mlb_api_call() %>% 
-        jsonlite::toJSON() %>% 
+      resp <- mlb_endpoint |> 
+        mlb_api_call() |> 
+        jsonlite::toJSON() |> 
         jsonlite::fromJSON(flatten = TRUE)
-      game_pace <- resp$sports %>% 
-        as.data.frame() %>% 
-        janitor::clean_names() %>%
+      game_pace <- resp$sports |> 
+        as.data.frame() |> 
+        janitor::clean_names() |>
         make_baseballr_data("MLB Game Pace data from MLB.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

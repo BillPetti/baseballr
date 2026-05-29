@@ -89,28 +89,29 @@ mlb_game_context_metrics <- function(
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint,
                                    query = query_params)
+  context_metrics <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()  
       
-      game <- resp$game  %>% 
-        jsonlite::toJSON() %>% 
-        jsonlite::fromJSON(flatten = TRUE) %>% 
+      game <- resp$game  |> 
+        jsonlite::toJSON() |> 
+        jsonlite::fromJSON(flatten = TRUE) |> 
         as.data.frame() 
       
       awayWinProbability <- data.frame(away_win_probability = resp$awayWinProbability)
       homeWinProbability <- data.frame(home_win_probability = resp$homeWinProbability)
       
       if(length(resp$rightFieldSacFlyProbability)>0){
-        leftFieldSacFly <- resp$leftFieldSacFlyProbability %>% 
+        leftFieldSacFly <- resp$leftFieldSacFlyProbability |> 
           as.data.frame() 
         
-        centerFieldSacFly <- resp$centerFieldSacFlyProbability %>% 
+        centerFieldSacFly <- resp$centerFieldSacFlyProbability |> 
           as.data.frame() 
         
         
-        rightFieldSacFly <- resp$rightFieldSacFlyProbability %>% 
+        rightFieldSacFly <- resp$rightFieldSacFlyProbability |> 
           as.data.frame() 
         context_metrics <- dplyr::bind_cols(game, 
                                             leftFieldSacFly, 
@@ -123,12 +124,12 @@ mlb_game_context_metrics <- function(
                                             homeWinProbability,
                                             awayWinProbability)
       }
-      context_metrics <- context_metrics %>% 
-        janitor::clean_names() %>%
+      context_metrics <- context_metrics |> 
+        janitor::clean_names() |>
         make_baseballr_data("MLB Game Context Metrics data from MLB.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

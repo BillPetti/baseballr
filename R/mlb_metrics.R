@@ -17,21 +17,22 @@ mlb_metrics <- function(){
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
+  metrics <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
-      metrics <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  %>% 
-        janitor::clean_names() %>% 
-        as.data.frame() %>% 
+      metrics <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  |> 
+        janitor::clean_names() |> 
+        as.data.frame() |> 
         dplyr::rename(
           "metric_name" = "name",
           "stat_group" = "group",
-          "metric_unit" = "unit") %>%
+          "metric_unit" = "unit") |>
         make_baseballr_data("MLB Metrics data from MLB.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

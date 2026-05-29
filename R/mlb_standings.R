@@ -91,20 +91,21 @@ mlb_standings <- function(
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
+  standings <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
       
-      standings <- jsonlite::fromJSON(jsonlite::toJSON(resp$records), flatten = TRUE) %>% 
-        tidyr::unnest("teamRecords", names_sep = "_") %>% 
-        janitor::clean_names() %>% 
-        as.data.frame() %>%
+      standings <- jsonlite::fromJSON(jsonlite::toJSON(resp$records), flatten = TRUE) |> 
+        tidyr::unnest("teamRecords", names_sep = "_") |> 
+        janitor::clean_names() |> 
+        as.data.frame() |>
         make_baseballr_data("MLB Standings data from MLB.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }
@@ -112,7 +113,7 @@ mlb_standings <- function(
   
   # split_standings <- purrr::map_df(1:length(standings$teamRecords_records.splitRecords),
   #                                  function(x){
-  #                                    standings$teamRecords_records.splitRecords[[x]] %>% 
+  #                                    standings$teamRecords_records.splitRecords[[x]] |> 
   #                                      tidyr::pivot_wider(names_from='type',names_glue = "{type}_{.value}",values_from = c("wins","losses", "pct"))
   #                                  })
   return(standings)

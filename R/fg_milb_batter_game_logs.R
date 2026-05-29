@@ -76,6 +76,7 @@
 #' }
 
 fg_milb_batter_game_logs <- function(playerid, year) {
+  payload <- NULL
   tryCatch(
     expr = {
       
@@ -87,16 +88,16 @@ fg_milb_batter_game_logs <- function(playerid, year) {
       
       res <- httr::RETRY("GET", url)
       
-      resp <- res %>% 
+      resp <- res |> 
         httr::content(as = "text", encoding = "UTF-8")
       
-      payload <- jsonlite::fromJSON(resp)[['minor']] %>% 
+      payload <- jsonlite::fromJSON(resp)[['minor']] |> 
         as.data.frame()
       # remove averages/totals column
       payload <- payload[-1,]
       # separate Team column into Team & MiLB level
       suppressWarnings(
-        payload <- payload %>%
+        payload <- payload |>
           tidyr::separate("Team", into = c("Team","Level"), sep = " ")
       )
       # url for player info table
@@ -106,17 +107,17 @@ fg_milb_batter_game_logs <- function(playerid, year) {
       
       stats_res <- httr::RETRY("GET", url_basic)
       
-      stats_resp <- stats_res %>% 
+      stats_resp <- stats_res |> 
         httr::content(as = "text", encoding = "UTF-8")
       
-      team_data <- stats_resp %>%
-        jsonlite::fromJSON(flatten = TRUE) %>% 
+      team_data <- stats_resp |>
+        jsonlite::fromJSON(flatten = TRUE) |> 
         purrr::pluck("teamInfo")
       
-      team_df <- t(do.call(rbind, team_data)) %>% 
+      team_df <- t(do.call(rbind, team_data)) |> 
         as.data.frame()
       
-      team_payload <- team_df %>% 
+      team_payload <- team_df |> 
         dplyr::pull("masterid")
       
       url_player <- paste0("https://www.fangraphs.com/api/players/stats?playerid=",
@@ -124,30 +125,30 @@ fg_milb_batter_game_logs <- function(playerid, year) {
                            "&position=&z=1703085978")
       player_res <- httr::RETRY("GET", url_player)
       
-      player_resp <- player_res %>% 
+      player_resp <- player_res |> 
         httr::content(as = "text", encoding = "UTF-8")
       
-      player_data <- player_resp %>%
-        jsonlite::fromJSON(flatten = TRUE) %>% 
+      player_data <- player_resp |>
+        jsonlite::fromJSON(flatten = TRUE) |> 
         purrr::pluck("playerInfo")
-      player_df <- t(do.call(rbind, player_data)) %>% 
+      player_df <- t(do.call(rbind, player_data)) |> 
         as.data.frame()
       
-      payload <- payload %>% 
+      payload <- payload |> 
         dplyr::bind_cols(player_df)
       
       # add playerid to payload
-      payload <- payload %>%
+      payload <- payload |>
         dplyr::mutate(
           player_name = .data$firstLastName,
-          minor_playerid = .data$MinorMasterId) %>%
+          minor_playerid = .data$MinorMasterId) |>
         dplyr::select("player_name", "minor_playerid", tidyr::everything())
       
-      payload <- payload %>%
+      payload <- payload |>
         make_baseballr_data("MiLB Batter Game Logs data from FanGraphs.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no MiLB batter game logs data available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no MiLB batter game logs data available!")
     },
     finally = {
     }

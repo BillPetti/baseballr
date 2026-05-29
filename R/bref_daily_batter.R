@@ -50,11 +50,12 @@
 
 bref_daily_batter <- function(t1, t2) {
 
+  df <- NULL
   tryCatch(
     expr = {
       payload <- xml2::read_html(paste0("http://www.baseball-reference.com/leagues/daily.cgi?user_team=&bust_cache=&type=b&lastndays=7&dates=fromandto&fromandto=", t1, ".", t2, "&level=mlb&franch=&stat=&stat_value=0"))
-      df <- payload %>%
-        rvest::html_elements(xpath = '//*[@id="daily"]') %>%
+      df <- payload |>
+        rvest::html_elements(xpath = '//*[@id="daily"]') |>
         rvest::html_table(fill = TRUE)
       
       df <- as.data.frame(df)[-c(1,3,5)]
@@ -68,29 +69,29 @@ bref_daily_batter <- function(t1, t2) {
       df$uBB <- with(df, BB-IBB)
       df <- df[,c(28,1:9, 27, 10:15, 29, 16:26)]
       df$Team <- gsub(" $", "", df$Team, perl=T)
-      df <- df %>% 
+      df <- df |> 
         dplyr::filter(.data$Name != "Name")
       
-      playerids <- payload %>%
-        rvest::html_elements("table") %>%
-        rvest::html_elements("a") %>%
-        rvest::html_attr("href") %>%
-        as.data.frame() %>%
-        dplyr::rename(slug = ".") %>%
-        dplyr::filter(grepl("players", .data$slug)) %>%
+      playerids <- payload |>
+        rvest::html_elements("table") |>
+        rvest::html_elements("a") |>
+        rvest::html_attr("href") |>
+        as.data.frame() |>
+        dplyr::rename(slug = ".") |>
+        dplyr::filter(grepl("players", .data$slug)) |>
         dplyr::mutate(playerid = gsub("/players/gl.fcgi\\?id=",
-                                  "", .data$slug)) %>%
+                                  "", .data$slug)) |>
         dplyr::mutate(playerid = gsub("&t.*","",.data$playerid))
       
-      df <- df %>%
-        dplyr::mutate(bbref_id = playerids$playerid) %>%
+      df <- df |>
+        dplyr::mutate(bbref_id = playerids$playerid) |>
         dplyr::select("bbref_id", tidyr::everything())
-      df <- df %>% dplyr::arrange(desc(.data$PA), desc(.data$OPS)) %>%
+      df <- df |> dplyr::arrange(desc(.data$PA), desc(.data$OPS)) |>
         make_baseballr_data("MLB Daily Batter data from baseball-reference.com",Sys.time())
       Sys.sleep(5)
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no daily batter data available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no daily batter data available!")
     },
     warning = function(w) {
     },

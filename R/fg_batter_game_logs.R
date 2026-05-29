@@ -296,27 +296,28 @@ fg_batter_game_logs <- function(playerid, year) {
                 playerid,
                 "&position=&type=0&gds=&gde=&z=1703085978&season=",
                 year)
+  payload <- NULL
   tryCatch(
     expr = {
       res <- httr::RETRY("GET", url)
       
-      resp <- res %>% 
+      resp <- res |> 
         httr::content(as = "text", encoding = "UTF-8")
       
-      payload <- jsonlite::fromJSON(resp)[['mlb']] %>% 
+      payload <- jsonlite::fromJSON(resp)[['mlb']] |> 
         as.data.frame()
       payload <- payload[-1,]
-      payload <- payload %>% 
+      payload <- payload |> 
         dplyr::mutate(
           Date = stringr::str_extract(.data$Date,"(?<=>).+(?=<)"))
-      payload <- payload %>% 
+      payload <- payload |> 
         dplyr::select("PlayerName", "playerid", tidyr::everything())
       
-      payload <- payload %>%
+      payload <- payload |>
         make_baseballr_data("MLB Batter Game Logs data from FanGraphs.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no batter game logs data available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no batter game logs data available!")
     },
     finally = {
     }

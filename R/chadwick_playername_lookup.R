@@ -27,12 +27,12 @@ playername_lookup <- function(id) {
     chadwick_player_lu_table <- chadwick_player_lu()
   }
   
-  x <- chadwick_player_lu_table %>% 
-    dplyr::filter(id == .data$key_mlbam | id == .data$key_retro | id == .data$key_bbref | id == .data$key_fangraphs) %>%
+  x <- chadwick_player_lu_table |> 
+    dplyr::filter(id == .data$key_mlbam | id == .data$key_retro | id == .data$key_bbref | id == .data$key_fangraphs) |>
     dplyr::select("name_first", "name_last", "name_given", "name_suffix",
                   "name_nick", "birth_year", "mlb_played_first", "key_mlbam", 
                   "key_retro", "key_bbref", "key_fangraphs")
-  x <- x %>%
+  x <- x |>
     make_baseballr_data("Player Name Lookup from the Chadwick Bureau's public register of baseball players",Sys.time())
   return(x)
 }

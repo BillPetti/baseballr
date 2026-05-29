@@ -35,30 +35,30 @@ linear_weights_savant <- function (df, level = "plate appearance"){
                   "pickoff_caught_stealing_home", "catcher_interf",
                   "batter_interference")
 
-    df <- df %>%
+    df <- df |>
       dplyr::filter(.data$final_pitch_at_bat == 1)
 
-    linear_wght_outs <- df %>%
-      dplyr::filter(!.data$events %in% non_outs) %>%
+    linear_wght_outs <- df |>
+      dplyr::filter(!.data$events %in% non_outs) |>
       dplyr::summarise(
         outs = round(mean(.data$re24, na.rm = TRUE),2))
-    linear_above_outs <- df %>%
-      dplyr::filter(.data$events %in% c("home_run", "triple", "double", "single", "walk", "hit_by_pitch")) %>%
-      dplyr::group_by(.data$events) %>%
+    linear_above_outs <- df |>
+      dplyr::filter(.data$events %in% c("home_run", "triple", "double", "single", "walk", "hit_by_pitch")) |>
+      dplyr::group_by(.data$events) |>
       dplyr::summarise(linear_weights_above_average =
-                         round(mean(.data$re24,na.rm = TRUE), 2)) %>%
+                         round(mean(.data$re24,na.rm = TRUE), 2)) |>
       dplyr::add_row(
         events = "outs",
-        linear_weights_above_average = linear_wght_outs$outs) %>%
-      dplyr::arrange(desc(.data$linear_weights_above_average)) %>%
+        linear_weights_above_average = linear_wght_outs$outs) |>
+      dplyr::arrange(desc(.data$linear_weights_above_average)) |>
       dplyr::mutate(
         linear_weights_above_outs = .data$linear_weights_above_average +abs(linear_wght_outs$outs))
     return(linear_above_outs)
   }
   else {
 
-    df <- df %>%
-      dplyr::mutate(events = ifelse(is.na(.data$events) | .data$events == "", .data$type, .data$events)) %>%
+    df <- df |>
+      dplyr::mutate(events = ifelse(is.na(.data$events) | .data$events == "", .data$type, .data$events)) |>
       dplyr::mutate(events = ifelse(.data$events == "B", "ball",
                              ifelse(.data$events == "S", "strikes", .data$events)))
 
@@ -69,18 +69,18 @@ linear_weights_savant <- function (df, level = "plate appearance"){
                   "pickoff_caught_stealing_home", "catcher_interf",
                   "batter_interference")
 
-    linear_wght_outs <- df %>%
-      dplyr::filter(!.data$events %in% non_outs) %>%
+    linear_wght_outs <- df |>
+      dplyr::filter(!.data$events %in% non_outs) |>
       dplyr::summarise(outs = round(mean(.data$re24, na.rm = TRUE),
                                     2))
-    linear_above_outs <- df %>%
-      dplyr::filter(.data$events %in% c("home_run", "triple", "double", "single", "walk", "hit_by_pitch", "ball", "strikes")) %>%
-      dplyr::group_by(.data$events) %>%
+    linear_above_outs <- df |>
+      dplyr::filter(.data$events %in% c("home_run", "triple", "double", "single", "walk", "hit_by_pitch", "ball", "strikes")) |>
+      dplyr::group_by(.data$events) |>
       dplyr::summarise(linear_weights_above_average =
-                         round(mean(.data$re24,na.rm = TRUE), 2)) %>%
+                         round(mean(.data$re24,na.rm = TRUE), 2)) |>
       dplyr::add_row(events = "outs",
-                     linear_weights_above_average = linear_wght_outs$outs) %>%
-      dplyr::arrange(desc(.data$linear_weights_above_average)) %>%
+                     linear_weights_above_average = linear_wght_outs$outs) |>
+      dplyr::arrange(desc(.data$linear_weights_above_average)) |>
       dplyr::mutate(linear_weights_above_outs = .data$linear_weights_above_average +
                       abs(linear_wght_outs$outs))
     return(linear_above_outs)

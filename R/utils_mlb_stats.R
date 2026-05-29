@@ -2,8 +2,8 @@ mlb_api_call <- function(url){
   res <-
     httr::RETRY("GET", url)
   
-  json <- res$content %>%
-    rawToChar() %>%
+  json <- res$content |>
+    rawToChar() |>
     jsonlite::fromJSON(simplifyVector = T)
   
   return(json)

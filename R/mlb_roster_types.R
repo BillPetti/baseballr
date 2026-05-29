@@ -12,21 +12,22 @@
 mlb_roster_types <- function(){
   mlb_endpoint <- mlb_stats_endpoint("v1/rosterTypes")
   
+  roster_types <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
-      roster_types <- resp %>% 
-        janitor::clean_names() %>% 
+      roster_types <- resp |> 
+        janitor::clean_names() |> 
         dplyr::rename(
           "roster_type_description" = "description",
           "roster_type_lookup_name" = "lookup_name",
-          "roster_type_parameter" = "parameter") %>%
+          "roster_type_parameter" = "parameter") |>
         make_baseballr_data("MLB Roster Types data from MLB.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

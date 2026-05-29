@@ -169,14 +169,15 @@ mlb_pbp <- function(game_pk) {
   
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1.1/game/{game_pk}/feed/live"))
   
+  pbp <- NULL
   tryCatch(
     expr = {
-      payload <- mlb_endpoint %>% 
-        mlb_api_call() %>% 
-        jsonlite::toJSON() %>% 
+      payload <- mlb_endpoint |> 
+        mlb_api_call() |> 
+        jsonlite::toJSON() |> 
         jsonlite::fromJSON(flatten = TRUE)
       
-      plays <- payload$liveData$plays$allPlays$playEvents %>% 
+      plays <- payload$liveData$plays$allPlays$playEvents |> 
         dplyr::bind_rows()
       
       at_bats <- payload$liveData$plays$allPlays
@@ -197,30 +198,30 @@ mlb_pbp <- function(game_pk) {
       
       away_league <- payload$gameData$teams$away$league
       
-      columns <- lapply(at_bats, function(x) class(x)) %>%
+      columns <- lapply(at_bats, function(x) class(x)) |>
         dplyr::bind_rows(.id = "variable")
       cols <- c(colnames(columns))
       classes <- c(t(unname(columns[1,])))
       
       df <- data.frame(cols, classes)
-      list_columns <- df %>%
-        dplyr::filter(.data$classes == "list") %>%
+      list_columns <- df |>
+        dplyr::filter(.data$classes == "list") |>
         dplyr::pull("cols")
       
-      at_bats <- at_bats %>%
+      at_bats <- at_bats |>
         dplyr::select(-c(tidyr::one_of(list_columns)))
       
-      pbp <- plays %>%
+      pbp <- plays |>
         dplyr::left_join(at_bats, by = c("endTime" = "playEndTime"))
       
-      pbp <- pbp %>%
-        tidyr::fill("atBatIndex":"matchup.splits.menOnBase", .direction = "up") %>%
+      pbp <- pbp |>
+        tidyr::fill("atBatIndex":"matchup.splits.menOnBase", .direction = "up") |>
         dplyr::mutate(
           game_pk = game_pk,
-          game_date = substr(payload$gameData$datetime$dateTime, 1, 10)) %>%
+          game_date = substr(payload$gameData$datetime$dateTime, 1, 10)) |>
         dplyr::select("game_pk", "game_date", tidyr::everything())
       
-      pbp <- pbp %>%
+      pbp <- pbp |>
         dplyr::mutate(
           matchup.batter.fullName = factor(.data$matchup.batter.fullName),
           matchup.pitcher.fullName = factor(.data$matchup.pitcher.fullName),
@@ -230,7 +231,7 @@ mlb_pbp <- function(game_pk) {
           #   TRUE ~ result.event),
           # batted.ball.result = factor(batted.ball.result,
           #                             levels = c("Single", "Double", "Triple", "Home Run", "Out/Other"))
-        ) %>%
+        ) |>
         dplyr::mutate(
           home_team = home_team,
           home_level_id = home_level$id,
@@ -252,51 +253,51 @@ mlb_pbp <- function(game_pk) {
           fielding_team = factor(ifelse(.data$about.halfInning == "bottom",
                                         .data$away_team,
                                         .data$home_team)))
-      pbp <- pbp %>%
+      pbp <- pbp |>
         dplyr::arrange(desc(.data$atBatIndex), desc(.data$pitchNumber))
       
-      pbp <- pbp %>%
-        dplyr::group_by(.data$atBatIndex) %>%
+      pbp <- pbp |>
+        dplyr::group_by(.data$atBatIndex) |>
         dplyr::mutate(
           last.pitch.of.ab =  ifelse(.data$pitchNumber == max(.data$pitchNumber), "true", "false"),
-          last.pitch.of.ab = factor(.data$last.pitch.of.ab)) %>%
+          last.pitch.of.ab = factor(.data$last.pitch.of.ab)) |>
         dplyr::ungroup()
       
       pbp <- dplyr::bind_rows(baseballr::stats_api_live_empty_df, pbp)
       
-      check_home_level <- pbp %>%
-        dplyr::distinct(.data$home_level_id) %>%
+      check_home_level <- pbp |>
+        dplyr::distinct(.data$home_level_id) |>
         dplyr::pull()
       
       # this will need to be updated in the future to properly estimate X,Z coordinates at the minor league level
       
       # if(check_home_level != 1) {
       #
-      #   pbp <- pbp %>%
+      #   pbp <- pbp |>
       #     dplyr::mutate(pitchData.coordinates.x = -pitchData.coordinates.x,
       #                   pitchData.coordinates.y = -pitchData.coordinates.y)
       #
-      #   pbp <- pbp %>%
+      #   pbp <- pbp |>
       #     dplyr::mutate(pitchData.coordinates.pX_est = predict(x_model, pbp),
       #                   pitchData.coordinates.pZ_est = predict(y_model, pbp))
       #
-      #   pbp <- pbp %>%
+      #   pbp <- pbp |>
       #     dplyr::mutate(pitchData.coordinates.x = -pitchData.coordinates.x,
       #                   pitchData.coordinates.y = -pitchData.coordinates.y)
       # }
       
-      pbp <- pbp %>%
+      pbp <- pbp |>
         dplyr::rename(
           "count.balls.start" = "count.balls.x",
           "count.strikes.start" = "count.strikes.x",
           "count.outs.start" = "count.outs.x",
           "count.balls.end" = "count.balls.y",
           "count.strikes.end" = "count.strikes.y",
-          "count.outs.end" = "count.outs.y") %>%
+          "count.outs.end" = "count.outs.y") |>
         make_baseballr_data("MLB Play-by-Play data from MLB.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

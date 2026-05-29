@@ -30,20 +30,21 @@ mlb_team_coaches <- function(team_id = NULL,
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
+  team_coaches <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
       team_coaches <- jsonlite::fromJSON(jsonlite::toJSON(resp[['roster']]), flatten = TRUE)  
       team_coaches$season <- NULL
-      team_coaches <- team_coaches %>% 
-        janitor::clean_names() %>% 
-        as.data.frame() %>%
+      team_coaches <- team_coaches |> 
+        janitor::clean_names() |> 
+        as.data.frame() |>
         make_baseballr_data("MLB Team Coaches data from MLB.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

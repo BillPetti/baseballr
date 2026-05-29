@@ -89,21 +89,22 @@ mlb_game_changes <- function(updated_since, sport_id) {
     updatedSince = updated_since
   )
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  changes <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call() 
       
-      changes <- resp$dates %>% 
-        jsonlite::toJSON() %>% 
-        jsonlite::fromJSON(flatten = TRUE) %>% 
-        tidyr::unnest("games") %>%
-        as.data.frame() %>%
-        janitor::clean_names() %>%
+      changes <- resp$dates |> 
+        jsonlite::toJSON() |> 
+        jsonlite::fromJSON(flatten = TRUE) |> 
+        tidyr::unnest("games") |>
+        as.data.frame() |>
+        janitor::clean_names() |>
         make_baseballr_data("MLB Game Changes data from MLB.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

@@ -39,22 +39,23 @@ mlb_rosters <- function(team_id = NULL, season = NULL, date = NULL, roster_type 
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
+  roster <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
-      roster <- jsonlite::fromJSON(jsonlite::toJSON(resp$roster), flatten = TRUE) %>% 
+      roster <- jsonlite::fromJSON(jsonlite::toJSON(resp$roster), flatten = TRUE) |> 
         dplyr::bind_cols(link = resp$link, 
                          team_id = resp$teamId,
                          roster_type = resp$rosterType,
                          season = season,
-                         date = ifelse(is.null(date),NA_character_,date)) %>% 
-        janitor::clean_names() %>%
+                         date = ifelse(is.null(date),NA_character_,date)) |> 
+        janitor::clean_names() |>
         make_baseballr_data("MLB Roster data from MLB.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no roster data for {team_id} available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no roster data for {team_id} available!")
     },
     finally = {
     }

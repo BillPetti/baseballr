@@ -430,14 +430,15 @@ fg_batter_leaders <- function(
   
   fg_endpoint <- httr::modify_url(url, query = params)
   
+  leaders <- NULL
   tryCatch(
     expr = {
       
-      resp <- fg_endpoint %>% 
+      resp <- fg_endpoint |> 
         mlb_api_call()
       
-      fg_df <- resp$data %>% 
-        jsonlite::toJSON() %>%
+      fg_df <- resp$data |> 
+        jsonlite::toJSON() |>
         jsonlite::fromJSON(flatten=TRUE)
       
       c <- colnames(fg_df)
@@ -446,20 +447,20 @@ fg_batter_leaders <- function(
       c <- ifelse(substr(c, nchar(c) - 1 + 1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
       c <- gsub(" ", "_", c, fixed = TRUE)
       colnames(fg_df) <- c
-      leaders <- fg_df %>% 
-        dplyr::rename_with(~ gsub("pi", "pi_", .x), starts_with("pi")) %>% 
-        dplyr::rename_with(~ gsub("pfx", "pfx_", .x), starts_with("pfx")) %>%
+      leaders <- fg_df |> 
+        dplyr::rename_with(~ gsub("pi", "pi_", .x), starts_with("pi")) |> 
+        dplyr::rename_with(~ gsub("pfx", "pfx_", .x), starts_with("pfx")) |>
         dplyr::rename(
           "wRC_plus" = "wRC+",
           "WPA_minus" = "-WPA",
           "WPA_plus" = "+WPA", 
           "AgeRng" = "AgeR",
           "team_name" = "TeamName",
-          "team_name_abb" = "TeamNameAbb") %>%
+          "team_name_abb" = "TeamNameAbb") |>
         dplyr::select(-dplyr::any_of(c(
           "Name", 
           "Team"
-        ))) %>%
+        ))) |>
         dplyr::select(
           "Season",
           "team_name",
@@ -470,12 +471,12 @@ fg_batter_leaders <- function(
           "playerid",
           "Age",
           "AgeRng",
-          tidyr::everything()) %>% 
+          tidyr::everything()) |> 
         make_baseballr_data("MLB Player Batting Leaders data from FanGraphs.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no player batting leaders data available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no player batting leaders data available!")
     },
     finally = {
     }

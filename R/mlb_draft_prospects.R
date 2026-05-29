@@ -111,18 +111,19 @@
 mlb_draft_prospects <- function(year) {
   
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1/draft/prospects/{year}"))
+  draft_prospects <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>%
+      resp <- mlb_endpoint |>
         mlb_api_call()
       
-      draft_prospects <- jsonlite::fromJSON(jsonlite::toJSON(resp$prospects), flatten = TRUE)  %>%
-        janitor::clean_names() %>%
-        as.data.frame() %>%
+      draft_prospects <- jsonlite::fromJSON(jsonlite::toJSON(resp$prospects), flatten = TRUE)  |>
+        janitor::clean_names() |>
+        as.data.frame() |>
         make_baseballr_data("MLB Draft Prospects data from MLB.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

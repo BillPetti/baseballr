@@ -35,16 +35,17 @@ mlb_people_free_agents <- function(season = NULL){
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
+  free_agents <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>%
+      resp <- mlb_endpoint |>
         mlb_api_call()
-      free_agents <- jsonlite::fromJSON(jsonlite::toJSON(resp$freeAgents), flatten = TRUE) %>%
-        janitor::clean_names() %>%
+      free_agents <- jsonlite::fromJSON(jsonlite::toJSON(resp$freeAgents), flatten = TRUE) |>
+        janitor::clean_names() |>
         make_baseballr_data("MLB People - Free Agents data from MLB.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

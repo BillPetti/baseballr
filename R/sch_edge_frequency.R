@@ -8,8 +8,8 @@
 
 edge_frequency <- function(df, group = NULL) {
   if (is.null(group)) {
-    grouped <- df %>% 
-      dplyr::filter(!is.na(.data$px), !is.na(.data$pz)) %>%
+    grouped <- df |> 
+      dplyr::filter(!is.na(.data$px), !is.na(.data$pz)) |>
       dplyr::summarise(
         All_pitches = n(), 
         All_calls = sum(.data$called_pitch), 
@@ -20,15 +20,15 @@ edge_frequency <- function(df, group = NULL) {
         Inside_Edge = sum(.data$Inside_Edge)/.data$All_pitches, 
         Outside_Edge = sum(.data$Outside_Edge)/.data$All_pitches, 
         Heart = sum(.data$Heart)/.data$All_pitches, 
-        Out_of_Zone = sum(.data$OutOfZone)/.data$All_pitches) %>%
+        Out_of_Zone = sum(.data$OutOfZone)/.data$All_pitches) |>
       dplyr::mutate(
         Total_Edge = .data$Upper_Edge + .data$Lower_Edge + .data$Inside_Edge + .data$Outside_Edge)
     return(grouped)
   }
   else {
-    grouped <- df %>% 
-      dplyr::filter(!is.na(.data$px), !is.na(.data$pz)) %>% 
-      dplyr::group_by(.data$group) %>% 
+    grouped <- df |> 
+      dplyr::filter(!is.na(.data$px), !is.na(.data$pz)) |> 
+      dplyr::group_by(.data$group) |> 
       dplyr::summarise(
         All_pitches = n(), 
         All_calls = sum(.data$called_pitch), 
@@ -39,7 +39,7 @@ edge_frequency <- function(df, group = NULL) {
         Inside_Edge = sum(.data$Inside_Edge)/.data$All_pitches, 
         Outside_Edge = sum(.data$Outside_Edge)/.data$All_pitches, 
         Heart = sum(.data$Heart)/.data$All_pitches, 
-        Out_of_Zone = sum(.data$OutOfZone)/.data$All_pitches) %>%
+        Out_of_Zone = sum(.data$OutOfZone)/.data$All_pitches) |>
       dplyr::mutate(
         Total_Edge = .data$Upper_Edge + .data$Lower_Edge + .data$Inside_Edge + .data$Outside_Edge)
     return(grouped)

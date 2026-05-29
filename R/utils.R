@@ -62,7 +62,7 @@ rds_from_url <- function(url) {
   load <- try(readRDS(con), silent = TRUE)
   
   if (inherits(load, "try-error")) {
-    warning(paste0("Failed to readRDS from <", url, ">"), call. = FALSE)
+    cli::cli_warn(paste0("Failed to readRDS from <", url, ">"), call. = FALSE)
     return(data.table::data.table())
   }
   
@@ -174,7 +174,7 @@ most_recent_mlb_season <- function() {
 # Functions for custom class
 # turn a data.frame into a tibble/baseballr_data
 make_baseballr_data <- function(df, type, timestamp){
-  out <- df %>%
+  out <- df |>
     tidyr::as_tibble()
   
   class(out) <- c("baseballr_data","tbl_df","tbl","data.table","data.frame")

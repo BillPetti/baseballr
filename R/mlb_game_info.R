@@ -36,12 +36,13 @@ mlb_game_info <- function(game_pk) {
   
   api_call <- paste0("http://statsapi.mlb.com/api/v1.1/game/", game_pk,"/feed/live")
   
+  game_table <- NULL
   tryCatch(
     expr = {
       payload <- jsonlite::fromJSON(api_call)
       
-      lookup_table <- payload$liveData$boxscore$info %>%
-        as.data.frame() %>%
+      lookup_table <- payload$liveData$boxscore$info |>
+        as.data.frame() |>
         tidyr::spread(.data$label, .data$value)
       
       year <- stringr::str_sub(payload$gameData$game$calendarEventID, -10, -7)
@@ -56,12 +57,12 @@ mlb_game_info <- function(game_pk) {
                            other_weather = payload$gameData$weather$condition,
                            wind = payload$gameData$weather$wind,
                            attendance = ifelse("Att" %in% names(lookup_table) == TRUE,
-                                               as.character(lookup_table$Att) %>% 
+                                               as.character(lookup_table$Att) |> 
                                                  stringr::str_remove_all('\\.'),
                                                NA),
-                           start_time = as.character(lookup_table$`First pitch`) %>%
+                           start_time = as.character(lookup_table$`First pitch`) |>
                              stringr::str_remove_all('\\.'),
-                           elapsed_time = as.character(lookup_table$T) %>% 
+                           elapsed_time = as.character(lookup_table$T) |> 
                              stringr::str_remove_all('\\.'),
                            game_id = payload$gameData$game$id,
                            game_type = payload$gameData$game$type,
@@ -70,11 +71,11 @@ mlb_game_info <- function(game_pk) {
                            date = names(lookup_table)[1],
                            status_ind = payload$gameData$status$statusCode,
                            home_league_id = payload$gameData$teams$home$league$id,
-                           gameday_sw = payload$gameData$game$gamedayType) %>%
+                           gameday_sw = payload$gameData$game$gamedayType) |>
         make_baseballr_data("MLB Game Info data from MLB.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

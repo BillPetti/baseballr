@@ -23,14 +23,15 @@ mlb_league <- function(seasons = NULL,
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
+  leagues <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
       
-      leagues <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)$leagues %>% 
-        janitor::clean_names() %>% 
-        as.data.frame() %>% 
+      leagues <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)$leagues |> 
+        janitor::clean_names() |> 
+        as.data.frame() |> 
         dplyr::rename(
           "league_id" = "id",
           "league_name" = "name",
@@ -49,11 +50,11 @@ mlb_league <- function(seasons = NULL,
           "league_conferences_in_use" = "conferences_in_use",
           "league_divisions_in_use" = "divisions_in_use",
           "league_sort_order" = "sort_order",
-          "league_active" = "active") %>%
+          "league_active" = "active") |>
         make_baseballr_data("MLB League data from MLB.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

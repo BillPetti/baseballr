@@ -52,19 +52,20 @@ mlb_seasons_all <- function(sport_id = 1,
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
   
+  seasons <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
       
-      seasons <- jsonlite::fromJSON(jsonlite::toJSON(resp$seasons),flatten = TRUE) %>% 
-        as.data.frame() %>%
-        janitor::clean_names() %>%
+      seasons <- jsonlite::fromJSON(jsonlite::toJSON(resp$seasons),flatten = TRUE) |> 
+        as.data.frame() |>
+        janitor::clean_names() |>
         make_baseballr_data("MLB Seasons - All Seasons data from MLB.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

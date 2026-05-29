@@ -138,18 +138,19 @@ mlb_high_low_stats <- function(
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
+  high_low_results_splits <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
-        mlb_api_call() %>% 
-        jsonlite::toJSON() %>% 
+      resp <- mlb_endpoint |> 
+        mlb_api_call() |> 
+        jsonlite::toJSON() |> 
         jsonlite::fromJSON(flatten = TRUE)
-      high_low_results <- resp$highLowResults %>% 
-        as.data.frame() %>% 
-        dplyr::select(-"season")
-      high_low_results_splits <- high_low_results %>% 
-        tidyr::unnest("splits") %>% 
-        janitor::clean_names() %>% 
+      high_low_results <- resp$highLowResults |> 
+        as.data.frame() |> 
+        dplyr::select(-dplyr::any_of("season"))
+      high_low_results_splits <- high_low_results |> 
+        tidyr::unnest("splits") |> 
+        janitor::clean_names() |> 
         dplyr::select(
           -c("exemptions",
           "splits_tied_with_offset",
@@ -157,16 +158,16 @@ mlb_high_low_stats <- function(
           "sort_stat_stat_groups",
           "sort_stat_high_low_types",
           "sort_stat_org_types",
-          "sort_stat_streak_levels")) %>% 
+          "sort_stat_streak_levels")) |> 
         dplyr::rename(
           "game_number" = "game_game_number",
-          "game_pk" = "game_game_pk") %>% 
+          "game_pk" = "game_game_pk") |> 
         dplyr::mutate(
-          season = as.integer(.data$season)) %>%
+          season = as.integer(.data$season)) |>
         make_baseballr_data("MLB High Low Stats data from MLB.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

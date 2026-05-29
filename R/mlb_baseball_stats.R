@@ -29,23 +29,24 @@ mlb_baseball_stats <- function(){
   
   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
   
+  baseball_stats <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
-      baseball_stats <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  %>% 
-        janitor::clean_names() %>% 
+      baseball_stats <- jsonlite::fromJSON(jsonlite::toJSON(resp), flatten = TRUE)  |> 
+        janitor::clean_names() |> 
         tidyr::unnest("stat_groups", names_sep = "_")
-      baseball_stats <- baseball_stats[,1:5] %>% 
+      baseball_stats <- baseball_stats[,1:5] |> 
         dplyr::rename(
           "stat_name" = "name",
           "stat_lookup_param" = "lookup_param",
           "stat_label" = "label",
-          "stat_group" = "stat_groups_displayName") %>%
+          "stat_group" = "stat_groups_displayName") |>
         make_baseballr_data("MLB Baseball Stats data from MLB.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

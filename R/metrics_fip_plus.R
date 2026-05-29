@@ -74,12 +74,12 @@ fip_plus <- function(df) {
     guts_table <- fg_guts()
   }
 
-  df_join <- df %>% 
+  df_join <- df |> 
     dplyr::left_join(guts_table, by = "season")
   df_join$FIP <- round(((((13*df_join$HR) + (3*(df_join$uBB + df_join$HBP)) - (2*df_join$SO))/df_join$IP) + df_join$cFIP), 2)
   df_join$wOBA_against <- round((((df_join$wBB * df_join$uBB) + (df_join$wHBP * df_join$HBP) + (df_join$w1B * df_join$X1B) + (df_join$w2B * df_join$X2B) + 	(df_join$w3B * df_join$X3B) + (df_join$wHR * df_join$HR))/(df_join$BF)),3)
   df_join$wOBA_CON_against <- round((((df_join$w1B * df_join$X1B) + (df_join$w2B * df_join$X2B) + 	(df_join$w3B * df_join$X3B) + (df_join$wHR * df_join$HR))/(df_join$AB - df_join$SO)),3)
-  df_join <- df_join %>% 
+  df_join <- df_join |> 
     dplyr::arrange(dplyr::desc(.data$wOBA_against))
   x <- names(df_join) %in% c("lg_woba", "woba_scale", "wBB", "wHBP", "w1B", "w2B", "w3B", "wHR", "runSB", "runCS", "lg_r_pa", "lg_r_w", "cFIP")
   df_join <- df_join[!x]
