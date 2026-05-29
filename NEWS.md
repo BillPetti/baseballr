@@ -5,6 +5,12 @@
 - `statcast_search()` now assigns Baseball Savant's columns length-tolerantly, so new columns added to the Savant CSV export no longer break the function with a "can't assign N names to an M column data.table" error (#337, #354, #371, #390).
 - `sptrc_team_active_payroll()` and `sptrc_league_payrolls()` updated for Spotrac's new `/payroll/_/year/<year>/` URLs and changed table schema; parsing is now resilient to column-order changes and both functions return data again (#392).
 - Wrappers that build their result inside `tryCatch()` now initialize the return value first, so an API error returns an empty value with a `cli` message instead of an `object '<var>' not found` error.
+- `mlb_game_timecodes()` no longer returns `NULL`; it renamed its single column by the literal name `"."`, which newer R versions no longer use for the coerced column, so it now renames by position.
+- `mlb_homerun_derby()` and `mlb_homerun_derby_bracket()` return data again; their column selections are now wrapped in `dplyr::any_of()` so the dropped `num_batters` column (no longer in the MLB Stats API response) no longer errors the parse.
+
+### Documentation
+
+- Added a `description` column to the `@return` tables of all currently-returning functions (matching the `wehoop`/`hoopR` documentation style), regenerated from live API responses so columns, types, and descriptions reflect the current output.
 
 ### Internal / infrastructure
 

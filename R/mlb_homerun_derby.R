@@ -2,71 +2,70 @@
 #' @title **Retrieve Homerun Derby data**
 #'
 #' @param game_pk The game_pk for which you want to return data
-#' @return Returns a tibble with the following columns 
-#'   |col_name                                         |types     |
-#'   |:------------------------------------------------|:---------|
-#'   |game_pk                                          |integer   |
-#'   |event_name                                       |character |
-#'   |event_date                                       |character |
-#'   |event_type_code                                  |character |
-#'   |event_type_name                                  |character |
-#'   |venue_id                                         |integer   |
-#'   |venue_name                                       |character |
-#'   |round                                            |integer   |
-#'   |num_batters                                      |integer   |
-#'   |batter                                           |character |
-#'   |batter_id                                        |integer   |
-#'   |batter_link                                      |character |
-#'   |top_seed_started                                 |logical   |
-#'   |top_seed_complete                                |logical   |
-#'   |top_seed_winner                                  |logical   |
-#'   |bonus_time                                       |logical   |
-#'   |home_run                                         |logical   |
-#'   |tie_breaker                                      |logical   |
-#'   |is_home_run                                      |logical   |
-#'   |time_remaining                                   |character |
-#'   |is_bonus_time                                    |logical   |
-#'   |is_tie_breaker                                   |logical   |
-#'   |hit_data_launch_speed                            |integer   |
-#'   |hit_data_launch_angle                            |integer   |
-#'   |hit_data_total_distance                          |integer   |
-#'   |hit_data_coordinates_coord_x                     |numeric   |
-#'   |hit_data_coordinates_coord_y                     |numeric   |
-#'   |hit_data_coordinates_landing_pos_x               |numeric   |
-#'   |hit_data_coordinates_landing_pos_y               |numeric   |
-#'   |hit_data_trajectory_data_trajectory_polynomial_x |list      |
-#'   |hit_data_trajectory_data_trajectory_polynomial_y |list      |
-#'   |hit_data_trajectory_data_trajectory_polynomial_z |list      |
-#'   |hit_data_trajectory_data_valid_time_interval     |list      |
-#'   |top_seed_seed                                    |integer   |
-#'   |top_seed_is_winner                               |logical   |
-#'   |top_seed_is_complete                             |logical   |
-#'   |top_seed_is_started                              |logical   |
-#'   |top_seed_num_home_runs                           |integer   |
-#'   |top_seed_player_id                               |integer   |
-#'   |top_seed_player_full_name                        |character |
-#'   |top_seed_player_link                             |character |
-#'   |top_seed_top_derby_hit_data_launch_speed         |integer   |
-#'   |top_seed_top_derby_hit_data_total_distance       |integer   |
-#'   |bottom_seed_started                              |logical   |
-#'   |bottom_seed_complete                             |logical   |
-#'   |bottom_seed_winner                               |logical   |
-#'   |bottom_seed_seed                                 |integer   |
-#'   |bottom_seed_is_winner                            |logical   |
-#'   |bottom_seed_is_complete                          |logical   |
-#'   |bottom_seed_is_started                           |logical   |
-#'   |bottom_seed_num_home_runs                        |integer   |
-#'   |bottom_seed_player_id                            |integer   |
-#'   |bottom_seed_player_full_name                     |character |
-#'   |bottom_seed_player_link                          |character |
-#'   |bottom_seed_top_derby_hit_data_launch_speed      |integer   |
-#'   |bottom_seed_top_derby_hit_data_total_distance    |integer   |
-#'   |venue_link                                       |character |
-#'   |is_multi_day                                     |logical   |
-#'   |is_primary_calendar                              |logical   |
-#'   |file_code                                        |character |
-#'   |event_number                                     |integer   |
-#'   |public_facing                                    |logical   | 
+#' @return Returns a tibble with the following columns
+#'   |col_name                                         |types     |description                                                       |
+#'   |:------------------------------------------------|:---------|:-----------------------------------------------------------------|
+#'   |game_pk                                          |integer   |MLB game primary key for the Home Run Derby event.                |
+#'   |event_name                                       |character |Event name (e.g. 'All-Star Workout Day: Home Run Derby').         |
+#'   |event_date                                       |character |Event date-time in ISO 8601 (e.g. '2017-07-11T00:00:00Z').        |
+#'   |event_type_code                                  |character |Single-letter event type code (e.g. 'O').                         |
+#'   |event_type_name                                  |character |Event type name (e.g. 'Other').                                   |
+#'   |venue_id                                         |integer   |MLB venue id hosting the event.                                   |
+#'   |venue_name                                       |character |Venue name (e.g. 'Marlins Park').                                 |
+#'   |round                                            |integer   |Derby round number for the matchup.                               |
+#'   |batter                                           |character |Full name of the batter for this swing record.                    |
+#'   |batter_id                                        |integer   |MLB player id of the batter.                                      |
+#'   |batter_link                                      |character |API relative link to the batter.                                  |
+#'   |top_seed_complete                                |logical   |Whether the top seed's turn in the matchup is complete.           |
+#'   |top_seed_started                                 |logical   |Whether the top seed's turn in the matchup has started.           |
+#'   |top_seed_winner                                  |logical   |Whether the top seed won the matchup.                             |
+#'   |bonus_time                                       |logical   |Whether the swing occurred during bonus time.                     |
+#'   |home_run                                         |logical   |Whether the swing was scored a home run.                          |
+#'   |tie_breaker                                      |logical   |Whether the swing occurred during a tie-breaker.                  |
+#'   |is_home_run                                      |logical   |Whether the recorded hit is a home run.                           |
+#'   |time_remaining                                   |character |Time remaining on the clock when the swing occurred.              |
+#'   |is_bonus_time                                    |logical   |Whether the swing counted toward bonus time.                      |
+#'   |is_tie_breaker                                   |logical   |Whether the swing counted toward a tie-breaker.                   |
+#'   |hit_data_launch_speed                            |integer   |Exit velocity of the home run swing (mph).                        |
+#'   |hit_data_launch_angle                            |integer   |Launch angle of the batted ball (degrees).                        |
+#'   |hit_data_total_distance                          |integer   |Projected total distance of the batted ball (feet).               |
+#'   |hit_data_coordinates_coord_x                     |numeric   |Hit location x-coordinate on the field overlay.                   |
+#'   |hit_data_coordinates_coord_y                     |numeric   |Hit location y-coordinate on the field overlay.                   |
+#'   |hit_data_coordinates_landing_pos_x               |numeric   |Landing position x-coordinate of the batted ball.                 |
+#'   |hit_data_coordinates_landing_pos_y               |numeric   |Landing position y-coordinate of the batted ball.                 |
+#'   |hit_data_trajectory_data_trajectory_polynomial_x |list      |Polynomial coefficients of the x trajectory.                      |
+#'   |hit_data_trajectory_data_trajectory_polynomial_y |list      |Polynomial coefficients of the y trajectory.                      |
+#'   |hit_data_trajectory_data_trajectory_polynomial_z |list      |Polynomial coefficients of the z trajectory.                      |
+#'   |hit_data_trajectory_data_valid_time_interval     |list      |Valid time interval for the trajectory fit (seconds).             |
+#'   |top_seed_seed                                    |integer   |Bracket seed number of the top seed.                              |
+#'   |top_seed_is_winner                               |logical   |Whether the top seed is the matchup winner.                       |
+#'   |top_seed_is_complete                             |logical   |Whether the top seed's turn is complete.                          |
+#'   |top_seed_is_started                              |logical   |Whether the top seed's turn has started.                          |
+#'   |top_seed_num_home_runs                           |integer   |Number of home runs hit by the top seed.                          |
+#'   |top_seed_player_id                               |integer   |MLB player id of the top seed.                                    |
+#'   |top_seed_player_full_name                        |character |Full name of the top seed.                                        |
+#'   |top_seed_player_link                             |character |API relative link to the top seed player.                         |
+#'   |top_seed_top_derby_hit_data_launch_speed         |integer   |Top seed's hardest-hit exit velocity in the round (mph).          |
+#'   |top_seed_top_derby_hit_data_total_distance       |integer   |Top seed's longest projected distance in the round (feet).        |
+#'   |bottom_seed_complete                             |logical   |Whether the bottom seed's turn in the matchup is complete.        |
+#'   |bottom_seed_started                              |logical   |Whether the bottom seed's turn in the matchup has started.        |
+#'   |bottom_seed_winner                               |logical   |Whether the bottom seed won the matchup.                          |
+#'   |bottom_seed_seed                                 |integer   |Bracket seed number of the bottom seed.                           |
+#'   |bottom_seed_is_winner                            |logical   |Whether the bottom seed is the matchup winner.                    |
+#'   |bottom_seed_is_complete                          |logical   |Whether the bottom seed's turn is complete.                       |
+#'   |bottom_seed_is_started                           |logical   |Whether the bottom seed's turn has started.                       |
+#'   |bottom_seed_num_home_runs                        |integer   |Number of home runs hit by the bottom seed.                       |
+#'   |bottom_seed_player_id                            |integer   |MLB player id of the bottom seed.                                 |
+#'   |bottom_seed_player_full_name                     |character |Full name of the bottom seed.                                     |
+#'   |bottom_seed_player_link                          |character |API relative link to the bottom seed player.                      |
+#'   |bottom_seed_top_derby_hit_data_launch_speed      |integer   |Bottom seed's hardest-hit exit velocity in the round (mph).       |
+#'   |bottom_seed_top_derby_hit_data_total_distance    |integer   |Bottom seed's longest projected distance in the round (feet).     |
+#'   |venue_link                                       |character |API relative link to the event venue.                             |
+#'   |is_multi_day                                     |logical   |Whether the event spans multiple days.                            |
+#'   |is_primary_calendar                              |logical   |Whether the event is on the primary calendar.                     |
+#'   |file_code                                        |character |Internal file code for the event.                                 |
+#'   |event_number                                     |integer   |Event number identifier.                                          |
+#'   |public_facing                                    |logical   |Whether the event is public facing.                               |
 #' @importFrom jsonlite fromJSON
 #' @export
 #' @examples \donttest{
@@ -126,24 +125,25 @@ mlb_homerun_derby <- function(game_pk){
         dplyr::bind_rows(bottom_seed) |> 
         dplyr::bind_cols(info) |> 
         dplyr::select(
-          "game_pk",
-          "event_name",
-          "event_date",
-          "event_type_code",
-          "event_type_name",
-          "venue_id",
-          "venue_name",
-          "round", 
-          "num_batters", 
-          "batter", 
-          "batter_id", 
-          "batter_link", 
-          tidyr::everything()) |> 
-        dplyr::select(c(
-          "game_pk", "event_name", "event_date", 
+          dplyr::any_of(c(
+            "game_pk",
+            "event_name",
+            "event_date",
+            "event_type_code",
+            "event_type_name",
+            "venue_id",
+            "venue_name",
+            "round",
+            "num_batters",
+            "batter",
+            "batter_id",
+            "batter_link")),
+          tidyr::everything()) |>
+        dplyr::select(dplyr::any_of(c(
+          "game_pk", "event_name", "event_date",
           "event_type_code", "event_type_name",
           "venue_id", "venue_name", "round",
-          "num_batters", "batter", "batter_id", 
+          "num_batters", "batter", "batter_id",
           "batter_link", "top_seed_complete", 
           "top_seed_started", "top_seed_winner",
           "bonus_time", "home_run", "tie_breaker",
@@ -167,10 +167,10 @@ mlb_homerun_derby <- function(game_pk){
           "bottom_seed_is_started", "bottom_seed_num_home_runs", 
           "bottom_seed_player_id", "bottom_seed_player_full_name", 
           "bottom_seed_player_link", "bottom_seed_top_derby_hit_data_launch_speed",
-          "bottom_seed_top_derby_hit_data_total_distance", 
-          "venue_link", "is_multi_day", 
+          "bottom_seed_top_derby_hit_data_total_distance",
+          "venue_link", "is_multi_day",
           "is_primary_calendar", "file_code", "event_number",
-          "public_facing")) |>
+          "public_facing"))) |>
         make_baseballr_data("MLB Homerun Derby data from MLB.com",Sys.time())
     },
     error = function(e) {
@@ -185,51 +185,50 @@ mlb_homerun_derby <- function(game_pk){
 #' @title **Retrieve Homerun Derby Bracket**
 #'
 #' @param game_pk The game_pk for which you want to return data
-#' @return Returns a tibble with the following columns 
-#'    |col_name                                      |types     |
-#'    |:---------------------------------------------|:---------|
-#'    |game_pk                                       |integer   |
-#'    |event_name                                    |character |
-#'    |event_type_code                               |character |
-#'    |event_type_name                               |character |
-#'    |event_date                                    |character |
-#'    |venue_id                                      |integer   |
-#'    |venue_name                                    |character |
-#'    |venue_link                                    |character |
-#'    |is_multi_day                                  |logical   |
-#'    |is_primary_calendar                           |logical   |
-#'    |file_code                                     |character |
-#'    |event_number                                  |integer   |
-#'    |public_facing                                 |logical   |
-#'    |round                                         |integer   |
-#'    |num_batters                                   |integer   |
-#'    |top_seed_complete                             |logical   |
-#'    |top_seed_started                              |logical   |
-#'    |top_seed_winner                               |logical   |
-#'    |top_seed_seed                                 |integer   |
-#'    |top_seed_is_winner                            |logical   |
-#'    |top_seed_is_complete                          |logical   |
-#'    |top_seed_is_started                           |logical   |
-#'    |top_seed_num_home_runs                        |integer   |
-#'    |top_seed_player_id                            |integer   |
-#'    |top_seed_player_full_name                     |character |
-#'    |top_seed_player_link                          |character |
-#'    |top_seed_top_derby_hit_data_launch_speed      |integer   |
-#'    |top_seed_top_derby_hit_data_total_distance    |integer   |
-#'    |bottom_seed_complete                          |logical   |
-#'    |bottom_seed_started                           |logical   |
-#'    |bottom_seed_winner                            |logical   |
-#'    |bottom_seed_seed                              |integer   |
-#'    |bottom_seed_is_winner                         |logical   |
-#'    |bottom_seed_is_complete                       |logical   |
-#'    |bottom_seed_is_started                        |logical   |
-#'    |bottom_seed_num_home_runs                     |integer   |
-#'    |bottom_seed_player_id                         |integer   |
-#'    |bottom_seed_player_full_name                  |character |
-#'    |bottom_seed_player_link                       |character |
-#'    |bottom_seed_top_derby_hit_data_launch_speed   |integer   |
-#'    |bottom_seed_top_derby_hit_data_total_distance |integer   |
-#'  
+#' @return Returns a tibble with the following columns
+#'    |col_name                                      |types     |description                                                   |
+#'    |:---------------------------------------------|:---------|:-------------------------------------------------------------|
+#'    |game_pk                                       |integer   |MLB game primary key for the Home Run Derby event.            |
+#'    |event_name                                    |character |Event name (e.g. 'All-Star Workout Day: Home Run Derby').     |
+#'    |event_type_code                               |character |Single-letter event type code (e.g. 'O').                     |
+#'    |event_type_name                               |character |Event type name (e.g. 'Other').                               |
+#'    |event_date                                    |character |Event date-time in ISO 8601 (e.g. '2017-07-11T00:00:00Z').    |
+#'    |venue_id                                      |integer   |MLB venue id hosting the event.                               |
+#'    |venue_name                                    |character |Venue name (e.g. 'Marlins Park').                             |
+#'    |venue_link                                    |character |API relative link to the event venue.                         |
+#'    |is_multi_day                                  |logical   |Whether the event spans multiple days.                        |
+#'    |is_primary_calendar                           |logical   |Whether the event is on the primary calendar.                 |
+#'    |file_code                                     |character |Internal file code for the event.                             |
+#'    |event_number                                  |integer   |Event number identifier.                                      |
+#'    |public_facing                                 |logical   |Whether the event is public facing.                           |
+#'    |round                                         |integer   |Derby bracket round number.                                   |
+#'    |top_seed_complete                             |logical   |Whether the top seed's turn in the matchup is complete.       |
+#'    |top_seed_started                              |logical   |Whether the top seed's turn in the matchup has started.       |
+#'    |top_seed_winner                               |logical   |Whether the top seed won the matchup.                         |
+#'    |top_seed_seed                                 |integer   |Bracket seed number of the top seed.                          |
+#'    |top_seed_is_winner                            |logical   |Whether the top seed is the matchup winner.                   |
+#'    |top_seed_is_complete                          |logical   |Whether the top seed's turn is complete.                      |
+#'    |top_seed_is_started                           |logical   |Whether the top seed's turn has started.                      |
+#'    |top_seed_num_home_runs                        |integer   |Number of home runs hit by the top seed.                      |
+#'    |top_seed_player_id                            |integer   |MLB player id of the top seed.                                |
+#'    |top_seed_player_full_name                     |character |Full name of the top seed.                                    |
+#'    |top_seed_player_link                          |character |API relative link to the top seed player.                     |
+#'    |top_seed_top_derby_hit_data_launch_speed      |integer   |Top seed's hardest-hit exit velocity in the round (mph).      |
+#'    |top_seed_top_derby_hit_data_total_distance    |integer   |Top seed's longest projected distance in the round (feet).    |
+#'    |bottom_seed_complete                          |logical   |Whether the bottom seed's turn in the matchup is complete.    |
+#'    |bottom_seed_started                           |logical   |Whether the bottom seed's turn in the matchup has started.    |
+#'    |bottom_seed_winner                            |logical   |Whether the bottom seed won the matchup.                      |
+#'    |bottom_seed_seed                              |integer   |Bracket seed number of the bottom seed.                       |
+#'    |bottom_seed_is_winner                         |logical   |Whether the bottom seed is the matchup winner.                |
+#'    |bottom_seed_is_complete                       |logical   |Whether the bottom seed's turn is complete.                   |
+#'    |bottom_seed_is_started                        |logical   |Whether the bottom seed's turn has started.                   |
+#'    |bottom_seed_num_home_runs                     |integer   |Number of home runs hit by the bottom seed.                   |
+#'    |bottom_seed_player_id                         |integer   |MLB player id of the bottom seed.                             |
+#'    |bottom_seed_player_full_name                  |character |Full name of the bottom seed.                                 |
+#'    |bottom_seed_player_link                       |character |API relative link to the bottom seed player.                  |
+#'    |bottom_seed_top_derby_hit_data_launch_speed   |integer   |Bottom seed's hardest-hit exit velocity in the round (mph).   |
+#'    |bottom_seed_top_derby_hit_data_total_distance |integer   |Bottom seed's longest projected distance in the round (feet). |
+#'
 #' @importFrom jsonlite fromJSON
 #' @export
 #' @examples \donttest{
@@ -267,8 +266,8 @@ mlb_homerun_derby_bracket <- function(game_pk){
       
       bracket <- info |> 
         dplyr::bind_cols(rounds) |> 
-        dplyr::select(-dplyr::any_of("top_seed_hits"), -dplyr::any_of("bottom_seed_hits")) |> 
-        dplyr::select(c(
+        dplyr::select(-dplyr::any_of("top_seed_hits"), -dplyr::any_of("bottom_seed_hits")) |>
+        dplyr::select(dplyr::any_of(c(
           "game_pk", "event_name", "event_type_code",
           "event_type_name", "event_date", "venue_id",
           "venue_name", "venue_link", "is_multi_day",
@@ -287,7 +286,7 @@ mlb_homerun_derby_bracket <- function(game_pk){
           "bottom_seed_player_id", "bottom_seed_player_full_name",
           "bottom_seed_player_link", "bottom_seed_top_derby_hit_data_launch_speed",
           "bottom_seed_top_derby_hit_data_total_distance"
-        )) |>
+        ))) |>
         make_baseballr_data("MLB Homerun Derby Bracket data from MLB.com",Sys.time())
     },
     error = function(e) {

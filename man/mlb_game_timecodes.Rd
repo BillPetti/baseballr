@@ -10,9 +10,9 @@ mlb_game_timecodes(game_pk)
 \item{game_pk}{The game_pk for the game requested}
 }
 \value{
-Returns a tibble that includes time codes from the game_pk requested\tabular{ll}{
-   col_name \tab types \cr
-   timecodes  (MMDDYYYY_HHMMSS) \tab numeric \cr
+Returns a tibble that includes time codes from the game_pk requested\tabular{lll}{
+   col_name \tab types \tab description \cr
+   timecodes \tab character \tab Play snapshot time code in 'YYYYMMDD_HHMMSS' format. \cr
 }
 }
 \description{
