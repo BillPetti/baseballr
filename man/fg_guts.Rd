@@ -7,22 +7,22 @@
 fg_guts()
 }
 \value{
-Returns a tibble of seasonal constants from FanGraphs\tabular{ll}{
-   col_name \tab types \cr
-   season \tab integer \cr
-   lg_woba \tab numeric \cr
-   woba_scale \tab numeric \cr
-   wBB \tab numeric \cr
-   wHBP \tab numeric \cr
-   w1B \tab numeric \cr
-   w2B \tab numeric \cr
-   w3B \tab numeric \cr
-   wHR \tab numeric \cr
-   runSB \tab numeric \cr
-   runCS \tab numeric \cr
-   lg_r_pa \tab numeric \cr
-   lg_r_w \tab numeric \cr
-   cFIP \tab numeric \cr
+Returns a tibble of seasonal constants from FanGraphs\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season \tab integer \tab Season (YYYY). \cr
+   lg_woba \tab numeric \tab League-average wOBA for the season. \cr
+   woba_scale \tab numeric \tab wOBA scale factor (converts wOBA to runs). \cr
+   wBB \tab numeric \tab Linear weight (runs) for an unintentional walk. \cr
+   wHBP \tab numeric \tab Linear weight (runs) for a hit-by-pitch. \cr
+   w1B \tab numeric \tab Linear weight (runs) for a single. \cr
+   w2B \tab numeric \tab Linear weight (runs) for a double. \cr
+   w3B \tab numeric \tab Linear weight (runs) for a triple. \cr
+   wHR \tab numeric \tab Linear weight (runs) for a home run. \cr
+   runSB \tab numeric \tab Run value of a stolen base. \cr
+   runCS \tab numeric \tab Run value of a caught stealing. \cr
+   lg_r_pa \tab numeric \tab League runs per plate appearance. \cr
+   lg_r_w \tab numeric \tab League runs per win. \cr
+   cFIP \tab numeric \tab FIP constant for the season. \cr
 }
 }
 \description{
