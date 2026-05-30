@@ -26,6 +26,7 @@
 - Added project documentation and community health files (`CLAUDE.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `.github/copilot-instructions.md`, pull request template), refreshed the `_pkgdown.yml` reference index, and updated GitHub Actions workflows to current (Node 20-compatible) action versions.
 
 - Hotfix for `statcast_search` with the new column definitions v(1.6.0.9001)
+- Hotfix for `statcast_search` with the new column definitions v(1.6.0.9002)
 
 # baseballr 1.6.0
 
