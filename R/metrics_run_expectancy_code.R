@@ -64,7 +64,7 @@ run_expectancy_code <- function(df, level = "plate appearance"){
       runs_scored_on_pitch = stringr::str_count(.data$des, "scores"),
       runs_scored_on_pitch = ifelse(.data$events == "home_run", .data$runs_scored_on_pitch + 1, .data$runs_scored_on_pitch), 
       bat_score_after = .data$bat_score + .data$runs_scored_on_pitch) |>
-    dplyr::arrange(.data$game_pk, .data$at_bat_number,.data$ pitch_number) |>
+    dplyr::arrange(.data$game_pk, .data$at_bat_number, .data$pitch_number) |>
     dplyr::mutate(
       final_pitch_inning = ifelse(.data$final_pitch_at_bat == 1 & .data$inning_topbot != lead(.data$inning_topbot), 1, 0), 
       final_pitch_inning = ifelse(is.na(.data$final_pitch_inning), 1, .data$final_pitch_inning))

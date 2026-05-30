@@ -27,8 +27,8 @@ edge_frequency <- function(df, group = NULL) {
   }
   else {
     grouped <- df |> 
-      dplyr::filter(!is.na(.data$px), !is.na(.data$pz)) |> 
-      dplyr::group_by(.data$group) |> 
+      dplyr::filter(!is.na(.data$px), !is.na(.data$pz)) |>
+      dplyr::group_by(.data[[group]]) |>
       dplyr::summarise(
         All_pitches = n(), 
         All_calls = sum(.data$called_pitch), 

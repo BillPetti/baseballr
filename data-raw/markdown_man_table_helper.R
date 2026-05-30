@@ -4,15 +4,17 @@ df %>% dplyr::select(col_name, types) %>% knitr::kable(row.names = FALSE)
 
 x %>% knitr::kable()
 
-testy <- function(func) {
+testy <- function(func, envir = parent.frame()) {
   # Extract the parameters of the given function
   params <- formals(func)
 
-  # Loop through each parameter and assign it to the global environment
+  # Assign each parameter's evaluated default into the caller's environment.
+  # Defaults to parent.frame() (the global environment when called at the top
+  # level interactively) rather than hard-coding .GlobalEnv, so callers can
+  # target a scratch environment and avoid clobbering global objects.
   for (param_name in names(params)) {
-    # Use 'assign' to put each parameter in the global environment
-    assign(param_name, eval(params[[param_name]]), envir = .GlobalEnv)
+    assign(param_name, eval(params[[param_name]]), envir = envir)
   }
 
-  cat("Parameters have been assigned to the global environment.\n")
+  cat("Parameters have been assigned to the calling environment.\n")
 }

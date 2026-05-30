@@ -67,11 +67,10 @@ process_statcast_payload <- function(payload) {
 
   payload <- payload |>
     dplyr::ungroup() |>
-    dplyr::mutate_at(vars(dplyr::one_of(cols_to_transform)), as.character) |>
-    dplyr::mutate_at(vars(dplyr::one_of(cols_to_transform)), as.numeric) |>
-    dplyr::mutate_at(vars(dplyr::one_of(cols_to_transform)), function(x) {
-      ifelse(is.na(x), 999999999, x)
-    })
+    dplyr::mutate(dplyr::across(dplyr::any_of(cols_to_transform), as.character)) |>
+    dplyr::mutate(dplyr::across(dplyr::any_of(cols_to_transform), as.numeric)) |>
+    dplyr::mutate(dplyr::across(dplyr::any_of(cols_to_transform),
+                                ~ ifelse(is.na(.x), 999999999, .x)))
 
   return(payload)
 
