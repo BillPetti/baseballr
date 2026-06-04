@@ -5,7 +5,7 @@
 #' Baseball Savant to ensure consistency in formatting across downloads
 #' @param payload payload from a Baseball Savant request
 #' @return A tibble with the processed Statcast data coerced to the correct types.
-#' @importFrom dplyr mutate_at mutate one_of
+#' @importFrom dplyr mutate across any_of
 #' @export
 
 process_statcast_payload <- function(payload) {
