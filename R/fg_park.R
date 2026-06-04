@@ -32,6 +32,8 @@ fg_park <- function(yr) {
   tryCatch(
     expr = {
       park_table <- paste0("http://www.fangraphs.com/guts.aspx?type=pf&teamid=0&season=", yr) %>% 
+        httr::RETRY("GET", ., fg_user_agent()) %>% 
+        httr::content(as = "raw") %>% 
         xml2::read_html() %>%
         rvest::html_element(xpath = '//*[(@id = "GutsBoard1_dg1_ctl00")]') %>%
         rvest::html_table() %>%
@@ -77,6 +79,8 @@ fg_park_hand <- function(yr) {
   tryCatch(
     expr = {
       park_table <- paste0("http://www.fangraphs.com/guts.aspx?type=pfh&teamid=0&season=", yr) %>% 
+        httr::RETRY("GET", ., fg_user_agent()) %>% 
+        httr::content(as = "raw") %>% 
         xml2::read_html() %>%
         rvest::html_element(xpath = '//*[(@id = "GutsBoard1_dg1_ctl00")]') %>%
         rvest::html_table() %>%

@@ -298,7 +298,7 @@ fg_batter_game_logs <- function(playerid, year) {
                 year)
   tryCatch(
     expr = {
-      res <- httr::RETRY("GET", url)
+      res <- httr::RETRY("GET", url, fg_user_agent())
       
       resp <- res %>% 
         httr::content(as = "text", encoding = "UTF-8")

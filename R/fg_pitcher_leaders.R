@@ -506,7 +506,7 @@ fg_pitcher_leaders <- function(
     expr = {
       
       resp <- fg_endpoint %>% 
-        mlb_api_call()
+        fg_api_call()
       
       fg_df <- resp$data %>% 
         jsonlite::toJSON() %>%

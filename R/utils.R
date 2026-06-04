@@ -15,6 +15,32 @@ request_with_proxy <- function(url, ...){
   httr::RETRY("GET", url = {{url}}, ..., headers, httr::timeout(15))
 }
 
+#' @title
+#' **Call a FanGraphs API endpoint**
+#' @description
+#' FanGraphs serves a Cloudflare JS challenge (HTTP 403) to unrecognized
+#' HTTP clients, but exempts the okhttp client its own mobile app uses.
+#' Send that user agent with every FanGraphs request.
+#' @param url Request url
+#' @keywords internal
+#' @importFrom httr RETRY user_agent
+fg_user_agent <- function(){
+  httr::user_agent("okhttp/4.12.0")
+}
+
+#' @rdname fg_user_agent
+#' @keywords internal
+fg_api_call <- function(url){
+  res <-
+    httr::RETRY("GET", url, fg_user_agent())
+
+  json <- res$content %>%
+    rawToChar() %>%
+    jsonlite::fromJSON(simplifyVector = T)
+
+  return(json)
+}
+
 #' @title **Progressively**
 #'
 #' @description This function helps add progress-reporting to any function - given function `f()` and progressor `p()`, it will return a new function that calls `f()` and then (on-exiting) will call `p()` after every iteration.
