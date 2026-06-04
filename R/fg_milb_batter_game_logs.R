@@ -85,7 +85,7 @@ fg_milb_batter_game_logs <- function(playerid, year) {
                     "&season=",
                     year)
       
-      res <- httr::RETRY("GET", url)
+      res <- httr::RETRY("GET", url, fg_user_agent())
       
       resp <- res %>% 
         httr::content(as = "text", encoding = "UTF-8")
@@ -104,7 +104,7 @@ fg_milb_batter_game_logs <- function(playerid, year) {
                           playerid,
                           "&position=&z=1703085978")
       
-      stats_res <- httr::RETRY("GET", url_basic)
+      stats_res <- httr::RETRY("GET", url_basic, fg_user_agent())
       
       stats_resp <- stats_res %>% 
         httr::content(as = "text", encoding = "UTF-8")
@@ -122,7 +122,7 @@ fg_milb_batter_game_logs <- function(playerid, year) {
       url_player <- paste0("https://www.fangraphs.com/api/players/stats?playerid=",
                            team_payload,
                            "&position=&z=1703085978")
-      player_res <- httr::RETRY("GET", url_player)
+      player_res <- httr::RETRY("GET", url_player, fg_user_agent())
       
       player_resp <- player_res %>% 
         httr::content(as = "text", encoding = "UTF-8")

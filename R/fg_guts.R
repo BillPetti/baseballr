@@ -27,6 +27,8 @@ fg_guts <- function() {
   tryCatch(
     expr = {
       guts_table <- "http://www.fangraphs.com/guts.aspx?type=cn" %>% 
+        httr::RETRY("GET", ., fg_user_agent()) %>% 
+        httr::content(as = "raw") %>% 
         xml2::read_html() %>%
         rvest::html_element(xpath = '//*[(@id = "GutsBoard1_dg1_ctl00")]') %>%
         rvest::html_table() %>%
