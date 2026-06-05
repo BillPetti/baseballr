@@ -13,6 +13,7 @@
 #   SPOTRAC_TESTS=1     Spotrac             (sptrc_*)
 #   CHADWICK_TESTS=1    Chadwick register   (chadwick_*)
 #   BASEBALLR_LOAD_TESTS=1  data-repo loaders (load_*)
+#   ESPN_MLB_TESTS=1    ESPN MLB            (espn_mlb_*)
 #
 # Example, to run the MLB Stats API tests locally:
 #   Sys.setenv(MLB_STATS_TESTS = "1"); devtools::test()
@@ -80,6 +81,14 @@ skip_chadwick_test <- function() {
 skip_load_test <- function() {
   if (Sys.getenv("BASEBALLR_LOAD_TESTS") != "1") {
     skip("Set BASEBALLR_LOAD_TESTS=1 to run load_* data-repository tests")
+  } else {
+    invisible()
+  }
+}
+
+skip_espn_test <- function() {
+  if (Sys.getenv("ESPN_MLB_TESTS") != "1") {
+    skip("Set ESPN_MLB_TESTS=1 to run ESPN MLB (espn_mlb_*) tests")
   } else {
     invisible()
   }

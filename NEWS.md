@@ -1,5 +1,13 @@
 # baseballr (development version)
 
+### New features
+
+- Added a full **ESPN MLB** wrapper family (`espn_mlb_*()`, 100+ functions) mirroring the naming and structure of the sister SportsDataverse packages (hoopR `espn_nba_*`/`espn_mbb_*`, wehoop `espn_wnba_*`/`espn_wbb_*`, cfbfastR `espn_cfb_*`). It covers ESPN's three public hosts:
+  - **Game data** (`site.api.espn.com`): `espn_mlb_scoreboard()`, `espn_mlb_pbp()` (pitch/at-bat level), `espn_mlb_team_box()`, `espn_mlb_player_box()`, `espn_mlb_game_all()`, `espn_mlb_game_rosters()`, `espn_mlb_teams()`, `espn_mlb_team_current_roster()`, `espn_mlb_standings()`, `espn_mlb_betting()`. Baseball-specific extractors with no basketball analogue: `espn_mlb_game_probables()` (probable / announced starting pitchers) and `espn_mlb_game_info()` (venue, attendance, game duration, and the umpire crew).
+  - **Reference data** (`sports.core.api.espn.com`): athletes, coaches, seasons, franchises, draft, futures, leaders, positions, powerindex, events, plays, per-competitor game detail, and the `season_*` family.
+  - **Athlete data** (`site.web.api.espn.com`): `espn_mlb_player_overview()`, `espn_mlb_player_gamelog()`, `espn_mlb_player_splits()`, `espn_mlb_player_stats()`, `espn_mlb_team_stats()`.
+  Box scores are returned as wide, clean-named `baseballr_data` tibbles (one row per team for `espn_mlb_team_box()`; one row per athlete-side, tagged `stat_group`, for `espn_mlb_player_box()`), with the baseball `batting`/`pitching`/`fielding` stat groups parsed natively. ESPN requests share an internal `httr2` layer (`.retry_request()`) that honours `options(baseballr.proxy = ...)`. Live tests are gated behind `ESPN_MLB_TESTS=1` (`skip_espn_test()`).
+
 ### Bug fixes
 
 - `edge_frequency(df, group = ...)` now groups by the column named in the `group` argument. It previously grouped by a literal column named `group` (`.data$group`), so passing a `group` (e.g. `"pitcher"`) errored unless the data happened to have a `group` column and otherwise ignored the argument.

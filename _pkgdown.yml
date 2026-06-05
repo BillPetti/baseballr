@@ -266,6 +266,15 @@ reference:
     contents:
       - '`spotrac`'
       - starts_with("sptrc")
+  - title: ESPN MLB
+  - subtitle: ESPN MLB Data Functions
+    desc: >
+      Functions exported by baseballr to access ESPN's Major League Baseball
+      endpoints (scoreboard, schedule, game summary / play-by-play, box scores,
+      teams, rosters, standings, athletes, leaders, draft, and reference data).
+    contents:
+      - '`espn_mlb`'
+      - starts_with("espn_mlb")
   - title: MLB Stats - Overview
     contents:
       - '`mlb`'

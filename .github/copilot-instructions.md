@@ -21,6 +21,7 @@ Use the prefix that matches the data source. Never mix sources behind one prefix
 | `fg_`          | FanGraphs                                | `fg_batter_leaders()`         |
 | `bref_`        | Baseball Reference                       | `bref_team_results()`         |
 | `statcast_` / `sc_` | Baseball Savant / Statcast          | `statcast_search()`           |
+| `espn_mlb_`    | ESPN (MLB)                               | `espn_mlb_pbp()`, `espn_mlb_scoreboard()` |
 | `ncaa_`        | NCAA baseball stats site                 | `ncaa_team_player_stats()`    |
 | `sptrc_`       | Spotrac                                  | `sptrc_team_active_payroll()` |
 | `chadwick_`    | Chadwick Bureau register                 | `chadwick_player_lu()`        |
@@ -69,11 +70,16 @@ Use the prefix that matches the data source. Never mix sources behind one prefix
   document the choices, and validate inside the function. Do not use
   `match.arg`-style `c(...)` choice-vector defaults in signatures.
 - **HTTP helpers / FanGraphs.** Don't call `httr`/`httr2` directly; use the
-  source helpers (`mlb_api_call()`, `fg_api_call()`, `request_with_proxy()`).
-  FanGraphs sits behind Cloudflare and 403s plain/library `User-Agent`s, so route
-  FanGraphs requests through `fg_api_call()` -- it sends the Cloudflare-exempt
-  `okhttp/4.12.0` UA. `mlb_api_call()` keeps a plain UA for the MLB Stats API.
-  (okhttp-UA approach adapted from upstream PR #405.)
+  source helpers (`mlb_api_call()`, `fg_api_call()`, `request_with_proxy()`,
+  `.retry_request()`). FanGraphs sits behind Cloudflare and 403s plain/library
+  `User-Agent`s, so route FanGraphs requests through `fg_api_call()` -- it sends
+  the Cloudflare-exempt `okhttp/4.12.0` UA. `mlb_api_call()` keeps a plain UA for
+  the MLB Stats API. (okhttp-UA approach adapted from upstream PR #405.)
+- **ESPN MLB (`espn_mlb_*`).** Public wrappers in `R/espn_mlb_*.R` are thin shims
+  over `R/espn_baseball_*_helpers.R`; the game-summary box parsers live in
+  `R/espn_mlb_box_helpers.R`. They share the `httr2` layer in `R/utils_espn.R`
+  (`.retry_request()`, honouring `options(baseballr.proxy = ...)`) and report via
+  `.report_api_error()` / `.report_api_warning()`, not raw `cli::cli_alert_*()`.
 
 ## Testing
 
