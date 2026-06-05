@@ -68,6 +68,12 @@ Use the prefix that matches the data source. Never mix sources behind one prefix
 - **Default arguments.** Give a single default value (e.g. `output = "default"`),
   document the choices, and validate inside the function. Do not use
   `match.arg`-style `c(...)` choice-vector defaults in signatures.
+- **HTTP helpers / FanGraphs.** Don't call `httr`/`httr2` directly; use the
+  source helpers (`mlb_api_call()`, `fg_api_call()`, `request_with_proxy()`).
+  FanGraphs sits behind Cloudflare and 403s plain/library `User-Agent`s, so route
+  FanGraphs requests through `fg_api_call()` -- it sends the Cloudflare-exempt
+  `okhttp/4.12.0` UA. `mlb_api_call()` keeps a plain UA for the MLB Stats API.
+  (okhttp-UA approach adapted from upstream PR #405.)
 
 ## Testing
 

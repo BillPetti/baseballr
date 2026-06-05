@@ -231,10 +231,23 @@ returns mixed `NULL`/value fields -- supply `%||%` defaults before binding.
 baseballr talks to several different hosts (statsapi.mlb.com, fangraphs.com,
 baseball-reference.com, baseballsavant.mlb.com, the NCAA stats site, spotrac.com),
 so there is no single base-URL or proxy convention as in single-source packages.
-Requests go through the package's own helpers in `R/utils.R`
-(`request_with_proxy()`, `csv_from_url()`, `rds_from_url()`); build each wrapper
-on the helper appropriate to its source rather than calling `httr`/`httr2`
-directly.
+Requests go through the package's own helpers in `R/utils.R` and
+`R/utils_mlb_stats.R` (`mlb_api_call()`, `fg_api_call()`, `request_with_proxy()`,
+`csv_from_url()`, `rds_from_url()`); build each wrapper on the helper appropriate
+to its source rather than calling `httr`/`httr2` directly.
+
+**FanGraphs requires a Cloudflare-exempt `User-Agent`.** As of 2026-06-03
+FanGraphs sits behind a Cloudflare JS challenge that 403s (`cf-mitigated:
+challenge`) *every* unrecognized client -- including the plain/library
+`User-Agent` that used to slip through -- and no header/TLS tweak passes it (it
+needs a JS runtime). The challenge exempts the okhttp client the FanGraphs mobile
+app uses, so **FanGraphs requests go through `fg_api_call()`**, which sends
+`User-Agent: okhttp/4.12.0` (and emits a `cli` hint if a 403 still slips
+through). `mlb_api_call()` keeps a plain package `User-Agent` for the MLB Stats
+API (which ignores it). The `.aspx` scrapers (`fg_guts()`, `fg_park()`,
+`fg_park_hand()`) and the FanGraphs game-log functions send the same okhttp UA
+inline. Build new FanGraphs wrappers on `fg_api_call()`, never `mlb_api_call()`.
+(The okhttp-UA approach was adapted from upstream PR #405; see `NEWS.md`.)
 
 ## Testing
 
