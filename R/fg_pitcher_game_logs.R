@@ -397,7 +397,7 @@ fg_pitcher_game_logs <- function(playerid, year) {
   payload <- NULL
   tryCatch(
     expr = {
-      res <- httr2::request(url) |> httr2::req_retry(max_tries = 3) |> httr2::req_perform()
+      res <- httr2::request(url) |> httr2::req_retry(max_tries = 3) |> httr2::req_user_agent("okhttp/4.12.0") |> httr2::req_perform()
       
       resp <- res |> 
         httr2::resp_body_string()

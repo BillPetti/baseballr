@@ -35,6 +35,10 @@ fg_park <- function(yr) {
   tryCatch(
     expr = {
       park_table <- paste0("https://www.fangraphs.com/guts.aspx?type=pf&teamid=0&season=", yr) |>
+        httr2::request() |>
+        httr2::req_user_agent("okhttp/4.12.0") |>
+        httr2::req_perform() |>
+        httr2::resp_body_string() |>
         xml2::read_html() |>
         rvest::html_element(".table-scroll table") |>
         rvest::html_table() |>
@@ -83,6 +87,10 @@ fg_park_hand <- function(yr) {
   tryCatch(
     expr = {
       park_table <- paste0("https://www.fangraphs.com/guts.aspx?type=pfh&teamid=0&season=", yr) |>
+        httr2::request() |>
+        httr2::req_user_agent("okhttp/4.12.0") |>
+        httr2::req_perform() |>
+        httr2::resp_body_string() |>
         xml2::read_html() |>
         rvest::html_element(".table-scroll table") |>
         rvest::html_table() |>

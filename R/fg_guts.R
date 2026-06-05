@@ -32,6 +32,10 @@ fg_guts <- function() {
       # FanGraphs replaced the legacy ASP.NET grid (id "GutsBoard1_dg1_ctl00")
       # with a modern ".table-scroll" data grid; select that table instead.
       guts_table <- "https://www.fangraphs.com/guts.aspx?type=cn" |>
+        httr2::request() |>
+        httr2::req_user_agent("okhttp/4.12.0") |>
+        httr2::req_perform() |>
+        httr2::resp_body_string() |>
         xml2::read_html() |>
         rvest::html_element(".table-scroll table") |>
         rvest::html_table() |>

@@ -1,33 +1,43 @@
 mlb_api_call <- function(url){
-  # Identify with a plain package User-Agent and back off on transient failures.
-  # IMPORTANT: do NOT send a browser User-Agent here. The FanGraphs leaders
-  # endpoints (fg_*_leaders(), fg_team_*()) route through this helper and sit
-  # behind Cloudflare, which serves a "Just a moment..." JS challenge (HTTP 403)
-  # to requests that *claim to be a browser* but cannot solve the challenge. A
-  # plain library/package User-Agent is not challenged and returns the data
-  # (#385, #397, #369, #343). The MLB Stats API ignores the User-Agent.
+  # Plain package User-Agent + transient-failure backoff. The MLB Stats API
+  # ignores the User-Agent. (FanGraphs requests do NOT use this helper -- they
+  # go through fg_api_call(), which sends the Cloudflare-exempt okhttp UA.)
   resp <- httr2::request(url) |>
     httr2::req_user_agent("baseballr (https://github.com/BillPetti/baseballr)") |>
     httr2::req_retry(max_tries = 3) |>
-    # Don't error on HTTP status; we inspect it (e.g. FanGraphs 403) and let the
-    # body parse fail through the caller's tryCatch on a genuine error.
     httr2::req_error(is_error = function(resp) FALSE) |>
     httr2::req_perform()
-
-  # If FanGraphs ever tightens Cloudflare to challenge all clients, surface the
-  # 403 with a clear message instead of a cryptic downstream parse error.
-  if (httr2::resp_status(resp) == 403) {
-    cli::cli_alert_danger("Request returned HTTP 403 (Forbidden) for {.url {url}}.")
-    cli::cli_alert_info(paste0(
-      "FanGraphs is serving a Cloudflare anti-bot challenge; wait and retry ",
-      "later, or route requests through a proxy."))
-  }
 
   json <- resp |>
     httr2::resp_body_string() |>
     jsonlite::fromJSON(simplifyVector = TRUE)
 
   return(json)
+}
+
+fg_api_call <- function(url){
+  # FanGraphs sits behind Cloudflare. As of 2026-06-03 it serves a JS challenge
+  # (HTTP 403, `cf-mitigated: challenge`) to *every* unrecognized client --
+  # including plain/library User-Agents; no header/TLS tweak passes it (it needs
+  # a JS runtime). The challenge exempts the okhttp client the FanGraphs mobile
+  # app uses, so sending `okhttp/4.12.0` returns 200 with normal JSON. Fixes the
+  # FanGraphs 403 cluster (#404/#402/#397/#389/#385/#373/#369/#358/#353/#343);
+  # okhttp-UA approach from PR #405.
+  resp <- httr2::request(url) |>
+    httr2::req_user_agent("okhttp/4.12.0") |>
+    httr2::req_retry(max_tries = 3) |>
+    httr2::req_error(is_error = function(resp) FALSE) |>
+    httr2::req_perform()
+
+  if (httr2::resp_status(resp) == 403) {
+    cli::cli_alert_danger("FanGraphs returned HTTP 403 (Cloudflare challenge) for {.url {url}}.")
+    cli::cli_alert_info(paste0(
+      "The okhttp User-Agent exemption may have changed; see issue #404 / PR #405."))
+  }
+
+  resp |>
+    httr2::resp_body_string() |>
+    jsonlite::fromJSON(simplifyVector = TRUE)
 }
 
 mlb_stats_endpoint <- function(endpoint){

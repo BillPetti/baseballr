@@ -68,7 +68,7 @@ fg_milb_batter_game_logs <- function(playerid, year) {
                     "&season=",
                     year)
       
-      res <- httr2::request(url) |> httr2::req_retry(max_tries = 3) |> httr2::req_perform()
+      res <- httr2::request(url) |> httr2::req_retry(max_tries = 3) |> httr2::req_user_agent("okhttp/4.12.0") |> httr2::req_perform()
       
       resp <- res |> 
         httr2::resp_body_string()
@@ -87,7 +87,7 @@ fg_milb_batter_game_logs <- function(playerid, year) {
                           playerid,
                           "&position=&z=1703085978")
       
-      stats_res <- httr2::request(url_basic) |> httr2::req_retry(max_tries = 3) |> httr2::req_perform()
+      stats_res <- httr2::request(url_basic) |> httr2::req_retry(max_tries = 3) |> httr2::req_user_agent("okhttp/4.12.0") |> httr2::req_perform()
       
       stats_resp <- stats_res |> 
         httr2::resp_body_string()
@@ -105,7 +105,7 @@ fg_milb_batter_game_logs <- function(playerid, year) {
       url_player <- paste0("https://www.fangraphs.com/api/players/stats?playerid=",
                            team_payload,
                            "&position=&z=1703085978")
-      player_res <- httr2::request(url_player) |> httr2::req_retry(max_tries = 3) |> httr2::req_perform()
+      player_res <- httr2::request(url_player) |> httr2::req_retry(max_tries = 3) |> httr2::req_user_agent("okhttp/4.12.0") |> httr2::req_perform()
       
       player_resp <- player_res |> 
         httr2::resp_body_string()
