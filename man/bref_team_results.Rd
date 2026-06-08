@@ -30,6 +30,12 @@ Returns a tibble of MLB team results, one row per game on the team's schedule, w
    Loss \tab character \tab Losing pitcher. \cr
    Save \tab character \tab Pitcher credited with the save (N if none). \cr
    Time \tab character \tab Duration of the game. \cr
+   D/N \tab character \tab Day (D) or night (N) game. \cr
+   Attendance \tab numeric \tab Announced attendance. \cr
+   cLI \tab numeric \tab Championship leverage index of the game. \cr
+   Streak \tab character \tab Win/loss streak entering the game. \cr
+   Orig_Scheduled \tab character \tab Original scheduled date (for rescheduled games). \cr
+   Year \tab numeric \tab Season year. \cr
 }
 }
 \description{
