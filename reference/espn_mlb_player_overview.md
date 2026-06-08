@@ -191,12 +191,12 @@ Saiem Gilani
   espn_mlb_player_overview(athlete_id = "1966", season = 2024)
 #> $Statistics
 #> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-06-08 01:55:59 UTC
+#> ℹ Data updated: 2026-06-08 03:18:52 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-06-08 01:55:59 UTC
+#> ℹ Data updated: 2026-06-08 03:18:52 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -204,32 +204,32 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-06-08 01:55:59 UTC
+#> ℹ Data updated: 2026-06-08 03:18:52 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-06-08 01:55:59 UTC
+#> ℹ Data updated: 2026-06-08 03:18:52 UTC
 #> # A tibble: 13 × 5
 #>    headline                           description published byline type 
 #>    <chr>                              <chr>       <chr>     <chr>  <chr>
-#>  1 Matthew Boyd expected to return t… Cubs openi… 2026-06-… NA     Head…
-#>  2 Yanks' Jazz Chisholm Jr. borrows … Jazz Chish… 2026-06-… NA     Head…
-#>  3 Orioles irked after Clement dodge… Ernie Clem… 2026-06-… NA     Head…
-#>  4 Royals' Bobby Witt Jr. leaves gam… Kansas Cit… 2026-06-… NA     Head…
-#>  5 Kyle Freeland now Rockies' all-ti… Kyle Freel… 2026-06-… NA     Head…
-#>  6 Los Angeles Angels place Jack Koc… The Los An… 2026-06-… NA     Head…
-#>  7 Fantasy baseball lineup advice fo… Everything… 2026-06-… ESPN … Story
-#>  8 Tigers' Tarik Skubal pitches 5 sc… Tigers ace… 2026-06-… NA     Head…
-#>  9 Fantasy baseball: Smith expected … All of the… 2026-06-… ESPN … Story
-#> 10 MLB betting tips for Sunday: Stic… All of the… 2026-06-… Derek… Story
-#> 11 2026 MLB ABS challenge system tra… The ABS ch… 2026-06-… ESPN   Story
-#> 12 Brewers' Misiorowski throws 103.7… Brewers ac… 2026-06-… NA     Head…
-#> 13 Brewers acquire reliever Joel Kuh… Right-hand… 2026-06-… NA     Head…
+#>  1 Max Kepler, suspended for PEDs in… The Diamon… 2026-06-… NA     Head…
+#>  2 Cubs' Jameson Taillon exits in 2n… Cubs start… 2026-06-… Jesse… Head…
+#>  3 Matthew Boyd expected to return t… Cubs openi… 2026-06-… NA     Head…
+#>  4 Yanks' Jazz Chisholm Jr. borrows … Jazz Chish… 2026-06-… NA     Head…
+#>  5 Orioles irked after Clement dodge… Ernie Clem… 2026-06-… NA     Head…
+#>  6 Royals' Bobby Witt Jr. leaves gam… Kansas Cit… 2026-06-… NA     Head…
+#>  7 Kyle Freeland now Rockies' all-ti… Kyle Freel… 2026-06-… NA     Head…
+#>  8 Los Angeles Angels place Jack Koc… The Los An… 2026-06-… NA     Head…
+#>  9 Fantasy baseball lineup advice fo… Everything… 2026-06-… ESPN … Story
+#> 10 Tigers' Tarik Skubal pitches 5 sc… Tigers ace… 2026-06-… NA     Head…
+#> 11 Fantasy baseball: Smith expected … All of the… 2026-06-… ESPN … Story
+#> 12 MLB betting tips for Sunday: Stic… All of the… 2026-06-… Derek… Story
+#> 13 2026 MLB ABS challenge system tra… The ABS ch… 2026-06-… ESPN   Story
 #> 
 #> $FantasyOutlook
 #> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────
-#> ℹ Data updated: 2026-06-08 01:55:59 UTC
+#> ℹ Data updated: 2026-06-08 03:18:52 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

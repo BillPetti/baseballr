@@ -68,7 +68,7 @@ them in different systems of record.
 # \donttest{
   try(chadwick_player_lu())
 #> ── Player Lookup from the Chadwick Bureau's public register of baseball 
-#> ℹ Data updated: 2026-06-08 01:55:28 UTC
+#> ℹ Data updated: 2026-06-08 03:18:10 UTC
 #> # A tibble: 516,106 × 40
 #>    key_person key_uuid    key_mlbam key_retro key_bbref key_bbref_minors
 #>    <chr>      <chr>           <int> <chr>     <chr>     <chr>           

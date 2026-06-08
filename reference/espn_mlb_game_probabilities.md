@@ -163,11 +163,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_game_probabilities(event_id = "401283399", limit = 50)
-#> ✖ 2026-06-08 01:55:51.070205: Failed to retrieve ESPN mlb event probabilities for event_id=401283399
+#> ✖ 2026-06-08 03:18:42.171854: Failed to retrieve ESPN mlb event probabilities for event_id=401283399
 #> ✖ Args: league = "mlb", event_id = "401283399", limit = 50
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN MLB Event Probabilities (event_id=401283399) from ESPN.com ─────
-#> ℹ Data updated: 2026-06-08 01:55:51 UTC
+#> ℹ Data updated: 2026-06-08 03:18:42 UTC
 #> # A tibble: 0 × 0
 # }
 ```

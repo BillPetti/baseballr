@@ -177,11 +177,11 @@ Saiem Gilani
 # \donttest{
   # Aaron Judge 2025 contract
   espn_mlb_player_contract(athlete_id = 33192, season = 2025)
-#> ✖ 2026-06-08 01:55:57.177378: Failed to retrieve ESPN mlb athlete contract for athlete_id=33192, season=2025
+#> ✖ 2026-06-08 03:18:50.159361: Failed to retrieve ESPN mlb athlete contract for athlete_id=33192, season=2025
 #> ✖ Args: league = "mlb", athlete_id = 33192, season = 2025
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN MLB Athlete Contract from ESPN.com ────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:55:57 UTC
+#> ℹ Data updated: 2026-06-08 03:18:50 UTC
 #> # A tibble: 0 × 0
 # }
 ```

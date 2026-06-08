@@ -23,7 +23,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_league_leader_types())
 #> ── MLB League Leader Types data from MLB.com ──────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:57:14 UTC
+#> ℹ Data updated: 2026-06-08 03:20:21 UTC
 #> # A tibble: 70 × 1
 #>    leader_type           
 #>    <chr>                 

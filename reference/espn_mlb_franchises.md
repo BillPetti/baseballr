@@ -151,7 +151,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_franchises()
 #> ── ESPN MLB Franchises Index ──────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:55:46 UTC
+#> ℹ Data updated: 2026-06-08 03:18:37 UTC
 #> # A tibble: 30 × 3
 #>    franchise_id ref                                               league
 #>    <chr>        <chr>                                             <chr> 

@@ -104,7 +104,7 @@ pitching) for the player in the game, with the following columns:
 # \donttest{
  try(mlb_player_game_stats(person_id = 605151, game_pk = 531368))
 #> ── MLB Player Game Stats data from MLB.com ────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:57:20 UTC
+#> ℹ Data updated: 2026-06-08 03:20:27 UTC
 #> # A tibble: 3 × 70
 #>   type    group    caught_stealing stolen_bases stolen_base_percentage
 #>   <chr>   <chr>              <int>        <int> <chr>                 

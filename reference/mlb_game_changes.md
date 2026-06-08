@@ -101,7 +101,7 @@ Returns a tibble that includes time codes from the game_pk requested
 # \donttest{
   try(mlb_game_changes(updated_since = "2021-08-10T19:08:24.000004Z", sport_id = 1))
 #> ── MLB Game Changes data from MLB.com ─────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:57:03 UTC
+#> ℹ Data updated: 2026-06-08 03:20:09 UTC
 #> # A tibble: 1,000 × 69
 #>    date      total_items total_events total_games total_games_in_progr…¹
 #>    <chr>           <int>        <int>       <int>                  <int>

@@ -172,7 +172,7 @@ Saiem Gilani
   espn_mlb_player_stats_v3(athlete_id = "1966", season = 2024)
 #> $`Career Batting`
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:56:01 UTC
+#> ℹ Data updated: 2026-06-08 03:18:55 UTC
 #> # A tibble: 14 × 6
 #>    team_id team_slug           season$year stats  position display_name
 #>    <chr>   <chr>                     <int> <list> <chr>    <chr>       
@@ -194,7 +194,7 @@ Saiem Gilani
 #> 
 #> $`Postseason Batting`
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:56:01 UTC
+#> ℹ Data updated: 2026-06-08 03:18:55 UTC
 #> # A tibble: 2 × 5
 #>   team_id team_slug         season$year $displayName stats      position
 #>   <chr>   <chr>                   <int> <chr>        <list>     <chr>   
@@ -203,7 +203,7 @@ Saiem Gilani
 #> 
 #> $`Expanded Batting`
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:56:01 UTC
+#> ℹ Data updated: 2026-06-08 03:18:55 UTC
 #> # A tibble: 14 × 6
 #>    team_id team_slug           season$year stats  position display_name
 #>    <chr>   <chr>                     <int> <list> <chr>    <chr>       
@@ -225,7 +225,7 @@ Saiem Gilani
 #> 
 #> $`Advanced Batting`
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:56:01 UTC
+#> ℹ Data updated: 2026-06-08 03:18:55 UTC
 #> # A tibble: 14 × 6
 #>    team_id team_slug           season$year stats  position display_name
 #>    <chr>   <chr>                     <int> <list> <chr>    <chr>       
@@ -247,32 +247,32 @@ Saiem Gilani
 #> 
 #> $General
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:56:01 UTC
+#> ℹ Data updated: 2026-06-08 03:18:55 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Offensive
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:56:01 UTC
+#> ℹ Data updated: 2026-06-08 03:18:55 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Defensive
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:56:01 UTC
+#> ℹ Data updated: 2026-06-08 03:18:55 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Rebounding
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:56:01 UTC
+#> ℹ Data updated: 2026-06-08 03:18:55 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Shooting
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:56:01 UTC
+#> ℹ Data updated: 2026-06-08 03:18:55 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Misc
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:56:01 UTC
+#> ℹ Data updated: 2026-06-08 03:18:55 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

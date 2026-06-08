@@ -163,11 +163,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_game_team_leaders(event_id = 401283399, team_id = 29)
-#> ✖ 2026-06-08 01:55:52.658211: Failed to retrieve ESPN mlb competitor leaders for event_id=401283399, team_id=29
+#> ✖ 2026-06-08 03:18:44.252779: Failed to retrieve ESPN mlb competitor leaders for event_id=401283399, team_id=29
 #> ✖ Args: league = "mlb", event_id = 401283399, team_id = 29
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN MLB Competitor Leaders ────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:55:52 UTC
+#> ℹ Data updated: 2026-06-08 03:18:44 UTC
 #> # A tibble: 0 × 0
 # }
 ```

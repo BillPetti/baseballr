@@ -178,7 +178,7 @@ Saiem Gilani
   espn_mlb_athletes_index(season = 2025, limit = 50)
 #> Fetching page 1 of 1 for mlb athletes (season=2025)...
 #> ── ESPN MLB Athletes Index from ESPN.com ──────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:55:41 UTC
+#> ℹ Data updated: 2026-06-08 03:18:29 UTC
 #> # A tibble: 50 × 9
 #>    athlete_id full_name jersey position team_id headshot status link    
 #>    <chr>      <chr>     <chr>  <chr>    <chr>   <chr>    <chr>  <chr>   

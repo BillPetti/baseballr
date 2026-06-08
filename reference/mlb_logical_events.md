@@ -23,7 +23,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_logical_events())
 #> ── MLB Logical Events data from MLB.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:57:15 UTC
+#> ℹ Data updated: 2026-06-08 03:20:21 UTC
 #> # A tibble: 73 × 1
 #>    event_code                     
 #>    <chr>                          

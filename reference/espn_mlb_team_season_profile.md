@@ -181,7 +181,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_team_season_profile(team_id = "13", season = 2025)
 #> ── ESPN MLB Team Season Profile from ESPN.com ─────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:56:16 UTC
+#> ℹ Data updated: 2026-06-08 03:19:14 UTC
 #> # A tibble: 1 × 35
 #>   id    guid            uid   slug  location name  nickname abbreviation
 #>   <chr> <chr>           <chr> <chr> <chr>    <chr> <lgl>    <chr>       

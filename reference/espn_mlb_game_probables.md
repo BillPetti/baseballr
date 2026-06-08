@@ -161,7 +161,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mlb_game_probables(game_id = "401570000"))
 #> ── ESPN MLB Probable Pitchers from ESPN.com ───────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:55:51 UTC
+#> ℹ Data updated: 2026-06-08 03:18:42 UTC
 #> # A tibble: 2 × 15
 #>   game_id season season_type team_id team_abbreviation team_display_name
 #>     <int>  <int>       <int>   <int> <chr>             <chr>            

@@ -169,11 +169,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_draft_athlete_detail(season = 2024, athlete_id = 33192)
-#> ✖ 2026-06-08 01:55:45.248282: Failed to retrieve ESPN mlb draft athlete detail for season=2024, athlete_id=33192
+#> ✖ 2026-06-08 03:18:34.926525: Failed to retrieve ESPN mlb draft athlete detail for season=2024, athlete_id=33192
 #> ✖ Args: league = "mlb", season = 2024, athlete_id = 33192
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN MLB Draft Athlete Detail ──────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:55:45 UTC
+#> ℹ Data updated: 2026-06-08 03:18:34 UTC
 #> # A tibble: 0 × 0
 # }
 ```

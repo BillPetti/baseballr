@@ -48,7 +48,7 @@ weather, official scorer, attendance, etc., for the game_pk provided
 # \donttest{
   try(mlb_game_info(game_pk = 566001))
 #> ── MLB Game Info data from MLB.com ────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:57:04 UTC
+#> ℹ Data updated: 2026-06-08 03:20:11 UTC
 #> # A tibble: 1 × 18
 #>   game_date  game_pk venue_name venue_id temperature other_weather wind 
 #>   <chr>        <dbl> <chr>         <int> <chr>       <chr>         <chr>

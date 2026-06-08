@@ -375,556 +375,6 @@ Functions exported by baseballr to access Spotrac Contracts Data
 
   **Scrape Team Active Payroll Breakdown from Spotrac**
 
-## ESPN MLB
-
-### ESPN MLB Data Functions
-
-Functions exported by baseballr to access ESPN’s Major League Baseball
-endpoints (scoreboard, schedule, game summary / play-by-play, box
-scores, teams, rosters, standings, athletes, leaders, draft, and
-reference data).
-
-- [`espn_mlb`](https://billpetti.github.io/baseballr/reference/espn_mlb.md)
-  :
-
-  **ESPN MLB Endpoint Overview**
-
-- [`espn_mlb_athletes_index()`](https://billpetti.github.io/baseballr/reference/espn_mlb_athletes_index.md)
-  :
-
-  **Get ESPN MLB Athletes Index**
-
-- [`espn_mlb_award()`](https://billpetti.github.io/baseballr/reference/espn_mlb_award.md)
-  :
-
-  **Get ESPN MLB Season Award Detail**
-
-- [`espn_mlb_betting()`](https://billpetti.github.io/baseballr/reference/espn_mlb_betting.md)
-  :
-
-  **Get ESPN MLB's Betting information**
-
-- [`espn_mlb_calendar()`](https://billpetti.github.io/baseballr/reference/espn_mlb_calendar.md)
-  :
-
-  **Get ESPN MLB Calendar**
-
-- [`espn_mlb_coach()`](https://billpetti.github.io/baseballr/reference/espn_mlb_coach.md)
-  :
-
-  **Get ESPN MLB Single-Coach Detail**
-
-- [`espn_mlb_coach_record()`](https://billpetti.github.io/baseballr/reference/espn_mlb_coach_record.md)
-  :
-
-  **Get ESPN MLB Coach Career Record (Long Format)**
-
-- [`espn_mlb_coach_season()`](https://billpetti.github.io/baseballr/reference/espn_mlb_coach_season.md)
-  :
-
-  **Get ESPN MLB Coach-in-Season Detail**
-
-- [`espn_mlb_coaches()`](https://billpetti.github.io/baseballr/reference/espn_mlb_coaches.md)
-  :
-
-  **Get ESPN MLB Coaches**
-
-- [`espn_mlb_conferences()`](https://billpetti.github.io/baseballr/reference/espn_mlb_conferences.md)
-  :
-
-  **Get ESPN MLB Conferences**
-
-- [`espn_mlb_draft()`](https://billpetti.github.io/baseballr/reference/espn_mlb_draft.md)
-  :
-
-  **Get ESPN MLB Draft Picks**
-
-- [`espn_mlb_draft_athlete_detail()`](https://billpetti.github.io/baseballr/reference/espn_mlb_draft_athlete_detail.md)
-  :
-
-  **Get ESPN MLB Draft Athlete Detail (Single Drafted Player)**
-
-- [`espn_mlb_draft_athletes()`](https://billpetti.github.io/baseballr/reference/espn_mlb_draft_athletes.md)
-  :
-
-  **Get ESPN MLB Draft Athletes Index**
-
-- [`espn_mlb_draft_pick()`](https://billpetti.github.io/baseballr/reference/espn_mlb_draft_pick.md)
-  :
-
-  **Get ESPN MLB Draft Pick Detail**
-
-- [`espn_mlb_draft_rounds()`](https://billpetti.github.io/baseballr/reference/espn_mlb_draft_rounds.md)
-  :
-
-  **Get ESPN MLB Draft Rounds Summary**
-
-- [`espn_mlb_draft_status()`](https://billpetti.github.io/baseballr/reference/espn_mlb_draft_status.md)
-  :
-
-  **Get ESPN MLB Draft Status**
-
-- [`espn_mlb_franchise()`](https://billpetti.github.io/baseballr/reference/espn_mlb_franchise.md)
-  :
-
-  **Get ESPN MLB Franchise Detail**
-
-- [`espn_mlb_franchises()`](https://billpetti.github.io/baseballr/reference/espn_mlb_franchises.md)
-  :
-
-  **Get ESPN MLB Franchises Index**
-
-- [`espn_mlb_freeagents()`](https://billpetti.github.io/baseballr/reference/espn_mlb_freeagents.md)
-  :
-
-  **Get ESPN MLB Free Agents**
-
-- [`espn_mlb_futures()`](https://billpetti.github.io/baseballr/reference/espn_mlb_futures.md)
-  :
-
-  **Get ESPN MLB Season Futures (Long Format)**
-
-- [`espn_mlb_game_all()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_all.md)
-  :
-
-  **Get ESPN MLB game data (Pbp, Team and Player Box)**
-
-- [`espn_mlb_game_broadcasts()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_broadcasts.md)
-  :
-
-  **Get ESPN MLB Event Broadcasts**
-
-- [`espn_mlb_game_info()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_info.md)
-  :
-
-  **Get ESPN MLB Game Info (venue, attendance, duration, umpires)**
-
-- [`espn_mlb_game_odds()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_odds.md)
-  :
-
-  **Get ESPN MLB Event Odds**
-
-- [`espn_mlb_game_official_detail()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_official_detail.md)
-  :
-
-  **Get ESPN MLB Event Official Detail (Single Official)**
-
-- [`espn_mlb_game_officials()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_officials.md)
-  :
-
-  **Get ESPN MLB Event Officials**
-
-- [`espn_mlb_game_play()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_play.md)
-  :
-
-  **Get ESPN MLB Event Play Detail (Single Play)**
-
-- [`espn_mlb_game_play_personnel()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_play_personnel.md)
-  :
-
-  **Get ESPN MLB Event Play Personnel (On-Court Lineup at Play)**
-
-- [`espn_mlb_game_player_box()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_player_box.md)
-  :
-
-  **Get ESPN MLB Event Player Box Score (Long Format)**
-
-- [`espn_mlb_game_powerindex()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_powerindex.md)
-  :
-
-  **Get ESPN MLB Event Power Index Index**
-
-- [`espn_mlb_game_predictor()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_predictor.md)
-  :
-
-  **Get ESPN MLB Event Predictor (Pre-game)**
-
-- [`espn_mlb_game_probabilities()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_probabilities.md)
-  :
-
-  **Get ESPN MLB Event Win Probabilities**
-
-- [`espn_mlb_game_probables()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_probables.md)
-  :
-
-  **Get ESPN MLB Probable Starting Pitchers**
-
-- [`espn_mlb_game_propbets()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_propbets.md)
-  :
-
-  **Get ESPN MLB Event Prop Bets (Long Format)**
-
-- [`espn_mlb_game_rosters()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_rosters.md)
-  :
-
-  **Get ESPN MLB game rosters**
-
-- [`espn_mlb_game_situation()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_situation.md)
-  :
-
-  **Get ESPN MLB Event Situation (Live)**
-
-- [`espn_mlb_game_team_leaders()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_leaders.md)
-  :
-
-  **Get ESPN MLB Event Competitor Leaders (Top Performers)**
-
-- [`espn_mlb_game_team_linescores()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_linescores.md)
-  :
-
-  **Get ESPN MLB Event Competitor Linescores (Per-Inning)**
-
-- [`espn_mlb_game_team_records()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_records.md)
-  :
-
-  **Get ESPN MLB Event Competitor Records (At-Game Breakdown)**
-
-- [`espn_mlb_game_team_roster()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_roster.md)
-  :
-
-  **Get ESPN MLB Event Competitor Roster (Game-Day)**
-
-- [`espn_mlb_game_team_roster_entry()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_roster_entry.md)
-  :
-
-  **Get ESPN MLB Event Competitor Roster Entry (Per-Athlete Game-Day
-  Row)**
-
-- [`espn_mlb_game_team_score()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_score.md)
-  :
-
-  **Get ESPN MLB Event Competitor Score (Single Row)**
-
-- [`espn_mlb_game_team_statistics()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_statistics.md)
-  :
-
-  **Get ESPN MLB Event Competitor Team Statistics (Long Format)**
-
-- [`espn_mlb_injuries()`](https://billpetti.github.io/baseballr/reference/espn_mlb_injuries.md)
-  :
-
-  **Get ESPN MLB Injuries**
-
-- [`espn_mlb_leaders()`](https://billpetti.github.io/baseballr/reference/espn_mlb_leaders.md)
-  :
-
-  **Get ESPN MLB League Leaders**
-
-- [`espn_mlb_news()`](https://billpetti.github.io/baseballr/reference/espn_mlb_news.md)
-  :
-
-  **Get ESPN MLB News**
-
-- [`espn_mlb_pbp()`](https://billpetti.github.io/baseballr/reference/espn_mlb_pbp.md)
-  :
-
-  **Get ESPN MLB PBP data**
-
-- [`espn_mlb_player_awards()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_awards.md)
-  :
-
-  **Get ESPN MLB Athlete Awards**
-
-- [`espn_mlb_player_box()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_box.md)
-  :
-
-  **Get ESPN MLB player box scores**
-
-- [`espn_mlb_player_career_stats()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_career_stats.md)
-  :
-
-  **Get ESPN MLB Athlete Career Stats (Long Format)**
-
-- [`espn_mlb_player_contract()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_contract.md)
-  :
-
-  **Get ESPN MLB Athlete Contract (Single Season)**
-
-- [`espn_mlb_player_contracts()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_contracts.md)
-  :
-
-  **Get ESPN MLB Athlete Contracts Index**
-
-- [`espn_mlb_player_eventlog()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_eventlog.md)
-  :
-
-  **Get ESPN MLB Athlete Eventlog**
-
-- [`espn_mlb_player_eventlog_v2()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_eventlog_v2.md)
-  :
-
-  **Get ESPN MLB Athlete Per-Season Event Log (core-v2)**
-
-- [`espn_mlb_player_gamelog()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_gamelog.md)
-  :
-
-  **Get ESPN MLB Athlete Gamelog**
-
-- [`espn_mlb_player_info()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_info.md)
-  :
-
-  **Get ESPN MLB Athlete Info**
-
-- [`espn_mlb_player_overview()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_overview.md)
-  :
-
-  **Get ESPN MLB Athlete Overview**
-
-- [`espn_mlb_player_seasons()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_seasons.md)
-  :
-
-  **Get ESPN MLB Athlete Career Seasons**
-
-- [`espn_mlb_player_splits()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_splits.md)
-  :
-
-  **Get ESPN MLB Athlete Splits**
-
-- [`espn_mlb_player_statisticslog()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_statisticslog.md)
-  :
-
-  **Get ESPN MLB Athlete Statisticslog**
-
-- [`espn_mlb_player_stats()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_stats.md)
-  :
-
-  **Get ESPN MLB player stats data**
-
-- [`espn_mlb_player_stats_v3()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_stats_v3.md)
-  :
-
-  **Get ESPN MLB Athlete Stats**
-
-- [`espn_mlb_position()`](https://billpetti.github.io/baseballr/reference/espn_mlb_position.md)
-  :
-
-  **Get ESPN MLB Position Detail**
-
-- [`espn_mlb_positions()`](https://billpetti.github.io/baseballr/reference/espn_mlb_positions.md)
-  :
-
-  **Get ESPN MLB Positions Index**
-
-- [`espn_mlb_powerindex()`](https://billpetti.github.io/baseballr/reference/espn_mlb_powerindex.md)
-  :
-
-  **Get ESPN MLB Season Power Index (Long Format)**
-
-- [`espn_mlb_scoreboard()`](https://billpetti.github.io/baseballr/reference/espn_mlb_scoreboard.md)
-  :
-
-  **Get ESPN MLB schedule for a specific year**
-
-- [`espn_mlb_season_awards()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_awards.md)
-  :
-
-  **Get ESPN MLB Season Awards Index**
-
-- [`espn_mlb_season_draft()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_draft.md)
-  :
-
-  **Get ESPN MLB Season Draft (Top-Level Metadata)**
-
-- [`espn_mlb_season_group()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_group.md)
-  :
-
-  **Get ESPN MLB Season Group Detail**
-
-- [`espn_mlb_season_group_children()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_group_children.md)
-  :
-
-  **Get ESPN MLB Season Group Children Index**
-
-- [`espn_mlb_season_group_teams()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_group_teams.md)
-  :
-
-  **Get ESPN MLB Season Group Teams Index**
-
-- [`espn_mlb_season_groups()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_groups.md)
-  :
-
-  **Get ESPN MLB Season Groups Index**
-
-- [`espn_mlb_season_info()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_info.md)
-  :
-
-  **Get ESPN MLB Season Info**
-
-- [`espn_mlb_season_leaders()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_leaders.md)
-  :
-
-  **Get ESPN MLB Season Leaders (Long Format)**
-
-- [`espn_mlb_season_ranking()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_ranking.md)
-  :
-
-  **Get ESPN MLB Season Ranking Detail**
-
-- [`espn_mlb_season_rankings()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_rankings.md)
-  :
-
-  **Get ESPN MLB Season Rankings Index**
-
-- [`espn_mlb_season_type()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_type.md)
-  :
-
-  **Get ESPN MLB Season-Type Detail**
-
-- [`espn_mlb_season_types()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_types.md)
-  :
-
-  **Get ESPN MLB Season Types Index**
-
-- [`espn_mlb_season_week()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_week.md)
-  :
-
-  **Get ESPN MLB Season-Week Detail**
-
-- [`espn_mlb_season_weeks()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_weeks.md)
-  :
-
-  **Get ESPN MLB Season Weeks Index**
-
-- [`espn_mlb_seasons()`](https://billpetti.github.io/baseballr/reference/espn_mlb_seasons.md)
-  :
-
-  **Get ESPN MLB Seasons**
-
-- [`espn_mlb_standings()`](https://billpetti.github.io/baseballr/reference/espn_mlb_standings.md)
-  :
-
-  **Get ESPN MLB's Standings**
-
-- [`espn_mlb_team()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team.md)
-  :
-
-  **Get ESPN MLB Team Detail**
-
-- [`espn_mlb_team_box()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_box.md)
-  :
-
-  **Get ESPN MLB team box scores**
-
-- [`espn_mlb_team_current_roster()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_current_roster.md)
-  :
-
-  **Get ESPN MLB current team roster**
-
-- [`espn_mlb_team_depthchart()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_depthchart.md)
-  :
-
-  **Get ESPN MLB Team Depth Chart (Long Format)**
-
-- [`espn_mlb_team_injuries()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_injuries.md)
-  :
-
-  **Get ESPN MLB Team Injuries**
-
-- [`espn_mlb_team_leaders()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_leaders.md)
-  :
-
-  **Get ESPN MLB Team Leaders**
-
-- [`espn_mlb_team_news()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_news.md)
-  :
-
-  **Get ESPN MLB Team News**
-
-- [`espn_mlb_team_odds_records()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_odds_records.md)
-  :
-
-  **Get ESPN MLB Team Odds-Records (Long Format)**
-
-- [`espn_mlb_team_record()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_record.md)
-  :
-
-  **Get ESPN MLB Team Record (Per Season Type)**
-
-- [`espn_mlb_team_record_detail()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_record_detail.md)
-  :
-
-  **Get ESPN MLB Team Record Detail (Long Format)**
-
-- [`espn_mlb_team_roster()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_roster.md)
-  :
-
-  **Get ESPN MLB Team Roster**
-
-- [`espn_mlb_team_schedule()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_schedule.md)
-  :
-
-  **Get ESPN MLB Team Schedule**
-
-- [`espn_mlb_team_season_profile()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_season_profile.md)
-  :
-
-  **Get ESPN MLB Team-in-Season Profile**
-
-- [`espn_mlb_team_season_roster()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_season_roster.md)
-  :
-
-  **Get ESPN MLB Team Roster (Per-Season, core-v2)**
-
-- [`espn_mlb_team_season_statistics()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_season_statistics.md)
-  :
-
-  **Get ESPN MLB Team Season Statistics (Long Format with Rank)**
-
-- [`espn_mlb_team_stats()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_stats.md)
-  :
-
-  **Get ESPN MLB team stats data**
-
-- [`espn_mlb_teams()`](https://billpetti.github.io/baseballr/reference/espn_mlb_teams.md)
-  :
-
-  **Get ESPN MLB team names and IDs**
-
-- [`espn_mlb_tournament()`](https://billpetti.github.io/baseballr/reference/espn_mlb_tournament.md)
-  :
-
-  **Get ESPN MLB Tournament Detail**
-
-- [`espn_mlb_tournament_season()`](https://billpetti.github.io/baseballr/reference/espn_mlb_tournament_season.md)
-  :
-
-  **Get ESPN MLB Tournament Season Detail**
-
-- [`espn_mlb_tournament_seasons()`](https://billpetti.github.io/baseballr/reference/espn_mlb_tournament_seasons.md)
-  :
-
-  **Get ESPN MLB Tournament Seasons List**
-
-- [`espn_mlb_tournaments()`](https://billpetti.github.io/baseballr/reference/espn_mlb_tournaments.md)
-  :
-
-  **Get ESPN MLB Tournaments Index**
-
-- [`espn_mlb_transactions()`](https://billpetti.github.io/baseballr/reference/espn_mlb_transactions.md)
-  :
-
-  **Get ESPN MLB Transactions**
-
-- [`espn_mlb_venues()`](https://billpetti.github.io/baseballr/reference/espn_mlb_venues.md)
-  :
-
-  **Get ESPN MLB Venues**
-
-- [`espn_mlb_week_ranking()`](https://billpetti.github.io/baseballr/reference/espn_mlb_week_ranking.md)
-  :
-
-  **Get ESPN MLB Per-Week Ranking Detail**
-
-- [`espn_mlb_week_rankings()`](https://billpetti.github.io/baseballr/reference/espn_mlb_week_rankings.md)
-  :
-
-  **Get ESPN MLB Per-Week Rankings Index**
-
-- [`espn_mlb_wp()`](https://billpetti.github.io/baseballr/reference/espn_mlb_wp.md)
-  :
-
-  **Get MLB win probability chart data from ESPN**
-
 ## MLB Stats - Overview
 
 - [`mlb`](https://billpetti.github.io/baseballr/reference/mlb.md) :
@@ -1514,6 +964,556 @@ Functions exported by baseballr to access MLB Stats - Jobs Data
   :
 
   **MLB Jobs Umpires**
+
+## ESPN MLB
+
+### ESPN MLB Data Functions
+
+Functions exported by baseballr to access ESPN’s Major League Baseball
+endpoints (scoreboard, schedule, game summary / play-by-play, box
+scores, teams, rosters, standings, athletes, leaders, draft, and
+reference data).
+
+- [`espn_mlb`](https://billpetti.github.io/baseballr/reference/espn_mlb.md)
+  :
+
+  **ESPN MLB Endpoint Overview**
+
+- [`espn_mlb_athletes_index()`](https://billpetti.github.io/baseballr/reference/espn_mlb_athletes_index.md)
+  :
+
+  **Get ESPN MLB Athletes Index**
+
+- [`espn_mlb_award()`](https://billpetti.github.io/baseballr/reference/espn_mlb_award.md)
+  :
+
+  **Get ESPN MLB Season Award Detail**
+
+- [`espn_mlb_betting()`](https://billpetti.github.io/baseballr/reference/espn_mlb_betting.md)
+  :
+
+  **Get ESPN MLB's Betting information**
+
+- [`espn_mlb_calendar()`](https://billpetti.github.io/baseballr/reference/espn_mlb_calendar.md)
+  :
+
+  **Get ESPN MLB Calendar**
+
+- [`espn_mlb_coach()`](https://billpetti.github.io/baseballr/reference/espn_mlb_coach.md)
+  :
+
+  **Get ESPN MLB Single-Coach Detail**
+
+- [`espn_mlb_coach_record()`](https://billpetti.github.io/baseballr/reference/espn_mlb_coach_record.md)
+  :
+
+  **Get ESPN MLB Coach Career Record (Long Format)**
+
+- [`espn_mlb_coach_season()`](https://billpetti.github.io/baseballr/reference/espn_mlb_coach_season.md)
+  :
+
+  **Get ESPN MLB Coach-in-Season Detail**
+
+- [`espn_mlb_coaches()`](https://billpetti.github.io/baseballr/reference/espn_mlb_coaches.md)
+  :
+
+  **Get ESPN MLB Coaches**
+
+- [`espn_mlb_conferences()`](https://billpetti.github.io/baseballr/reference/espn_mlb_conferences.md)
+  :
+
+  **Get ESPN MLB Conferences**
+
+- [`espn_mlb_draft()`](https://billpetti.github.io/baseballr/reference/espn_mlb_draft.md)
+  :
+
+  **Get ESPN MLB Draft Picks**
+
+- [`espn_mlb_draft_athlete_detail()`](https://billpetti.github.io/baseballr/reference/espn_mlb_draft_athlete_detail.md)
+  :
+
+  **Get ESPN MLB Draft Athlete Detail (Single Drafted Player)**
+
+- [`espn_mlb_draft_athletes()`](https://billpetti.github.io/baseballr/reference/espn_mlb_draft_athletes.md)
+  :
+
+  **Get ESPN MLB Draft Athletes Index**
+
+- [`espn_mlb_draft_pick()`](https://billpetti.github.io/baseballr/reference/espn_mlb_draft_pick.md)
+  :
+
+  **Get ESPN MLB Draft Pick Detail**
+
+- [`espn_mlb_draft_rounds()`](https://billpetti.github.io/baseballr/reference/espn_mlb_draft_rounds.md)
+  :
+
+  **Get ESPN MLB Draft Rounds Summary**
+
+- [`espn_mlb_draft_status()`](https://billpetti.github.io/baseballr/reference/espn_mlb_draft_status.md)
+  :
+
+  **Get ESPN MLB Draft Status**
+
+- [`espn_mlb_franchise()`](https://billpetti.github.io/baseballr/reference/espn_mlb_franchise.md)
+  :
+
+  **Get ESPN MLB Franchise Detail**
+
+- [`espn_mlb_franchises()`](https://billpetti.github.io/baseballr/reference/espn_mlb_franchises.md)
+  :
+
+  **Get ESPN MLB Franchises Index**
+
+- [`espn_mlb_freeagents()`](https://billpetti.github.io/baseballr/reference/espn_mlb_freeagents.md)
+  :
+
+  **Get ESPN MLB Free Agents**
+
+- [`espn_mlb_futures()`](https://billpetti.github.io/baseballr/reference/espn_mlb_futures.md)
+  :
+
+  **Get ESPN MLB Season Futures (Long Format)**
+
+- [`espn_mlb_game_all()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_all.md)
+  :
+
+  **Get ESPN MLB game data (Pbp, Team and Player Box)**
+
+- [`espn_mlb_game_broadcasts()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_broadcasts.md)
+  :
+
+  **Get ESPN MLB Event Broadcasts**
+
+- [`espn_mlb_game_info()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_info.md)
+  :
+
+  **Get ESPN MLB Game Info (venue, attendance, duration, umpires)**
+
+- [`espn_mlb_game_odds()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_odds.md)
+  :
+
+  **Get ESPN MLB Event Odds**
+
+- [`espn_mlb_game_official_detail()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_official_detail.md)
+  :
+
+  **Get ESPN MLB Event Official Detail (Single Official)**
+
+- [`espn_mlb_game_officials()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_officials.md)
+  :
+
+  **Get ESPN MLB Event Officials**
+
+- [`espn_mlb_game_play()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_play.md)
+  :
+
+  **Get ESPN MLB Event Play Detail (Single Play)**
+
+- [`espn_mlb_game_play_personnel()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_play_personnel.md)
+  :
+
+  **Get ESPN MLB Event Play Personnel (On-Court Lineup at Play)**
+
+- [`espn_mlb_game_player_box()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_player_box.md)
+  :
+
+  **Get ESPN MLB Event Player Box Score (Long Format)**
+
+- [`espn_mlb_game_powerindex()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_powerindex.md)
+  :
+
+  **Get ESPN MLB Event Power Index Index**
+
+- [`espn_mlb_game_predictor()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_predictor.md)
+  :
+
+  **Get ESPN MLB Event Predictor (Pre-game)**
+
+- [`espn_mlb_game_probabilities()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_probabilities.md)
+  :
+
+  **Get ESPN MLB Event Win Probabilities**
+
+- [`espn_mlb_game_probables()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_probables.md)
+  :
+
+  **Get ESPN MLB Probable Starting Pitchers**
+
+- [`espn_mlb_game_propbets()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_propbets.md)
+  :
+
+  **Get ESPN MLB Event Prop Bets (Long Format)**
+
+- [`espn_mlb_game_rosters()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_rosters.md)
+  :
+
+  **Get ESPN MLB game rosters**
+
+- [`espn_mlb_game_situation()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_situation.md)
+  :
+
+  **Get ESPN MLB Event Situation (Live)**
+
+- [`espn_mlb_game_team_leaders()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_leaders.md)
+  :
+
+  **Get ESPN MLB Event Competitor Leaders (Top Performers)**
+
+- [`espn_mlb_game_team_linescores()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_linescores.md)
+  :
+
+  **Get ESPN MLB Event Competitor Linescores (Per-Inning)**
+
+- [`espn_mlb_game_team_records()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_records.md)
+  :
+
+  **Get ESPN MLB Event Competitor Records (At-Game Breakdown)**
+
+- [`espn_mlb_game_team_roster()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_roster.md)
+  :
+
+  **Get ESPN MLB Event Competitor Roster (Game-Day)**
+
+- [`espn_mlb_game_team_roster_entry()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_roster_entry.md)
+  :
+
+  **Get ESPN MLB Event Competitor Roster Entry (Per-Athlete Game-Day
+  Row)**
+
+- [`espn_mlb_game_team_score()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_score.md)
+  :
+
+  **Get ESPN MLB Event Competitor Score (Single Row)**
+
+- [`espn_mlb_game_team_statistics()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_statistics.md)
+  :
+
+  **Get ESPN MLB Event Competitor Team Statistics (Long Format)**
+
+- [`espn_mlb_injuries()`](https://billpetti.github.io/baseballr/reference/espn_mlb_injuries.md)
+  :
+
+  **Get ESPN MLB Injuries**
+
+- [`espn_mlb_leaders()`](https://billpetti.github.io/baseballr/reference/espn_mlb_leaders.md)
+  :
+
+  **Get ESPN MLB League Leaders**
+
+- [`espn_mlb_news()`](https://billpetti.github.io/baseballr/reference/espn_mlb_news.md)
+  :
+
+  **Get ESPN MLB News**
+
+- [`espn_mlb_pbp()`](https://billpetti.github.io/baseballr/reference/espn_mlb_pbp.md)
+  :
+
+  **Get ESPN MLB PBP data**
+
+- [`espn_mlb_player_awards()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_awards.md)
+  :
+
+  **Get ESPN MLB Athlete Awards**
+
+- [`espn_mlb_player_box()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_box.md)
+  :
+
+  **Get ESPN MLB player box scores**
+
+- [`espn_mlb_player_career_stats()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_career_stats.md)
+  :
+
+  **Get ESPN MLB Athlete Career Stats (Long Format)**
+
+- [`espn_mlb_player_contract()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_contract.md)
+  :
+
+  **Get ESPN MLB Athlete Contract (Single Season)**
+
+- [`espn_mlb_player_contracts()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_contracts.md)
+  :
+
+  **Get ESPN MLB Athlete Contracts Index**
+
+- [`espn_mlb_player_eventlog()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_eventlog.md)
+  :
+
+  **Get ESPN MLB Athlete Eventlog**
+
+- [`espn_mlb_player_eventlog_v2()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_eventlog_v2.md)
+  :
+
+  **Get ESPN MLB Athlete Per-Season Event Log (core-v2)**
+
+- [`espn_mlb_player_gamelog()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_gamelog.md)
+  :
+
+  **Get ESPN MLB Athlete Gamelog**
+
+- [`espn_mlb_player_info()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_info.md)
+  :
+
+  **Get ESPN MLB Athlete Info**
+
+- [`espn_mlb_player_overview()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_overview.md)
+  :
+
+  **Get ESPN MLB Athlete Overview**
+
+- [`espn_mlb_player_seasons()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_seasons.md)
+  :
+
+  **Get ESPN MLB Athlete Career Seasons**
+
+- [`espn_mlb_player_splits()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_splits.md)
+  :
+
+  **Get ESPN MLB Athlete Splits**
+
+- [`espn_mlb_player_statisticslog()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_statisticslog.md)
+  :
+
+  **Get ESPN MLB Athlete Statisticslog**
+
+- [`espn_mlb_player_stats()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_stats.md)
+  :
+
+  **Get ESPN MLB player stats data**
+
+- [`espn_mlb_player_stats_v3()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_stats_v3.md)
+  :
+
+  **Get ESPN MLB Athlete Stats**
+
+- [`espn_mlb_position()`](https://billpetti.github.io/baseballr/reference/espn_mlb_position.md)
+  :
+
+  **Get ESPN MLB Position Detail**
+
+- [`espn_mlb_positions()`](https://billpetti.github.io/baseballr/reference/espn_mlb_positions.md)
+  :
+
+  **Get ESPN MLB Positions Index**
+
+- [`espn_mlb_powerindex()`](https://billpetti.github.io/baseballr/reference/espn_mlb_powerindex.md)
+  :
+
+  **Get ESPN MLB Season Power Index (Long Format)**
+
+- [`espn_mlb_scoreboard()`](https://billpetti.github.io/baseballr/reference/espn_mlb_scoreboard.md)
+  :
+
+  **Get ESPN MLB schedule for a specific year**
+
+- [`espn_mlb_season_awards()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_awards.md)
+  :
+
+  **Get ESPN MLB Season Awards Index**
+
+- [`espn_mlb_season_draft()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_draft.md)
+  :
+
+  **Get ESPN MLB Season Draft (Top-Level Metadata)**
+
+- [`espn_mlb_season_group()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_group.md)
+  :
+
+  **Get ESPN MLB Season Group Detail**
+
+- [`espn_mlb_season_group_children()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_group_children.md)
+  :
+
+  **Get ESPN MLB Season Group Children Index**
+
+- [`espn_mlb_season_group_teams()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_group_teams.md)
+  :
+
+  **Get ESPN MLB Season Group Teams Index**
+
+- [`espn_mlb_season_groups()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_groups.md)
+  :
+
+  **Get ESPN MLB Season Groups Index**
+
+- [`espn_mlb_season_info()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_info.md)
+  :
+
+  **Get ESPN MLB Season Info**
+
+- [`espn_mlb_season_leaders()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_leaders.md)
+  :
+
+  **Get ESPN MLB Season Leaders (Long Format)**
+
+- [`espn_mlb_season_ranking()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_ranking.md)
+  :
+
+  **Get ESPN MLB Season Ranking Detail**
+
+- [`espn_mlb_season_rankings()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_rankings.md)
+  :
+
+  **Get ESPN MLB Season Rankings Index**
+
+- [`espn_mlb_season_type()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_type.md)
+  :
+
+  **Get ESPN MLB Season-Type Detail**
+
+- [`espn_mlb_season_types()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_types.md)
+  :
+
+  **Get ESPN MLB Season Types Index**
+
+- [`espn_mlb_season_week()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_week.md)
+  :
+
+  **Get ESPN MLB Season-Week Detail**
+
+- [`espn_mlb_season_weeks()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_weeks.md)
+  :
+
+  **Get ESPN MLB Season Weeks Index**
+
+- [`espn_mlb_seasons()`](https://billpetti.github.io/baseballr/reference/espn_mlb_seasons.md)
+  :
+
+  **Get ESPN MLB Seasons**
+
+- [`espn_mlb_standings()`](https://billpetti.github.io/baseballr/reference/espn_mlb_standings.md)
+  :
+
+  **Get ESPN MLB's Standings**
+
+- [`espn_mlb_team()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team.md)
+  :
+
+  **Get ESPN MLB Team Detail**
+
+- [`espn_mlb_team_box()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_box.md)
+  :
+
+  **Get ESPN MLB team box scores**
+
+- [`espn_mlb_team_current_roster()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_current_roster.md)
+  :
+
+  **Get ESPN MLB current team roster**
+
+- [`espn_mlb_team_depthchart()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_depthchart.md)
+  :
+
+  **Get ESPN MLB Team Depth Chart (Long Format)**
+
+- [`espn_mlb_team_injuries()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_injuries.md)
+  :
+
+  **Get ESPN MLB Team Injuries**
+
+- [`espn_mlb_team_leaders()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_leaders.md)
+  :
+
+  **Get ESPN MLB Team Leaders**
+
+- [`espn_mlb_team_news()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_news.md)
+  :
+
+  **Get ESPN MLB Team News**
+
+- [`espn_mlb_team_odds_records()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_odds_records.md)
+  :
+
+  **Get ESPN MLB Team Odds-Records (Long Format)**
+
+- [`espn_mlb_team_record()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_record.md)
+  :
+
+  **Get ESPN MLB Team Record (Per Season Type)**
+
+- [`espn_mlb_team_record_detail()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_record_detail.md)
+  :
+
+  **Get ESPN MLB Team Record Detail (Long Format)**
+
+- [`espn_mlb_team_roster()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_roster.md)
+  :
+
+  **Get ESPN MLB Team Roster**
+
+- [`espn_mlb_team_schedule()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_schedule.md)
+  :
+
+  **Get ESPN MLB Team Schedule**
+
+- [`espn_mlb_team_season_profile()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_season_profile.md)
+  :
+
+  **Get ESPN MLB Team-in-Season Profile**
+
+- [`espn_mlb_team_season_roster()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_season_roster.md)
+  :
+
+  **Get ESPN MLB Team Roster (Per-Season, core-v2)**
+
+- [`espn_mlb_team_season_statistics()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_season_statistics.md)
+  :
+
+  **Get ESPN MLB Team Season Statistics (Long Format with Rank)**
+
+- [`espn_mlb_team_stats()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_stats.md)
+  :
+
+  **Get ESPN MLB team stats data**
+
+- [`espn_mlb_teams()`](https://billpetti.github.io/baseballr/reference/espn_mlb_teams.md)
+  :
+
+  **Get ESPN MLB team names and IDs**
+
+- [`espn_mlb_tournament()`](https://billpetti.github.io/baseballr/reference/espn_mlb_tournament.md)
+  :
+
+  **Get ESPN MLB Tournament Detail**
+
+- [`espn_mlb_tournament_season()`](https://billpetti.github.io/baseballr/reference/espn_mlb_tournament_season.md)
+  :
+
+  **Get ESPN MLB Tournament Season Detail**
+
+- [`espn_mlb_tournament_seasons()`](https://billpetti.github.io/baseballr/reference/espn_mlb_tournament_seasons.md)
+  :
+
+  **Get ESPN MLB Tournament Seasons List**
+
+- [`espn_mlb_tournaments()`](https://billpetti.github.io/baseballr/reference/espn_mlb_tournaments.md)
+  :
+
+  **Get ESPN MLB Tournaments Index**
+
+- [`espn_mlb_transactions()`](https://billpetti.github.io/baseballr/reference/espn_mlb_transactions.md)
+  :
+
+  **Get ESPN MLB Transactions**
+
+- [`espn_mlb_venues()`](https://billpetti.github.io/baseballr/reference/espn_mlb_venues.md)
+  :
+
+  **Get ESPN MLB Venues**
+
+- [`espn_mlb_week_ranking()`](https://billpetti.github.io/baseballr/reference/espn_mlb_week_ranking.md)
+  :
+
+  **Get ESPN MLB Per-Week Ranking Detail**
+
+- [`espn_mlb_week_rankings()`](https://billpetti.github.io/baseballr/reference/espn_mlb_week_rankings.md)
+  :
+
+  **Get ESPN MLB Per-Week Rankings Index**
+
+- [`espn_mlb_wp()`](https://billpetti.github.io/baseballr/reference/espn_mlb_wp.md)
+  :
+
+  **Get MLB win probability chart data from ESPN**
 
 ## Metrics
 

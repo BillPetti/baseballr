@@ -42,7 +42,7 @@ and may change as Spotrac updates its layout.
 # \donttest{
   try(sptrc_league_payrolls(year = most_recent_mlb_season()))
 #> ── MLB Payroll data from Spotrac.com ──────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 01:58:36 UTC
+#> ℹ Data updated: 2026-06-08 03:21:43 UTC
 #> # A tibble: 32 × 11
 #>    year  team  team_abbr  rank record avg_age_team
 #>    <chr> <chr> <chr>     <dbl> <chr>  <chr>       
