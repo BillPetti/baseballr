@@ -14,6 +14,7 @@ bref_daily_pitcher(t1, t2)
 \value{
 Returns a tibble of pitcher performance over the requested date range, one row per player, with the following columns:\tabular{lll}{
    col_name \tab types \tab description \cr
+   bbref_id \tab character \tab Baseball-Reference player id (slug). \cr
    season \tab integer \tab Season year. \cr
    Name \tab character \tab Player name. \cr
    Age \tab numeric \tab Player age during the season. \cr

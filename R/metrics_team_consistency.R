@@ -23,7 +23,7 @@ team_consistency <- function(year) {
   
   teams_data <- baseballr::teams_lu_table
   
-  url <- paste0("http://www.baseball-reference.com/leagues/MLB/",year,".shtml")
+  url <- paste0("https://www.baseball-reference.com/leagues/MLB/",year,".shtml")
 
   teams <- (url |> 
               xml2::read_html() |> 

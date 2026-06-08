@@ -24,6 +24,12 @@
 #'  |Loss     |character |Losing pitcher.                                          |
 #'  |Save     |character |Pitcher credited with the save (N if none).              |
 #'  |Time     |character |Duration of the game.                                    |
+#'  |D/N      |character |Day (D) or night (N) game.                               |
+#'  |Attendance |numeric |Announced attendance.                                    |
+#'  |cLI      |numeric   |Championship leverage index of the game.                 |
+#'  |Streak   |character |Win/loss streak entering the game.                       |
+#'  |Orig_Scheduled |character |Original scheduled date (for rescheduled games).   |
+#'  |Year     |numeric   |Season year.                                             |
 #'
 #' @importFrom dplyr filter select mutate_at
 #' @import rvest 
@@ -49,10 +55,8 @@ bref_team_results <- function(Tm, year) {
     expr = {
       data <- url |> 
         xml2::read_html() |>
-        rvest::html_elements("table")
-      
-      data <- data[[length(data)]] |>
-        rvest::html_table() 
+        rvest::html_element("#team_schedule") |>
+        rvest::html_table()
       data <- data[-3]
       
       col_names <- c('Gm','Date','Tm','H_A','Opp','Result','R','RA','Inn','Record','Rank',

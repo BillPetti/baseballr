@@ -34,7 +34,7 @@ bref_standings_on_date <- function(date, division, from = FALSE) {
     stop("Please select a division in the following: \n'AL East', 'AL Central', 'AL West', 'AL Overall',\n'NL Central', 'NL West', 'NL Overall'")
   }
   
-  url <- paste0("http://www.baseball-reference.com/boxes",
+  url <- paste0("https://www.baseball-reference.com/boxes",
                 "?year=", sprintf("%04i", lubridate::year(date)), "&month=",
                 sprintf("%02i", lubridate::month(date)), "&day=", sprintf("%02i",
                                                                           lubridate::day(date)))

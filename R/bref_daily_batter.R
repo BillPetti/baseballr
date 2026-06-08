@@ -8,6 +8,7 @@
 #'
 #'  |col_name |types     |description                                              |
 #'  |:--------|:---------|:--------------------------------------------------------|
+#'  |bbref_id |character |Baseball-Reference player id (slug).                     |
 #'  |season   |integer   |Season year.                                             |
 #'  |Name     |character |Player name.                                             |
 #'  |Age      |numeric   |Player age during the season.                            |
@@ -52,7 +53,7 @@ bref_daily_batter <- function(t1, t2) {
   df <- NULL
   tryCatch(
     expr = {
-      payload <- xml2::read_html(paste0("http://www.baseball-reference.com/leagues/daily.cgi?user_team=&bust_cache=&type=b&lastndays=7&dates=fromandto&fromandto=", t1, ".", t2, "&level=mlb&franch=&stat=&stat_value=0"))
+      payload <- xml2::read_html(paste0("https://www.baseball-reference.com/leagues/daily.cgi?user_team=&bust_cache=&type=b&lastndays=7&dates=fromandto&fromandto=", t1, ".", t2, "&level=mlb&franch=&stat=&stat_value=0"))
       df <- payload |>
         rvest::html_elements(xpath = '//*[@id="daily"]') |>
         rvest::html_table(fill = TRUE)
@@ -71,16 +72,14 @@ bref_daily_batter <- function(t1, t2) {
       df <- df |> 
         dplyr::filter(.data$Name != "Name")
       
-      playerids <- payload |>
-        rvest::html_elements("table") |>
+      slugs <- payload |>
+        rvest::html_elements(xpath = '//*[@id="daily"]') |>
         rvest::html_elements("a") |>
-        rvest::html_attr("href") |>
-        as.data.frame() |>
-        dplyr::rename(slug = ".") |>
-        dplyr::filter(grepl("players", .data$slug)) |>
-        dplyr::mutate(playerid = gsub("/players/gl.fcgi\\?id=",
-                                  "", .data$slug)) |>
-        dplyr::mutate(playerid = gsub("&t.*","",.data$playerid))
+        rvest::html_attr("href")
+      slugs <- slugs[grepl("players", slugs)]
+      playerids <- data.frame(slug = slugs, stringsAsFactors = FALSE)
+      playerids$playerid <- gsub("/players/gl.fcgi?id=", "", playerids$slug, fixed = TRUE)
+      playerids$playerid <- gsub("&t.*", "", playerids$playerid)
       
       df <- df |>
         dplyr::mutate(bbref_id = playerids$playerid) |>
