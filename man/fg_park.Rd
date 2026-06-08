@@ -13,38 +13,38 @@ fg_park_hand(yr)
 \item{yr}{Season for which you want to scrape the park factors.}
 }
 \value{
-Returns a tibble of park factors.\tabular{ll}{
-   col_name \tab types \cr
-   season \tab integer \cr
-   home_team \tab character \cr
-   basic_5yr \tab integer \cr
-   3yr \tab integer \cr
-   1yr \tab integer \cr
-   single \tab integer \cr
-   double \tab integer \cr
-   triple \tab integer \cr
-   hr \tab integer \cr
-   so \tab integer \cr
-   UIBB \tab integer \cr
-   GB \tab integer \cr
-   FB \tab integer \cr
-   LD \tab integer \cr
-   IFFB \tab integer \cr
-   FIP \tab integer \cr
+Returns a tibble of park factors.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season \tab integer \tab Season (YYYY). \cr
+   home_team \tab character \tab Home team name. \cr
+   basic_5yr \tab integer \tab Basic 5-year park factor (100 = neutral). \cr
+   3yr \tab integer \tab 3-year park factor (100 = neutral). \cr
+   1yr \tab integer \tab 1-year park factor (100 = neutral). \cr
+   single \tab integer \tab Park factor for singles. \cr
+   double \tab integer \tab Park factor for doubles. \cr
+   triple \tab integer \tab Park factor for triples. \cr
+   hr \tab integer \tab Park factor for home runs. \cr
+   so \tab integer \tab Park factor for strikeouts. \cr
+   UIBB \tab integer \tab Park factor for unintentional walks. \cr
+   GB \tab integer \tab Park factor for ground balls. \cr
+   FB \tab integer \tab Park factor for fly balls. \cr
+   LD \tab integer \tab Park factor for line drives. \cr
+   IFFB \tab integer \tab Park factor for infield fly balls. \cr
+   FIP \tab integer \tab Park factor applied to FIP. \cr
 }
 
-Returns a tibble of park factors by handedness.\tabular{ll}{
-   col_name \tab types \cr
-   season \tab integer \cr
-   home_team \tab character \cr
-   single_as_LHH \tab integer \cr
-   single_as_RHH \tab integer \cr
-   double_as_LHH \tab integer \cr
-   double_as_RHH \tab integer \cr
-   triple_as_LHH \tab integer \cr
-   triple_as_RHH \tab integer \cr
-   hr_as_LHH \tab integer \cr
-   hr_as_RHH \tab integer \cr
+Returns a tibble of park factors by handedness.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   season \tab integer \tab Season (YYYY). \cr
+   home_team \tab character \tab Home team name. \cr
+   single_as_LHH \tab integer \tab Singles park factor for left-handed hitters. \cr
+   single_as_RHH \tab integer \tab Singles park factor for right-handed hitters. \cr
+   double_as_LHH \tab integer \tab Doubles park factor for left-handed hitters. \cr
+   double_as_RHH \tab integer \tab Doubles park factor for right-handed hitters. \cr
+   triple_as_LHH \tab integer \tab Triples park factor for left-handed hitters. \cr
+   triple_as_RHH \tab integer \tab Triples park factor for right-handed hitters. \cr
+   hr_as_LHH \tab integer \tab Home run park factor for left-handed hitters. \cr
+   hr_as_RHH \tab integer \tab Home run park factor for right-handed hitters. \cr
 }
 }
 \description{

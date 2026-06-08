@@ -7,13 +7,13 @@
 mlb_event_types()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   plate_appearance \tab logical \cr
-   hit \tab logical \cr
-   event_code \tab character \cr
-   base_running_event \tab logical \cr
-   event_description \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   plate_appearance \tab logical \tab Whether the event counts as a plate appearance. \cr
+   hit \tab logical \tab Whether the event is a hit. \cr
+   event_code \tab character \tab Event type code. \cr
+   base_running_event \tab logical \tab Whether the event is a base-running event. \cr
+   event_description \tab character \tab Human-readable event description. \cr
 }
 }
 \description{

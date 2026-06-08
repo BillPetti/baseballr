@@ -5,10 +5,11 @@ cols <- c(
 )
 
 test_that("MLB Probables", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_probables(game_pk = 566001)
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

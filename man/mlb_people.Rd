@@ -10,50 +10,52 @@ mlb_people(person_ids = NULL)
 \item{person_ids}{MLBAMIDs for players of interest. Multiple IDs should be provided in a vector separated by a comma.}
 }
 \value{
-Returns a tibble with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   id \tab integer \cr
-   full_name \tab character \cr
-   link \tab character \cr
-   first_name \tab character \cr
-   last_name \tab character \cr
-   primary_number \tab character \cr
-   birth_date \tab character \cr
-   current_age \tab integer \cr
-   birth_city \tab character \cr
-   birth_state_province \tab character \cr
-   birth_country \tab character \cr
-   height \tab character \cr
-   weight \tab integer \cr
-   active \tab logical \cr
-   use_name \tab character \cr
-   middle_name \tab character \cr
-   boxscore_name \tab character \cr
-   nick_name \tab character \cr
-   gender \tab character \cr
-   is_player \tab logical \cr
-   is_verified \tab logical \cr
-   draft_year \tab integer \cr
-   mlb_debut_date \tab character \cr
-   name_first_last \tab character \cr
-   name_slug \tab character \cr
-   first_last_name \tab character \cr
-   last_first_name \tab character \cr
-   last_init_name \tab character \cr
-   init_last_name \tab character \cr
-   full_fml_name \tab character \cr
-   full_lfm_name \tab character \cr
-   strike_zone_top \tab numeric \cr
-   strike_zone_bottom \tab numeric \cr
-   pronunciation \tab character \cr
-   primary_position_code \tab character \cr
-   primary_position_name \tab character \cr
-   primary_position_type \tab character \cr
-   primary_position_abbreviation \tab character \cr
-   bat_side_code \tab character \cr
-   bat_side_description \tab character \cr
-   pitch_hand_code \tab character \cr
-   pitch_hand_description \tab character \cr
+Returns a tibble with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   id \tab integer \tab MLB person id (MLBAMID). \cr
+   full_name \tab character \tab Player full name. \cr
+   link \tab character \tab API relative link to the player. \cr
+   first_name \tab character \tab Player first name. \cr
+   last_name \tab character \tab Player last name. \cr
+   primary_number \tab character \tab Player primary jersey number. \cr
+   birth_date \tab character \tab Player birth date (YYYY-MM-DD). \cr
+   current_age \tab integer \tab Player current age in years. \cr
+   birth_city \tab character \tab Player birth city. \cr
+   birth_state_province \tab character \tab Player birth state or province. \cr
+   birth_country \tab character \tab Player birth country. \cr
+   height \tab character \tab Player height (e.g. "6' 2\""). \cr
+   weight \tab integer \tab Player weight in pounds. \cr
+   active \tab logical \tab Whether the player is currently active. \cr
+   use_name \tab character \tab Player preferred display first name. \cr
+   use_last_name \tab character \tab Player preferred display last name. \cr
+   middle_name \tab character \tab Player middle name. \cr
+   boxscore_name \tab character \tab Player short box score name. \cr
+   nick_name \tab character \tab Player nickname. \cr
+   gender \tab character \tab Player gender code (e.g. 'M'). \cr
+   is_player \tab logical \tab Whether the person is classified as a player. \cr
+   is_verified \tab logical \tab Whether the player profile is verified. \cr
+   draft_year \tab integer \tab Year the player was drafted. \cr
+   mlb_debut_date \tab character \tab Player MLB debut date (YYYY-MM-DD). \cr
+   name_first_last \tab character \tab Player name in first-last order. \cr
+   name_slug \tab character \tab URL slug for the player (name plus id). \cr
+   first_last_name \tab character \tab Player name in first-last order. \cr
+   last_first_name \tab character \tab Player name in last, first order. \cr
+   last_init_name \tab character \tab Player name as last, first initial. \cr
+   init_last_name \tab character \tab Player name as first initial last. \cr
+   full_fml_name \tab character \tab Player full first-middle-last name. \cr
+   full_lfm_name \tab character \tab Player full last, first-middle name. \cr
+   strike_zone_top \tab numeric \tab Top of the player's strike zone (feet). \cr
+   strike_zone_bottom \tab numeric \tab Bottom of the player's strike zone (feet). \cr
+   pronunciation \tab character \tab Phonetic pronunciation of the player's name. \cr
+   last_played_date \tab character \tab Date the player last played (YYYY-MM-DD), if inactive. \cr
+   primary_position_code \tab character \tab Primary position code. \cr
+   primary_position_name \tab character \tab Primary position name (e.g. 'First Base'). \cr
+   primary_position_type \tab character \tab Primary position type (e.g. 'Infielder'). \cr
+   primary_position_abbreviation \tab character \tab Primary position abbreviation (e.g. '1B'). \cr
+   bat_side_code \tab character \tab Batting side code (e.g. 'R'). \cr
+   bat_side_description \tab character \tab Batting side description (e.g. 'Right'). \cr
+   pitch_hand_code \tab character \tab Throwing hand code (e.g. 'R'). \cr
+   pitch_hand_description \tab character \tab Throwing hand description (e.g. 'Right'). \cr
 }
 }
 \description{

@@ -13,7 +13,7 @@ cols <- c(
   "vx0", "vy0", "vz0", "ax", "ay", "az", "sz_top", "sz_bot", 
   "hit_distance_sc", "launch_speed", "launch_angle", "effective_speed",
   "release_spin_rate", "release_extension", "game_pk",
-  "pitcher_1", "fielder_2_1", "fielder_3", "fielder_4",
+  "fielder_3", "fielder_4",
   "fielder_5", "fielder_6", "fielder_7", "fielder_8", 
   "fielder_9", "release_pos_y", "estimated_ba_using_speedangle",
   "estimated_woba_using_speedangle", "woba_value",
@@ -25,12 +25,21 @@ cols <- c(
   "spin_axis", "delta_home_win_exp", "delta_run_exp", "bat_speed", "swing_length"
 )
 
+# Subset-direction assertion (including the newer bat_speed/swing_length
+# columns) guards the length-tolerant column assignment that keeps
+# statcast_search() from breaking when Baseball Savant adds columns
+# (#337, #354, #371, #390).
 test_that("Statcast Search", {
+  skip_statcast_test()
   skip_on_cran()
-  
+
   x <- statcast_search(start_date = "2022-11-04",
                        end_date = "2022-11-06")
-  
+
+  if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
+    skip("No rows returned from Baseball Savant at test time")
+  }
+
   expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

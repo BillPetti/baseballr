@@ -1,18 +1,48 @@
 .datatable.aware <- TRUE
 
 #' @title
-#' **Retry http request with proxy**
+#' **Retry an http request (with optional proxy) and rate-limit**
 #' @description
-#' This is a thin wrapper on httr::RETRY
+#' `httr2`-based GET helper used by the NCAA (`stats.ncaa.org`) scrapers. Pass a
+#' `proxy` through `...` to route the request through a proxy, e.g.
+#' \preformatted{
+#' ncaa_roster(team_id = 104, year = 2023,
+#'   proxy = list(url = "http://HOST:PORT", username = "USER", password = "PASS"))
+#' }
+#' The `stats.ncaa.org` edge (Akamai) rate-limits and IP-bans aggressive
+#' scrapers, so this helper sleeps 5 seconds after every request. Rotate proxies
+#' across calls to spread load.
 #' @param url Request url
-#' @param ... passed to httr::RETRY
+#' @param ... currently unused (kept for backwards compatibility)
+#' @param headers A named character vector of request headers. Defaults to
+#'   `.ncaa_headers()` (a modern browser header set that passes the
+#'   `stats.ncaa.org` Akamai edge).
+#' @param proxy Optional proxy. Either a URL string (e.g.
+#'   `"http://user:pass@host:port"`) or a list of arguments for
+#'   [httr2::req_proxy()] (e.g. `list(url = "http://host:port", username = "u",
+#'   password = "p")`). Defaults to `getOption("baseballr.proxy")`, so a proxy
+#'   can be set once per session with
+#'   `options(baseballr.proxy = list(url = ..., username = ..., password = ...))`.
 #' @keywords internal
-#' @importFrom httr RETRY
-request_with_proxy <- function(url, ...){
-  dots <- rlang::dots_list(..., .named = TRUE)
-  proxy <- dots$proxy
-  headers <- dots$headers
-  httr::RETRY("GET", url = {{url}}, ..., headers, httr::timeout(15))
+#' @return An [httr2::response] object.
+request_with_proxy <- function(url, ..., headers = .ncaa_headers(),
+                               proxy = getOption("baseballr.proxy")){
+  req <- httr2::request(url) |>
+    httr2::req_headers(!!!headers) |>
+    httr2::req_timeout(15) |>
+    httr2::req_retry(max_tries = 3) |>
+    httr2::req_error(is_error = function(resp) FALSE)
+  if (!is.null(proxy)) {
+    req <- if (is.list(proxy)) {
+      do.call(httr2::req_proxy, c(list(req), proxy))
+    } else {
+      httr2::req_proxy(req, url = proxy)
+    }
+  }
+  resp <- httr2::req_perform(req)
+  # Mandatory courtesy delay: stats.ncaa.org aggressively rate-limits / IP-bans.
+  Sys.sleep(5)
+  resp
 }
 
 #' @title **Progressively**
@@ -62,7 +92,7 @@ rds_from_url <- function(url) {
   load <- try(readRDS(con), silent = TRUE)
   
   if (inherits(load, "try-error")) {
-    warning(paste0("Failed to readRDS from <", url, ">"), call. = FALSE)
+    cli::cli_warn("Failed to readRDS from {.url {url}}")
     return(data.table::data.table())
   }
   
@@ -127,8 +157,57 @@ rule_footer <- function(x) {
 
 #' @import rvest
 check_status <- function(res) {
-  x = httr::status_code(res)
+  x = httr2::resp_status(res)
   if (x != 200) stop(glue::glue("The API returned an error, HTTP Response Code {x}"), call. = FALSE)
+}
+
+#' @title **Detect a stats.ncaa.org Akamai interstitial challenge**
+#' @description
+#' Some `stats.ncaa.org` routes (e.g. `/teams/{id}/season_to_date_stats`) are
+#' gated behind Akamai Bot Manager. When challenged, the server returns HTTP 200
+#' but the body is a short interstitial shell (a `bm-verify` meta-refresh, an
+#' `akamai_validation.html` iframe, or a `request_quota_reached.html` notice)
+#' rather than the data page. A static request cannot solve the challenge, so we
+#' detect the shell and degrade gracefully instead of silently scraping a page
+#' that has no data tables.
+#' @param body A character scalar: the response body (HTML) as text.
+#' @keywords internal
+#' @return `TRUE` when `body` looks like an Akamai interstitial, else `FALSE`.
+.ncaa_is_interstitial <- function(body) {
+  if (length(body) != 1 || is.na(body)) return(TRUE)
+  grepl("bm-verify|akamai_validation|request_quota_reached", body, ignore.case = TRUE)
+}
+
+#' @title **Resolve a stats.ncaa.org season-team id**
+#' @description
+#' `stats.ncaa.org` migrated team statistics from the franchise-centric
+#' `/team/{team_id}/stats?...` query form to a season-team resource at
+#' `/teams/{season_team_id}/season_to_date_stats`. The `season_team_id` is
+#' year-specific and is **not** the franchise `team_id`. This helper resolves it
+#' by reading the still-working roster page
+#' (`/team/{team_id}/roster/{season_id}`) and extracting the "Team Statistics"
+#' link it points to.
+#' @param team_id Franchise team id used by the NCAA site.
+#' @param season_id Season id from [load_ncaa_baseball_season_ids()] (the `id`
+#'   column), i.e. the value the roster URL expects.
+#' @param ... Passed through to [request_with_proxy()] (e.g. `proxy`).
+#' @keywords internal
+#' @return A length-1 character season-team id, or `NA_character_` if the roster
+#'   page could not be read (e.g. challenged) or the link was not found.
+#' @import rvest
+.ncaa_resolve_season_team_id <- function(team_id, season_id, ...) {
+  roster_url <- paste0("https://stats.ncaa.org/team/", team_id, "/roster/", season_id)
+  resp <- request_with_proxy(url = roster_url, ...)
+  body <- httr2::resp_body_string(resp)
+  if (.ncaa_is_interstitial(body)) return(NA_character_)
+
+  hrefs <- body |>
+    xml2::read_html() |>
+    rvest::html_elements("a") |>
+    rvest::html_attr("href")
+  hit <- stringr::str_extract(hrefs, "teams/(\\d+)/season_to_date_stats", group = 1)
+  hit <- hit[!is.na(hit)]
+  if (length(hit) == 0) NA_character_ else hit[[1]]
 }
 
 #' @importFrom magrittr %>%
@@ -174,7 +253,7 @@ most_recent_mlb_season <- function() {
 # Functions for custom class
 # turn a data.frame into a tibble/baseballr_data
 make_baseballr_data <- function(df, type, timestamp){
-  out <- df %>%
+  out <- df |>
     tidyr::as_tibble()
   
   class(out) <- c("baseballr_data","tbl_df","tbl","data.table","data.frame")

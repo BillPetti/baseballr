@@ -7,10 +7,10 @@
 mlb_wind_direction_codes()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   wind_direction_code \tab character \cr
-   wind_direction_description \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   wind_direction_code \tab character \tab Wind direction code (e.g., In From CF). \cr
+   wind_direction_description \tab character \tab Wind direction description. \cr
 }
 }
 \description{

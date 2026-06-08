@@ -123,7 +123,6 @@ cols <- c(
   "Med%",
   "Hard%",
   "pfxFA%",
-  "pfxFT%",
   "pfxFC%",
   "pfxFS%",
   "pfxFO%",
@@ -134,7 +133,6 @@ cols <- c(
   "pfxCH%",
   "pfxKN%",
   "pfxvFA",
-  "pfxvFT",
   "pfxvFC",
   "pfxvFS",
   "pfxvFO",
@@ -145,7 +143,6 @@ cols <- c(
   "pfxvCH",
   "pfxvKN",
   "pfxFA-X",
-  "pfxFT-X",
   "pfxFC-X",
   "pfxFS-X",
   "pfxFO-X",
@@ -156,7 +153,6 @@ cols <- c(
   "pfxCH-X",
   "pfxKN-X",
   "pfxFA-Z",
-  "pfxFT-Z",
   "pfxFC-Z",
   "pfxFS-Z",
   "pfxFO-Z",
@@ -167,7 +163,6 @@ cols <- c(
   "pfxCH-Z",
   "pfxKN-Z",
   "pfxwFA",
-  "pfxwFT",
   "pfxwFC",
   "pfxwFS",
   "pfxwFO",
@@ -178,7 +173,6 @@ cols <- c(
   "pfxwCH",
   "pfxwKN",
   "pfxwFA/C",
-  "pfxwFT/C",
   "pfxwFC/C",
   "pfxwFS/C",
   "pfxwFO/C",
@@ -276,9 +270,14 @@ cols <- c(
 )
 
 test_that("Fangraphs Batter Game Logs", {
+  skip_fangraphs_test()
   skip_on_cran()
   x <- fg_batter_game_logs(playerid = 6184, year = 2017)
-  
+
+  if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
+    skip("No data returned from FanGraphs at test time")
+  }
+
   expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

@@ -41,6 +41,7 @@ cols <- c(
 )
 
 test_that("MLB Draft Latest", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_draft_latest(year = 2020) %>% 

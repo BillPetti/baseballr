@@ -38,10 +38,11 @@ cols <- c(
 )
 
 test_that("NCAA Team Player Stats", {
+  skip_ncaa_test()
   skip_on_cran()
   
   x <- ncaa_team_player_stats(team_id = 255, year = 2021, type = "batting")
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

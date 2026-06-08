@@ -7,11 +7,12 @@
 mlb_languages()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   language_name \tab character \cr
-   language_code \tab character \cr
-   locale \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   language_id \tab integer \tab Numeric language identifier. \cr
+   language_code \tab character \tab Short language code (e.g. 'en', 'xe'). \cr
+   language_name \tab character \tab Language display name (e.g. 'English', 'Elias'). \cr
+   locale \tab character \tab Locale string for the language (e.g. 'en_US'). \cr
 }
 }
 \description{

@@ -12,24 +12,26 @@ sptrc_team_active_payroll(team_abbr, year = most_recent_mlb_season())
 \item{year}{Year to load}
 }
 \value{
-A data frame of contract data.\tabular{ll}{
-   col_name \tab types \cr
-   year \tab numeric \cr
-   team \tab character \cr
-   player_name \tab character \cr
-   roster_status \tab character \cr
-   age \tab numeric \cr
-   pos \tab numeric \cr
-   status \tab numeric \cr
-   waiver_options \tab numeric \cr
-   base_salary \tab numeric \cr
-   signing_bonus \tab numeric \cr
-   payroll_salary \tab numeric \cr
-   adj_salary \tab numeric \cr
-   payroll_percent \tab numeric \cr
-   lux_tax_salary \tab numeric \cr
-   total_salary \tab numeric \cr
+A data frame of contract data.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   year \tab numeric \tab Payroll season. \cr
+   team \tab character \tab Team abbreviation supplied to the function. \cr
+   player_name \tab character \tab Player name. \cr
+   roster_status \tab character \tab Payroll table the row came from: Active, IL, or Retained Salary. \cr
+   pos \tab character \tab Player position. \cr
+   exp \tab character \tab Years of MLB service experience. \cr
+   options_minor \tab character \tab Remaining minor-league option years. \cr
+   status \tab character \tab Contract status (e.g. signed, arbitration, pre-arbitration). \cr
+   payroll_salary \tab numeric \tab Salary counted against the team payroll (USD). \cr
+   payroll_salary_adjusted \tab numeric \tab Payroll salary adjusted for prorated and retained amounts (USD). \cr
+   base_salary \tab numeric \tab Player base salary for the season (USD). \cr
+   signing_bonus \tab numeric \tab Signing bonus allocated to the season (USD). \cr
+   waiver_options \tab character \tab Waiver and option flags reported by Spotrac. \cr
 }
+
+
+Columns after \code{roster_status} mirror Spotrac's current payroll table and may
+change as Spotrac updates its layout.
 }
 \description{
 This function allows you to scrape a team's active payroll from Spotrac.

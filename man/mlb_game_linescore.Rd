@@ -10,101 +10,103 @@ mlb_game_linescore(game_pk)
 \item{game_pk}{The unique game_pk identifier for the game}
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   game_pk \tab numeric \cr
-   home_team_id \tab character \cr
-   home_team_name \tab character \cr
-   away_team_id \tab character \cr
-   away_team_name \tab character \cr
-   num \tab integer \cr
-   ordinal_num \tab character \cr
-   home_runs \tab integer \cr
-   home_hits \tab integer \cr
-   home_errors \tab integer \cr
-   home_left_on_base \tab integer \cr
-   away_runs \tab integer \cr
-   away_hits \tab integer \cr
-   away_errors \tab integer \cr
-   away_left_on_base \tab integer \cr
-   home_team_link \tab character \cr
-   home_team_season \tab character \cr
-   home_team_venue_id \tab character \cr
-   home_team_venue_name \tab character \cr
-   home_team_venue_link \tab character \cr
-   home_team_team_code \tab character \cr
-   home_team_file_code \tab character \cr
-   home_team_abbreviation \tab character \cr
-   home_team_team_name \tab character \cr
-   home_team_location_name \tab character \cr
-   home_team_first_year_of_play \tab character \cr
-   home_team_league_id \tab character \cr
-   home_team_league_name \tab character \cr
-   home_team_league_link \tab character \cr
-   home_team_division_id \tab character \cr
-   home_team_division_name \tab character \cr
-   home_team_division_link \tab character \cr
-   home_team_sport_id \tab character \cr
-   home_team_sport_link \tab character \cr
-   home_team_sport_name \tab character \cr
-   home_team_short_name \tab character \cr
-   home_team_record_games_played \tab character \cr
-   home_team_record_wild_card_games_back \tab character \cr
-   home_team_record_league_games_back \tab character \cr
-   home_team_record_spring_league_games_back \tab character \cr
-   home_team_record_sport_games_back \tab character \cr
-   home_team_record_division_games_back \tab character \cr
-   home_team_record_conference_games_back \tab character \cr
-   home_team_record_league_record_wins \tab character \cr
-   home_team_record_league_record_losses \tab character \cr
-   home_team_record_league_record_pct \tab character \cr
-   home_team_record_division_leader \tab character \cr
-   home_team_record_wins \tab character \cr
-   home_team_record_losses \tab character \cr
-   home_team_record_winning_percentage \tab character \cr
-   home_team_franchise_name \tab character \cr
-   home_team_club_name \tab character \cr
-   home_team_all_star_status \tab character \cr
-   home_team_active \tab character \cr
-   away_team_link \tab character \cr
-   away_team_season \tab character \cr
-   away_team_venue_id \tab character \cr
-   away_team_venue_name \tab character \cr
-   away_team_venue_link \tab character \cr
-   away_team_team_code \tab character \cr
-   away_team_file_code \tab character \cr
-   away_team_abbreviation \tab character \cr
-   away_team_team_name \tab character \cr
-   away_team_location_name \tab character \cr
-   away_team_first_year_of_play \tab character \cr
-   away_team_league_id \tab character \cr
-   away_team_league_name \tab character \cr
-   away_team_league_link \tab character \cr
-   away_team_division_id \tab character \cr
-   away_team_division_name \tab character \cr
-   away_team_division_link \tab character \cr
-   away_team_sport_id \tab character \cr
-   away_team_sport_link \tab character \cr
-   away_team_sport_name \tab character \cr
-   away_team_short_name \tab character \cr
-   away_team_record_games_played \tab character \cr
-   away_team_record_wild_card_games_back \tab character \cr
-   away_team_record_league_games_back \tab character \cr
-   away_team_record_spring_league_games_back \tab character \cr
-   away_team_record_sport_games_back \tab character \cr
-   away_team_record_division_games_back \tab character \cr
-   away_team_record_conference_games_back \tab character \cr
-   away_team_record_league_record_wins \tab character \cr
-   away_team_record_league_record_losses \tab character \cr
-   away_team_record_league_record_pct \tab character \cr
-   away_team_record_division_leader \tab character \cr
-   away_team_record_wins \tab character \cr
-   away_team_record_losses \tab character \cr
-   away_team_record_winning_percentage \tab character \cr
-   away_team_franchise_name \tab character \cr
-   away_team_club_name \tab character \cr
-   away_team_all_star_status \tab character \cr
-   away_team_active \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_pk \tab numeric \tab Unique game identifier. \cr
+   home_team_id \tab character \tab Home team MLB ID. \cr
+   home_team_name \tab character \tab Home team name. \cr
+   away_team_id \tab character \tab Away team MLB ID. \cr
+   away_team_name \tab character \tab Away team name. \cr
+   num \tab integer \tab Inning number. \cr
+   ordinal_num \tab character \tab Inning ordinal label (e.g. 1st). \cr
+   home_runs \tab integer \tab Home runs scored in the inning. \cr
+   home_hits \tab integer \tab Home hits in the inning. \cr
+   home_errors \tab integer \tab Home errors in the inning. \cr
+   home_left_on_base \tab integer \tab Home runners left on base in the inning. \cr
+   away_runs \tab integer \tab Away runs scored in the inning. \cr
+   away_hits \tab integer \tab Away hits in the inning. \cr
+   away_errors \tab integer \tab Away errors in the inning. \cr
+   away_left_on_base \tab integer \tab Away runners left on base in the inning. \cr
+   home_team_all_star_status \tab character \tab Home team all-star status flag. \cr
+   home_team_link \tab character \tab MLB Stats API relative home team link. \cr
+   home_team_season \tab character \tab Home team season (YYYY). \cr
+   home_team_venue_id \tab character \tab Home team venue ID. \cr
+   home_team_venue_name \tab character \tab Home team venue name. \cr
+   home_team_venue_link \tab character \tab MLB Stats API relative home venue link. \cr
+   home_team_team_code \tab character \tab Home team code. \cr
+   home_team_file_code \tab character \tab Home team file code. \cr
+   home_team_abbreviation \tab character \tab Home team abbreviation. \cr
+   home_team_team_name \tab character \tab Home team nickname. \cr
+   home_team_location_name \tab character \tab Home team location/city name. \cr
+   home_team_first_year_of_play \tab character \tab Home franchise first year of play. \cr
+   home_team_league_id \tab character \tab Home team league ID. \cr
+   home_team_league_name \tab character \tab Home team league name. \cr
+   home_team_league_link \tab character \tab MLB Stats API relative home league link. \cr
+   home_team_division_id \tab character \tab Home team division ID. \cr
+   home_team_division_name \tab character \tab Home team division name. \cr
+   home_team_division_link \tab character \tab MLB Stats API relative home division link. \cr
+   home_team_sport_id \tab character \tab Home team sport ID. \cr
+   home_team_sport_link \tab character \tab MLB Stats API relative home sport link. \cr
+   home_team_sport_name \tab character \tab Home team sport name. \cr
+   home_team_short_name \tab character \tab Home team short name. \cr
+   home_team_record_games_played \tab character \tab Home team games played. \cr
+   home_team_record_wild_card_games_back \tab character \tab Home team games back in the wild card. \cr
+   home_team_record_league_games_back \tab character \tab Home team games back in the league. \cr
+   home_team_record_spring_league_games_back \tab character \tab Home team games back in the spring league. \cr
+   home_team_record_sport_games_back \tab character \tab Home team games back in the sport. \cr
+   home_team_record_division_games_back \tab character \tab Home team games back in the division. \cr
+   home_team_record_conference_games_back \tab character \tab Home team games back in the conference. \cr
+   home_team_record_league_record_wins \tab character \tab Home team league-record wins. \cr
+   home_team_record_league_record_losses \tab character \tab Home team league-record losses. \cr
+   home_team_record_league_record_ties \tab character \tab Home team league-record ties. \cr
+   home_team_record_league_record_pct \tab character \tab Home team winning percentage. \cr
+   home_team_record_division_leader \tab character \tab Whether the home team leads its division. \cr
+   home_team_record_wins \tab character \tab Home team wins. \cr
+   home_team_record_losses \tab character \tab Home team losses. \cr
+   home_team_record_winning_percentage \tab character \tab Home team winning percentage. \cr
+   home_team_franchise_name \tab character \tab Home franchise name. \cr
+   home_team_club_name \tab character \tab Home club name. \cr
+   home_team_active \tab character \tab Whether the home team is active. \cr
+   away_team_all_star_status \tab character \tab Away team all-star status flag. \cr
+   away_team_link \tab character \tab MLB Stats API relative away team link. \cr
+   away_team_season \tab character \tab Away team season (YYYY). \cr
+   away_team_venue_id \tab character \tab Away team venue ID. \cr
+   away_team_venue_name \tab character \tab Away team venue name. \cr
+   away_team_venue_link \tab character \tab MLB Stats API relative away venue link. \cr
+   away_team_team_code \tab character \tab Away team code. \cr
+   away_team_file_code \tab character \tab Away team file code. \cr
+   away_team_abbreviation \tab character \tab Away team abbreviation. \cr
+   away_team_team_name \tab character \tab Away team nickname. \cr
+   away_team_location_name \tab character \tab Away team location/city name. \cr
+   away_team_first_year_of_play \tab character \tab Away franchise first year of play. \cr
+   away_team_league_id \tab character \tab Away team league ID. \cr
+   away_team_league_name \tab character \tab Away team league name. \cr
+   away_team_league_link \tab character \tab MLB Stats API relative away league link. \cr
+   away_team_division_id \tab character \tab Away team division ID. \cr
+   away_team_division_name \tab character \tab Away team division name. \cr
+   away_team_division_link \tab character \tab MLB Stats API relative away division link. \cr
+   away_team_sport_id \tab character \tab Away team sport ID. \cr
+   away_team_sport_link \tab character \tab MLB Stats API relative away sport link. \cr
+   away_team_sport_name \tab character \tab Away team sport name. \cr
+   away_team_short_name \tab character \tab Away team short name. \cr
+   away_team_record_games_played \tab character \tab Away team games played. \cr
+   away_team_record_wild_card_games_back \tab character \tab Away team games back in the wild card. \cr
+   away_team_record_league_games_back \tab character \tab Away team games back in the league. \cr
+   away_team_record_spring_league_games_back \tab character \tab Away team games back in the spring league. \cr
+   away_team_record_sport_games_back \tab character \tab Away team games back in the sport. \cr
+   away_team_record_division_games_back \tab character \tab Away team games back in the division. \cr
+   away_team_record_conference_games_back \tab character \tab Away team games back in the conference. \cr
+   away_team_record_league_record_wins \tab character \tab Away team league-record wins. \cr
+   away_team_record_league_record_losses \tab character \tab Away team league-record losses. \cr
+   away_team_record_league_record_ties \tab character \tab Away team league-record ties. \cr
+   away_team_record_league_record_pct \tab character \tab Away team winning percentage. \cr
+   away_team_record_division_leader \tab character \tab Whether the away team leads its division. \cr
+   away_team_record_wins \tab character \tab Away team wins. \cr
+   away_team_record_losses \tab character \tab Away team losses. \cr
+   away_team_record_winning_percentage \tab character \tab Away team winning percentage. \cr
+   away_team_franchise_name \tab character \tab Away franchise name. \cr
+   away_team_club_name \tab character \tab Away club name. \cr
+   away_team_active \tab character \tab Whether the away team is active. \cr
 }
 }
 \description{

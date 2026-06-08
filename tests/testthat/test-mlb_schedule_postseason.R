@@ -68,6 +68,7 @@ cols <- c(
   "events"
 )
 test_that("MLB Schedule Postseason", {
+  skip_mlb_test()
   
   skip_on_cran()
   

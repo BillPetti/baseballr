@@ -134,9 +134,9 @@ acquire_parse_restrosheet_event <- function(season, wd){
   create.csv.file(wd, season)
   create.csv.roster(wd, season)
   cleanup(wd)
-  events <- data.table::fread(paste0(wd,"/download.folder/unzipped/all",season,".csv")) %>%
+  events <- data.table::fread(paste0(wd,"/download.folder/unzipped/all",season,".csv")) |>
     make_baseballr_data("Retrosheet MLB events data from retrosheet.org",Sys.time())
-  rosters <- data.table::fread(paste0(wd,"/download.folder/unzipped/roster",season,".csv")) %>%
+  rosters <- data.table::fread(paste0(wd,"/download.folder/unzipped/roster",season,".csv")) |>
     make_baseballr_data("Retrosheet MLB rosters data from retrosheet.org",Sys.time())
   retrosheet_season <- c(list(events),list(rosters))
   names(retrosheet_season) <- c("events","rosters")
@@ -221,15 +221,15 @@ create.csv.file <- function(wd, year){
   
   names(payload) <- fields$Header
   
-  payload <- payload %>%
+  payload <- payload |>
     dplyr::mutate(year = year)
   suppressWarnings(
-    payload <- payload %>%
-      dplyr::mutate_if(names(payload) %in% character_vars, as.character) %>%
-      dplyr::mutate_if(names(payload) %in% numeric_vars, as.numeric) %>%
+    payload <- payload |>
+      dplyr::mutate_if(names(payload) %in% character_vars, as.character) |>
+      dplyr::mutate_if(names(payload) %in% numeric_vars, as.numeric) |>
       dplyr::mutate_if(names(payload) %in% logical_vars, as.logical)
   )
-  payload <- payload %>%
+  payload <- payload |>
     janitor::clean_names()
   
   data.table::fwrite(payload, paste0(wd, "/download.folder/unzipped/all", year, ".csv"))
@@ -248,8 +248,8 @@ create.csv.roster <- function(wd, year){
   
   names(R)[1:6] = c("Player.ID", "Last.Name", "First.Name",
                     "Bats", "Pitches", "Team")
-  R <- R %>%
-    dplyr::mutate(year = year) %>%
+  R <- R |>
+    dplyr::mutate(year = year) |>
     janitor::clean_names()
   
   data.table::fwrite(R, file = paste0(wd, "/download.folder/unzipped/roster",

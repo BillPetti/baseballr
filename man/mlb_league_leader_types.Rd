@@ -7,9 +7,9 @@
 mlb_league_leader_types()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   leader_type \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   leader_type \tab character \tab League leader category display name (e.g. 'assists', 'shutouts'). \cr
 }
 }
 \description{

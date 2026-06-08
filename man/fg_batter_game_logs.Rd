@@ -12,282 +12,351 @@ fg_batter_game_logs(playerid, year)
 \item{year}{The season for which game logs should be returned (use the YYYY format)}
 }
 \value{
-A data frame of batter game logs.
-|col_name      |types     |
-|:-------------|:---------|
-|PlayerName    |character |
-|playerid      |integer   |
-|Date          |character |
-|Team          |character |
-|Opp           |character |
-|season        |integer   |
-|Age           |integer   |
-|BatOrder      |character |
-|Pos           |character |
-|G             |numeric   |
-|AB            |numeric   |
-|PA            |numeric   |
-|H             |numeric   |
-|1B            |numeric   |
-|2B            |numeric   |
-|3B            |numeric   |
-|HR            |numeric   |
-|R             |numeric   |
-|RBI           |numeric   |
-|BB            |numeric   |
-|IBB           |numeric   |
-|SO            |numeric   |
-|HBP           |numeric   |
-|SF            |numeric   |
-|SH            |numeric   |
-|GDP           |numeric   |
-|SB            |numeric   |
-|CS            |numeric   |
-|AVG           |numeric   |
-|GB            |numeric   |
-|FB            |numeric   |
-|LD            |numeric   |
-|IFFB          |numeric   |
-|Pitches       |numeric   |
-|Balls         |numeric   |
-|Strikes       |numeric   |
-|IFH           |numeric   |
-|BU            |numeric   |
-|BUH           |numeric   |
-|BB\%           |numeric   |
-|K\%            |numeric   |
-|BB/K          |numeric   |
-|OBP           |numeric   |
-|SLG           |numeric   |
-|OPS           |numeric   |
-|ISO           |numeric   |
-|BABIP         |numeric   |
-|GB/FB         |numeric   |
-|LD\%           |numeric   |
-|GB\%           |numeric   |
-|FB\%           |numeric   |
-|IFFB\%         |numeric   |
-|HR/FB         |numeric   |
-|IFH\%          |numeric   |
-|BUH\%          |numeric   |
-|wOBA          |numeric   |
-|wRAA          |numeric   |
-|wRC           |numeric   |
-|Spd           |numeric   |
-|wRC+          |numeric   |
-|wBSR          |numeric   |
-|WPA           |numeric   |
-|-WPA          |numeric   |
-|+WPA          |numeric   |
-|RE24          |numeric   |
-|REW           |numeric   |
-|pLI           |numeric   |
-|phLI          |numeric   |
-|PH            |numeric   |
-|WPA/LI        |numeric   |
-|Clutch        |numeric   |
-|FB\%1          |numeric   |
-|FBv           |numeric   |
-|SL\%           |numeric   |
-|SLv           |numeric   |
-|CT\%           |numeric   |
-|CTv           |numeric   |
-|CB\%           |numeric   |
-|CBv           |numeric   |
-|CH\%           |numeric   |
-|CHv           |numeric   |
-|SF\%           |numeric   |
-|SFv           |numeric   |
-|KN\%           |numeric   |
-|KNv           |numeric   |
-|XX\%           |numeric   |
-|wFB           |numeric   |
-|wSL           |numeric   |
-|wCT           |numeric   |
-|wCB           |numeric   |
-|wCH           |numeric   |
-|wSF           |numeric   |
-|wKN           |numeric   |
-|wFB/C         |numeric   |
-|wSL/C         |numeric   |
-|wCT/C         |numeric   |
-|wCB/C         |numeric   |
-|wCH/C         |numeric   |
-|wSF/C         |numeric   |
-|wKN/C         |numeric   |
-|O-Swing\%      |numeric   |
-|Z-Swing\%      |numeric   |
-|Swing\%        |numeric   |
-|O-Contact\%    |numeric   |
-|Z-Contact\%    |numeric   |
-|Contact\%      |numeric   |
-|Zone\%         |numeric   |
-|F-Strike\%     |numeric   |
-|SwStr\%        |numeric   |
-|Pull          |numeric   |
-|Cent          |numeric   |
-|Oppo          |numeric   |
-|Soft          |numeric   |
-|Med           |numeric   |
-|Hard          |numeric   |
-|bipCount      |numeric   |
-|Pull\%         |numeric   |
-|Cent\%         |numeric   |
-|Oppo\%         |numeric   |
-|Soft\%         |numeric   |
-|Med\%          |numeric   |
-|Hard\%         |numeric   |
-|pfxFA\%        |numeric   |
-|pfxFT\%        |numeric   |
-|pfxFC\%        |numeric   |
-|pfxFS\%        |numeric   |
-|pfxFO\%        |numeric   |
-|pfxSI\%        |numeric   |
-|pfxSL\%        |numeric   |
-|pfxCU\%        |numeric   |
-|pfxKC\%        |numeric   |
-|pfxCH\%        |numeric   |
-|pfxKN\%        |numeric   |
-|pfxvFA        |numeric   |
-|pfxvFT        |numeric   |
-|pfxvFC        |numeric   |
-|pfxvFS        |numeric   |
-|pfxvFO        |numeric   |
-|pfxvSI        |numeric   |
-|pfxvSL        |numeric   |
-|pfxvCU        |numeric   |
-|pfxvKC        |numeric   |
-|pfxvCH        |numeric   |
-|pfxvKN        |numeric   |
-|pfxFA-X       |numeric   |
-|pfxFT-X       |numeric   |
-|pfxFC-X       |numeric   |
-|pfxFS-X       |numeric   |
-|pfxFO-X       |numeric   |
-|pfxSI-X       |numeric   |
-|pfxSL-X       |numeric   |
-|pfxCU-X       |numeric   |
-|pfxKC-X       |numeric   |
-|pfxCH-X       |numeric   |
-|pfxKN-X       |numeric   |
-|pfxFA-Z       |numeric   |
-|pfxFT-Z       |numeric   |
-|pfxFC-Z       |numeric   |
-|pfxFS-Z       |numeric   |
-|pfxFO-Z       |numeric   |
-|pfxSI-Z       |numeric   |
-|pfxSL-Z       |numeric   |
-|pfxCU-Z       |numeric   |
-|pfxKC-Z       |numeric   |
-|pfxCH-Z       |numeric   |
-|pfxKN-Z       |numeric   |
-|pfxwFA        |numeric   |
-|pfxwFT        |numeric   |
-|pfxwFC        |numeric   |
-|pfxwFS        |numeric   |
-|pfxwFO        |numeric   |
-|pfxwSI        |numeric   |
-|pfxwSL        |numeric   |
-|pfxwCU        |numeric   |
-|pfxwKC        |numeric   |
-|pfxwCH        |numeric   |
-|pfxwKN        |numeric   |
-|pfxwFA/C      |numeric   |
-|pfxwFT/C      |numeric   |
-|pfxwFC/C      |numeric   |
-|pfxwFS/C      |numeric   |
-|pfxwFO/C      |numeric   |
-|pfxwSI/C      |numeric   |
-|pfxwSL/C      |numeric   |
-|pfxwCU/C      |numeric   |
-|pfxwKC/C      |numeric   |
-|pfxwCH/C      |numeric   |
-|pfxwKN/C      |numeric   |
-|pfxO-Swing\%   |numeric   |
-|pfxZ-Swing\%   |numeric   |
-|pfxSwing\%     |numeric   |
-|pfxO-Contact\% |numeric   |
-|pfxZ-Contact\% |numeric   |
-|pfxContact\%   |numeric   |
-|pfxZone\%      |numeric   |
-|pfxPace       |numeric   |
-|piCH\%         |numeric   |
-|piCS\%         |numeric   |
-|piCU\%         |numeric   |
-|piFA\%         |numeric   |
-|piFC\%         |numeric   |
-|piFS\%         |numeric   |
-|piKN\%         |numeric   |
-|piSI\%         |numeric   |
-|piSL\%         |numeric   |
-|piXX\%         |numeric   |
-|pivCH         |numeric   |
-|pivCS         |numeric   |
-|pivCU         |numeric   |
-|pivFA         |numeric   |
-|pivFC         |numeric   |
-|pivFS         |numeric   |
-|pivKN         |numeric   |
-|pivSI         |numeric   |
-|pivSL         |numeric   |
-|pivXX         |numeric   |
-|piCH-X        |numeric   |
-|piCS-X        |numeric   |
-|piCU-X        |numeric   |
-|piFA-X        |numeric   |
-|piFC-X        |numeric   |
-|piFS-X        |numeric   |
-|piKN-X        |numeric   |
-|piSI-X        |numeric   |
-|piSL-X        |numeric   |
-|piXX-X        |numeric   |
-|piCH-Z        |numeric   |
-|piCS-Z        |numeric   |
-|piCU-Z        |numeric   |
-|piFA-Z        |numeric   |
-|piFC-Z        |numeric   |
-|piFS-Z        |numeric   |
-|piKN-Z        |numeric   |
-|piSI-Z        |numeric   |
-|piSL-Z        |numeric   |
-|piXX-Z        |numeric   |
-|piwCH         |numeric   |
-|piwCS         |numeric   |
-|piwCU         |numeric   |
-|piwFA         |numeric   |
-|piwFC         |numeric   |
-|piwFS         |numeric   |
-|piwKN         |numeric   |
-|piwSI         |numeric   |
-|piwSL         |numeric   |
-|piwXX         |numeric   |
-|piwCH/C       |numeric   |
-|piwCS/C       |numeric   |
-|piwCU/C       |numeric   |
-|piwFA/C       |numeric   |
-|piwFC/C       |numeric   |
-|piwFS/C       |numeric   |
-|piwKN/C       |numeric   |
-|piwSI/C       |numeric   |
-|piwSL/C       |numeric   |
-|piwXX/C       |numeric   |
-|piO-Swing\%    |numeric   |
-|piZ-Swing\%    |numeric   |
-|piSwing\%      |numeric   |
-|piO-Contact\%  |numeric   |
-|piZ-Contact\%  |numeric   |
-|piContact\%    |numeric   |
-|piZone\%       |numeric   |
-|Events        |numeric   |
-|EV            |numeric   |
-|LA            |numeric   |
-|Barrels       |numeric   |
-|Barrel\%       |numeric   |
-|maxEV         |numeric   |
-|HardHit       |numeric   |
-|HardHit\%      |numeric   |
-|gamedate      |character |
-|dh            |integer   |
+A data frame of batter game logs, one row per game, with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   PlayerName \tab character \tab Player name. \cr
+   playerid \tab integer \tab FanGraphs player ID. \cr
+   Date \tab character \tab Calendar date of the game (YYYY-MM-DD). \cr
+   Team \tab character \tab Team the player appeared for. \cr
+   Opp \tab character \tab Opponent team; leading @ indicates a road game. \cr
+   season \tab integer \tab Season year. \cr
+   Age \tab integer \tab Player age during the season. \cr
+   BatOrder \tab character \tab Spot in the batting order. \cr
+   Pos \tab character \tab Fielding position played. \cr
+   G \tab numeric \tab Games (1 per row). \cr
+   AB \tab numeric \tab At-bats. \cr
+   PA \tab numeric \tab Plate appearances. \cr
+   H \tab numeric \tab Hits. \cr
+   1B \tab numeric \tab Singles. \cr
+   2B \tab numeric \tab Doubles. \cr
+   3B \tab numeric \tab Triples. \cr
+   HR \tab numeric \tab Home runs. \cr
+   R \tab numeric \tab Runs scored. \cr
+   RBI \tab numeric \tab Runs batted in. \cr
+   BB \tab numeric \tab Walks (bases on balls). \cr
+   IBB \tab numeric \tab Intentional walks. \cr
+   SO \tab numeric \tab Strikeouts. \cr
+   HBP \tab numeric \tab Times hit by pitch. \cr
+   SF \tab numeric \tab Sacrifice flies. \cr
+   SH \tab numeric \tab Sacrifice hits (bunts). \cr
+   GDP \tab numeric \tab Grounded into double plays. \cr
+   SB \tab numeric \tab Stolen bases. \cr
+   CS \tab numeric \tab Times caught stealing. \cr
+   AVG \tab numeric \tab Batting average. \cr
+   GB \tab numeric \tab Ground balls. \cr
+   FB \tab numeric \tab Fly balls. \cr
+   LD \tab numeric \tab Line drives. \cr
+   IFFB \tab numeric \tab Infield fly balls. \cr
+   Pitches \tab numeric \tab Pitches seen. \cr
+   Balls \tab numeric \tab Balls. \cr
+   Strikes \tab numeric \tab Strikes. \cr
+   IFH \tab numeric \tab Infield hits. \cr
+   BU \tab numeric \tab Bunts. \cr
+   BUH \tab numeric \tab Bunt hits. \cr
+   BB\% \tab numeric \tab Walk rate. \cr
+   K\% \tab numeric \tab Strikeout rate. \cr
+   BB/K \tab numeric \tab Walk-to-strikeout ratio. \cr
+   OBP \tab numeric \tab On-base percentage. \cr
+   SLG \tab numeric \tab Slugging percentage. \cr
+   OPS \tab numeric \tab On-base plus slugging. \cr
+   ISO \tab numeric \tab Isolated power. \cr
+   BABIP \tab numeric \tab Batting average on balls in play. \cr
+   GB/FB \tab numeric \tab Ground-ball to fly-ball ratio. \cr
+   LD\% \tab numeric \tab Line-drive rate. \cr
+   GB\% \tab numeric \tab Ground-ball rate. \cr
+   FB\% \tab numeric \tab Fly-ball rate. \cr
+   IFFB\% \tab numeric \tab Infield-fly-ball rate. \cr
+   HR/FB \tab numeric \tab Home-run-per-fly-ball rate. \cr
+   IFH\% \tab numeric \tab Infield-hit rate. \cr
+   BUH\% \tab numeric \tab Bunt-hit rate. \cr
+   wOBA \tab numeric \tab Weighted on-base average. \cr
+   wRAA \tab numeric \tab Weighted runs above average. \cr
+   wRC \tab numeric \tab Weighted runs created. \cr
+   Spd \tab numeric \tab Bill James Speed Score. \cr
+   wRC+ \tab numeric \tab Weighted runs created plus (100 = average). \cr
+   wBSR \tab numeric \tab Weighted base running runs. \cr
+   WPA \tab numeric \tab Win probability added. \cr
+   -WPA \tab numeric \tab Negative win probability added. \cr
+   +WPA \tab numeric \tab Positive win probability added. \cr
+   RE24 \tab numeric \tab Run expectancy based on 24 base-out states. \cr
+   REW \tab numeric \tab Run expectancy wins. \cr
+   pLI \tab numeric \tab Average leverage index. \cr
+   PH \tab numeric \tab Pinch-hit appearances. \cr
+   WPA/LI \tab numeric \tab Context-neutral win probability added. \cr
+   Clutch \tab numeric \tab Clutch performance score. \cr
+   FB\%1 \tab numeric \tab Fastball usage rate. \cr
+   FBv \tab numeric \tab Average four-seam fastball velocity (mph). \cr
+   SL\% \tab numeric \tab slider usage rate. \cr
+   SLv \tab numeric \tab Average slider velocity (mph). \cr
+   CT\% \tab numeric \tab cutter usage rate. \cr
+   CTv \tab numeric \tab Average cutter velocity (mph). \cr
+   CB\% \tab numeric \tab curveball usage rate. \cr
+   CBv \tab numeric \tab Average curveball velocity (mph). \cr
+   CH\% \tab numeric \tab changeup usage rate. \cr
+   CHv \tab numeric \tab Average changeup velocity (mph). \cr
+   SF\% \tab numeric \tab split-finger fastball usage rate. \cr
+   SFv \tab numeric \tab Average split-finger fastball velocity (mph). \cr
+   XX\% \tab numeric \tab unknown/other pitch usage rate. \cr
+   wFB \tab numeric \tab Total runs above average on the fastball. \cr
+   wSL \tab numeric \tab Total runs above average on the slider. \cr
+   wCT \tab numeric \tab Total runs above average on the cutter. \cr
+   wCB \tab numeric \tab Total runs above average on the curveball. \cr
+   wCH \tab numeric \tab Total runs above average on the changeup. \cr
+   wSF \tab numeric \tab Total runs above average on the split-finger fastball. \cr
+   wFB/C \tab numeric \tab Runs above average per 100 fastballs. \cr
+   wSL/C \tab numeric \tab Runs above average per 100 sliders. \cr
+   wCT/C \tab numeric \tab Runs above average per 100 cutters. \cr
+   wCB/C \tab numeric \tab Runs above average per 100 curveballs. \cr
+   wCH/C \tab numeric \tab Runs above average per 100 changeups. \cr
+   wSF/C \tab numeric \tab Runs above average per 100 split-finger fastballs. \cr
+   O-Swing\% \tab numeric \tab Swing rate on pitches outside the zone. \cr
+   Z-Swing\% \tab numeric \tab Swing rate on pitches in the zone. \cr
+   Swing\% \tab numeric \tab Overall swing rate. \cr
+   O-Contact\% \tab numeric \tab Contact rate on pitches outside the zone. \cr
+   Z-Contact\% \tab numeric \tab Contact rate on pitches in the zone. \cr
+   Contact\% \tab numeric \tab Overall contact rate. \cr
+   Zone\% \tab numeric \tab Rate of pitches in the strike zone. \cr
+   F-Strike\% \tab numeric \tab First-pitch strike rate. \cr
+   SwStr\% \tab numeric \tab Swinging-strike rate. \cr
+   Pull \tab numeric \tab Pulled batted balls. \cr
+   Cent \tab numeric \tab Batted balls hit up the middle. \cr
+   Oppo \tab numeric \tab Opposite-field batted balls. \cr
+   Soft \tab numeric \tab Soft-hit batted balls. \cr
+   Med \tab numeric \tab Medium-hit batted balls. \cr
+   Hard \tab numeric \tab Hard-hit batted balls. \cr
+   bipCount \tab numeric \tab Balls in play. \cr
+   Pull\% \tab numeric \tab Pulled batted-ball rate. \cr
+   Cent\% \tab numeric \tab Up-the-middle batted-ball rate. \cr
+   Oppo\% \tab numeric \tab Opposite-field batted-ball rate. \cr
+   Soft\% \tab numeric \tab Soft-contact rate. \cr
+   Med\% \tab numeric \tab Medium-contact rate. \cr
+   Hard\% \tab numeric \tab Hard-contact rate. \cr
+   xwOBA \tab numeric \tab Expected weighted on-base average. \cr
+   xAVG \tab numeric \tab Expected batting average. \cr
+   xSLG \tab numeric \tab Expected slugging percentage. \cr
+   pfxFA\% \tab numeric \tab PITCHf/x four-seam fastball usage rate. \cr
+   pfxFC\% \tab numeric \tab PITCHf/x cutter usage rate. \cr
+   pfxFS\% \tab numeric \tab PITCHf/x splitter usage rate. \cr
+   pfxFO\% \tab numeric \tab PITCHf/x forkball usage rate. \cr
+   pfxSI\% \tab numeric \tab PITCHf/x sinker usage rate. \cr
+   pfxSL\% \tab numeric \tab PITCHf/x slider usage rate. \cr
+   pfxCU\% \tab numeric \tab PITCHf/x curveball usage rate. \cr
+   pfxKC\% \tab numeric \tab PITCHf/x knuckle curve usage rate. \cr
+   pfxCH\% \tab numeric \tab PITCHf/x changeup usage rate. \cr
+   pfxSLO\% \tab numeric \tab PITCHf/x slurve usage rate. \cr
+   pfxST\% \tab numeric \tab PITCHf/x sweeper usage rate. \cr
+   pfxCUO\% \tab numeric \tab PITCHf/x other curve usage rate. \cr
+   pfxCV\% \tab numeric \tab PITCHf/x curve usage rate. \cr
+   pfxvFA \tab numeric \tab PITCHf/x average four-seam fastball velocity (mph). \cr
+   pfxvFC \tab numeric \tab PITCHf/x average cutter velocity (mph). \cr
+   pfxvFS \tab numeric \tab PITCHf/x average splitter velocity (mph). \cr
+   pfxvFO \tab numeric \tab PITCHf/x average forkball velocity (mph). \cr
+   pfxvSI \tab numeric \tab PITCHf/x average sinker velocity (mph). \cr
+   pfxvSL \tab numeric \tab PITCHf/x average slider velocity (mph). \cr
+   pfxvCU \tab numeric \tab PITCHf/x average curveball velocity (mph). \cr
+   pfxvKC \tab numeric \tab PITCHf/x average knuckle curve velocity (mph). \cr
+   pfxvCH \tab numeric \tab PITCHf/x average changeup velocity (mph). \cr
+   pfxvSLO \tab numeric \tab PITCHf/x average slurve velocity (mph). \cr
+   pfxvST \tab numeric \tab PITCHf/x average sweeper velocity (mph). \cr
+   pfxvCUO \tab numeric \tab PITCHf/x average other curve velocity (mph). \cr
+   pfxvCV \tab numeric \tab PITCHf/x average curve velocity (mph). \cr
+   pfxFA-X \tab numeric \tab PITCHf/x horizontal movement of the four-seam fastball (inches). \cr
+   pfxFC-X \tab numeric \tab PITCHf/x horizontal movement of the cutter (inches). \cr
+   pfxFS-X \tab numeric \tab PITCHf/x horizontal movement of the splitter (inches). \cr
+   pfxFO-X \tab numeric \tab PITCHf/x horizontal movement of the forkball (inches). \cr
+   pfxSI-X \tab numeric \tab PITCHf/x horizontal movement of the sinker (inches). \cr
+   pfxSL-X \tab numeric \tab PITCHf/x horizontal movement of the slider (inches). \cr
+   pfxCU-X \tab numeric \tab PITCHf/x horizontal movement of the curveball (inches). \cr
+   pfxKC-X \tab numeric \tab PITCHf/x horizontal movement of the knuckle curve (inches). \cr
+   pfxCH-X \tab numeric \tab PITCHf/x horizontal movement of the changeup (inches). \cr
+   pfxSLO-X \tab numeric \tab PITCHf/x horizontal movement of the slurve (inches). \cr
+   pfxST-X \tab numeric \tab PITCHf/x horizontal movement of the sweeper (inches). \cr
+   pfxCUO-X \tab numeric \tab PITCHf/x horizontal movement of the other curve (inches). \cr
+   pfxCV-X \tab numeric \tab PITCHf/x horizontal movement of the curve (inches). \cr
+   pfxFA-Z \tab numeric \tab PITCHf/x vertical movement of the four-seam fastball (inches). \cr
+   pfxFC-Z \tab numeric \tab PITCHf/x vertical movement of the cutter (inches). \cr
+   pfxFS-Z \tab numeric \tab PITCHf/x vertical movement of the splitter (inches). \cr
+   pfxFO-Z \tab numeric \tab PITCHf/x vertical movement of the forkball (inches). \cr
+   pfxSI-Z \tab numeric \tab PITCHf/x vertical movement of the sinker (inches). \cr
+   pfxSL-Z \tab numeric \tab PITCHf/x vertical movement of the slider (inches). \cr
+   pfxCU-Z \tab numeric \tab PITCHf/x vertical movement of the curveball (inches). \cr
+   pfxKC-Z \tab numeric \tab PITCHf/x vertical movement of the knuckle curve (inches). \cr
+   pfxCH-Z \tab numeric \tab PITCHf/x vertical movement of the changeup (inches). \cr
+   pfxSLO-Z \tab numeric \tab PITCHf/x vertical movement of the slurve (inches). \cr
+   pfxST-Z \tab numeric \tab PITCHf/x vertical movement of the sweeper (inches). \cr
+   pfxCUO-Z \tab numeric \tab PITCHf/x vertical movement of the other curve (inches). \cr
+   pfxCV-Z \tab numeric \tab PITCHf/x vertical movement of the curve (inches). \cr
+   pfxwFA \tab numeric \tab PITCHf/x total runs above average on the four-seam fastball. \cr
+   pfxwFC \tab numeric \tab PITCHf/x total runs above average on the cutter. \cr
+   pfxwFS \tab numeric \tab PITCHf/x total runs above average on the splitter. \cr
+   pfxwFO \tab numeric \tab PITCHf/x total runs above average on the forkball. \cr
+   pfxwSI \tab numeric \tab PITCHf/x total runs above average on the sinker. \cr
+   pfxwSL \tab numeric \tab PITCHf/x total runs above average on the slider. \cr
+   pfxwCU \tab numeric \tab PITCHf/x total runs above average on the curveball. \cr
+   pfxwKC \tab numeric \tab PITCHf/x total runs above average on the knuckle curve. \cr
+   pfxwCH \tab numeric \tab PITCHf/x total runs above average on the changeup. \cr
+   pfxwSLO \tab numeric \tab PITCHf/x total runs above average on the slurve. \cr
+   pfxwST \tab numeric \tab PITCHf/x total runs above average on the sweeper. \cr
+   pfxwCUO \tab numeric \tab PITCHf/x total runs above average on the other curve. \cr
+   pfxwCV \tab numeric \tab PITCHf/x total runs above average on the curve. \cr
+   pfxwFA/C \tab numeric \tab PITCHf/x runs above average per 100 four-seam fastballs. \cr
+   pfxwFC/C \tab numeric \tab PITCHf/x runs above average per 100 cutters. \cr
+   pfxwFS/C \tab numeric \tab PITCHf/x runs above average per 100 splitters. \cr
+   pfxwFO/C \tab numeric \tab PITCHf/x runs above average per 100 forkballs. \cr
+   pfxwSI/C \tab numeric \tab PITCHf/x runs above average per 100 sinkers. \cr
+   pfxwSL/C \tab numeric \tab PITCHf/x runs above average per 100 sliders. \cr
+   pfxwCU/C \tab numeric \tab PITCHf/x runs above average per 100 curveballs. \cr
+   pfxwKC/C \tab numeric \tab PITCHf/x runs above average per 100 knuckle curves. \cr
+   pfxwCH/C \tab numeric \tab PITCHf/x runs above average per 100 changeups. \cr
+   pfxwSLO/C \tab numeric \tab PITCHf/x runs above average per 100 slurves. \cr
+   pfxwST/C \tab numeric \tab PITCHf/x runs above average per 100 sweepers. \cr
+   pfxwCUO/C \tab numeric \tab PITCHf/x runs above average per 100 other curves. \cr
+   pfxwCV/C \tab numeric \tab PITCHf/x runs above average per 100 curves. \cr
+   pfxaaFA \tab numeric \tab PITCHf/x average spin/active component on the four-seam fastball. \cr
+   pfxaaFC \tab numeric \tab PITCHf/x average spin/active component on the cutter. \cr
+   pfxaaFS \tab numeric \tab PITCHf/x average spin/active component on the splitter. \cr
+   pfxaaFO \tab numeric \tab PITCHf/x average spin/active component on the forkball. \cr
+   pfxaaSI \tab numeric \tab PITCHf/x average spin/active component on the sinker. \cr
+   pfxaaSL \tab numeric \tab PITCHf/x average spin/active component on the slider. \cr
+   pfxaaCU \tab numeric \tab PITCHf/x average spin/active component on the curveball. \cr
+   pfxaaKC \tab numeric \tab PITCHf/x average spin/active component on the knuckle curve. \cr
+   pfxaaCH \tab numeric \tab PITCHf/x average spin/active component on the changeup. \cr
+   pfxaaSLO \tab numeric \tab PITCHf/x average spin/active component on the slurve. \cr
+   pfxaaST \tab numeric \tab PITCHf/x average spin/active component on the sweeper. \cr
+   pfxaaCUO \tab numeric \tab PITCHf/x average spin/active component on the other curve. \cr
+   pfxaaCV \tab numeric \tab PITCHf/x average spin/active component on the curve. \cr
+   pfxspFA \tab numeric \tab PITCHf/x average spin rate on the four-seam fastball (rpm). \cr
+   pfxspFC \tab numeric \tab PITCHf/x average spin rate on the cutter (rpm). \cr
+   pfxspFS \tab numeric \tab PITCHf/x average spin rate on the splitter (rpm). \cr
+   pfxspFO \tab numeric \tab PITCHf/x average spin rate on the forkball (rpm). \cr
+   pfxspSI \tab numeric \tab PITCHf/x average spin rate on the sinker (rpm). \cr
+   pfxspSL \tab numeric \tab PITCHf/x average spin rate on the slider (rpm). \cr
+   pfxspCU \tab numeric \tab PITCHf/x average spin rate on the curveball (rpm). \cr
+   pfxspKC \tab numeric \tab PITCHf/x average spin rate on the knuckle curve (rpm). \cr
+   pfxspCH \tab numeric \tab PITCHf/x average spin rate on the changeup (rpm). \cr
+   pfxspSLO \tab numeric \tab PITCHf/x average spin rate on the slurve (rpm). \cr
+   pfxspST \tab numeric \tab PITCHf/x average spin rate on the sweeper (rpm). \cr
+   pfxspCUO \tab numeric \tab PITCHf/x average spin rate on the other curve (rpm). \cr
+   pfxspCV \tab numeric \tab PITCHf/x average spin rate on the curve (rpm). \cr
+   pfxO-Swing\% \tab numeric \tab PITCHf/x Swing rate on pitches outside the zone. \cr
+   pfxZ-Swing\% \tab numeric \tab PITCHf/x Swing rate on pitches in the zone. \cr
+   pfxSwing\% \tab numeric \tab PITCHf/x Overall swing rate. \cr
+   pfxO-Contact\% \tab numeric \tab PITCHf/x Contact rate on pitches outside the zone. \cr
+   pfxZ-Contact\% \tab numeric \tab PITCHf/x Contact rate on pitches in the zone. \cr
+   pfxContact\% \tab numeric \tab PITCHf/x Overall contact rate. \cr
+   pfxZone\% \tab numeric \tab PITCHf/x Rate of pitches in the strike zone. \cr
+   pfxPace \tab numeric \tab PITCHf/x Average seconds between pitches. \cr
+   AvgBatSpeed \tab numeric \tab Average bat speed (mph). \cr
+   FastSwing\% \tab numeric \tab Rate of fast swings. \cr
+   SwingLength \tab numeric \tab Average swing length (feet). \cr
+   SquaredUpContact\% \tab numeric \tab Squared-up rate per contact. \cr
+   SquaredUpSwing\% \tab numeric \tab Squared-up rate per swing. \cr
+   BlastContact\% \tab numeric \tab Blast rate per contact. \cr
+   BlastSwing\% \tab numeric \tab Blast rate per swing. \cr
+   Swords \tab numeric \tab Swords (especially ugly swinging strikeouts). \cr
+   CompetitiveSwings \tab numeric \tab Competitive swings. \cr
+   Tilt \tab numeric \tab Average swing tilt (degrees). \cr
+   AttackAngle \tab numeric \tab Average attack angle (degrees). \cr
+   AttackDirection \tab numeric \tab Average attack direction (degrees). \cr
+   IdealAttackAngle\% \tab numeric \tab Rate of swings in the ideal attack-angle range. \cr
+   DepthInBox \tab numeric \tab Average depth in the batter's box (inches). \cr
+   DistanceOffPlate \tab numeric \tab Average distance off the plate (inches). \cr
+   scH-Swing\% \tab numeric \tab Statcast heart-zone swing rate. \cr
+   scH-Contact\% \tab numeric \tab Statcast heart-zone contact rate. \cr
+   scH-Zone\% \tab numeric \tab Statcast heart-zone zone rate. \cr
+   scS-Swing\% \tab numeric \tab Statcast shadow-zone swing rate. \cr
+   scS-Contact\% \tab numeric \tab Statcast shadow-zone contact rate. \cr
+   scS-Zone\% \tab numeric \tab Statcast shadow-zone zone rate. \cr
+   scC-Swing\% \tab numeric \tab Statcast chase-zone swing rate. \cr
+   scC-Contact\% \tab numeric \tab Statcast chase-zone contact rate. \cr
+   scC-Zone\% \tab numeric \tab Statcast chase-zone zone rate. \cr
+   scW-Swing\% \tab numeric \tab Statcast waste-zone swing rate. \cr
+   scW-Contact\% \tab numeric \tab Statcast waste-zone contact rate. \cr
+   scW-Zone\% \tab numeric \tab Statcast waste-zone zone rate. \cr
+   scSI-Swing\% \tab numeric \tab Statcast in-zone strike-zone swing rate. \cr
+   scSI-Contact\% \tab numeric \tab Statcast in-zone strike-zone contact rate. \cr
+   scSI-Zone\% \tab numeric \tab Statcast in-zone strike-zone zone rate. \cr
+   scSO-Swing\% \tab numeric \tab Statcast out-of-zone strike-zone swing rate. \cr
+   scSO-Contact\% \tab numeric \tab Statcast out-of-zone strike-zone contact rate. \cr
+   scSO-Zone\% \tab numeric \tab Statcast out-of-zone strike-zone zone rate. \cr
+   scO-Swing\% \tab numeric \tab Statcast out-of-zone-zone swing rate. \cr
+   scO-Contact\% \tab numeric \tab Statcast out-of-zone-zone contact rate. \cr
+   scO-Zone\% \tab numeric \tab Statcast out-of-zone-zone zone rate. \cr
+   scZ-Swing\% \tab numeric \tab Statcast in-zone-zone swing rate. \cr
+   scZ-Contact\% \tab numeric \tab Statcast in-zone-zone contact rate. \cr
+   scZ-Zone\% \tab numeric \tab Statcast in-zone-zone zone rate. \cr
+   piCH\% \tab numeric \tab PITCHInfo changeup usage rate. \cr
+   piCS\% \tab numeric \tab PITCHInfo slow curve usage rate. \cr
+   piCU\% \tab numeric \tab PITCHInfo curveball usage rate. \cr
+   piFA\% \tab numeric \tab PITCHInfo four-seam fastball usage rate. \cr
+   piFC\% \tab numeric \tab PITCHInfo cutter usage rate. \cr
+   piFS\% \tab numeric \tab PITCHInfo splitter usage rate. \cr
+   piSI\% \tab numeric \tab PITCHInfo sinker usage rate. \cr
+   piSL\% \tab numeric \tab PITCHInfo slider usage rate. \cr
+   piXX\% \tab numeric \tab PITCHInfo unknown/other pitch usage rate. \cr
+   pivCH \tab numeric \tab PITCHInfo average changeup velocity (mph). \cr
+   pivCS \tab numeric \tab PITCHInfo average slow curve velocity (mph). \cr
+   pivCU \tab numeric \tab PITCHInfo average curveball velocity (mph). \cr
+   pivFA \tab numeric \tab PITCHInfo average four-seam fastball velocity (mph). \cr
+   pivFC \tab numeric \tab PITCHInfo average cutter velocity (mph). \cr
+   pivFS \tab numeric \tab PITCHInfo average splitter velocity (mph). \cr
+   pivSI \tab numeric \tab PITCHInfo average sinker velocity (mph). \cr
+   pivSL \tab numeric \tab PITCHInfo average slider velocity (mph). \cr
+   pivXX \tab numeric \tab PITCHInfo average unknown/other pitch velocity (mph). \cr
+   piCH-X \tab numeric \tab PITCHInfo horizontal movement of the changeup (inches). \cr
+   piCS-X \tab numeric \tab PITCHInfo horizontal movement of the slow curve (inches). \cr
+   piCU-X \tab numeric \tab PITCHInfo horizontal movement of the curveball (inches). \cr
+   piFA-X \tab numeric \tab PITCHInfo horizontal movement of the four-seam fastball (inches). \cr
+   piFC-X \tab numeric \tab PITCHInfo horizontal movement of the cutter (inches). \cr
+   piFS-X \tab numeric \tab PITCHInfo horizontal movement of the splitter (inches). \cr
+   piSI-X \tab numeric \tab PITCHInfo horizontal movement of the sinker (inches). \cr
+   piSL-X \tab numeric \tab PITCHInfo horizontal movement of the slider (inches). \cr
+   piXX-X \tab numeric \tab PITCHInfo horizontal movement of the unknown/other pitch (inches). \cr
+   piCH-Z \tab numeric \tab PITCHInfo vertical movement of the changeup (inches). \cr
+   piCS-Z \tab numeric \tab PITCHInfo vertical movement of the slow curve (inches). \cr
+   piCU-Z \tab numeric \tab PITCHInfo vertical movement of the curveball (inches). \cr
+   piFA-Z \tab numeric \tab PITCHInfo vertical movement of the four-seam fastball (inches). \cr
+   piFC-Z \tab numeric \tab PITCHInfo vertical movement of the cutter (inches). \cr
+   piFS-Z \tab numeric \tab PITCHInfo vertical movement of the splitter (inches). \cr
+   piSI-Z \tab numeric \tab PITCHInfo vertical movement of the sinker (inches). \cr
+   piSL-Z \tab numeric \tab PITCHInfo vertical movement of the slider (inches). \cr
+   piXX-Z \tab numeric \tab PITCHInfo vertical movement of the unknown/other pitch (inches). \cr
+   piwCH \tab numeric \tab PITCHInfo total runs above average on the changeup. \cr
+   piwCS \tab numeric \tab PITCHInfo total runs above average on the slow curve. \cr
+   piwCU \tab numeric \tab PITCHInfo total runs above average on the curveball. \cr
+   piwFA \tab numeric \tab PITCHInfo total runs above average on the four-seam fastball. \cr
+   piwFC \tab numeric \tab PITCHInfo total runs above average on the cutter. \cr
+   piwFS \tab numeric \tab PITCHInfo total runs above average on the splitter. \cr
+   piwSI \tab numeric \tab PITCHInfo total runs above average on the sinker. \cr
+   piwSL \tab numeric \tab PITCHInfo total runs above average on the slider. \cr
+   piwXX \tab numeric \tab PITCHInfo total runs above average on the unknown/other pitch. \cr
+   piwCH/C \tab numeric \tab PITCHInfo runs above average per 100 changeups. \cr
+   piwCS/C \tab numeric \tab PITCHInfo runs above average per 100 slow curves. \cr
+   piwCU/C \tab numeric \tab PITCHInfo runs above average per 100 curveballs. \cr
+   piwFA/C \tab numeric \tab PITCHInfo runs above average per 100 four-seam fastballs. \cr
+   piwFC/C \tab numeric \tab PITCHInfo runs above average per 100 cutters. \cr
+   piwFS/C \tab numeric \tab PITCHInfo runs above average per 100 splitters. \cr
+   piwSI/C \tab numeric \tab PITCHInfo runs above average per 100 sinkers. \cr
+   piwSL/C \tab numeric \tab PITCHInfo runs above average per 100 sliders. \cr
+   piwXX/C \tab numeric \tab PITCHInfo runs above average per 100 unknown/other pitchs. \cr
+   piO-Swing\% \tab numeric \tab PITCHInfo Swing rate on pitches outside the zone. \cr
+   piZ-Swing\% \tab numeric \tab PITCHInfo Swing rate on pitches in the zone. \cr
+   piSwing\% \tab numeric \tab PITCHInfo Overall swing rate. \cr
+   piO-Contact\% \tab numeric \tab PITCHInfo Contact rate on pitches outside the zone. \cr
+   piZ-Contact\% \tab numeric \tab PITCHInfo Contact rate on pitches in the zone. \cr
+   piContact\% \tab numeric \tab PITCHInfo Overall contact rate. \cr
+   piZone\% \tab numeric \tab PITCHInfo Rate of pitches in the strike zone. \cr
+   Events \tab numeric \tab Batted-ball events with Statcast data. \cr
+   EV \tab numeric \tab Average exit velocity (mph). \cr
+   LA \tab numeric \tab Average launch angle (degrees). \cr
+   Barrels \tab numeric \tab Barreled batted balls. \cr
+   Barrel\% \tab numeric \tab Barrel rate (per batted-ball event). \cr
+   maxEV \tab numeric \tab Maximum exit velocity (mph). \cr
+   HardHit \tab numeric \tab Hard-hit batted balls (95+ mph). \cr
+   HardHit\% \tab numeric \tab Hard-hit rate (95+ mph). \cr
+   gamedate \tab character \tab Game date as parsed from the source feed. \cr
+   dh \tab integer \tab Doubleheader game indicator (0 = single game). \cr
+}
 }
 \description{
 This function allows you to scrape game logs by year for a batter from FanGraphs.com.

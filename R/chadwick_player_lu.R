@@ -3,49 +3,49 @@
 #' @return A data frame of baseball players and the various IDs associated with them in different systems of record 
 #' and the following columns: 
 #' 
-#'   |col_name          |types     |
-#'   |:-----------------|:---------|
-#'   |key_person        |character |
-#'   |key_uuid          |character |
-#'   |key_mlbam         |integer   |
-#'   |key_retro         |character |
-#'   |key_bbref         |character |
-#'   |key_bbref_minors  |character |
-#'   |key_fangraphs     |integer   |
-#'   |key_npb           |integer   |
-#'   |key_sr_nfl        |character |
-#'   |key_sr_nba        |character |
-#'   |key_sr_nhl        |character |
-#'   |key_findagrave    |integer   |
-#'   |name_last         |character |
-#'   |name_first        |character |
-#'   |name_given        |character |
-#'   |name_suffix       |character |
-#'   |name_matrilineal  |character |
-#'   |name_nick         |character |
-#'   |birth_year        |integer   |
-#'   |birth_month       |integer   |
-#'   |birth_day         |integer   |
-#'   |death_year        |integer   |
-#'   |death_month       |integer   |
-#'   |death_day         |integer   |
-#'   |pro_played_first  |integer   |
-#'   |pro_played_last   |integer   |
-#'   |mlb_played_first  |integer   |
-#'   |mlb_played_last   |integer   |
-#'   |col_played_first  |integer   |
-#'   |col_played_last   |integer   |
-#'   |pro_managed_first |integer   |
-#'   |pro_managed_last  |integer   |
-#'   |mlb_managed_first |integer   |
-#'   |mlb_managed_last  |integer   |
-#'   |col_managed_first |integer   |
-#'   |col_managed_last  |integer   |
-#'   |pro_umpired_first |integer   |
-#'   |pro_umpired_last  |integer   |
-#'   |mlb_umpired_first |integer   |
-#'   |mlb_umpired_last  |integer   |
-#'   
+#'   |col_name          |types     |description |
+#'   |:-----------------|:---------|:-----------|
+#'   |key_person        |character |Chadwick Bureau primary person key. |
+#'   |key_uuid          |character |Chadwick Bureau universally unique identifier for the person. |
+#'   |key_mlbam         |integer   |MLB Advanced Media (MLBAM) player ID. |
+#'   |key_retro         |character |Retrosheet player ID. |
+#'   |key_bbref         |character |Baseball-Reference major league player ID. |
+#'   |key_bbref_minors  |character |Baseball-Reference minor league player ID. |
+#'   |key_fangraphs     |integer   |FanGraphs player ID. |
+#'   |key_npb           |integer   |Nippon Professional Baseball (Japan) player ID. |
+#'   |key_sr_nfl        |character |Sports Reference NFL player ID. |
+#'   |key_sr_nba        |character |Sports Reference NBA player ID. |
+#'   |key_sr_nhl        |character |Sports Reference NHL player ID. |
+#'   |key_wikidata      |character |Wikidata entity ID for the person. |
+#'   |name_last         |character |Player last name. |
+#'   |name_first        |character |Player first name. |
+#'   |name_given        |character |Player full given (legal) name. |
+#'   |name_suffix       |character |Name suffix (e.g. Jr., Sr., III). |
+#'   |name_matrilineal  |character |Maternal surname, where recorded. |
+#'   |name_nick         |character |Player nickname. |
+#'   |birth_year        |integer   |Year of birth. |
+#'   |birth_month       |integer   |Month of birth. |
+#'   |birth_day         |integer   |Day of birth. |
+#'   |death_year        |integer   |Year of death. |
+#'   |death_month       |integer   |Month of death. |
+#'   |death_day         |integer   |Day of death. |
+#'   |pro_played_first  |integer   |First season the person played professional baseball. |
+#'   |pro_played_last   |integer   |Last season the person played professional baseball. |
+#'   |mlb_played_first  |integer   |First MLB season as a player. |
+#'   |mlb_played_last   |integer   |Last MLB season as a player. |
+#'   |col_played_first  |integer   |First college season as a player. |
+#'   |col_played_last   |integer   |Last college season as a player. |
+#'   |pro_managed_first |integer   |First professional season as a manager. |
+#'   |pro_managed_last  |integer   |Last professional season as a manager. |
+#'   |mlb_managed_first |integer   |First MLB season as a manager. |
+#'   |mlb_managed_last  |integer   |Last MLB season as a manager. |
+#'   |col_managed_first |integer   |First college season as a manager. |
+#'   |col_managed_last  |integer   |Last college season as a manager. |
+#'   |pro_umpired_first |integer   |First professional season as an umpire. |
+#'   |pro_umpired_last  |integer   |Last professional season as an umpire. |
+#'   |mlb_umpired_first |integer   |First MLB season as an umpire. |
+#'   |mlb_umpired_last  |integer   |Last MLB season as an umpire. |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(chadwick_player_lu())
@@ -68,7 +68,7 @@ chadwick_player_lu <- function() {
   class(df) <- c("baseballr_data","tbl_df","tbl","data.table","data.frame")
   
   
-  df <- df %>%
+  df <- df |>
     make_baseballr_data("Player Lookup from the Chadwick Bureau's public register of baseball players",Sys.time())
   return(df)
 }

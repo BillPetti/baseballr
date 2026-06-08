@@ -62,15 +62,14 @@ ncaa_schedule_info <- function(team_id = NULL, year = NULL, pbp_links = FALSE, .
   
   url <- paste0("https://stats.ncaa.org/team/", team_id, "/", id)
   
-  headers <- httr::add_headers(.headers = .ncaa_headers())
   tryCatch(
     expr = {
-      content <- request_with_proxy(url = url, ..., headers)
+      content <- request_with_proxy(url = url, ...)
       
       check_status(content)
       
       payload <- content %>% 
-        httr::content(as = "text", encoding = "UTF-8") %>% 
+        httr2::resp_body_string() %>% 
         xml2::read_html()
       
       if (year > 2018) {
@@ -179,12 +178,12 @@ ncaa_schedule_info <- function(team_id = NULL, year = NULL, pbp_links = FALSE, .
           if (!is.na(x)) {
             contest_id <- as.integer(stringr::str_extract(x, "\\d+"))
             
-            content <- request_with_proxy(url = x, ..., headers)
+            content <- request_with_proxy(url = x, ...)
             
             check_status(content)
             
             init_payload <- content %>% 
-              httr::content(as = "text", encoding = "UTF-8") %>%
+              httr2::resp_body_string() %>%
               xml2::read_html() 
             
             payload <- init_payload %>% 
@@ -200,7 +199,6 @@ ncaa_schedule_info <- function(team_id = NULL, year = NULL, pbp_links = FALSE, .
               contest_id = contest_id,
               game_pbp_id = as.integer(stringr::str_extract(payload, "\\d+"))
             )
-            Sys.sleep(1)
             return(payload_df)
           } else {
             

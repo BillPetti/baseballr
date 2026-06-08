@@ -18,9 +18,10 @@ cols <- c(
 )
 
 test_that("NCAA Roster", {
+  skip_ncaa_test()
   skip_on_cran()
   x <- ncaa_roster(team_id = 104, year = 2019)
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

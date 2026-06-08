@@ -12,15 +12,16 @@
 #' }
 
 load_umpire_ids <- function() {
+  df <- NULL
   tryCatch(
     expr = {
       df <- csv_from_url("https://app.box.com/shared/static/x20ahfe5e3a3y9sknz3g5y2ojbef3fzx.csv", encoding ="UTF-8")
       
-      df <- df %>%
+      df <- df |>
         make_baseballr_data("MLB Umpire IDs data from baseballr-data repository",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no Umpire IDs data available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no Umpire IDs data available!")
     },
     finally = {
     }

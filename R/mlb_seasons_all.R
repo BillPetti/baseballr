@@ -7,29 +7,29 @@
 #' @importFrom jsonlite fromJSON
 #' @return Returns a tibble with the following columns:
 #' 
-#'  |col_name                    |types     |
-#'  |:---------------------------|:---------|
-#'  |season_id                   |character |
-#'  |has_wildcard                |logical   |
-#'  |pre_season_start_date       |character |
-#'  |season_start_date           |character |
-#'  |regular_season_start_date   |character |
-#'  |regular_season_end_date     |character |
-#'  |season_end_date             |character |
-#'  |offseason_start_date        |character |
-#'  |off_season_end_date         |character |
-#'  |season_level_gameday_type   |character |
-#'  |game_level_gameday_type     |character |
-#'  |qualifier_plate_appearances |numeric   |
-#'  |qualifier_outs_pitched      |integer   |
-#'  |post_season_start_date      |character |
-#'  |post_season_end_date        |character |
-#'  |last_date1st_half           |character |
-#'  |all_star_date               |character |
-#'  |first_date2nd_half          |character |
-#'  |pre_season_end_date         |character |
-#'  |spring_start_date           |character |
-#'  |spring_end_date             |character |
+#'  |col_name                    |types     |description                                       |
+#'  |:---------------------------|:---------|:-------------------------------------------------|
+#'  |season_id                   |character |Season year identifier.                           |
+#'  |has_wildcard                |logical   |Whether the season has a wild card round.         |
+#'  |pre_season_start_date       |character |Pre-season start date.                            |
+#'  |season_start_date           |character |Season start date.                                |
+#'  |regular_season_start_date   |character |Regular season start date.                        |
+#'  |regular_season_end_date     |character |Regular season end date.                          |
+#'  |season_end_date             |character |Season end date.                                  |
+#'  |offseason_start_date        |character |Off-season start date.                            |
+#'  |off_season_end_date         |character |Off-season end date.                              |
+#'  |season_level_gameday_type   |character |Season-level Gameday data feed type.              |
+#'  |game_level_gameday_type     |character |Game-level Gameday data feed type.                |
+#'  |qualifier_plate_appearances |numeric   |Plate appearances per team game to qualify.       |
+#'  |qualifier_outs_pitched      |integer   |Outs pitched per team game to qualify.            |
+#'  |post_season_start_date      |character |Post-season start date.                           |
+#'  |post_season_end_date        |character |Post-season end date.                             |
+#'  |last_date1st_half           |character |Last date of the first half.                      |
+#'  |all_star_date               |character |All-Star Game date.                               |
+#'  |first_date2nd_half          |character |First date of the second half.                    |
+#'  |pre_season_end_date         |character |Pre-season end date.                              |
+#'  |spring_start_date           |character |Spring training start date.                       |
+#'  |spring_end_date             |character |Spring training end date.                         |
 #'  
 #' @export
 #'
@@ -49,22 +49,23 @@ mlb_seasons_all <- function(sport_id = 1,
     leagueId = league_id
   )
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
   
+  seasons <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
       
-      seasons <- jsonlite::fromJSON(jsonlite::toJSON(resp$seasons),flatten = TRUE) %>% 
-        as.data.frame() %>%
-        janitor::clean_names() %>%
+      seasons <- jsonlite::fromJSON(jsonlite::toJSON(resp$seasons),flatten = TRUE) |> 
+        as.data.frame() |>
+        janitor::clean_names() |>
         make_baseballr_data("MLB Seasons - All Seasons data from MLB.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

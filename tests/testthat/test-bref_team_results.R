@@ -7,11 +7,11 @@
 # )
 # 
 # test_that("BRef Team Results", {
+  skip_bref_test()
 #   skip_on_cran()
-#   skip_on_ci()
 #   
 #   x <- bref_team_results(Tm="TBR", year=2021)
 #   
-#   expect_equal(colnames(x), cols)
+#   expect_in(sort(cols), sort(colnames(x)))
 #   expect_s3_class(x, "data.frame")
 # })

@@ -8,50 +8,53 @@
 #' @param order Order return based on either desc or asc.
 #' 
 #' @return Returns a tibble with the following columns
-#'   |col_name                |types     |
-#'   |:-----------------------|:---------|
-#'   |total_splits            |integer   |
-#'   |season                  |character |
-#'   |rank                    |integer   |
-#'   |games_played            |integer   |
-#'   |ground_outs             |integer   |
-#'   |air_outs                |integer   |
-#'   |runs                    |integer   |
-#'   |doubles                 |integer   |
-#'   |triples                 |integer   |
-#'   |home_runs               |integer   |
-#'   |strike_outs             |integer   |
-#'   |base_on_balls           |integer   |
-#'   |intentional_walks       |integer   |
-#'   |hits                    |integer   |
-#'   |hit_by_pitch            |integer   |
-#'   |avg                     |character |
-#'   |at_bats                 |integer   |
-#'   |obp                     |character |
-#'   |slg                     |character |
-#'   |ops                     |character |
-#'   |caught_stealing         |integer   |
-#'   |stolen_bases            |integer   |
-#'   |stolen_base_percentage  |character |
-#'   |ground_into_double_play |integer   |
-#'   |number_of_pitches       |integer   |
-#'   |plate_appearances       |integer   |
-#'   |total_bases             |integer   |
-#'   |rbi                     |integer   |
-#'   |left_on_base            |integer   |
-#'   |sac_bunts               |integer   |
-#'   |sac_flies               |integer   |
-#'   |babip                   |character |
-#'   |ground_outs_to_airouts  |character |
-#'   |catchers_interference   |integer   |
-#'   |at_bats_per_home_run    |character |
-#'   |team_id                 |integer   |
-#'   |team_name               |character |
-#'   |team_link               |character |
-#'   |splits_tied_with_offset |list      |
-#'   |splits_tied_with_limit  |list      |
-#'   |type_display_name       |character |
-#'   |group_display_name      |character |
+#'
+#'   |col_name                   |types     |description                              |
+#'   |:--------------------------|:---------|:----------------------------------------|
+#'   |total_splits               |integer   |Total number of splits in the response.  |
+#'   |season                     |character |Season year for the statistic.           |
+#'   |rank                       |integer   |Rank of the team for the sorted statistic.|
+#'   |games_played               |integer   |Games played.                            |
+#'   |ground_outs                |integer   |Ground outs.                             |
+#'   |air_outs                   |integer   |Air outs (fly outs).                     |
+#'   |runs                       |integer   |Runs scored.                             |
+#'   |doubles                    |integer   |Doubles.                                 |
+#'   |triples                    |integer   |Triples.                                 |
+#'   |home_runs                  |integer   |Home runs.                               |
+#'   |strike_outs                |integer   |Strikeouts.                              |
+#'   |base_on_balls              |integer   |Walks (bases on balls).                  |
+#'   |intentional_walks          |integer   |Intentional walks.                       |
+#'   |hits                       |integer   |Hits.                                    |
+#'   |hit_by_pitch               |integer   |Times hit by pitch.                      |
+#'   |avg                        |character |Batting average.                         |
+#'   |at_bats                    |integer   |At bats.                                 |
+#'   |obp                        |character |On-base percentage.                      |
+#'   |slg                        |character |Slugging percentage.                     |
+#'   |ops                        |character |On-base plus slugging.                   |
+#'   |caught_stealing            |integer   |Times caught stealing.                   |
+#'   |stolen_bases               |integer   |Stolen bases.                            |
+#'   |stolen_base_percentage     |character |Stolen base success percentage.          |
+#'   |caught_stealing_percentage |character |Caught stealing percentage.              |
+#'   |ground_into_double_play    |integer   |Grounded into double plays.              |
+#'   |number_of_pitches          |integer   |Total pitches seen.                      |
+#'   |plate_appearances          |integer   |Plate appearances.                       |
+#'   |total_bases                |integer   |Total bases.                             |
+#'   |rbi                        |integer   |Runs batted in.                          |
+#'   |left_on_base               |integer   |Runners left on base.                    |
+#'   |sac_bunts                  |integer   |Sacrifice bunts.                         |
+#'   |sac_flies                  |integer   |Sacrifice flies.                         |
+#'   |babip                      |character |Batting average on balls in play.        |
+#'   |ground_outs_to_airouts     |character |Ratio of ground outs to air outs.        |
+#'   |catchers_interference      |integer   |Times reached on catcher's interference. |
+#'   |at_bats_per_home_run       |character |At bats per home run.                    |
+#'   |team_id                    |integer   |Team MLBAM ID.                           |
+#'   |team_name                  |character |Team name.                               |
+#'   |team_link                  |character |API link to the team.                    |
+#'   |splits_tied_with_offset    |list      |Teams tied at the offset boundary.       |
+#'   |splits_tied_with_limit     |list      |Teams tied at the limit boundary.        |
+#'   |type_display_name          |character |Stat type display name.                  |
+#'   |group_display_name         |character |Stat group display name.                 |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_teams_stats(stat_type = 'season', stat_group = 'hitting', season = 2021))
@@ -76,29 +79,33 @@ mlb_teams_stats <- function(stat_type = NULL,
     order = order
   )
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
-  
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
+
+  stats <- NULL
+
   tryCatch(
     expr={
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
       stats_leaders <- jsonlite::fromJSON(jsonlite::toJSON(resp[['stats']]), flatten = TRUE)  
       stats_leaders$season <- NULL
-      stats <- stats_leaders %>% 
-        tidyr::unnest("splits") %>% 
-        janitor::clean_names()  %>% 
-        as.data.frame() %>% 
-        dplyr::select(-"exemptions") %>%
+      stats <- stats_leaders |> 
+        tidyr::unnest("splits") |> 
+        janitor::clean_names()  |> 
+        as.data.frame() |> 
+        dplyr::select(-dplyr::any_of("exemptions")) |>
         make_baseballr_data("MLB Teams Stats data from MLB.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }
   )
-  colnames(stats)<-gsub("stat_", "", colnames(stats))
+  if (!is.null(stats)) {
+    colnames(stats) <- gsub("stat_", "", colnames(stats))
+  }
   return(stats)
 }
 

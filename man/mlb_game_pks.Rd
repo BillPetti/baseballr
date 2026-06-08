@@ -14,62 +14,65 @@ desired. See below for a reference of level ids.}
 }
 \value{
 Returns a tibble that includes game_pk values and additional
-information for games scheduled or played with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   game_pk \tab integer \cr
-   link \tab character \cr
-   gameType \tab character \cr
-   season \tab character \cr
-   gameDate \tab character \cr
-   officialDate \tab character \cr
-   isTie \tab logical \cr
-   gameNumber \tab integer \cr
-   publicFacing \tab logical \cr
-   doubleHeader \tab character \cr
-   gamedayType \tab character \cr
-   tiebreaker \tab character \cr
-   calendarEventID \tab character \cr
-   seasonDisplay \tab character \cr
-   dayNight \tab character \cr
-   scheduledInnings \tab integer \cr
-   reverseHomeAwayStatus \tab logical \cr
-   inningBreakLength \tab integer \cr
-   gamesInSeries \tab integer \cr
-   seriesGameNumber \tab integer \cr
-   seriesDescription \tab character \cr
-   recordSource \tab character \cr
-   ifNecessary \tab character \cr
-   ifNecessaryDescription \tab character \cr
-   status.abstractGameState \tab character \cr
-   status.codedGameState \tab character \cr
-   status.detailedState \tab character \cr
-   status.statusCode \tab character \cr
-   status.startTimeTBD \tab logical \cr
-   status.abstractGameCode \tab character \cr
-   teams.away.score \tab integer \cr
-   teams.away.isWinner \tab logical \cr
-   teams.away.splitSquad \tab logical \cr
-   teams.away.seriesNumber \tab integer \cr
-   teams.away.leagueRecord.wins \tab integer \cr
-   teams.away.leagueRecord.losses \tab integer \cr
-   teams.away.leagueRecord.pct \tab character \cr
-   teams.away.team.id \tab integer \cr
-   teams.away.team.name \tab character \cr
-   teams.away.team.link \tab character \cr
-   teams.home.score \tab integer \cr
-   teams.home.isWinner \tab logical \cr
-   teams.home.splitSquad \tab logical \cr
-   teams.home.seriesNumber \tab integer \cr
-   teams.home.leagueRecord.wins \tab integer \cr
-   teams.home.leagueRecord.losses \tab integer \cr
-   teams.home.leagueRecord.pct \tab character \cr
-   teams.home.team.id \tab integer \cr
-   teams.home.team.name \tab character \cr
-   teams.home.team.link \tab character \cr
-   venue.id \tab integer \cr
-   venue.name \tab character \cr
-   venue.link \tab character \cr
-   content.link \tab character \cr
+information for games scheduled or played with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_pk \tab integer \tab Unique game identifier. \cr
+   gameGuid \tab character \tab Globally unique game identifier. \cr
+   link \tab character \tab MLB Stats API relative game link. \cr
+   gameType \tab character \tab Game type code (R, P, etc.). \cr
+   season \tab character \tab Season (YYYY). \cr
+   gameDate \tab character \tab Game date-time (ISO 8601, UTC). \cr
+   officialDate \tab character \tab Official game date (YYYY-MM-DD). \cr
+   isTie \tab logical \tab Whether the game ended in a tie. \cr
+   gameNumber \tab integer \tab Game number within a doubleheader. \cr
+   publicFacing \tab logical \tab Whether the game is public-facing. \cr
+   doubleHeader \tab character \tab Doubleheader indicator (N/Y/S). \cr
+   gamedayType \tab character \tab Gameday data type code. \cr
+   tiebreaker \tab character \tab Tiebreaker indicator. \cr
+   calendarEventID \tab character \tab Calendar event identifier. \cr
+   seasonDisplay \tab character \tab Display season (YYYY). \cr
+   dayNight \tab character \tab Day/night designation. \cr
+   scheduledInnings \tab integer \tab Number of scheduled innings. \cr
+   reverseHomeAwayStatus \tab logical \tab Whether home/away designation is reversed. \cr
+   inningBreakLength \tab integer \tab Length of the inning break (seconds). \cr
+   gamesInSeries \tab integer \tab Total games in the series. \cr
+   seriesGameNumber \tab integer \tab Game number within the series. \cr
+   seriesDescription \tab character \tab Series description. \cr
+   recordSource \tab character \tab Source of the record data. \cr
+   ifNecessary \tab character \tab Whether the game is played only if necessary. \cr
+   ifNecessaryDescription \tab character \tab If-necessary description. \cr
+   status.abstractGameState \tab character \tab Abstract game state (e.g. Final). \cr
+   status.codedGameState \tab character \tab Coded game state. \cr
+   status.detailedState \tab character \tab Detailed game state. \cr
+   status.statusCode \tab character \tab Game status code. \cr
+   status.startTimeTBD \tab logical \tab Whether the start time is TBD. \cr
+   status.abstractGameCode \tab character \tab Abstract game code. \cr
+   teams.away.score \tab integer \tab Away team score. \cr
+   teams.away.isWinner \tab logical \tab Whether the away team won. \cr
+   teams.away.splitSquad \tab logical \tab Whether the away team is a split squad. \cr
+   teams.away.seriesNumber \tab integer \tab Away team series number. \cr
+   teams.away.team.id \tab integer \tab Away team MLB ID. \cr
+   teams.away.team.name \tab character \tab Away team name. \cr
+   teams.away.team.link \tab character \tab MLB Stats API relative away team link. \cr
+   teams.away.leagueRecord.wins \tab integer \tab Away team league-record wins. \cr
+   teams.away.leagueRecord.losses \tab integer \tab Away team league-record losses. \cr
+   teams.away.leagueRecord.ties \tab integer \tab Away team league-record ties. \cr
+   teams.away.leagueRecord.pct \tab character \tab Away team winning percentage. \cr
+   teams.home.score \tab integer \tab Home team score. \cr
+   teams.home.isWinner \tab logical \tab Whether the home team won. \cr
+   teams.home.splitSquad \tab logical \tab Whether the home team is a split squad. \cr
+   teams.home.seriesNumber \tab integer \tab Home team series number. \cr
+   teams.home.team.id \tab integer \tab Home team MLB ID. \cr
+   teams.home.team.name \tab character \tab Home team name. \cr
+   teams.home.team.link \tab character \tab MLB Stats API relative home team link. \cr
+   teams.home.leagueRecord.wins \tab integer \tab Home team league-record wins. \cr
+   teams.home.leagueRecord.losses \tab integer \tab Home team league-record losses. \cr
+   teams.home.leagueRecord.ties \tab integer \tab Home team league-record ties. \cr
+   teams.home.leagueRecord.pct \tab character \tab Home team winning percentage. \cr
+   venue.id \tab integer \tab Venue ID. \cr
+   venue.name \tab character \tab Venue name. \cr
+   venue.link \tab character \tab MLB Stats API relative venue link. \cr
+   content.link \tab character \tab MLB Stats API relative game content link. \cr
 }
 }
 \description{

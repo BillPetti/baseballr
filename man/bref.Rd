@@ -4,11 +4,11 @@
 \alias{bref}
 \title{\strong{Baseball Reference Functions Overview}}
 \description{
-\describe{
-\item{\code{bref_daily_batter()}}{Scrape Batter Performance Data Over a Custom Time Frame}
-\item{\code{bref_daily_pitcher()}}{Scrape Pitcher Performance Data Over a Custom Time Frame}
-\item{\code{bref_standings_on_date()}}{Scrape MLB Standings on a Given Date}
-\item{\code{bref_team_results()}}{Scrape Team Results}
+\itemize{
+\item \code{bref_daily_batter()}: Scrape Batter Performance Data Over a Custom Time Frame
+\item \code{bref_daily_pitcher()}: Scrape Pitcher Performance Data Over a Custom Time Frame
+\item \code{bref_standings_on_date()}: Scrape MLB Standings on a Given Date
+\item \code{bref_team_results()}: Scrape Team Results
 }
 }
 \details{

@@ -7,14 +7,14 @@
 mlb_game_status_codes()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   abstract_game_state \tab character \cr
-   coded_game_state \tab character \cr
-   detailed_state \tab character \cr
-   status_code \tab character \cr
-   reason \tab character \cr
-   abstract_game_code \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   abstract_game_state \tab character \tab Abstract game state grouping (e.g. 'Preview', 'Live', 'Final'). \cr
+   coded_game_state \tab character \tab Single-letter coded game state (e.g. 'S', 'P', 'I', 'F'). \cr
+   detailed_state \tab character \tab Detailed status description (e.g. 'Scheduled', 'Pre-Game', 'In Progress'). \cr
+   status_code \tab character \tab Status code identifier (e.g. 'S', 'P', 'I', 'F'). \cr
+   reason \tab character \tab Reason text for the status when applicable (e.g. delay/postponement). \cr
+   abstract_game_code \tab character \tab Single-letter abstract game code (e.g. 'P', 'L', 'F'). \cr
 }
 }
 \description{

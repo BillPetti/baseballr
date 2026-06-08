@@ -1,3 +1,29 @@
+#' @rdname mlb_game_endpoints
+#' @name mlb_game_endpoints
+#' @aliases mlb_game_endpoints game pbp
+#' @title
+#' **MLB Game Endpoint Overview**
+#' @description
+#'
+#' * `mlb_game_info()`: Retrieve additional game information for major and minor league games.
+#' * `mlb_game_pks()`: Get MLB Game Info by Date and Level.
+#' * `mlb_game_content()`: Retrieve additional game content for major and minor league games.
+#' * `mlb_game_linescore()`: Retrieve game linescores for major and minor league games.
+#' * `mlb_game_wp()`: Acquire win probability for Major and Minor League games.
+#' * `mlb_game_pace()`: Retrieve game pace metrics for major and minor league.
+#' * `mlb_game_changes()`: Acquire time codes for Major and Minor League games.
+#' * `mlb_game_context_metrics()`: Acquire game context metrics for Major and Minor League games.
+#' * `mlb_pbp()`: Acquire pitch-by-pitch data for Major and Minor League games.
+#' * `mlb_pbp_diff()`: Acquire pitch-by-pitch data between two timecodes for Major and Minor League games.
+#'
+#' @details
+#' ## **MLB Game**
+#'
+#' These functions retrieve MLB game information, content, linescores, win probability, pace, changes, context metrics, and pitch-by-pitch data from the MLB Stats API.
+#'
+#' @family MLB Game
+NULL
+
 #' @rdname mlb_game_info
 #' @title **Retrieve additional game information for major and minor league games**
 #' @param game_pk The unique game_pk identifier for the game
@@ -7,26 +33,28 @@
 #' @importFrom stringr str_sub
 #' @return Returns a tibble that includes supplemental information, such as
 #' weather, official scorer, attendance, etc., for the game_pk provided
-#'  |col_name        |types     |
-#'  |:---------------|:---------|
-#'  |game_date       |character |
-#'  |game_pk         |numeric   |
-#'  |venue_name      |character |
-#'  |venue_id        |integer   |
-#'  |temperature     |character |
-#'  |other_weather   |character |
-#'  |wind            |character |
-#'  |attendance      |character |
-#'  |start_time      |character |
-#'  |elapsed_time    |character |
-#'  |game_id         |character |
-#'  |game_type       |character |
-#'  |home_sport_code |character |
-#'  |official_scorer |character |
-#'  |date            |character |
-#'  |status_ind      |character |
-#'  |home_league_id  |integer   |
-#'  |gameday_sw      |character |
+#'
+#'  |col_name        |types     |description                                       |
+#'  |:---------------|:---------|:-------------------------------------------------|
+#'  |game_date       |character |Game date (YYYY-MM-DD).                           |
+#'  |game_pk         |numeric   |Unique game identifier.                           |
+#'  |venue_name      |character |Stadium name.                                     |
+#'  |venue_id        |integer   |Venue ID.                                         |
+#'  |temperature     |character |Game-time temperature (degrees F).                |
+#'  |other_weather   |character |Weather condition description.                    |
+#'  |wind            |character |Wind speed and direction.                         |
+#'  |attendance      |character |Reported game attendance.                         |
+#'  |start_time      |character |First-pitch local start time.                     |
+#'  |elapsed_time    |character |Total elapsed game time (H:MM).                   |
+#'  |game_id         |character |Human-readable game ID slug.                      |
+#'  |game_type       |character |Game type code (R, P, etc.).                      |
+#'  |home_sport_code |character |Home sport code (always 'mlb').                   |
+#'  |official_scorer |character |Official scorer name.                             |
+#'  |date            |character |Long-form game date label.                        |
+#'  |status_ind      |character |Game status code.                                 |
+#'  |home_league_id  |integer   |Home team league ID.                              |
+#'  |gameday_sw      |character |Gameday data type code.                           |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_game_info(game_pk = 566001))
@@ -36,12 +64,13 @@ mlb_game_info <- function(game_pk) {
   
   api_call <- paste0("http://statsapi.mlb.com/api/v1.1/game/", game_pk,"/feed/live")
   
+  game_table <- NULL
   tryCatch(
     expr = {
       payload <- jsonlite::fromJSON(api_call)
       
-      lookup_table <- payload$liveData$boxscore$info %>%
-        as.data.frame() %>%
+      lookup_table <- payload$liveData$boxscore$info |>
+        as.data.frame() |>
         tidyr::spread(.data$label, .data$value)
       
       year <- stringr::str_sub(payload$gameData$game$calendarEventID, -10, -7)
@@ -56,12 +85,12 @@ mlb_game_info <- function(game_pk) {
                            other_weather = payload$gameData$weather$condition,
                            wind = payload$gameData$weather$wind,
                            attendance = ifelse("Att" %in% names(lookup_table) == TRUE,
-                                               as.character(lookup_table$Att) %>% 
+                                               as.character(lookup_table$Att) |> 
                                                  stringr::str_remove_all('\\.'),
                                                NA),
-                           start_time = as.character(lookup_table$`First pitch`) %>%
+                           start_time = as.character(lookup_table$`First pitch`) |>
                              stringr::str_remove_all('\\.'),
-                           elapsed_time = as.character(lookup_table$T) %>% 
+                           elapsed_time = as.character(lookup_table$T) |> 
                              stringr::str_remove_all('\\.'),
                            game_id = payload$gameData$game$id,
                            game_type = payload$gameData$game$type,
@@ -70,11 +99,11 @@ mlb_game_info <- function(game_pk) {
                            date = names(lookup_table)[1],
                            status_ind = payload$gameData$status$statusCode,
                            home_league_id = payload$gameData$teams$home$league$id,
-                           gameday_sw = payload$gameData$game$gamedayType) %>%
+                           gameday_sw = payload$gameData$game$gamedayType) |>
         make_baseballr_data("MLB Game Info data from MLB.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

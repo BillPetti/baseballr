@@ -39,17 +39,16 @@ ncaa_lineups <- function(game_info_url = NULL, ...) {
   }
   url <- game_info_url
   ncaa_teams <- load_ncaa_baseball_teams()  
-  headers <- httr::add_headers(.headers = .ncaa_headers())
 
   tryCatch(
     expr = {
       if (stringr::str_detect(game_info_url,"contests")){
-        game_info_resp <- request_with_proxy(url = game_info_url, ..., headers)
+        game_info_resp <- request_with_proxy(url = game_info_url, ...)
         
         check_status(game_info_resp)
         
         init_payload <- game_info_resp %>% 
-          httr::content(as = "text", encoding = "UTF-8") %>% 
+          httr2::resp_body_string() %>% 
           xml2::read_html() 
         
         url <- init_payload %>% 
@@ -60,12 +59,12 @@ ncaa_lineups <- function(game_info_url = NULL, ...) {
           dplyr::mutate(game_pbp_url = paste0("https://stats.ncaa.org", .data$pbp_url_slug)) %>%
           dplyr::pull(.data$game_pbp_url)
       }
-      lineup_resp <- request_with_proxy(url = game_info_url, ..., headers)
+      lineup_resp <- request_with_proxy(url = game_info_url, ...)
       
       check_status(lineup_resp)
       
       payload <- lineup_resp %>% 
-        httr::content(as = "text", encoding = "UTF-8") %>% 
+        httr2::resp_body_string() %>% 
         xml2::read_html()
       
       game_info <- payload %>%

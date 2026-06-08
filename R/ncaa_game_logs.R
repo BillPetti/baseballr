@@ -89,18 +89,17 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...
     dplyr::filter(.data$season == year) %>% 
     dplyr::select("pitching_id")
   
-  headers <- httr::add_headers(.headers = .ncaa_headers())
   tryCatch(
     expr = {
       if (type == "batting") {
         
         batting_url <- paste0("https://stats.ncaa.org/player/index?id=", year_id,"&stats_player_seq=", player_id,"&year_stat_category_id=", batting_id)
-        batting_resp <- request_with_proxy(url = batting_url, ..., headers)
+        batting_resp <- request_with_proxy(url = batting_url, ...)
         
         check_status(batting_resp)
         
         batting_payload <- batting_resp %>% 
-          httr::content(as = "text", encoding = "UTF-8") %>% 
+          httr2::resp_body_string() %>% 
           xml2::read_html()
         
         player_name <- ((batting_payload %>% 
@@ -112,12 +111,12 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...
         
         pitching_url <- paste0("https://stats.ncaa.org/player/index?id=", year_id,"&stats_player_seq=", player_id,"&year_stat_category_id=", pitching_id)
         
-        pitching_resp <- request_with_proxy(url = pitching_url, ..., headers)
+        pitching_resp <- request_with_proxy(url = pitching_url, ...)
         
         check_status(pitching_resp)
         
         pitching_payload <- pitching_resp %>% 
-          httr::content(as = "text", encoding = "UTF-8") %>% 
+          httr2::resp_body_string() %>% 
           xml2::read_html()
         
         player_name <- ((pitching_payload %>% 

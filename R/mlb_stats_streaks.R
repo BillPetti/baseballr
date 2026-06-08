@@ -104,16 +104,16 @@
 ##     limit = limit
 ##   )
 ##   
-##   mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+##   mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
 ##   
-##   resp <- mlb_endpoint %>% 
+##   resp <- mlb_endpoint |> 
 ##     mlb_api_call()
 ##   stats_leaders <- jsonlite::fromJSON(jsonlite::toJSON(resp[['stats']]), flatten = TRUE)  
 ##   stats_leaders$season <- NULL
-##   stats <- stats_leaders %>% 
-##     tidyr::unnest("splits") %>% 
-##     janitor::clean_names()  %>% 
-##     as.data.frame() %>% 
+##   stats <- stats_leaders |> 
+##     tidyr::unnest("splits") |> 
+##     janitor::clean_names()  |> 
+##     as.data.frame() |> 
 ##     dplyr::select(-"exemptions")
 ##   colnames(stats)<-gsub("stat_", "", colnames(stats))
 ##   return(stats)

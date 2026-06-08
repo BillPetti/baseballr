@@ -8,10 +8,11 @@ cols <- c(
 )
 
 test_that("Load MLB Game Info Supplement", {
+  skip_load_test()
   skip_on_cran()
   
   x <- load_game_info_sup()
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

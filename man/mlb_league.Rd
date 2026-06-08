@@ -14,9 +14,48 @@ mlb_league(seasons = NULL, sport_id = NULL, league_id = NULL)
 \item{league_id}{The league_id(s) to return league information for.}
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   leader_type \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   league_id \tab integer \tab MLB league id (e.g. 103 for AL, 104 for NL). \cr
+   league_name \tab character \tab League name (e.g. 'American League'). \cr
+   league_link \tab character \tab API relative link to the league. \cr
+   league_abbreviation \tab character \tab League abbreviation (e.g. 'AL'). \cr
+   league_name_short \tab character \tab Short league name (e.g. 'American'). \cr
+   league_season_state \tab character \tab Season state (e.g. 'offseason', 'regular'). \cr
+   league_has_wild_card \tab logical \tab Whether the league uses a wild card. \cr
+   league_has_split_season \tab logical \tab Whether the league has a split season. \cr
+   league_num_games \tab integer \tab Scheduled number of regular season games. \cr
+   league_has_playoff_points \tab logical \tab Whether the league awards playoff points. \cr
+   league_num_teams \tab integer \tab Number of teams in the league. \cr
+   league_num_wildcard_teams \tab integer \tab Number of wild card teams. \cr
+   league_season \tab character \tab Season year for the league record. \cr
+   league_org_code \tab character \tab Organization code (e.g. 'AL'). \cr
+   league_conferences_in_use \tab logical \tab Whether conferences are used. \cr
+   league_divisions_in_use \tab logical \tab Whether divisions are used. \cr
+   league_sort_order \tab integer \tab Display sort order for the league. \cr
+   league_active \tab logical \tab Whether the league is active. \cr
+   season_date_info_season_id \tab character \tab Season identifier for the date info block. \cr
+   season_date_info_pre_season_start_date \tab character \tab Preseason start date (YYYY-MM-DD). \cr
+   season_date_info_pre_season_end_date \tab character \tab Preseason end date (YYYY-MM-DD). \cr
+   season_date_info_season_start_date \tab character \tab Season start date (YYYY-MM-DD). \cr
+   season_date_info_spring_start_date \tab character \tab Spring training start date (YYYY-MM-DD). \cr
+   season_date_info_spring_end_date \tab character \tab Spring training end date (YYYY-MM-DD). \cr
+   season_date_info_regular_season_start_date \tab character \tab Regular season start date (YYYY-MM-DD). \cr
+   season_date_info_last_date1st_half \tab character \tab Last date of the first half (YYYY-MM-DD). \cr
+   season_date_info_all_star_date \tab character \tab All-Star Game date (YYYY-MM-DD). \cr
+   season_date_info_first_date2nd_half \tab character \tab First date of the second half (YYYY-MM-DD). \cr
+   season_date_info_regular_season_end_date \tab character \tab Regular season end date (YYYY-MM-DD). \cr
+   season_date_info_post_season_start_date \tab character \tab Postseason start date (YYYY-MM-DD). \cr
+   season_date_info_post_season_end_date \tab character \tab Postseason end date (YYYY-MM-DD). \cr
+   season_date_info_season_end_date \tab character \tab Season end date (YYYY-MM-DD). \cr
+   season_date_info_offseason_start_date \tab character \tab Offseason start date (YYYY-MM-DD). \cr
+   season_date_info_off_season_end_date \tab character \tab Offseason end date (YYYY-MM-DD). \cr
+   season_date_info_season_level_gameday_type \tab character \tab Season-level Gameday data type code. \cr
+   season_date_info_game_level_gameday_type \tab character \tab Game-level Gameday data type code. \cr
+   season_date_info_qualifier_plate_appearances \tab numeric \tab Plate appearances per game needed to qualify. \cr
+   season_date_info_qualifier_outs_pitched \tab integer \tab Outs pitched per game needed to qualify. \cr
+   sport_id \tab integer \tab Sport id associated with the league (1 for MLB). \cr
+   sport_link \tab character \tab API relative link to the sport. \cr
 }
 }
 \description{

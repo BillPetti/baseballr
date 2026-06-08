@@ -61,28 +61,27 @@
 #' 99 = RF - Close to Line 
 #' @return Returns a tibble of Statcast leaderboard data with the following columns (for leaderboard: 'exit_velocity_barrels'):
 #' 
-#'   |col_name              |types     |
-#'   |:---------------------|:---------|
-#'   |year                  |numeric   |
-#'   |last_name             |character |
-#'   |first_name            |character |
-#'   |player_id             |integer   |
-#'   |attempts              |integer   |
-#'   |avg_hit_angle         |numeric   |
-#'   |anglesweetspotpercent |numeric   |
-#'   |max_hit_speed         |numeric   |
-#'   |avg_hit_speed         |numeric   |
-#'   |fbld                  |numeric   |
-#'   |gb                    |numeric   |
-#'   |max_distance          |integer   |
-#'   |avg_distance          |integer   |
-#'   |avg_hr_distance       |integer   |
-#'   |ev95plus              |integer   |
-#'   |ev95per-swing         |numeric   |
-#'   |ev95percent           |numeric   |
-#'   |barrels               |integer   |
-#'   |brl_percent           |numeric   |
-#'   |brl_pa                |numeric   |
+#'   |col_name              |types     |description |
+#'   |:---------------------|:---------|:-----------|
+#'   |year                  |numeric   |Leaderboard season. |
+#'   |last_name, first_name |character |Player name as "Last, First". |
+#'   |player_id             |integer   |MLBAM player ID. |
+#'   |attempts              |integer   |Number of batted-ball events (attempts). |
+#'   |avg_hit_angle         |numeric   |Average launch angle on batted balls (degrees). |
+#'   |anglesweetspotpercent |numeric   |Share of batted balls hit in the 8-32 degree sweet-spot range (percent). |
+#'   |max_hit_speed         |numeric   |Maximum exit velocity recorded (mph). |
+#'   |avg_hit_speed         |numeric   |Average exit velocity on batted balls (mph). |
+#'   |ev50                  |numeric   |Average of the top 50% of hardest-hit batted balls by exit velocity (mph). |
+#'   |fbld                  |numeric   |Average exit velocity on fly balls and line drives (mph). |
+#'   |gb                    |numeric   |Average exit velocity on ground balls (mph). |
+#'   |max_distance          |integer   |Maximum batted-ball distance (feet). |
+#'   |avg_distance          |integer   |Average batted-ball distance (feet). |
+#'   |avg_hr_distance       |integer   |Average home-run distance (feet). |
+#'   |ev95plus              |integer   |Number of batted balls hit at 95+ mph. |
+#'   |ev95percent           |numeric   |Share of batted balls hit at 95+ mph (percent). |
+#'   |barrels               |integer   |Number of barreled batted balls. |
+#'   |brl_percent           |numeric   |Barrels per batted-ball event (percent). |
+#'   |brl_pa                |numeric   |Barrels per plate appearance (percent). |
 #' 
 #' @export
 #' @examples \donttest{
@@ -116,19 +115,19 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     if (!year %in% c(seq(2015,substr(Sys.time(), 1, 4),1))) {
 
-      message("Exit Velocity and Barrel leaderboards are only available starting in 2015. Please choose an appropriate year.")
+      cli::cli_alert_info("Exit Velocity and Barrel leaderboards are only available starting in 2015. Please choose an appropriate year.")
     }
 
     if (!min_pa %in% c('q',1,25,50,100,200,250,350,450,500,600)) {
 
-      message("Please choose one of the following for the minimum number of plate appearances:1,25,50,100,200,250,350,450,500,600")
+      cli::cli_alert_info("Please choose one of the following for the minimum number of plate appearances:1,25,50,100,200,250,350,450,500,600")
 
       return(NULL)
     }
 
     if (!abs %in% c(0,5,10,20,25,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,250,300,400,500)) {
 
-      message("Please choose one of the following for the number of batted balls: 0,5,10,20,25,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,250,300,400,500")
+      cli::cli_alert_info("Please choose one of the following for the number of batted balls: 0,5,10,20,25,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,250,300,400,500")
 
       return(NULL)
     }
@@ -143,28 +142,28 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     if (!year %in% c(seq(2015,substr(Sys.time(), 1, 4),1))) {
 
-      message("Expected Statistics leaderboards are only available starting in 2015. Please choose an appropriate year.")
+      cli::cli_alert_info("Expected Statistics leaderboards are only available starting in 2015. Please choose an appropriate year.")
 
       return(NULL)
     }
 
     if (!min_pa %in% c('q',1,25,50,100,200,250,350,450,500,600)) {
 
-      message("Please choose one of the following for the minimum number of plate appearances:1,25,50,100,200,250,350,450,500,600")
+      cli::cli_alert_info("Please choose one of the following for the minimum number of plate appearances:1,25,50,100,200,250,350,450,500,600")
 
       return(NULL)
     }
 
     if(!team %in% c("", "ATL", "ARI", "BAL", "BOS", "CHC", "CIN", "CLE", "COL", "CWS", "DET", "HOU", "KC", "LAA", "LAD", "OAK", "MIA", "MIL", "MIN", "NYM", "NYY", "PHI", "PIT", "SD", "SEA", "SF", "STL", "TB", "TEX", "TOR", "WSH")) {
 
-      message("If you are trying to query records for a specific team, please be sure to enter one of the following: ATL, ARI, BAL, BOS, CHC, CIN, CLE, COL, CWS, DET, HOU, KC, LAA, LAD, OAK, MIA, MIL, MIN, NYM, NYY, PHI, PIT, SD, SEA, SF, STL, TB, TEX, TOR, WSH")
+      cli::cli_alert_info("If you are trying to query records for a specific team, please be sure to enter one of the following: ATL, ARI, BAL, BOS, CHC, CIN, CLE, COL, CWS, DET, HOU, KC, LAA, LAD, OAK, MIA, MIL, MIN, NYM, NYY, PHI, PIT, SD, SEA, SF, STL, TB, TEX, TOR, WSH")
 
       return(NULL)
     }
 
     if(!position %in% c("", 1,2,3,4,5,6,7,8,9,10)) {
 
-      message("Please enter one of the following for position: 1,2,3,4,5,6,7,8,9,10")
+      cli::cli_alert_info("Please enter one of the following for position: 1,2,3,4,5,6,7,8,9,10")
 
       return(NULL)
     }
@@ -179,26 +178,26 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     if (!year %in% c(seq(2017,substr(Sys.time(), 1, 4),1))) {
 
-      message("Pitch Arsenal leaderboards are only available starting in 2017. Please choose an appropriate year.")
+      cli::cli_alert_info("Pitch Arsenal leaderboards are only available starting in 2017. Please choose an appropriate year.")
     }
 
     if (!min_pitches %in% c(50, 100, 250, 500, 750, 1000, 1500, 2000, 2500, 3000)) {
 
-      message("Please choose one of the following for the minimum number of pitches: 50, 100, 250, 500, 750, 1000, 1500, 2000, 2500, 3000")
+      cli::cli_alert_info("Please choose one of the following for the minimum number of pitches: 50, 100, 250, 500, 750, 1000, 1500, 2000, 2500, 3000")
 
       return(NULL)
     }
 
     if(!hand %in% c("", "R", "L")) {
 
-      message("Please choose either 'R' or 'L' for `hand`, or leave the parameter blank.")
+      cli::cli_alert_info("Please choose either 'R' or 'L' for `hand`, or leave the parameter blank.")
 
       return(NULL)
     }
 
     if(!arsenal_type %in% c("n_", "avg_spin", "avg_speed")){
 
-      message("Please enter of the following: 'n_' for percentages, 'avg_spin' for average spin, or 'avg_speed' for average speed.")
+      cli::cli_alert_info("Please enter of the following: 'n_' for percentages, 'avg_spin' for average spin, or 'avg_speed' for average speed.")
 
       return(NULL)
     }
@@ -213,14 +212,14 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     if (!year %in% c(seq(2016,substr(Sys.time(), 1, 4),1))) {
 
-      message("Outs Above Average leaderboards are only available starting in 2016. Please choose an appropriate year.")
+      cli::cli_alert_info("Outs Above Average leaderboards are only available starting in 2016. Please choose an appropriate year.")
 
       return(NULL)
     }
 
     if (!min_field %in% c("q",0,5,25,50,75,100,150,200,250)) {
 
-      message("Please choose one of the following for the minimum number of fielding opportunities:'q',0,5,25,50,75,100,150,200,250")
+      cli::cli_alert_info("Please choose one of the following for the minimum number of fielding opportunities:'q',0,5,25,50,75,100,150,200,250")
 
       return(NULL)
     }
@@ -235,21 +234,21 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     if (!year %in% c(seq(2016,substr(Sys.time(), 1, 4),1))) {
 
-      message("Directional Outs Above Average leaderboards are only available starting in 2016. Please choose an appropriate year.")
+      cli::cli_alert_info("Directional Outs Above Average leaderboards are only available starting in 2016. Please choose an appropriate year.")
 
       return(NULL)
     }
 
     if (!min_field %in% c("q",0,5,25,50,75,100,150,200,250)) {
 
-      message("Please choose one of the following for the minimum number of fielding opportunities:'q',0,5,25,50,75,100,150,200,250")
+      cli::cli_alert_info("Please choose one of the following for the minimum number of fielding opportunities:'q',0,5,25,50,75,100,150,200,250")
 
       return(NULL)
     }
 
     if(!team %in% c("", "ATL", "ARI", "BAL", "BOS", "CHC", "CIN", "CLE", "COL", "CWS", "DET", "HOU", "KC", "LAA", "LAD", "OAK", "MIA", "MIL", "MIN", "NYM", "NYY", "PHI", "PIT", "SD", "SEA", "SF", "STL", "TB", "TEX", "TOR", "WSH")) {
 
-      message("If you are trying to query records for a specific team, please be sure to enter one of the following: ATL, ARI, BAL, BOS, CHC, CIN, CLE, COL, CWS, DET, HOU, KC, LAA, LAD, OAK, MIA, MIL, MIN, NYM, NYY, PHI, PIT, SD, SEA, SF, STL, TB, TEX, TOR, WSH")
+      cli::cli_alert_info("If you are trying to query records for a specific team, please be sure to enter one of the following: ATL, ARI, BAL, BOS, CHC, CIN, CLE, COL, CWS, DET, HOU, KC, LAA, LAD, OAK, MIA, MIL, MIN, NYM, NYY, PHI, PIT, SD, SEA, SF, STL, TB, TEX, TOR, WSH")
 
       return(NULL)
     }
@@ -264,14 +263,14 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     if (!year %in% c(seq(2016,substr(Sys.time(), 1, 4),1))) {
 
-      message("Catch Probability Expected Statistic leaderboards are only available starting in 2016. Please choose an appropriate year.")
+      cli::cli_alert_info("Catch Probability Expected Statistic leaderboards are only available starting in 2016. Please choose an appropriate year.")
 
       return(NULL)
     }
 
     if (!min_field %in% c("q",0,5,25,50,75,100,150,200,250)) {
 
-      message("Please choose one of the following for the minimum number of fielding opportunities:'q',0,5,25,50,75,100,150,200,250")
+      cli::cli_alert_info("Please choose one of the following for the minimum number of fielding opportunities:'q',0,5,25,50,75,100,150,200,250")
 
       return(NULL)
     }
@@ -286,28 +285,28 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     if (!year %in% c(seq(2015,substr(Sys.time(), 1, 4),1))) {
 
-      message("Pop Time leaderboards are only available starting in 2015. Please choose an appropriate year.")
+      cli::cli_alert_info("Pop Time leaderboards are only available starting in 2015. Please choose an appropriate year.")
 
       return(NULL)
     }
 
     if (!min2b %in% c(1,5,10,15,20)) {
 
-      message("Please choose one of the following for the minimum number of throws to second base: 1,5,10,15,20")
+      cli::cli_alert_info("Please choose one of the following for the minimum number of throws to second base: 1,5,10,15,20")
 
       return(NULL)
     }
 
     if (!min3b %in% c(0,1,5,10,15,20)) {
 
-      message("Please choose one of the following for the minimum number of throws to third base: 0,1,5,10,15,20")
+      cli::cli_alert_info("Please choose one of the following for the minimum number of throws to third base: 0,1,5,10,15,20")
 
       return(NULL)
     }
 
     if(!team %in% c("", "ATL", "ARI", "BAL", "BOS", "CHC", "CIN", "CLE", "COL", "CWS", "DET", "HOU", "KC", "LAA", "LAD", "OAK", "MIA", "MIL", "MIN", "NYM", "NYY", "PHI", "PIT", "SD", "SEA", "SF", "STL", "TB", "TEX", "TOR", "WSH")) {
 
-      message("If you are trying to query records for a specific team, please be sure to enter one of the following: ATL, ARI, BAL, BOS, CHC, CIN, CLE, COL, CWS, DET, HOU, KC, LAA, LAD, OAK, MIA, MIL, MIN, NYM, NYY, PHI, PIT, SD, SEA, SF, STL, TB, TEX, TOR, WSH")
+      cli::cli_alert_info("If you are trying to query records for a specific team, please be sure to enter one of the following: ATL, ARI, BAL, BOS, CHC, CIN, CLE, COL, CWS, DET, HOU, KC, LAA, LAD, OAK, MIA, MIL, MIN, NYM, NYY, PHI, PIT, SD, SEA, SF, STL, TB, TEX, TOR, WSH")
 
       return(NULL)
     }
@@ -322,28 +321,28 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     if (!year %in% c(seq(2015,substr(Sys.time(), 1, 4),1))) {
 
-      message("Pop Time leaderboards are only available starting in 2015. Please choose an appropriate year.")
+      cli::cli_alert_info("Pop Time leaderboards are only available starting in 2015. Please choose an appropriate year.")
 
       return(NULL)
     }
 
     if(!team %in% c("", "ATL", "ARI", "BAL", "BOS", "CHC", "CIN", "CLE", "COL", "CWS", "DET", "HOU", "KC", "LAA", "LAD", "OAK", "MIA", "MIL", "MIN", "NYM", "NYY", "PHI", "PIT", "SD", "SEA", "SF", "STL", "TB", "TEX", "TOR", "WSH")) {
 
-      message("If you are trying to query records for a specific team, please be sure to enter one of the following: ATL, ARI, BAL, BOS, CHC, CIN, CLE, COL, CWS, DET, HOU, KC, LAA, LAD, OAK, MIA, MIL, MIN, NYM, NYY, PHI, PIT, SD, SEA, SF, STL, TB, TEX, TOR, WSH")
+      cli::cli_alert_info("If you are trying to query records for a specific team, please be sure to enter one of the following: ATL, ARI, BAL, BOS, CHC, CIN, CLE, COL, CWS, DET, HOU, KC, LAA, LAD, OAK, MIA, MIL, MIN, NYM, NYY, PHI, PIT, SD, SEA, SF, STL, TB, TEX, TOR, WSH")
 
       return(NULL)
     }
 
     if(!position %in% c("", 1,2,3,4,5,6,7,8,9,10)) {
 
-      message("Please enter one of the following for position, or leave the parameter blank: 1,2,3,4,5,6,7,8,9,10")
+      cli::cli_alert_info("Please enter one of the following for position, or leave the parameter blank: 1,2,3,4,5,6,7,8,9,10")
 
       return(NULL)
     }
 
     if (!min_run %in% c(0,5,25,50,75,100,150,200,250)) {
 
-      message("Please choose one of the following for the minimum number of running opportunities: 0,5,25,50,75,100,150,200,250")
+      cli::cli_alert_info("Please choose one of the following for the minimum number of running opportunities: 0,5,25,50,75,100,150,200,250")
 
       return(NULL)
     }
@@ -358,42 +357,42 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
 
     if (!year %in% c(seq(2017,substr(Sys.time(), 1, 4),1))) {
 
-      message("Pop Time leaderboards are only available starting in 2017. Please choose an appropriate year.")
+      cli::cli_alert_info("Pop Time leaderboards are only available starting in 2017. Please choose an appropriate year.")
 
       return(NULL)
     }
 
     if(!team %in% c("", "ATL", "ARI", "BAL", "BOS", "CHC", "CIN", "CLE", "COL", "CWS", "DET", "HOU", "KC", "LAA", "LAD", "OAK", "MIA", "MIL", "MIN", "NYM", "NYY", "PHI", "PIT", "SD", "SEA", "SF", "STL", "TB", "TEX", "TOR", "WSH")) {
 
-      message("If you are trying to query records for a specific team, please be sure to enter one of the following: ATL, ARI, BAL, BOS, CHC, CIN, CLE, COL, CWS, DET, HOU, KC, LAA, LAD, OAK, MIA, MIL, MIN, NYM, NYY, PHI, PIT, SD, SEA, SF, STL, TB, TEX, TOR, WSH")
+      cli::cli_alert_info("If you are trying to query records for a specific team, please be sure to enter one of the following: ATL, ARI, BAL, BOS, CHC, CIN, CLE, COL, CWS, DET, HOU, KC, LAA, LAD, OAK, MIA, MIL, MIN, NYM, NYY, PHI, PIT, SD, SEA, SF, STL, TB, TEX, TOR, WSH")
 
       return(NULL)
     }
 
     if(!position %in% c("", 1,2,3,4,5,6,7,8,9,10)) {
 
-      message("Please enter one of the following for position, or leave the parameter blank: 1,2,3,4,5,6,7,8,9,10")
+      cli::cli_alert_info("Please enter one of the following for position, or leave the parameter blank: 1,2,3,4,5,6,7,8,9,10")
 
       return(NULL)
     }
 
     if (!min_run %in% c(0,5,25,50,75,100,150,200,250)) {
 
-      message("Please choose one of the following for the minimum number of running opportunities: 0,5,25,50,75,100,150,200,250")
+      cli::cli_alert_info("Please choose one of the following for the minimum number of running opportunities: 0,5,25,50,75,100,150,200,250")
 
       return(NULL)
     }
 
     if(!bats %in% c("", "R", "L")) {
 
-      message("Please choose either 'R' or 'L' for `bats`, or leave the parameter blank.")
+      cli::cli_alert_info("Please choose either 'R' or 'L' for `bats`, or leave the parameter blank.")
 
       return(NULL)
     }
 
     if(!run_type %in% c("percent", "raw")) {
 
-      message("Please choose either 'percent' or 'raw' for 'run_type'.")
+      cli::cli_alert_info("Please choose either 'percent' or 'raw' for 'run_type'.")
 
       return(NULL)
     }
@@ -408,28 +407,28 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
     
     if (!year %in% c(seq(2020,substr(Sys.time(), 1, 4),1))) {
       
-      message("Arm Strength leaderboards are only available starting in 2020. Please choose an appropriate year.")
+      cli::cli_alert_info("Arm Strength leaderboards are only available starting in 2020. Please choose an appropriate year.")
       
       return(NULL)
     }
     
     if (!min_throws %in% c(50,100,300,500,1000)) {
       
-      message("Please choose one of the following for the minimum number of throws: 50,100,300,500")
+      cli::cli_alert_info("Please choose one of the following for the minimum number of throws: 50,100,300,500")
       
       return(NULL)
     }
     
     if(!team %in% c("", "ATL", "ARI", "BAL", "BOS", "CHC", "CIN", "CLE", "COL", "CWS", "DET", "HOU", "KC", "LAA", "LAD", "OAK", "MIA", "MIL", "MIN", "NYM", "NYY", "PHI", "PIT", "SD", "SEA", "SF", "STL", "TB", "TEX", "TOR", "WSH")) {
       
-      message("If you are trying to query records for a specific team, please be sure to enter one of the following: ATL, ARI, BAL, BOS, CHC, CIN, CLE, COL, CWS, DET, HOU, KC, LAA, LAD, OAK, MIA, MIL, MIN, NYM, NYY, PHI, PIT, SD, SEA, SF, STL, TB, TEX, TOR, WSH")
+      cli::cli_alert_info("If you are trying to query records for a specific team, please be sure to enter one of the following: ATL, ARI, BAL, BOS, CHC, CIN, CLE, COL, CWS, DET, HOU, KC, LAA, LAD, OAK, MIA, MIL, MIN, NYM, NYY, PHI, PIT, SD, SEA, SF, STL, TB, TEX, TOR, WSH")
       
       return(NULL)
     }
     
     if(!position %in% c("", 1,2,3,4,5,6,7,8,9,10)) {
       
-      message("Please enter one of the following for position: 1,2,3,4,5,6,7,8,9,10")
+      cli::cli_alert_info("Please enter one of the following for position: 1,2,3,4,5,6,7,8,9,10")
       
       return(NULL)
     }
@@ -441,12 +440,12 @@ statcast_leaderboards <- function(leaderboard = "exit_velocity_barrels",
   
   if(!"year" %in% colnames(payload)) {
 
-    payload <- payload %>%
+    payload <- payload |>
       dplyr::mutate(year = year)
   }
 
-  payload <- payload %>%
-    dplyr::select("year", tidyr::everything()) %>%
+  payload <- payload |>
+    dplyr::select("year", tidyr::everything()) |>
     make_baseballr_data("MLB Baseball Savant Statcast Leaderboards data from baseballsavant.mlb.com",Sys.time())
 
   return(payload)

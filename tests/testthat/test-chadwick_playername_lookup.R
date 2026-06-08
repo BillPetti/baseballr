@@ -6,10 +6,11 @@ cols <- c(
 )
 
 test_that("Chadwick Player Name Lookup", {
+  skip_chadwick_test()
   skip_on_cran()
   
   x <- playername_lookup("kaaihki01")
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

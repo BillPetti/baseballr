@@ -12,30 +12,24 @@ bref_team_results(Tm, year)
 \item{year}{Season for which you want to scrape the park factors.}
 }
 \value{
-Returns a tibble of MLB team results and the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   Gm \tab numeric \cr
-   Date \tab character \cr
-   Tm \tab character \cr
-   H_A \tab character \cr
-   Opp \tab character \cr
-   Result \tab character \cr
-   R \tab numeric \cr
-   RA \tab numeric \cr
-   Inn \tab character \cr
-   Record \tab character \cr
-   Rank \tab numeric \cr
-   GB \tab character \cr
-   Win \tab character \cr
-   Loss \tab character \cr
-   Save \tab character \cr
-   Time \tab character \cr
-   D/N \tab character \cr
-   Attendance \tab numeric \cr
-   cLI \tab numeric \cr
-   Streak \tab numeric \cr
-   Orig_Scheduled \tab character \cr
-   Year \tab numeric \cr
+Returns a tibble of MLB team results, one row per game on the team's schedule, with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   Gm \tab character \tab Game number / label in the schedule (includes postseason labels). \cr
+   Date \tab character \tab Day-of-week and calendar date of the game. \cr
+   Tm \tab character \tab Team abbreviation. \cr
+   H_A \tab character \tab Home/away indicator (A denotes a road game). \cr
+   Opp \tab character \tab Opponent team abbreviation. \cr
+   Result \tab character \tab Game outcome from the team's perspective (W/L). \cr
+   R \tab integer \tab Runs scored by the team. \cr
+   RA \tab integer \tab Runs allowed (opponent runs). \cr
+   Inn \tab integer \tab Innings played when not nine (e.g. extra innings). \cr
+   Record \tab character \tab Team's cumulative win-loss record after the game. \cr
+   Rank \tab character \tab Team's standing/rank in its division after the game. \cr
+   GB \tab character \tab Games behind the division leader after the game. \cr
+   Win \tab character \tab Winning pitcher. \cr
+   Loss \tab character \tab Losing pitcher. \cr
+   Save \tab character \tab Pitcher credited with the save (N if none). \cr
+   Time \tab character \tab Duration of the game. \cr
 }
 }
 \description{

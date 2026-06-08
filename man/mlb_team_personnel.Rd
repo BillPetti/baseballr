@@ -12,15 +12,15 @@ mlb_team_personnel(team_id = NULL, date = NULL)
 \item{date}{Date to return team coach information for.}
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   jersey_number \tab character \cr
-   job \tab character \cr
-   job_id \tab character \cr
-   title \tab character \cr
-   person_id \tab integer \cr
-   person_full_name \tab character \cr
-   person_link \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   jersey_number \tab character \tab Personnel uniform number. \cr
+   job \tab character \tab Job name (e.g., Special Assistant). \cr
+   job_id \tab character \tab Job code identifier. \cr
+   title \tab character \tab Full personnel title. \cr
+   person_id \tab integer \tab Personnel MLBAM person ID. \cr
+   person_full_name \tab character \tab Personnel full name. \cr
+   person_link \tab character \tab API link to the person. \cr
 }
 }
 \description{

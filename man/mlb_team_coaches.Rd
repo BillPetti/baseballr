@@ -14,15 +14,15 @@ mlb_team_coaches(team_id = NULL, date = NULL, season = NULL)
 \item{season}{Year to return team coach information for.}
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   jersey_number \tab character \cr
-   job \tab character \cr
-   job_id \tab character \cr
-   title \tab character \cr
-   person_id \tab integer \cr
-   person_full_name \tab character \cr
-   person_link \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   jersey_number \tab character \tab Coach uniform number. \cr
+   job \tab character \tab Job name (e.g., Manager). \cr
+   job_id \tab character \tab Job code identifier. \cr
+   title \tab character \tab Full coaching title. \cr
+   person_id \tab integer \tab Coach MLBAM person ID. \cr
+   person_full_name \tab character \tab Coach full name. \cr
+   person_link \tab character \tab API link to the coach. \cr
 }
 }
 \description{

@@ -23,64 +23,73 @@
 #' @param sortdir (character) Sort direction. Options are "asc" or "desc" or "default".
 #' @param sortstat (character) Sort by stat. Default is "Defense".
 #' @return A data frame of fielder data.
-#' 
-#'   |col_name        |types     |
-#'   |:---------------|:---------|
-#'   |Season          |integer   |
-#'   |team_name       |character |
-#'   |xMLBAMID        |integer   |
-#'   |PlayerNameRoute |character |
-#'   |PlayerName      |character |
-#'   |playerid        |integer   |
-#'   |SeasonMin       |integer   |
-#'   |SeasonMax       |integer   |
-#'   |Pos             |character |
-#'   |G               |integer   |
-#'   |GS              |integer   |
-#'   |Inn             |numeric   |
-#'   |PO              |integer   |
-#'   |A               |integer   |
-#'   |E               |integer   |
-#'   |FE              |integer   |
-#'   |TE              |integer   |
-#'   |DP              |integer   |
-#'   |DPS             |integer   |
-#'   |DPT             |integer   |
-#'   |DPF             |integer   |
-#'   |SB              |integer   |
-#'   |CS              |integer   |
-#'   |PB              |integer   |
-#'   |WP              |integer   |
-#'   |FP              |numeric   |
-#'   |rSB             |integer   |
-#'   |rGFP            |integer   |
-#'   |rSZ             |numeric   |
-#'   |rCERA           |integer   |
-#'   |DRS             |integer   |
-#'   |Defense         |numeric   |
-#'   |CStrikes        |numeric   |
-#'   |CFraming        |numeric   |
-#'   |Q               |numeric   |
-#'   |TInn            |numeric   |
-#'   |teamid          |integer   |
-#'   |team_name_abb   |character |
-#'   |rARM            |integer   |
-#'   |rPM             |integer   |
-#'   |BIZ             |integer   |
-#'   |Plays           |integer   |
-#'   |RZR             |numeric   |
-#'   |OOZ             |integer   |
-#'   |ARM             |numeric   |
-#'   |RngR            |numeric   |
-#'   |ErrR            |numeric   |
-#'   |UZR             |numeric   |
-#'   |UZR_150         |numeric   |
-#'   |OAA             |integer   |
-#'   |rFRP            |integer   |
-#'   |rGDP            |integer   |
-#'   |DPR             |numeric   |
-#'   |Scp             |integer   |
-#' 
+#'
+#'  |col_name        |types     |description                                       |
+#'  |:-------------- |:-------- |:------------------------------------------------ |
+#'  |Season          |integer   |Season (YYYY).                                    |
+#'  |team_name       |character |Team name.                                        |
+#'  |xMLBAMID        |integer   |MLBAM player ID.                                  |
+#'  |PlayerNameRoute |character |Player name URL slug used by FanGraphs.           |
+#'  |PlayerName      |character |Player name.                                      |
+#'  |playerid        |integer   |FanGraphs player ID.                              |
+#'  |SeasonMin       |integer   |First season in the queried span.                 |
+#'  |SeasonMax       |integer   |Last season in the queried span.                  |
+#'  |Pos             |character |Primary position.                                 |
+#'  |Position        |character |Position played.                                  |
+#'  |G               |integer   |Games played.                                     |
+#'  |GS              |integer   |Games started.                                    |
+#'  |Inn             |numeric   |Innings played in the field.                      |
+#'  |PO              |integer   |Putouts.                                          |
+#'  |A               |integer   |Assists.                                          |
+#'  |E               |integer   |Errors.                                           |
+#'  |FE              |integer   |Fielding errors.                                  |
+#'  |TE              |integer   |Throwing errors.                                  |
+#'  |DP              |integer   |Double plays.                                     |
+#'  |DPS             |integer   |Double plays started.                             |
+#'  |DPT             |integer   |Double plays turned.                              |
+#'  |DPF             |integer   |Double plays finished.                            |
+#'  |SB              |integer   |Stolen bases.                                     |
+#'  |CS              |integer   |Caught stealing.                                  |
+#'  |PB              |integer   |Passed balls.                                     |
+#'  |WP              |integer   |Wild pitches.                                     |
+#'  |FP              |numeric   |Fielding percentage.                              |
+#'  |rSB             |integer   |Stolen-base runs (catcher arm).                   |
+#'  |rGFP            |integer   |Good-fielding-play runs.                          |
+#'  |rSZ             |numeric   |Strike-zone (framing) runs.                       |
+#'  |rCERA           |integer   |Catcher-ERA runs.                                 |
+#'  |DRS             |integer   |Defensive Runs Saved.                             |
+#'  |Defense         |numeric   |Total defensive value (runs above average).       |
+#'  |CStrikes        |numeric   |Catcher framing called strikes above average.     |
+#'  |CFraming        |numeric   |Catcher framing runs.                             |
+#'  |dFRP            |integer   |Double-play component of Fielding Run Prevention. |
+#'  |bFRP            |integer   |Bunt component of Fielding Run Prevention.        |
+#'  |tFRP            |integer   |Throwing component of Fielding Run Prevention.    |
+#'  |fFRP            |integer   |Framing component of Fielding Run Prevention.     |
+#'  |FRP             |integer   |Total Fielding Run Prevention.                    |
+#'  |Q               |numeric   |Quality of contact / quality score.               |
+#'  |TInn            |numeric   |Total innings played in the field.                |
+#'  |positionDB      |character |Position code from the database.                  |
+#'  |teamid          |integer   |FanGraphs team ID.                                |
+#'  |team_name_abb   |character |Team name abbreviation.                           |
+#'  |playerTeamId    |integer   |FanGraphs player-team ID.                         |
+#'  |rGDP            |integer   |Double-play runs.                                 |
+#'  |rPM             |integer   |Plus/minus range runs.                            |
+#'  |BIZ             |integer   |Balls hit in defensive zone.                      |
+#'  |Plays           |integer   |Plays made in zone.                               |
+#'  |RZR             |numeric   |Revised Zone Rating.                              |
+#'  |OOZ             |integer   |Plays made out of zone.                           |
+#'  |DPR             |numeric   |Double-play runs (UZR component).                 |
+#'  |RngR            |numeric   |Range runs (UZR component).                       |
+#'  |ErrR            |numeric   |Error runs (UZR component).                       |
+#'  |UZR             |numeric   |Ultimate Zone Rating.                             |
+#'  |UZR_150         |numeric   |Ultimate Zone Rating per 150 defensive games.     |
+#'  |OAA             |integer   |Outs Above Average (Statcast).                    |
+#'  |rFRP            |integer   |Range component of Fielding Run Prevention.       |
+#'  |aFRP            |integer   |Arm component of Fielding Run Prevention.         |
+#'  |rARM            |integer   |Outfield-arm runs.                                |
+#'  |ARM             |numeric   |Outfield-arm runs (UZR component).                |
+#'  |Scp             |integer   |Scoops (first-base picks).                        |
+#'
 #' @import rvest 
 #' @export
 #' @examples \donttest{
@@ -135,16 +144,17 @@ fg_fielder_leaders <- function(
   
   url <- "https://www.fangraphs.com/api/leaders/major-league/data"
   
-  fg_endpoint <- httr::modify_url(url, query = params)
+  fg_endpoint <- httr2::url_modify_query(url, !!!params)
   
+  leaders <- NULL
   tryCatch(
     expr = {
       
-      resp <- fg_endpoint %>% 
-        mlb_api_call()
+      resp <- fg_endpoint |> 
+        fg_api_call()
       
-      fg_df <- resp$data %>% 
-        jsonlite::toJSON() %>%
+      fg_df <- resp$data |> 
+        jsonlite::toJSON() |>
         jsonlite::fromJSON(flatten=TRUE)
       
       c <- colnames(fg_df)
@@ -153,16 +163,16 @@ fg_fielder_leaders <- function(
       c <- ifelse(substr(c, nchar(c) - 1 + 1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
       c <- gsub(" ", "_", c, fixed = TRUE)
       colnames(fg_df) <- c
-      leaders <- fg_df %>% 
-        dplyr::rename_with(~ gsub("pi", "pi_", .x), starts_with("pi")) %>% 
-        dplyr::rename_with(~ gsub("pfx", "pfx_", .x), starts_with("pfx")) %>%
+      leaders <- fg_df |> 
+        dplyr::rename_with(~ gsub("pi", "pi_", .x), starts_with("pi")) |> 
+        dplyr::rename_with(~ gsub("pfx", "pfx_", .x), starts_with("pfx")) |>
         dplyr::rename(
           "team_name" = "TeamName",
-          "team_name_abb" = "TeamNameAbb") %>%
+          "team_name_abb" = "TeamNameAbb") |>
         dplyr::select(-dplyr::any_of(c(
           "Name", 
           "Team"
-        ))) %>%
+        ))) |>
         dplyr::select(
           "Season",
           "team_name",
@@ -170,12 +180,12 @@ fg_fielder_leaders <- function(
           "PlayerNameRoute",
           "PlayerName",
           "playerid",
-          tidyr::everything()) %>% 
+          tidyr::everything()) |> 
         make_baseballr_data("MLB Player Fielding Leaders data from FanGraphs.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no player fielding leaders data available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no player fielding leaders data available!")
     },
     finally = {
     }

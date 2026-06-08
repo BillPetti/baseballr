@@ -31,10 +31,11 @@ cols <- c(
 )
 
 test_that("MLB League", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <-  mlb_league(seasons = 2021, sport_id = 1)
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

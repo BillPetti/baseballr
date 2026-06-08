@@ -3,13 +3,15 @@
 #' @param sport_ids The sport_id(s) for which to return venue directorial information.
 #' @param season Year for which to return venue directorial information for a given season.
 #' @return Returns a tibble with the following columns:
-#'  |col_name   |types     |
-#'  |:----------|:---------|
-#'  |venue_id   |integer   |
-#'  |venue_name |character |
-#'  |venue_link |character |
-#'  |active     |logical   |
-#'  |season     |logical   |
+#'
+#'  |col_name   |types     |description                       |
+#'  |:----------|:---------|:---------------------------------|
+#'  |venue_id   |integer   |Venue MLBAM ID.                   |
+#'  |venue_name |character |Venue name.                       |
+#'  |venue_link |character |API link to the venue.            |
+#'  |active     |logical   |Whether the venue is active.      |
+#'  |season     |character |Season the venue record applies to.|
+#'
 #' @importFrom jsonlite fromJSON 
 #' @export
 #' @examples \donttest{
@@ -25,21 +27,22 @@ mlb_venues <- function(venue_ids = NULL, sport_ids = NULL, season = NULL){
     season = season
   )
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
+  venues <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
       
       venues <- resp$venues
       colnames(venues) <- c("venue_id", "venue_name", "venue_link","active", "season")
-      venues <- venues %>%
+      venues <- venues |>
         make_baseballr_data("MLB Venues data from MLB.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

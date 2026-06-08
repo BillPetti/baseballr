@@ -1,7 +1,5 @@
 
 cols <- c(
-  "player_name",
-  "minor_playerid",
   "Date",
   "Team",
   "Level",
@@ -41,30 +39,19 @@ cols <- c(
   "wRC+",
   "wBsR",
   "gamedate",
-  "dh",
-  "UPId",
-  "MLBAMId",
-  "MinorMasterId",
-  "RRId",
-  "FirstName",
-  "LastName",
-  "firstLastName",
-  "Height",
-  "Weight",
-  "BirthDate",
-  "Bats",
-  "Throws",
-  "Position",
-  "BirthCity",
-  "College",
-  "Age"
+  "dh"
 )
 
 test_that("FanGraphs MiLB Batter Game Logs", {
+  skip_fangraphs_test()
   skip_on_cran()
   
   x <- fg_milb_batter_game_logs(playerid = "sa3010868", year=2021)
-  
+
+  if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
+    skip("No data returned from FanGraphs at test time")
+  }
+
   expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

@@ -7,9 +7,9 @@
 mlb_stat_types()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   stat_type_name \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   stat_type_name \tab character \tab Stat type display name (e.g., projected). \cr
 }
 }
 \description{

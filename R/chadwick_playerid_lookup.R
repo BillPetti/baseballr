@@ -5,19 +5,21 @@
 #' @param last_name A text string used to return results for players with that string in their last name.
 #' @param first_name A text string used to return results for players with that string in their first name.
 #' @return A data frame of baseball players and the various IDs associated with them in different systems of record.
-#'   |col_name         |types     |
-#'   |:----------------|:---------|
-#'   |first_name       |character |
-#'   |last_name        |character |
-#'   |given_name       |character |
-#'   |name_suffix      |character |
-#'   |nick_name        |character |
-#'   |birth_year       |integer   |
-#'   |mlb_played_first |integer   |
-#'   |mlbam_id         |integer   |
-#'   |retrosheet_id    |character |
-#'   |bbref_id         |character |
-#'   |fangraphs_id     |integer   |
+#'
+#'   |col_name         |types     |description |
+#'   |:----------------|:---------|:-----------|
+#'   |first_name       |character |Player first name. |
+#'   |last_name        |character |Player last name. |
+#'   |given_name       |character |Player full given (legal) name. |
+#'   |name_suffix      |character |Name suffix (e.g. Jr., Sr., III). |
+#'   |nick_name        |character |Player nickname. |
+#'   |birth_year       |integer   |Year of birth. |
+#'   |mlb_played_first |integer   |First MLB season as a player. |
+#'   |mlbam_id         |integer   |MLB Advanced Media (MLBAM) player ID. |
+#'   |retrosheet_id    |character |Retrosheet player ID. |
+#'   |bbref_id         |character |Baseball-Reference player ID. |
+#'   |fangraphs_id     |integer   |FanGraphs player ID. |
+#'
 #' @export
 #' @examples \donttest{
 #'   try(playerid_lookup("Garcia", "Karim"))
@@ -31,7 +33,7 @@ playerid_lookup <- function(last_name = NULL, first_name = NULL) {
 
     names(x) <- c("first_name", "last_name", "given_name", "name_suffix", "nick_name", "birth_year", "mlb_played_first", "mlbam_id", "retrosheet_id", "bbref_id", "fangraphs_id")
 	
-    x <- x %>%
+    x <- x |>
       make_baseballr_data("Player ID Lookup from the Chadwick Bureau's public register of baseball players",Sys.time())
     return(x)
 	
@@ -42,16 +44,16 @@ playerid_lookup <- function(last_name = NULL, first_name = NULL) {
     
     names(x) <- c("first_name", "last_name", "given_name", "name_suffix", "nick_name", "birth_year", "mlb_played_first", "mlbam_id", "retrosheet_id", "bbref_id", "fangraphs_id")
     suppressWarnings(
-      x$fangraphs_id <- x$fangraphs_id %>% 
-        as.character() %>% 
+      x$fangraphs_id <- x$fangraphs_id |> 
+        as.character() |> 
         as.numeric()
     )
     suppressWarnings(
-      x$birth_year <- x$birth_year %>% 
-        as.character() %>% 
+      x$birth_year <- x$birth_year |> 
+        as.character() |> 
         as.numeric()
     )
-    x <- x %>%
+    x <- x |>
       make_baseballr_data("Player ID Lookup from the Chadwick Bureau's public register of baseball players",Sys.time())
     return(x)
   }
@@ -63,16 +65,16 @@ process_player_name <- function(last_name = NULL, first_name = NULL, chadwick_pl
     chadwick_player_lu_table <- chadwick_player_lu()
   }
   if (is.null(first_name)) {
-    x <- chadwick_player_lu_table %>%
-      dplyr::filter(grepl(last_name, .data$name_last)) %>%
+    x <- chadwick_player_lu_table |>
+      dplyr::filter(grepl(last_name, .data$name_last)) |>
       dplyr::select("name_first", "name_last", "name_given", "name_suffix", 
                     "name_nick", "birth_year", "mlb_played_first", "key_mlbam", 
                     "key_retro", "key_bbref", "key_fangraphs")
   }
   else {
-    x <- chadwick_player_lu_table %>%
-      dplyr::filter(grepl(last_name, .data$name_last)) %>%
-      dplyr::filter(grepl(first_name, .data$name_first)) %>%
+    x <- chadwick_player_lu_table |>
+      dplyr::filter(grepl(last_name, .data$name_last)) |>
+      dplyr::filter(grepl(first_name, .data$name_first)) |>
       dplyr::select("name_first", "name_last", "name_given", "name_suffix", 
                     "name_nick", "birth_year", "mlb_played_first", 
                     "key_mlbam", "key_retro", "key_bbref", "key_fangraphs")

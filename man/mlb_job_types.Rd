@@ -7,11 +7,11 @@
 mlb_job_types()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   job_code \tab character \cr
-   job \tab character \cr
-   sort_order \tab integer \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   job_code \tab character \tab Four-letter job type code (e.g. 'UMPR', 'UDIR'). \cr
+   job \tab character \tab Job title (e.g. 'Umpire', 'Director of Instant Replay'). \cr
+   sort_order \tab integer \tab Display sort order for the job type. \cr
 }
 }
 \description{

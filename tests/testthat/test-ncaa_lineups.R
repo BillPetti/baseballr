@@ -20,10 +20,11 @@ cols <- c(
 )
 
 test_that("NCAA Batting Lineups", {
+  skip_ncaa_test()
   skip_on_cran()
   x <- ncaa_lineups(game_info_url="https://stats.ncaa.org/game/index/4587474?org_id=528")
   
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

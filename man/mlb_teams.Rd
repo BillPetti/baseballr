@@ -27,41 +27,41 @@ mlb_teams(
 \item{game_type}{The game_type to return team information for.}
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   team_id \tab integer \cr
-   team_full_name \tab character \cr
-   link \tab character \cr
-   season \tab integer \cr
-   team_code \tab character \cr
-   file_code \tab character \cr
-   team_abbreviation \tab character \cr
-   team_name \tab character \cr
-   location_name \tab character \cr
-   first_year_of_play \tab character \cr
-   short_name \tab character \cr
-   franchise_name \tab character \cr
-   club_name \tab character \cr
-   all_star_status \tab character \cr
-   active \tab logical \cr
-   venue_id \tab integer \cr
-   venue_name \tab character \cr
-   venue_link \tab character \cr
-   spring_venue_id \tab integer \cr
-   spring_venue_link \tab character \cr
-   league_id \tab integer \cr
-   league_name \tab character \cr
-   league_link \tab character \cr
-   division_id \tab integer \cr
-   division_name \tab character \cr
-   division_link \tab character \cr
-   sport_id \tab integer \cr
-   sport_link \tab character \cr
-   sport_name \tab character \cr
-   spring_league_id \tab integer \cr
-   spring_league_name \tab character \cr
-   spring_league_link \tab character \cr
-   spring_league_abbreviation \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   all_star_status \tab character \tab All-star status flag. \cr
+   team_id \tab integer \tab Team MLBAM ID. \cr
+   team_full_name \tab character \tab Full team name. \cr
+   link \tab character \tab API link to the team. \cr
+   season \tab integer \tab Season year. \cr
+   team_code \tab character \tab Internal team code. \cr
+   file_code \tab character \tab File code abbreviation. \cr
+   team_abbreviation \tab character \tab Team abbreviation. \cr
+   team_name \tab character \tab Short team name. \cr
+   location_name \tab character \tab Team location (city). \cr
+   first_year_of_play \tab character \tab First year the franchise played. \cr
+   short_name \tab character \tab Short display name. \cr
+   franchise_name \tab character \tab Franchise name. \cr
+   club_name \tab character \tab Club name. \cr
+   active \tab logical \tab Whether the team is active. \cr
+   spring_league_id \tab integer \tab Spring league MLBAM ID. \cr
+   spring_league_name \tab character \tab Spring league name. \cr
+   spring_league_link \tab character \tab API link to the spring league. \cr
+   spring_league_abbreviation \tab character \tab Spring league abbreviation. \cr
+   venue_id \tab integer \tab Home venue MLBAM ID. \cr
+   venue_name \tab character \tab Home venue name. \cr
+   venue_link \tab character \tab API link to the venue. \cr
+   spring_venue_id \tab integer \tab Spring training venue MLBAM ID. \cr
+   spring_venue_link \tab character \tab API link to the spring venue. \cr
+   league_id \tab integer \tab League MLBAM ID. \cr
+   league_name \tab character \tab League name. \cr
+   league_link \tab character \tab API link to the league. \cr
+   division_id \tab integer \tab Division MLBAM ID. \cr
+   division_name \tab character \tab Division name. \cr
+   division_link \tab character \tab API link to the division. \cr
+   sport_id \tab integer \tab Sport MLBAM ID. \cr
+   sport_link \tab character \tab API link to the sport. \cr
+   sport_name \tab character \tab Sport name (e.g., Major League Baseball). \cr
 }
 }
 \description{

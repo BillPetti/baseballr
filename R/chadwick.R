@@ -2,11 +2,11 @@
 #' @title
 #' **Chadwick Bureau Register Player Lookup**
 #' @description
-#' \describe{
-#'   \item{```chadwick_player_lu()```:}{ Directly download the Chadwick Bureau's public register of baseball players and the various IDs associated with them in different systems of record.}
-#'   \item{```playername_lookup()```:}{ Look up Baseball Player Name.}
-#'   \item{```playerid_lookup()```:}{ Look up Baseball Player IDs.}
-#' }
+#'
+#' * `chadwick_player_lu()`: Directly download the Chadwick Bureau's public register of baseball players and the various IDs associated with them in different systems of record.
+#' * `playername_lookup()`: Look up Baseball Player Name.
+#' * `playerid_lookup()`: Look up Baseball Player IDs.
+#'
 #' @details
 #' ### **Directly download the Chadwick Bureau's public register of baseball players.**
 #' ```r

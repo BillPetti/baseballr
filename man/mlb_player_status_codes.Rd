@@ -7,10 +7,10 @@
 mlb_player_status_codes()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   player_status_code \tab character \cr
-   player_status_description \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_status_code \tab character \tab Short code for the player status (e.g. 'A'). \cr
+   player_status_description \tab character \tab Description of the player status (e.g. 'Active'). \cr
 }
 }
 \description{

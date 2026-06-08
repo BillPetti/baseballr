@@ -32,6 +32,7 @@ cols <- c(
 )
 
 test_that("MLB Game Context Metrics", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_game_context_metrics(game_pk = 531060, timecode = "20180803_182458")

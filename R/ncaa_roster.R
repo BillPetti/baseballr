@@ -51,16 +51,15 @@ ncaa_roster <- function(team_id = NULL, year, ...){
   
   url <- paste0("https://stats.ncaa.org/team/", team_id, "/roster/", id)
   
-  headers <- httr::add_headers(.headers = .ncaa_headers())
   
   tryCatch(
     expr = {
-      roster_resp <- request_with_proxy(url = url, ..., headers)
+      roster_resp <- request_with_proxy(url = url, ...)
       
       check_status(roster_resp)
       
       payload <- roster_resp %>% 
-        httr::content(as = "text", encoding = "UTF-8") %>% 
+        httr2::resp_body_string() %>% 
         xml2::read_html()
       
       payload1 <- (payload %>%

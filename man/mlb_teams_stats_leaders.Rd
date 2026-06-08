@@ -44,31 +44,19 @@ mlb_teams_stats_leaders(
 \item{limit}{A limit to limit return to a particular number of records.}
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   leader_category \tab character \cr
-   rank \tab integer \cr
-   value \tab character \cr
-   season \tab character \cr
-   num_teams \tab integer \cr
-   team_id \tab integer \cr
-   team_name \tab character \cr
-   team_link \tab character \cr
-   league_id \tab integer \cr
-   league_name \tab character \cr
-   league_link \tab character \cr
-   person_id \tab integer \cr
-   person_full_name \tab character \cr
-   person_link \tab character \cr
-   person_first_name \tab character \cr
-   person_last_name \tab character \cr
-   sport_id \tab integer \cr
-   sport_link \tab character \cr
-   sport_abbreviation \tab character \cr
-   stat_group \tab character \cr
-   total_splits \tab integer \cr
-   game_type_id \tab character \cr
-   game_type_description \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   leader_category \tab character \tab Team leader category (e.g., homeRuns). \cr
+   rank \tab integer \tab Rank within the team leaderboard. \cr
+   value \tab character \tab Statistic value for the team. \cr
+   season \tab character \tab Season year. \cr
+   team_id \tab integer \tab Team MLBAM ID. \cr
+   team_name \tab character \tab Team name. \cr
+   team_link \tab character \tab API link to the team. \cr
+   stat_group \tab character \tab Stat group (e.g., hitting). \cr
+   total_splits \tab integer \tab Total number of splits in the leaderboard. \cr
+   game_type_id \tab character \tab Game type code (e.g., R for regular season). \cr
+   game_type_description \tab character \tab Game type description. \cr
 }
 }
 \description{

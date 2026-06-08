@@ -2,12 +2,12 @@
 #' @title
 #' **Statcast Functions Overview**
 #' @description
-#' \describe{
-#'   \item{```statcast_search()```:}{ Query Statcast by Date Range and Players.}
-#'   \item{```statcast_search_batters()```:}{ Query Statcast Batters by Date Range and Player.}
-#'   \item{```statcast_search_pitchers()```:}{ Query Statcast Pitchers by Date Range and Player.}
-#'   \item{```statcast_leaderboards()```:}{ Query Baseball Savant Leaderboards.}
-#' }
+#'
+#' * `statcast_search()`: Query Statcast by Date Range and Players.
+#' * `statcast_search_batters()`: Query Statcast Batters by Date Range and Player.
+#' * `statcast_search_pitchers()`: Query Statcast Pitchers by Date Range and Player.
+#' * `statcast_leaderboards()`: Query Baseball Savant Leaderboards.
+#'
 #' @details
 #' 
 #' ### **Query Statcast Batters by Date Range**

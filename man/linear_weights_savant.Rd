@@ -14,11 +14,11 @@ the \code{run_expectancy_code()} function.}
 level. Defaults to 'plate appearance'.}
 }
 \value{
-Returns a tibble with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   events \tab character \cr
-   linear_weights_above_average \tab numeric \cr
-   linear_weights_above_outs \tab numeric \cr
+Returns a tibble with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   events \tab character \tab Event type (e.g. home_run, triple, double, single, walk, hit_by_pitch, outs). \cr
+   linear_weights_above_average \tab numeric \tab Average change in run expectancy (RE24) for the event, i.e. linear weight above average. \cr
+   linear_weights_above_outs \tab numeric \tab Linear weight expressed above the value of an out (above-average value plus the absolute out value). \cr
 }
 }
 \description{

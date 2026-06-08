@@ -12,64 +12,50 @@ fg_milb_pitcher_game_logs(playerid, year)
 \item{year}{The season for which game logs should be returned.}
 }
 \value{
-Returns a tibble of Minor League pitcher game logs.\tabular{ll}{
-   col_name \tab types \cr
-   player_name \tab character \cr
-   minor_playerid \tab character \cr
-   Date \tab character \cr
-   Team \tab character \cr
-   Level \tab character \cr
-   Opp \tab character \cr
-   W \tab numeric \cr
-   L \tab numeric \cr
-   ERA \tab numeric \cr
-   G \tab numeric \cr
-   GS \tab numeric \cr
-   CG \tab numeric \cr
-   ShO \tab numeric \cr
-   SV \tab numeric \cr
-   IP \tab numeric \cr
-   TBF \tab numeric \cr
-   H \tab numeric \cr
-   R \tab numeric \cr
-   ER \tab numeric \cr
-   HR \tab numeric \cr
-   BB \tab numeric \cr
-   IBB \tab numeric \cr
-   HBP \tab numeric \cr
-   WP \tab numeric \cr
-   BK \tab numeric \cr
-   SO \tab numeric \cr
-   K/9 \tab numeric \cr
-   BB/9 \tab numeric \cr
-   K/BB \tab numeric \cr
-   HR/9 \tab numeric \cr
-   K\% \tab numeric \cr
-   K-BB\% \tab numeric \cr
-   BB\% \tab numeric \cr
-   AVG \tab numeric \cr
-   WHIP \tab numeric \cr
-   BABIP \tab numeric \cr
-   LOB\% \tab numeric \cr
-   FIP \tab numeric \cr
-   gamedate \tab character \cr
-   dh \tab integer \cr
-   UPId \tab character \cr
-   MLBAMId \tab character \cr
-   MinorMasterId \tab character \cr
-   RRId \tab character \cr
-   FirstName \tab character \cr
-   LastName \tab character \cr
-   firstLastName \tab character \cr
-   Height \tab character \cr
-   Weight \tab character \cr
-   BirthDate \tab character \cr
-   Bats \tab character \cr
-   Throws \tab character \cr
-   Position \tab character \cr
-   BirthCity \tab character \cr
-   College \tab character \cr
-   Age \tab character \cr
+Returns a tibble of Minor League pitcher game logs, one row per game, with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   Date \tab character \tab Calendar date of the game (YYYY-MM-DD). \cr
+   Team \tab character \tab Minor league team the pitcher played for. \cr
+   Level \tab character \tab Minor league classification level (e.g. (AA), (AAA)). \cr
+   Opp \tab character \tab Opponent team; leading @ indicates a road game. \cr
+   W \tab numeric \tab Wins. \cr
+   L \tab numeric \tab Losses. \cr
+   ERA \tab numeric \tab Earned run average (per 9 innings). \cr
+   G \tab numeric \tab Games pitched (1 per row). \cr
+   GS \tab numeric \tab Games started. \cr
+   QS \tab numeric \tab Quality starts (6+ IP, 3 or fewer earned runs). \cr
+   CG \tab numeric \tab Complete games. \cr
+   ShO \tab numeric \tab Shutouts. \cr
+   SV \tab numeric \tab Saves. \cr
+   IP \tab numeric \tab Innings pitched. \cr
+   TBF \tab numeric \tab Total batters faced. \cr
+   H \tab numeric \tab Hits allowed. \cr
+   R \tab numeric \tab Runs allowed. \cr
+   ER \tab numeric \tab Earned runs allowed. \cr
+   HR \tab numeric \tab Home runs allowed. \cr
+   BB \tab numeric \tab Walks allowed. \cr
+   IBB \tab numeric \tab Intentional walks allowed. \cr
+   HBP \tab numeric \tab Batters hit by pitch. \cr
+   WP \tab numeric \tab Wild pitches. \cr
+   BK \tab numeric \tab Balks. \cr
+   SO \tab numeric \tab Strikeouts. \cr
+   K/9 \tab numeric \tab Strikeouts per 9 innings. \cr
+   BB/9 \tab numeric \tab Walks per 9 innings. \cr
+   K/BB \tab numeric \tab Strikeout-to-walk ratio. \cr
+   HR/9 \tab numeric \tab Home runs allowed per 9 innings. \cr
+   K\% \tab numeric \tab Strikeout rate (per batter faced). \cr
+   K-BB\% \tab numeric \tab Strikeout rate minus walk rate. \cr
+   BB\% \tab numeric \tab Walk rate (per batter faced). \cr
+   AVG \tab numeric \tab Opponent batting average allowed. \cr
+   WHIP \tab numeric \tab Walks plus hits per inning pitched. \cr
+   BABIP \tab numeric \tab Batting average on balls in play allowed. \cr
+   LOB\% \tab numeric \tab Left-on-base percentage (strand rate). \cr
+   FIP \tab numeric \tab Fielding independent pitching. \cr
+   ERA- \tab numeric \tab ERA scaled to league/park (100 = average, lower better). \cr
+   FIP- \tab numeric \tab FIP scaled to league/park (100 = average, lower better). \cr
+   xFIP- \tab numeric \tab Expected FIP scaled to league/park (100 = average). \cr
+   gamedate \tab character \tab Game date as parsed from the source feed. \cr
+   dh \tab integer \tab Doubleheader game indicator (0 = single game). \cr
 }
 }
 \description{

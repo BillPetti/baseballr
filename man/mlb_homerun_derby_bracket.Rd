@@ -10,49 +10,48 @@ mlb_homerun_derby_bracket(game_pk)
 \item{game_pk}{The game_pk for which you want to return data}
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   game_pk \tab integer \cr
-   event_name \tab character \cr
-   event_type_code \tab character \cr
-   event_type_name \tab character \cr
-   event_date \tab character \cr
-   venue_id \tab integer \cr
-   venue_name \tab character \cr
-   venue_link \tab character \cr
-   is_multi_day \tab logical \cr
-   is_primary_calendar \tab logical \cr
-   file_code \tab character \cr
-   event_number \tab integer \cr
-   public_facing \tab logical \cr
-   round \tab integer \cr
-   num_batters \tab integer \cr
-   top_seed_complete \tab logical \cr
-   top_seed_started \tab logical \cr
-   top_seed_winner \tab logical \cr
-   top_seed_seed \tab integer \cr
-   top_seed_is_winner \tab logical \cr
-   top_seed_is_complete \tab logical \cr
-   top_seed_is_started \tab logical \cr
-   top_seed_num_home_runs \tab integer \cr
-   top_seed_player_id \tab integer \cr
-   top_seed_player_full_name \tab character \cr
-   top_seed_player_link \tab character \cr
-   top_seed_top_derby_hit_data_launch_speed \tab integer \cr
-   top_seed_top_derby_hit_data_total_distance \tab integer \cr
-   bottom_seed_complete \tab logical \cr
-   bottom_seed_started \tab logical \cr
-   bottom_seed_winner \tab logical \cr
-   bottom_seed_seed \tab integer \cr
-   bottom_seed_is_winner \tab logical \cr
-   bottom_seed_is_complete \tab logical \cr
-   bottom_seed_is_started \tab logical \cr
-   bottom_seed_num_home_runs \tab integer \cr
-   bottom_seed_player_id \tab integer \cr
-   bottom_seed_player_full_name \tab character \cr
-   bottom_seed_player_link \tab character \cr
-   bottom_seed_top_derby_hit_data_launch_speed \tab integer \cr
-   bottom_seed_top_derby_hit_data_total_distance \tab integer \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_pk \tab integer \tab MLB game primary key for the Home Run Derby event. \cr
+   event_name \tab character \tab Event name (e.g. 'All-Star Workout Day: Home Run Derby'). \cr
+   event_type_code \tab character \tab Single-letter event type code (e.g. 'O'). \cr
+   event_type_name \tab character \tab Event type name (e.g. 'Other'). \cr
+   event_date \tab character \tab Event date-time in ISO 8601 (e.g. '2017-07-11T00:00:00Z'). \cr
+   venue_id \tab integer \tab MLB venue id hosting the event. \cr
+   venue_name \tab character \tab Venue name (e.g. 'Marlins Park'). \cr
+   venue_link \tab character \tab API relative link to the event venue. \cr
+   is_multi_day \tab logical \tab Whether the event spans multiple days. \cr
+   is_primary_calendar \tab logical \tab Whether the event is on the primary calendar. \cr
+   file_code \tab character \tab Internal file code for the event. \cr
+   event_number \tab integer \tab Event number identifier. \cr
+   public_facing \tab logical \tab Whether the event is public facing. \cr
+   round \tab integer \tab Derby bracket round number. \cr
+   top_seed_complete \tab logical \tab Whether the top seed's turn in the matchup is complete. \cr
+   top_seed_started \tab logical \tab Whether the top seed's turn in the matchup has started. \cr
+   top_seed_winner \tab logical \tab Whether the top seed won the matchup. \cr
+   top_seed_seed \tab integer \tab Bracket seed number of the top seed. \cr
+   top_seed_is_winner \tab logical \tab Whether the top seed is the matchup winner. \cr
+   top_seed_is_complete \tab logical \tab Whether the top seed's turn is complete. \cr
+   top_seed_is_started \tab logical \tab Whether the top seed's turn has started. \cr
+   top_seed_num_home_runs \tab integer \tab Number of home runs hit by the top seed. \cr
+   top_seed_player_id \tab integer \tab MLB player id of the top seed. \cr
+   top_seed_player_full_name \tab character \tab Full name of the top seed. \cr
+   top_seed_player_link \tab character \tab API relative link to the top seed player. \cr
+   top_seed_top_derby_hit_data_launch_speed \tab integer \tab Top seed's hardest-hit exit velocity in the round (mph). \cr
+   top_seed_top_derby_hit_data_total_distance \tab integer \tab Top seed's longest projected distance in the round (feet). \cr
+   bottom_seed_complete \tab logical \tab Whether the bottom seed's turn in the matchup is complete. \cr
+   bottom_seed_started \tab logical \tab Whether the bottom seed's turn in the matchup has started. \cr
+   bottom_seed_winner \tab logical \tab Whether the bottom seed won the matchup. \cr
+   bottom_seed_seed \tab integer \tab Bracket seed number of the bottom seed. \cr
+   bottom_seed_is_winner \tab logical \tab Whether the bottom seed is the matchup winner. \cr
+   bottom_seed_is_complete \tab logical \tab Whether the bottom seed's turn is complete. \cr
+   bottom_seed_is_started \tab logical \tab Whether the bottom seed's turn has started. \cr
+   bottom_seed_num_home_runs \tab integer \tab Number of home runs hit by the bottom seed. \cr
+   bottom_seed_player_id \tab integer \tab MLB player id of the bottom seed. \cr
+   bottom_seed_player_full_name \tab character \tab Full name of the bottom seed. \cr
+   bottom_seed_player_link \tab character \tab API relative link to the bottom seed player. \cr
+   bottom_seed_top_derby_hit_data_launch_speed \tab integer \tab Bottom seed's hardest-hit exit velocity in the round (mph). \cr
+   bottom_seed_top_derby_hit_data_total_distance \tab integer \tab Bottom seed's longest projected distance in the round (feet). \cr
 }
 }
 \description{

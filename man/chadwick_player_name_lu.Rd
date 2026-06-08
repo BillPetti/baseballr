@@ -10,19 +10,19 @@ playername_lookup(id)
 \item{id}{An integer or character string representing a player ID in a baseball database, cross-referenced through the Chadwick Bureau's public register of baseball players.}
 }
 \value{
-A data frame of baseball players and the various IDs associated with them in different systems of record.\tabular{ll}{
-   col_name \tab types \cr
-   name_first \tab character \cr
-   name_last \tab character \cr
-   name_given \tab character \cr
-   name_suffix \tab character \cr
-   name_nick \tab character \cr
-   birth_year \tab integer \cr
-   mlb_played_first \tab integer \cr
-   key_mlbam \tab integer \cr
-   key_retro \tab character \cr
-   key_bbref \tab character \cr
-   key_fangraphs \tab integer \cr
+A data frame of baseball players and the various IDs associated with them in different systems of record.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   name_first \tab character \tab Player first name. \cr
+   name_last \tab character \tab Player last name. \cr
+   name_given \tab character \tab Player full given (legal) name. \cr
+   name_suffix \tab character \tab Name suffix (e.g. Jr., Sr., III). \cr
+   name_nick \tab character \tab Player nickname. \cr
+   birth_year \tab integer \tab Year of birth. \cr
+   mlb_played_first \tab integer \tab First MLB season as a player. \cr
+   key_mlbam \tab integer \tab MLB Advanced Media (MLBAM) player ID. \cr
+   key_retro \tab character \tab Retrosheet player ID. \cr
+   key_bbref \tab character \tab Baseball-Reference player ID. \cr
+   key_fangraphs \tab integer \tab FanGraphs player ID. \cr
 }
 }
 \description{

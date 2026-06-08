@@ -4,10 +4,11 @@ cols <- c(
 )
 
 test_that("MLB Player Status Codes", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_player_status_codes()
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

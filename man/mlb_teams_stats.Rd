@@ -30,50 +30,51 @@ mlb_teams_stats(
 \item{order}{Order return based on either desc or asc.}
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   total_splits \tab integer \cr
-   season \tab character \cr
-   rank \tab integer \cr
-   games_played \tab integer \cr
-   ground_outs \tab integer \cr
-   air_outs \tab integer \cr
-   runs \tab integer \cr
-   doubles \tab integer \cr
-   triples \tab integer \cr
-   home_runs \tab integer \cr
-   strike_outs \tab integer \cr
-   base_on_balls \tab integer \cr
-   intentional_walks \tab integer \cr
-   hits \tab integer \cr
-   hit_by_pitch \tab integer \cr
-   avg \tab character \cr
-   at_bats \tab integer \cr
-   obp \tab character \cr
-   slg \tab character \cr
-   ops \tab character \cr
-   caught_stealing \tab integer \cr
-   stolen_bases \tab integer \cr
-   stolen_base_percentage \tab character \cr
-   ground_into_double_play \tab integer \cr
-   number_of_pitches \tab integer \cr
-   plate_appearances \tab integer \cr
-   total_bases \tab integer \cr
-   rbi \tab integer \cr
-   left_on_base \tab integer \cr
-   sac_bunts \tab integer \cr
-   sac_flies \tab integer \cr
-   babip \tab character \cr
-   ground_outs_to_airouts \tab character \cr
-   catchers_interference \tab integer \cr
-   at_bats_per_home_run \tab character \cr
-   team_id \tab integer \cr
-   team_name \tab character \cr
-   team_link \tab character \cr
-   splits_tied_with_offset \tab list \cr
-   splits_tied_with_limit \tab list \cr
-   type_display_name \tab character \cr
-   group_display_name \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   total_splits \tab integer \tab Total number of splits in the response. \cr
+   season \tab character \tab Season year for the statistic. \cr
+   rank \tab integer \tab Rank of the team for the sorted statistic. \cr
+   games_played \tab integer \tab Games played. \cr
+   ground_outs \tab integer \tab Ground outs. \cr
+   air_outs \tab integer \tab Air outs (fly outs). \cr
+   runs \tab integer \tab Runs scored. \cr
+   doubles \tab integer \tab Doubles. \cr
+   triples \tab integer \tab Triples. \cr
+   home_runs \tab integer \tab Home runs. \cr
+   strike_outs \tab integer \tab Strikeouts. \cr
+   base_on_balls \tab integer \tab Walks (bases on balls). \cr
+   intentional_walks \tab integer \tab Intentional walks. \cr
+   hits \tab integer \tab Hits. \cr
+   hit_by_pitch \tab integer \tab Times hit by pitch. \cr
+   avg \tab character \tab Batting average. \cr
+   at_bats \tab integer \tab At bats. \cr
+   obp \tab character \tab On-base percentage. \cr
+   slg \tab character \tab Slugging percentage. \cr
+   ops \tab character \tab On-base plus slugging. \cr
+   caught_stealing \tab integer \tab Times caught stealing. \cr
+   stolen_bases \tab integer \tab Stolen bases. \cr
+   stolen_base_percentage \tab character \tab Stolen base success percentage. \cr
+   caught_stealing_percentage \tab character \tab Caught stealing percentage. \cr
+   ground_into_double_play \tab integer \tab Grounded into double plays. \cr
+   number_of_pitches \tab integer \tab Total pitches seen. \cr
+   plate_appearances \tab integer \tab Plate appearances. \cr
+   total_bases \tab integer \tab Total bases. \cr
+   rbi \tab integer \tab Runs batted in. \cr
+   left_on_base \tab integer \tab Runners left on base. \cr
+   sac_bunts \tab integer \tab Sacrifice bunts. \cr
+   sac_flies \tab integer \tab Sacrifice flies. \cr
+   babip \tab character \tab Batting average on balls in play. \cr
+   ground_outs_to_airouts \tab character \tab Ratio of ground outs to air outs. \cr
+   catchers_interference \tab integer \tab Times reached on catcher's interference. \cr
+   at_bats_per_home_run \tab character \tab At bats per home run. \cr
+   team_id \tab integer \tab Team MLBAM ID. \cr
+   team_name \tab character \tab Team name. \cr
+   team_link \tab character \tab API link to the team. \cr
+   splits_tied_with_offset \tab list \tab Teams tied at the offset boundary. \cr
+   splits_tied_with_limit \tab list \tab Teams tied at the limit boundary. \cr
+   type_display_name \tab character \tab Stat type display name. \cr
+   group_display_name \tab character \tab Stat group display name. \cr
 }
 }
 \description{

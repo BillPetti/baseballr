@@ -98,39 +98,40 @@ mlb_high_low_stats(
 \item{limit}{Number of records as the limit of the return.}
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   total_splits \tab integer \cr
-   season \tab integer \cr
-   date \tab character \cr
-   is_home \tab logical \cr
-   rank \tab integer \cr
-   game_innings \tab integer \cr
-   stat_at_bats \tab integer \cr
-   team_id \tab integer \cr
-   team_name \tab character \cr
-   team_link \tab character \cr
-   opponent_id \tab integer \cr
-   opponent_name \tab character \cr
-   opponent_link \tab character \cr
-   game_pk \tab integer \cr
-   game_link \tab character \cr
-   game_number \tab integer \cr
-   game_content_link \tab character \cr
-   home_team_id \tab integer \cr
-   home_team_name \tab character \cr
-   home_team_link \tab character \cr
-   away_team_id \tab integer \cr
-   away_team_name \tab character \cr
-   away_team_link \tab character \cr
-   combined_stats \tab logical \cr
-   group_display_name \tab character \cr
-   game_type_id \tab character \cr
-   game_type_description \tab character \cr
-   sort_stat_name \tab character \cr
-   sort_stat_lookup_param \tab character \cr
-   sort_stat_is_counting \tab logical \cr
-   sort_stat_label \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   total_splits \tab integer \tab Total number of split records matching the query. \cr
+   season \tab integer \tab Season year for the split. \cr
+   date \tab character \tab Date of the game (YYYY-MM-DD). \cr
+   is_home \tab logical \tab Whether the subject team was the home team. \cr
+   rank \tab integer \tab Rank of the split within the high/low leaderboard. \cr
+   game_innings \tab integer \tab Number of innings played in the game. \cr
+   stat_at_bats \tab integer \tab Value of the sorted statistic (here at bats) for the split. \cr
+   team_id \tab integer \tab MLB team id for the subject team. \cr
+   team_name \tab character \tab Subject team name. \cr
+   team_link \tab character \tab API relative link to the subject team. \cr
+   opponent_id \tab integer \tab MLB team id for the opponent. \cr
+   opponent_name \tab character \tab Opponent team name. \cr
+   opponent_link \tab character \tab API relative link to the opponent team. \cr
+   game_pk \tab integer \tab MLB game primary key. \cr
+   game_link \tab character \tab API relative link to the game live feed. \cr
+   game_number \tab integer \tab Game number within a day (1 unless a doubleheader). \cr
+   game_day_night \tab character \tab Day/night designation of the game ('day' or 'night'). \cr
+   game_content_link \tab character \tab API relative link to the game content endpoint. \cr
+   home_team_id \tab integer \tab Home team id (populated for game-level org types). \cr
+   home_team_name \tab character \tab Home team name (populated for game-level org types). \cr
+   home_team_link \tab character \tab API relative link to the home team. \cr
+   away_team_id \tab integer \tab Away team id (populated for game-level org types). \cr
+   away_team_name \tab character \tab Away team name (populated for game-level org types). \cr
+   away_team_link \tab character \tab API relative link to the away team. \cr
+   combined_stats \tab logical \tab Whether the stat combines multiple split sources. \cr
+   group_display_name \tab character \tab Stat group display name (e.g. 'hitting'). \cr
+   game_type_id \tab character \tab Single-letter game type code (e.g. 'R'). \cr
+   game_type_description \tab character \tab Game type description (e.g. 'Regular Season'). \cr
+   sort_stat_name \tab character \tab Snake-case name of the sorted statistic (e.g. 'at_bats'). \cr
+   sort_stat_lookup_param \tab character \tab API lookup parameter for the sorted statistic (e.g. 'atBats'). \cr
+   sort_stat_is_counting \tab logical \tab Whether the sorted statistic is a counting stat. \cr
+   sort_stat_label \tab character \tab Human-readable label of the sorted statistic (e.g. 'At bats'). \cr
 }
 }
 \description{

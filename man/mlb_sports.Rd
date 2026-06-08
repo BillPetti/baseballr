@@ -10,15 +10,15 @@ mlb_sports(sport_id = NULL)
 \item{sport_id}{The sport_id to return information for.}
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   sport_id \tab integer \cr
-   sport_code \tab character \cr
-   sport_link \tab character \cr
-   sport_name \tab character \cr
-   sport_abbreviation \tab character \cr
-   sort_order \tab integer \cr
-   active_status \tab logical \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   sport_id \tab integer \tab MLBAM sport (level) identifier. \cr
+   sport_code \tab character \tab Short sport code (e.g. 'mlb', 'aaa'). \cr
+   sport_link \tab character \tab API link to the sport resource. \cr
+   sport_name \tab character \tab Full sport/level name. \cr
+   sport_abbreviation \tab character \tab Sport abbreviation (e.g. 'MLB'). \cr
+   sort_order \tab integer \tab Display sort order for the sport. \cr
+   active_status \tab logical \tab Whether the sport/level is active. \cr
 }
 
 

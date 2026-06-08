@@ -3,6 +3,7 @@
 #' @description This function allows you to calculate team-level consistency in run scoring and run prevention over the course of an entire season.
 #' @param year Season consistency should be run for.
 #' @return Returns a tibble with the following columns
+#'
 #'  |col_name     |types     |
 #'  |:------------|:---------|
 #'  |Team         |character |
@@ -10,6 +11,7 @@
 #'  |Con_RA       |numeric   |
 #'  |Con_R_Ptile  |numeric   |
 #'  |Con_RA_Ptile |numeric   |
+#'
 #' @import rvest 
 #' @export
 #' @details 
@@ -23,30 +25,30 @@ team_consistency <- function(year) {
   
   url <- paste0("http://www.baseball-reference.com/leagues/MLB/",year,".shtml")
 
-  teams <- (url %>% 
-              xml2::read_html() %>% 
-              rvest::html_elements("table"))[1] %>%
-    rvest::html_table() %>%
+  teams <- (url |> 
+              xml2::read_html() |> 
+              rvest::html_elements("table"))[1] |>
+    rvest::html_table() |>
     as.data.frame()
   
   Sys.sleep(5)
-  teams <- teams %>% 
+  teams <- teams |> 
     dplyr::filter(.data$Tm != "LgAvg", .data$Tm != "Tm")
   
-  teams <- teams[c(1:30),] %>%
+  teams <- teams[c(1:30),] |>
     as.data.frame()
   
   teams$year <- year
   
-  teams <- teams %>% 
+  teams <- teams |> 
     dplyr::mutate(
       Tm = gsub(" of Anaheim","",.data$Tm))
   
-  teams <- teams %>% 
-    dplyr::left_join(teams_data %>% 
+  teams <- teams |> 
+    dplyr::left_join(teams_data |> 
                        dplyr::select("name", "bref_abbreviation"), 
                      by = c("Tm" = "name"))
-  teams <- teams %>% 
+  teams <- teams |> 
     dplyr::mutate(
       bref_abbreviation = dplyr::case_when(
         .data$year <= 2015 & .data$Tm == "Los Angeles Angels" ~ "LAA",
@@ -61,7 +63,7 @@ team_consistency <- function(year) {
     })
     
 
-  results <- results %>% 
+  results <- results |> 
     dplyr::select("Year", "Date", "Tm", "R", "RA")
   
   names(results) <- c("Year", "Date", "Team", "R", "RA")
@@ -70,30 +72,30 @@ team_consistency <- function(year) {
   results$R <- as.numeric(results$R)
   results$RA <- as.numeric(results$RA)
   
-  results <- results %>% 
+  results <- results |> 
     dplyr::filter(!is.na(.data$R))
   
-  RGini <- results %>%
-    dplyr::group_by(.data$Team) %>%
+  RGini <- results |>
+    dplyr::group_by(.data$Team) |>
     dplyr::summarize(R = gini.wtd(.data$R))
   
-  RAGini <- results %>%
-    dplyr::group_by(.data$Team) %>%
+  RAGini <- results |>
+    dplyr::group_by(.data$Team) |>
     dplyr::summarize(RA = gini.wtd(.data$RA))
   
-  VOL <- RGini %>% 
+  VOL <- RGini |> 
     dplyr::left_join(RAGini, by = "Team")
   
   VOL$R <- round(VOL$R, 2)
   VOL$RA <- round(VOL$RA, 2)
   colnames(VOL)[1] <- "bref_t"
   
-  VOL <- VOL %>%
+  VOL <- VOL |>
     dplyr::mutate(percrank = rank(.data$R)/length(.data$R))
   
   colnames(VOL)[4] <- "R_Ptile"
   
-  VOL <- VOL %>%
+  VOL <- VOL |>
     dplyr::mutate(percrank = rank(.data$RA)/length(.data$RA))
   
   colnames(VOL)[5] <- "RA_Ptile"

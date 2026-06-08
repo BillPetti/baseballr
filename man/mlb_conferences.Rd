@@ -12,18 +12,18 @@ mlb_conferences(conference_id = NULL, season = NULL)
 \item{season}{Year to return to return conference information for.}
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   conference_id \tab integer \cr
-   conference_name \tab character \cr
-   link \tab character \cr
-   conference_abbreviation \tab character \cr
-   has_wildcard \tab logical \cr
-   name_short \tab character \cr
-   league_id \tab integer \cr
-   league_link \tab character \cr
-   sport_id \tab integer \cr
-   sport_link \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   conference_id \tab integer \tab MLB conference ID. \cr
+   conference_name \tab character \tab Conference name. \cr
+   link \tab character \tab MLB Stats API relative conference link. \cr
+   conference_abbreviation \tab character \tab Conference abbreviation. \cr
+   has_wildcard \tab logical \tab Whether the conference has a wild card. \cr
+   conference_name_short \tab character \tab Short conference name. \cr
+   league_id \tab integer \tab MLB league ID. \cr
+   league_link \tab character \tab MLB Stats API relative league link. \cr
+   sport_id \tab integer \tab MLB sport ID. \cr
+   sport_link \tab character \tab MLB Stats API relative sport link. \cr
 }
 }
 \description{

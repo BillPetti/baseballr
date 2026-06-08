@@ -8,6 +8,6 @@
 #   
 #   x <- team_consistency(year=2015)
 #   
-#   expect_equal(colnames(x), cols)
+#   expect_in(sort(cols), sort(colnames(x)))
 #   expect_s3_class(x, "data.frame")
 # })

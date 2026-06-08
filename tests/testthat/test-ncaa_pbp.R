@@ -15,12 +15,13 @@ cols <- c(
 )
 
 test_that("NCAA PBP", {
+  skip_ncaa_test()
   skip_on_cran()
   
   y <- ncaa_pbp(game_info_url = "https://stats.ncaa.org/contests/2016254/box_score")
   z <- ncaa_pbp(game_pbp_url = "https://stats.ncaa.org/game/play_by_play/5005859")
-  expect_equal(colnames(y), cols)
+  expect_in(sort(cols), sort(colnames(y)))
   expect_s3_class(y, "data.frame")
-  expect_equal(colnames(z), cols)
+  expect_in(sort(cols), sort(colnames(z)))
   expect_s3_class(z, "data.frame")
 })

@@ -1,17 +1,18 @@
 #' @title **MLB Sport IDs**
 #' @param sport_id The sport_id to return information for.
 #' @return Returns a tibble with the following columns
-#'  |col_name           |types     |
-#'  |:------------------|:---------|
-#'  |sport_id           |integer   |
-#'  |sport_code         |character |
-#'  |sport_link         |character |
-#'  |sport_name         |character |
-#'  |sport_abbreviation |character |
-#'  |sort_order         |integer   |
-#'  |active_status      |logical   |
-#'  
-#'  and the following values: 
+#'
+#'  |col_name           |types     |description                                       |
+#'  |:------------------|:---------|:-------------------------------------------------|
+#'  |sport_id           |integer   |MLBAM sport (level) identifier.                   |
+#'  |sport_code         |character |Short sport code (e.g. 'mlb', 'aaa').             |
+#'  |sport_link         |character |API link to the sport resource.                  |
+#'  |sport_name         |character |Full sport/level name.                            |
+#'  |sport_abbreviation |character |Sport abbreviation (e.g. 'MLB').                  |
+#'  |sort_order         |integer   |Display sort order for the sport.                 |
+#'  |active_status      |logical   |Whether the sport/level is active.                |
+#'
+#'  and the following values:
 #'  
 #'  | sport_id|sport_code |sport_link         |sport_name                            |sport_abbreviation | sort_order|active_status |
 #'  |--------:|:----------|:------------------|:-------------------------------------|:------------------|----------:|:-------------|
@@ -31,6 +32,7 @@
 #'  |      510|nas        |/api/v1/sports/510 |International Baseball (16 and under) |16U                |       3505|TRUE          |
 #'  |       22|bbc        |/api/v1/sports/22  |College Baseball                      |College            |       5101|TRUE          |
 #'  |      586|hsb        |/api/v1/sports/586 |High School Baseball                  |H.S.               |       6201|TRUE      
+#'
 #' @export
 #' @examples \donttest{
 #'   try(mlb_sports())
@@ -42,29 +44,30 @@ mlb_sports <- function(sport_id = NULL){
     sportId = sport_id
   )
   
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
+  sports <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call()
       
-      sports <- resp$sports %>% 
-        jsonlite::toJSON() %>% 
-        jsonlite::fromJSON(flatten = TRUE) %>% 
-        as.data.frame() %>%  
-        janitor::clean_names() %>% 
+      sports <- resp$sports |> 
+        jsonlite::toJSON() |> 
+        jsonlite::fromJSON(flatten = TRUE) |> 
+        as.data.frame() |>  
+        janitor::clean_names() |> 
         dplyr::rename(
           "sport_id" = "id",
           "sport_code" = "code",
           "sport_link" = "link",
           "sport_name" = "name",
-          "sport_abbreviation" = "abbreviation") %>%
+          "sport_abbreviation" = "abbreviation") |>
         make_baseballr_data("MLB Sports data from MLB.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

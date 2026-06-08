@@ -2,15 +2,15 @@
 #' @title
 #' **MLB Functions Overview**
 #' @description
-#' \describe{
-#'   \item{```mlb_batting_orders()```:}{ Retrieve batting orders for a given MLB game.}
-#'   \item{```mlb_draft()```:}{ Retrieve draft pick information by year.}
-#'   \item{```mlb_pbp()```:}{ Acquire pitch-by-pitch data for Major and Minor League games.}
-#'   \item{```mlb_game_info()```:}{ Retrieve additional game information for major and minor league games.}
-#'   \item{```mlb_game_pks()```:}{ Get MLB Game Info by Date and Level.}
-#'   \item{```mlb_schedule()```:}{ Find game_pk values for professional baseball games (major and minor leagues).}
-#'   \item{```mlb_probables()```:}{ Retrieve probable starters for a given MLB game.}
-#' }
+#'
+#' * `mlb_batting_orders()`: Retrieve batting orders for a given MLB game.
+#' * `mlb_draft()`: Retrieve draft pick information by year.
+#' * `mlb_pbp()`: Acquire pitch-by-pitch data for Major and Minor League games.
+#' * `mlb_game_info()`: Retrieve additional game information for major and minor league games.
+#' * `mlb_game_pks()`: Get MLB Game Info by Date and Level.
+#' * `mlb_schedule()`: Find game_pk values for professional baseball games (major and minor leagues).
+#' * `mlb_probables()`: Retrieve probable starters for a given MLB game.
+#'
 #' @details
 #' ### **Retrieve batting orders for a given MLB game**
 #' ```r

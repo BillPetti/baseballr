@@ -7,9 +7,9 @@
 mlb_logical_events()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   event_code \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   event_code \tab character \tab Logical event code used by the MLB Gameday feed (e.g. 'newBatter'). \cr
 }
 }
 \description{

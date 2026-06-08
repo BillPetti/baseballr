@@ -7,13 +7,13 @@
 mlb_baseball_stats()
 }
 \value{
-Returns a tibble with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   stat_name \tab character \cr
-   stat_lookup_param \tab character \cr
-   is_counting \tab logical \cr
-   stat_label \tab character \cr
-   stat_group \tab character \cr
+Returns a tibble with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   stat_name \tab character \tab Internal stat name. \cr
+   stat_lookup_param \tab character \tab Lookup parameter/abbreviation for the stat. \cr
+   is_counting \tab logical \tab Whether the stat is a counting stat. \cr
+   stat_label \tab character \tab Human-readable stat label. \cr
+   stat_group \tab character \tab Stat group (e.g. hitting, pitching, fielding). \cr
 }
 }
 \description{

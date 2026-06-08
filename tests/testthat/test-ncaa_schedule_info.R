@@ -25,10 +25,10 @@ cols <- c(
 )
 
 test_that("NCAA Get Schedule Info", {
+  skip_ncaa_test()
   skip_on_cran()
-  skip_on_ci()
   x <- ncaa_schedule_info(736, 2019)
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

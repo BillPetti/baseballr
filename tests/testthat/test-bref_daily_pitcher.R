@@ -10,11 +10,11 @@
 # )
 # 
 # test_that("Daily Pitcher logs Baseball-Reference", {
+  skip_bref_test()
 #   skip_on_cran()
-#   skip_on_ci()
 #   
 #   x <- bref_daily_pitcher("2021-05-10", "2021-06-20")
 #   
-#   expect_equal(colnames(x), cols)
+#   expect_in(sort(cols), sort(colnames(x)))
 #   expect_s3_class(x, "data.frame")
 # })

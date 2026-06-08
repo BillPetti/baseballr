@@ -21,105 +21,13 @@ as imputed. if NULL then it's read from the \code{extdata} folder of the package
 and speed to for comparison. Default is \code{10000}, i.e. keep 4 digits of precision.}
 }
 \value{
-A copy of the input dataframe with a new column \code{imputed} appended. imputed
-is 1 if launch angle and launch speed are likely imputed, 0 otherwise.
-Returns a tibble with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   pitch_type \tab character \cr
-   game_date \tab Date \cr
-   release_speed \tab numeric \cr
-   release_pos_x \tab numeric \cr
-   release_pos_z \tab numeric \cr
-   player_name \tab character \cr
-   batter \tab numeric \cr
-   pitcher \tab numeric \cr
-   events \tab character \cr
-   description \tab character \cr
-   spin_dir \tab logical \cr
-   spin_rate_deprecated \tab logical \cr
-   break_angle_deprecated \tab logical \cr
-   break_length_deprecated \tab logical \cr
-   zone \tab numeric \cr
-   des \tab character \cr
-   game_type \tab character \cr
-   stand \tab character \cr
-   p_throws \tab character \cr
-   home_team \tab character \cr
-   away_team \tab character \cr
-   type \tab character \cr
-   hit_location \tab integer \cr
-   bb_type \tab character \cr
-   balls \tab integer \cr
-   strikes \tab integer \cr
-   game_year \tab integer \cr
-   pfx_x \tab numeric \cr
-   pfx_z \tab numeric \cr
-   plate_x \tab numeric \cr
-   plate_z \tab numeric \cr
-   on_3b \tab numeric \cr
-   on_2b \tab numeric \cr
-   on_1b \tab numeric \cr
-   outs_when_up \tab integer \cr
-   inning \tab numeric \cr
-   inning_topbot \tab character \cr
-   hc_x \tab numeric \cr
-   hc_y \tab numeric \cr
-   tfs_deprecated \tab logical \cr
-   tfs_zulu_deprecated \tab logical \cr
-   fielder_2 \tab numeric \cr
-   umpire \tab logical \cr
-   sv_id \tab logical \cr
-   vx0 \tab numeric \cr
-   vy0 \tab numeric \cr
-   vz0 \tab numeric \cr
-   ax \tab numeric \cr
-   ay \tab numeric \cr
-   az \tab numeric \cr
-   sz_top \tab numeric \cr
-   sz_bot \tab numeric \cr
-   hit_distance_sc \tab numeric \cr
-   launch_speed \tab numeric \cr
-   launch_angle \tab numeric \cr
-   effective_speed \tab numeric \cr
-   release_spin_rate \tab numeric \cr
-   release_extension \tab numeric \cr
-   game_pk \tab numeric \cr
-   pitcher_1 \tab numeric \cr
-   fielder_2_1 \tab numeric \cr
-   fielder_3 \tab numeric \cr
-   fielder_4 \tab numeric \cr
-   fielder_5 \tab numeric \cr
-   fielder_6 \tab numeric \cr
-   fielder_7 \tab numeric \cr
-   fielder_8 \tab numeric \cr
-   fielder_9 \tab numeric \cr
-   release_pos_y \tab numeric \cr
-   estimated_ba_using_speedangle \tab numeric \cr
-   estimated_woba_using_speedangle \tab numeric \cr
-   woba_value \tab numeric \cr
-   woba_denom \tab integer \cr
-   babip_value \tab integer \cr
-   iso_value \tab integer \cr
-   launch_speed_angle \tab integer \cr
-   at_bat_number \tab numeric \cr
-   pitch_number \tab numeric \cr
-   pitch_name \tab character \cr
-   home_score \tab numeric \cr
-   away_score \tab numeric \cr
-   bat_score \tab numeric \cr
-   fld_score \tab numeric \cr
-   post_away_score \tab numeric \cr
-   post_home_score \tab numeric \cr
-   post_bat_score \tab numeric \cr
-   post_fld_score \tab numeric \cr
-   if_fielding_alignment \tab character \cr
-   of_fielding_alignment \tab character \cr
-   spin_axis \tab numeric \cr
-   delta_home_win_exp \tab numeric \cr
-   delta_run_exp \tab numeric \cr
-   ila \tab integer \cr
-   ils \tab integer \cr
-   imputed \tab numeric \cr
+A copy of the input dataframe with the same Statcast pitch-level
+columns produced by \code{\link[=statcast_search]{statcast_search()}} (see that function's return value for
+the full column-by-column reference), with three columns appended:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   ila \tab integer \tab Launch angle truncated to integer precision (\code{launch_angle * inverse_precision}), used as a join key against the impute table. \cr
+   ils \tab integer \tab Launch speed truncated to integer precision (\code{launch_speed * inverse_precision}), used as a join key against the impute table. \cr
+   imputed \tab numeric \tab 1 if the launch angle and launch speed are likely imputed, 0 otherwise. \cr
 }
 }
 \description{

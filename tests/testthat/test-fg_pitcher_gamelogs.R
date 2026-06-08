@@ -137,10 +137,15 @@ cols <- c(
 )
 
 test_that("FanGraphs Pitcher Game Logs", {
+  skip_fangraphs_test()
   skip_on_cran()
   
   x <- fg_pitcher_game_logs(playerid = 104, year = 2006)
-  
+
+  if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
+    skip("No data returned from FanGraphs at test time")
+  }
+
   expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

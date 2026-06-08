@@ -1,5 +1,39 @@
 # baseballr (development version)
 
+### New features
+
+- Added a full **ESPN MLB** wrapper family (`espn_mlb_*()`, 100+ functions) mirroring the naming and structure of the sister SportsDataverse packages (hoopR `espn_nba_*`/`espn_mbb_*`, wehoop `espn_wnba_*`/`espn_wbb_*`, cfbfastR `espn_cfb_*`). It covers ESPN's three public hosts:
+  - **Game data** (`site.api.espn.com`): `espn_mlb_scoreboard()`, `espn_mlb_pbp()` (pitch/at-bat level), `espn_mlb_team_box()`, `espn_mlb_player_box()`, `espn_mlb_game_all()`, `espn_mlb_game_rosters()`, `espn_mlb_teams()`, `espn_mlb_team_current_roster()`, `espn_mlb_standings()`, `espn_mlb_betting()`. Baseball-specific extractors with no basketball analogue: `espn_mlb_game_probables()` (probable / announced starting pitchers) and `espn_mlb_game_info()` (venue, attendance, game duration, and the umpire crew).
+  - **Reference data** (`sports.core.api.espn.com`): athletes, coaches, seasons, franchises, draft, futures, leaders, positions, powerindex, events, plays, per-competitor game detail, and the `season_*` family.
+  - **Athlete data** (`site.web.api.espn.com`): `espn_mlb_player_overview()`, `espn_mlb_player_gamelog()`, `espn_mlb_player_splits()`, `espn_mlb_player_stats()`, `espn_mlb_team_stats()`.
+  Box scores are returned as wide, clean-named `baseballr_data` tibbles (one row per team for `espn_mlb_team_box()`; one row per athlete-side, tagged `stat_group`, for `espn_mlb_player_box()`), with the baseball `batting`/`pitching`/`fielding` stat groups parsed natively. ESPN requests share an internal `httr2` layer (`.retry_request()`) that honours `options(baseballr.proxy = ...)`. Live tests are gated behind `ESPN_MLB_TESTS=1` (`skip_espn_test()`).
+
+### Bug fixes
+
+- `edge_frequency(df, group = ...)` now groups by the column named in the `group` argument. It previously grouped by a literal column named `group` (`.data$group`), so passing a `group` (e.g. `"pitcher"`) errored unless the data happened to have a `group` column and otherwise ignored the argument.
+- `statcast_search()` now assigns Baseball Savant's columns length-tolerantly, so new columns added to the Savant CSV export no longer break the function with a "can't assign N names to an M column data.table" error (#337, #354, #371, #390).
+- `sptrc_team_active_payroll()` and `sptrc_league_payrolls()` updated for Spotrac's new `/payroll/_/year/<year>/` URLs and changed table schema; parsing is now resilient to column-order changes and both functions return data again (#392).
+- Wrappers that build their result inside `tryCatch()` now initialize the return value first, so an API error returns an empty value with a `cli` message instead of an `object '<var>' not found` error.
+- `mlb_game_timecodes()` no longer returns `NULL`; it renamed its single column by the literal name `"."`, which newer R versions no longer use for the coerced column, so it now renames by position.
+- `mlb_homerun_derby()` and `mlb_homerun_derby_bracket()` return data again; their column selections are now wrapped in `dplyr::any_of()` so the dropped `num_batters` column (no longer in the MLB Stats API response) no longer errors the parse.
+- The NCAA functions (`ncaa_*()`) work again. `stats.ncaa.org` moved behind Akamai, which returns HTTP 403 "Access Denied" to requests lacking modern browser headers; `.ncaa_headers()` now sends the current client-hint / fetch-metadata headers (`sec-ch-ua`, `Sec-Fetch-*`, `Upgrade-Insecure-Requests`), and `ncaa_teams()` / `ncaa_team_player_stats()` now request over `https`. `request_with_proxy()` now sleeps 5 seconds after every request (the NCAA edge aggressively rate-limits / IP-bans) and accepts a `proxy` argument (a URL string or a list of `httr2::req_proxy()` args, defaulting to `getOption("baseballr.proxy")`) to route and rotate requests through a proxy. (Verified: `ncaa_roster()`, `ncaa_teams()`.)
+- `ncaa_teams()` no longer returns `NA` ids. `stats.ncaa.org` migrated team links from the legacy `/team/{team_id}/{season_id}` pair to a single modern `/teams/{season_team_id}` resource, so the previous `str_extract("(\\d+)/(\\d+)")` matched nothing and `team_id`/`season_id` came back `NA`. The function now extracts ids from whichever url shape is present (legacy rows populate `team_id`/`season_id`; modern rows populate the new `season_team_id` column) so the id columns are never all-`NA` when the site flips formats.
+- `ncaa_team_player_stats()` builds its request correctly and fails gracefully (#379). The batting branch previously passed `id` twice and never sent `year_stat_category_id`, so it could not return batting stats; both branches now key `/team/{team_id}/stats` on the season `id` and the per-type stat-category id (`batting_id` / `pitching_id`) from the season-id lookup. The stats endpoint is currently gated behind Akamai's `bm-verify` interstitial challenge (verified: the URL and ids are correct and work in a real browser, but a static request — even with valid session cookies carried from the roster page — is served the challenge, not the data). When challenged, the function now emits an informative `cli` warning and returns an empty tibble (via the new internal `.ncaa_is_interstitial()` guard) instead of silently scraping a table-less page.
+- `fg_guts()`, `fg_park()`, and `fg_park_hand()` return data again. FanGraphs replaced the legacy ASP.NET grid (HTML id `GutsBoard1_dg1_ctl00`) with a modern `.table-scroll` data grid, so the hard-coded id selector matched nothing; they now target the current grid, use `https://`, and fetch through the okhttp User-Agent (below) so the Cloudflare challenge doesn't block them.
+- **All FanGraphs functions return data again** under FanGraphs' current Cloudflare posture. As of 2026-06-03 FanGraphs serves a Cloudflare JS challenge (HTTP 403, `cf-mitigated: challenge`) to *every* unrecognized client — including the plain/library `User-Agent` that previously worked — and no header/TLS tweak passes it (it requires a JS runtime). The challenge exempts the okhttp client the FanGraphs mobile app uses, so the FanGraphs requests now send `User-Agent: okhttp/4.12.0` and get HTTP 200 with normal JSON. A dedicated internal `fg_api_call()` helper (okhttp UA) carries the leaders/team functions (`fg_batter_leaders()`, `fg_pitcher_leaders()`, `fg_fielder_leaders()`, `fg_team_batter()`, `fg_team_pitcher()`, `fg_team_fielder()`); the game-log functions (`fg_batter_game_logs()`, `fg_pitcher_game_logs()`, `fg_milb_batter_game_logs()`, `fg_milb_pitcher_game_logs()`) and the `.aspx` scrapers send the same UA. The shared `mlb_api_call()` keeps its plain package UA for the MLB Stats API (which ignores it). (#404, #402, #397, #389, #385, #384, #373, #369, #361, #358, #353, #349, #343; okhttp-UA approach from PR #405.)
+
+### Documentation
+
+- Added a `description` column to the `@return` tables of all currently-returning functions (matching the `wehoop`/`hoopR` documentation style), regenerated from live API responses so columns, types, and descriptions reflect the current output.
+
+### Internal / infrastructure
+
+- Migrated the entire HTTP layer from `httr` to `httr2` and dropped `httr` as a dependency. `httr::modify_url()` -> `httr2::url_modify_query()`; the MLB/FanGraphs helpers and the NCAA helpers (`request_with_proxy()` / `check_status()`) now use `httr2::request()` / `req_retry()` / `req_perform()` / `resp_body_string()` / `resp_status()`. `request_with_proxy()` gained a `proxy` argument (a URL string or a list of [httr2::req_proxy()] args, defaulting to `getOption("baseballr.proxy")`) for routing NCAA requests through a proxy.
+- Migrated the package's internal code from the magrittr pipe (`%>%`) to the native pipe (`|>`); `Depends` is now `R (>= 4.1.0)`.
+- User-facing messages migrated to the `cli` package.
+- Column selections that drop known-transient columns now use `dplyr::any_of()` for resilience to upstream schema drift.
+- Added project documentation and community health files (`CLAUDE.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `.github/copilot-instructions.md`, pull request template), refreshed the `_pkgdown.yml` reference index, and updated GitHub Actions workflows to current (Node 20-compatible) action versions.
+
 - Hotfix for `statcast_search` with the new column definitions v(1.6.0.9001)
 - Hotfix for `statcast_search` with the new column definitions v(1.6.0.9002)
 
@@ -34,10 +68,8 @@ The parameters are now as follows for the leaderboard functions:
 This change affects the following functions:
 - `fg_team_batter()`
 - `fg_team_pitcher()`
-- `fg_team_fielder()` (new function)
 - `fg_batter_leaders()`
 - `fg_pitcher_leaders()`
-- `fg_fielder_leaders()` (new function)
 
 
 # baseballr 1.5.0

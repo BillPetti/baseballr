@@ -11,48 +11,48 @@ get_chadwick_lu()
 }
 \value{
 A data frame of baseball players and the various IDs associated with them in different systems of record
-and the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   key_person \tab character \cr
-   key_uuid \tab character \cr
-   key_mlbam \tab integer \cr
-   key_retro \tab character \cr
-   key_bbref \tab character \cr
-   key_bbref_minors \tab character \cr
-   key_fangraphs \tab integer \cr
-   key_npb \tab integer \cr
-   key_sr_nfl \tab character \cr
-   key_sr_nba \tab character \cr
-   key_sr_nhl \tab character \cr
-   key_findagrave \tab integer \cr
-   name_last \tab character \cr
-   name_first \tab character \cr
-   name_given \tab character \cr
-   name_suffix \tab character \cr
-   name_matrilineal \tab character \cr
-   name_nick \tab character \cr
-   birth_year \tab integer \cr
-   birth_month \tab integer \cr
-   birth_day \tab integer \cr
-   death_year \tab integer \cr
-   death_month \tab integer \cr
-   death_day \tab integer \cr
-   pro_played_first \tab integer \cr
-   pro_played_last \tab integer \cr
-   mlb_played_first \tab integer \cr
-   mlb_played_last \tab integer \cr
-   col_played_first \tab integer \cr
-   col_played_last \tab integer \cr
-   pro_managed_first \tab integer \cr
-   pro_managed_last \tab integer \cr
-   mlb_managed_first \tab integer \cr
-   mlb_managed_last \tab integer \cr
-   col_managed_first \tab integer \cr
-   col_managed_last \tab integer \cr
-   pro_umpired_first \tab integer \cr
-   pro_umpired_last \tab integer \cr
-   mlb_umpired_first \tab integer \cr
-   mlb_umpired_last \tab integer \cr
+and the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   key_person \tab character \tab Chadwick Bureau primary person key. \cr
+   key_uuid \tab character \tab Chadwick Bureau universally unique identifier for the person. \cr
+   key_mlbam \tab integer \tab MLB Advanced Media (MLBAM) player ID. \cr
+   key_retro \tab character \tab Retrosheet player ID. \cr
+   key_bbref \tab character \tab Baseball-Reference major league player ID. \cr
+   key_bbref_minors \tab character \tab Baseball-Reference minor league player ID. \cr
+   key_fangraphs \tab integer \tab FanGraphs player ID. \cr
+   key_npb \tab integer \tab Nippon Professional Baseball (Japan) player ID. \cr
+   key_sr_nfl \tab character \tab Sports Reference NFL player ID. \cr
+   key_sr_nba \tab character \tab Sports Reference NBA player ID. \cr
+   key_sr_nhl \tab character \tab Sports Reference NHL player ID. \cr
+   key_wikidata \tab character \tab Wikidata entity ID for the person. \cr
+   name_last \tab character \tab Player last name. \cr
+   name_first \tab character \tab Player first name. \cr
+   name_given \tab character \tab Player full given (legal) name. \cr
+   name_suffix \tab character \tab Name suffix (e.g. Jr., Sr., III). \cr
+   name_matrilineal \tab character \tab Maternal surname, where recorded. \cr
+   name_nick \tab character \tab Player nickname. \cr
+   birth_year \tab integer \tab Year of birth. \cr
+   birth_month \tab integer \tab Month of birth. \cr
+   birth_day \tab integer \tab Day of birth. \cr
+   death_year \tab integer \tab Year of death. \cr
+   death_month \tab integer \tab Month of death. \cr
+   death_day \tab integer \tab Day of death. \cr
+   pro_played_first \tab integer \tab First season the person played professional baseball. \cr
+   pro_played_last \tab integer \tab Last season the person played professional baseball. \cr
+   mlb_played_first \tab integer \tab First MLB season as a player. \cr
+   mlb_played_last \tab integer \tab Last MLB season as a player. \cr
+   col_played_first \tab integer \tab First college season as a player. \cr
+   col_played_last \tab integer \tab Last college season as a player. \cr
+   pro_managed_first \tab integer \tab First professional season as a manager. \cr
+   pro_managed_last \tab integer \tab Last professional season as a manager. \cr
+   mlb_managed_first \tab integer \tab First MLB season as a manager. \cr
+   mlb_managed_last \tab integer \tab Last MLB season as a manager. \cr
+   col_managed_first \tab integer \tab First college season as a manager. \cr
+   col_managed_last \tab integer \tab Last college season as a manager. \cr
+   pro_umpired_first \tab integer \tab First professional season as an umpire. \cr
+   pro_umpired_last \tab integer \tab Last professional season as an umpire. \cr
+   mlb_umpired_first \tab integer \tab First MLB season as an umpire. \cr
+   mlb_umpired_last \tab integer \tab Last MLB season as an umpire. \cr
 }
 
 A data frame of baseball players and the various IDs associated with them in different systems of record.

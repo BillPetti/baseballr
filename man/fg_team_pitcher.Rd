@@ -72,353 +72,521 @@ fg_team_pitcher(
 \item{sortstat}{(character) Sort by stat. Default is "WAR".}
 }
 \value{
-A data frame of pitcher data.\tabular{ll}{
-   col_name \tab types \cr
-   Season \tab integer \cr
-   team_name \tab character \cr
-   SeasonMin \tab integer \cr
-   SeasonMax \tab integer \cr
-   W \tab integer \cr
-   L \tab integer \cr
-   ERA \tab numeric \cr
-   G \tab integer \cr
-   GS \tab integer \cr
-   CG \tab integer \cr
-   ShO \tab integer \cr
-   SV \tab integer \cr
-   BS \tab integer \cr
-   IP \tab numeric \cr
-   TBF \tab integer \cr
-   H \tab integer \cr
-   R \tab integer \cr
-   ER \tab integer \cr
-   HR \tab integer \cr
-   BB \tab integer \cr
-   IBB \tab integer \cr
-   HBP \tab integer \cr
-   WP \tab integer \cr
-   BK \tab integer \cr
-   SO \tab integer \cr
-   GB \tab integer \cr
-   FB \tab integer \cr
-   LD \tab integer \cr
-   IFFB \tab integer \cr
-   Pitches \tab integer \cr
-   Balls \tab integer \cr
-   Strikes \tab integer \cr
-   RS \tab integer \cr
-   IFH \tab integer \cr
-   BU \tab integer \cr
-   BUH \tab integer \cr
-   K_9 \tab numeric \cr
-   BB_9 \tab numeric \cr
-   K_BB \tab numeric \cr
-   H_9 \tab numeric \cr
-   HR_9 \tab numeric \cr
-   AVG \tab numeric \cr
-   WHIP \tab numeric \cr
-   BABIP \tab numeric \cr
-   LOB_pct \tab numeric \cr
-   FIP \tab numeric \cr
-   GB_FB \tab numeric \cr
-   LD_pct \tab numeric \cr
-   GB_pct \tab numeric \cr
-   FB_pct \tab numeric \cr
-   IFFB_pct \tab numeric \cr
-   HR_FB \tab numeric \cr
-   IFH_pct \tab numeric \cr
-   BUH_pct \tab numeric \cr
-   TTO_pct \tab numeric \cr
-   CFraming \tab numeric \cr
-   Starting \tab numeric \cr
-   Start_IP \tab numeric \cr
-   Relieving \tab numeric \cr
-   Relief_IP \tab numeric \cr
-   RAR \tab numeric \cr
-   WAR \tab numeric \cr
-   Dollars \tab numeric \cr
-   RA9-Wins \tab numeric \cr
-   LOB-Wins \tab numeric \cr
-   BIP-Wins \tab numeric \cr
-   BS-Wins \tab numeric \cr
-   tERA \tab numeric \cr
-   xFIP \tab numeric \cr
-   WPA \tab numeric \cr
-   WPA_minus \tab numeric \cr
-   WPA_plus \tab numeric \cr
-   RE24 \tab numeric \cr
-   REW \tab numeric \cr
-   pLI \tab numeric \cr
-   inLI \tab numeric \cr
-   gmLI \tab numeric \cr
-   exLI \tab numeric \cr
-   Pulls \tab integer \cr
-   Games \tab integer \cr
-   WPA_LI \tab numeric \cr
-   Clutch \tab numeric \cr
-   FBall_pct \tab numeric \cr
-   FBv \tab numeric \cr
-   SL_pct \tab numeric \cr
-   SLv \tab numeric \cr
-   CT_pct \tab numeric \cr
-   CTv \tab numeric \cr
-   CB_pct \tab numeric \cr
-   CBv \tab numeric \cr
-   CH_pct \tab numeric \cr
-   CHv \tab numeric \cr
-   SF_pct \tab numeric \cr
-   SFv \tab numeric \cr
-   XX_pct \tab numeric \cr
-   wFB \tab numeric \cr
-   wSL \tab numeric \cr
-   wCT \tab numeric \cr
-   wCB \tab numeric \cr
-   wCH \tab numeric \cr
-   wSF \tab numeric \cr
-   wFB_C \tab numeric \cr
-   wSL_C \tab numeric \cr
-   wCT_C \tab numeric \cr
-   wCB_C \tab numeric \cr
-   wCH_C \tab numeric \cr
-   wSF_C \tab numeric \cr
-   O-Swing_pct \tab numeric \cr
-   Z-Swing_pct \tab numeric \cr
-   Swing_pct \tab numeric \cr
-   O-Contact_pct \tab numeric \cr
-   Z-Contact_pct \tab numeric \cr
-   Contact_pct \tab numeric \cr
-   Zone_pct \tab numeric \cr
-   F-Strike_pct \tab numeric \cr
-   SwStr_pct \tab numeric \cr
-   CStr_pct \tab numeric \cr
-   C+SwStr_pct \tab numeric \cr
-   HLD \tab integer \cr
-   SD \tab integer \cr
-   MD \tab integer \cr
-   ERA- \tab numeric \cr
-   FIP- \tab numeric \cr
-   xFIP- \tab numeric \cr
-   K_pct \tab numeric \cr
-   BB_pct \tab numeric \cr
-   K-BB_pct \tab numeric \cr
-   SIERA \tab numeric \cr
-   kwERA \tab numeric \cr
-   RS_9 \tab numeric \cr
-   E-F \tab numeric \cr
-   Pull \tab integer \cr
-   Cent \tab integer \cr
-   Oppo \tab integer \cr
-   Soft \tab integer \cr
-   Med \tab integer \cr
-   Hard \tab integer \cr
-   bipCount \tab integer \cr
-   Pull_pct \tab numeric \cr
-   Cent_pct \tab numeric \cr
-   Oppo_pct \tab numeric \cr
-   Soft_pct \tab numeric \cr
-   Med_pct \tab numeric \cr
-   Hard_pct \tab numeric \cr
-   K_9+ \tab numeric \cr
-   BB_9+ \tab numeric \cr
-   K_BB+ \tab numeric \cr
-   H_9+ \tab numeric \cr
-   HR_9+ \tab numeric \cr
-   AVG+ \tab numeric \cr
-   WHIP+ \tab numeric \cr
-   BABIP+ \tab numeric \cr
-   LOB_pct+ \tab numeric \cr
-   K_pct+ \tab numeric \cr
-   BB_pct+ \tab numeric \cr
-   LD_pct+ \tab numeric \cr
-   GB_pct+ \tab numeric \cr
-   FB_pct+ \tab numeric \cr
-   HRFB_pct+ \tab numeric \cr
-   Pull_pct+ \tab numeric \cr
-   Cent_pct+ \tab numeric \cr
-   Oppo_pct+ \tab numeric \cr
-   Soft_pct+ \tab numeric \cr
-   Med_pct+ \tab numeric \cr
-   Hard_pct+ \tab numeric \cr
-   rFTeamV \tab integer \cr
-   rBTeamV \tab integer \cr
-   rTV \tab integer \cr
-   pfx_FA_pct \tab numeric \cr
-   pfx_FT_pct \tab numeric \cr
-   pfx_FC_pct \tab numeric \cr
-   pfx_FS_pct \tab numeric \cr
-   pfx_SI_pct \tab numeric \cr
-   pfx_SL_pct \tab numeric \cr
-   pfx_CU_pct \tab numeric \cr
-   pfx_KC_pct \tab numeric \cr
-   pfx_CH_pct \tab numeric \cr
-   pfx_vFA \tab numeric \cr
-   pfx_vFT \tab numeric \cr
-   pfx_vFC \tab numeric \cr
-   pfx_vFS \tab numeric \cr
-   pfx_vSI \tab numeric \cr
-   pfx_vSL \tab numeric \cr
-   pfx_vCU \tab numeric \cr
-   pfx_vKC \tab numeric \cr
-   pfx_vCH \tab numeric \cr
-   pfx_FA-X \tab numeric \cr
-   pfx_FT-X \tab numeric \cr
-   pfx_FC-X \tab numeric \cr
-   pfx_FS-X \tab numeric \cr
-   pfx_SI-X \tab numeric \cr
-   pfx_SL-X \tab numeric \cr
-   pfx_CU-X \tab numeric \cr
-   pfx_KC-X \tab numeric \cr
-   pfx_CH-X \tab numeric \cr
-   pfx_FA-Z \tab numeric \cr
-   pfx_FT-Z \tab numeric \cr
-   pfx_FC-Z \tab numeric \cr
-   pfx_FS-Z \tab numeric \cr
-   pfx_SI-Z \tab numeric \cr
-   pfx_SL-Z \tab numeric \cr
-   pfx_CU-Z \tab numeric \cr
-   pfx_KC-Z \tab numeric \cr
-   pfx_CH-Z \tab numeric \cr
-   pfx_wFA \tab numeric \cr
-   pfx_wFT \tab numeric \cr
-   pfx_wFC \tab numeric \cr
-   pfx_wFS \tab numeric \cr
-   pfx_wSI \tab numeric \cr
-   pfx_wSL \tab numeric \cr
-   pfx_wCU \tab numeric \cr
-   pfx_wKC \tab numeric \cr
-   pfx_wCH \tab numeric \cr
-   pfx_wFA_C \tab numeric \cr
-   pfx_wFT_C \tab numeric \cr
-   pfx_wFC_C \tab numeric \cr
-   pfx_wFS_C \tab numeric \cr
-   pfx_wSI_C \tab numeric \cr
-   pfx_wSL_C \tab numeric \cr
-   pfx_wCU_C \tab numeric \cr
-   pfx_wKC_C \tab numeric \cr
-   pfx_wCH_C \tab numeric \cr
-   pfx_O-Swing_pct \tab numeric \cr
-   pfx_Z-Swing_pct \tab numeric \cr
-   pfx_Swing_pct \tab numeric \cr
-   pfx_O-Contact_pct \tab numeric \cr
-   pfx_Z-Contact_pct \tab numeric \cr
-   pfx_Contact_pct \tab numeric \cr
-   pfx_Zone_pct \tab numeric \cr
-   pfx_Pace \tab numeric \cr
-   pi_CH_pct \tab numeric \cr
-   pi_CU_pct \tab numeric \cr
-   pi_FA_pct \tab numeric \cr
-   pi_FC_pct \tab numeric \cr
-   pi_FS_pct \tab numeric \cr
-   pi_SI_pct \tab numeric \cr
-   pi_SL_pct \tab numeric \cr
-   pi_XX_pct \tab numeric \cr
-   pi_vCH \tab numeric \cr
-   pi_vCU \tab numeric \cr
-   pi_vFA \tab numeric \cr
-   pi_vFC \tab numeric \cr
-   pi_vFS \tab numeric \cr
-   pi_vSI \tab numeric \cr
-   pi_vSL \tab numeric \cr
-   pi_vXX \tab numeric \cr
-   pi_CH-X \tab numeric \cr
-   pi_CU-X \tab numeric \cr
-   pi_FA-X \tab numeric \cr
-   pi_FC-X \tab numeric \cr
-   pi_FS-X \tab numeric \cr
-   pi_SI-X \tab numeric \cr
-   pi_SL-X \tab numeric \cr
-   pi_XX-X \tab numeric \cr
-   pi_CH-Z \tab numeric \cr
-   pi_CU-Z \tab numeric \cr
-   pi_FA-Z \tab numeric \cr
-   pi_FC-Z \tab numeric \cr
-   pi_FS-Z \tab numeric \cr
-   pi_SI-Z \tab numeric \cr
-   pi_SL-Z \tab numeric \cr
-   pi_XX-Z \tab numeric \cr
-   pi_wCH \tab numeric \cr
-   pi_wCU \tab numeric \cr
-   pi_wFA \tab numeric \cr
-   pi_wFC \tab numeric \cr
-   pi_wFS \tab numeric \cr
-   pi_wSI \tab numeric \cr
-   pi_wSL \tab numeric \cr
-   pi_wXX \tab numeric \cr
-   pi_wCH_C \tab numeric \cr
-   pi_wCU_C \tab numeric \cr
-   pi_wFA_C \tab numeric \cr
-   pi_wFC_C \tab numeric \cr
-   pi_wFS_C \tab numeric \cr
-   pi_wSI_C \tab numeric \cr
-   pi_wSL_C \tab numeric \cr
-   pi_wXX_C \tab numeric \cr
-   pi_O-Swing_pct \tab numeric \cr
-   pi_Z-Swing_pct \tab numeric \cr
-   pi_Swing_pct \tab numeric \cr
-   pi_O-Contact_pct \tab numeric \cr
-   pi_Z-Contact_pct \tab numeric \cr
-   pi_Contact_pct \tab numeric \cr
-   pi_Zone_pct \tab numeric \cr
-   pi_Pace \tab numeric \cr
-   Events \tab integer \cr
-   EV \tab numeric \cr
-   LA \tab numeric \cr
-   Barrels \tab integer \cr
-   Barrel_pct \tab numeric \cr
-   maxEV \tab numeric \cr
-   HardHit \tab integer \cr
-   HardHit_pct \tab numeric \cr
-   Q \tab numeric \cr
-   TG \tab integer \cr
-   TIP \tab numeric \cr
-   team_name_abb \tab character \cr
-   teamid \tab integer \cr
-   pfx_EP_pct \tab numeric \cr
-   pfx_vEP \tab numeric \cr
-   pfx_EP-X \tab numeric \cr
-   pfx_EP-Z \tab numeric \cr
-   pfx_wEP \tab numeric \cr
-   pfx_wEP_C \tab numeric \cr
-   pi_SB_pct \tab numeric \cr
-   pi_vSB \tab numeric \cr
-   pi_SB-X \tab numeric \cr
-   pi_SB-Z \tab numeric \cr
-   pi_wSB \tab numeric \cr
-   pi_wSB_C \tab numeric \cr
-   pi_CS_pct \tab numeric \cr
-   pi_vCS \tab numeric \cr
-   pi_CS-X \tab numeric \cr
-   pi_CS-Z \tab numeric \cr
-   pi_wCS \tab numeric \cr
-   pi_wCS_C \tab numeric \cr
-   pi_KN_pct \tab numeric \cr
-   pi_vKN \tab numeric \cr
-   pi_KN-X \tab numeric \cr
-   pi_KN-Z \tab numeric \cr
-   pi_wKN \tab numeric \cr
-   pi_wKN_C \tab numeric \cr
-   KN_pct \tab numeric \cr
-   KNv \tab numeric \cr
-   wKN \tab numeric \cr
-   wKN_C \tab numeric \cr
-   pfx_KN_pct \tab numeric \cr
-   pfx_vKN \tab numeric \cr
-   pfx_KN-X \tab numeric \cr
-   pfx_KN-Z \tab numeric \cr
-   pfx_wKN \tab numeric \cr
-   pfx_wKN_C \tab numeric \cr
-   pfx_SC_pct \tab numeric \cr
-   pfx_vSC \tab numeric \cr
-   pfx_SC-X \tab numeric \cr
-   pfx_SC-Z \tab numeric \cr
-   pfx_wSC \tab numeric \cr
-   pfx_wSC_C \tab numeric \cr
-   pfx_FO_pct \tab numeric \cr
-   pfx_vFO \tab numeric \cr
-   pfx_FO-X \tab numeric \cr
-   pfx_FO-Z \tab numeric \cr
-   pfx_wFO \tab numeric \cr
-   pfx_wFO_C \tab numeric \cr
+A data frame of pitcher data.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   Season \tab integer \tab Season (YYYY). \cr
+   team_name \tab character \tab Team name. \cr
+   SeasonMin \tab integer \tab First season in the queried span. \cr
+   SeasonMax \tab integer \tab Last season in the queried span. \cr
+   W \tab integer \tab Wins. \cr
+   L \tab integer \tab Losses. \cr
+   ERA \tab numeric \tab Earned run average. \cr
+   G \tab integer \tab Games played. \cr
+   GS \tab integer \tab Games started. \cr
+   QS \tab integer \tab Quality starts. \cr
+   CG \tab integer \tab Complete games. \cr
+   ShO \tab integer \tab Shutouts. \cr
+   SV \tab integer \tab Saves. \cr
+   BS \tab integer \tab Blown saves. \cr
+   IP \tab numeric \tab Innings pitched. \cr
+   TBF \tab integer \tab Total batters faced. \cr
+   H \tab integer \tab Hits. \cr
+   R \tab integer \tab Runs scored. \cr
+   ER \tab integer \tab Earned runs allowed. \cr
+   HR \tab integer \tab Home runs. \cr
+   BB \tab integer \tab Walks (bases on balls). \cr
+   IBB \tab integer \tab Intentional walks. \cr
+   HBP \tab integer \tab Hit by pitch. \cr
+   WP \tab integer \tab Wild pitches. \cr
+   BK \tab integer \tab Balks. \cr
+   SO \tab integer \tab Strikeouts. \cr
+   GB \tab integer \tab Ground balls. \cr
+   FB \tab integer \tab Fly balls. \cr
+   LD \tab integer \tab Line drives. \cr
+   IFFB \tab integer \tab Infield fly balls. \cr
+   Pitches \tab integer \tab Total pitches seen or thrown. \cr
+   Balls \tab integer \tab Total balls. \cr
+   Strikes \tab integer \tab Total strikes. \cr
+   RS \tab integer \tab Run support. \cr
+   IFH \tab integer \tab Infield hits. \cr
+   BU \tab integer \tab Bunts. \cr
+   BUH \tab integer \tab Bunt hits. \cr
+   K_9 \tab numeric \tab Strikeouts per nine innings. \cr
+   BB_9 \tab numeric \tab Walks per nine innings. \cr
+   K_BB \tab numeric \tab Strikeout-to-walk ratio. \cr
+   H_9 \tab numeric \tab Hits allowed per nine innings. \cr
+   HR_9 \tab numeric \tab Home runs allowed per nine innings. \cr
+   AVG \tab numeric \tab Batting average (or opponent average for pitchers). \cr
+   WHIP \tab numeric \tab Walks plus hits per inning pitched. \cr
+   BABIP \tab numeric \tab Batting average on balls in play. \cr
+   LOB_pct \tab numeric \tab Left-on-base percentage (strand rate). \cr
+   FIP \tab numeric \tab Fielding Independent Pitching. \cr
+   GB_FB \tab numeric \tab Ground-ball to fly-ball ratio. \cr
+   LD_pct \tab numeric \tab Line-drive percentage. \cr
+   GB_pct \tab numeric \tab Ground-ball percentage. \cr
+   FB_pct \tab numeric \tab Fly-ball percentage. \cr
+   IFFB_pct \tab numeric \tab Infield-fly-ball percentage. \cr
+   HR_FB \tab numeric \tab Home-run-per-fly-ball rate. \cr
+   IFH_pct \tab numeric \tab Infield-hit percentage. \cr
+   BUH_pct \tab numeric \tab Bunt-hit percentage. \cr
+   TTO_pct \tab numeric \tab Three-true-outcomes percentage (BB, K, HR). \cr
+   CFraming \tab numeric \tab Catcher framing runs. \cr
+   Starting \tab numeric \tab Starting-pitcher value (runs). \cr
+   Start_IP \tab numeric \tab Innings pitched as a starter. \cr
+   Relieving \tab numeric \tab Relief-pitcher value (runs). \cr
+   Relief_IP \tab numeric \tab Innings pitched in relief. \cr
+   RAR \tab numeric \tab Runs Above Replacement. \cr
+   WAR \tab numeric \tab Wins Above Replacement. \cr
+   Dollars \tab numeric \tab Estimated market value of production. \cr
+   RA9-Wins \tab numeric \tab Wins based on runs allowed per nine. \cr
+   LOB-Wins \tab numeric \tab Wins attributable to strand rate. \cr
+   BIP-Wins \tab numeric \tab Wins attributable to balls in play. \cr
+   BS-Wins \tab numeric \tab Wins attributable to sequencing. \cr
+   tERA \tab numeric \tab True ERA (batted-ball-based ERA estimator). \cr
+   xFIP \tab numeric \tab Expected Fielding Independent Pitching. \cr
+   WPA \tab numeric \tab Win Probability Added. \cr
+   WPA_minus \tab numeric \tab Negative Win Probability Added. \cr
+   WPA_plus \tab numeric \tab Positive Win Probability Added. \cr
+   RE24 \tab numeric \tab Run Expectancy based on the 24 base-out states. \cr
+   REW \tab numeric \tab Run Expectancy Wins. \cr
+   pLI \tab numeric \tab Average Leverage Index. \cr
+   inLI \tab numeric \tab Average Leverage Index entering the game. \cr
+   gmLI \tab numeric \tab Average Leverage Index at game entry. \cr
+   exLI \tab numeric \tab Average Leverage Index when exiting the game. \cr
+   Pulls \tab integer \tab Times pulled from the game. \cr
+   Games \tab integer \tab Games (relief context). \cr
+   WPA_LI \tab numeric \tab Situational Win Probability Added (WPA divided by Leverage Index). \cr
+   Clutch \tab numeric \tab Clutch performance relative to context-neutral performance. \cr
+   FBall_pct \tab numeric \tab Overall fastball percentage. \cr
+   FBv \tab numeric \tab Average fastball velocity. \cr
+   SL_pct \tab numeric \tab Slider percentage (pitch usage). \cr
+   SLv \tab numeric \tab Average slider velocity. \cr
+   CT_pct \tab numeric \tab Cutter percentage (pitch usage). \cr
+   CTv \tab numeric \tab Average cutter velocity. \cr
+   CB_pct \tab numeric \tab Curveball percentage (pitch usage). \cr
+   CBv \tab numeric \tab Average curveball velocity. \cr
+   CH_pct \tab numeric \tab Changeup percentage (pitch usage). \cr
+   CHv \tab numeric \tab Average changeup velocity. \cr
+   SF_pct \tab numeric \tab Splitter percentage (pitch usage). \cr
+   SFv \tab numeric \tab Average splitter velocity. \cr
+   XX_pct \tab numeric \tab Unidentified-pitch percentage (pitch usage). \cr
+   wFB \tab numeric \tab Fastball pitch-type linear weight runs. \cr
+   wSL \tab numeric \tab Slider pitch-type linear weight runs. \cr
+   wCT \tab numeric \tab Cutter pitch-type linear weight runs. \cr
+   wCB \tab numeric \tab Curveball pitch-type linear weight runs. \cr
+   wCH \tab numeric \tab Changeup pitch-type linear weight runs. \cr
+   wSF \tab numeric \tab Splitter pitch-type linear weight runs. \cr
+   wFB_C \tab numeric \tab Fastball linear weight runs per 100 pitches. \cr
+   wSL_C \tab numeric \tab Slider linear weight runs per 100 pitches. \cr
+   wCT_C \tab numeric \tab Cutter linear weight runs per 100 pitches. \cr
+   wCB_C \tab numeric \tab Curveball linear weight runs per 100 pitches. \cr
+   wCH_C \tab numeric \tab Changeup linear weight runs per 100 pitches. \cr
+   wSF_C \tab numeric \tab Splitter linear weight runs per 100 pitches. \cr
+   O-Swing_pct \tab numeric \tab Swing percentage on pitches outside the zone (chase rate). \cr
+   Z-Swing_pct \tab numeric \tab Swing percentage on pitches inside the zone. \cr
+   Swing_pct \tab numeric \tab Overall swing percentage. \cr
+   O-Contact_pct \tab numeric \tab Contact percentage on pitches outside the zone. \cr
+   Z-Contact_pct \tab numeric \tab Contact percentage on pitches inside the zone. \cr
+   Contact_pct \tab numeric \tab Overall contact percentage. \cr
+   Zone_pct \tab numeric \tab Percentage of pitches in the strike zone. \cr
+   F-Strike_pct \tab numeric \tab First-pitch strike percentage. \cr
+   SwStr_pct \tab numeric \tab Swinging-strike percentage. \cr
+   CStr_pct \tab numeric \tab Called-strike percentage. \cr
+   C+SwStr_pct \tab numeric \tab Combined called- plus swinging-strike percentage. \cr
+   HLD \tab integer \tab Holds. \cr
+   SD \tab integer \tab Shutdowns (relief appearances that improved win probability). \cr
+   MD \tab integer \tab Meltdowns (relief appearances that hurt win probability). \cr
+   ERA- \tab numeric \tab Park/league-adjusted ERA (100 = average, lower is better). \cr
+   FIP- \tab numeric \tab Park/league-adjusted FIP (100 = average, lower is better). \cr
+   xFIP- \tab numeric \tab Park/league-adjusted xFIP (100 = average, lower is better). \cr
+   K_pct \tab numeric \tab Strikeout rate. \cr
+   BB_pct \tab numeric \tab Walk rate. \cr
+   K-BB_pct \tab numeric \tab Strikeout rate minus walk rate. \cr
+   SIERA \tab numeric \tab Skill-Interactive ERA. \cr
+   kwERA \tab numeric \tab Strikeout/walk-based ERA estimator. \cr
+   RS_9 \tab numeric \tab Run support per nine innings. \cr
+   E-F \tab numeric \tab Difference between ERA and FIP. \cr
+   Pull \tab integer \tab Balls in play hit to the pull field. \cr
+   Cent \tab integer \tab Balls in play hit up the middle. \cr
+   Oppo \tab integer \tab Balls in play hit to the opposite field. \cr
+   Soft \tab integer \tab Soft-contact balls in play. \cr
+   Med \tab integer \tab Medium-contact balls in play. \cr
+   Hard \tab integer \tab Hard-contact balls in play. \cr
+   bipCount \tab integer \tab Count of balls in play with contact-quality data. \cr
+   Pull_pct \tab numeric \tab Pull-field percentage. \cr
+   Cent_pct \tab numeric \tab Up-the-middle percentage. \cr
+   Oppo_pct \tab numeric \tab Opposite-field percentage. \cr
+   Soft_pct \tab numeric \tab Soft-contact percentage. \cr
+   Med_pct \tab numeric \tab Medium-contact percentage. \cr
+   Hard_pct \tab numeric \tab Hard-contact percentage. \cr
+   K_9+ \tab numeric \tab Park/league-adjusted strikeouts per nine (100 = average). \cr
+   BB_9+ \tab numeric \tab Park/league-adjusted walks per nine (100 = average). \cr
+   K_BB+ \tab numeric \tab Park/league-adjusted strikeout-to-walk ratio (100 = average). \cr
+   H_9+ \tab numeric \tab Park/league-adjusted hits per nine (100 = average). \cr
+   HR_9+ \tab numeric \tab Park/league-adjusted home runs per nine (100 = average). \cr
+   AVG+ \tab numeric \tab Park/league-adjusted batting average (100 = average). \cr
+   WHIP+ \tab numeric \tab Park/league-adjusted WHIP (100 = average). \cr
+   BABIP+ \tab numeric \tab Park/league-adjusted BABIP (100 = average). \cr
+   LOB_pct+ \tab numeric \tab Park/league-adjusted strand rate (100 = average). \cr
+   K_pct+ \tab numeric \tab Park/league-adjusted strikeout rate (100 = average). \cr
+   BB_pct+ \tab numeric \tab Park/league-adjusted walk rate (100 = average). \cr
+   LD_pct+ \tab numeric \tab Park/league-adjusted line-drive rate (100 = average). \cr
+   GB_pct+ \tab numeric \tab Park/league-adjusted ground-ball rate (100 = average). \cr
+   FB_pct+ \tab numeric \tab Park/league-adjusted fly-ball rate (100 = average). \cr
+   HRFB_pct+ \tab numeric \tab Park/league-adjusted home-run-per-fly-ball rate (100 = average). \cr
+   Pull_pct+ \tab numeric \tab Park/league-adjusted pull rate (100 = average). \cr
+   Cent_pct+ \tab numeric \tab Park/league-adjusted up-the-middle rate (100 = average). \cr
+   Oppo_pct+ \tab numeric \tab Park/league-adjusted opposite-field rate (100 = average). \cr
+   Soft_pct+ \tab numeric \tab Park/league-adjusted soft-contact rate (100 = average). \cr
+   Med_pct+ \tab numeric \tab Park/league-adjusted medium-contact rate (100 = average). \cr
+   Hard_pct+ \tab numeric \tab Park/league-adjusted hard-contact rate (100 = average). \cr
+   xERA \tab numeric \tab Expected ERA (Statcast-based). \cr
+   pb_o_CH \tab numeric \tab PitchingBot overall grade on changeups. \cr
+   pb_s_CH \tab numeric \tab PitchingBot stuff grade on changeups. \cr
+   pb_c_CH \tab numeric \tab PitchingBot command grade on changeups. \cr
+   pb_o_CU \tab numeric \tab PitchingBot overall grade on curveballs. \cr
+   pb_s_CU \tab numeric \tab PitchingBot stuff grade on curveballs. \cr
+   pb_c_CU \tab numeric \tab PitchingBot command grade on curveballs. \cr
+   pb_o_FF \tab numeric \tab PitchingBot overall grade on four-seam fastballs. \cr
+   pb_s_FF \tab numeric \tab PitchingBot stuff grade on four-seam fastballs. \cr
+   pb_c_FF \tab numeric \tab PitchingBot command grade on four-seam fastballs. \cr
+   pb_o_SI \tab numeric \tab PitchingBot overall grade on sinkers. \cr
+   pb_s_SI \tab numeric \tab PitchingBot stuff grade on sinkers. \cr
+   pb_c_SI \tab numeric \tab PitchingBot command grade on sinkers. \cr
+   pb_o_SL \tab numeric \tab PitchingBot overall grade on sliders. \cr
+   pb_s_SL \tab numeric \tab PitchingBot stuff grade on sliders. \cr
+   pb_c_SL \tab numeric \tab PitchingBot command grade on sliders. \cr
+   pb_o_KC \tab numeric \tab PitchingBot overall grade on knuckle-curves. \cr
+   pb_s_KC \tab numeric \tab PitchingBot stuff grade on knuckle-curves. \cr
+   pb_c_KC \tab numeric \tab PitchingBot command grade on knuckle-curves. \cr
+   pb_o_FC \tab numeric \tab PitchingBot overall grade on cutters. \cr
+   pb_s_FC \tab numeric \tab PitchingBot stuff grade on cutters. \cr
+   pb_c_FC \tab numeric \tab PitchingBot command grade on cutters. \cr
+   pb_o_FS \tab numeric \tab PitchingBot overall grade on splitters. \cr
+   pb_s_FS \tab numeric \tab PitchingBot stuff grade on splitters. \cr
+   pb_c_FS \tab numeric \tab PitchingBot command grade on splitters. \cr
+   pb_overall \tab numeric \tab PitchingBot overall grade. \cr
+   pb_stuff \tab numeric \tab PitchingBot stuff grade. \cr
+   pb_command \tab numeric \tab PitchingBot command grade. \cr
+   pb_xRV100 \tab numeric \tab PitchingBot expected run value per 100 pitches. \cr
+   pb_ERA \tab numeric \tab PitchingBot-modeled ERA. \cr
+   sp_s_CH \tab numeric \tab Stuff+ grade on changeups (100 = average). \cr
+   sp_l_CH \tab numeric \tab Location+ grade on changeups (100 = average). \cr
+   sp_p_CH \tab numeric \tab Pitching+ grade on changeups (100 = average). \cr
+   sp_s_CU \tab numeric \tab Stuff+ grade on curveballs (100 = average). \cr
+   sp_l_CU \tab numeric \tab Location+ grade on curveballs (100 = average). \cr
+   sp_p_CU \tab numeric \tab Pitching+ grade on curveballs (100 = average). \cr
+   sp_s_FF \tab numeric \tab Stuff+ grade on four-seam fastballs (100 = average). \cr
+   sp_l_FF \tab numeric \tab Location+ grade on four-seam fastballs (100 = average). \cr
+   sp_p_FF \tab numeric \tab Pitching+ grade on four-seam fastballs (100 = average). \cr
+   sp_s_SI \tab numeric \tab Stuff+ grade on sinkers (100 = average). \cr
+   sp_l_SI \tab numeric \tab Location+ grade on sinkers (100 = average). \cr
+   sp_p_SI \tab numeric \tab Pitching+ grade on sinkers (100 = average). \cr
+   sp_s_SL \tab numeric \tab Stuff+ grade on sliders (100 = average). \cr
+   sp_l_SL \tab numeric \tab Location+ grade on sliders (100 = average). \cr
+   sp_p_SL \tab numeric \tab Pitching+ grade on sliders (100 = average). \cr
+   sp_s_KC \tab numeric \tab Stuff+ grade on knuckle-curves (100 = average). \cr
+   sp_l_KC \tab numeric \tab Location+ grade on knuckle-curves (100 = average). \cr
+   sp_p_KC \tab numeric \tab Pitching+ grade on knuckle-curves (100 = average). \cr
+   sp_s_FC \tab numeric \tab Stuff+ grade on cutters (100 = average). \cr
+   sp_l_FC \tab numeric \tab Location+ grade on cutters (100 = average). \cr
+   sp_p_FC \tab numeric \tab Pitching+ grade on cutters (100 = average). \cr
+   sp_s_FS \tab numeric \tab Stuff+ grade on splitters (100 = average). \cr
+   sp_l_FS \tab numeric \tab Location+ grade on splitters (100 = average). \cr
+   sp_p_FS \tab numeric \tab Pitching+ grade on splitters (100 = average). \cr
+   sp_stuff \tab numeric \tab Stuff+ overall grade (pitch quality, 100 = average). \cr
+   sp_location \tab numeric \tab Location+ overall grade (command, 100 = average). \cr
+   sp_pitching \tab numeric \tab Pitching+ overall grade (Stuff+ and Location+ combined, 100 = average). \cr
+   PPTV \tab integer \tab Pitch-type pitch values (raw component). \cr
+   CPTV \tab integer \tab Catcher pitch-type value (raw component). \cr
+   BPTV \tab integer \tab Batter pitch-type value (raw component). \cr
+   DSV \tab integer \tab Defensive stuff value (raw component). \cr
+   DGV \tab integer \tab Defensive game value (raw component). \cr
+   BTV \tab integer \tab Base-state team value (raw component). \cr
+   rPPTV \tab numeric \tab Regressed pitch-type pitch values. \cr
+   rBPTV \tab numeric \tab Regressed batter pitch-type value. \cr
+   rDGV \tab numeric \tab Regressed defensive game value. \cr
+   rBTV \tab numeric \tab Regressed base-state team value. \cr
+   EBV \tab integer \tab Earned-base value (raw component). \cr
+   ESV \tab integer \tab Earned-strike value (raw component). \cr
+   rFTeamV \tab numeric \tab Regressed fielding team value. \cr
+   rBTeamV \tab numeric \tab Regressed base-running team value. \cr
+   rTV \tab numeric \tab Regressed total team value. \cr
+   pfx_FA_pct \tab numeric \tab PITCHf/x four-seam fastballs usage percentage. \cr
+   pfx_FC_pct \tab numeric \tab PITCHf/x cutters usage percentage. \cr
+   pfx_FS_pct \tab numeric \tab PITCHf/x splitters usage percentage. \cr
+   pfx_SI_pct \tab numeric \tab PITCHf/x sinkers usage percentage. \cr
+   pfx_SL_pct \tab numeric \tab PITCHf/x sliders usage percentage. \cr
+   pfx_CU_pct \tab numeric \tab PITCHf/x curveballs usage percentage. \cr
+   pfx_KC_pct \tab numeric \tab PITCHf/x knuckle-curves usage percentage. \cr
+   pfx_EP_pct \tab numeric \tab PITCHf/x eephus pitches usage percentage. \cr
+   pfx_CH_pct \tab numeric \tab PITCHf/x changeups usage percentage. \cr
+   pfx_SLO_pct \tab numeric \tab PITCHf/x slurves usage percentage. \cr
+   pfx_ST_pct \tab numeric \tab PITCHf/x sweepers usage percentage. \cr
+   pfx_CUO_pct \tab numeric \tab PITCHf/x slurves usage percentage. \cr
+   pfx_vFA \tab numeric \tab PITCHf/x average four-seam fastballs velocity. \cr
+   pfx_vFC \tab numeric \tab PITCHf/x average cutters velocity. \cr
+   pfx_vFS \tab numeric \tab PITCHf/x average splitters velocity. \cr
+   pfx_vSI \tab numeric \tab PITCHf/x average sinkers velocity. \cr
+   pfx_vSL \tab numeric \tab PITCHf/x average sliders velocity. \cr
+   pfx_vCU \tab numeric \tab PITCHf/x average curveballs velocity. \cr
+   pfx_vKC \tab numeric \tab PITCHf/x average knuckle-curves velocity. \cr
+   pfx_vEP \tab numeric \tab PITCHf/x average eephus pitches velocity. \cr
+   pfx_vCH \tab numeric \tab PITCHf/x average changeups velocity. \cr
+   pfx_vSLO \tab numeric \tab PITCHf/x average slurves velocity. \cr
+   pfx_vST \tab numeric \tab PITCHf/x average sweepers velocity. \cr
+   pfx_vCUO \tab numeric \tab PITCHf/x average slurves velocity. \cr
+   pfx_FA-X \tab numeric \tab PITCHf/x average horizontal movement on four-seam fastballs. \cr
+   pfx_FC-X \tab numeric \tab PITCHf/x average horizontal movement on cutters. \cr
+   pfx_FS-X \tab numeric \tab PITCHf/x average horizontal movement on splitters. \cr
+   pfx_SI-X \tab numeric \tab PITCHf/x average horizontal movement on sinkers. \cr
+   pfx_SL-X \tab numeric \tab PITCHf/x average horizontal movement on sliders. \cr
+   pfx_CU-X \tab numeric \tab PITCHf/x average horizontal movement on curveballs. \cr
+   pfx_KC-X \tab numeric \tab PITCHf/x average horizontal movement on knuckle-curves. \cr
+   pfx_EP-X \tab numeric \tab PITCHf/x average horizontal movement on eephus pitches. \cr
+   pfx_CH-X \tab numeric \tab PITCHf/x average horizontal movement on changeups. \cr
+   pfx_SLO-X \tab numeric \tab PITCHf/x average horizontal movement on slurves. \cr
+   pfx_ST-X \tab numeric \tab PITCHf/x average horizontal movement on sweepers. \cr
+   pfx_CUO-X \tab numeric \tab PITCHf/x average horizontal movement on slurves. \cr
+   pfx_FA-Z \tab numeric \tab PITCHf/x average vertical movement on four-seam fastballs. \cr
+   pfx_FC-Z \tab numeric \tab PITCHf/x average vertical movement on cutters. \cr
+   pfx_FS-Z \tab numeric \tab PITCHf/x average vertical movement on splitters. \cr
+   pfx_SI-Z \tab numeric \tab PITCHf/x average vertical movement on sinkers. \cr
+   pfx_SL-Z \tab numeric \tab PITCHf/x average vertical movement on sliders. \cr
+   pfx_CU-Z \tab numeric \tab PITCHf/x average vertical movement on curveballs. \cr
+   pfx_KC-Z \tab numeric \tab PITCHf/x average vertical movement on knuckle-curves. \cr
+   pfx_EP-Z \tab numeric \tab PITCHf/x average vertical movement on eephus pitches. \cr
+   pfx_CH-Z \tab numeric \tab PITCHf/x average vertical movement on changeups. \cr
+   pfx_SLO-Z \tab numeric \tab PITCHf/x average vertical movement on slurves. \cr
+   pfx_ST-Z \tab numeric \tab PITCHf/x average vertical movement on sweepers. \cr
+   pfx_CUO-Z \tab numeric \tab PITCHf/x average vertical movement on slurves. \cr
+   pfx_wFA \tab numeric \tab PITCHf/x four-seam fastballs linear weight runs. \cr
+   pfx_wFC \tab numeric \tab PITCHf/x cutters linear weight runs. \cr
+   pfx_wFS \tab numeric \tab PITCHf/x splitters linear weight runs. \cr
+   pfx_wSI \tab numeric \tab PITCHf/x sinkers linear weight runs. \cr
+   pfx_wSL \tab numeric \tab PITCHf/x sliders linear weight runs. \cr
+   pfx_wCU \tab numeric \tab PITCHf/x curveballs linear weight runs. \cr
+   pfx_wKC \tab numeric \tab PITCHf/x knuckle-curves linear weight runs. \cr
+   pfx_wEP \tab numeric \tab PITCHf/x eephus pitches linear weight runs. \cr
+   pfx_wCH \tab numeric \tab PITCHf/x changeups linear weight runs. \cr
+   pfx_wSLO \tab numeric \tab PITCHf/x slurves linear weight runs. \cr
+   pfx_wST \tab numeric \tab PITCHf/x sweepers linear weight runs. \cr
+   pfx_wCUO \tab numeric \tab PITCHf/x slurves linear weight runs. \cr
+   pfx_wFA_C \tab numeric \tab PITCHf/x four-seam fastballs linear weight runs per 100 pitches. \cr
+   pfx_wFC_C \tab numeric \tab PITCHf/x cutters linear weight runs per 100 pitches. \cr
+   pfx_wFS_C \tab numeric \tab PITCHf/x splitters linear weight runs per 100 pitches. \cr
+   pfx_wSI_C \tab numeric \tab PITCHf/x sinkers linear weight runs per 100 pitches. \cr
+   pfx_wSL_C \tab numeric \tab PITCHf/x sliders linear weight runs per 100 pitches. \cr
+   pfx_wCU_C \tab numeric \tab PITCHf/x curveballs linear weight runs per 100 pitches. \cr
+   pfx_wKC_C \tab numeric \tab PITCHf/x knuckle-curves linear weight runs per 100 pitches. \cr
+   pfx_wEP_C \tab numeric \tab PITCHf/x eephus pitches linear weight runs per 100 pitches. \cr
+   pfx_wCH_C \tab numeric \tab PITCHf/x changeups linear weight runs per 100 pitches. \cr
+   pfx_wSLO_C \tab numeric \tab PITCHf/x slurves linear weight runs per 100 pitches. \cr
+   pfx_wST_C \tab numeric \tab PITCHf/x sweepers linear weight runs per 100 pitches. \cr
+   pfx_wCUO_C \tab numeric \tab PITCHf/x slurves linear weight runs per 100 pitches. \cr
+   pfx_aaFA \tab numeric \tab PITCHf/x average arsenal value on four-seam fastballs. \cr
+   pfx_aaFC \tab numeric \tab PITCHf/x average arsenal value on cutters. \cr
+   pfx_aaFS \tab numeric \tab PITCHf/x average arsenal value on splitters. \cr
+   pfx_aaSI \tab numeric \tab PITCHf/x average arsenal value on sinkers. \cr
+   pfx_aaSL \tab numeric \tab PITCHf/x average arsenal value on sliders. \cr
+   pfx_aaCU \tab numeric \tab PITCHf/x average arsenal value on curveballs. \cr
+   pfx_aaKC \tab numeric \tab PITCHf/x average arsenal value on knuckle-curves. \cr
+   pfx_aaEP \tab numeric \tab PITCHf/x average arsenal value on eephus pitches. \cr
+   pfx_aaCH \tab numeric \tab PITCHf/x average arsenal value on changeups. \cr
+   pfx_aaSLO \tab numeric \tab PITCHf/x average arsenal value on slurves. \cr
+   pfx_aaST \tab numeric \tab PITCHf/x average arsenal value on sweepers. \cr
+   pfx_aaCUO \tab numeric \tab PITCHf/x average arsenal value on slurves. \cr
+   pfx_spFA \tab numeric \tab PITCHf/x Stuff+ value on four-seam fastballs. \cr
+   pfx_spFC \tab numeric \tab PITCHf/x Stuff+ value on cutters. \cr
+   pfx_spFS \tab numeric \tab PITCHf/x Stuff+ value on splitters. \cr
+   pfx_spSI \tab numeric \tab PITCHf/x Stuff+ value on sinkers. \cr
+   pfx_spSL \tab numeric \tab PITCHf/x Stuff+ value on sliders. \cr
+   pfx_spCU \tab numeric \tab PITCHf/x Stuff+ value on curveballs. \cr
+   pfx_spKC \tab numeric \tab PITCHf/x Stuff+ value on knuckle-curves. \cr
+   pfx_spEP \tab numeric \tab PITCHf/x Stuff+ value on eephus pitches. \cr
+   pfx_spCH \tab numeric \tab PITCHf/x Stuff+ value on changeups. \cr
+   pfx_spSLO \tab numeric \tab PITCHf/x Stuff+ value on slurves. \cr
+   pfx_spST \tab numeric \tab PITCHf/x Stuff+ value on sweepers. \cr
+   pfx_spCUO \tab numeric \tab PITCHf/x Stuff+ value on slurves. \cr
+   pfx_O-Swing_pct \tab numeric \tab PITCHf/x swing percentage on pitches outside the zone. \cr
+   pfx_Z-Swing_pct \tab numeric \tab PITCHf/x swing percentage on pitches inside the zone. \cr
+   pfx_Swing_pct \tab numeric \tab PITCHf/x swing percentage. \cr
+   pfx_O-Contact_pct \tab numeric \tab PITCHf/x contact percentage on pitches outside the zone. \cr
+   pfx_Z-Contact_pct \tab numeric \tab PITCHf/x contact percentage on pitches inside the zone. \cr
+   pfx_Contact_pct \tab numeric \tab PITCHf/x contact percentage. \cr
+   pfx_Zone_pct \tab numeric \tab PITCHf/x percentage of pitches in the strike zone. \cr
+   pfx_Pace \tab numeric \tab PITCHf/x pace (seconds between pitches). \cr
+   AvgBatSpeed \tab numeric \tab Average bat speed (mph). \cr
+   FastSwing_pct \tab numeric \tab Fast-swing percentage (75+ mph bat speed). \cr
+   SwingLength \tab numeric \tab Average swing length (feet). \cr
+   SquaredUpContact_pct \tab numeric \tab Squared-up percentage per batted-ball contact. \cr
+   SquaredUpSwing_pct \tab numeric \tab Squared-up percentage per swing. \cr
+   BlastContact_pct \tab numeric \tab Blast percentage per batted-ball contact. \cr
+   BlastSwing_pct \tab numeric \tab Blast percentage per swing. \cr
+   Swords \tab integer \tab Swords (awkward, defensive swinging strikes induced). \cr
+   CompetitiveSwings \tab integer \tab Competitive swings tracked. \cr
+   Tilt \tab numeric \tab Average swing tilt (degrees). \cr
+   AttackAngle \tab numeric \tab Average attack angle (degrees). \cr
+   AttackDirection \tab numeric \tab Average attack direction (degrees). \cr
+   IdealAttackAngle_pct \tab numeric \tab Percentage of swings in the ideal attack-angle range. \cr
+   DepthInBox \tab numeric \tab Average batter depth in the box (inches). \cr
+   DistanceOffPlate \tab numeric \tab Average batter distance off the plate (inches). \cr
+   scH-Swing_pct \tab numeric \tab Statcast swing percentage on hard-hit pitches. \cr
+   scH-Contact_pct \tab numeric \tab Statcast contact percentage on hard-hit pitches. \cr
+   scH-Zone_pct \tab numeric \tab Statcast in-zone percentage on hard-hit pitches. \cr
+   scS-Swing_pct \tab numeric \tab Statcast swing percentage on slider pitches. \cr
+   scS-Contact_pct \tab numeric \tab Statcast contact percentage on slider pitches. \cr
+   scS-Zone_pct \tab numeric \tab Statcast in-zone percentage on slider pitches. \cr
+   scC-Swing_pct \tab numeric \tab Statcast swing percentage on curveball pitches. \cr
+   scC-Contact_pct \tab numeric \tab Statcast contact percentage on curveball pitches. \cr
+   scC-Zone_pct \tab numeric \tab Statcast in-zone percentage on curveball pitches. \cr
+   scW-Swing_pct \tab numeric \tab Statcast swing percentage on offspeed pitches. \cr
+   scW-Contact_pct \tab numeric \tab Statcast contact percentage on offspeed pitches. \cr
+   scW-Zone_pct \tab numeric \tab Statcast in-zone percentage on offspeed pitches. \cr
+   scSI-Swing_pct \tab numeric \tab Statcast swing percentage on sinker pitches. \cr
+   scSI-Contact_pct \tab numeric \tab Statcast contact percentage on sinker pitches. \cr
+   scSI-Zone_pct \tab numeric \tab Statcast in-zone percentage on sinker pitches. \cr
+   scSO-Swing_pct \tab numeric \tab Statcast swing percentage on softly-hit pitches. \cr
+   scSO-Contact_pct \tab numeric \tab Statcast contact percentage on softly-hit pitches. \cr
+   scSO-Zone_pct \tab numeric \tab Statcast in-zone percentage on softly-hit pitches. \cr
+   scO-Swing_pct \tab numeric \tab Statcast swing percentage on out-of-zone pitches. \cr
+   scO-Contact_pct \tab numeric \tab Statcast contact percentage on out-of-zone pitches. \cr
+   scO-Zone_pct \tab numeric \tab Statcast in-zone percentage on out-of-zone pitches. \cr
+   scZ-Swing_pct \tab numeric \tab Statcast swing percentage on in-zone pitches. \cr
+   scZ-Contact_pct \tab numeric \tab Statcast contact percentage on in-zone pitches. \cr
+   scZ-Zone_pct \tab numeric \tab Statcast in-zone percentage on in-zone pitches. \cr
+   pi_CH_pct \tab numeric \tab PITCHInfo changeups usage percentage. \cr
+   pi_CU_pct \tab numeric \tab PITCHInfo curveballs usage percentage. \cr
+   pi_FA_pct \tab numeric \tab PITCHInfo four-seam fastballs usage percentage. \cr
+   pi_FC_pct \tab numeric \tab PITCHInfo cutters usage percentage. \cr
+   pi_FS_pct \tab numeric \tab PITCHInfo splitters usage percentage. \cr
+   pi_SI_pct \tab numeric \tab PITCHInfo sinkers usage percentage. \cr
+   pi_SL_pct \tab numeric \tab PITCHInfo sliders usage percentage. \cr
+   pi_XX_pct \tab numeric \tab PITCHInfo unidentified pitches usage percentage. \cr
+   pi_vCH \tab numeric \tab PITCHInfo average changeups velocity. \cr
+   pi_vCU \tab numeric \tab PITCHInfo average curveballs velocity. \cr
+   pi_vFA \tab numeric \tab PITCHInfo average four-seam fastballs velocity. \cr
+   pi_vFC \tab numeric \tab PITCHInfo average cutters velocity. \cr
+   pi_vFS \tab numeric \tab PITCHInfo average splitters velocity. \cr
+   pi_vSI \tab numeric \tab PITCHInfo average sinkers velocity. \cr
+   pi_vSL \tab numeric \tab PITCHInfo average sliders velocity. \cr
+   pi_vXX \tab numeric \tab PITCHInfo average unidentified pitches velocity. \cr
+   pi_CH-X \tab numeric \tab PITCHInfo average horizontal movement on changeups. \cr
+   pi_CU-X \tab numeric \tab PITCHInfo average horizontal movement on curveballs. \cr
+   pi_FA-X \tab numeric \tab PITCHInfo average horizontal movement on four-seam fastballs. \cr
+   pi_FC-X \tab numeric \tab PITCHInfo average horizontal movement on cutters. \cr
+   pi_FS-X \tab numeric \tab PITCHInfo average horizontal movement on splitters. \cr
+   pi_SI-X \tab numeric \tab PITCHInfo average horizontal movement on sinkers. \cr
+   pi_SL-X \tab numeric \tab PITCHInfo average horizontal movement on sliders. \cr
+   pi_XX-X \tab numeric \tab PITCHInfo average horizontal movement on unidentified pitches. \cr
+   pi_CH-Z \tab numeric \tab PITCHInfo average vertical movement on changeups. \cr
+   pi_CU-Z \tab numeric \tab PITCHInfo average vertical movement on curveballs. \cr
+   pi_FA-Z \tab numeric \tab PITCHInfo average vertical movement on four-seam fastballs. \cr
+   pi_FC-Z \tab numeric \tab PITCHInfo average vertical movement on cutters. \cr
+   pi_FS-Z \tab numeric \tab PITCHInfo average vertical movement on splitters. \cr
+   pi_SI-Z \tab numeric \tab PITCHInfo average vertical movement on sinkers. \cr
+   pi_SL-Z \tab numeric \tab PITCHInfo average vertical movement on sliders. \cr
+   pi_XX-Z \tab numeric \tab PITCHInfo average vertical movement on unidentified pitches. \cr
+   pi_wCH \tab numeric \tab PITCHInfo changeups linear weight runs. \cr
+   pi_wCU \tab numeric \tab PITCHInfo curveballs linear weight runs. \cr
+   pi_wFA \tab numeric \tab PITCHInfo four-seam fastballs linear weight runs. \cr
+   pi_wFC \tab numeric \tab PITCHInfo cutters linear weight runs. \cr
+   pi_wFS \tab numeric \tab PITCHInfo splitters linear weight runs. \cr
+   pi_wSI \tab numeric \tab PITCHInfo sinkers linear weight runs. \cr
+   pi_wSL \tab numeric \tab PITCHInfo sliders linear weight runs. \cr
+   pi_wXX \tab numeric \tab PITCHInfo unidentified pitches linear weight runs. \cr
+   pi_wCH_C \tab numeric \tab PITCHInfo changeups linear weight runs per 100 pitches. \cr
+   pi_wCU_C \tab numeric \tab PITCHInfo curveballs linear weight runs per 100 pitches. \cr
+   pi_wFA_C \tab numeric \tab PITCHInfo four-seam fastballs linear weight runs per 100 pitches. \cr
+   pi_wFC_C \tab numeric \tab PITCHInfo cutters linear weight runs per 100 pitches. \cr
+   pi_wFS_C \tab numeric \tab PITCHInfo splitters linear weight runs per 100 pitches. \cr
+   pi_wSI_C \tab numeric \tab PITCHInfo sinkers linear weight runs per 100 pitches. \cr
+   pi_wSL_C \tab numeric \tab PITCHInfo sliders linear weight runs per 100 pitches. \cr
+   pi_wXX_C \tab numeric \tab PITCHInfo unidentified pitches linear weight runs per 100 pitches. \cr
+   pi_O-Swing_pct \tab numeric \tab PITCHInfo swing percentage on pitches outside the zone. \cr
+   pi_Z-Swing_pct \tab numeric \tab PITCHInfo swing percentage on pitches inside the zone. \cr
+   pi_Swing_pct \tab numeric \tab PITCHInfo swing percentage. \cr
+   pi_O-Contact_pct \tab numeric \tab PITCHInfo contact percentage on pitches outside the zone. \cr
+   pi_Z-Contact_pct \tab numeric \tab PITCHInfo contact percentage on pitches inside the zone. \cr
+   pi_Contact_pct \tab numeric \tab PITCHInfo contact percentage. \cr
+   pi_Zone_pct \tab numeric \tab PITCHInfo percentage of pitches in the strike zone. \cr
+   pi_Pace \tab numeric \tab PITCHInfo pace (seconds between pitches). \cr
+   Events \tab integer \tab Batted-ball events with Statcast measurement. \cr
+   EV \tab numeric \tab Average exit velocity (mph). \cr
+   LA \tab numeric \tab Average launch angle (degrees). \cr
+   Barrels \tab integer \tab Barreled batted balls. \cr
+   Barrel_pct \tab numeric \tab Barrel percentage. \cr
+   maxEV \tab numeric \tab Maximum exit velocity (mph). \cr
+   HardHit \tab integer \tab Hard-hit batted balls (95+ mph). \cr
+   HardHit_pct \tab numeric \tab Hard-hit percentage (95+ mph). \cr
+   Q \tab numeric \tab Quality of contact / quality score. \cr
+   TG \tab integer \tab Total games in the span. \cr
+   TIP \tab numeric \tab Total innings pitched in the span. \cr
+   positionDB \tab character \tab Position code from the database. \cr
+   position \tab character \tab Position played. \cr
+   team_name_abb \tab character \tab Team name abbreviation. \cr
+   teamid \tab integer \tab FanGraphs team ID. \cr
+   playerTeamId \tab integer \tab FanGraphs player-team ID. \cr
+   EV90 \tab numeric \tab 90th-percentile exit velocity (mph). \cr
+   KN_pct \tab numeric \tab Knuckleball percentage (pitch usage). \cr
+   KNv \tab numeric \tab Average knuckleball velocity. \cr
+   wKN \tab numeric \tab Knuckleball pitch-type linear weight runs. \cr
+   wKN_C \tab numeric \tab Knuckleball linear weight runs per 100 pitches. \cr
+   rCPTV \tab numeric \tab Regressed catcher pitch-type value. \cr
+   pfx_CV_pct \tab numeric \tab PITCHf/x slow curves usage percentage. \cr
+   pfx_vCV \tab numeric \tab PITCHf/x average slow curves velocity. \cr
+   pfx_CV-X \tab numeric \tab PITCHf/x average horizontal movement on slow curves. \cr
+   pfx_CV-Z \tab numeric \tab PITCHf/x average vertical movement on slow curves. \cr
+   pfx_wCV \tab numeric \tab PITCHf/x slow curves linear weight runs. \cr
+   pfx_wCV_C \tab numeric \tab PITCHf/x slow curves linear weight runs per 100 pitches. \cr
+   pfx_aaCV \tab numeric \tab PITCHf/x average arsenal value on slow curves. \cr
+   pfx_spCV \tab numeric \tab PITCHf/x Stuff+ value on slow curves. \cr
+   pfx_KN_pct \tab numeric \tab PITCHf/x knuckleballs usage percentage. \cr
+   pfx_vKN \tab numeric \tab PITCHf/x average knuckleballs velocity. \cr
+   pfx_KN-X \tab numeric \tab PITCHf/x average horizontal movement on knuckleballs. \cr
+   pfx_KN-Z \tab numeric \tab PITCHf/x average vertical movement on knuckleballs. \cr
+   pfx_wKN \tab numeric \tab PITCHf/x knuckleballs linear weight runs. \cr
+   pfx_wKN_C \tab numeric \tab PITCHf/x knuckleballs linear weight runs per 100 pitches. \cr
+   pfx_aaKN \tab numeric \tab PITCHf/x average arsenal value on knuckleballs. \cr
+   pfx_spKN \tab numeric \tab PITCHf/x Stuff+ value on knuckleballs. \cr
+   pi_KN_pct \tab numeric \tab PITCHInfo knuckleballs usage percentage. \cr
+   pi_vKN \tab numeric \tab PITCHInfo average knuckleballs velocity. \cr
+   pi_KN-X \tab numeric \tab PITCHInfo average horizontal movement on knuckleballs. \cr
+   pi_KN-Z \tab numeric \tab PITCHInfo average vertical movement on knuckleballs. \cr
+   pi_wKN \tab numeric \tab PITCHInfo knuckleballs linear weight runs. \cr
+   pi_wKN_C \tab numeric \tab PITCHInfo knuckleballs linear weight runs per 100 pitches. \cr
+   rDSV \tab numeric \tab Regressed defensive stuff value. \cr
+   pfx_SC_pct \tab numeric \tab PITCHf/x screwballs usage percentage. \cr
+   pfx_vSC \tab numeric \tab PITCHf/x average screwballs velocity. \cr
+   pfx_SC-X \tab numeric \tab PITCHf/x average horizontal movement on screwballs. \cr
+   pfx_SC-Z \tab numeric \tab PITCHf/x average vertical movement on screwballs. \cr
+   pfx_wSC \tab numeric \tab PITCHf/x screwballs linear weight runs. \cr
+   pfx_wSC_C \tab numeric \tab PITCHf/x screwballs linear weight runs per 100 pitches. \cr
+   pfx_aaSC \tab numeric \tab PITCHf/x average arsenal value on screwballs. \cr
+   pfx_spSC \tab numeric \tab PITCHf/x Stuff+ value on screwballs. \cr
+   pi_SB_pct \tab numeric \tab PITCHInfo slow-balls usage percentage. \cr
+   pi_vSB \tab numeric \tab PITCHInfo average slow-balls velocity. \cr
+   pi_SB-X \tab numeric \tab PITCHInfo average horizontal movement on slow-balls. \cr
+   pi_SB-Z \tab numeric \tab PITCHInfo average vertical movement on slow-balls. \cr
+   pi_wSB \tab numeric \tab PITCHInfo slow-balls linear weight runs. \cr
+   pi_wSB_C \tab numeric \tab PITCHInfo slow-balls linear weight runs per 100 pitches. \cr
+   pi_CS_pct \tab numeric \tab PITCHInfo slow curves usage percentage. \cr
+   pi_vCS \tab numeric \tab PITCHInfo average slow curves velocity. \cr
+   pi_CS-X \tab numeric \tab PITCHInfo average horizontal movement on slow curves. \cr
+   pi_CS-Z \tab numeric \tab PITCHInfo average vertical movement on slow curves. \cr
+   pi_wCS \tab numeric \tab PITCHInfo slow curves linear weight runs. \cr
+   pi_wCS_C \tab numeric \tab PITCHInfo slow curves linear weight runs per 100 pitches. \cr
+   sp_s_FO \tab numeric \tab Stuff+ grade on forkballs/pitch-outs (100 = average). \cr
+   sp_l_FO \tab numeric \tab Location+ grade on forkballs/pitch-outs (100 = average). \cr
+   sp_p_FO \tab numeric \tab Pitching+ grade on forkballs/pitch-outs (100 = average). \cr
+   pfx_FO_pct \tab numeric \tab PITCHf/x forkballs/pitch-outs usage percentage. \cr
+   pfx_vFO \tab numeric \tab PITCHf/x average forkballs/pitch-outs velocity. \cr
+   pfx_FO-X \tab numeric \tab PITCHf/x average horizontal movement on forkballs/pitch-outs. \cr
+   pfx_FO-Z \tab numeric \tab PITCHf/x average vertical movement on forkballs/pitch-outs. \cr
+   pfx_wFO \tab numeric \tab PITCHf/x forkballs/pitch-outs linear weight runs. \cr
+   pfx_wFO_C \tab numeric \tab PITCHf/x forkballs/pitch-outs linear weight runs per 100 pitches. \cr
+   pfx_aaFO \tab numeric \tab PITCHf/x average arsenal value on forkballs/pitch-outs. \cr
+   pfx_spFO \tab numeric \tab PITCHf/x Stuff+ value on forkballs/pitch-outs. \cr
 }
 }
 \description{

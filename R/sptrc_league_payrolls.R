@@ -3,20 +3,23 @@
 #' @description This function allows you to scrape each team's payroll from Spotrac.
 #' @param year Year to load
 #' @return A data frame of contract data.
-#'  |col_name             |types     |
-#'  |:--------------------|:---------|
-#'  |year                 |character |
-#'  |team                 |character |
-#'  |team_abbr            |character |
-#'  |rank                 |numeric   |
-#'  |win_percent          |numeric   |
-#'  |roster               |numeric   |
-#'  |active_man_payroll   |numeric   |
-#'  |injured_reserve      |numeric   |
-#'  |retained             |numeric   |
-#'  |buried               |numeric   |
-#'  |suspended            |numeric   |
-#'  |yearly_total_payroll |numeric   |
+#'
+#'  |col_name                  |types     |description |
+#'  |:--------------------------|:---------|:-----------|
+#'  |year                       |character |Payroll season. |
+#'  |team                       |character |Full team name. |
+#'  |team_abbr                  |character |Team abbreviation. |
+#'  |rank                       |numeric   |League rank by total payroll allocations. |
+#'  |record                     |character |Team win-loss record for the season. |
+#'  |avg_age_team               |character |Roster-weighted average age of the team. |
+#'  |total_payroll_allocations  |numeric   |Total payroll allocations across all roster statuses (USD). |
+#'  |active_26_man              |numeric   |Payroll allocated to the active 26-man roster (USD). |
+#'  |injured                    |numeric   |Payroll allocated to players on the injured list (USD). |
+#'  |retained                   |numeric   |Retained salary owed to players no longer on the roster (USD). |
+#'  |buried                     |numeric   |Payroll for players assigned to the minors ("buried" contracts) (USD). |
+#'
+#'  Column names after `rank` mirror Spotrac's current league-payroll table and
+#'  may change as Spotrac updates its layout.
 #' @import rvest 
 #' @import dplyr
 #' @importFrom janitor clean_names
@@ -28,23 +31,26 @@ sptrc_league_payrolls <- function(year = most_recent_mlb_season()){
   
   stopifnot("'year' can't be further than two seasons ago" = 2 >= most_recent_mlb_season()-year)
   
-  url <- paste0("https://www.spotrac.com/mlb/payroll/", year, "/")
-  
-  
+  # Spotrac moved the year out of the path and behind a "/_/year/" segment in
+  # 2025; the old "/payroll/<year>/" URL now 302-redirects here (#392).
+  url <- paste0("https://www.spotrac.com/mlb/payroll/_/year/", year, "/")
+
+  # Initialise the return value before the tryCatch so a failed request returns
+  # an empty frame with a message instead of "object 'league_payroll' not found".
+  league_payroll <- data.frame()
+
   tryCatch(
     expr = {
-      page_data <- rvest::read_html(url) %>% rvest::html_elements("table")
+      page_data <- rvest::read_html(url) |> rvest::html_elements("table")
       
-      league_payroll <- (page_data)[[1]] %>% 
-        rvest::html_table() %>% 
-        janitor::clean_names() %>% 
-        dplyr::filter(.data$team != "League Average") %>%
-        dplyr::rename("active_man_payroll" = 5,
-                      "yearly_total_payroll" = 10) %>%  
+      league_payroll <- (page_data)[[1]] |> 
+        rvest::html_table() |> 
+        janitor::clean_names() |> 
+        dplyr::filter(.data$team != "League Average") |>
         dplyr::mutate(year = year,
-                      team_abbr = gsub(".*\\t","", .data$team),
-                      team = gsub("\\n.*","", .data$team),
-                      dplyr::across(tidyr::everything(), as.character)) %>% 
+                      team_abbr = sub("(?s)[\\n\\t].*", "", .data$team, perl = TRUE),
+                      team = trimws(sub("(?s).*[\\t\\n]\\s*", "", .data$team, perl = TRUE)),
+                      dplyr::across(tidyr::everything(), as.character)) |>
         dplyr::select(
           "year", 
           "team", 
@@ -55,20 +61,22 @@ sptrc_league_payrolls <- function(year = most_recent_mlb_season()){
       
       league_payroll[] <- lapply(league_payroll, gsub, pattern="\\$", replacement="")
       league_payroll[] <- lapply(league_payroll, gsub, pattern=",", replacement="")
-      league_payroll[] <- lapply(league_payroll, gsub, pattern="-", replacement="")
+
+      # Coerce the numeric columns by name rather than position so a change in
+      # Spotrac's column order can't silently NA-coerce a text column (#392).
+      num_cols <- c("rank",
+                    grep("payroll|salary|allocation|active|injured|retained|buried|suspended",
+                         names(league_payroll), value = TRUE, ignore.case = TRUE))
+      league_payroll <- league_payroll |>
+        dplyr::mutate(dplyr::across(dplyr::any_of(num_cols),
+                                    ~ suppressWarnings(as.numeric(gsub("-", "", .x)))))
       
-      for(i in c(4:ncol(league_payroll))) {
-        suppressWarnings(
-          league_payroll[,i] <- as.numeric(unlist(league_payroll[,i]))
-        )
-      }
-      
-      league_payroll <- league_payroll %>%
+      league_payroll <- league_payroll |>
         make_baseballr_data("MLB Payroll data from Spotrac.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no contract data available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no contract data available!")
     },
     finally = {
     }

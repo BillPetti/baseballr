@@ -349,10 +349,15 @@ cols <- c(
 )
 
 test_that("FanGraphs Batting Leaders", {
+  skip_fangraphs_test()
   skip_on_cran()
   
   x <- fg_batter_leaders(startseason = 2023, endseason = 2023)
-  
+
+  if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
+    skip("No data returned from FanGraphs at test time")
+  }
+
   expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

@@ -22,430 +22,530 @@
 #' @param sortdir (character) Sort direction. Options are "asc" or "desc" or "default".
 #' @param sortstat (character) Sort by stat. Default is "WAR".
 #' @return A data frame of pitcher data.
-#' 
-#'    |col_name          |types     |
-#'    |:-----------------|:---------|
-#'    |Season            |integer   |
-#'    |team_name         |character |
-#'    |Throws            |character |
-#'    |xMLBAMID          |integer   |
-#'    |PlayerNameRoute   |character |
-#'    |PlayerName        |character |
-#'    |playerid          |integer   |
-#'    |Age               |integer   |
-#'    |AgeRng            |character |
-#'    |SeasonMin         |integer   |
-#'    |SeasonMax         |integer   |
-#'    |W                 |integer   |
-#'    |L                 |integer   |
-#'    |ERA               |numeric   |
-#'    |G                 |integer   |
-#'    |GS                |integer   |
-#'    |CG                |integer   |
-#'    |ShO               |integer   |
-#'    |SV                |integer   |
-#'    |BS                |integer   |
-#'    |IP                |numeric   |
-#'    |TBF               |integer   |
-#'    |H                 |integer   |
-#'    |R                 |integer   |
-#'    |ER                |integer   |
-#'    |HR                |integer   |
-#'    |BB                |integer   |
-#'    |IBB               |integer   |
-#'    |HBP               |integer   |
-#'    |WP                |integer   |
-#'    |BK                |integer   |
-#'    |SO                |integer   |
-#'    |GB                |integer   |
-#'    |FB                |integer   |
-#'    |LD                |integer   |
-#'    |IFFB              |integer   |
-#'    |Pitches           |integer   |
-#'    |Balls             |integer   |
-#'    |Strikes           |integer   |
-#'    |RS                |integer   |
-#'    |IFH               |integer   |
-#'    |BU                |integer   |
-#'    |BUH               |integer   |
-#'    |K_9               |numeric   |
-#'    |BB_9              |numeric   |
-#'    |K_BB              |numeric   |
-#'    |H_9               |numeric   |
-#'    |HR_9              |numeric   |
-#'    |AVG               |numeric   |
-#'    |WHIP              |numeric   |
-#'    |BABIP             |numeric   |
-#'    |LOB_pct           |numeric   |
-#'    |FIP               |numeric   |
-#'    |GB_FB             |numeric   |
-#'    |LD_pct            |numeric   |
-#'    |GB_pct            |numeric   |
-#'    |FB_pct            |numeric   |
-#'    |IFFB_pct          |numeric   |
-#'    |HR_FB             |numeric   |
-#'    |IFH_pct           |numeric   |
-#'    |BUH_pct           |numeric   |
-#'    |TTO_pct           |numeric   |
-#'    |CFraming          |numeric   |
-#'    |Starting          |numeric   |
-#'    |Start_IP          |numeric   |
-#'    |RAR               |numeric   |
-#'    |WAR               |numeric   |
-#'    |Dollars           |numeric   |
-#'    |RA9-Wins          |numeric   |
-#'    |LOB-Wins          |numeric   |
-#'    |BIP-Wins          |numeric   |
-#'    |BS-Wins           |numeric   |
-#'    |tERA              |numeric   |
-#'    |xFIP              |numeric   |
-#'    |WPA               |numeric   |
-#'    |WPA_minus         |numeric   |
-#'    |WPA_plus          |numeric   |
-#'    |RE24              |numeric   |
-#'    |REW               |numeric   |
-#'    |pLI               |numeric   |
-#'    |inLI              |numeric   |
-#'    |gmLI              |numeric   |
-#'    |exLI              |numeric   |
-#'    |Pulls             |integer   |
-#'    |Games             |integer   |
-#'    |WPA_LI            |numeric   |
-#'    |Clutch            |numeric   |
-#'    |FBall_pct         |numeric   |
-#'    |FBv               |numeric   |
-#'    |SL_pct            |numeric   |
-#'    |SLv               |numeric   |
-#'    |CT_pct            |numeric   |
-#'    |CTv               |numeric   |
-#'    |CB_pct            |numeric   |
-#'    |CBv               |numeric   |
-#'    |SF_pct            |numeric   |
-#'    |SFv               |numeric   |
-#'    |XX_pct            |numeric   |
-#'    |wFB               |numeric   |
-#'    |wSL               |numeric   |
-#'    |wCT               |numeric   |
-#'    |wCB               |numeric   |
-#'    |wSF               |numeric   |
-#'    |wFB_C             |numeric   |
-#'    |wSL_C             |numeric   |
-#'    |wCT_C             |numeric   |
-#'    |wCB_C             |numeric   |
-#'    |wSF_C             |numeric   |
-#'    |O-Swing_pct       |numeric   |
-#'    |Z-Swing_pct       |numeric   |
-#'    |Swing_pct         |numeric   |
-#'    |O-Contact_pct     |numeric   |
-#'    |Z-Contact_pct     |numeric   |
-#'    |Contact_pct       |numeric   |
-#'    |Zone_pct          |numeric   |
-#'    |F-Strike_pct      |numeric   |
-#'    |SwStr_pct         |numeric   |
-#'    |CStr_pct          |numeric   |
-#'    |C+SwStr_pct       |numeric   |
-#'    |HLD               |integer   |
-#'    |SD                |integer   |
-#'    |MD                |integer   |
-#'    |ERA-              |numeric   |
-#'    |FIP-              |numeric   |
-#'    |xFIP-             |numeric   |
-#'    |K_pct             |numeric   |
-#'    |BB_pct            |numeric   |
-#'    |K-BB_pct          |numeric   |
-#'    |SIERA             |numeric   |
-#'    |kwERA             |numeric   |
-#'    |RS_9              |numeric   |
-#'    |E-F               |numeric   |
-#'    |Pull              |integer   |
-#'    |Cent              |integer   |
-#'    |Oppo              |integer   |
-#'    |Soft              |integer   |
-#'    |Med               |integer   |
-#'    |Hard              |integer   |
-#'    |bipCount          |integer   |
-#'    |Pull_pct          |numeric   |
-#'    |Cent_pct          |numeric   |
-#'    |Oppo_pct          |numeric   |
-#'    |Soft_pct          |numeric   |
-#'    |Med_pct           |numeric   |
-#'    |Hard_pct          |numeric   |
-#'    |K_9+              |numeric   |
-#'    |BB_9+             |numeric   |
-#'    |K_BB+             |numeric   |
-#'    |H_9+              |numeric   |
-#'    |HR_9+             |numeric   |
-#'    |AVG+              |numeric   |
-#'    |WHIP+             |numeric   |
-#'    |BABIP+            |numeric   |
-#'    |LOB_pct+          |numeric   |
-#'    |K_pct+            |numeric   |
-#'    |BB_pct+           |numeric   |
-#'    |LD_pct+           |numeric   |
-#'    |GB_pct+           |numeric   |
-#'    |FB_pct+           |numeric   |
-#'    |HRFB_pct+         |numeric   |
-#'    |Pull_pct+         |numeric   |
-#'    |Cent_pct+         |numeric   |
-#'    |Oppo_pct+         |numeric   |
-#'    |Soft_pct+         |numeric   |
-#'    |Med_pct+          |numeric   |
-#'    |Hard_pct+         |numeric   |
-#'    |xERA              |numeric   |
-#'    |pb_o_CH           |numeric   |
-#'    |pb_s_CH           |numeric   |
-#'    |pb_c_CH           |numeric   |
-#'    |pb_o_CU           |numeric   |
-#'    |pb_s_CU           |numeric   |
-#'    |pb_c_CU           |numeric   |
-#'    |pb_o_FF           |numeric   |
-#'    |pb_s_FF           |numeric   |
-#'    |pb_c_FF           |numeric   |
-#'    |pb_o_SI           |numeric   |
-#'    |pb_s_SI           |numeric   |
-#'    |pb_c_SI           |numeric   |
-#'    |pb_o_SL           |numeric   |
-#'    |pb_s_SL           |numeric   |
-#'    |pb_c_SL           |numeric   |
-#'    |pb_overall        |numeric   |
-#'    |pb_stuff          |numeric   |
-#'    |pb_command        |numeric   |
-#'    |pb_xRV100         |numeric   |
-#'    |pb_ERA            |numeric   |
-#'    |sp_s_CH           |numeric   |
-#'    |sp_l_CH           |numeric   |
-#'    |sp_p_CH           |numeric   |
-#'    |sp_s_CU           |numeric   |
-#'    |sp_l_CU           |numeric   |
-#'    |sp_p_CU           |numeric   |
-#'    |sp_s_FF           |numeric   |
-#'    |sp_l_FF           |numeric   |
-#'    |sp_p_FF           |numeric   |
-#'    |sp_s_SI           |numeric   |
-#'    |sp_l_SI           |numeric   |
-#'    |sp_p_SI           |numeric   |
-#'    |sp_s_SL           |numeric   |
-#'    |sp_l_SL           |numeric   |
-#'    |sp_p_SL           |numeric   |
-#'    |sp_stuff          |numeric   |
-#'    |sp_location       |numeric   |
-#'    |sp_pitching       |numeric   |
-#'    |PPTV              |integer   |
-#'    |CPTV              |integer   |
-#'    |BPTV              |integer   |
-#'    |DSV               |integer   |
-#'    |DGV               |integer   |
-#'    |BTV               |integer   |
-#'    |rPPTV             |numeric   |
-#'    |rBPTV             |numeric   |
-#'    |EBV               |integer   |
-#'    |ESV               |integer   |
-#'    |rFTeamV           |numeric   |
-#'    |rBTeamV           |numeric   |
-#'    |rTV               |numeric   |
-#'    |pfx_FA_pct        |numeric   |
-#'    |pfx_SI_pct        |numeric   |
-#'    |pfx_SL_pct        |numeric   |
-#'    |pfx_CU_pct        |numeric   |
-#'    |pfx_CH_pct        |numeric   |
-#'    |pfx_vFA           |numeric   |
-#'    |pfx_vSI           |numeric   |
-#'    |pfx_vSL           |numeric   |
-#'    |pfx_vCU           |numeric   |
-#'    |pfx_vCH           |numeric   |
-#'    |pfx_FA-X          |numeric   |
-#'    |pfx_SI-X          |numeric   |
-#'    |pfx_SL-X          |numeric   |
-#'    |pfx_CU-X          |numeric   |
-#'    |pfx_CH-X          |numeric   |
-#'    |pfx_FA-Z          |numeric   |
-#'    |pfx_SI-Z          |numeric   |
-#'    |pfx_SL-Z          |numeric   |
-#'    |pfx_CU-Z          |numeric   |
-#'    |pfx_CH-Z          |numeric   |
-#'    |pfx_wFA           |numeric   |
-#'    |pfx_wSI           |numeric   |
-#'    |pfx_wSL           |numeric   |
-#'    |pfx_wCU           |numeric   |
-#'    |pfx_wCH           |numeric   |
-#'    |pfx_wFA_C         |numeric   |
-#'    |pfx_wSI_C         |numeric   |
-#'    |pfx_wSL_C         |numeric   |
-#'    |pfx_wCU_C         |numeric   |
-#'    |pfx_wCH_C         |numeric   |
-#'    |pfx_O-Swing_pct   |numeric   |
-#'    |pfx_Z-Swing_pct   |numeric   |
-#'    |pfx_Swing_pct     |numeric   |
-#'    |pfx_O-Contact_pct |numeric   |
-#'    |pfx_Z-Contact_pct |numeric   |
-#'    |pfx_Contact_pct   |numeric   |
-#'    |pfx_Zone_pct      |numeric   |
-#'    |pfx_Pace          |numeric   |
-#'    |pi_CH_pct         |numeric   |
-#'    |pi_CU_pct         |numeric   |
-#'    |pi_FA_pct         |numeric   |
-#'    |pi_SI_pct         |numeric   |
-#'    |pi_SL_pct         |numeric   |
-#'    |pi_vCH            |numeric   |
-#'    |pi_vCU            |numeric   |
-#'    |pi_vFA            |numeric   |
-#'    |pi_vSI            |numeric   |
-#'    |pi_vSL            |numeric   |
-#'    |pi_CH-X           |numeric   |
-#'    |pi_CU-X           |numeric   |
-#'    |pi_FA-X           |numeric   |
-#'    |pi_SI-X           |numeric   |
-#'    |pi_SL-X           |numeric   |
-#'    |pi_CH-Z           |numeric   |
-#'    |pi_CU-Z           |numeric   |
-#'    |pi_FA-Z           |numeric   |
-#'    |pi_SI-Z           |numeric   |
-#'    |pi_SL-Z           |numeric   |
-#'    |pi_wCH            |numeric   |
-#'    |pi_wCU            |numeric   |
-#'    |pi_wFA            |numeric   |
-#'    |pi_wSI            |numeric   |
-#'    |pi_wSL            |numeric   |
-#'    |pi_wCH_C          |numeric   |
-#'    |pi_wCU_C          |numeric   |
-#'    |pi_wFA_C          |numeric   |
-#'    |pi_wSI_C          |numeric   |
-#'    |pi_wSL_C          |numeric   |
-#'    |pi_O-Swing_pct    |numeric   |
-#'    |pi_Z-Swing_pct    |numeric   |
-#'    |pi_Swing_pct      |numeric   |
-#'    |pi_O-Contact_pct  |numeric   |
-#'    |pi_Z-Contact_pct  |numeric   |
-#'    |pi_Contact_pct    |numeric   |
-#'    |pi_Zone_pct       |numeric   |
-#'    |pi_Pace           |numeric   |
-#'    |Events            |integer   |
-#'    |EV                |numeric   |
-#'    |LA                |numeric   |
-#'    |Barrels           |integer   |
-#'    |Barrel_pct        |numeric   |
-#'    |maxEV             |numeric   |
-#'    |HardHit           |integer   |
-#'    |HardHit_pct       |numeric   |
-#'    |Q                 |numeric   |
-#'    |TG                |integer   |
-#'    |TIP               |numeric   |
-#'    |team_name_abb     |character |
-#'    |teamid            |integer   |
-#'    |CH_pct            |numeric   |
-#'    |CHv               |numeric   |
-#'    |wCH               |numeric   |
-#'    |wCH_C             |numeric   |
-#'    |pb_o_FS           |numeric   |
-#'    |pb_s_FS           |numeric   |
-#'    |pb_c_FS           |numeric   |
-#'    |sp_s_FS           |numeric   |
-#'    |sp_l_FS           |numeric   |
-#'    |sp_p_FS           |numeric   |
-#'    |pfx_FS_pct        |numeric   |
-#'    |pfx_vFS           |numeric   |
-#'    |pfx_FS-X          |numeric   |
-#'    |pfx_FS-Z          |numeric   |
-#'    |pfx_wFS           |numeric   |
-#'    |pfx_wFS_C         |numeric   |
-#'    |pi_FS_pct         |numeric   |
-#'    |pi_vFS            |numeric   |
-#'    |pi_FS-X           |numeric   |
-#'    |pi_FS-Z           |numeric   |
-#'    |pi_wFS            |numeric   |
-#'    |pi_wFS_C          |numeric   |
-#'    |pb_o_FC           |numeric   |
-#'    |pb_s_FC           |numeric   |
-#'    |pb_c_FC           |numeric   |
-#'    |sp_s_FC           |numeric   |
-#'    |sp_l_FC           |numeric   |
-#'    |sp_p_FC           |numeric   |
-#'    |pfx_FC_pct        |numeric   |
-#'    |pfx_vFC           |numeric   |
-#'    |pfx_FC-X          |numeric   |
-#'    |pfx_FC-Z          |numeric   |
-#'    |pfx_wFC           |numeric   |
-#'    |pfx_wFC_C         |numeric   |
-#'    |pi_FC_pct         |numeric   |
-#'    |pi_vFC            |numeric   |
-#'    |pi_FC-X           |numeric   |
-#'    |pi_FC-Z           |numeric   |
-#'    |pi_wFC            |numeric   |
-#'    |pi_wFC_C          |numeric   |
-#'    |pb_o_KC           |numeric   |
-#'    |pb_s_KC           |numeric   |
-#'    |pb_c_KC           |numeric   |
-#'    |sp_s_KC           |numeric   |
-#'    |sp_l_KC           |numeric   |
-#'    |sp_p_KC           |numeric   |
-#'    |rBTV              |numeric   |
-#'    |pfx_KC_pct        |numeric   |
-#'    |pfx_vKC           |numeric   |
-#'    |pfx_KC-X          |numeric   |
-#'    |pfx_KC-Z          |numeric   |
-#'    |pfx_wKC           |numeric   |
-#'    |pfx_wKC_C         |numeric   |
-#'    |rCPTV             |numeric   |
-#'    |KN_pct            |numeric   |
-#'    |KNv               |numeric   |
-#'    |wKN               |numeric   |
-#'    |wKN_C             |numeric   |
-#'    |pfx_KN_pct        |numeric   |
-#'    |pfx_vKN           |numeric   |
-#'    |pfx_KN-X          |numeric   |
-#'    |pfx_KN-Z          |numeric   |
-#'    |pfx_wKN           |numeric   |
-#'    |pfx_wKN_C         |numeric   |
-#'    |pi_KN_pct         |numeric   |
-#'    |pi_XX_pct         |numeric   |
-#'    |pi_vKN            |numeric   |
-#'    |pi_vXX            |numeric   |
-#'    |pi_KN-X           |numeric   |
-#'    |pi_XX-X           |numeric   |
-#'    |pi_KN-Z           |numeric   |
-#'    |pi_XX-Z           |numeric   |
-#'    |pi_wKN            |numeric   |
-#'    |pi_wXX            |numeric   |
-#'    |pi_wKN_C          |numeric   |
-#'    |pi_wXX_C          |numeric   |
-#'    |sp_s_FO           |numeric   |
-#'    |sp_l_FO           |numeric   |
-#'    |sp_p_FO           |numeric   |
-#'    |pfx_FO_pct        |numeric   |
-#'    |pfx_vFO           |numeric   |
-#'    |pfx_FO-X          |numeric   |
-#'    |pfx_FO-Z          |numeric   |
-#'    |pfx_wFO           |numeric   |
-#'    |pfx_wFO_C         |numeric   |
-#'    |rDGV              |numeric   |
-#'    |pi_CS_pct         |numeric   |
-#'    |pi_vCS            |numeric   |
-#'    |pi_CS-X           |numeric   |
-#'    |pi_CS-Z           |numeric   |
-#'    |pi_wCS            |numeric   |
-#'    |pi_wCS_C          |numeric   |
-#'    |Relieving         |numeric   |
-#'    |Relief_IP         |numeric   |
-#'    |rDSV              |numeric   |
-#'    |pfx_EP_pct        |numeric   |
-#'    |pfx_vEP           |numeric   |
-#'    |pfx_EP-X          |numeric   |
-#'    |pfx_EP-Z          |numeric   |
-#'    |pfx_wEP           |numeric   |
-#'    |pfx_wEP_C         |numeric   |
-#'    |pfx_SC_pct        |numeric   |
-#'    |pfx_vSC           |numeric   |
-#'    |pfx_SC-X          |numeric   |
-#'    |pfx_SC-Z          |numeric   |
-#'    |pfx_wSC           |numeric   |
-#'    |pfx_wSC_C         |numeric   |
-#'    |pi_SB_pct         |numeric   |
-#'    |pi_vSB            |numeric   |
-#'    |pi_SB-X           |numeric   |
-#'    |pi_SB-Z           |numeric   |
-#'    |pi_wSB            |numeric   |
-#'    |pi_wSB_C          |numeric   |
-#'  
+#'
+#'  |col_name             |types     |description                                                             |
+#'  |:------------------- |:-------- |:---------------------------------------------------------------------- |
+#'  |Season               |integer   |Season (YYYY).                                                          |
+#'  |team_name            |character |Team name.                                                              |
+#'  |Throws               |character |Throwing handedness (L/R).                                              |
+#'  |xMLBAMID             |integer   |MLBAM player ID.                                                        |
+#'  |PlayerNameRoute      |character |Player name URL slug used by FanGraphs.                                 |
+#'  |PlayerName           |character |Player name.                                                            |
+#'  |playerid             |integer   |FanGraphs player ID.                                                    |
+#'  |Age                  |integer   |Player age.                                                             |
+#'  |AgeRng               |character |Player age range across the span.                                       |
+#'  |SeasonMin            |integer   |First season in the queried span.                                       |
+#'  |SeasonMax            |integer   |Last season in the queried span.                                        |
+#'  |W                    |integer   |Wins.                                                                   |
+#'  |L                    |integer   |Losses.                                                                 |
+#'  |ERA                  |numeric   |Earned run average.                                                     |
+#'  |G                    |integer   |Games played.                                                           |
+#'  |GS                   |integer   |Games started.                                                          |
+#'  |QS                   |integer   |Quality starts.                                                         |
+#'  |CG                   |integer   |Complete games.                                                         |
+#'  |ShO                  |integer   |Shutouts.                                                               |
+#'  |SV                   |integer   |Saves.                                                                  |
+#'  |BS                   |integer   |Blown saves.                                                            |
+#'  |IP                   |numeric   |Innings pitched.                                                        |
+#'  |TBF                  |integer   |Total batters faced.                                                    |
+#'  |H                    |integer   |Hits.                                                                   |
+#'  |R                    |integer   |Runs scored.                                                            |
+#'  |ER                   |integer   |Earned runs allowed.                                                    |
+#'  |HR                   |integer   |Home runs.                                                              |
+#'  |BB                   |integer   |Walks (bases on balls).                                                 |
+#'  |IBB                  |integer   |Intentional walks.                                                      |
+#'  |HBP                  |integer   |Hit by pitch.                                                           |
+#'  |WP                   |integer   |Wild pitches.                                                           |
+#'  |BK                   |integer   |Balks.                                                                  |
+#'  |SO                   |integer   |Strikeouts.                                                             |
+#'  |GB                   |integer   |Ground balls.                                                           |
+#'  |FB                   |integer   |Fly balls.                                                              |
+#'  |LD                   |integer   |Line drives.                                                            |
+#'  |IFFB                 |integer   |Infield fly balls.                                                      |
+#'  |Pitches              |integer   |Total pitches seen or thrown.                                           |
+#'  |Balls                |integer   |Total balls.                                                            |
+#'  |Strikes              |integer   |Total strikes.                                                          |
+#'  |RS                   |integer   |Run support.                                                            |
+#'  |IFH                  |integer   |Infield hits.                                                           |
+#'  |BU                   |integer   |Bunts.                                                                  |
+#'  |BUH                  |integer   |Bunt hits.                                                              |
+#'  |K_9                  |numeric   |Strikeouts per nine innings.                                            |
+#'  |BB_9                 |numeric   |Walks per nine innings.                                                 |
+#'  |K_BB                 |numeric   |Strikeout-to-walk ratio.                                                |
+#'  |H_9                  |numeric   |Hits allowed per nine innings.                                          |
+#'  |HR_9                 |numeric   |Home runs allowed per nine innings.                                     |
+#'  |AVG                  |numeric   |Batting average (or opponent average for pitchers).                     |
+#'  |WHIP                 |numeric   |Walks plus hits per inning pitched.                                     |
+#'  |BABIP                |numeric   |Batting average on balls in play.                                       |
+#'  |LOB_pct              |numeric   |Left-on-base percentage (strand rate).                                  |
+#'  |FIP                  |numeric   |Fielding Independent Pitching.                                          |
+#'  |GB_FB                |numeric   |Ground-ball to fly-ball ratio.                                          |
+#'  |LD_pct               |numeric   |Line-drive percentage.                                                  |
+#'  |GB_pct               |numeric   |Ground-ball percentage.                                                 |
+#'  |FB_pct               |numeric   |Fly-ball percentage.                                                    |
+#'  |IFFB_pct             |numeric   |Infield-fly-ball percentage.                                            |
+#'  |HR_FB                |numeric   |Home-run-per-fly-ball rate.                                             |
+#'  |IFH_pct              |numeric   |Infield-hit percentage.                                                 |
+#'  |BUH_pct              |numeric   |Bunt-hit percentage.                                                    |
+#'  |TTO_pct              |numeric   |Three-true-outcomes percentage (BB, K, HR).                             |
+#'  |CFraming             |numeric   |Catcher framing runs.                                                   |
+#'  |Starting             |numeric   |Starting-pitcher value (runs).                                          |
+#'  |Start_IP             |numeric   |Innings pitched as a starter.                                           |
+#'  |RAR                  |numeric   |Runs Above Replacement.                                                 |
+#'  |WAR                  |numeric   |Wins Above Replacement.                                                 |
+#'  |Dollars              |numeric   |Estimated market value of production.                                   |
+#'  |RA9-Wins             |numeric   |Wins based on runs allowed per nine.                                    |
+#'  |LOB-Wins             |numeric   |Wins attributable to strand rate.                                       |
+#'  |BIP-Wins             |numeric   |Wins attributable to balls in play.                                     |
+#'  |BS-Wins              |numeric   |Wins attributable to sequencing.                                        |
+#'  |tERA                 |numeric   |True ERA (batted-ball-based ERA estimator).                             |
+#'  |xFIP                 |numeric   |Expected Fielding Independent Pitching.                                 |
+#'  |WPA                  |numeric   |Win Probability Added.                                                  |
+#'  |WPA_minus            |numeric   |Negative Win Probability Added.                                         |
+#'  |WPA_plus             |numeric   |Positive Win Probability Added.                                         |
+#'  |RE24                 |numeric   |Run Expectancy based on the 24 base-out states.                         |
+#'  |REW                  |numeric   |Run Expectancy Wins.                                                    |
+#'  |pLI                  |numeric   |Average Leverage Index.                                                 |
+#'  |inLI                 |numeric   |Average Leverage Index entering the game.                               |
+#'  |gmLI                 |numeric   |Average Leverage Index at game entry.                                   |
+#'  |exLI                 |numeric   |Average Leverage Index when exiting the game.                           |
+#'  |Pulls                |integer   |Times pulled from the game.                                             |
+#'  |Games                |integer   |Games (relief context).                                                 |
+#'  |WPA_LI               |numeric   |Situational Win Probability Added (WPA divided by Leverage Index).      |
+#'  |Clutch               |numeric   |Clutch performance relative to context-neutral performance.             |
+#'  |FB_pct1              |numeric   |Overall fastball percentage (pitch usage).                              |
+#'  |FBv                  |numeric   |Average fastball velocity.                                              |
+#'  |SL_pct               |numeric   |Slider percentage (pitch usage).                                        |
+#'  |SLv                  |numeric   |Average slider velocity.                                                |
+#'  |CT_pct               |numeric   |Cutter percentage (pitch usage).                                        |
+#'  |CTv                  |numeric   |Average cutter velocity.                                                |
+#'  |CB_pct               |numeric   |Curveball percentage (pitch usage).                                     |
+#'  |CBv                  |numeric   |Average curveball velocity.                                             |
+#'  |SF_pct               |numeric   |Splitter percentage (pitch usage).                                      |
+#'  |SFv                  |numeric   |Average splitter velocity.                                              |
+#'  |XX_pct               |numeric   |Unidentified-pitch percentage (pitch usage).                            |
+#'  |wFB                  |numeric   |Fastball pitch-type linear weight runs.                                 |
+#'  |wSL                  |numeric   |Slider pitch-type linear weight runs.                                   |
+#'  |wCT                  |numeric   |Cutter pitch-type linear weight runs.                                   |
+#'  |wCB                  |numeric   |Curveball pitch-type linear weight runs.                                |
+#'  |wSF                  |numeric   |Splitter pitch-type linear weight runs.                                 |
+#'  |wFB_C                |numeric   |Fastball linear weight runs per 100 pitches.                            |
+#'  |wSL_C                |numeric   |Slider linear weight runs per 100 pitches.                              |
+#'  |wCT_C                |numeric   |Cutter linear weight runs per 100 pitches.                              |
+#'  |wCB_C                |numeric   |Curveball linear weight runs per 100 pitches.                           |
+#'  |wSF_C                |numeric   |Splitter linear weight runs per 100 pitches.                            |
+#'  |O-Swing_pct          |numeric   |Swing percentage on pitches outside the zone (chase rate).              |
+#'  |Z-Swing_pct          |numeric   |Swing percentage on pitches inside the zone.                            |
+#'  |Swing_pct            |numeric   |Overall swing percentage.                                               |
+#'  |O-Contact_pct        |numeric   |Contact percentage on pitches outside the zone.                         |
+#'  |Z-Contact_pct        |numeric   |Contact percentage on pitches inside the zone.                          |
+#'  |Contact_pct          |numeric   |Overall contact percentage.                                             |
+#'  |Zone_pct             |numeric   |Percentage of pitches in the strike zone.                               |
+#'  |F-Strike_pct         |numeric   |First-pitch strike percentage.                                          |
+#'  |SwStr_pct            |numeric   |Swinging-strike percentage.                                             |
+#'  |CStr_pct             |numeric   |Called-strike percentage.                                               |
+#'  |C+SwStr_pct          |numeric   |Combined called- plus swinging-strike percentage.                       |
+#'  |HLD                  |integer   |Holds.                                                                  |
+#'  |SD                   |integer   |Shutdowns (relief appearances that improved win probability).           |
+#'  |MD                   |integer   |Meltdowns (relief appearances that hurt win probability).               |
+#'  |ERA-                 |numeric   |Park/league-adjusted ERA (100 = average, lower is better).              |
+#'  |FIP-                 |numeric   |Park/league-adjusted FIP (100 = average, lower is better).              |
+#'  |xFIP-                |numeric   |Park/league-adjusted xFIP (100 = average, lower is better).             |
+#'  |K_pct                |numeric   |Strikeout rate.                                                         |
+#'  |BB_pct               |numeric   |Walk rate.                                                              |
+#'  |K-BB_pct             |numeric   |Strikeout rate minus walk rate.                                         |
+#'  |SIERA                |numeric   |Skill-Interactive ERA.                                                  |
+#'  |kwERA                |numeric   |Strikeout/walk-based ERA estimator.                                     |
+#'  |RS_9                 |numeric   |Run support per nine innings.                                           |
+#'  |E-F                  |numeric   |Difference between ERA and FIP.                                         |
+#'  |Pull                 |integer   |Balls in play hit to the pull field.                                    |
+#'  |Cent                 |integer   |Balls in play hit up the middle.                                        |
+#'  |Oppo                 |integer   |Balls in play hit to the opposite field.                                |
+#'  |Soft                 |integer   |Soft-contact balls in play.                                             |
+#'  |Med                  |integer   |Medium-contact balls in play.                                           |
+#'  |Hard                 |integer   |Hard-contact balls in play.                                             |
+#'  |bipCount             |integer   |Count of balls in play with contact-quality data.                       |
+#'  |Pull_pct             |numeric   |Pull-field percentage.                                                  |
+#'  |Cent_pct             |numeric   |Up-the-middle percentage.                                               |
+#'  |Oppo_pct             |numeric   |Opposite-field percentage.                                              |
+#'  |Soft_pct             |numeric   |Soft-contact percentage.                                                |
+#'  |Med_pct              |numeric   |Medium-contact percentage.                                              |
+#'  |Hard_pct             |numeric   |Hard-contact percentage.                                                |
+#'  |K_9+                 |numeric   |Park/league-adjusted strikeouts per nine (100 = average).               |
+#'  |BB_9+                |numeric   |Park/league-adjusted walks per nine (100 = average).                    |
+#'  |K_BB+                |numeric   |Park/league-adjusted strikeout-to-walk ratio (100 = average).           |
+#'  |H_9+                 |numeric   |Park/league-adjusted hits per nine (100 = average).                     |
+#'  |HR_9+                |numeric   |Park/league-adjusted home runs per nine (100 = average).                |
+#'  |AVG+                 |numeric   |Park/league-adjusted batting average (100 = average).                   |
+#'  |WHIP+                |numeric   |Park/league-adjusted WHIP (100 = average).                              |
+#'  |BABIP+               |numeric   |Park/league-adjusted BABIP (100 = average).                             |
+#'  |LOB_pct+             |numeric   |Park/league-adjusted strand rate (100 = average).                       |
+#'  |K_pct+               |numeric   |Park/league-adjusted strikeout rate (100 = average).                    |
+#'  |BB_pct+              |numeric   |Park/league-adjusted walk rate (100 = average).                         |
+#'  |LD_pct+              |numeric   |Park/league-adjusted line-drive rate (100 = average).                   |
+#'  |GB_pct+              |numeric   |Park/league-adjusted ground-ball rate (100 = average).                  |
+#'  |FB_pct+              |numeric   |Park/league-adjusted fly-ball rate (100 = average).                     |
+#'  |HRFB_pct+            |numeric   |Park/league-adjusted home-run-per-fly-ball rate (100 = average).        |
+#'  |Pull_pct+            |numeric   |Park/league-adjusted pull rate (100 = average).                         |
+#'  |Cent_pct+            |numeric   |Park/league-adjusted up-the-middle rate (100 = average).                |
+#'  |Oppo_pct+            |numeric   |Park/league-adjusted opposite-field rate (100 = average).               |
+#'  |Soft_pct+            |numeric   |Park/league-adjusted soft-contact rate (100 = average).                 |
+#'  |Med_pct+             |numeric   |Park/league-adjusted medium-contact rate (100 = average).               |
+#'  |Hard_pct+            |numeric   |Park/league-adjusted hard-contact rate (100 = average).                 |
+#'  |xERA                 |numeric   |Expected ERA (Statcast-based).                                          |
+#'  |pb_o_CH              |numeric   |PitchingBot overall grade on changeups.                                 |
+#'  |pb_s_CH              |numeric   |PitchingBot stuff grade on changeups.                                   |
+#'  |pb_c_CH              |numeric   |PitchingBot command grade on changeups.                                 |
+#'  |pb_o_CU              |numeric   |PitchingBot overall grade on curveballs.                                |
+#'  |pb_s_CU              |numeric   |PitchingBot stuff grade on curveballs.                                  |
+#'  |pb_c_CU              |numeric   |PitchingBot command grade on curveballs.                                |
+#'  |pb_o_FF              |numeric   |PitchingBot overall grade on four-seam fastballs.                       |
+#'  |pb_s_FF              |numeric   |PitchingBot stuff grade on four-seam fastballs.                         |
+#'  |pb_c_FF              |numeric   |PitchingBot command grade on four-seam fastballs.                       |
+#'  |pb_o_SI              |numeric   |PitchingBot overall grade on sinkers.                                   |
+#'  |pb_s_SI              |numeric   |PitchingBot stuff grade on sinkers.                                     |
+#'  |pb_c_SI              |numeric   |PitchingBot command grade on sinkers.                                   |
+#'  |pb_o_SL              |numeric   |PitchingBot overall grade on sliders.                                   |
+#'  |pb_s_SL              |numeric   |PitchingBot stuff grade on sliders.                                     |
+#'  |pb_c_SL              |numeric   |PitchingBot command grade on sliders.                                   |
+#'  |pb_o_FC              |numeric   |PitchingBot overall grade on cutters.                                   |
+#'  |pb_s_FC              |numeric   |PitchingBot stuff grade on cutters.                                     |
+#'  |pb_c_FC              |numeric   |PitchingBot command grade on cutters.                                   |
+#'  |pb_overall           |numeric   |PitchingBot overall grade.                                              |
+#'  |pb_stuff             |numeric   |PitchingBot stuff grade.                                                |
+#'  |pb_command           |numeric   |PitchingBot command grade.                                              |
+#'  |pb_xRV100            |numeric   |PitchingBot expected run value per 100 pitches.                         |
+#'  |pb_ERA               |numeric   |PitchingBot-modeled ERA.                                                |
+#'  |sp_s_CH              |numeric   |Stuff+ grade on changeups (100 = average).                              |
+#'  |sp_l_CH              |numeric   |Location+ grade on changeups (100 = average).                           |
+#'  |sp_p_CH              |numeric   |Pitching+ grade on changeups (100 = average).                           |
+#'  |sp_s_CU              |numeric   |Stuff+ grade on curveballs (100 = average).                             |
+#'  |sp_l_CU              |numeric   |Location+ grade on curveballs (100 = average).                          |
+#'  |sp_p_CU              |numeric   |Pitching+ grade on curveballs (100 = average).                          |
+#'  |sp_s_FF              |numeric   |Stuff+ grade on four-seam fastballs (100 = average).                    |
+#'  |sp_l_FF              |numeric   |Location+ grade on four-seam fastballs (100 = average).                 |
+#'  |sp_p_FF              |numeric   |Pitching+ grade on four-seam fastballs (100 = average).                 |
+#'  |sp_s_SI              |numeric   |Stuff+ grade on sinkers (100 = average).                                |
+#'  |sp_l_SI              |numeric   |Location+ grade on sinkers (100 = average).                             |
+#'  |sp_p_SI              |numeric   |Pitching+ grade on sinkers (100 = average).                             |
+#'  |sp_s_SL              |numeric   |Stuff+ grade on sliders (100 = average).                                |
+#'  |sp_l_SL              |numeric   |Location+ grade on sliders (100 = average).                             |
+#'  |sp_p_SL              |numeric   |Pitching+ grade on sliders (100 = average).                             |
+#'  |sp_s_FC              |numeric   |Stuff+ grade on cutters (100 = average).                                |
+#'  |sp_l_FC              |numeric   |Location+ grade on cutters (100 = average).                             |
+#'  |sp_p_FC              |numeric   |Pitching+ grade on cutters (100 = average).                             |
+#'  |sp_stuff             |numeric   |Stuff+ overall grade (pitch quality, 100 = average).                    |
+#'  |sp_location          |numeric   |Location+ overall grade (command, 100 = average).                       |
+#'  |sp_pitching          |numeric   |Pitching+ overall grade (Stuff+ and Location+ combined, 100 = average). |
+#'  |PPTV                 |integer   |Pitch-type pitch values (raw component).                                |
+#'  |CPTV                 |integer   |Catcher pitch-type value (raw component).                               |
+#'  |BPTV                 |integer   |Batter pitch-type value (raw component).                                |
+#'  |DSV                  |integer   |Defensive stuff value (raw component).                                  |
+#'  |DGV                  |integer   |Defensive game value (raw component).                                   |
+#'  |BTV                  |integer   |Base-state team value (raw component).                                  |
+#'  |rPPTV                |numeric   |Regressed pitch-type pitch values.                                      |
+#'  |rBPTV                |numeric   |Regressed batter pitch-type value.                                      |
+#'  |EBV                  |integer   |Earned-base value (raw component).                                      |
+#'  |ESV                  |integer   |Earned-strike value (raw component).                                    |
+#'  |rFTeamV              |numeric   |Regressed fielding team value.                                          |
+#'  |rBTeamV              |numeric   |Regressed base-running team value.                                      |
+#'  |rTV                  |numeric   |Regressed total team value.                                             |
+#'  |pfx_FA_pct           |numeric   |PITCHf/x four-seam fastballs usage percentage.                          |
+#'  |pfx_FC_pct           |numeric   |PITCHf/x cutters usage percentage.                                      |
+#'  |pfx_SI_pct           |numeric   |PITCHf/x sinkers usage percentage.                                      |
+#'  |pfx_SL_pct           |numeric   |PITCHf/x sliders usage percentage.                                      |
+#'  |pfx_CU_pct           |numeric   |PITCHf/x curveballs usage percentage.                                   |
+#'  |pfx_CH_pct           |numeric   |PITCHf/x changeups usage percentage.                                    |
+#'  |pfx_ST_pct           |numeric   |PITCHf/x sweepers usage percentage.                                     |
+#'  |pfx_CUO_pct          |numeric   |PITCHf/x slurves usage percentage.                                      |
+#'  |pfx_vFA              |numeric   |PITCHf/x average four-seam fastballs velocity.                          |
+#'  |pfx_vFC              |numeric   |PITCHf/x average cutters velocity.                                      |
+#'  |pfx_vSI              |numeric   |PITCHf/x average sinkers velocity.                                      |
+#'  |pfx_vSL              |numeric   |PITCHf/x average sliders velocity.                                      |
+#'  |pfx_vCU              |numeric   |PITCHf/x average curveballs velocity.                                   |
+#'  |pfx_vCH              |numeric   |PITCHf/x average changeups velocity.                                    |
+#'  |pfx_vST              |numeric   |PITCHf/x average sweepers velocity.                                     |
+#'  |pfx_vCUO             |numeric   |PITCHf/x average slurves velocity.                                      |
+#'  |pfx_FA-X             |numeric   |PITCHf/x average horizontal movement on four-seam fastballs.            |
+#'  |pfx_FC-X             |numeric   |PITCHf/x average horizontal movement on cutters.                        |
+#'  |pfx_SI-X             |numeric   |PITCHf/x average horizontal movement on sinkers.                        |
+#'  |pfx_SL-X             |numeric   |PITCHf/x average horizontal movement on sliders.                        |
+#'  |pfx_CU-X             |numeric   |PITCHf/x average horizontal movement on curveballs.                     |
+#'  |pfx_CH-X             |numeric   |PITCHf/x average horizontal movement on changeups.                      |
+#'  |pfx_ST-X             |numeric   |PITCHf/x average horizontal movement on sweepers.                       |
+#'  |pfx_CUO-X            |numeric   |PITCHf/x average horizontal movement on slurves.                        |
+#'  |pfx_FA-Z             |numeric   |PITCHf/x average vertical movement on four-seam fastballs.              |
+#'  |pfx_FC-Z             |numeric   |PITCHf/x average vertical movement on cutters.                          |
+#'  |pfx_SI-Z             |numeric   |PITCHf/x average vertical movement on sinkers.                          |
+#'  |pfx_SL-Z             |numeric   |PITCHf/x average vertical movement on sliders.                          |
+#'  |pfx_CU-Z             |numeric   |PITCHf/x average vertical movement on curveballs.                       |
+#'  |pfx_CH-Z             |numeric   |PITCHf/x average vertical movement on changeups.                        |
+#'  |pfx_ST-Z             |numeric   |PITCHf/x average vertical movement on sweepers.                         |
+#'  |pfx_CUO-Z            |numeric   |PITCHf/x average vertical movement on slurves.                          |
+#'  |pfx_wFA              |numeric   |PITCHf/x four-seam fastballs linear weight runs.                        |
+#'  |pfx_wFC              |numeric   |PITCHf/x cutters linear weight runs.                                    |
+#'  |pfx_wSI              |numeric   |PITCHf/x sinkers linear weight runs.                                    |
+#'  |pfx_wSL              |numeric   |PITCHf/x sliders linear weight runs.                                    |
+#'  |pfx_wCU              |numeric   |PITCHf/x curveballs linear weight runs.                                 |
+#'  |pfx_wCH              |numeric   |PITCHf/x changeups linear weight runs.                                  |
+#'  |pfx_wST              |numeric   |PITCHf/x sweepers linear weight runs.                                   |
+#'  |pfx_wCUO             |numeric   |PITCHf/x slurves linear weight runs.                                    |
+#'  |pfx_wFA_C            |numeric   |PITCHf/x four-seam fastballs linear weight runs per 100 pitches.        |
+#'  |pfx_wFC_C            |numeric   |PITCHf/x cutters linear weight runs per 100 pitches.                    |
+#'  |pfx_wSI_C            |numeric   |PITCHf/x sinkers linear weight runs per 100 pitches.                    |
+#'  |pfx_wSL_C            |numeric   |PITCHf/x sliders linear weight runs per 100 pitches.                    |
+#'  |pfx_wCU_C            |numeric   |PITCHf/x curveballs linear weight runs per 100 pitches.                 |
+#'  |pfx_wCH_C            |numeric   |PITCHf/x changeups linear weight runs per 100 pitches.                  |
+#'  |pfx_wST_C            |numeric   |PITCHf/x sweepers linear weight runs per 100 pitches.                   |
+#'  |pfx_wCUO_C           |numeric   |PITCHf/x slurves linear weight runs per 100 pitches.                    |
+#'  |pfx_aaFA             |numeric   |PITCHf/x average arsenal value on four-seam fastballs.                  |
+#'  |pfx_aaFC             |numeric   |PITCHf/x average arsenal value on cutters.                              |
+#'  |pfx_aaSI             |numeric   |PITCHf/x average arsenal value on sinkers.                              |
+#'  |pfx_aaSL             |numeric   |PITCHf/x average arsenal value on sliders.                              |
+#'  |pfx_aaCU             |numeric   |PITCHf/x average arsenal value on curveballs.                           |
+#'  |pfx_aaCH             |numeric   |PITCHf/x average arsenal value on changeups.                            |
+#'  |pfx_aaST             |numeric   |PITCHf/x average arsenal value on sweepers.                             |
+#'  |pfx_aaCUO            |numeric   |PITCHf/x average arsenal value on slurves.                              |
+#'  |pfx_spFA             |numeric   |PITCHf/x Stuff+ value on four-seam fastballs.                           |
+#'  |pfx_spFC             |numeric   |PITCHf/x Stuff+ value on cutters.                                       |
+#'  |pfx_spSI             |numeric   |PITCHf/x Stuff+ value on sinkers.                                       |
+#'  |pfx_spSL             |numeric   |PITCHf/x Stuff+ value on sliders.                                       |
+#'  |pfx_spCU             |numeric   |PITCHf/x Stuff+ value on curveballs.                                    |
+#'  |pfx_spCH             |numeric   |PITCHf/x Stuff+ value on changeups.                                     |
+#'  |pfx_spST             |numeric   |PITCHf/x Stuff+ value on sweepers.                                      |
+#'  |pfx_spCUO            |numeric   |PITCHf/x Stuff+ value on slurves.                                       |
+#'  |pfx_O-Swing_pct      |numeric   |PITCHf/x swing percentage on pitches outside the zone.                  |
+#'  |pfx_Z-Swing_pct      |numeric   |PITCHf/x swing percentage on pitches inside the zone.                   |
+#'  |pfx_Swing_pct        |numeric   |PITCHf/x swing percentage.                                              |
+#'  |pfx_O-Contact_pct    |numeric   |PITCHf/x contact percentage on pitches outside the zone.                |
+#'  |pfx_Z-Contact_pct    |numeric   |PITCHf/x contact percentage on pitches inside the zone.                 |
+#'  |pfx_Contact_pct      |numeric   |PITCHf/x contact percentage.                                            |
+#'  |pfx_Zone_pct         |numeric   |PITCHf/x percentage of pitches in the strike zone.                      |
+#'  |pfx_Pace             |numeric   |PITCHf/x pace (seconds between pitches).                                |
+#'  |AvgBatSpeed          |numeric   |Average bat speed (mph).                                                |
+#'  |FastSwing_pct        |numeric   |Fast-swing percentage (75+ mph bat speed).                              |
+#'  |SwingLength          |numeric   |Average swing length (feet).                                            |
+#'  |SquaredUpContact_pct |numeric   |Squared-up percentage per batted-ball contact.                          |
+#'  |SquaredUpSwing_pct   |numeric   |Squared-up percentage per swing.                                        |
+#'  |BlastContact_pct     |numeric   |Blast percentage per batted-ball contact.                               |
+#'  |BlastSwing_pct       |numeric   |Blast percentage per swing.                                             |
+#'  |Swords               |integer   |Swords (awkward, defensive swinging strikes induced).                   |
+#'  |CompetitiveSwings    |integer   |Competitive swings tracked.                                             |
+#'  |Tilt                 |numeric   |Average swing tilt (degrees).                                           |
+#'  |AttackAngle          |numeric   |Average attack angle (degrees).                                         |
+#'  |AttackDirection      |numeric   |Average attack direction (degrees).                                     |
+#'  |IdealAttackAngle_pct |numeric   |Percentage of swings in the ideal attack-angle range.                   |
+#'  |DepthInBox           |numeric   |Average batter depth in the box (inches).                               |
+#'  |DistanceOffPlate     |numeric   |Average batter distance off the plate (inches).                         |
+#'  |scH-Swing_pct        |numeric   |Statcast swing percentage on hard-hit pitches.                          |
+#'  |scH-Contact_pct      |numeric   |Statcast contact percentage on hard-hit pitches.                        |
+#'  |scH-Zone_pct         |numeric   |Statcast in-zone percentage on hard-hit pitches.                        |
+#'  |scS-Swing_pct        |numeric   |Statcast swing percentage on slider pitches.                            |
+#'  |scS-Contact_pct      |numeric   |Statcast contact percentage on slider pitches.                          |
+#'  |scS-Zone_pct         |numeric   |Statcast in-zone percentage on slider pitches.                          |
+#'  |scC-Swing_pct        |numeric   |Statcast swing percentage on curveball pitches.                         |
+#'  |scC-Contact_pct      |numeric   |Statcast contact percentage on curveball pitches.                       |
+#'  |scC-Zone_pct         |numeric   |Statcast in-zone percentage on curveball pitches.                       |
+#'  |scW-Swing_pct        |numeric   |Statcast swing percentage on offspeed pitches.                          |
+#'  |scW-Contact_pct      |numeric   |Statcast contact percentage on offspeed pitches.                        |
+#'  |scW-Zone_pct         |numeric   |Statcast in-zone percentage on offspeed pitches.                        |
+#'  |scSI-Swing_pct       |numeric   |Statcast swing percentage on sinker pitches.                            |
+#'  |scSI-Contact_pct     |numeric   |Statcast contact percentage on sinker pitches.                          |
+#'  |scSI-Zone_pct        |numeric   |Statcast in-zone percentage on sinker pitches.                          |
+#'  |scSO-Swing_pct       |numeric   |Statcast swing percentage on softly-hit pitches.                        |
+#'  |scSO-Contact_pct     |numeric   |Statcast contact percentage on softly-hit pitches.                      |
+#'  |scSO-Zone_pct        |numeric   |Statcast in-zone percentage on softly-hit pitches.                      |
+#'  |scO-Swing_pct        |numeric   |Statcast swing percentage on out-of-zone pitches.                       |
+#'  |scO-Contact_pct      |numeric   |Statcast contact percentage on out-of-zone pitches.                     |
+#'  |scO-Zone_pct         |numeric   |Statcast in-zone percentage on out-of-zone pitches.                     |
+#'  |scZ-Swing_pct        |numeric   |Statcast swing percentage on in-zone pitches.                           |
+#'  |scZ-Contact_pct      |numeric   |Statcast contact percentage on in-zone pitches.                         |
+#'  |scZ-Zone_pct         |numeric   |Statcast in-zone percentage on in-zone pitches.                         |
+#'  |pi_CH_pct            |numeric   |PITCHInfo changeups usage percentage.                                   |
+#'  |pi_CU_pct            |numeric   |PITCHInfo curveballs usage percentage.                                  |
+#'  |pi_FA_pct            |numeric   |PITCHInfo four-seam fastballs usage percentage.                         |
+#'  |pi_SI_pct            |numeric   |PITCHInfo sinkers usage percentage.                                     |
+#'  |pi_SL_pct            |numeric   |PITCHInfo sliders usage percentage.                                     |
+#'  |pi_vCH               |numeric   |PITCHInfo average changeups velocity.                                   |
+#'  |pi_vCU               |numeric   |PITCHInfo average curveballs velocity.                                  |
+#'  |pi_vFA               |numeric   |PITCHInfo average four-seam fastballs velocity.                         |
+#'  |pi_vSI               |numeric   |PITCHInfo average sinkers velocity.                                     |
+#'  |pi_vSL               |numeric   |PITCHInfo average sliders velocity.                                     |
+#'  |pi_CH-X              |numeric   |PITCHInfo average horizontal movement on changeups.                     |
+#'  |pi_CU-X              |numeric   |PITCHInfo average horizontal movement on curveballs.                    |
+#'  |pi_FA-X              |numeric   |PITCHInfo average horizontal movement on four-seam fastballs.           |
+#'  |pi_SI-X              |numeric   |PITCHInfo average horizontal movement on sinkers.                       |
+#'  |pi_SL-X              |numeric   |PITCHInfo average horizontal movement on sliders.                       |
+#'  |pi_CH-Z              |numeric   |PITCHInfo average vertical movement on changeups.                       |
+#'  |pi_CU-Z              |numeric   |PITCHInfo average vertical movement on curveballs.                      |
+#'  |pi_FA-Z              |numeric   |PITCHInfo average vertical movement on four-seam fastballs.             |
+#'  |pi_SI-Z              |numeric   |PITCHInfo average vertical movement on sinkers.                         |
+#'  |pi_SL-Z              |numeric   |PITCHInfo average vertical movement on sliders.                         |
+#'  |pi_wCH               |numeric   |PITCHInfo changeups linear weight runs.                                 |
+#'  |pi_wCU               |numeric   |PITCHInfo curveballs linear weight runs.                                |
+#'  |pi_wFA               |numeric   |PITCHInfo four-seam fastballs linear weight runs.                       |
+#'  |pi_wSI               |numeric   |PITCHInfo sinkers linear weight runs.                                   |
+#'  |pi_wSL               |numeric   |PITCHInfo sliders linear weight runs.                                   |
+#'  |pi_wCH_C             |numeric   |PITCHInfo changeups linear weight runs per 100 pitches.                 |
+#'  |pi_wCU_C             |numeric   |PITCHInfo curveballs linear weight runs per 100 pitches.                |
+#'  |pi_wFA_C             |numeric   |PITCHInfo four-seam fastballs linear weight runs per 100 pitches.       |
+#'  |pi_wSI_C             |numeric   |PITCHInfo sinkers linear weight runs per 100 pitches.                   |
+#'  |pi_wSL_C             |numeric   |PITCHInfo sliders linear weight runs per 100 pitches.                   |
+#'  |pi_O-Swing_pct       |numeric   |PITCHInfo swing percentage on pitches outside the zone.                 |
+#'  |pi_Z-Swing_pct       |numeric   |PITCHInfo swing percentage on pitches inside the zone.                  |
+#'  |pi_Swing_pct         |numeric   |PITCHInfo swing percentage.                                             |
+#'  |pi_O-Contact_pct     |numeric   |PITCHInfo contact percentage on pitches outside the zone.               |
+#'  |pi_Z-Contact_pct     |numeric   |PITCHInfo contact percentage on pitches inside the zone.                |
+#'  |pi_Contact_pct       |numeric   |PITCHInfo contact percentage.                                           |
+#'  |pi_Zone_pct          |numeric   |PITCHInfo percentage of pitches in the strike zone.                     |
+#'  |pi_Pace              |numeric   |PITCHInfo pace (seconds between pitches).                               |
+#'  |Events               |integer   |Batted-ball events with Statcast measurement.                           |
+#'  |EV                   |numeric   |Average exit velocity (mph).                                            |
+#'  |LA                   |numeric   |Average launch angle (degrees).                                         |
+#'  |Barrels              |integer   |Barreled batted balls.                                                  |
+#'  |Barrel_pct           |numeric   |Barrel percentage.                                                      |
+#'  |maxEV                |numeric   |Maximum exit velocity (mph).                                            |
+#'  |HardHit              |integer   |Hard-hit batted balls (95+ mph).                                        |
+#'  |HardHit_pct          |numeric   |Hard-hit percentage (95+ mph).                                          |
+#'  |Q                    |numeric   |Quality of contact / quality score.                                     |
+#'  |TG                   |integer   |Total games in the span.                                                |
+#'  |TIP                  |numeric   |Total innings pitched in the span.                                      |
+#'  |positionDB           |character |Position code from the database.                                        |
+#'  |position             |character |Position played.                                                        |
+#'  |team_name_abb        |character |Team name abbreviation.                                                 |
+#'  |teamid               |integer   |FanGraphs team ID.                                                      |
+#'  |playerTeamId         |integer   |FanGraphs player-team ID.                                               |
+#'  |EV90                 |numeric   |90th-percentile exit velocity (mph).                                    |
+#'  |CH_pct               |numeric   |Changeup percentage (pitch usage).                                      |
+#'  |CHv                  |numeric   |Average changeup velocity.                                              |
+#'  |wCH                  |numeric   |Changeup pitch-type linear weight runs.                                 |
+#'  |wCH_C                |numeric   |Changeup linear weight runs per 100 pitches.                            |
+#'  |pfx_SLO_pct          |numeric   |PITCHf/x slurves usage percentage.                                      |
+#'  |pfx_vSLO             |numeric   |PITCHf/x average slurves velocity.                                      |
+#'  |pfx_SLO-X            |numeric   |PITCHf/x average horizontal movement on slurves.                        |
+#'  |pfx_SLO-Z            |numeric   |PITCHf/x average vertical movement on slurves.                          |
+#'  |pfx_wSLO             |numeric   |PITCHf/x slurves linear weight runs.                                    |
+#'  |pfx_wSLO_C           |numeric   |PITCHf/x slurves linear weight runs per 100 pitches.                    |
+#'  |pfx_aaSLO            |numeric   |PITCHf/x average arsenal value on slurves.                              |
+#'  |pfx_spSLO            |numeric   |PITCHf/x Stuff+ value on slurves.                                       |
+#'  |pfx_KC_pct           |numeric   |PITCHf/x knuckle-curves usage percentage.                               |
+#'  |pfx_vKC              |numeric   |PITCHf/x average knuckle-curves velocity.                               |
+#'  |pfx_KC-X             |numeric   |PITCHf/x average horizontal movement on knuckle-curves.                 |
+#'  |pfx_KC-Z             |numeric   |PITCHf/x average vertical movement on knuckle-curves.                   |
+#'  |pfx_wKC              |numeric   |PITCHf/x knuckle-curves linear weight runs.                             |
+#'  |pfx_wKC_C            |numeric   |PITCHf/x knuckle-curves linear weight runs per 100 pitches.             |
+#'  |pfx_aaKC             |numeric   |PITCHf/x average arsenal value on knuckle-curves.                       |
+#'  |pfx_spKC             |numeric   |PITCHf/x Stuff+ value on knuckle-curves.                                |
+#'  |pi_FC_pct            |numeric   |PITCHInfo cutters usage percentage.                                     |
+#'  |pi_vFC               |numeric   |PITCHInfo average cutters velocity.                                     |
+#'  |pi_FC-X              |numeric   |PITCHInfo average horizontal movement on cutters.                       |
+#'  |pi_FC-Z              |numeric   |PITCHInfo average vertical movement on cutters.                         |
+#'  |pi_wFC               |numeric   |PITCHInfo cutters linear weight runs.                                   |
+#'  |pi_wFC_C             |numeric   |PITCHInfo cutters linear weight runs per 100 pitches.                   |
+#'  |pb_o_KC              |numeric   |PitchingBot overall grade on knuckle-curves.                            |
+#'  |pb_s_KC              |numeric   |PitchingBot stuff grade on knuckle-curves.                              |
+#'  |pb_c_KC              |numeric   |PitchingBot command grade on knuckle-curves.                            |
+#'  |sp_s_KC              |numeric   |Stuff+ grade on knuckle-curves (100 = average).                         |
+#'  |sp_l_KC              |numeric   |Location+ grade on knuckle-curves (100 = average).                      |
+#'  |sp_p_KC              |numeric   |Pitching+ grade on knuckle-curves (100 = average).                      |
+#'  |rBTV                 |numeric   |Regressed base-state team value.                                        |
+#'  |pb_o_FS              |numeric   |PitchingBot overall grade on splitters.                                 |
+#'  |pb_s_FS              |numeric   |PitchingBot stuff grade on splitters.                                   |
+#'  |pb_c_FS              |numeric   |PitchingBot command grade on splitters.                                 |
+#'  |sp_s_FS              |numeric   |Stuff+ grade on splitters (100 = average).                              |
+#'  |sp_l_FS              |numeric   |Location+ grade on splitters (100 = average).                           |
+#'  |sp_p_FS              |numeric   |Pitching+ grade on splitters (100 = average).                           |
+#'  |pfx_FS_pct           |numeric   |PITCHf/x splitters usage percentage.                                    |
+#'  |pfx_vFS              |numeric   |PITCHf/x average splitters velocity.                                    |
+#'  |pfx_FS-X             |numeric   |PITCHf/x average horizontal movement on splitters.                      |
+#'  |pfx_FS-Z             |numeric   |PITCHf/x average vertical movement on splitters.                        |
+#'  |pfx_wFS              |numeric   |PITCHf/x splitters linear weight runs.                                  |
+#'  |pfx_wFS_C            |numeric   |PITCHf/x splitters linear weight runs per 100 pitches.                  |
+#'  |pfx_aaFS             |numeric   |PITCHf/x average arsenal value on splitters.                            |
+#'  |pfx_spFS             |numeric   |PITCHf/x Stuff+ value on splitters.                                     |
+#'  |pi_FS_pct            |numeric   |PITCHInfo splitters usage percentage.                                   |
+#'  |pi_vFS               |numeric   |PITCHInfo average splitters velocity.                                   |
+#'  |pi_FS-X              |numeric   |PITCHInfo average horizontal movement on splitters.                     |
+#'  |pi_FS-Z              |numeric   |PITCHInfo average vertical movement on splitters.                       |
+#'  |pi_wFS               |numeric   |PITCHInfo splitters linear weight runs.                                 |
+#'  |pi_wFS_C             |numeric   |PITCHInfo splitters linear weight runs per 100 pitches.                 |
+#'  |rCPTV                |numeric   |Regressed catcher pitch-type value.                                     |
+#'  |KN_pct               |numeric   |Knuckleball percentage (pitch usage).                                   |
+#'  |KNv                  |numeric   |Average knuckleball velocity.                                           |
+#'  |wKN                  |numeric   |Knuckleball pitch-type linear weight runs.                              |
+#'  |wKN_C                |numeric   |Knuckleball linear weight runs per 100 pitches.                         |
+#'  |pfx_KN_pct           |numeric   |PITCHf/x knuckleballs usage percentage.                                 |
+#'  |pfx_vKN              |numeric   |PITCHf/x average knuckleballs velocity.                                 |
+#'  |pfx_KN-X             |numeric   |PITCHf/x average horizontal movement on knuckleballs.                   |
+#'  |pfx_KN-Z             |numeric   |PITCHf/x average vertical movement on knuckleballs.                     |
+#'  |pfx_wKN              |numeric   |PITCHf/x knuckleballs linear weight runs.                               |
+#'  |pfx_wKN_C            |numeric   |PITCHf/x knuckleballs linear weight runs per 100 pitches.               |
+#'  |pfx_aaKN             |numeric   |PITCHf/x average arsenal value on knuckleballs.                         |
+#'  |pfx_spKN             |numeric   |PITCHf/x Stuff+ value on knuckleballs.                                  |
+#'  |pi_KN_pct            |numeric   |PITCHInfo knuckleballs usage percentage.                                |
+#'  |pi_XX_pct            |numeric   |PITCHInfo unidentified pitches usage percentage.                        |
+#'  |pi_vKN               |numeric   |PITCHInfo average knuckleballs velocity.                                |
+#'  |pi_vXX               |numeric   |PITCHInfo average unidentified pitches velocity.                        |
+#'  |pi_KN-X              |numeric   |PITCHInfo average horizontal movement on knuckleballs.                  |
+#'  |pi_XX-X              |numeric   |PITCHInfo average horizontal movement on unidentified pitches.          |
+#'  |pi_KN-Z              |numeric   |PITCHInfo average vertical movement on knuckleballs.                    |
+#'  |pi_XX-Z              |numeric   |PITCHInfo average vertical movement on unidentified pitches.            |
+#'  |pi_wKN               |numeric   |PITCHInfo knuckleballs linear weight runs.                              |
+#'  |pi_wXX               |numeric   |PITCHInfo unidentified pitches linear weight runs.                      |
+#'  |pi_wKN_C             |numeric   |PITCHInfo knuckleballs linear weight runs per 100 pitches.              |
+#'  |pi_wXX_C             |numeric   |PITCHInfo unidentified pitches linear weight runs per 100 pitches.      |
+#'  |sp_s_FO              |numeric   |Stuff+ grade on forkballs/pitch-outs (100 = average).                   |
+#'  |sp_l_FO              |numeric   |Location+ grade on forkballs/pitch-outs (100 = average).                |
+#'  |sp_p_FO              |numeric   |Pitching+ grade on forkballs/pitch-outs (100 = average).                |
+#'  |pfx_FO_pct           |numeric   |PITCHf/x forkballs/pitch-outs usage percentage.                         |
+#'  |pfx_vFO              |numeric   |PITCHf/x average forkballs/pitch-outs velocity.                         |
+#'  |pfx_FO-X             |numeric   |PITCHf/x average horizontal movement on forkballs/pitch-outs.           |
+#'  |pfx_FO-Z             |numeric   |PITCHf/x average vertical movement on forkballs/pitch-outs.             |
+#'  |pfx_wFO              |numeric   |PITCHf/x forkballs/pitch-outs linear weight runs.                       |
+#'  |pfx_wFO_C            |numeric   |PITCHf/x forkballs/pitch-outs linear weight runs per 100 pitches.       |
+#'  |pfx_aaFO             |numeric   |PITCHf/x average arsenal value on forkballs/pitch-outs.                 |
+#'  |pfx_spFO             |numeric   |PITCHf/x Stuff+ value on forkballs/pitch-outs.                          |
+#'  |rDGV                 |numeric   |Regressed defensive game value.                                         |
+#'  |Relieving            |numeric   |Relief-pitcher value (runs).                                            |
+#'  |Relief_IP            |numeric   |Innings pitched in relief.                                              |
+#'  |pi_CS_pct            |numeric   |PITCHInfo slow curves usage percentage.                                 |
+#'  |pi_vCS               |numeric   |PITCHInfo average slow curves velocity.                                 |
+#'  |pi_CS-X              |numeric   |PITCHInfo average horizontal movement on slow curves.                   |
+#'  |pi_CS-Z              |numeric   |PITCHInfo average vertical movement on slow curves.                     |
+#'  |pi_wCS               |numeric   |PITCHInfo slow curves linear weight runs.                               |
+#'  |pi_wCS_C             |numeric   |PITCHInfo slow curves linear weight runs per 100 pitches.               |
+#'  |pfx_CV_pct           |numeric   |PITCHf/x slow curves usage percentage.                                  |
+#'  |pfx_vCV              |numeric   |PITCHf/x average slow curves velocity.                                  |
+#'  |pfx_CV-X             |numeric   |PITCHf/x average horizontal movement on slow curves.                    |
+#'  |pfx_CV-Z             |numeric   |PITCHf/x average vertical movement on slow curves.                      |
+#'  |pfx_wCV              |numeric   |PITCHf/x slow curves linear weight runs.                                |
+#'  |pfx_wCV_C            |numeric   |PITCHf/x slow curves linear weight runs per 100 pitches.                |
+#'  |pfx_aaCV             |numeric   |PITCHf/x average arsenal value on slow curves.                          |
+#'  |pfx_spCV             |numeric   |PITCHf/x Stuff+ value on slow curves.                                   |
+#'  |rDSV                 |numeric   |Regressed defensive stuff value.                                        |
+#'  |pfx_EP_pct           |numeric   |PITCHf/x eephus pitches usage percentage.                               |
+#'  |pfx_vEP              |numeric   |PITCHf/x average eephus pitches velocity.                               |
+#'  |pfx_EP-X             |numeric   |PITCHf/x average horizontal movement on eephus pitches.                 |
+#'  |pfx_EP-Z             |numeric   |PITCHf/x average vertical movement on eephus pitches.                   |
+#'  |pfx_wEP              |numeric   |PITCHf/x eephus pitches linear weight runs.                             |
+#'  |pfx_wEP_C            |numeric   |PITCHf/x eephus pitches linear weight runs per 100 pitches.             |
+#'  |pfx_aaEP             |numeric   |PITCHf/x average arsenal value on eephus pitches.                       |
+#'  |pfx_spEP             |numeric   |PITCHf/x Stuff+ value on eephus pitches.                                |
+#'  |pfx_SC_pct           |numeric   |PITCHf/x screwballs usage percentage.                                   |
+#'  |pfx_vSC              |numeric   |PITCHf/x average screwballs velocity.                                   |
+#'  |pfx_SC-X             |numeric   |PITCHf/x average horizontal movement on screwballs.                     |
+#'  |pfx_SC-Z             |numeric   |PITCHf/x average vertical movement on screwballs.                       |
+#'  |pfx_wSC              |numeric   |PITCHf/x screwballs linear weight runs.                                 |
+#'  |pfx_wSC_C            |numeric   |PITCHf/x screwballs linear weight runs per 100 pitches.                 |
+#'  |pfx_aaSC             |numeric   |PITCHf/x average arsenal value on screwballs.                           |
+#'  |pfx_spSC             |numeric   |PITCHf/x Stuff+ value on screwballs.                                    |
+#'  |pi_SB_pct            |numeric   |PITCHInfo slow-balls usage percentage.                                  |
+#'  |pi_vSB               |numeric   |PITCHInfo average slow-balls velocity.                                  |
+#'  |pi_SB-X              |numeric   |PITCHInfo average horizontal movement on slow-balls.                    |
+#'  |pi_SB-Z              |numeric   |PITCHInfo average vertical movement on slow-balls.                      |
+#'  |pi_wSB               |numeric   |PITCHInfo slow-balls linear weight runs.                                |
+#'  |pi_wSB_C             |numeric   |PITCHInfo slow-balls linear weight runs per 100 pitches.                |
+#'
 #' @import rvest 
 #' @export
 #' @examples \donttest{
@@ -480,8 +580,8 @@ fg_pitcher_leaders <- function(
     stats = stats,
     lg = lg,
     qual = qual,
-    season = startseason,
-    season1 = endseason,
+    season = endseason,
+    season1 = startseason,
     startdate = startdate,
     enddate = enddate,
     month = month,
@@ -500,16 +600,17 @@ fg_pitcher_leaders <- function(
   
   url <- "https://www.fangraphs.com/api/leaders/major-league/data"
   
-  fg_endpoint <- httr::modify_url(url, query = params)
+  fg_endpoint <- httr2::url_modify_query(url, !!!params)
   
+  leaders <- NULL
   tryCatch(
     expr = {
       
-      resp <- fg_endpoint %>% 
-        mlb_api_call()
+      resp <- fg_endpoint |> 
+        fg_api_call()
       
-      fg_df <- resp$data %>% 
-        jsonlite::toJSON() %>%
+      fg_df <- resp$data |> 
+        jsonlite::toJSON() |>
         jsonlite::fromJSON(flatten=TRUE)
       
       c <- colnames(fg_df)
@@ -518,23 +619,23 @@ fg_pitcher_leaders <- function(
       c <- ifelse(substr(c, nchar(c) - 1 + 1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
       c <- gsub(" ", "_", c, fixed = TRUE)
       colnames(fg_df) <- c
-      leaders <- fg_df %>% 
-        dplyr::rename_with(~ gsub("pi", "pi_", .x), starts_with("pi")) %>% 
-        dplyr::rename_with(~ gsub("pfx", "pfx_", .x), starts_with("pfx")) %>%
-        dplyr::rename(
+      leaders <- fg_df |> 
+        dplyr::rename_with(~ gsub("pi", "pi_", .x), starts_with("pi")) |> 
+        dplyr::rename_with(~ gsub("pfx", "pfx_", .x), starts_with("pfx")) |>
+        dplyr::rename(dplyr::any_of(c(
           "Start_IP" = "Start-IP",
           "Relief_IP" = "Relief-IP",
           "WPA_minus" = "-WPA",
-          "WPA_plus" = "+WPA", 
+          "WPA_plus" = "+WPA",
           "AgeRng" = "AgeR",
           "team_name" = "TeamName",
-          "team_name_abb" = "TeamNameAbb") %>%
+          "team_name_abb" = "TeamNameAbb"))) |>
         dplyr::select(-dplyr::any_of(c(
-          "Name", 
+          "Name",
           "Team"
-        ))) %>%
+        ))) |>
         dplyr::select(
-          "season",
+          "Season",
           "team_name",
           "Throws", 
           "xMLBAMID", 
@@ -543,12 +644,12 @@ fg_pitcher_leaders <- function(
           "playerid",
           "Age",
           "AgeRng",
-          tidyr::everything()) %>% 
+          tidyr::everything()) |> 
         make_baseballr_data("MLB Player Pitching Leaders data from FanGraphs.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no player pitching leaders data available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no player pitching leaders data available!")
     },
     finally = {
     }

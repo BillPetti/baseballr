@@ -1,55 +1,79 @@
+#' @rdname mlb_all_star
+#' @name mlb_all_star
+#' @aliases mlb_all_star all_star allstar
+#' @title
+#' **MLB All-Star Endpoint Overview**
+#' @description
+#'
+#' * `mlb_all_star_ballots()`: Find MLB All-Star Ballots.
+#' * `mlb_all_star_final_vote()`: Find MLB All-Star Final Vote.
+#' * `mlb_all_star_write_ins()`: Find MLB All-Star Write-ins.
+#'
+#' @details
+#' ## **MLB All-Star**
+#'
+#' These functions retrieve MLB All-Star ballot, final vote, and write-in information from the MLB Stats API.
+#'
+#' @family MLB All-Star
+NULL
+
 #' @title **Find MLB All-Star Ballots**
 #' @param league_id League ID for league all-star ballot of interest.
 #' @param season The season of the all-star ballot.
 #' @return Returns a tibble with the following columns:
-#'   |col_name                      |types     |
-#'   |:-----------------------------|:---------|
-#'   |player_id                     |integer   |
-#'   |full_name                     |character |
-#'   |link                          |character |
-#'   |first_name                    |character |
-#'   |last_name                     |character |
-#'   |primary_number                |character |
-#'   |birth_date                    |character |
-#'   |current_age                   |integer   |
-#'   |birth_city                    |character |
-#'   |birth_state_province          |character |
-#'   |birth_country                 |character |
-#'   |height                        |character |
-#'   |weight                        |integer   |
-#'   |active                        |logical   |
-#'   |use_name                      |character |
-#'   |middle_name                   |character |
-#'   |boxscore_name                 |character |
-#'   |nick_name                     |character |
-#'   |gender                        |character |
-#'   |is_player                     |logical   |
-#'   |is_verified                   |logical   |
-#'   |draft_year                    |integer   |
-#'   |mlb_debut_date                |character |
-#'   |name_first_last               |character |
-#'   |name_slug                     |character |
-#'   |first_last_name               |character |
-#'   |last_first_name               |character |
-#'   |last_init_name                |character |
-#'   |init_last_name                |character |
-#'   |full_fml_name                 |character |
-#'   |full_lfm_name                 |character |
-#'   |strike_zone_top               |numeric   |
-#'   |strike_zone_bottom            |numeric   |
-#'   |pronunciation                 |character |
-#'   |name_matrilineal              |character |
-#'   |name_title                    |character |
-#'   |primary_position_code         |character |
-#'   |primary_position_name         |character |
-#'   |primary_position_type         |character |
-#'   |primary_position_abbreviation |character |
-#'   |bat_side_code                 |character |
-#'   |bat_side_description          |character |
-#'   |pitch_hand_code               |character |
-#'   |pitch_hand_description        |character |
-#'   |league_id                     |numeric   |
-#'   |season                        |numeric   |
+#'
+#'   |col_name                      |types     |description                                       |
+#'   |:-----------------------------|:---------|:-------------------------------------------------|
+#'   |player_id                     |integer   |MLB player ID.                                    |
+#'   |full_name                     |character |Player full name.                                 |
+#'   |link                          |character |MLB Stats API relative resource link.             |
+#'   |first_name                    |character |Player first name.                                |
+#'   |last_name                     |character |Player last name.                                 |
+#'   |primary_number                |character |Player uniform number.                            |
+#'   |birth_date                    |character |Birth date (YYYY-MM-DD).                          |
+#'   |current_age                   |integer   |Current age in years.                             |
+#'   |birth_city                    |character |City of birth.                                    |
+#'   |birth_country                 |character |Country of birth.                                 |
+#'   |height                        |character |Height (feet and inches).                         |
+#'   |weight                        |integer   |Weight in pounds.                                 |
+#'   |active                        |logical   |Whether the player is currently active.           |
+#'   |use_name                      |character |Preferred first name.                             |
+#'   |use_last_name                 |character |Preferred last name.                              |
+#'   |middle_name                   |character |Player middle name.                               |
+#'   |boxscore_name                 |character |Name as shown in box scores.                      |
+#'   |nick_name                     |character |Player nickname.                                  |
+#'   |gender                        |character |Player gender.                                    |
+#'   |name_matrilineal              |character |Maternal family name.                             |
+#'   |is_player                     |logical   |Whether the person is a player.                   |
+#'   |is_verified                   |logical   |Whether the player profile is verified.           |
+#'   |pronunciation                 |character |Phonetic name pronunciation.                      |
+#'   |last_played_date              |character |Date of last MLB game played.                     |
+#'   |mlb_debut_date                |character |MLB debut date (YYYY-MM-DD).                      |
+#'   |name_first_last               |character |Name in first-last order.                         |
+#'   |name_slug                     |character |URL-friendly name slug.                           |
+#'   |first_last_name               |character |First and last name.                              |
+#'   |last_first_name               |character |Name in last, first order.                        |
+#'   |last_init_name                |character |Last name with first initial.                     |
+#'   |init_last_name                |character |First initial with last name.                     |
+#'   |full_fml_name                 |character |Full name (first-middle-last).                    |
+#'   |full_lfm_name                 |character |Full name (last-first-middle).                    |
+#'   |strike_zone_top               |numeric   |Top of the player's strike zone (feet).           |
+#'   |strike_zone_bottom            |numeric   |Bottom of the player's strike zone (feet).        |
+#'   |birth_state_province          |character |State or province of birth.                       |
+#'   |draft_year                    |integer   |Year the player was drafted.                      |
+#'   |name_title                    |character |Name title.                                       |
+#'   |name_suffix                   |character |Name suffix (e.g. Jr., III).                      |
+#'   |primary_position_code         |character |Primary fielding position code.                   |
+#'   |primary_position_name         |character |Primary fielding position name.                   |
+#'   |primary_position_type         |character |Primary position type (e.g. Infielder).           |
+#'   |primary_position_abbreviation |character |Primary position abbreviation.                    |
+#'   |bat_side_code                 |character |Batting side code (L/R/S).                        |
+#'   |bat_side_description          |character |Batting side description.                          |
+#'   |pitch_hand_code               |character |Throwing hand code (L/R).                         |
+#'   |pitch_hand_description        |character |Throwing hand description.                        |
+#'   |league_id                     |numeric   |MLB league ID.                                    |
+#'   |season                        |numeric   |Season (YYYY).                                    |
+#'
 #' @export
 #' @examples \donttest{
 #'  try(mlb_all_star_ballots(league_id = 103, season = 2021))
@@ -63,25 +87,26 @@ mlb_all_star_ballots <- function(league_id = NULL,
     season = season
   )
 
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
 
+  ballot <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>%
+      resp <- mlb_endpoint |>
         mlb_api_call()
-      ballot <- jsonlite::fromJSON(jsonlite::toJSON(resp$people), flatten = TRUE) %>%
-        janitor::clean_names() %>% 
-        as.data.frame() %>% 
+      ballot <- jsonlite::fromJSON(jsonlite::toJSON(resp$people), flatten = TRUE) |>
+        janitor::clean_names() |> 
+        as.data.frame() |> 
         dplyr::mutate(
           league_id = as.numeric(league_id),
-          season = as.numeric(season)) %>% 
+          season = as.numeric(season)) |> 
         dplyr::rename(
-          "player_id" = "id") %>%
+          "player_id" = "id") |>
         make_baseballr_data("MLB All-Star Ballots data from MLB.com",Sys.time())
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

@@ -68,10 +68,11 @@
 # )
 # 
 # test_that("MLB Umpire Games", {
+  skip_mlb_test()
 #   skip_on_cran()
 #   
 #   x <- mlb_umpire_games(umpire_id = 596809, season = 2018)
 #   
-#   expect_equal(colnames(x), cols)
+#   expect_in(sort(cols), sort(colnames(x)))
 #   expect_s3_class(x, "data.frame")
 # })

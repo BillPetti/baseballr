@@ -4,33 +4,27 @@
 #' @description This function allows you to scrape schedule and results for a major league team from Baseball-Reference.com
 #' @param Tm The abbreviation used by Baseball-Reference.com for the team whose results you want to scrape.
 #' @param year Season for which you want to scrape the park factors.
-#' @return Returns a tibble of MLB team results and the following columns:
-#' 
-#'  |col_name       |types     |
-#'  |:--------------|:---------|
-#'  |Gm             |numeric   |
-#'  |Date           |character |
-#'  |Tm             |character |
-#'  |H_A            |character |
-#'  |Opp            |character |
-#'  |Result         |character |
-#'  |R              |numeric   |
-#'  |RA             |numeric   |
-#'  |Inn            |character |
-#'  |Record         |character |
-#'  |Rank           |numeric   |
-#'  |GB             |character |
-#'  |Win            |character |
-#'  |Loss           |character |
-#'  |Save           |character |
-#'  |Time           |character |
-#'  |D/N            |character |
-#'  |Attendance     |numeric   |
-#'  |cLI            |numeric   |
-#'  |Streak         |numeric   |
-#'  |Orig_Scheduled |character |
-#'  |Year           |numeric   |
-#'  
+#' @return Returns a tibble of MLB team results, one row per game on the team's schedule, with the following columns:
+#'
+#'  |col_name |types     |description                                              |
+#'  |:--------|:---------|:--------------------------------------------------------|
+#'  |Gm       |character |Game number / label in the schedule (includes postseason labels). |
+#'  |Date     |character |Day-of-week and calendar date of the game.               |
+#'  |Tm       |character |Team abbreviation.                                       |
+#'  |H_A      |character |Home/away indicator (A denotes a road game).             |
+#'  |Opp      |character |Opponent team abbreviation.                              |
+#'  |Result   |character |Game outcome from the team's perspective (W/L).          |
+#'  |R        |integer   |Runs scored by the team.                                 |
+#'  |RA       |integer   |Runs allowed (opponent runs).                            |
+#'  |Inn      |integer   |Innings played when not nine (e.g. extra innings).       |
+#'  |Record   |character |Team's cumulative win-loss record after the game.        |
+#'  |Rank     |character |Team's standing/rank in its division after the game.     |
+#'  |GB       |character |Games behind the division leader after the game.         |
+#'  |Win      |character |Winning pitcher.                                         |
+#'  |Loss     |character |Losing pitcher.                                          |
+#'  |Save     |character |Pitcher credited with the save (N if none).              |
+#'  |Time     |character |Duration of the game.                                    |
+#'
 #' @importFrom dplyr filter select mutate_at
 #' @import rvest 
 #' @export
@@ -44,19 +38,20 @@ bref_team_results <- function(Tm, year) {
   
   if (nchar(Tm) > 3) {
     teams_data <- baseballr::teams_lu_table
-    Tm <- (teams_data %>% 
-             dplyr::filter(.data$name == Tm) %>% 
+    Tm <- (teams_data |> 
+             dplyr::filter(.data$name == Tm) |> 
              dplyr::select("bref_abbreviation"))[[1]]
   }
   url <- paste0("https://www.baseball-reference.com/teams/", Tm, "/", year, "-schedule-scores.shtml")
   
+  data <- NULL
   tryCatch(
     expr = {
-      data <- url %>% 
-        xml2::read_html() %>%
+      data <- url |> 
+        xml2::read_html() |>
         rvest::html_elements("table")
       
-      data <- data[[length(data)]] %>%
+      data <- data[[length(data)]] |>
         rvest::html_table() 
       data <- data[-3]
       
@@ -71,21 +66,21 @@ bref_team_results <- function(Tm, year) {
       
       data$Streak <- ifelse(grepl("-", data$Streak, fixed = TRUE), nchar(data$Streak) * -1, nchar(data$Streak) * 1)
       suppressWarnings(
-        data <- data %>%
-          dplyr::filter(!is.na(as.numeric(.data$R))) %>%
+        data <- data |>
+          dplyr::filter(!is.na(as.numeric(.data$R))) |>
           dplyr::mutate_at(c("Gm","R","RA", "Rank", "Attendance","cLI"), as.numeric) 
       )
       data$Year <- year
       data <- data[, 1:ncol(data)]
-      data <- data %>%
+      data <- data |>
         dplyr::filter(!grepl("Gm#", .data$Gm))
       
-      data <- data %>%
+      data <- data |>
         make_baseballr_data("MLB Team Results data from baseball-reference.com",Sys.time())
       Sys.sleep(5)
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments or no team results data available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team results data available!")
     },
     finally = {
     }

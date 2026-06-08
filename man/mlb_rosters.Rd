@@ -18,23 +18,26 @@ Valid options include: '40Man', 'fullSeason', 'fullRoster', 'nonRosterInvitees',
 'allTime', 'depthChart', 'gameday', 'coach'}
 }
 \value{
-Returns a tibble with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   jersey_number \tab character \cr
-   person_id \tab integer \cr
-   person_full_name \tab character \cr
-   person_link \tab character \cr
-   position_code \tab character \cr
-   position_name \tab character \cr
-   position_type \tab character \cr
-   position_abbreviation \tab character \cr
-   status_code \tab character \cr
-   status_description \tab character \cr
-   link \tab character \cr
-   team_id \tab integer \cr
-   roster_type \tab character \cr
-   season \tab numeric \cr
-   date \tab character \cr
+Returns a tibble with one row per roster member with the following
+columns (player roster types). The \code{coach} roster type instead returns
+\code{job}, \code{job_id}, and \code{title} columns in place of the position/status
+columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   jersey_number \tab character \tab Player's uniform number. \cr
+   person_id \tab integer \tab MLBAM player ID. \cr
+   person_full_name \tab character \tab Player's full name. \cr
+   person_link \tab character \tab API link to the player resource. \cr
+   position_code \tab character \tab Numeric scorekeeping position code. \cr
+   position_name \tab character \tab Full position name. \cr
+   position_type \tab character \tab Position category (e.g. 'Infielder'). \cr
+   position_abbreviation \tab character \tab Position abbreviation (e.g. 'SS'). \cr
+   status_code \tab character \tab Roster status code (e.g. 'A'). \cr
+   status_description \tab character \tab Roster status description (e.g. 'Active'). \cr
+   link \tab character \tab API link to the team roster resource. \cr
+   team_id \tab integer \tab MLBAM team ID. \cr
+   roster_type \tab character \tab Roster type returned. \cr
+   season \tab numeric \tab Season requested. \cr
+   date \tab character \tab Date requested, or NA if not supplied. \cr
 }
 }
 \description{

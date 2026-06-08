@@ -14,16 +14,17 @@ ncaa_teams(year = most_recent_ncaa_baseball_season(), division = 1, ...)
 \item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
-A data frame with the following variables\tabular{ll}{
-   col_name \tab types \cr
-   team_id \tab character \cr
-   team_name \tab character \cr
-   team_url \tab character \cr
-   conference_id \tab character \cr
-   conference \tab character \cr
-   division \tab numeric \cr
-   year \tab numeric \cr
-   season_id \tab character \cr
+A data frame with the following variables\tabular{lll}{
+   col_name \tab types \tab description \cr
+   team_id \tab character \tab Franchise team id (legacy \verb{/team/\{id\}/...} urls). \cr
+   team_name \tab character \tab Team display name. \cr
+   team_url \tab character \tab Relative team url from stats.ncaa.org. \cr
+   conference_id \tab character \tab Conference identifier. \cr
+   conference \tab character \tab Conference name. \cr
+   division \tab numeric \tab NCAA division (1, 2, 3). \cr
+   year \tab numeric \tab Season (4-digit year). \cr
+   season_id \tab character \tab Season id (legacy urls); join key to season ids. \cr
+   season_team_id \tab character \tab Season-team id (modern \verb{/teams/\{id\}} urls). \cr
 }
 }
 \description{

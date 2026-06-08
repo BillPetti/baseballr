@@ -12,66 +12,48 @@ fg_milb_batter_game_logs(playerid, year)
 \item{year}{The season for which game logs should be returned.}
 }
 \value{
-Returns a tibble of Minor League batter game logs with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   player_name \tab character \cr
-   minor_playerid \tab character \cr
-   Date \tab character \cr
-   Team \tab character \cr
-   Level \tab character \cr
-   Opp \tab character \cr
-   G \tab numeric \cr
-   AB \tab numeric \cr
-   PA \tab numeric \cr
-   H \tab numeric \cr
-   1B \tab numeric \cr
-   2B \tab numeric \cr
-   3B \tab numeric \cr
-   HR \tab numeric \cr
-   R \tab numeric \cr
-   RBI \tab numeric \cr
-   BB \tab numeric \cr
-   IBB \tab numeric \cr
-   SO \tab numeric \cr
-   HBP \tab numeric \cr
-   SF \tab numeric \cr
-   SH \tab numeric \cr
-   GDP \tab numeric \cr
-   SB \tab numeric \cr
-   CS \tab numeric \cr
-   AVG \tab numeric \cr
-   BB\% \tab numeric \cr
-   K\% \tab numeric \cr
-   BB/K \tab numeric \cr
-   OBP \tab numeric \cr
-   SLG \tab numeric \cr
-   OPS \tab numeric \cr
-   ISO \tab numeric \cr
-   Spd \tab numeric \cr
-   BABIP \tab numeric \cr
-   wRC \tab numeric \cr
-   wRAA \tab numeric \cr
-   wOBA \tab numeric \cr
-   wRC+ \tab numeric \cr
-   wBsR \tab numeric \cr
-   gamedate \tab character \cr
-   dh \tab integer \cr
-   UPId \tab character \cr
-   MLBAMId \tab character \cr
-   MinorMasterId \tab character \cr
-   RRId \tab character \cr
-   FirstName \tab character \cr
-   LastName \tab character \cr
-   firstLastName \tab character \cr
-   Height \tab character \cr
-   Weight \tab character \cr
-   BirthDate \tab character \cr
-   Bats \tab character \cr
-   Throws \tab character \cr
-   Position \tab character \cr
-   BirthCity \tab character \cr
-   College \tab character \cr
-   Age \tab character \cr
+Returns a tibble of Minor League batter game logs, one row per game, with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   Date \tab character \tab Calendar date of the game (YYYY-MM-DD). \cr
+   Team \tab character \tab Minor league team the batter played for. \cr
+   Level \tab character \tab Minor league classification level (e.g. (AA), (AAA)). \cr
+   Opp \tab character \tab Opponent team; leading @ indicates a road game. \cr
+   G \tab numeric \tab Games played (1 per row). \cr
+   AB \tab numeric \tab At-bats. \cr
+   PA \tab numeric \tab Plate appearances. \cr
+   H \tab numeric \tab Hits. \cr
+   1B \tab numeric \tab Singles. \cr
+   2B \tab numeric \tab Doubles. \cr
+   3B \tab numeric \tab Triples. \cr
+   HR \tab numeric \tab Home runs. \cr
+   R \tab numeric \tab Runs scored. \cr
+   RBI \tab numeric \tab Runs batted in. \cr
+   BB \tab numeric \tab Walks (bases on balls). \cr
+   IBB \tab numeric \tab Intentional walks. \cr
+   SO \tab numeric \tab Strikeouts. \cr
+   HBP \tab numeric \tab Times hit by pitch. \cr
+   SF \tab numeric \tab Sacrifice flies. \cr
+   SH \tab numeric \tab Sacrifice hits (bunts). \cr
+   GDP \tab numeric \tab Grounded into double plays. \cr
+   SB \tab numeric \tab Stolen bases. \cr
+   CS \tab numeric \tab Times caught stealing. \cr
+   AVG \tab numeric \tab Batting average (H/AB). \cr
+   BB\% \tab numeric \tab Walk rate (BB per plate appearance). \cr
+   K\% \tab numeric \tab Strikeout rate (SO per plate appearance). \cr
+   BB/K \tab numeric \tab Walk-to-strikeout ratio. \cr
+   OBP \tab numeric \tab On-base percentage. \cr
+   SLG \tab numeric \tab Slugging percentage. \cr
+   OPS \tab numeric \tab On-base plus slugging. \cr
+   ISO \tab numeric \tab Isolated power (SLG minus AVG). \cr
+   Spd \tab numeric \tab Bill James Speed Score. \cr
+   BABIP \tab numeric \tab Batting average on balls in play. \cr
+   wRC \tab numeric \tab Weighted runs created. \cr
+   wRAA \tab numeric \tab Weighted runs above average. \cr
+   wOBA \tab numeric \tab Weighted on-base average. \cr
+   wRC+ \tab numeric \tab Weighted runs created plus (league/park adjusted, 100=avg). \cr
+   wBsR \tab numeric \tab Weighted base running runs. \cr
+   gamedate \tab character \tab Game date as parsed from the source feed. \cr
+   dh \tab integer \tab Doubleheader game indicator (0 = single game). \cr
 }
 }
 \description{

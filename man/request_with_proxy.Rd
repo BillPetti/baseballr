@@ -2,16 +2,42 @@
 % Please edit documentation in R/utils.R
 \name{request_with_proxy}
 \alias{request_with_proxy}
-\title{\strong{Retry http request with proxy}}
+\title{\strong{Retry an http request (with optional proxy) and rate-limit}}
 \usage{
-request_with_proxy(url, ...)
+request_with_proxy(
+  url,
+  ...,
+  headers = .ncaa_headers(),
+  proxy = getOption("baseballr.proxy")
+)
 }
 \arguments{
 \item{url}{Request url}
 
-\item{...}{passed to httr::RETRY}
+\item{...}{currently unused (kept for backwards compatibility)}
+
+\item{headers}{A named character vector of request headers. Defaults to
+\code{.ncaa_headers()} (a modern browser header set that passes the
+\code{stats.ncaa.org} Akamai edge).}
+
+\item{proxy}{Optional proxy. Either a URL string (e.g.
+\code{"http://user:pass@host:port"}) or a list of arguments for
+\code{\link[httr2:req_proxy]{httr2::req_proxy()}} (e.g. \code{list(url = "http://host:port", username = "u", password = "p")}). Defaults to \code{getOption("baseballr.proxy")}, so a proxy
+can be set once per session with
+\code{options(baseballr.proxy = list(url = ..., username = ..., password = ...))}.}
+}
+\value{
+An \link[httr2:response]{httr2::response} object.
 }
 \description{
-This is a thin wrapper on httr::RETRY
+\code{httr2}-based GET helper used by the NCAA (\code{stats.ncaa.org}) scrapers. Pass a
+\code{proxy} through \code{...} to route the request through a proxy, e.g.
+\preformatted{
+ncaa_roster(team_id = 104, year = 2023,
+  proxy = list(url = "http://HOST:PORT", username = "USER", password = "PASS"))
+}
+The \code{stats.ncaa.org} edge (Akamai) rate-limits and IP-bans aggressive
+scrapers, so this helper sleeps 5 seconds after every request. Rotate proxies
+across calls to spread load.
 }
 \keyword{internal}

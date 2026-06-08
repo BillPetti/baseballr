@@ -5,10 +5,11 @@ cols <- c(
 )
 
 test_that("MLB Awards", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_awards()
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

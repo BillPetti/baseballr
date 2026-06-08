@@ -17,16 +17,16 @@ including the date (FALSE, default) or rather standings for games played
 after the date}
 }
 \value{
-Returns a tibble of MLB standings with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   Tm \tab character \cr
-   W \tab integer \cr
-   L \tab integer \cr
-   W-L\% \tab numeric \cr
-   GB \tab character \cr
-   RS \tab integer \cr
-   RA \tab integer \cr
-   pythW-L\% \tab numeric \cr
+Returns a tibble of MLB standings, one row per team in the requested division, with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   Tm \tab character \tab Team abbreviation. \cr
+   W \tab integer \tab Wins as of the requested date. \cr
+   L \tab integer \tab Losses as of the requested date. \cr
+   W-L\% \tab numeric \tab Winning percentage. \cr
+   GB \tab character \tab Games behind the division leader (-- for the leader). \cr
+   RS \tab integer \tab Runs scored. \cr
+   RA \tab integer \tab Runs allowed. \cr
+   pythW-L\% \tab numeric \tab Pythagorean (expected) winning percentage from RS/RA. \cr
 }
 }
 \description{

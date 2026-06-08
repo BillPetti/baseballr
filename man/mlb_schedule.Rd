@@ -32,78 +32,81 @@ desired. See below for a reference of level ids.\tabular{rllllrl}{
 }
 \value{
 Returns a tibble which includes \code{game_pk} values and additional
-information for games scheduled or played with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   date \tab character \cr
-   total_items \tab integer \cr
-   total_events \tab integer \cr
-   total_games \tab integer \cr
-   total_games_in_progress \tab integer \cr
-   game_pk \tab integer \cr
-   link \tab character \cr
-   game_type \tab character \cr
-   season \tab character \cr
-   game_date \tab character \cr
-   official_date \tab character \cr
-   game_number \tab integer \cr
-   public_facing \tab logical \cr
-   double_header \tab character \cr
-   gameday_type \tab character \cr
-   tiebreaker \tab character \cr
-   calendar_event_id \tab character \cr
-   season_display \tab character \cr
-   day_night \tab character \cr
-   scheduled_innings \tab integer \cr
-   reverse_home_away_status \tab logical \cr
-   inning_break_length \tab integer \cr
-   games_in_series \tab integer \cr
-   series_game_number \tab integer \cr
-   series_description \tab character \cr
-   record_source \tab character \cr
-   if_necessary \tab character \cr
-   if_necessary_description \tab character \cr
-   status_abstract_game_state \tab character \cr
-   status_coded_game_state \tab character \cr
-   status_detailed_state \tab character \cr
-   status_status_code \tab character \cr
-   status_start_time_tbd \tab logical \cr
-   status_reason \tab character \cr
-   status_abstract_game_code \tab character \cr
-   teams_away_split_squad \tab logical \cr
-   teams_away_series_number \tab integer \cr
-   teams_away_league_record_wins \tab integer \cr
-   teams_away_league_record_losses \tab integer \cr
-   teams_away_league_record_pct \tab character \cr
-   teams_away_team_id \tab integer \cr
-   teams_away_team_name \tab character \cr
-   teams_away_team_link \tab character \cr
-   teams_home_split_squad \tab logical \cr
-   teams_home_series_number \tab integer \cr
-   teams_home_league_record_wins \tab integer \cr
-   teams_home_league_record_losses \tab integer \cr
-   teams_home_league_record_pct \tab character \cr
-   teams_home_team_id \tab integer \cr
-   teams_home_team_name \tab character \cr
-   teams_home_team_link \tab character \cr
-   venue_id \tab integer \cr
-   venue_name \tab character \cr
-   venue_link \tab character \cr
-   content_link \tab character \cr
-   is_tie \tab logical \cr
-   description \tab character \cr
-   teams_away_score \tab integer \cr
-   teams_away_is_winner \tab logical \cr
-   teams_home_score \tab integer \cr
-   teams_home_is_winner \tab logical \cr
-   reschedule_date \tab character \cr
-   reschedule_game_date \tab character \cr
-   rescheduled_from \tab character \cr
-   rescheduled_from_date \tab character \cr
-   resume_date \tab character \cr
-   resume_game_date \tab character \cr
-   resumed_from \tab character \cr
-   resumed_from_date \tab character \cr
-   events \tab list \cr
+information for games scheduled or played with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   date \tab character \tab Calendar date for the schedule entry. \cr
+   total_items \tab integer \tab Total schedule items on the date. \cr
+   total_events \tab integer \tab Total non-game events on the date. \cr
+   total_games \tab integer \tab Total games on the date. \cr
+   total_games_in_progress \tab integer \tab Games currently in progress on the date. \cr
+   game_pk \tab integer \tab Unique game identifier. \cr
+   game_guid \tab character \tab Globally unique game identifier (GUID). \cr
+   link \tab character \tab API link to the game feed. \cr
+   game_type \tab character \tab Game type code (e.g. 'R', 'S', 'W'). \cr
+   season \tab character \tab Season the game belongs to. \cr
+   game_date \tab character \tab Game date-time in UTC (ISO 8601). \cr
+   official_date \tab character \tab Official game date (YYYY-MM-DD). \cr
+   game_number \tab integer \tab Game number within a doubleheader. \cr
+   public_facing \tab logical \tab Whether the game is public-facing. \cr
+   double_header \tab character \tab Doubleheader indicator ('N', 'S', 'Y'). \cr
+   gameday_type \tab character \tab Gameday data feed type. \cr
+   tiebreaker \tab character \tab Whether the game is a tiebreaker. \cr
+   calendar_event_id \tab character \tab Calendar event identifier. \cr
+   season_display \tab character \tab Display string for the season. \cr
+   day_night \tab character \tab Day or night game indicator. \cr
+   scheduled_innings \tab integer \tab Scheduled number of innings. \cr
+   reverse_home_away_status \tab logical \tab Whether home/away teams are reversed. \cr
+   inning_break_length \tab integer \tab Length of inning breaks in seconds. \cr
+   games_in_series \tab integer \tab Number of games in the series. \cr
+   series_game_number \tab integer \tab Game number within the series. \cr
+   series_description \tab character \tab Description of the series. \cr
+   record_source \tab character \tab Source of the schedule record. \cr
+   if_necessary \tab character \tab Whether the game is played only if necessary. \cr
+   if_necessary_description \tab character \tab Description of the if-necessary status. \cr
+   status_abstract_game_state \tab character \tab Abstract game state (e.g. 'Final'). \cr
+   status_coded_game_state \tab character \tab Coded game state. \cr
+   status_detailed_state \tab character \tab Detailed game state (e.g. 'Cancelled'). \cr
+   status_status_code \tab character \tab Status code for the game. \cr
+   status_start_time_tbd \tab logical \tab Whether the start time is TBD. \cr
+   status_reason \tab character \tab Reason for the game status (e.g. 'Rain'). \cr
+   status_abstract_game_code \tab character \tab Abstract game state code. \cr
+   teams_away_split_squad \tab logical \tab Whether the away team is a split squad. \cr
+   teams_away_series_number \tab integer \tab Away team's series number. \cr
+   teams_away_team_id \tab integer \tab Away team MLBAM ID. \cr
+   teams_away_team_name \tab character \tab Away team name. \cr
+   teams_away_team_link \tab character \tab API link to the away team. \cr
+   teams_away_league_record_wins \tab integer \tab Away team league-record wins. \cr
+   teams_away_league_record_losses \tab integer \tab Away team league-record losses. \cr
+   teams_away_league_record_ties \tab integer \tab Away team league-record ties. \cr
+   teams_away_league_record_pct \tab character \tab Away team winning percentage. \cr
+   teams_home_split_squad \tab logical \tab Whether the home team is a split squad. \cr
+   teams_home_series_number \tab integer \tab Home team's series number. \cr
+   teams_home_team_id \tab integer \tab Home team MLBAM ID. \cr
+   teams_home_team_name \tab character \tab Home team name. \cr
+   teams_home_team_link \tab character \tab API link to the home team. \cr
+   teams_home_league_record_wins \tab integer \tab Home team league-record wins. \cr
+   teams_home_league_record_losses \tab integer \tab Home team league-record losses. \cr
+   teams_home_league_record_ties \tab integer \tab Home team league-record ties. \cr
+   teams_home_league_record_pct \tab character \tab Home team winning percentage. \cr
+   venue_id \tab integer \tab MLBAM venue ID. \cr
+   venue_name \tab character \tab Venue name. \cr
+   venue_link \tab character \tab API link to the venue. \cr
+   content_link \tab character \tab API link to the game content. \cr
+   is_tie \tab logical \tab Whether the game ended in a tie. \cr
+   description \tab character \tab Game description (often for exhibition games). \cr
+   teams_away_score \tab integer \tab Away team final score. \cr
+   teams_away_is_winner \tab logical \tab Whether the away team won. \cr
+   teams_home_score \tab integer \tab Home team final score. \cr
+   teams_home_is_winner \tab logical \tab Whether the home team won. \cr
+   reschedule_date \tab character \tab Reschedule date-time, if rescheduled. \cr
+   reschedule_game_date \tab character \tab Reschedule game date, if rescheduled. \cr
+   rescheduled_from \tab character \tab Original date-time the game was rescheduled from. \cr
+   rescheduled_from_date \tab character \tab Original date the game was rescheduled from. \cr
+   resume_date \tab character \tab Resume date-time, if suspended/resumed. \cr
+   resume_game_date \tab character \tab Resume game date, if suspended/resumed. \cr
+   resumed_from \tab character \tab Date-time the game was resumed from. \cr
+   resumed_from_date \tab character \tab Date the game was resumed from. \cr
+   events \tab list \tab Nested list of non-game events. \cr
 }
 }
 \description{

@@ -81,10 +81,11 @@ pacman::p_load_current_gh("billpetti/baseballr")
 
 ### **The Data**
 
-There are generally speaking **eight** men's baseball data sources accessible from this package:
+There are generally speaking **nine** men's baseball data sources accessible from this package:
 
 -   [`baseballr-data` repo](https://github.com/sportsdataverse/baseballr-data) (@SportsDataverse)
 -   [MLB Stats API](https://www.mlb.com/)
+-   [ESPN (MLB)](https://www.espn.com/mlb/)
 -   [Baseball Savant's Statcast](https://baseballsavant.mlb.com/)
 -   [Chadwick Bureau's Public Register of Baseball Players](https://github.com/chadwickbureau/register/)
 -   [Baseball Reference](https://www.baseball-reference.com/)
@@ -99,6 +100,8 @@ As of [baseballr v1.0.0](https://billpetti.github.io/baseballr/news/index.html#b
 -   Functions that use the [`baseballr-data` repository](https://github.com/sportsdataverse/baseballr-data) will contain `load_` or `update_` in the function name and would be considered loading functions for the play-by-play data, team box scores, and player box scores.
 
 -   Functions that use the MLB Stats API start with `mlb_` by convention and should be assumed as `get` functions. As of `baseballr` version `r remote_version`, the package exports ~88 functions covering the MLB Stats API.
+
+-   Functions that use [ESPN](https://www.espn.com/mlb/)'s MLB endpoints start with `espn_mlb_` by convention and should be assumed as `get` functions. They cover scoreboards and schedules, play-by-play, team and player box scores, game rosters, standings, athletes, coaches, drafts, leaders, and more — including baseball-specific extractors for probable starting pitchers (`espn_mlb_game_probables()`) and the umpire crew / venue (`espn_mlb_game_info()`). As of `baseballr` version `r remote_version`, the package exports ~107 functions covering ESPN's MLB endpoints. Each returns a clean, tidy `baseballr_data` tibble; box scores are returned wide (one row per team / per athlete-side). Live ESPN tests are gated behind `ESPN_MLB_TESTS=1`.
 
 -   Functions that use one of [Baseball Savant's Statcast](https://baseballsavant.mlb.com/) APIs start with `statcast_` by convention and should be assumed as `get` functions. These functions allow for live access to Statcast data for the MLB games in-progress. As of `baseballr` version `r remote_version`, the package exports ~5 Statcast-related functions.
 

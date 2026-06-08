@@ -69,30 +69,52 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
   if (year < 2013) {
     stop('you must provide a year that is greater than or equal to 2013')
   }
-  headers <- httr::add_headers(.headers = .ncaa_headers())
+
+  df <- data.frame()
+
   tryCatch(
     expr = {
+      # Team stats live at /team/{team_id}/stats, keyed by the season id and the
+      # per-type stat-category id (batting_id / pitching_id) from the season-id
+      # lookup. The previous batting branch passed `id` twice and never sent the
+      # category id; both branches now use year_stat_category_id correctly.
+      # NOTE: this endpoint is currently gated behind Akamai's bm-verify
+      # interstitial, which a static request cannot solve (it works in a real
+      # browser that runs the challenge JS). When challenged the function
+      # degrades gracefully via .ncaa_is_interstitial() below.
+      season_ids <- load_ncaa_baseball_season_ids() %>%
+        dplyr::filter(.data$season == year)
+      season_id <- season_ids %>% dplyr::pull("id")
+      type_id <- season_ids %>%
+        dplyr::pull(if (type == "pitching") "pitching_id" else "batting_id")
+
+      url <- paste0("https://stats.ncaa.org/team/", team_id,
+                    "/stats?id=", season_id, "&year_stat_category_id=", type_id)
+
+      team_stats_resp <- request_with_proxy(url = url, ...)
+      payload_txt <- httr2::resp_body_string(team_stats_resp)
+
+      if (httr2::resp_status(team_stats_resp) != 200 ||
+          .ncaa_is_interstitial(payload_txt)) {
+        cli::cli_alert_warning(
+          paste0("{Sys.time()}: stats.ncaa.org returned an Akamai bot-challenge ",
+                 "for the team stats endpoint; no data could be retrieved. This ",
+                 "endpoint is gated and cannot be scraped without a browser session.")
+        )
+        return(df)
+      }
+
+      data_read <- xml2::read_html(payload_txt)
+      tables <- data_read %>% rvest::html_elements("table")
+      if (length(tables) < 3) {
+        cli::cli_alert_warning(
+          "{Sys.time()}: No stats table found for team {team_id} ({year})."
+        )
+        return(df)
+      }
+
       if (type == "batting") {
-        id <- load_ncaa_baseball_season_ids() %>% 
-          dplyr::filter(.data$season == year) %>% 
-          dplyr::select("id")
-        type_id <- load_ncaa_baseball_season_ids() %>% 
-          dplyr::filter(.data$season == year) %>% 
-          dplyr::select("batting_id")
-        url <- paste0("http://stats.ncaa.org/team/",team_id,"/stats?game_sport_year_ctl_id=", id, "&id=", id)
-        
-        team_stats_resp <- request_with_proxy(url = url, ..., headers)
-        
-        check_status(team_stats_resp)
-        
-        payload <- team_stats_resp %>% 
-          httr::content(as = "text", encoding = "UTF-8") %>% 
-          xml2::read_html()
-        
-        data_read <- payload
-        
-        data <- (data_read %>%
-                   rvest::html_elements("table"))[[3]] %>%
+        data <- tables[[3]] %>%
           rvest::html_table()
         df <- as.data.frame(data)
         df$year <- year
@@ -100,31 +122,31 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
         df <- df %>%
           dplyr::left_join(load_ncaa_baseball_teams(),
                            by = c("team_id" = "team_id", "year" = "year"))
-        df <- df %>% 
+        df <- df %>%
           dplyr::select("year", "team_name", "conference", "division", tidyr::everything())
         df$Player <- gsub("x ", "", df$Player)
         if (!"RBI2out" %in% names(df)) {
           df$RBI2out <- NA
         }
-        
+
         if('OPP DP' %in% colnames(df) == TRUE) {
           df <- df %>%
             dplyr::rename(DP = "OPP DP")
         }
-        
+
         df <- df %>% dplyr::select(
           "year","team_name","conference","division","Jersey","Player",
           "Yr","Pos","GP","GS","BA","OBPct","SlgPct","R","AB",
           "H","2B","3B","TB","HR","RBI","BB","HBP","SF","SH",
           "K","DP","CS","Picked","SB","RBI2out","team_id","conference_id")
-        
+
         character_cols <- c("year", "team_name", "conference", "Jersey", "Player",
                             "Yr", "Pos")
-        
+
         numeric_cols <- c("division", "GP", "GS", "BA", "OBPct", "SlgPct", "R", "AB",
                           "H", "2B", "3B", "TB", "HR", "RBI", "BB", "HBP", "SF", "SH",
                           "K", "DP", "CS", "Picked", "SB", "RBI2out", "team_id", "conference_id")
-        
+
         suppressWarnings(
           df <- df %>%
             dplyr::mutate_at(vars(character_cols), function(x){as.character(x)})
@@ -133,28 +155,9 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
           df <- df %>%
             dplyr::mutate_at(vars(numeric_cols), function(x){as.numeric(as.character(x))})
         )
-        
+
       } else {
-        year_id <- load_ncaa_baseball_season_ids() %>% 
-          dplyr::filter(.data$season == year) %>% 
-          dplyr::select("id")
-        type_id <- load_ncaa_baseball_season_ids() %>% 
-          dplyr::filter(.data$season == year) %>% 
-          dplyr::select("pitching_id")
-        url <- paste0("http://stats.ncaa.org/team/", team_id, "/stats?id=", year_id, "&year_stat_category_id=", type_id)
-        
-        team_stats_resp <- request_with_proxy(url = url, ..., headers)
-        
-        check_status(team_stats_resp)
-        
-        payload <- team_stats_resp %>% 
-          httr::content(as = "text", encoding = "UTF-8") %>% 
-          xml2::read_html()
-        
-        data_read <- payload
-        
-        data <- (data_read %>%
-                   rvest::html_elements("table"))[[3]] %>%
+        data <- tables[[3]] %>%
           rvest::html_table()
         df <- as.data.frame(data)
         df <- df[,-6]
@@ -197,7 +200,7 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
         html_attr('href') %>%
         as.data.frame() %>%
         dplyr::rename("player_url" = ".") %>%
-        dplyr::mutate(player_url = paste0('http://stats.ncaa.org', .data$player_url))
+        dplyr::mutate(player_url = paste0('https://stats.ncaa.org', .data$player_url))
       
       player_names_join <- data_read %>%
         html_elements('#stat_grid a') %>%
@@ -240,7 +243,12 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger(
+        paste0("{Sys.time()}: Could not retrieve or parse NCAA team {type} stats ",
+               "for team {team_id} ({year}). The stats.ncaa.org page layout may ",
+               "have changed or the request was challenged.")
+      )
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }

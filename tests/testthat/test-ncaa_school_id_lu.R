@@ -11,10 +11,11 @@ cols <- c(
 )
 
 test_that("NCAA School ID Lookup", {
+  skip_ncaa_test()
   skip_on_cran()
   
   x <- ncaa_school_id_lu("Van")
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

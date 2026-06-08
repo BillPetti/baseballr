@@ -7,10 +7,10 @@
 mlb_standings_types()
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   standings_type_name \tab character \cr
-   standings_type_description \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   standings_type_name \tab character \tab Standings type identifier (e.g., wildCard). \cr
+   standings_type_description \tab character \tab Human-readable description of the type. \cr
 }
 }
 \description{

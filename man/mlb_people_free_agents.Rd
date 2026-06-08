@@ -10,25 +10,25 @@ mlb_people_free_agents(season = NULL)
 \item{season}{Season preceding free agency}
 }
 \value{
-Returns a tibble with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   date_declared \tab character \cr
-   notes \tab character \cr
-   date_signed \tab character \cr
-   sort_order \tab integer \cr
-   player_id \tab integer \cr
-   player_full_name \tab character \cr
-   player_link \tab character \cr
-   original_team_id \tab integer \cr
-   original_team_name \tab character \cr
-   original_team_link \tab character \cr
-   position_code \tab character \cr
-   position_name \tab character \cr
-   position_type \tab character \cr
-   position_abbreviation \tab character \cr
-   new_team_id \tab integer \cr
-   new_team_name \tab character \cr
-   new_team_link \tab character \cr
+Returns a tibble with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   date_declared \tab character \tab Date the player declared free agency (YYYY-MM-DD). \cr
+   notes \tab character \tab Notes on the signing (e.g. 'One-year contract'). \cr
+   date_signed \tab character \tab Date the player signed a new contract (YYYY-MM-DD). \cr
+   sort_order \tab integer \tab Display sort order for the free agent record. \cr
+   player_id \tab integer \tab MLB player id of the free agent. \cr
+   player_full_name \tab character \tab Free agent full name. \cr
+   player_link \tab character \tab API relative link to the player. \cr
+   original_team_id \tab integer \tab Team id the player left. \cr
+   original_team_name \tab character \tab Name of the team the player left. \cr
+   original_team_link \tab character \tab API relative link to the original team. \cr
+   position_code \tab character \tab Player position code. \cr
+   position_name \tab character \tab Player position name (e.g. 'Relief Pitcher'). \cr
+   position_type \tab character \tab Player position type (e.g. 'Pitcher'). \cr
+   position_abbreviation \tab character \tab Player position abbreviation (e.g. 'RP'). \cr
+   new_team_id \tab integer \tab Team id the player signed with. \cr
+   new_team_name \tab character \tab Name of the team the player signed with. \cr
+   new_team_link \tab character \tab API relative link to the new team. \cr
 }
 }
 \description{

@@ -7,13 +7,13 @@
 #' @importFrom jsonlite fromJSON
 #' @return Returns a tibble that includes time codes from the game_pk requested
 #' 
-#'  |col_name                        |types   |
-#'  |:-------------------------------|:-------|
-#'  |home_team_win_probability       |numeric |
-#'  |away_team_win_probability       |numeric |
-#'  |home_team_win_probability_added |numeric |
-#'  |at_bat_index                    |integer |
-#'  |leverage_index                  |numeric |
+#'  |col_name                        |types   |description                                                       |
+#'  |:-------------------------------|:-------|:-----------------------------------------------------------------|
+#'  |home_team_win_probability       |numeric |Home team win probability (percent) entering the at-bat.          |
+#'  |away_team_win_probability       |numeric |Away team win probability (percent) entering the at-bat.          |
+#'  |home_team_win_probability_added |numeric |Change in home team win probability attributed to the at-bat.     |
+#'  |at_bat_index                    |integer |Zero-based index of the at-bat within the game.                   |
+#'  |leverage_index                  |numeric |Leverage index quantifying the importance of the at-bat situation.|
 #'  
 #' @export
 #' @examples \donttest{
@@ -28,22 +28,23 @@ mlb_game_wp <- function(game_pk,
     timecode = timecode,
     fields = "atBatIndex,homeTeamWinProbability,awayTeamWinProbability,homeTeamWinProbabilityAdded,leverageIndex"
   )
-  mlb_endpoint <- httr::modify_url(mlb_endpoint, query = query_params)
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
   
+  wp <- NULL
   tryCatch(
     expr = {
-      resp <- mlb_endpoint %>% 
+      resp <- mlb_endpoint |> 
         mlb_api_call() 
       
-      wp <- resp %>% 
-        jsonlite::toJSON() %>% 
-        jsonlite::fromJSON(flatten = TRUE) %>% 
-        as.data.frame() %>% 
-        janitor::clean_names() %>%
+      wp <- resp |> 
+        jsonlite::toJSON() |> 
+        jsonlite::fromJSON(flatten = TRUE) |> 
+        as.data.frame() |> 
+        janitor::clean_names() |>
         make_baseballr_data("MLB Game Win Probability data from MLB.com",Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
     },
     finally = {
     }

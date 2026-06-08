@@ -14,13 +14,13 @@ mlb_venues(venue_ids = NULL, sport_ids = NULL, season = NULL)
 \item{season}{Year for which to return venue directorial information for a given season.}
 }
 \value{
-Returns a tibble with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   venue_id \tab integer \cr
-   venue_name \tab character \cr
-   venue_link \tab character \cr
-   active \tab logical \cr
-   season \tab logical \cr
+Returns a tibble with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   venue_id \tab integer \tab Venue MLBAM ID. \cr
+   venue_name \tab character \tab Venue name. \cr
+   venue_link \tab character \tab API link to the venue. \cr
+   active \tab logical \tab Whether the venue is active. \cr
+   season \tab character \tab Season the venue record applies to. \cr
 }
 }
 \description{

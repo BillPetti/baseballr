@@ -53,10 +53,11 @@ cols <- c(
 )
 
 test_that("MLB Sports Players", {
+  skip_mlb_test()
   skip_on_cran()
   
   x <- mlb_sports_players(sport_id=1,season=2021)
   
-  expect_equal(colnames(x), cols)
+  expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })

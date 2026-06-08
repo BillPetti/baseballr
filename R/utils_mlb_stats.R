@@ -1,12 +1,43 @@
 mlb_api_call <- function(url){
-  res <-
-    httr::RETRY("GET", url)
-  
-  json <- res$content %>%
-    rawToChar() %>%
-    jsonlite::fromJSON(simplifyVector = T)
-  
+  # Plain package User-Agent + transient-failure backoff. The MLB Stats API
+  # ignores the User-Agent. (FanGraphs requests do NOT use this helper -- they
+  # go through fg_api_call(), which sends the Cloudflare-exempt okhttp UA.)
+  resp <- httr2::request(url) |>
+    httr2::req_user_agent("baseballr (https://github.com/BillPetti/baseballr)") |>
+    httr2::req_retry(max_tries = 3) |>
+    httr2::req_error(is_error = function(resp) FALSE) |>
+    httr2::req_perform()
+
+  json <- resp |>
+    httr2::resp_body_string() |>
+    jsonlite::fromJSON(simplifyVector = TRUE)
+
   return(json)
+}
+
+fg_api_call <- function(url){
+  # FanGraphs sits behind Cloudflare. As of 2026-06-03 it serves a JS challenge
+  # (HTTP 403, `cf-mitigated: challenge`) to *every* unrecognized client --
+  # including plain/library User-Agents; no header/TLS tweak passes it (it needs
+  # a JS runtime). The challenge exempts the okhttp client the FanGraphs mobile
+  # app uses, so sending `okhttp/4.12.0` returns 200 with normal JSON. Fixes the
+  # FanGraphs 403 cluster (#404/#402/#397/#389/#385/#373/#369/#358/#353/#343);
+  # okhttp-UA approach from PR #405.
+  resp <- httr2::request(url) |>
+    httr2::req_user_agent("okhttp/4.12.0") |>
+    httr2::req_retry(max_tries = 3) |>
+    httr2::req_error(is_error = function(resp) FALSE) |>
+    httr2::req_perform()
+
+  if (httr2::resp_status(resp) == 403) {
+    cli::cli_alert_danger("FanGraphs returned HTTP 403 (Cloudflare challenge) for {.url {url}}.")
+    cli::cli_alert_info(paste0(
+      "The okhttp User-Agent exemption may have changed; see issue #404 / PR #405."))
+  }
+
+  resp |>
+    httr2::resp_body_string() |>
+    jsonlite::fromJSON(simplifyVector = TRUE)
 }
 
 mlb_stats_endpoint <- function(endpoint){
@@ -119,15 +150,27 @@ mlb_stats_endpoint <- function(endpoint){
   return(base_url)
 }
 
-.ncaa_headers <- function(url){
+.ncaa_headers <- function(url = NULL){
+  # stats.ncaa.org sits behind Akamai, which returns a 403 "Access Denied" to
+  # requests that omit modern browser client-hint / fetch-metadata headers.
+  # The header set below mimics a real Chrome navigation and is accepted; the
+  # `Host` and `Accept-Encoding` headers are intentionally NOT set here so the
+  # HTTP client manages them (an explicit `Host` breaks on redirects, and a
+  # hard-coded `br` encoding can yield an undecompressed body).
   headers <- c(
-    `Host` = 'stats.ncaa.org',
-    `User-Agent` = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    `Accept` = 'application/json, text/html, text/plain, */*',
-    `Accept-Language` = 'en-US,en;q=0.5',
-    `Accept-Encoding` = 'gzip, deflate, br',
-    `Pragma` = 'no-cache',
-    `Cache-Control` = 'no-cache'
+    `User-Agent` = paste0("Mozilla/5.0 (Windows NT 10.0; Win64; x64) ",
+                          "AppleWebKit/537.36 (KHTML, like Gecko) ",
+                          "Chrome/124.0.0.0 Safari/537.36"),
+    `Accept` = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    `Accept-Language` = "en-US,en;q=0.9",
+    `sec-ch-ua` = '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+    `sec-ch-ua-mobile` = "?0",
+    `sec-ch-ua-platform` = '"Windows"',
+    `Sec-Fetch-Dest` = "document",
+    `Sec-Fetch-Mode` = "navigate",
+    `Sec-Fetch-Site` = "none",
+    `Sec-Fetch-User` = "?1",
+    `Upgrade-Insecure-Requests` = "1"
   )
   return(headers)
 }

@@ -47,40 +47,40 @@ Valid values include:
 }}
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   openings_total \tab integer \cr
-   openings_total_away \tab integer \cr
-   openings_total_home \tab integer \cr
-   openings_total_lost \tab integer \cr
-   games_total \tab integer \cr
-   games_away_total \tab integer \cr
-   games_home_total \tab integer \cr
-   year \tab character \cr
-   attendance_average_away \tab integer \cr
-   attendance_average_home \tab integer \cr
-   attendance_average_ytd \tab integer \cr
-   attendance_high \tab integer \cr
-   attendance_high_date \tab character \cr
-   attendance_low \tab integer \cr
-   attendance_low_date \tab character \cr
-   attendance_opening_average \tab integer \cr
-   attendance_total \tab integer \cr
-   attendance_total_away \tab integer \cr
-   attendance_total_home \tab integer \cr
-   attendance_high_game_game_pk \tab integer \cr
-   attendance_high_game_link \tab character \cr
-   attendance_high_game_day_night \tab character \cr
-   attendance_high_game_content_link \tab character \cr
-   attendance_low_game_game_pk \tab integer \cr
-   attendance_low_game_link \tab character \cr
-   attendance_low_game_day_night \tab character \cr
-   attendance_low_game_content_link \tab character \cr
-   game_type_id \tab character \cr
-   game_type_description \tab character \cr
-   team_id \tab integer \cr
-   team_name \tab character \cr
-   team_link \tab character \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   openings_total \tab integer \tab Total number of openings (games eligible to open). \cr
+   openings_total_away \tab integer \tab Total away openings. \cr
+   openings_total_home \tab integer \tab Total home openings. \cr
+   openings_total_lost \tab integer \tab Openings lost (e.g. to rainouts). \cr
+   games_total \tab integer \tab Total games played. \cr
+   games_away_total \tab integer \tab Total away games. \cr
+   games_home_total \tab integer \tab Total home games. \cr
+   year \tab character \tab Season year (YYYY). \cr
+   attendance_average_away \tab integer \tab Average away-game attendance. \cr
+   attendance_average_home \tab integer \tab Average home-game attendance. \cr
+   attendance_average_ytd \tab integer \tab Year-to-date average attendance. \cr
+   attendance_high \tab integer \tab Highest single-game attendance. \cr
+   attendance_high_date \tab character \tab Date of the highest-attendance game. \cr
+   attendance_low \tab integer \tab Lowest single-game attendance. \cr
+   attendance_low_date \tab character \tab Date of the lowest-attendance game. \cr
+   attendance_opening_average \tab integer \tab Average opening-day attendance. \cr
+   attendance_total \tab integer \tab Total attendance for the period. \cr
+   attendance_total_away \tab integer \tab Total away attendance. \cr
+   attendance_total_home \tab integer \tab Total home attendance. \cr
+   attendance_high_game_game_pk \tab integer \tab game_pk of the highest-attendance game. \cr
+   attendance_high_game_link \tab character \tab API link to the highest-attendance game. \cr
+   attendance_high_game_day_night \tab character \tab Day/night status of the highest-attendance game. \cr
+   attendance_high_game_content_link \tab character \tab API content link for the highest-attendance game. \cr
+   attendance_low_game_game_pk \tab integer \tab game_pk of the lowest-attendance game. \cr
+   attendance_low_game_link \tab character \tab API link to the lowest-attendance game. \cr
+   attendance_low_game_day_night \tab character \tab Day/night status of the lowest-attendance game. \cr
+   attendance_low_game_content_link \tab character \tab API content link for the lowest-attendance game. \cr
+   game_type_id \tab character \tab Game type code (e.g. R for regular season). \cr
+   game_type_description \tab character \tab Game type description. \cr
+   team_id \tab integer \tab MLB team ID. \cr
+   team_name \tab character \tab Team name. \cr
+   team_link \tab character \tab MLB Stats API relative team link. \cr
 }
 }
 \description{

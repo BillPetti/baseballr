@@ -15,143 +15,149 @@ mlb_pbp_diff(game_pk, start_timecode, end_timecode)
 }
 \value{
 Returns a tibble that includes over 100 columns of data provided
-by the MLB Stats API at a pitch level between the start_timecode and end_timecode\tabular{ll}{
-   col_name \tab types \cr
-   game_pk \tab numeric \cr
-   game_date \tab character \cr
-   index \tab integer \cr
-   startTime \tab character \cr
-   endTime \tab character \cr
-   isPitch \tab logical \cr
-   type \tab character \cr
-   playId \tab character \cr
-   pitchNumber \tab integer \cr
-   details.description \tab character \cr
-   details.event \tab character \cr
-   details.awayScore \tab integer \cr
-   details.homeScore \tab integer \cr
-   details.isScoringPlay \tab logical \cr
-   details.hasReview \tab logical \cr
-   details.code \tab character \cr
-   details.ballColor \tab character \cr
-   details.isInPlay \tab logical \cr
-   details.isStrike \tab logical \cr
-   details.isBall \tab logical \cr
-   details.call.code \tab character \cr
-   details.call.description \tab character \cr
-   count.balls.start \tab integer \cr
-   count.strikes.start \tab integer \cr
-   count.outs.start \tab integer \cr
-   player.id \tab integer \cr
-   player.link \tab character \cr
-   pitchData.strikeZoneTop \tab numeric \cr
-   pitchData.strikeZoneBottom \tab numeric \cr
-   details.fromCatcher \tab logical \cr
-   pitchData.coordinates.x \tab numeric \cr
-   pitchData.coordinates.y \tab numeric \cr
-   hitData.trajectory \tab character \cr
-   hitData.hardness \tab character \cr
-   hitData.location \tab character \cr
-   hitData.coordinates.coordX \tab numeric \cr
-   hitData.coordinates.coordY \tab numeric \cr
-   actionPlayId \tab character \cr
-   details.eventType \tab character \cr
-   details.runnerGoing \tab logical \cr
-   position.code \tab character \cr
-   position.name \tab character \cr
-   position.type \tab character \cr
-   position.abbreviation \tab character \cr
-   battingOrder \tab character \cr
-   atBatIndex \tab character \cr
-   result.type \tab character \cr
-   result.event \tab character \cr
-   result.eventType \tab character \cr
-   result.description \tab character \cr
-   result.rbi \tab integer \cr
-   result.awayScore \tab integer \cr
-   result.homeScore \tab integer \cr
-   about.atBatIndex \tab integer \cr
-   about.halfInning \tab character \cr
-   about.inning \tab integer \cr
-   about.startTime \tab character \cr
-   about.endTime \tab character \cr
-   about.isComplete \tab logical \cr
-   about.isScoringPlay \tab logical \cr
-   about.hasReview \tab logical \cr
-   about.hasOut \tab logical \cr
-   about.captivatingIndex \tab integer \cr
-   count.balls.end \tab integer \cr
-   count.strikes.end \tab integer \cr
-   count.outs.end \tab integer \cr
-   matchup.batter.id \tab integer \cr
-   matchup.batter.fullName \tab character \cr
-   matchup.batter.link \tab character \cr
-   matchup.batSide.code \tab character \cr
-   matchup.batSide.description \tab character \cr
-   matchup.pitcher.id \tab integer \cr
-   matchup.pitcher.fullName \tab character \cr
-   matchup.pitcher.link \tab character \cr
-   matchup.pitchHand.code \tab character \cr
-   matchup.pitchHand.description \tab character \cr
-   matchup.splits.batter \tab character \cr
-   matchup.splits.pitcher \tab character \cr
-   matchup.splits.menOnBase \tab character \cr
-   batted.ball.result \tab factor \cr
-   home_team \tab character \cr
-   home_level_id \tab integer \cr
-   home_level_name \tab character \cr
-   home_parentOrg_id \tab integer \cr
-   home_parentOrg_name \tab character \cr
-   home_league_id \tab integer \cr
-   home_league_name \tab character \cr
-   away_team \tab character \cr
-   away_level_id \tab integer \cr
-   away_level_name \tab character \cr
-   away_parentOrg_id \tab integer \cr
-   away_parentOrg_name \tab character \cr
-   away_league_id \tab integer \cr
-   away_league_name \tab character \cr
-   batting_team \tab character \cr
-   fielding_team \tab character \cr
-   last.pitch.of.ab \tab character \cr
-   pfxId \tab character \cr
-   details.trailColor \tab character \cr
-   details.type.code \tab character \cr
-   details.type.description \tab character \cr
-   pitchData.startSpeed \tab numeric \cr
-   pitchData.endSpeed \tab numeric \cr
-   pitchData.zone \tab integer \cr
-   pitchData.typeConfidence \tab numeric \cr
-   pitchData.plateTime \tab numeric \cr
-   pitchData.extension \tab numeric \cr
-   pitchData.coordinates.aY \tab numeric \cr
-   pitchData.coordinates.aZ \tab numeric \cr
-   pitchData.coordinates.pfxX \tab numeric \cr
-   pitchData.coordinates.pfxZ \tab numeric \cr
-   pitchData.coordinates.pX \tab numeric \cr
-   pitchData.coordinates.pZ \tab numeric \cr
-   pitchData.coordinates.vX0 \tab numeric \cr
-   pitchData.coordinates.vY0 \tab numeric \cr
-   pitchData.coordinates.vZ0 \tab numeric \cr
-   pitchData.coordinates.x0 \tab numeric \cr
-   pitchData.coordinates.y0 \tab numeric \cr
-   pitchData.coordinates.z0 \tab numeric \cr
-   pitchData.coordinates.aX \tab numeric \cr
-   pitchData.breaks.breakAngle \tab numeric \cr
-   pitchData.breaks.breakLength \tab numeric \cr
-   pitchData.breaks.breakY \tab numeric \cr
-   pitchData.breaks.spinRate \tab integer \cr
-   pitchData.breaks.spinDirection \tab integer \cr
-   hitData.launchSpeed \tab numeric \cr
-   hitData.launchAngle \tab numeric \cr
-   hitData.totalDistance \tab numeric \cr
-   injuryType \tab character \cr
-   umpire.id \tab integer \cr
-   umpire.link \tab character \cr
-   about.isTopInning \tab logical \cr
-   matchup.postOnFirst.id \tab integer \cr
-   matchup.postOnFirst.fullName \tab character \cr
-   matchup.postOnFirst.link \tab character \cr
+by the MLB Stats API at a pitch level between the start_timecode and end_timecode\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_pk \tab numeric \tab MLB game primary key. \cr
+   game_date \tab character \tab Game date (YYYY-MM-DD). \cr
+   index \tab integer \tab Index of the play event within the at-bat. \cr
+   startTime \tab character \tab Event start timestamp (ISO 8601). \cr
+   endTime \tab character \tab Event end timestamp (ISO 8601). \cr
+   isPitch \tab logical \tab Whether the event is a pitch. \cr
+   type \tab character \tab Play event type (e.g. 'pitch', 'action'). \cr
+   playId \tab character \tab Unique play event identifier (UUID). \cr
+   pitchNumber \tab integer \tab Pitch number within the at-bat. \cr
+   details.description \tab character \tab Pitch/event description (e.g. 'Foul', 'Ball'). \cr
+   details.event \tab character \tab Event name for non-pitch actions. \cr
+   details.awayScore \tab integer \tab Away score recorded at the event. \cr
+   details.homeScore \tab integer \tab Home score recorded at the event. \cr
+   details.isScoringPlay \tab logical \tab Whether the event is a scoring play. \cr
+   details.hasReview \tab logical \tab Whether the event was reviewed. \cr
+   details.code \tab character \tab Pitch/result code (e.g. 'F', 'B'). \cr
+   details.ballColor \tab character \tab Gameday ball color rgba string. \cr
+   details.isInPlay \tab logical \tab Whether the ball was put in play. \cr
+   details.isStrike \tab logical \tab Whether the pitch was a strike. \cr
+   details.isBall \tab logical \tab Whether the pitch was a ball. \cr
+   details.call.code \tab character \tab Umpire call code. \cr
+   details.call.description \tab character \tab Umpire call description. \cr
+   count.balls.start \tab integer \tab Ball count before the pitch. \cr
+   count.strikes.start \tab integer \tab Strike count before the pitch. \cr
+   count.outs.start \tab integer \tab Out count before the pitch. \cr
+   player.id \tab integer \tab Player id for action-event participant. \cr
+   player.link \tab character \tab API relative link to the action player. \cr
+   pitchData.strikeZoneTop \tab numeric \tab Top of the batter strike zone (feet). \cr
+   pitchData.strikeZoneBottom \tab numeric \tab Bottom of the batter strike zone (feet). \cr
+   details.fromCatcher \tab logical \tab Whether the event originated from the catcher. \cr
+   pitchData.coordinates.x \tab numeric \tab Pitch x pixel coordinate (Gameday). \cr
+   pitchData.coordinates.y \tab numeric \tab Pitch y pixel coordinate (Gameday). \cr
+   hitData.trajectory \tab character \tab Batted ball trajectory. \cr
+   hitData.hardness \tab character \tab Batted ball hardness. \cr
+   hitData.location \tab character \tab Fielding position where the ball was hit. \cr
+   hitData.coordinates.coordX \tab numeric \tab Batted ball landing x coordinate. \cr
+   hitData.coordinates.coordY \tab numeric \tab Batted ball landing y coordinate. \cr
+   actionPlayId \tab character \tab Identifier of an associated action play. \cr
+   details.eventType \tab character \tab Event type slug for non-pitch actions. \cr
+   details.runnerGoing \tab logical \tab Whether a runner was going on the pitch. \cr
+   position.code \tab character \tab Fielding position code for the player. \cr
+   position.name \tab character \tab Fielding position name. \cr
+   position.type \tab character \tab Fielding position type. \cr
+   position.abbreviation \tab character \tab Fielding position abbreviation. \cr
+   battingOrder \tab character \tab Batting order slot. \cr
+   atBatIndex \tab character \tab At-bat index within the game (factor). \cr
+   result.type \tab character \tab Result type (e.g. 'atBat'). \cr
+   result.event \tab character \tab At-bat result event. \cr
+   result.eventType \tab character \tab At-bat result event slug. \cr
+   result.description \tab character \tab Narrative description of the at-bat result. \cr
+   result.rbi \tab integer \tab Runs batted in on the at-bat. \cr
+   result.awayScore \tab integer \tab Away score after the at-bat. \cr
+   result.homeScore \tab integer \tab Home score after the at-bat. \cr
+   about.atBatIndex \tab integer \tab At-bat index (numeric). \cr
+   about.halfInning \tab character \tab Half inning ('top' or 'bottom'). \cr
+   about.inning \tab integer \tab Inning number. \cr
+   about.startTime \tab character \tab At-bat start timestamp (ISO 8601). \cr
+   about.endTime \tab character \tab At-bat end timestamp (ISO 8601). \cr
+   about.isComplete \tab logical \tab Whether the at-bat is complete. \cr
+   about.isScoringPlay \tab logical \tab Whether the at-bat is a scoring play. \cr
+   about.hasReview \tab logical \tab Whether the at-bat had a review. \cr
+   about.hasOut \tab logical \tab Whether the at-bat produced an out. \cr
+   about.captivatingIndex \tab integer \tab MLB captivating index for the play. \cr
+   count.balls.end \tab integer \tab Ball count after the pitch. \cr
+   count.strikes.end \tab integer \tab Strike count after the pitch. \cr
+   count.outs.end \tab integer \tab Out count after the pitch. \cr
+   matchup.batter.id \tab integer \tab Batter player id. \cr
+   matchup.batter.fullName \tab character \tab Batter full name (factor). \cr
+   matchup.batter.link \tab character \tab API relative link to the batter. \cr
+   matchup.batSide.code \tab character \tab Batter handedness code (e.g. 'L', 'R'). \cr
+   matchup.batSide.description \tab character \tab Batter handedness description. \cr
+   matchup.pitcher.id \tab integer \tab Pitcher player id. \cr
+   matchup.pitcher.fullName \tab character \tab Pitcher full name (factor). \cr
+   matchup.pitcher.link \tab character \tab API relative link to the pitcher. \cr
+   matchup.pitchHand.code \tab character \tab Pitcher throwing hand code (e.g. 'R'). \cr
+   matchup.pitchHand.description \tab character \tab Pitcher throwing hand description. \cr
+   matchup.splits.batter \tab character \tab Batter platoon split (e.g. 'vs_RHP'). \cr
+   matchup.splits.pitcher \tab character \tab Pitcher platoon split (e.g. 'vs_RHB'). \cr
+   matchup.splits.menOnBase \tab character \tab Men on base split (e.g. 'Men_On'). \cr
+   batted.ball.result \tab factor \tab Categorized batted ball result. \cr
+   home_team \tab character \tab Home team name. \cr
+   home_level_id \tab integer \tab Home team level/sport id (1 for MLB). \cr
+   home_level_name \tab character \tab Home team level/sport name. \cr
+   home_parentOrg_id \tab integer \tab Home team parent organization id (minors). \cr
+   home_parentOrg_name \tab character \tab Home team parent organization name (minors). \cr
+   home_league_id \tab integer \tab Home team league id. \cr
+   home_league_name \tab character \tab Home team league name. \cr
+   away_team \tab character \tab Away team name. \cr
+   away_level_id \tab integer \tab Away team level/sport id (1 for MLB). \cr
+   away_level_name \tab character \tab Away team level/sport name. \cr
+   away_parentOrg_id \tab integer \tab Away team parent organization id (minors). \cr
+   away_parentOrg_name \tab character \tab Away team parent organization name (minors). \cr
+   away_league_id \tab integer \tab Away team league id. \cr
+   away_league_name \tab character \tab Away team league name. \cr
+   batting_team \tab character \tab Team batting on the play (factor). \cr
+   fielding_team \tab character \tab Team fielding on the play (factor). \cr
+   last.pitch.of.ab \tab character \tab Whether the pitch was the last of the at-bat (factor). \cr
+   pfxId \tab character \tab Pitch f/x tracking identifier. \cr
+   details.trailColor \tab character \tab Gameday pitch trail color rgba string. \cr
+   details.type.code \tab character \tab Pitch type code (e.g. 'SI', 'CH'). \cr
+   details.type.description \tab character \tab Pitch type description (e.g. 'Sinker', 'Changeup'). \cr
+   pitchData.startSpeed \tab numeric \tab Pitch release speed (mph). \cr
+   pitchData.endSpeed \tab numeric \tab Pitch speed crossing the plate (mph). \cr
+   pitchData.zone \tab integer \tab Strike zone region of the pitch. \cr
+   pitchData.typeConfidence \tab numeric \tab Pitch type classification confidence. \cr
+   pitchData.plateTime \tab numeric \tab Time from release to plate (seconds). \cr
+   pitchData.extension \tab numeric \tab Pitcher release extension (feet). \cr
+   pitchData.coordinates.aY \tab numeric \tab Pitch acceleration in y (ft/s^2). \cr
+   pitchData.coordinates.aZ \tab numeric \tab Pitch acceleration in z (ft/s^2). \cr
+   pitchData.coordinates.pfxX \tab numeric \tab Horizontal pitch movement (inches). \cr
+   pitchData.coordinates.pfxZ \tab numeric \tab Vertical pitch movement (inches). \cr
+   pitchData.coordinates.pX \tab numeric \tab Horizontal pitch location at plate (feet). \cr
+   pitchData.coordinates.pZ \tab numeric \tab Vertical pitch location at plate (feet). \cr
+   pitchData.coordinates.vX0 \tab numeric \tab Pitch initial velocity in x (ft/s). \cr
+   pitchData.coordinates.vY0 \tab numeric \tab Pitch initial velocity in y (ft/s). \cr
+   pitchData.coordinates.vZ0 \tab numeric \tab Pitch initial velocity in z (ft/s). \cr
+   pitchData.coordinates.x0 \tab numeric \tab Pitch initial x position (feet). \cr
+   pitchData.coordinates.y0 \tab numeric \tab Pitch initial y position (feet). \cr
+   pitchData.coordinates.z0 \tab numeric \tab Pitch initial z position (feet). \cr
+   pitchData.coordinates.aX \tab numeric \tab Pitch acceleration in x (ft/s^2). \cr
+   pitchData.breaks.breakAngle \tab numeric \tab Pitch break angle (degrees). \cr
+   pitchData.breaks.breakLength \tab numeric \tab Pitch break length (inches). \cr
+   pitchData.breaks.breakY \tab numeric \tab Distance from plate where break is measured. \cr
+   pitchData.breaks.spinRate \tab integer \tab Pitch spin rate (RPM). \cr
+   pitchData.breaks.spinDirection \tab integer \tab Pitch spin direction (degrees). \cr
+   hitData.launchSpeed \tab numeric \tab Batted ball exit velocity (mph). \cr
+   hitData.launchAngle \tab numeric \tab Batted ball launch angle (degrees). \cr
+   hitData.totalDistance \tab numeric \tab Batted ball total distance (feet). \cr
+   injuryType \tab character \tab Injury type when the event is injury-related. \cr
+   umpire.id \tab integer \tab Umpire person id for the event. \cr
+   umpire.link \tab character \tab API relative link to the umpire. \cr
+   details.isOut \tab logical \tab Whether the pitch/event resulted in an out. \cr
+   pitchData.breaks.breakVertical \tab numeric \tab Total vertical break (inches). \cr
+   pitchData.breaks.breakVerticalInduced \tab numeric \tab Induced vertical break (inches). \cr
+   pitchData.breaks.breakHorizontal \tab numeric \tab Horizontal break (inches). \cr
+   details.disengagementNum \tab integer \tab Pitcher disengagement number on the play. \cr
+   result.isOut \tab logical \tab Whether the at-bat resulted in an out. \cr
+   about.isTopInning \tab logical \tab Whether the play occurred in the top of the inning. \cr
+   matchup.postOnFirst.id \tab integer \tab Runner id on first base after the play. \cr
+   matchup.postOnFirst.fullName \tab character \tab Runner name on first base after the play. \cr
+   matchup.postOnFirst.link \tab character \tab API relative link to the first base runner. \cr
 }
 }
 \description{
