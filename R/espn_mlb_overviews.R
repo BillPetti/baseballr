@@ -30,6 +30,7 @@
 #' per-competitor game detail. Box scores are returned wide and tidy.
 #'
 #' @keywords ESPN
+#' @family ESPN MLB Functions
 NULL
 
 #' @name espn_mlb_player_endpoints
@@ -57,6 +58,7 @@ NULL
 #' career statistics, contracts, and awards.
 #'
 #' @keywords ESPN
+#' @family ESPN MLB Functions
 NULL
 
 #' @name espn_mlb_team_endpoints
@@ -82,4 +84,5 @@ NULL
 #' schedules, statistics, records, leaders, injuries, news, and standings.
 #'
 #' @keywords ESPN
+#' @family ESPN MLB Functions
 NULL
