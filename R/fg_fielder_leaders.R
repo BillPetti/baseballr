@@ -166,21 +166,24 @@ fg_fielder_leaders <- function(
       leaders <- fg_df |> 
         dplyr::rename_with(~ gsub("pi", "pi_", .x), starts_with("pi")) |> 
         dplyr::rename_with(~ gsub("pfx", "pfx_", .x), starts_with("pfx")) |>
-        dplyr::rename(
+        # any_of() so FanGraphs' narrower split leaderboards (month = 13/14)
+        # don't error on absent renamed/leading columns (cf. #323).
+        dplyr::rename(dplyr::any_of(c(
           "team_name" = "TeamName",
-          "team_name_abb" = "TeamNameAbb") |>
+          "team_name_abb" = "TeamNameAbb"))) |>
         dplyr::select(-dplyr::any_of(c(
-          "Name", 
+          "Name",
           "Team"
         ))) |>
         dplyr::select(
-          "Season",
-          "team_name",
-          "xMLBAMID", 
-          "PlayerNameRoute",
-          "PlayerName",
-          "playerid",
-          tidyr::everything()) |> 
+          dplyr::any_of(c(
+            "Season",
+            "team_name",
+            "xMLBAMID",
+            "PlayerNameRoute",
+            "PlayerName",
+            "playerid")),
+          tidyr::everything()) |>
         make_baseballr_data("MLB Player Fielding Leaders data from FanGraphs.com",Sys.time())
       
     },

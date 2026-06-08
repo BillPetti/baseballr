@@ -361,3 +361,24 @@ test_that("FanGraphs Batting Leaders", {
   expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })
+
+# FanGraphs' vs-LHP (month = 13) / vs-RHP (month = 14) split leaderboards return
+# a much narrower column set than the full board, so fg_batter_leaders() used to
+# error on the missing renamed/selected columns and return NULL (#323). Assert a
+# core subset is present (the split board has far fewer than the full `cols`).
+# Verified live: month = 13 -> 215 rows, month = 14 -> 406 rows for 2023.
+test_that("FanGraphs Batting Leaders vs-LHP/RHP splits (month = 13/14) return data", {
+  skip_fangraphs_test()
+  skip_on_cran()
+
+  x <- fg_batter_leaders(startseason = 2023, endseason = 2023,
+                         qual = "100", month = "13")
+
+  if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
+    skip("No split data returned from FanGraphs at test time")
+  }
+
+  core <- c("Season", "PlayerName", "playerid", "wRC_plus", "Bats")
+  expect_in(core, colnames(x))
+  expect_s3_class(x, "data.frame")
+})

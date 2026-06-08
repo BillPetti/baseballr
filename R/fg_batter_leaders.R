@@ -547,31 +547,38 @@ fg_batter_leaders <- function(
       c <- ifelse(substr(c, nchar(c) - 1 + 1, nchar(c)) == ".", gsub("\\.", "_pct", c), c)
       c <- gsub(" ", "_", c, fixed = TRUE)
       colnames(fg_df) <- c
-      leaders <- fg_df |> 
-        dplyr::rename_with(~ gsub("pi", "pi_", .x), starts_with("pi")) |> 
+      leaders <- fg_df |>
+        dplyr::rename_with(~ gsub("pi", "pi_", .x), starts_with("pi")) |>
         dplyr::rename_with(~ gsub("pfx", "pfx_", .x), starts_with("pfx")) |>
-        dplyr::rename(
+        # FanGraphs' split leaderboards (e.g. month = 13 vs LHP, 14 vs RHP)
+        # return a much narrower projection (~97 cols) than the full board
+        # (~475 cols), so several of the renamed/selected columns are absent.
+        # Use any_of() for the rename and the leading-column select so a missing
+        # column is skipped rather than erroring the whole parse (which dropped
+        # the result to NULL, #323).
+        dplyr::rename(dplyr::any_of(c(
           "wRC_plus" = "wRC+",
           "WPA_minus" = "-WPA",
-          "WPA_plus" = "+WPA", 
+          "WPA_plus" = "+WPA",
           "AgeRng" = "AgeR",
           "team_name" = "TeamName",
-          "team_name_abb" = "TeamNameAbb") |>
+          "team_name_abb" = "TeamNameAbb"))) |>
         dplyr::select(-dplyr::any_of(c(
-          "Name", 
+          "Name",
           "Team"
         ))) |>
         dplyr::select(
-          "Season",
-          "team_name",
-          "Bats", 
-          "xMLBAMID", 
-          "PlayerNameRoute",
-          "PlayerName",
-          "playerid",
-          "Age",
-          "AgeRng",
-          tidyr::everything()) |> 
+          dplyr::any_of(c(
+            "Season",
+            "team_name",
+            "Bats",
+            "xMLBAMID",
+            "PlayerNameRoute",
+            "PlayerName",
+            "playerid",
+            "Age",
+            "AgeRng")),
+          tidyr::everything()) |>
         make_baseballr_data("MLB Player Batting Leaders data from FanGraphs.com",Sys.time())
       
     },

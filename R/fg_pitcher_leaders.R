@@ -634,17 +634,20 @@ fg_pitcher_leaders <- function(
           "Name",
           "Team"
         ))) |>
+        # any_of() so FanGraphs' narrower split leaderboards (month = 13/14)
+        # don't error on absent leading columns (cf. #323).
         dplyr::select(
-          "Season",
-          "team_name",
-          "Throws", 
-          "xMLBAMID", 
-          "PlayerNameRoute",
-          "PlayerName",
-          "playerid",
-          "Age",
-          "AgeRng",
-          tidyr::everything()) |> 
+          dplyr::any_of(c(
+            "Season",
+            "team_name",
+            "Throws",
+            "xMLBAMID",
+            "PlayerNameRoute",
+            "PlayerName",
+            "playerid",
+            "Age",
+            "AgeRng")),
+          tidyr::everything()) |>
         make_baseballr_data("MLB Player Pitching Leaders data from FanGraphs.com",Sys.time())
       
     },
