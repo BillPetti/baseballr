@@ -78,11 +78,39 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
   if (sum(years < 2013) > 0 || sum(years > 2023) > 0) {
     return("Please select only years between 2013 and 2023")
   }
-  
-  
+
+  # ncaa_schedule_info() can come back empty -- the NCAA stats site (stats.ncaa.org)
+  # moved behind Akamai and rate-limits / blocks automated requests, and the
+  # schedule schema has shifted over time. When that happens the schedule frame
+  # lacks the home/away columns this function mutates on, which previously threw
+  # a confusing `Column 'home_team_id' not found` (or `'opponent' not found`)
+  # error mid-pipeline (#302). Guard the schedule frame and fail gracefully with
+  # an informative message instead, matching the rest of the package.
+  required_cols <- c("home_team_id", "neutral_site",
+                     "home_team_score", "away_team_score")
+  schedule_unavailable <- function(df) {
+    !is.data.frame(df) || nrow(df) == 0 || !all(required_cols %in% names(df))
+  }
+  empty_park_factor <- function() {
+    cli::cli_warn(c(
+      "No NCAA schedule data available for team_id {team_id} (years {paste(years, collapse = ', ')}).",
+      "i" = "The NCAA stats site may be rate-limiting or blocking automated requests; returning an empty result."
+    ))
+    data.frame(
+      school = character(), home_game = numeric(), away_game = numeric(),
+      runs_scored_home = numeric(), runs_allowed_home = numeric(),
+      runs_scored_away = numeric(), runs_allowed_away = numeric(),
+      base_pf = numeric(), home_game_adj = numeric(), final_pf = numeric(),
+      stringsAsFactors = FALSE
+    )
+  }
+
+
   if (y == 1) {
-    df = suppressWarnings(baseballr::ncaa_schedule_info(team_id = {{team_id}}, year = years, ...))
+    df = suppressWarnings(ncaa_schedule_info(team_id = {{team_id}}, year = years, ...))
     
+    if (schedule_unavailable(df)) return(empty_park_factor())
+
     df = df %>%
       dplyr::mutate(
         home_game = as.numeric(ifelse(.data$home_team_id == {{team_id}} & is.na(.data$neutral_site), 1, 0)),
@@ -132,11 +160,13 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
     
   } else if (y == 2) {
     for (j in 1:length(years)) {
-      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(team_id = {{team_id}}, year = years[[j]], ...))
+      y_all[[j]] = suppressWarnings(ncaa_schedule_info(team_id = {{team_id}}, year = years[[j]], ...))
     }
     
     df = do.call(rbind,y_all)
     
+    if (schedule_unavailable(df)) return(empty_park_factor())
+
     df = df %>%
       dplyr::mutate(
         home_game = as.numeric(ifelse(.data$home_team_id == {{team_id}} & is.na(.data$neutral_site), 1, 0)),
@@ -185,11 +215,13 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
   } else if (y == 3) {
     
     for (j in 1:length(years)) {
-      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(team_id = {{team_id}}, year = years[[j]], ...))
+      y_all[[j]] = suppressWarnings(ncaa_schedule_info(team_id = {{team_id}}, year = years[[j]], ...))
     }
     
     df = do.call(rbind,y_all)
     
+    if (schedule_unavailable(df)) return(empty_park_factor())
+
     df = df %>%
       dplyr::mutate(
         home_game = as.numeric(ifelse(.data$home_team_id == {{team_id}} & is.na(.data$neutral_site), 1, 0)),
@@ -236,11 +268,13 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
   } else if(y == 4) {
     
     for (j in 1:length(years)) {
-      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(team_id = {{team_id}}, year = years[[j]], ...))
+      y_all[[j]] = suppressWarnings(ncaa_schedule_info(team_id = {{team_id}}, year = years[[j]], ...))
     }
     
     df = do.call(rbind, y_all)
     
+    if (schedule_unavailable(df)) return(empty_park_factor())
+
     df = df %>%
       dplyr::mutate(
         home_game = as.numeric(ifelse(.data$home_team_id == {{team_id}} & is.na(.data$neutral_site), 1, 0)),
@@ -289,11 +323,13 @@ ncaa_park_factor <- function(team_id, years, type = "conference", ...) {
   } else if (y >= 5) {
     
     for (j in 1:length(years)) {
-      y_all[[j]] = suppressWarnings(baseballr::ncaa_schedule_info(team_id = {{team_id}}, year = years[[j]], ...))
+      y_all[[j]] = suppressWarnings(ncaa_schedule_info(team_id = {{team_id}}, year = years[[j]], ...))
     }
     
     df = do.call(rbind,y_all)
     
+    if (schedule_unavailable(df)) return(empty_park_factor())
+
     df = df %>%
       dplyr::mutate(
         home_game = as.numeric(ifelse(.data$home_team_id == {{team_id}} & is.na(.data$neutral_site), 1, 0)),
