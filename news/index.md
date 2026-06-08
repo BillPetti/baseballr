@@ -63,6 +63,17 @@
   [\#354](https://github.com/billpetti/baseballr/issues/354),
   [\#371](https://github.com/billpetti/baseballr/issues/371),
   [\#390](https://github.com/billpetti/baseballr/issues/390)).
+- [`statcast_search()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
+  (via
+  [`process_statcast_payload()`](https://billpetti.github.io/baseballr/reference/process_statcast_payload.md))
+  now normalizes blank character fields to `NA`. Baseball Savant exports
+  empty fields as empty strings, so character columns such as `events`,
+  `des`, and `description` were coming back as `""` rather than `NA`
+  (numeric columns were unaffected). This broke downstream helpers that
+  treat missing categorical values as `NA` –
+  e.g. `metrics_linear_weights_savant()` was not folding balls/strikes
+  into the `events` column
+  ([\#275](https://github.com/billpetti/baseballr/issues/275)).
 - [`sptrc_team_active_payroll()`](https://billpetti.github.io/baseballr/reference/sptrc_team_active_payroll.md)
   and
   [`sptrc_league_payrolls()`](https://billpetti.github.io/baseballr/reference/sptrc_league_payrolls.md)
@@ -129,6 +140,40 @@
   internal
   [`.ncaa_is_interstitial()`](https://billpetti.github.io/baseballr/reference/dot-ncaa_is_interstitial.md)
   guard) instead of silently scraping a table-less page.
+- [`fg_batter_leaders()`](https://billpetti.github.io/baseballr/reference/fg_batter_leaders.md)
+  returns data for FanGraphs’ handedness-split leaderboards
+  (`month = 13` for vs LHP, `month = 14` for vs RHP) instead of `NULL`
+  ([\#323](https://github.com/billpetti/baseballr/issues/323)). The
+  split boards return a much narrower column projection (~83-97 columns)
+  than the full board (~475), and the function’s
+  [`rename()`](https://dplyr.tidyverse.org/reference/rename.html)/[`select()`](https://dplyr.tidyverse.org/reference/select.html)
+  referenced columns absent from that projection, so the parse errored
+  and was swallowed to `NULL`. The leading rename and column selection
+  now use
+  [`dplyr::any_of()`](https://tidyselect.r-lib.org/reference/all_of.html),
+  so a column missing from a narrower split is skipped rather than
+  failing the whole parse. The same
+  [`any_of()`](https://tidyselect.r-lib.org/reference/all_of.html)
+  hardening was applied to
+  [`fg_pitcher_leaders()`](https://billpetti.github.io/baseballr/reference/fg_pitcher_leaders.md)
+  and
+  [`fg_fielder_leaders()`](https://billpetti.github.io/baseballr/reference/fg_fielder_leaders.md),
+  which shared the strict
+  [`select()`](https://dplyr.tidyverse.org/reference/select.html) /
+  [`rename()`](https://dplyr.tidyverse.org/reference/rename.html)
+  pattern (verified live: `fg_pitcher_leaders(month = "13")` returns
+  data).
+- [`ncaa_park_factor()`](https://billpetti.github.io/baseballr/reference/ncaa_park_factor.md)
+  no longer errors mid-pipeline when the NCAA schedule is unavailable
+  ([\#302](https://github.com/billpetti/baseballr/issues/302)).
+  [`ncaa_schedule_info()`](https://billpetti.github.io/baseballr/reference/ncaa_schedule_info.md)
+  can come back empty – `stats.ncaa.org` rate-limits / blocks automated
+  requests and its schedule schema has drifted – which left the schedule
+  frame without the `home_team_id` / score columns the function mutates
+  on, throwing a confusing `Column 'home_team_id' not found`
+  (historically `'opponent' not found`). The function now guards the
+  schedule frame and returns an empty result with an informative `cli`
+  warning instead, in line with the rest of the package.
 - [`fg_guts()`](https://billpetti.github.io/baseballr/reference/fg_guts.md),
   [`fg_park()`](https://billpetti.github.io/baseballr/reference/fg_park.md),
   and

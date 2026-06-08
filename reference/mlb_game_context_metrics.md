@@ -98,7 +98,7 @@ Returns a tibble that includes time codes from the game_pk requested
 # \donttest{
   try(mlb_game_context_metrics(game_pk = 531060, timecode = "20180803_182458"))
 #> ── MLB Game Context Metrics data from MLB.com ─────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 04:39:59 UTC
+#> ℹ Data updated: 2026-06-08 11:08:56 UTC
 #> # A tibble: 1 × 66
 #>   game_pk game_guid       link  game_type season game_date official_date
 #>     <int> <chr>           <chr> <chr>     <chr>  <chr>     <chr>        

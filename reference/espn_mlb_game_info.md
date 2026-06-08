@@ -159,7 +159,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mlb_game_info(game_id = "401570000"))
 #> ── ESPN MLB Game Info from ESPN.com ───────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 04:38:34 UTC
+#> ℹ Data updated: 2026-06-08 11:07:40 UTC
 #> # A tibble: 1 × 11
 #>     game_id venue_id venue_name  venue_city venue_state attendance
 #>       <int> <chr>    <chr>       <chr>      <chr>            <int>

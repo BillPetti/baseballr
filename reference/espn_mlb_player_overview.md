@@ -194,12 +194,12 @@ Saiem Gilani
   espn_mlb_player_overview(athlete_id = "1966", season = 2024)
 #> $Statistics
 #> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-06-08 04:38:46 UTC
+#> ℹ Data updated: 2026-06-08 11:07:52 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-06-08 04:38:46 UTC
+#> ℹ Data updated: 2026-06-08 11:07:52 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -207,32 +207,32 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-06-08 04:38:46 UTC
+#> ℹ Data updated: 2026-06-08 11:07:52 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-06-08 04:38:46 UTC
+#> ℹ Data updated: 2026-06-08 11:07:52 UTC
 #> # A tibble: 13 × 5
 #>    headline                           description published byline type 
 #>    <chr>                              <chr>       <chr>     <chr>  <chr>
-#>  1 2026 MLB ABS challenge system tra… The ABS ch… 2026-06-… ESPN   Story
-#>  2 Max Kepler, suspended for PEDs in… The Diamon… 2026-06-… NA     Head…
-#>  3 Cubs' Jameson Taillon exits in 2n… Cubs start… 2026-06-… Jesse… Head…
-#>  4 Matthew Boyd expected to return t… Cubs openi… 2026-06-… NA     Head…
-#>  5 Yanks' Jazz Chisholm Jr. borrows … Jazz Chish… 2026-06-… NA     Head…
-#>  6 Orioles irked after Clement dodge… Ernie Clem… 2026-06-… NA     Head…
-#>  7 Royals' Bobby Witt Jr. leaves gam… Kansas Cit… 2026-06-… NA     Head…
-#>  8 Kyle Freeland now Rockies' all-ti… Kyle Freel… 2026-06-… NA     Head…
-#>  9 Los Angeles Angels place Jack Koc… The Los An… 2026-06-… NA     Head…
-#> 10 Fantasy baseball lineup advice fo… Everything… 2026-06-… ESPN … Story
-#> 11 Tigers' Tarik Skubal pitches 5 sc… Tigers ace… 2026-06-… NA     Head…
-#> 12 Fantasy baseball: Smith expected … All of the… 2026-06-… ESPN … Story
-#> 13 MLB betting tips for Sunday: Stic… All of the… 2026-06-… Derek… Story
+#>  1 Alex Bregman takes blame for Cubs… Chicago th… 2026-06-… Jesse… Head…
+#>  2 2026 MLB ABS challenge system tra… The ABS ch… 2026-06-… ESPN   Story
+#>  3 Max Kepler, suspended for PEDs in… The Diamon… 2026-06-… NA     Head…
+#>  4 Cubs' Jameson Taillon bound for I… Cubs start… 2026-06-… Jesse… Head…
+#>  5 Matthew Boyd expected to return t… Cubs openi… 2026-06-… NA     Head…
+#>  6 Yanks' Jazz Chisholm Jr. borrows … Jazz Chish… 2026-06-… NA     Head…
+#>  7 Orioles irked after Clement dodge… Ernie Clem… 2026-06-… NA     Head…
+#>  8 Royals' Bobby Witt Jr. leaves gam… Kansas Cit… 2026-06-… NA     Head…
+#>  9 Kyle Freeland now Rockies' all-ti… Kyle Freel… 2026-06-… NA     Head…
+#> 10 Los Angeles Angels place Jack Koc… The Los An… 2026-06-… NA     Head…
+#> 11 Fantasy baseball lineup advice fo… Everything… 2026-06-… ESPN … Story
+#> 12 Tigers' Tarik Skubal pitches 5 sc… Tigers ace… 2026-06-… NA     Head…
+#> 13 Fantasy baseball: Smith expected … All of the… 2026-06-… ESPN … Story
 #> 
 #> $FantasyOutlook
 #> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────
-#> ℹ Data updated: 2026-06-08 04:38:46 UTC
+#> ℹ Data updated: 2026-06-08 11:07:52 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

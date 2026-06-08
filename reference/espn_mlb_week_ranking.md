@@ -191,11 +191,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_week_ranking(ranking_id = 1, week = 5, season = 2025)
-#> ✖ 2026-06-08 04:39:09.6092: Failed to retrieve ESPN mlb week-5 ranking 1 for season=2025
+#> ✖ 2026-06-08 11:08:11.678567: Failed to retrieve ESPN mlb week-5 ranking 1 for season=2025
 #> ✖ Args: league = "mlb", season = 2025, season_type = 2L, week = 5, ranking_id = 1
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN MLB Week Ranking Detail ───────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 04:39:09 UTC
+#> ℹ Data updated: 2026-06-08 11:08:11 UTC
 #> # A tibble: 0 × 0
 # }
 ```

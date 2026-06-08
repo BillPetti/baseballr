@@ -161,7 +161,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_venues()
 #> ── ESPN MLB Venues from ESPN.com ──────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 04:39:09 UTC
+#> ℹ Data updated: 2026-06-08 11:08:11 UTC
 #> # A tibble: 171 × 9
 #>    venue_id name  full_name address_city address_state capacity indoor
 #>    <chr>    <chr> <chr>     <chr>        <chr>            <int> <lgl> 

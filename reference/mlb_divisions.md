@@ -50,7 +50,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_divisions(sport_id = 1))
 #> ── MLB Divisions data from MLB.com ────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 04:39:53 UTC
+#> ℹ Data updated: 2026-06-08 11:08:48 UTC
 #> # A tibble: 6 × 14
 #>   division_id division_name     season division_name_short division_link
 #>         <int> <chr>             <chr>  <chr>               <chr>        

@@ -165,11 +165,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_tournament_season(tournament_id = 1, season = 2024)
-#> ✖ 2026-06-08 04:39:08.037035: Failed to retrieve ESPN mlb tournament season detail for tournament_id=1, season=2024
+#> ✖ 2026-06-08 11:08:10.485722: Failed to retrieve ESPN mlb tournament season detail for tournament_id=1, season=2024
 #> ✖ Args: league = "mlb", tournament_id = 1, season = 2024
 #> ✖ Error: The API returned an error, HTTP Response Code 400
 #> ── ESPN MLB Tournament Season Detail ──────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 04:39:08 UTC
+#> ℹ Data updated: 2026-06-08 11:08:10 UTC
 #> # A tibble: 0 × 0
 # }
 ```
