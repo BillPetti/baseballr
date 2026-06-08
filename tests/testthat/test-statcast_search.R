@@ -43,3 +43,39 @@ test_that("Statcast Search", {
   expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })
+
+# Baseball Savant exports blank fields as empty strings. Numeric columns coerce
+# to NA for free, but character columns (events, des, description, ...) used to
+# keep "" -- which downstream helpers such as metrics_linear_weights_savant()
+# do not treat as missing (#275). This is a pure, network-free parse test.
+test_that("process_statcast_payload normalizes empty character fields to NA (#275)", {
+  # csv_from_url() returns a data.table, so exercise that class here -- a plain
+  # data.frame would not catch class-specific indexing bugs.
+  payload <- data.table::as.data.table(as.data.frame(
+    matrix("", nrow = 2, ncol = length(cols), dimnames = list(NULL, cols)),
+    stringsAsFactors = FALSE
+  ))
+  payload$game_date   <- c("2022-06-01", "2022-06-01")
+  payload$events      <- c("single", "")            # blank PA outcome -> NA
+  payload$des         <- c("", "Foul.")             # blank description -> NA
+  payload$description <- c("hit_into_play", "foul")
+
+  # Input is a data.table (as from csv_from_url); convert the result to a plain
+  # data.frame only for convenient column-wise inspection below.
+  out <- as.data.frame(suppressWarnings(process_statcast_payload(payload)))
+
+  # Blank coerced to NA, real values preserved.
+  expect_true(is.na(out$events[2]))
+  expect_identical(out$events[1], "single")
+  expect_true(is.na(out$des[1]))
+  expect_identical(out$des[2], "Foul.")
+
+  # No character column should retain a whitespace-only value.
+  char_cols <- names(out)[vapply(out, is.character, logical(1))]
+  has_blank <- vapply(
+    out[char_cols],
+    function(x) any(!is.na(x) & trimws(x) == ""),
+    logical(1)
+  )
+  expect_false(any(has_blank))
+})

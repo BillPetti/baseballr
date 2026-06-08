@@ -72,6 +72,21 @@ process_statcast_payload <- function(payload) {
     dplyr::mutate(dplyr::across(dplyr::any_of(cols_to_transform),
                                 ~ ifelse(is.na(.x), 999999999, .x)))
 
+  # Baseball Savant exports blank fields as empty strings. Numeric columns are
+  # already coerced to NA above, but character columns (events, des,
+  # description, bb_type, the fielding-alignment fields, ...) keep "" -- which
+  # downstream helpers such as metrics_linear_weights_savant() do not treat as
+  # missing (#275). Normalize whitespace-only character cells to NA so blank
+  # categorical values match the numeric columns. Done via dplyr::across() (not
+  # base `[` indexing) so it is agnostic to the payload class -- csv_from_url()
+  # returns a data.table, where `payload[char_cols]` would be parsed as a join.
+  char_cols <- names(payload)[vapply(payload, is.character, logical(1))]
+  payload <- payload |>
+    dplyr::mutate(dplyr::across(
+      dplyr::any_of(char_cols),
+      ~ replace(.x, !is.na(.x) & trimws(.x) == "", NA_character_)
+    ))
+
   return(payload)
 
 }
