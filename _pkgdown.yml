@@ -78,6 +78,14 @@ navbar:
         href: reference/bref.html
       - text: "FanGraphs"
         href: reference/fangraphs.html
+      - text: "ESPN MLB"
+        href: reference/espn_mlb.html
+      - text: "ESPN MLB Game"
+        href: reference/espn_mlb_game_endpoints.html
+      - text: "ESPN MLB Players"
+        href: reference/espn_mlb_player_endpoints.html
+      - text: "ESPN MLB Teams"
+        href: reference/espn_mlb_team_endpoints.html
       - text: "Metrics"
         href: reference/metrics.html
       - text: "Visualizations"
