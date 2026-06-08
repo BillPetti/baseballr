@@ -34,7 +34,7 @@ visualization.
 When this guide differs from current repository docs, treat `CONTRIBUTING.md` and
 current test implementations as authoritative.
 
-- **Version**: 1.6.0.9002 (dev)
+- **Version**: 2.0.0
 - **R Requirement**: >= 4.1.0 (the package uses the native pipe `|>`)
 - **License**: MIT
 - **Author (aut)**: Bill Petti <billpetti@gmail.com>

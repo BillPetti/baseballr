@@ -1,4 +1,4 @@
-# baseballr (development version)
+# baseballr 2.0.0
 
 ### New features
 
@@ -11,7 +11,7 @@
 ### Bug fixes
 
 - `edge_frequency(df, group = ...)` now groups by the column named in the `group` argument. It previously grouped by a literal column named `group` (`.data$group`), so passing a `group` (e.g. `"pitcher"`) errored unless the data happened to have a `group` column and otherwise ignored the argument.
-- `statcast_search()` now assigns Baseball Savant's columns length-tolerantly, so new columns added to the Savant CSV export no longer break the function with a "can't assign N names to an M column data.table" error (#337, #354, #371, #390).
+- `statcast_search()` now assigns Baseball Savant's columns length-tolerantly and recognizes the newest Savant column definitions, so columns added to (or reordered in) the CSV export no longer break the function with a "can't assign N names to an M column data.table" error (#337, #354, #371, #390).
 - `sptrc_team_active_payroll()` and `sptrc_league_payrolls()` updated for Spotrac's new `/payroll/_/year/<year>/` URLs and changed table schema; parsing is now resilient to column-order changes and both functions return data again (#392).
 - Wrappers that build their result inside `tryCatch()` now initialize the return value first, so an API error returns an empty value with a `cli` message instead of an `object '<var>' not found` error.
 - `mlb_game_timecodes()` no longer returns `NULL`; it renamed its single column by the literal name `"."`, which newer R versions no longer use for the coerced column, so it now renames by position.
@@ -33,9 +33,6 @@
 - User-facing messages migrated to the `cli` package.
 - Column selections that drop known-transient columns now use `dplyr::any_of()` for resilience to upstream schema drift.
 - Added project documentation and community health files (`CLAUDE.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `.github/copilot-instructions.md`, pull request template), refreshed the `_pkgdown.yml` reference index, and updated GitHub Actions workflows to current (Node 20-compatible) action versions.
-
-- Hotfix for `statcast_search` with the new column definitions v(1.6.0.9001)
-- Hotfix for `statcast_search` with the new column definitions v(1.6.0.9002)
 
 # baseballr 1.6.0
 

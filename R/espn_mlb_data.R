@@ -2769,6 +2769,7 @@ espn_mlb_player_stats <- function(
 #' @param resp Response object from the ESPN MLB game summary endpoint
 #' @return Returns a tibble
 #' @importFrom lubridate with_tz ymd_hm
+#' @keywords internal
 #' @export
 helper_espn_mlb_pbp <- function(resp) {
   game_json <- resp %>%
