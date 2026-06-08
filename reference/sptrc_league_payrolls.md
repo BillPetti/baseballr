@@ -41,7 +41,23 @@ and may change as Spotrac updates its layout.
 ``` r
 # \donttest{
   try(sptrc_league_payrolls(year = most_recent_mlb_season()))
-#> ✖ 2026-06-08 03:47:18.169486: Invalid arguments or no contract data available!
-#> data frame with 0 columns and 0 rows
+#> ── MLB Payroll data from Spotrac.com ──────────────── baseballr 2.0.0 ──
+#> ℹ Data updated: 2026-06-08 04:41:36 UTC
+#> # A tibble: 32 × 11
+#>    year  team  team_abbr  rank record avg_age_team
+#>    <chr> <chr> <chr>     <dbl> <chr>  <chr>       
+#>  1 2026  NYM   NYM           1 28-36  29.3        
+#>  2 2026  LAD   LAD           2 42-23  29.3        
+#>  3 2026  NYY   NYY           3 37-26  30.1        
+#>  4 2026  TOR   TOR           4 31-34  28.8        
+#>  5 2026  PHI   PHI           5 34-30  30.0        
+#>  6 2026  ATL   ATL           6 44-21  31.5        
+#>  7 2026  HOU   HOU           7 30-36  28.7        
+#>  8 2026  CHC   CHC           8 34-31  29.8        
+#>  9 2026  SD    SD            9 33-30  29.2        
+#> 10 2026  DET   DET          10 26-39  28.1        
+#> # ℹ 22 more rows
+#> # ℹ 5 more variables: total_payroll_allocations <dbl>,
+#> #   active_26_man <dbl>, injured <dbl>, retained <dbl>, buried <dbl>
 # }
 ```

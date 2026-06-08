@@ -176,7 +176,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_season_week(week = 5, season = 2025)
 #> ── ESPN MLB Season Week Detail ────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 03:44:46 UTC
+#> ℹ Data updated: 2026-06-08 04:38:56 UTC
 #> # A tibble: 1 × 8
 #>   league season season_type  week text  start_date end_date rankings_ref
 #>   <chr>   <int>       <int> <int> <chr> <chr>      <chr>    <chr>       

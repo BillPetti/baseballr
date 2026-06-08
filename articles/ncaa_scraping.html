@@ -172,7 +172,7 @@ directly from the NCAA website for a given year and division.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/ncaa_teams.html">ncaa_teams</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fu"><a href="../reference/most_recent_ncaa_baseball_season.html">most_recent_ncaa_baseball_season</a></span><span class="op">(</span><span class="op">)</span>, division <span class="op">=</span> <span class="st">"1"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── NCAA Baseball Teams data from stats.ncaa.org ───── <span style="font-style: italic;">baseballr 2.0.0</span> ──</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-08 03:50:19 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-08 04:44:39 UTC</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 308 × 9</span></span></span>
 <span><span class="co">#&gt;    team_id team_name    team_url conference_id conference division  year</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -206,13 +206,13 @@ season, you would use the following:</p>
 <span><span class="va">year</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/most_recent_ncaa_baseball_season.html">most_recent_ncaa_baseball_season</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, year <span class="op">=</span> <span class="va">year</span>, <span class="st">"batting"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> 2026-06-08 03:50:24.8616: stats.ncaa.org returned an Akamai bot-challenge for the team stats endpoint; no data could be retrieved. This endpoint is gated and cannot be scraped without a browser session.</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> 2026-06-08 04:44:44.902479: stats.ncaa.org returned an Akamai bot-challenge for the team stats endpoint; no data could be retrieved. This endpoint is gated and cannot be scraped without a browser session.</span></span>
 <span><span class="co">#&gt; data frame with 0 columns and 0 rows</span></span></code></pre></div>
 <p>The same can be done for pitching, just by changing the
 <code>type</code> parameter:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, year <span class="op">=</span> <span class="va">year</span>,  <span class="st">"pitching"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> 2026-06-08 03:50:30.000237: stats.ncaa.org returned an Akamai bot-challenge for the team stats endpoint; no data could be retrieved. This endpoint is gated and cannot be scraped without a browser session.</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> 2026-06-08 04:44:50.154944: stats.ncaa.org returned an Akamai bot-challenge for the team stats endpoint; no data could be retrieved. This endpoint is gated and cannot be scraped without a browser session.</span></span>
 <span><span class="co">#&gt; data frame with 0 columns and 0 rows</span></span></code></pre></div>
 <p>Now, the function is dependent on the user knowing the
 <code>team_id</code> used by the NCAA website. Given that, I’ve included

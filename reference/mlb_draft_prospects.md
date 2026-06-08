@@ -131,20 +131,20 @@ requested:
 # \donttest{
   try(mlb_draft_prospects(year = 2020))
 #> ── MLB Draft Prospects data from MLB.com ──────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 03:45:43 UTC
+#> ℹ Data updated: 2026-06-08 04:39:55 UTC
 #> # A tibble: 2,554 × 102
 #>    bis_player_id headshot_link       is_drafted is_pass year  pick_round
 #>            <int> <chr>               <lgl>      <lgl>   <chr> <chr>     
 #>  1       5012729 https://img.mlbsta… FALSE      FALSE   2020  NA        
-#>  2        804300 https://img.mlbsta… FALSE      FALSE   2020  NA        
-#>  3       5010766 https://img.mlbsta… FALSE      FALSE   2020  NA        
-#>  4       5009176 https://img.mlbsta… TRUE       FALSE   2020  1         
-#>  5            NA https://img.mlbsta… TRUE       FALSE   2020  1         
-#>  6       5012222 https://img.mlbsta… FALSE      FALSE   2020  NA        
-#>  7       5002839 https://img.mlbsta… FALSE      FALSE   2020  NA        
-#>  8       5001752 https://img.mlbsta… FALSE      FALSE   2020  NA        
-#>  9        767407 https://img.mlbsta… FALSE      FALSE   2020  NA        
-#> 10        802464 https://img.mlbsta… FALSE      FALSE   2020  NA        
+#>  2       5012432 https://img.mlbsta… FALSE      FALSE   2020  NA        
+#>  3            NA https://img.mlbsta… FALSE      FALSE   2020  NA        
+#>  4        804300 https://img.mlbsta… FALSE      FALSE   2020  NA        
+#>  5       5010766 https://img.mlbsta… FALSE      FALSE   2020  NA        
+#>  6       5009176 https://img.mlbsta… TRUE       FALSE   2020  1         
+#>  7            NA https://img.mlbsta… TRUE       FALSE   2020  1         
+#>  8       5012222 https://img.mlbsta… FALSE      FALSE   2020  NA        
+#>  9       5002839 https://img.mlbsta… FALSE      FALSE   2020  NA        
+#> 10       5001752 https://img.mlbsta… FALSE      FALSE   2020  NA        
 #> # ℹ 2,544 more rows
 #> # ℹ 96 more variables: pick_number <int>, rank <int>,
 #> #   scouting_report <chr>, blurb <chr>, home_city <chr>,
