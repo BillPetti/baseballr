@@ -1,4 +1,4 @@
-# baseballr (development version)
+# baseballr 2.0.0
 
 ### New features
 
