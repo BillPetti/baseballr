@@ -1,603 +1,336 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>/articles/baseballr.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/articles/ncaa_scraping.html</loc>
-  </url>
-  <url>
-    <loc>/articles/plotting_statcast.html</loc>
-  </url>
-  <url>
-    <loc>/articles/using_statcast_pitch_data.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/baseballr-package.html</loc>
-  </url>
-  <url>
-    <loc>/reference/batter_game_logs_fg.html</loc>
-  </url>
-  <url>
-    <loc>/reference/bref.html</loc>
-  </url>
-  <url>
-    <loc>/reference/bref_daily_batter.html</loc>
-  </url>
-  <url>
-    <loc>/reference/bref_daily_pitcher.html</loc>
-  </url>
-  <url>
-    <loc>/reference/bref_standings_on_date.html</loc>
-  </url>
-  <url>
-    <loc>/reference/bref_team_results.html</loc>
-  </url>
-  <url>
-    <loc>/reference/chadwick.html</loc>
-  </url>
-  <url>
-    <loc>/reference/chadwick_path.html</loc>
-  </url>
-  <url>
-    <loc>/reference/chadwick_player_id_lu.html</loc>
-  </url>
-  <url>
-    <loc>/reference/chadwick_player_lu.html</loc>
-  </url>
-  <url>
-    <loc>/reference/chadwick_player_name_lu.html</loc>
-  </url>
-  <url>
-    <loc>/reference/code_barrel.html</loc>
-  </url>
-  <url>
-    <loc>/reference/column_structure_draft_mlb.html</loc>
-  </url>
-  <url>
-    <loc>/reference/csv_from_url.html</loc>
-  </url>
-  <url>
-    <loc>/reference/daily_batter_bref.html</loc>
-  </url>
-  <url>
-    <loc>/reference/daily_pitcher_bref.html</loc>
-  </url>
-  <url>
-    <loc>/reference/edge_code.html</loc>
-  </url>
-  <url>
-    <loc>/reference/edge_frequency.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fangraphs.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fg_bat_leaders.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fg_batter_game_logs.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fg_batter_leaders.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fg_fielder_leaders.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fg_guts.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fg_milb_batter_game_logs.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fg_milb_pitcher_game_logs.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fg_park.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fg_pitch_leaders.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fg_pitcher_game_logs.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fg_pitcher_leaders.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fg_team_batter.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fg_team_fielder.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fg_team_pitcher.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fip_plus.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_batting_orders.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_draft_mlb.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_game_info_mlb.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_game_info_sup_petti.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_game_pks_mlb.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_ncaa_baseball_pbp.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_ncaa_baseball_roster.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_ncaa_game_logs.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_ncaa_lineups.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_ncaa_park_factor.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_ncaa_schedule_info.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_pbp_mlb.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_probables_mlb.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_retrosheet_data.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_umpire_ids_petti.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ggspraychart.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/label_statcast_imputed_data.html</loc>
-  </url>
-  <url>
-    <loc>/reference/linear_weights_savant.html</loc>
-  </url>
-  <url>
-    <loc>/reference/load_game_info_sup.html</loc>
-  </url>
-  <url>
-    <loc>/reference/load_ncaa_baseball_pbp.html</loc>
-  </url>
-  <url>
-    <loc>/reference/load_ncaa_baseball_schedule.html</loc>
-  </url>
-  <url>
-    <loc>/reference/load_ncaa_baseball_season_ids.html</loc>
-  </url>
-  <url>
-    <loc>/reference/load_ncaa_baseball_teams.html</loc>
-  </url>
-  <url>
-    <loc>/reference/load_umpire_ids.html</loc>
-  </url>
-  <url>
-    <loc>/reference/metrics.html</loc>
-  </url>
-  <url>
-    <loc>/reference/milb_batter_game_logs_fg.html</loc>
-  </url>
-  <url>
-    <loc>/reference/milb_pitcher_game_logs_fg.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_all_star_ballots.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_all_star_final_vote.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_all_star_write_ins.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_attendance.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_award.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_awards.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_awards_recipient.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_baseball_stats.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_batting_orders.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_conferences.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_divisions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_draft.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_draft_latest.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_draft_prospects.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_event_types.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_fielder_detail_types.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_game_changes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_game_content.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_game_context_metrics.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_game_info.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_game_linescore.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_game_pace.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_game_pks.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_game_status_codes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_game_timecodes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_game_types.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_game_wp.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_high_low_stats.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_high_low_types.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_hit_trajectories.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_homerun_derby.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_homerun_derby_bracket.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_homerun_derby_players.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_job_types.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_jobs.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_jobs_datacasters.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_jobs_official_scorers.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_jobs_umpires.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_languages.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_league.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_league_leader_types.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_logical_events.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_metrics.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_pbp.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_pbp_diff.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_people.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_people_free_agents.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_pitch_codes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_pitch_types.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_player_game_stats.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_player_game_stats_current.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_player_status_codes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_positions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_probables.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_review_reasons.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_roster_types.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_rosters.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_runner_detail_types.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_schedule.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_schedule_event_types.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_schedule_games_tied.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_schedule_postseason.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_schedule_postseason_series.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_seasons.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_seasons_all.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_situation_codes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_sky.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_sports.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_sports_info.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_sports_players.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_standings.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_standings_types.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_stat_groups.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_stat_types.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_stats.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_stats_leaders.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_team_affiliates.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_team_alumni.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_team_coaches.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_team_history.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_team_info.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_team_leaders.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_team_personnel.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_team_stats.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_teams.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_teams_stats.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_teams_stats_leaders.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_venues.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mlb_wind_direction_codes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/most_recent_mlb_season.html</loc>
-  </url>
-  <url>
-    <loc>/reference/most_recent_ncaa_baseball_season.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ncaa.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ncaa_game_logs.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ncaa_lineups.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ncaa_park_factor.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ncaa_pbp.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ncaa_roster.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ncaa_schedule_info.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ncaa_school_id_lu.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ncaa_scrape.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ncaa_team_player_stats.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ncaa_teams.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pitcher_game_logs_fg.html</loc>
-  </url>
-  <url>
-    <loc>/reference/process_statcast_payload.html</loc>
-  </url>
-  <url>
-    <loc>/reference/progressively.html</loc>
-  </url>
-  <url>
-    <loc>/reference/rds_from_url.html</loc>
-  </url>
-  <url>
-    <loc>/reference/request_with_proxy.html</loc>
-  </url>
-  <url>
-    <loc>/reference/retrosheet_data.html</loc>
-  </url>
-  <url>
-    <loc>/reference/run_expectancy_code.html</loc>
-  </url>
-  <url>
-    <loc>/reference/school_id_lu.html</loc>
-  </url>
-  <url>
-    <loc>/reference/scrape_savant_leaderboards.html</loc>
-  </url>
-  <url>
-    <loc>/reference/scrape_statcast_savant.html</loc>
-  </url>
-  <url>
-    <loc>/reference/sptrc_league_payrolls.html</loc>
-  </url>
-  <url>
-    <loc>/reference/sptrc_team_active_payroll.html</loc>
-  </url>
-  <url>
-    <loc>/reference/standings_on_date_bref.html</loc>
-  </url>
-  <url>
-    <loc>/reference/statcast.html</loc>
-  </url>
-  <url>
-    <loc>/reference/statcast_impute.html</loc>
-  </url>
-  <url>
-    <loc>/reference/statcast_leaderboards.html</loc>
-  </url>
-  <url>
-    <loc>/reference/statcast_search.html</loc>
-  </url>
-  <url>
-    <loc>/reference/statline_from_statcast.html</loc>
-  </url>
-  <url>
-    <loc>/reference/stats_api_live_empty_df.html</loc>
-  </url>
-  <url>
-    <loc>/reference/team_consistency.html</loc>
-  </url>
-  <url>
-    <loc>/reference/team_results_bref.html</loc>
-  </url>
-  <url>
-    <loc>/reference/teams_lu_table.html</loc>
-  </url>
-  <url>
-    <loc>/reference/woba_plus.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://billpetti.github.io/baseballr/404.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/CLAUDE.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/CONTRIBUTING.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/LICENSE-text.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/LICENSE.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/articles/baseballr.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/articles/index.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/articles/ncaa_scraping.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/articles/plotting_statcast.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/articles/using_statcast_pitch_data.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/authors.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/copilot-instructions.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/index.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/news/index.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/baseballr-package.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/batter_game_logs_fg.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/bref.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/bref_daily_batter.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/bref_daily_pitcher.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/bref_standings_on_date.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/bref_team_results.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/chadwick.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/chadwick_path.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/chadwick_player_id_lu.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/chadwick_player_lu.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/chadwick_player_name_lu.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/code_barrel.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/column_structure_draft_mlb.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/csv_from_url.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/daily_batter_bref.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/daily_pitcher_bref.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/dot-capture_args.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/dot-interp_braces.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/dot-ncaa_is_interstitial.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/dot-ncaa_resolve_season_team_id.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/dot-report_api_error.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/dot-report_api_warning.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/dot-resp_text.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/dot-retry_request.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/edge_code.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/edge_frequency.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_athletes_index.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_award.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_betting.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_calendar.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_coach.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_coach_record.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_coach_season.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_coaches.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_conferences.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_draft.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_draft_athlete_detail.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_draft_athletes.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_draft_pick.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_draft_rounds.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_draft_status.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_franchise.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_franchises.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_freeagents.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_futures.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_all.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_broadcasts.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_info.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_odds.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_official_detail.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_officials.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_play.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_play_personnel.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_player_box.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_powerindex.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_predictor.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_probabilities.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_probables.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_propbets.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_rosters.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_situation.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_leaders.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_linescores.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_records.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_roster.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_roster_entry.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_score.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_statistics.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_injuries.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_leaders.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_news.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_pbp.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_awards.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_box.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_career_stats.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_contract.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_contracts.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_eventlog.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_eventlog_v2.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_gamelog.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_info.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_overview.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_seasons.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_splits.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_statisticslog.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_stats.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_stats_v3.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_position.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_positions.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_powerindex.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_scoreboard.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_season_awards.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_season_draft.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_season_group.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_season_group_children.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_season_group_teams.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_season_groups.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_season_info.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_season_leaders.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_season_ranking.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_season_rankings.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_season_type.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_season_types.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_season_week.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_season_weeks.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_seasons.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_standings.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_box.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_current_roster.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_depthchart.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_injuries.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_leaders.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_news.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_odds_records.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_record.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_record_detail.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_roster.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_schedule.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_season_profile.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_season_roster.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_season_statistics.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_stats.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_teams.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_tournament.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_tournament_season.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_tournament_seasons.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_tournaments.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_transactions.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_venues.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_week_ranking.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_week_rankings.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_wp.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/fangraphs.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/fg_bat_leaders.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/fg_batter_game_logs.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/fg_batter_leaders.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/fg_fielder_leaders.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/fg_guts.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/fg_milb_batter_game_logs.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/fg_milb_pitcher_game_logs.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/fg_park.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/fg_pitch_leaders.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/fg_pitcher_game_logs.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/fg_pitcher_leaders.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/fg_team_batter.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/fg_team_fielder.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/fg_team_pitcher.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/fip_plus.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/get_batting_orders.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/get_draft_mlb.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/get_game_info_mlb.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/get_game_info_sup_petti.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/get_game_pks_mlb.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/get_ncaa_baseball_pbp.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/get_ncaa_baseball_roster.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/get_ncaa_game_logs.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/get_ncaa_lineups.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/get_ncaa_park_factor.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/get_ncaa_schedule_info.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/get_pbp_mlb.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/get_probables_mlb.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/get_retrosheet_data.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/get_umpire_ids_petti.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/ggspraychart.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/helper_espn_mlb_pbp.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/helper_espn_mlb_player_box.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/helper_espn_mlb_team_box.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/index.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/label_statcast_imputed_data.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/linear_weights_savant.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/load_baseball.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/load_game_info_sup.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/load_ncaa_baseball_pbp.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/load_ncaa_baseball_schedule.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/load_ncaa_baseball_season_ids.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/load_ncaa_baseball_teams.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/load_umpire_ids.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/metrics.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/milb_batter_game_logs_fg.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/milb_pitcher_game_logs_fg.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_all_star.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_all_star_ballots.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_all_star_final_vote.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_all_star_write_ins.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_attendance.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_award.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_awards.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_awards_recipient.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_baseball_stats.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_batting_orders.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_conferences.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_divisions.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_draft.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_draft_endpoints.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_draft_latest.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_draft_prospects.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_event_types.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_fielder_detail_types.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_game_changes.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_game_content.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_game_context_metrics.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_game_endpoints.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_game_info.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_game_linescore.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_game_pace.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_game_pks.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_game_status_codes.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_game_timecodes.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_game_types.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_game_wp.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_high_low_stats.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_high_low_types.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_hit_trajectories.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_homerun_derby.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_homerun_derby_bracket.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_homerun_derby_endpoints.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_homerun_derby_players.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_job_types.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_jobs.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_jobs_datacasters.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_jobs_endpoints.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_jobs_official_scorers.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_jobs_umpires.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_languages.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_league.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_league_leader_types.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_logical_events.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_metrics.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_pbp.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_pbp_diff.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_people.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_people_free_agents.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_pitch_codes.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_pitch_types.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_player_game_stats.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_player_game_stats_current.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_player_status_codes.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_positions.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_probables.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_review_reasons.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_roster_types.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_rosters.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_runner_detail_types.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_schedule.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_schedule_endpoints.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_schedule_event_types.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_schedule_games_tied.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_schedule_postseason.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_schedule_postseason_series.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_seasons.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_seasons_all.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_situation_codes.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_sky.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_sports.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_sports_info.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_sports_players.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_standings.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_standings_types.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_stat_groups.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_stat_types.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_stats.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_stats_endpoints.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_stats_leaders.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_team_affiliates.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_team_alumni.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_team_coaches.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_team_endpoints.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_team_history.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_team_info.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_team_leaders.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_team_personnel.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_team_stats.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_teams.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_teams_stats.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_teams_stats_leaders.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_venues.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_wind_direction_codes.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/most_recent_mlb_season.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/most_recent_ncaa_baseball_season.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/ncaa.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/ncaa_game_logs.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/ncaa_lineups.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/ncaa_park_factor.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/ncaa_pbp.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/ncaa_roster.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/ncaa_schedule_info.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/ncaa_school_id_lu.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/ncaa_scrape.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/ncaa_team_player_stats.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/ncaa_teams.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/pitcher_game_logs_fg.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/process_statcast_payload.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/progressively.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/rds_from_url.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/request_with_proxy.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/retrosheet_data.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/run_expectancy_code.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/school_id_lu.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/scrape_savant_leaderboards.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/scrape_statcast_savant.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/spotrac.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/sptrc_league_payrolls.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/sptrc_team_active_payroll.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/standings_on_date_bref.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/statcast.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/statcast_impute.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/statcast_leaderboards.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/statcast_search.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/statline_from_statcast.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/stats_api_live_empty_df.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/team_consistency.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/team_results_bref.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/teams_lu_table.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/woba_plus.html</loc></url>
 </urlset>
+
