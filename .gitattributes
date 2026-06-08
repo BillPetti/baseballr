@@ -1,0 +1,36 @@
+# Normalize all text files to LF in the repository, matching the other
+# SportsDataverse packages. This ends the CRLF/LF churn that arises from
+# editing on Windows: the repo always stores LF, and git checks out / commits
+# LF regardless of the local platform. See `git help gitattributes`.
+* text=auto eol=lf
+
+# Explicit text types
+*.R          text eol=lf
+*.Rd         text eol=lf
+*.Rmd        text eol=lf
+*.md         text eol=lf
+*.csv        text eol=lf
+*.yml        text eol=lf
+*.yaml       text eol=lf
+*.css        text eol=lf
+*.html       text eol=lf
+*.Rproj      text eol=lf
+NAMESPACE    text eol=lf
+DESCRIPTION  text eol=lf
+
+# Binary files (never normalize or attempt to diff)
+*.rda    binary
+*.RData  binary
+*.rds    binary
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.ico    binary
+*.pdf    binary
+*.zip    binary
+*.gz     binary
+
+# Generated files — keep out of language stats and collapse diffs on GitHub
+man/**     linguist-generated=true
+NAMESPACE  linguist-generated=true
