@@ -167,7 +167,7 @@ Leaning Right 89 = CF - RF Gap 98 = RF - RF Gap 91 = RF - Leaning Left
 # \donttest{
   try(statcast_leaderboards(leaderboard = "expected_statistics", year = 2018))
 #> ── MLB Baseball Savant Statcast Leaderboards data from baseballsavant.ml
-#> ℹ Data updated: 2026-06-08 03:21:45 UTC
+#> ℹ Data updated: 2026-06-08 03:47:19 UTC
 #> # A tibble: 249 × 14
 #>     year `last_name, first_name` player_id    pa   bip    ba est_ba
 #>    <int> <chr>                       <int> <int> <int> <dbl>  <dbl>
@@ -187,7 +187,7 @@ Leaning Right 89 = CF - RF Gap 98 = RF - RF Gap 91 = RF - Leaning Left
 #> #   est_woba <dbl>, est_woba_minus_woba_diff <dbl>
   try(statcast_leaderboards(leaderboard = "arm_strength", year = 2020))
 #> ── MLB Baseball Savant Statcast Leaderboards data from baseballsavant.ml
-#> ℹ Data updated: 2026-06-08 03:21:45 UTC
+#> ℹ Data updated: 2026-06-08 03:47:19 UTC
 #> # A tibble: 183 × 27
 #>     year fielder_name     player_id team_name primary_position
 #>    <dbl> <chr>                <int> <lgl>                <int>

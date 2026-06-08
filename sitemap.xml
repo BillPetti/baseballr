@@ -63,6 +63,7 @@
 <url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_futures.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_all.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_broadcasts.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_endpoints.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_info.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_odds.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_game_official_detail.html</loc></url>
@@ -93,6 +94,7 @@
 <url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_career_stats.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_contract.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_contracts.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_endpoints.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_eventlog.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_eventlog_v2.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_player_gamelog.html</loc></url>
@@ -127,6 +129,7 @@
 <url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_box.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_current_roster.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_depthchart.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_endpoints.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_injuries.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_leaders.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/espn_mlb_team_news.html</loc></url>

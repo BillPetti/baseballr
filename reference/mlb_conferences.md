@@ -42,7 +42,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_conferences())
 #> ── MLB Conferences data from MLB.com ──────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 03:20:04 UTC
+#> ℹ Data updated: 2026-06-08 03:45:41 UTC
 #> # A tibble: 2 × 10
 #>   conference_id conference_name         link      conference_abbreviat…¹
 #>           <int> <chr>                   <chr>     <chr>                 
@@ -54,7 +54,7 @@ Returns a tibble with the following columns
 #> #   sport_link <chr>
   try(mlb_conferences(conference_id =  301, season = 2020))
 #> ── MLB Conferences data from MLB.com ──────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 03:20:04 UTC
+#> ℹ Data updated: 2026-06-08 03:45:41 UTC
 #> # A tibble: 1 × 10
 #>   conference_id conference_name         link      conference_abbreviat…¹
 #>           <int> <chr>                   <chr>     <chr>                 

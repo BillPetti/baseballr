@@ -28,6 +28,10 @@ Get ESPN MLB Event Win Probabilities"><meta property="og:image" content="https:/
     <li><a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a></li>
     <li><a class="dropdown-item" href="../reference/bref.html">Baseball Reference</a></li>
     <li><a class="dropdown-item" href="../reference/fangraphs.html">FanGraphs</a></li>
+    <li><a class="dropdown-item" href="../reference/espn_mlb.html">ESPN MLB</a></li>
+    <li><a class="dropdown-item" href="../reference/espn_mlb_game_endpoints.html">ESPN MLB Game</a></li>
+    <li><a class="dropdown-item" href="../reference/espn_mlb_player_endpoints.html">ESPN MLB Players</a></li>
+    <li><a class="dropdown-item" href="../reference/espn_mlb_team_endpoints.html">ESPN MLB Teams</a></li>
     <li><a class="dropdown-item" href="../reference/metrics.html">Metrics</a></li>
     <li><a class="dropdown-item" href="../reference/ggspraychart.html">Visualizations</a></li>
     <li><a class="dropdown-item" href="../reference/chadwick.html">Player Lookup</a></li>
@@ -161,6 +165,7 @@ Defaults to <code>200</code>. Pagination is handled internally.</p></dd>
 <code><a href="espn_mlb_futures.html">espn_mlb_futures()</a></code>,
 <code><a href="espn_mlb_game_all.html">espn_mlb_game_all()</a></code>,
 <code><a href="espn_mlb_game_broadcasts.html">espn_mlb_game_broadcasts()</a></code>,
+<code><a href="espn_mlb_game_endpoints.html">espn_mlb_game_endpoints</a></code>,
 <code><a href="espn_mlb_game_info.html">espn_mlb_game_info()</a></code>,
 <code><a href="espn_mlb_game_odds.html">espn_mlb_game_odds()</a></code>,
 <code><a href="espn_mlb_game_official_detail.html">espn_mlb_game_official_detail()</a></code>,
@@ -190,6 +195,7 @@ Defaults to <code>200</code>. Pagination is handled internally.</p></dd>
 <code><a href="espn_mlb_player_career_stats.html">espn_mlb_player_career_stats()</a></code>,
 <code><a href="espn_mlb_player_contract.html">espn_mlb_player_contract()</a></code>,
 <code><a href="espn_mlb_player_contracts.html">espn_mlb_player_contracts()</a></code>,
+<code><a href="espn_mlb_player_endpoints.html">espn_mlb_player_endpoints</a></code>,
 <code><a href="espn_mlb_player_eventlog.html">espn_mlb_player_eventlog()</a></code>,
 <code><a href="espn_mlb_player_eventlog_v2.html">espn_mlb_player_eventlog_v2()</a></code>,
 <code><a href="espn_mlb_player_gamelog.html">espn_mlb_player_gamelog()</a></code>,
@@ -224,6 +230,7 @@ Defaults to <code>200</code>. Pagination is handled internally.</p></dd>
 <code><a href="espn_mlb_team_box.html">espn_mlb_team_box()</a></code>,
 <code><a href="espn_mlb_team_current_roster.html">espn_mlb_team_current_roster()</a></code>,
 <code><a href="espn_mlb_team_depthchart.html">espn_mlb_team_depthchart()</a></code>,
+<code><a href="espn_mlb_team_endpoints.html">espn_mlb_team_endpoints</a></code>,
 <code><a href="espn_mlb_team_injuries.html">espn_mlb_team_injuries()</a></code>,
 <code><a href="espn_mlb_team_leaders.html">espn_mlb_team_leaders()</a></code>,
 <code><a href="espn_mlb_team_news.html">espn_mlb_team_news()</a></code>,
@@ -256,11 +263,11 @@ Defaults to <code>200</code>. Pagination is handled internally.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_mlb_game_probabilities</span><span class="op">(</span>event_id <span class="op">=</span> <span class="st">"401283399"</span>, limit <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-06-08 03:18:42.171854: Failed to retrieve ESPN mlb event probabilities for event_id=401283399</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-06-08 03:44:25.093607: Failed to retrieve ESPN mlb event probabilities for event_id=401283399</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "mlb", event_id = "401283399", limit = 50</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: The API returned an error, HTTP Response Code 404</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Event Probabilities (event_id=401283399) from ESPN.com ─────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-08 03:18:42 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-08 03:44:25 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

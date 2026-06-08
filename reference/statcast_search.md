@@ -207,7 +207,7 @@ reference.
                       playerid = 547180, 
                       player_type = 'batter'))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-06-08 03:21:45 UTC
+#> ℹ Data updated: 2026-06-08 03:47:19 UTC
 #> # A tibble: 82 × 118
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
@@ -234,7 +234,7 @@ reference.
                       playerid = 664285, 
                       player_type = 'pitcher'))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-06-08 03:21:45 UTC
+#> ℹ Data updated: 2026-06-08 03:47:19 UTC
 #> # A tibble: 92 × 118
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
@@ -259,7 +259,7 @@ reference.
   try(statcast_search(start_date = "2022-11-04", 
                       end_date = "2022-11-06"))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-06-08 03:21:46 UTC
+#> ℹ Data updated: 2026-06-08 03:47:20 UTC
 #> # A tibble: 250 × 118
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>

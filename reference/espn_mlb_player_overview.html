@@ -28,6 +28,10 @@ Get ESPN MLB Athlete Overview"><meta property="og:image" content="https://raw.gi
     <li><a class="dropdown-item" href="../reference/ncaa.html">NCAA Baseball</a></li>
     <li><a class="dropdown-item" href="../reference/bref.html">Baseball Reference</a></li>
     <li><a class="dropdown-item" href="../reference/fangraphs.html">FanGraphs</a></li>
+    <li><a class="dropdown-item" href="../reference/espn_mlb.html">ESPN MLB</a></li>
+    <li><a class="dropdown-item" href="../reference/espn_mlb_game_endpoints.html">ESPN MLB Game</a></li>
+    <li><a class="dropdown-item" href="../reference/espn_mlb_player_endpoints.html">ESPN MLB Players</a></li>
+    <li><a class="dropdown-item" href="../reference/espn_mlb_team_endpoints.html">ESPN MLB Teams</a></li>
     <li><a class="dropdown-item" href="../reference/metrics.html">Metrics</a></li>
     <li><a class="dropdown-item" href="../reference/ggspraychart.html">Visualizations</a></li>
     <li><a class="dropdown-item" href="../reference/chadwick.html">Player Lookup</a></li>
@@ -162,6 +166,7 @@ Get ESPN MLB Athlete Overview"><meta property="og:image" content="https://raw.gi
 <code><a href="espn_mlb_futures.html">espn_mlb_futures()</a></code>,
 <code><a href="espn_mlb_game_all.html">espn_mlb_game_all()</a></code>,
 <code><a href="espn_mlb_game_broadcasts.html">espn_mlb_game_broadcasts()</a></code>,
+<code><a href="espn_mlb_game_endpoints.html">espn_mlb_game_endpoints</a></code>,
 <code><a href="espn_mlb_game_info.html">espn_mlb_game_info()</a></code>,
 <code><a href="espn_mlb_game_odds.html">espn_mlb_game_odds()</a></code>,
 <code><a href="espn_mlb_game_official_detail.html">espn_mlb_game_official_detail()</a></code>,
@@ -192,6 +197,7 @@ Get ESPN MLB Athlete Overview"><meta property="og:image" content="https://raw.gi
 <code><a href="espn_mlb_player_career_stats.html">espn_mlb_player_career_stats()</a></code>,
 <code><a href="espn_mlb_player_contract.html">espn_mlb_player_contract()</a></code>,
 <code><a href="espn_mlb_player_contracts.html">espn_mlb_player_contracts()</a></code>,
+<code><a href="espn_mlb_player_endpoints.html">espn_mlb_player_endpoints</a></code>,
 <code><a href="espn_mlb_player_eventlog.html">espn_mlb_player_eventlog()</a></code>,
 <code><a href="espn_mlb_player_eventlog_v2.html">espn_mlb_player_eventlog_v2()</a></code>,
 <code><a href="espn_mlb_player_gamelog.html">espn_mlb_player_gamelog()</a></code>,
@@ -225,6 +231,7 @@ Get ESPN MLB Athlete Overview"><meta property="og:image" content="https://raw.gi
 <code><a href="espn_mlb_team_box.html">espn_mlb_team_box()</a></code>,
 <code><a href="espn_mlb_team_current_roster.html">espn_mlb_team_current_roster()</a></code>,
 <code><a href="espn_mlb_team_depthchart.html">espn_mlb_team_depthchart()</a></code>,
+<code><a href="espn_mlb_team_endpoints.html">espn_mlb_team_endpoints</a></code>,
 <code><a href="espn_mlb_team_injuries.html">espn_mlb_team_injuries()</a></code>,
 <code><a href="espn_mlb_team_leaders.html">espn_mlb_team_leaders()</a></code>,
 <code><a href="espn_mlb_team_news.html">espn_mlb_team_news()</a></code>,
@@ -259,12 +266,12 @@ Get ESPN MLB Athlete Overview"><meta property="og:image" content="https://raw.gi
 <span class="r-in"><span>  <span class="fu">espn_mlb_player_overview</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="st">"1966"</span>, season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Statistics</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-08 03:18:52 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-08 03:44:36 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $NextGame</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-08 03:18:52 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-08 03:44:36 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   id    date  name  short_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
@@ -272,12 +279,12 @@ Get ESPN MLB Athlete Overview"><meta property="og:image" content="https://raw.gi
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Last5Games</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-08 03:18:52 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-08 03:44:36 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Headlines</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-08 03:18:52 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-08 03:44:36 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 13 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    headline                           description published byline type </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
@@ -297,7 +304,7 @@ Get ESPN MLB Athlete Overview"><meta property="og:image" content="https://raw.gi
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $FantasyOutlook</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-08 03:18:52 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-08 03:44:36 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>

@@ -80,6 +80,7 @@ Other ESPN MLB Functions:
 [`espn_mlb_futures()`](https://billpetti.github.io/baseballr/reference/espn_mlb_futures.md),
 [`espn_mlb_game_all()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_all.md),
 [`espn_mlb_game_broadcasts()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_broadcasts.md),
+[`espn_mlb_game_endpoints`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_endpoints.md),
 [`espn_mlb_game_info()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_info.md),
 [`espn_mlb_game_odds()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_odds.md),
 [`espn_mlb_game_official_detail()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_official_detail.md),
@@ -109,6 +110,7 @@ Other ESPN MLB Functions:
 [`espn_mlb_player_career_stats()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_career_stats.md),
 [`espn_mlb_player_contract()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_contract.md),
 [`espn_mlb_player_contracts()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_contracts.md),
+[`espn_mlb_player_endpoints`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_endpoints.md),
 [`espn_mlb_player_eventlog()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_eventlog.md),
 [`espn_mlb_player_eventlog_v2()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_eventlog_v2.md),
 [`espn_mlb_player_gamelog()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_gamelog.md),
@@ -143,6 +145,7 @@ Other ESPN MLB Functions:
 [`espn_mlb_team_box()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_box.md),
 [`espn_mlb_team_current_roster()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_current_roster.md),
 [`espn_mlb_team_depthchart()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_depthchart.md),
+[`espn_mlb_team_endpoints`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_endpoints.md),
 [`espn_mlb_team_injuries()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_injuries.md),
 [`espn_mlb_team_leaders()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_leaders.md),
 [`espn_mlb_team_news()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_news.md),
@@ -177,11 +180,11 @@ Saiem Gilani
   espn_mlb_game_team_roster_entry(event_id = 401283399,
                                             team_id = 13,
                                             athlete_id = 33192)
-#> ✖ 2026-06-08 03:18:45.787475: Failed to retrieve ESPN mlb event roster entry for event_id=401283399, team_id=13, athlete_id=33192
+#> ✖ 2026-06-08 03:44:27.774201: Failed to retrieve ESPN mlb event roster entry for event_id=401283399, team_id=13, athlete_id=33192
 #> ✖ Args: league = "mlb", event_id = 401283399, team_id = 13, athlete_id = 33192
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN MLB Event Competitor Roster Entry ─────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 03:18:45 UTC
+#> ℹ Data updated: 2026-06-08 03:44:27 UTC
 #> # A tibble: 0 × 0
 # }
 ```

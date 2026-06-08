@@ -37,7 +37,7 @@ Returns a tibble that includes time codes from the game_pk requested
 # \donttest{
   try(mlb_game_wp(game_pk = 531060))
 #> ── MLB Game Win Probability data from MLB.com ─────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 03:20:15 UTC
+#> ℹ Data updated: 2026-06-08 03:45:51 UTC
 #> # A tibble: 74 × 5
 #>    home_team_win_probabi…¹ away_team_win_probab…² home_team_win_probab…³
 #>                      <dbl>                  <dbl>                  <dbl>

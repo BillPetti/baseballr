@@ -1084,6 +1084,13 @@ reference data).
 
   **Get ESPN MLB Event Broadcasts**
 
+- [`espn_mlb_game_endpoints`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_endpoints.md)
+  [`espn_mlb_game`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_endpoints.md)
+  [`espn_mlb_pbp_overview`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_endpoints.md)
+  :
+
+  **ESPN MLB Game Endpoint Overview**
+
 - [`espn_mlb_game_info()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_info.md)
   :
 
@@ -1234,6 +1241,13 @@ reference data).
   :
 
   **Get ESPN MLB Athlete Contracts Index**
+
+- [`espn_mlb_player_endpoints`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_endpoints.md)
+  [`espn_mlb_athlete`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_endpoints.md)
+  [`espn_mlb_athletes_overview`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_endpoints.md)
+  :
+
+  **ESPN MLB Player / Athlete Endpoint Overview**
 
 - [`espn_mlb_player_eventlog()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_eventlog.md)
   :
@@ -1404,6 +1418,12 @@ reference data).
   :
 
   **Get ESPN MLB Team Depth Chart (Long Format)**
+
+- [`espn_mlb_team_endpoints`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_endpoints.md)
+  [`espn_mlb_team_overview`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_endpoints.md)
+  :
+
+  **ESPN MLB Team Endpoint Overview**
 
 - [`espn_mlb_team_injuries()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_injuries.md)
   :

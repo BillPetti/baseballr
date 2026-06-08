@@ -37,7 +37,7 @@ Returns a tibble of seasonal constants from FanGraphs
 # \donttest{
   try(fg_guts())
 #> ── GUTS data from FanGraphs.com ───────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 03:19:28 UTC
+#> ℹ Data updated: 2026-06-08 03:45:05 UTC
 #> # A tibble: 156 × 14
 #>    season lg_woba woba_scale   wBB  wHBP   w1B   w2B   w3B   wHR runSB
 #>     <int>   <dbl>      <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
