@@ -74,6 +74,20 @@
   e.g. `metrics_linear_weights_savant()` was not folding balls/strikes
   into the `events` column
   ([\#275](https://github.com/billpetti/baseballr/issues/275)).
+- [`statcast_search()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
+  (via
+  [`process_statcast_payload()`](https://billpetti.github.io/baseballr/reference/process_statcast_payload.md))
+  returns data again. Baseball Savant’s CSV export ships the `pitcher`
+  and `fielder_2` columns twice (the trailing repeats carry identical
+  values), and after the positional header rename those duplicate names
+  survived into the payload.
+  [`dplyr::across()`](https://dplyr.tidyverse.org/reference/across.html)/[`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html)
+  reject a frame with duplicate names
+  (`Can't transform a data frame with duplicate names`), so the function
+  now drops the duplicate-named columns (keeping the first occurrence)
+  before any column-wise transform, class-aware for the `data.table`
+  payload returned by
+  [`csv_from_url()`](https://billpetti.github.io/baseballr/reference/csv_from_url.md).
 - [`sptrc_team_active_payroll()`](https://billpetti.github.io/baseballr/reference/sptrc_team_active_payroll.md)
   and
   [`sptrc_league_payrolls()`](https://billpetti.github.io/baseballr/reference/sptrc_league_payrolls.md)

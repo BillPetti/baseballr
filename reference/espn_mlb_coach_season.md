@@ -172,11 +172,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_coach_season(coach_id = 52120, season = 2025)
-#> ✖ 2026-06-08 11:07:34.556085: Failed to retrieve ESPN mlb coach-in-season detail for coach_id=52120, season=2025
+#> ✖ 2026-06-09 20:41:57.717473: Failed to retrieve ESPN mlb coach-in-season detail for coach_id=52120, season=2025
 #> ✖ Args: league = "mlb", coach_id = 52120, season = 2025
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN MLB Coach-in-Season Detail ────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 11:07:34 UTC
+#> ℹ Data updated: 2026-06-09 20:41:57 UTC
 #> # A tibble: 0 × 0
 # }
 ```

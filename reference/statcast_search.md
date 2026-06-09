@@ -207,7 +207,7 @@ reference.
                       playerid = 547180, 
                       player_type = 'batter'))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-06-08 11:10:37 UTC
+#> ℹ Data updated: 2026-06-09 20:45:07 UTC
 #> # A tibble: 82 × 118
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
@@ -218,9 +218,9 @@ reference.
 #>  5 FF         2022-10-15          95.8         -2.62          5.45
 #>  6 FC         2022-10-15          93.4         -1.05          6.88
 #>  7 FC         2022-10-15          93.1         -1.16          6.87
-#>  8 FC         2022-10-15          92.3         -1.1           6.86
-#>  9 FF         2022-10-15          95.8         -1.47          5.64
-#> 10 FF         2022-10-15          98.8          2.13          5.77
+#>  8 FF         2022-10-15          95.8         -1.47          5.64
+#>  9 FC         2022-10-15          92.3         -1.1           6.86
+#> 10 FC         2022-10-15          91           -2.09          5.64
 #> # ℹ 72 more rows
 #> # ℹ 113 more variables: player_name <chr>, batter <dbl>, pitcher <dbl>,
 #> #   events <chr>, description <chr>, spin_dir <lgl>,
@@ -234,7 +234,7 @@ reference.
                       playerid = 664285, 
                       player_type = 'pitcher'))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-06-08 11:10:38 UTC
+#> ℹ Data updated: 2026-06-09 20:45:07 UTC
 #> # A tibble: 92 × 118
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
@@ -259,7 +259,7 @@ reference.
   try(statcast_search(start_date = "2022-11-04", 
                       end_date = "2022-11-06"))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-06-08 11:10:38 UTC
+#> ℹ Data updated: 2026-06-09 20:45:07 UTC
 #> # A tibble: 250 × 118
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>

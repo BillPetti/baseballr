@@ -84,7 +84,7 @@ A data frame with the following variables
 ``` r
 # \donttest{
   try(ncaa_team_player_stats(team_id = 234, year = 2023, type = "batting"))
-#> ! 2026-06-08 11:10:32.447191: stats.ncaa.org returned an Akamai bot-challenge for the team stats endpoint; no data could be retrieved. This endpoint is gated and cannot be scraped without a browser session.
+#> ! 2026-06-09 20:45:01.654687: stats.ncaa.org returned an Akamai bot-challenge for the team stats endpoint; no data could be retrieved. This endpoint is gated and cannot be scraped without a browser session.
 #> data frame with 0 columns and 0 rows
 # }
 ```

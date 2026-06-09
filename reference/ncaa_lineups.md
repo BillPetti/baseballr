@@ -48,11 +48,11 @@ Returns a tibble of each school's starting lineup and starting pitcher
 ``` r
 # \donttest{
   try(ncaa_lineups(game_info_url="https://stats.ncaa.org/contests/2167178/box_score"))
-#> 2026-06-08 11:10:08.347747: Invalid arguments provided
+#> 2026-06-09 20:44:38.630197: Invalid arguments provided
 #> Error in ncaa_lineups(game_info_url = "https://stats.ncaa.org/contests/2167178/box_score") : 
 #>   object 'lineup_table' not found
   try(ncaa_lineups(game_info_url="https://stats.ncaa.org/game/index/4587474?org_id=528"))
-#> 2026-06-08 11:10:13.531054: Invalid arguments provided
+#> 2026-06-09 20:44:43.881258: Invalid arguments provided
 #> Error in ncaa_lineups(game_info_url = "https://stats.ncaa.org/game/index/4587474?org_id=528") : 
 #>   object 'lineup_table' not found
 # }

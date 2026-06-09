@@ -33,7 +33,7 @@ From the NCAA website:
 
 try(ncaa_teams(year = most_recent_ncaa_baseball_season(), division = "1"))
 #> ── NCAA Baseball Teams data from stats.ncaa.org ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 11:13:48 UTC
+#> ℹ Data updated: 2026-06-09 20:48:19 UTC
 #> # A tibble: 308 × 9
 #>    team_id team_name    team_url conference_id conference division  year
 #>    <chr>   <chr>        <chr>    <chr>         <chr>      <chr>    <dbl>
@@ -74,7 +74,7 @@ team_id <- ncaa_teams_df %>%
 year <- most_recent_ncaa_baseball_season()
 
 ncaa_team_player_stats(team_id = team_id, year = year, "batting")
-#> ! 2026-06-08 11:13:53.794386: stats.ncaa.org returned an Akamai bot-challenge for the team stats endpoint; no data could be retrieved. This endpoint is gated and cannot be scraped without a browser session.
+#> ! 2026-06-09 20:48:24.995429: stats.ncaa.org returned an Akamai bot-challenge for the team stats endpoint; no data could be retrieved. This endpoint is gated and cannot be scraped without a browser session.
 #> data frame with 0 columns and 0 rows
 ```
 
@@ -84,7 +84,7 @@ parameter:
 ``` r
 
 ncaa_team_player_stats(team_id = team_id, year = year,  "pitching")
-#> ! 2026-06-08 11:13:58.902849: stats.ncaa.org returned an Akamai bot-challenge for the team stats endpoint; no data could be retrieved. This endpoint is gated and cannot be scraped without a browser session.
+#> ! 2026-06-09 20:48:30.190045: stats.ncaa.org returned an Akamai bot-challenge for the team stats endpoint; no data could be retrieved. This endpoint is gated and cannot be scraped without a browser session.
 #> data frame with 0 columns and 0 rows
 ```
 

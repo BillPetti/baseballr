@@ -42,8 +42,8 @@ Returns a tibble with the following columns:
 # \donttest{
   try(mlb_venues())
 #> ── MLB Venues data from MLB.com ───────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 11:09:32 UTC
-#> # A tibble: 1,646 × 5
+#> ℹ Data updated: 2026-06-09 20:44:05 UTC
+#> # A tibble: 1,647 × 5
 #>    venue_id venue_name                venue_link          active season
 #>       <int> <chr>                     <chr>               <lgl>  <chr> 
 #>  1     2857 Veterans Memorial Stadium /api/v1/venues/2857 TRUE   2026  
@@ -56,17 +56,17 @@ Returns a tibble with the following columns:
 #>  8     4429 Hillsboro Ballpark        /api/v1/venues/4429 FALSE  2025  
 #>  9     2835 Valley Strong Ballpark    /api/v1/venues/2835 TRUE   2026  
 #> 10     6137 NEW VENUE TBD             /api/v1/venues/6137 TRUE   2026  
-#> # ℹ 1,636 more rows
+#> # ℹ 1,637 more rows
   try(mlb_venues(venue_ids = 4781))
 #> ── MLB Venues data from MLB.com ───────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 11:09:32 UTC
+#> ℹ Data updated: 2026-06-09 20:44:05 UTC
 #> # A tibble: 1 × 5
 #>   venue_id venue_name venue_link          active season
 #>      <int> <chr>      <chr>               <lgl>  <chr> 
 #> 1     4781 Bush Field /api/v1/venues/4781 FALSE  1995  
   try(mlb_venues(sport_ids = 1))
 #> ── MLB Venues data from MLB.com ───────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 11:09:32 UTC
+#> ℹ Data updated: 2026-06-09 20:44:05 UTC
 #> # A tibble: 59 × 5
 #>    venue_id venue_name                     venue_link      active season
 #>       <int> <chr>                          <chr>           <lgl>  <chr> 
@@ -78,8 +78,8 @@ Returns a tibble with the following columns:
 #>  6        5 Progressive Field              /api/v1/venues… TRUE   2026  
 #>  7        7 Kauffman Stadium               /api/v1/venues… TRUE   2026  
 #>  8     5000 CACTI Park of the Palm Beaches /api/v1/venues… TRUE   2026  
-#>  9     2700 BayCare Ballpark               /api/v1/venues… TRUE   2026  
-#> 10       12 Tropicana Field                /api/v1/venues… TRUE   2026  
+#>  9       12 Tropicana Field                /api/v1/venues… TRUE   2026  
+#> 10     2700 BayCare Ballpark               /api/v1/venues… TRUE   2026  
 #> # ℹ 49 more rows
 # }
 ```

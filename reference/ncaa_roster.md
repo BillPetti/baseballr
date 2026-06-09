@@ -49,7 +49,7 @@ each player (if available)
 # \donttest{
   try(ncaa_roster(team_id = 104, year = 2023))
 #> ── NCAA Baseball Roster data from stats.ncaa.org ──── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 11:10:26 UTC
+#> ℹ Data updated: 2026-06-09 20:44:55 UTC
 #> # A tibble: 43 × 16
 #>    player_name class player_id season number position player_url team_id
 #>    <chr>       <chr> <chr>      <dbl> <chr>  <chr>    <chr>        <dbl>

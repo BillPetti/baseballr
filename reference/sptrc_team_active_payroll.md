@@ -48,21 +48,21 @@ may change as Spotrac updates its layout.
 # \donttest{
  try(sptrc_team_active_payroll(team_abbr = "BAL", year = most_recent_mlb_season()))
 #> ── MLB Active Payroll data from Spotrac.com ───────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 11:10:35 UTC
-#> # A tibble: 38 × 18
+#> ℹ Data updated: 2026-06-09 20:45:05 UTC
+#> # A tibble: 39 × 18
 #>     year team  player_name      roster_status pos   exp   options_minor
 #>    <dbl> <chr> <chr>            <chr>         <chr> <chr> <chr>        
 #>  1  2026 BAL   Pete Alonso      Active        1B    7     n/a          
-#>  2  2026 BAL   Chris Bassitt    Active        SP    9.13  n/a          
-#>  3  2026 BAL   Tyler O'Neill    Active        RF    7.059 n/a          
-#>  4  2026 BAL   Taylor Ward      Active        LF    5.164 n/a          
-#>  5  2026 BAL   Andrew Kittredge Active        RP    7.07  n/a          
-#>  6  2026 BAL   Gunnar Henderson Active        SS    3.036 3            
-#>  7  2026 BAL   Adley Rutschman  Active        C     4     3            
-#>  8  2026 BAL   Trevor Rogers    Active        SP    5.047 n/a          
-#>  9  2026 BAL   Kyle Bradish     Active        SP    3.16  2            
-#> 10  2026 BAL   Keegan Akin      Active        RP    5.083 n/a          
-#> # ℹ 28 more rows
+#>  2  2026 BAL   Tyler O'Neill    Active        RF    7.059 n/a          
+#>  3  2026 BAL   Taylor Ward      Active        LF    5.164 n/a          
+#>  4  2026 BAL   Andrew Kittredge Active        RP    7.07  n/a          
+#>  5  2026 BAL   Gunnar Henderson Active        SS    3.036 3            
+#>  6  2026 BAL   Adley Rutschman  Active        C     4     3            
+#>  7  2026 BAL   Trevor Rogers    Active        SP    5.047 n/a          
+#>  8  2026 BAL   Kyle Bradish     Active        SP    3.16  2            
+#>  9  2026 BAL   Keegan Akin      Active        RP    5.083 n/a          
+#> 10  2026 BAL   Tyler Wells      Active        RP    4.132 2            
+#> # ℹ 29 more rows
 #> # ℹ 11 more variables: status <chr>, payroll_salary <dbl>,
 #> #   payroll_salary_adjusted <dbl>, base_salary <dbl>,
 #> #   signing_bonus <dbl>, x <chr>, x_2 <chr>, x_3 <chr>, x_4 <chr>,

@@ -171,7 +171,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_injuries()
 #> ── ESPN MLB Injury Information from ESPN.com ──────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-08 11:07:47 UTC
+#> ℹ Data updated: 2026-06-09 20:42:11 UTC
 #> # A tibble: 30 × 12
 #>    team_id athlete_id athlete_name position status date  type  side 
 #>    <chr>   <chr>      <chr>        <chr>    <chr>  <chr> <chr> <chr>

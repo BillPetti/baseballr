@@ -88,27 +88,22 @@
     <li><a class="external-link dropdown-item" href="https://hoopR.sportsdataverse.org/">hoopR</a></li>
     <li><a class="external-link dropdown-item" href="https://wehoop.sportsdataverse.org/">wehoop</a></li>
     <li><a class="external-link dropdown-item" href="https://fastRhockey.sportsdataverse.org/">fastRhockey</a></li>
-    <li><a class="external-link dropdown-item" href="https://hockeyr.netlify.app/">hockeyR</a></li>
     <li><a class="external-link dropdown-item" href="https://abhiamishra.github.io/ggshakeR/">ggshakeR</a></li>
     <li><a class="external-link dropdown-item" href="https://BillPetti.github.io/baseballr/">baseballr</a></li>
-    <li><a class="external-link dropdown-item" href="https://jaseziv.github.io/worldfootballR/">worldfootballR</a></li>
     <li><a class="external-link dropdown-item" href="https://usfootballR.sportsdataverse.org/">usfootballR</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/Dato-Futbol/soccerAnimate/">soccerAnimate</a></li>
     <li><a class="external-link dropdown-item" href="https://jaseziv.github.io/chessR/">chessR</a></li>
     <li><a class="external-link dropdown-item" href="https://oddsapiR.sportsdataverse.org/">oddsapiR</a></li>
     <li><a class="external-link dropdown-item" href="https://sportyR.sportsdataverse.org/">sportyR</a></li>
-    <li><a class="external-link dropdown-item" href="https://torvik.dev/">toRvik</a></li>
     <li><a class="external-link dropdown-item" href="https://cfbplotR.sportsdataverse.org/">cfbplotR</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/camdenk/mlbplotR">mlbplotR</a></li>
     <li><a class="external-link dropdown-item" href="https://cfb4th.sportsdataverse.org/">cfb4th</a></li>
-    <li><a class="external-link dropdown-item" href="https://jacklich10.github.io/gamezoneR/">gamezoneR</a></li>
-    <li><a class="external-link dropdown-item" href="https://recruitr.sportsdataverse.org/">recruitR</a></li>
+    <li><a class="external-link dropdown-item" href="https://recruitR.sportsdataverse.org/">recruitR</a></li>
     <li><a class="external-link dropdown-item" href="https://puntalytics.github.io/puntr/">puntr</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Python Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://py.sportsdataverse.org/">sportsdataverse-py</a></li>
     <li><a class="external-link dropdown-item" href="https://sportypy.sportsdataverse.org/">sportypy</a></li>
-    <li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/recruitR-py/">recruitR-py</a></li>
     <li><a class="external-link dropdown-item" href="https://collegebaseball.readthedocs.io/en/latest/index.html">collegebaseball</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Node.js Packages</h6></li>
@@ -172,7 +167,7 @@ directly from the NCAA website for a given year and division.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/ncaa_teams.html">ncaa_teams</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fu"><a href="../reference/most_recent_ncaa_baseball_season.html">most_recent_ncaa_baseball_season</a></span><span class="op">(</span><span class="op">)</span>, division <span class="op">=</span> <span class="st">"1"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── NCAA Baseball Teams data from stats.ncaa.org ───── <span style="font-style: italic;">baseballr 2.0.0</span> ──</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-08 11:13:48 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-09 20:48:19 UTC</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 308 × 9</span></span></span>
 <span><span class="co">#&gt;    team_id team_name    team_url conference_id conference division  year</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -206,13 +201,13 @@ season, you would use the following:</p>
 <span><span class="va">year</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/most_recent_ncaa_baseball_season.html">most_recent_ncaa_baseball_season</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, year <span class="op">=</span> <span class="va">year</span>, <span class="st">"batting"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> 2026-06-08 11:13:53.794386: stats.ncaa.org returned an Akamai bot-challenge for the team stats endpoint; no data could be retrieved. This endpoint is gated and cannot be scraped without a browser session.</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> 2026-06-09 20:48:24.995429: stats.ncaa.org returned an Akamai bot-challenge for the team stats endpoint; no data could be retrieved. This endpoint is gated and cannot be scraped without a browser session.</span></span>
 <span><span class="co">#&gt; data frame with 0 columns and 0 rows</span></span></code></pre></div>
 <p>The same can be done for pitching, just by changing the
 <code>type</code> parameter:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, year <span class="op">=</span> <span class="va">year</span>,  <span class="st">"pitching"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> 2026-06-08 11:13:58.902849: stats.ncaa.org returned an Akamai bot-challenge for the team stats endpoint; no data could be retrieved. This endpoint is gated and cannot be scraped without a browser session.</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> 2026-06-09 20:48:30.190045: stats.ncaa.org returned an Akamai bot-challenge for the team stats endpoint; no data could be retrieved. This endpoint is gated and cannot be scraped without a browser session.</span></span>
 <span><span class="co">#&gt; data frame with 0 columns and 0 rows</span></span></code></pre></div>
 <p>Now, the function is dependent on the user knowing the
 <code>team_id</code> used by the NCAA website. Given that, I’ve included
