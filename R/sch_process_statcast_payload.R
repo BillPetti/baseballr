@@ -10,6 +10,25 @@
 
 process_statcast_payload <- function(payload) {
 
+  # Baseball Savant's CSV export ships the `pitcher` and `fielder_2` columns
+  # twice (the trailing repeats carry identical values). csv_from_url() ->
+  # data.table::fread() keeps the duplicate headers verbatim, and the
+  # positional header rename in statcast_search() only relabels the leading
+  # known columns, so those repeats survive under colliding names. dplyr's
+  # across()/mutate() reject a frame with duplicate names ("Can't transform a
+  # data frame with duplicate names"), so drop the duplicate-named columns
+  # (keep first occurrence) before any column-wise transform. Done in a
+  # class-aware way because csv_from_url() returns a data.table, where column
+  # selection by index requires `with = FALSE`.
+  dupe_names <- duplicated(names(payload))
+  if (any(dupe_names)) {
+    if (data.table::is.data.table(payload)) {
+      payload <- payload[, which(!dupe_names), with = FALSE]
+    } else {
+      payload <- payload[, !dupe_names, drop = FALSE]
+    }
+  }
+
   # Clean up formatting of Baseball Savant download
 
   payload$game_date <- as.Date(payload$game_date, "%Y-%m-%d")
