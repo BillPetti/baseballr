@@ -149,14 +149,10 @@ navbar:
         href: https://wehoop.sportsdataverse.org/
       - text: fastRhockey
         href: https://fastRhockey.sportsdataverse.org/
-      - text: hockeyR
-        href: https://hockeyr.netlify.app/
       - text: ggshakeR
         href: https://abhiamishra.github.io/ggshakeR/
       - text: baseballr
         href: https://BillPetti.github.io/baseballr/
-      - text: worldfootballR
-        href: https://jaseziv.github.io/worldfootballR/
       - text: usfootballR
         href: https://usfootballR.sportsdataverse.org/
       - text: soccerAnimate
@@ -167,16 +163,12 @@ navbar:
         href: https://oddsapiR.sportsdataverse.org/
       - text: sportyR
         href: https://sportyR.sportsdataverse.org/
-      - text: toRvik
-        href: https://torvik.dev/
       - text: cfbplotR
         href: https://cfbplotR.sportsdataverse.org/
       - text: mlbplotR
         href: https://github.com/camdenk/mlbplotR
       - text: cfb4th
         href: https://cfb4th.sportsdataverse.org/
-      - text: gamezoneR
-        href: https://jacklich10.github.io/gamezoneR/
       - text: recruitR
         href: https://recruitr.sportsdataverse.org/
       - text: puntr
@@ -187,8 +179,6 @@ navbar:
         href: https://py.sportsdataverse.org/
       - text: sportypy
         href: https://sportypy.sportsdataverse.org/
-      - text: recruitR-py
-        href: https://github.com/sportsdataverse/recruitR-py/
       - text: collegebaseball
         href: https://collegebaseball.readthedocs.io/en/latest/index.html
       - text: --------------------------------
