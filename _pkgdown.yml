@@ -207,6 +207,11 @@ repo:
     issue: https://github.com/billpetti/baseballr/issues/
     user: https://github.com/billpetti/
 reference:
+  - title: Fox Sports (Bifrost)
+  - subtitle: Fox Sports MLB Data Functions
+    desc: Read-only Fox Sports (Bifrost) MLB wrappers (roster, team stats, game log, standings, leaders, odds)
+    contents:
+      - starts_with("fox_mlb_")
   - title: Baseball Savant (Statcast)
   - subtitle: Baseball Savant / Statcast Data Functions
     desc: Functions exported by baseballr to access Baseball Savant (Statcast) MLB Data
