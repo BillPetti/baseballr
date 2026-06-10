@@ -137,7 +137,7 @@
 
 #' @keywords internal
 #' @importFrom janitor clean_names
-#' @importFrom tibble as_tibble
+#' @importFrom dplyr as_tibble bind_rows
 .fox_mlb_resource <- function(resource, game_id = NULL, team_id = NULL,
                               category = "batting", who = "player", page = 0) {
   out <- data.frame()
@@ -157,7 +157,7 @@
         team_stats = .fox_mlb_team_stats(raw, team_id), gamelog = .fox_mlb_gamelog(raw, team_id),
         standings = .fox_mlb_standings(raw, team_id), league_leaders = .fox_mlb_leaders(raw))
       out <- df |>
-        tibble::as_tibble() |>
+        dplyr::as_tibble() |>
         janitor::clean_names() |>
         make_baseballr_data(paste0("Fox Sports MLB ", resource), Sys.time())
     },
