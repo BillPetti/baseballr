@@ -171,7 +171,7 @@ Saiem Gilani
   try(espn_college_baseball_player_info(athlete_id = "3730"))
 #> $Bio
 #> ── ESPN COLLEGE-BASEBALL Athlete Bio from ESPN.com ── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 12:38:55 UTC
+#> ℹ Data updated: 2026-06-12 13:44:40 UTC
 #> # A tibble: 1 × 11
 #>   id    uid       first_name last_name full_name display_name short_name
 #>   <chr> <chr>     <chr>      <chr>     <chr>     <chr>        <chr>     
@@ -181,7 +181,7 @@ Saiem Gilani
 #> 
 #> $Team
 #> ── ESPN COLLEGE-BASEBALL Athlete Team from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-06-12 12:38:55 UTC
+#> ℹ Data updated: 2026-06-12 13:44:40 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                                 
 #>   <chr>                                                                 
@@ -189,7 +189,7 @@ Saiem Gilani
 #> 
 #> $Position
 #> ── ESPN COLLEGE-BASEBALL Athlete Position from ESPN.com ────────────────
-#> ℹ Data updated: 2026-06-12 12:38:55 UTC
+#> ℹ Data updated: 2026-06-12 13:44:40 UTC
 #> # A tibble: 1 × 5
 #>   id    name                 display_name         abbreviation leaf 
 #>   <chr> <chr>                <chr>                <chr>        <lgl>
@@ -197,17 +197,17 @@ Saiem Gilani
 #> 
 #> $Status
 #> ── ESPN COLLEGE-BASEBALL Athlete Status from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-06-12 12:38:55 UTC
+#> ℹ Data updated: 2026-06-12 13:44:40 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $College
 #> ── ESPN COLLEGE-BASEBALL Athlete College from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-06-12 12:38:55 UTC
+#> ℹ Data updated: 2026-06-12 13:44:40 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Draft
 #> ── ESPN COLLEGE-BASEBALL Athlete Draft from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-06-12 12:38:55 UTC
+#> ℹ Data updated: 2026-06-12 13:44:40 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

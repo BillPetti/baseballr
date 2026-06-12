@@ -139,7 +139,7 @@ Saiem Gilani
   try(espn_college_baseball_season_info(season = 2025))
 #> $Info
 #> ── ESPN COLLEGE-BASEBALL Season Info from ESPN.com ── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 12:38:59 UTC
+#> ℹ Data updated: 2026-06-12 13:44:43 UTC
 #> # A tibble: 1 × 6
 #>    year start_date        end_date        display_name type_id type_name
 #>   <int> <chr>             <chr>           <chr>        <chr>   <chr>    
@@ -147,7 +147,7 @@ Saiem Gilani
 #> 
 #> $Types
 #> ── ESPN COLLEGE-BASEBALL Season Types from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-06-12 12:38:59 UTC
+#> ℹ Data updated: 2026-06-12 13:44:43 UTC
 #> # A tibble: 1 × 2
 #>   count ref                                                             
 #>   <int> <chr>                                                           
@@ -155,22 +155,22 @@ Saiem Gilani
 #> 
 #> $Athletes
 #> ── ESPN COLLEGE-BASEBALL Season Athletes from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-06-12 12:38:59 UTC
+#> ℹ Data updated: 2026-06-12 13:44:43 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Coaches
 #> ── ESPN COLLEGE-BASEBALL Season Coaches from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-06-12 12:38:59 UTC
+#> ℹ Data updated: 2026-06-12 13:44:43 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Teams
 #> ── ESPN COLLEGE-BASEBALL Season Teams from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-06-12 12:38:59 UTC
+#> ℹ Data updated: 2026-06-12 13:44:43 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Awards
 #> ── ESPN COLLEGE-BASEBALL Season Awards from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-06-12 12:38:59 UTC
+#> ℹ Data updated: 2026-06-12 13:44:43 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

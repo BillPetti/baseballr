@@ -177,8 +177,23 @@ directly from the NCAA website for a given year and division.</p>
 <p>From the NCAA website:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="../reference/ncaa_teams.html">ncaa_teams</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fu"><a href="../reference/most_recent_ncaa_baseball_season.html">most_recent_ncaa_baseball_season</a></span><span class="op">(</span><span class="op">)</span>, division <span class="op">=</span> <span class="st">"1"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 2026-06-12 12:43:14.799911: Invalid arguments provided</span></span>
-<span><span class="co">#&gt; data frame with 0 columns and 0 rows</span></span></code></pre></div>
+<span><span class="co">#&gt; ── NCAA Baseball Teams data from stats.ncaa.org ───── <span style="font-style: italic;">baseballr 2.0.0</span> ──</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-12 13:50:15 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 308 × 9</span></span></span>
+<span><span class="co">#&gt;    team_id team_name    team_url conference_id conference division  year</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="color: #BB0000;">NA</span>      Boston Coll… /teams/… 821           ACC        1         <span style="text-decoration: underline;">2</span>026</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> <span style="color: #BB0000;">NA</span>      California   /teams/… 821           ACC        1         <span style="text-decoration: underline;">2</span>026</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> <span style="color: #BB0000;">NA</span>      Clemson      /teams/… 821           ACC        1         <span style="text-decoration: underline;">2</span>026</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="color: #BB0000;">NA</span>      Duke         /teams/… 821           ACC        1         <span style="text-decoration: underline;">2</span>026</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> <span style="color: #BB0000;">NA</span>      Florida St.  /teams/… 821           ACC        1         <span style="text-decoration: underline;">2</span>026</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> <span style="color: #BB0000;">NA</span>      Georgia Tech /teams/… 821           ACC        1         <span style="text-decoration: underline;">2</span>026</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #BB0000;">NA</span>      Louisville   /teams/… 821           ACC        1         <span style="text-decoration: underline;">2</span>026</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> <span style="color: #BB0000;">NA</span>      Miami (FL)   /teams/… 821           ACC        1         <span style="text-decoration: underline;">2</span>026</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="color: #BB0000;">NA</span>      NC State     /teams/… 821           ACC        1         <span style="text-decoration: underline;">2</span>026</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #BB0000;">NA</span>      North Carol… /teams/… 821           ACC        1         <span style="text-decoration: underline;">2</span>026</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 298 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 2 more variables: season_id &lt;chr&gt;, season_team_id &lt;chr&gt;</span></span></span></code></pre></div>
 <p>The function, <code><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats()</a></code>, requires the
 user to pass values for three parameters for the function to work:</p>
 <p><code>team_id</code>: numerical code used by the NCAA for each school
@@ -197,15 +212,34 @@ season, you would use the following:</p>
 <span><span class="va">year</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/most_recent_ncaa_baseball_season.html">most_recent_ncaa_baseball_season</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, year <span class="op">=</span> <span class="va">year</span>, <span class="st">"batting"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> 2026-06-12 12:43:36.833317: NCAA browser fallback failed: Chrome debugging port not open after 10 seconds.</span></span>
-<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> 2026-06-12 12:43:36.841171: stats.ncaa.org returned an Akamai bot-challenge for the team batting stats endpoint; no data could be retrieved. Install {chromote} + Google Chrome to enable the browser fallback.</span></span>
-<span><span class="co">#&gt; data frame with 0 columns and 0 rows</span></span></code></pre></div>
+<span><span class="co">#&gt; ── NCAA Baseball Team Batting Stats data from stats.ncaa.org ───────────</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-12 13:50:32 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 36 × 42</span></span></span>
+<span><span class="co">#&gt;     year team_name   team_id conference_id conference division player_id</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>  <span style="text-decoration: underline;">2</span>026 Florida St.     234           821 ACC               1   9<span style="text-decoration: underline;">678</span>004</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>  <span style="text-decoration: underline;">2</span>026 Florida St.     234           821 ACC               1   9<span style="text-decoration: underline;">680</span>283</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>  <span style="text-decoration: underline;">2</span>026 Florida St.     234           821 ACC               1   9<span style="text-decoration: underline;">703</span>054</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>  <span style="text-decoration: underline;">2</span>026 Florida St.     234           821 ACC               1   9<span style="text-decoration: underline;">686</span>071</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">2</span>026 Florida St.     234           821 ACC               1   9<span style="text-decoration: underline;">699</span>227</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">2</span>026 Florida St.     234           821 ACC               1   9<span style="text-decoration: underline;">690</span>199</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">2</span>026 Florida St.     234           821 ACC               1   9<span style="text-decoration: underline;">698</span>044</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">2</span>026 Florida St.     234           821 ACC               1   9<span style="text-decoration: underline;">702</span>164</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">2</span>026 Florida St.     234           821 ACC               1   9<span style="text-decoration: underline;">684</span>157</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">2</span>026 Florida St.     234           821 ACC               1   9<span style="text-decoration: underline;">690</span>665</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 26 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 35 more variables: player_url &lt;chr&gt;, player_name &lt;chr&gt;, Yr &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   Pos &lt;chr&gt;, Jersey &lt;chr&gt;, Ht &lt;chr&gt;, `B/T` &lt;chr&gt;, GP &lt;dbl&gt;, GS &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   BA &lt;dbl&gt;, OBPct &lt;dbl&gt;, SlgPct &lt;dbl&gt;, R &lt;dbl&gt;, AB &lt;dbl&gt;, H &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `2B` &lt;dbl&gt;, `3B` &lt;dbl&gt;, TB &lt;dbl&gt;, HR &lt;dbl&gt;, RBI &lt;dbl&gt;, BB &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   HBP &lt;dbl&gt;, SF &lt;dbl&gt;, SH &lt;dbl&gt;, K &lt;dbl&gt;, DP &lt;dbl&gt;, CS &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   Picked &lt;dbl&gt;, SB &lt;dbl&gt;, IBB &lt;dbl&gt;, GDP &lt;dbl&gt;, RBI2out &lt;dbl&gt;, …</span></span></span></code></pre></div>
 <p>The same can be done for pitching, just by changing the
 <code>type</code> parameter:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ncaa_team_player_stats.html">ncaa_team_player_stats</a></span><span class="op">(</span>team_id <span class="op">=</span> <span class="va">team_id</span>, year <span class="op">=</span> <span class="va">year</span>,  <span class="st">"pitching"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── NCAA Baseball Team Pitching Stats data from stats.ncaa.org ──────────</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-12 12:44:01 UTC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-12 13:50:48 UTC</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 19 × 49</span></span></span>
 <span><span class="co">#&gt;     year team_name   team_id conference_id conference division player_id</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>

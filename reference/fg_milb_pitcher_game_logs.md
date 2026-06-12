@@ -75,7 +75,7 @@ with the following columns:
 ``` r
 # \donttest{
   try(fg_milb_pitcher_game_logs(playerid = "sa3020682", year=2023))
-#> ✖ 2026-06-12 12:40:01.235663: Invalid arguments or no MiLB pitcher game logs data available!
+#> ✖ 2026-06-12 13:45:38.7296: Invalid arguments or no MiLB pitcher game logs data available!
 #>          Date Team Level  Opp W L       ERA G GS QS CG ShO SV  IP TBF H
 #> 2  2023-08-22  NYY  (AA)  COL 0 0  0.000000 1  1  0  0   0  0 5.0  19 4
 #> 3  2023-08-15  NYY  (AA) @PHI 1 0  3.000000 1  1  1  0   0  0 6.0  23 6
