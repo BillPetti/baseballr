@@ -22,6 +22,8 @@ Use the prefix that matches the data source. Never mix sources behind one prefix
 | `bref_`        | Baseball Reference                       | `bref_team_results()`         |
 | `statcast_` / `sc_` | Baseball Savant / Statcast          | `statcast_search()`           |
 | `espn_mlb_`    | ESPN (MLB)                               | `espn_mlb_pbp()`, `espn_mlb_scoreboard()` |
+| `espn_college_baseball_` | ESPN (NCAA college baseball)   | `espn_college_baseball_pbp()`, `espn_college_baseball_scoreboard()` |
+| `fox_mlb_`     | Fox Sports (Bifrost) MLB                 | `fox_mlb_team_roster()`, `fox_mlb_standings()` |
 | `ncaa_`        | NCAA baseball stats site                 | `ncaa_team_player_stats()`    |
 | `sptrc_`       | Spotrac                                  | `sptrc_team_active_payroll()` |
 | `chadwick_`    | Chadwick Bureau register                 | `chadwick_player_lu()`        |
@@ -80,6 +82,19 @@ Use the prefix that matches the data source. Never mix sources behind one prefix
   `R/espn_mlb_box_helpers.R`. They share the `httr2` layer in `R/utils_espn.R`
   (`.retry_request()`, honouring `options(baseballr.proxy = ...)`) and report via
   `.report_api_error()` / `.report_api_warning()`, not raw `cli::cli_alert_*()`.
+- **ESPN College Baseball (`espn_college_baseball_*`).** Thin league-parameterized
+  twins of the ESPN MLB family (sport `baseball`, league `college-baseball`) over
+  the same helpers, so they return matching shapes. Extend the shared helper;
+  don't duplicate parsing logic.
+- **Fox Sports (`fox_mlb_*`).** Read-only Bifrost MLB wrappers over
+  `api.foxsports.com/bifrost/v1/mlb/*` that flatten Fox's layout JSON
+  (sections -> tables -> rows -> cells) into `baseballr_data` tibbles.
+- **NCAA Akamai fallback.** `stats.ncaa.org` 403s / soft-`bm-verify`-challenges
+  `httr2`/`curl` requests; `request_with_proxy()` falls back to a stealth
+  headless-Chrome fetch in `R/ncaa_chromote.R` via the optional `chromote`
+  (`Suggests`) package. Because that launches a browser, NCAA function examples
+  live in the Rd `Details` block, not as executable `@examples`. Extend the
+  participants/fallback module; don't add new ad-hoc browser launches.
 
 ## Testing
 
