@@ -10,40 +10,40 @@ woba_plus(df)
 \item{df}{A data frame of statistics that includes, at a minimum, the following columns: uBB (unintentional walks), HBP (Hit By Pitch), X1B (singles), X2B (doubles), X3B (triples), HR (home runs), AB (at-bats), SH (sacrifice hits), SO (strike outs), and season.}
 }
 \value{
-Returns a tibble with the wOBA factors calculated and the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   bbref_id \tab character \cr
-   season \tab integer \cr
-   Name \tab character \cr
-   Age \tab numeric \cr
-   Level \tab character \cr
-   Team \tab character \cr
-   G \tab numeric \cr
-   PA \tab numeric \cr
-   AB \tab numeric \cr
-   R \tab numeric \cr
-   H \tab numeric \cr
-   X1B \tab numeric \cr
-   X2B \tab numeric \cr
-   X3B \tab numeric \cr
-   HR \tab numeric \cr
-   RBI \tab numeric \cr
-   BB \tab numeric \cr
-   IBB \tab numeric \cr
-   uBB \tab numeric \cr
-   SO \tab numeric \cr
-   HBP \tab numeric \cr
-   SH \tab numeric \cr
-   SF \tab numeric \cr
-   GDP \tab numeric \cr
-   SB \tab numeric \cr
-   CS \tab numeric \cr
-   BA \tab numeric \cr
-   OBP \tab numeric \cr
-   SLG \tab numeric \cr
-   OPS \tab numeric \cr
-   wOBA \tab numeric \cr
-   wOBA_CON \tab numeric \cr
+Returns a tibble with the wOBA factors calculated and the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   bbref_id \tab character \tab Baseball-Reference player id \cr
+   season \tab integer \tab Season (4-digit year) \cr
+   Name \tab character \tab Player name \cr
+   Age \tab numeric \tab Player age \cr
+   Level \tab character \tab Level of play (e.g. MLB or minor-league level) \cr
+   Team \tab character \tab Team name \cr
+   G \tab numeric \tab Games played \cr
+   PA \tab numeric \tab Plate appearances \cr
+   AB \tab numeric \tab At-bats \cr
+   R \tab numeric \tab Runs scored \cr
+   H \tab numeric \tab Hits \cr
+   X1B \tab numeric \tab Singles \cr
+   X2B \tab numeric \tab Doubles \cr
+   X3B \tab numeric \tab Triples \cr
+   HR \tab numeric \tab Home runs \cr
+   RBI \tab numeric \tab Runs batted in \cr
+   BB \tab numeric \tab Walks (bases on balls) \cr
+   IBB \tab numeric \tab Intentional walks \cr
+   uBB \tab numeric \tab Unintentional walks (BB minus IBB) \cr
+   SO \tab numeric \tab Strikeouts \cr
+   HBP \tab numeric \tab Hit by pitch \cr
+   SH \tab numeric \tab Sacrifice hits (bunts) \cr
+   SF \tab numeric \tab Sacrifice flies \cr
+   GDP \tab numeric \tab Grounded into double plays \cr
+   SB \tab numeric \tab Stolen bases \cr
+   CS \tab numeric \tab Caught stealing \cr
+   BA \tab numeric \tab Batting average \cr
+   OBP \tab numeric \tab On-base percentage \cr
+   SLG \tab numeric \tab Slugging percentage \cr
+   OPS \tab numeric \tab On-base plus slugging \cr
+   wOBA \tab numeric \tab Weighted on-base average (per plate appearance) \cr
+   wOBA_CON \tab numeric \tab Weighted on-base average per instance of fair contact \cr
 }
 }
 \description{

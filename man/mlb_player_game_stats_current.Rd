@@ -10,106 +10,106 @@ mlb_player_game_stats_current(person_id = NULL)
 \item{person_id}{MLBAMIDs for player of interest.}
 }
 \value{
-Returns a tibble with the following columns:\tabular{ll}{
-   col_name \tab types \cr
-   type \tab character \cr
-   group \tab character \cr
-   stat_assists \tab integer \cr
-   stat_put_outs \tab integer \cr
-   stat_errors \tab integer \cr
-   stat_chances \tab integer \cr
-   stat_fielding \tab character \cr
-   stat_caught_stealing \tab integer \cr
-   stat_passed_ball \tab integer \cr
-   stat_stolen_bases \tab integer \cr
-   stat_stolen_base_percentage \tab character \cr
-   stat_pickoffs \tab integer \cr
-   stat_games_played \tab integer \cr
-   stat_games_started \tab integer \cr
-   stat_fly_outs \tab integer \cr
-   stat_ground_outs \tab integer \cr
-   stat_air_outs \tab integer \cr
-   stat_runs \tab integer \cr
-   stat_doubles \tab integer \cr
-   stat_triples \tab integer \cr
-   stat_home_runs \tab integer \cr
-   stat_strike_outs \tab integer \cr
-   stat_base_on_balls \tab integer \cr
-   stat_intentional_walks \tab integer \cr
-   stat_hits \tab integer \cr
-   stat_hit_by_pitch \tab integer \cr
-   stat_at_bats \tab integer \cr
-   stat_number_of_pitches \tab integer \cr
-   stat_innings_pitched \tab character \cr
-   stat_wins \tab integer \cr
-   stat_losses \tab integer \cr
-   stat_saves \tab integer \cr
-   stat_save_opportunities \tab integer \cr
-   stat_holds \tab integer \cr
-   stat_blown_saves \tab integer \cr
-   stat_earned_runs \tab integer \cr
-   stat_batters_faced \tab integer \cr
-   stat_outs \tab integer \cr
-   stat_games_pitched \tab integer \cr
-   stat_complete_games \tab integer \cr
-   stat_shutouts \tab integer \cr
-   stat_pitches_thrown \tab integer \cr
-   stat_balls \tab integer \cr
-   stat_strikes \tab integer \cr
-   stat_strike_percentage \tab character \cr
-   stat_hit_batsmen \tab integer \cr
-   stat_balks \tab integer \cr
-   stat_wild_pitches \tab integer \cr
-   stat_rbi \tab integer \cr
-   stat_games_finished \tab integer \cr
-   stat_runs_scored_per9 \tab character \cr
-   stat_home_runs_per9 \tab character \cr
-   stat_inherited_runners \tab integer \cr
-   stat_inherited_runners_scored \tab integer \cr
-   stat_catchers_interference \tab integer \cr
-   stat_sac_bunts \tab integer \cr
-   stat_sac_flies \tab integer \cr
-   stat_ground_into_double_play \tab integer \cr
-   stat_ground_into_triple_play \tab integer \cr
-   stat_plate_appearances \tab integer \cr
-   stat_total_bases \tab integer \cr
-   stat_left_on_base \tab integer \cr
-   stat_at_bats_per_home_run \tab character \cr
-   game_type \tab character \cr
-   num_teams \tab integer \cr
-   stat_avg \tab character \cr
-   stat_obp \tab character \cr
-   stat_slg \tab character \cr
-   stat_ops \tab character \cr
-   stat_outs_pitched \tab integer \cr
-   stat_whip \tab character \cr
-   stat_ground_outs_to_airouts \tab character \cr
-   stat_pitches_per_inning \tab character \cr
-   stat_strikeout_walk_ratio \tab character \cr
-   stat_strikeouts_per9inn \tab character \cr
-   stat_walks_per9inn \tab character \cr
-   stat_hits_per9inn \tab character \cr
-   team_id \tab integer \cr
-   team_name \tab character \cr
-   team_link \tab character \cr
-   opponent_id \tab integer \cr
-   opponent_name \tab character \cr
-   opponent_link \tab character \cr
-   pitcher_id \tab integer \cr
-   pitcher_full_name \tab character \cr
-   pitcher_link \tab character \cr
-   pitcher_first_name \tab character \cr
-   pitcher_last_name \tab character \cr
-   batter_id \tab integer \cr
-   batter_full_name \tab character \cr
-   batter_link \tab character \cr
-   batter_first_name \tab character \cr
-   batter_last_name \tab character \cr
-   total_splits \tab integer \cr
-   type_display_name \tab character \cr
-   group_display_name \tab character \cr
-   player_id \tab numeric \cr
-   game_pk \tab numeric \cr
+Returns a tibble with the following columns:\tabular{lll}{
+   col_name \tab types \tab description \cr
+   type \tab character \tab Stat type/category (e.g. "gameLog"). \cr
+   group \tab character \tab Stat group (e.g. "hitting", "pitching", "fielding"). \cr
+   stat_assists \tab integer \tab Assists. \cr
+   stat_put_outs \tab integer \tab Putouts. \cr
+   stat_errors \tab integer \tab Errors. \cr
+   stat_chances \tab integer \tab Total chances (fielding). \cr
+   stat_fielding \tab character \tab Fielding percentage. \cr
+   stat_caught_stealing \tab integer \tab Runners caught stealing. \cr
+   stat_passed_ball \tab integer \tab Passed balls. \cr
+   stat_stolen_bases \tab integer \tab Stolen bases allowed (catcher/fielding). \cr
+   stat_stolen_base_percentage \tab character \tab Stolen-base percentage. \cr
+   stat_pickoffs \tab integer \tab Pickoffs. \cr
+   stat_games_played \tab integer \tab Games played. \cr
+   stat_games_started \tab integer \tab Games started. \cr
+   stat_fly_outs \tab integer \tab Fly outs. \cr
+   stat_ground_outs \tab integer \tab Ground outs. \cr
+   stat_air_outs \tab integer \tab Air outs (fly + line outs). \cr
+   stat_runs \tab integer \tab Runs. \cr
+   stat_doubles \tab integer \tab Doubles. \cr
+   stat_triples \tab integer \tab Triples. \cr
+   stat_home_runs \tab integer \tab Home runs. \cr
+   stat_strike_outs \tab integer \tab Strikeouts. \cr
+   stat_base_on_balls \tab integer \tab Walks (bases on balls). \cr
+   stat_intentional_walks \tab integer \tab Intentional walks. \cr
+   stat_hits \tab integer \tab Hits. \cr
+   stat_hit_by_pitch \tab integer \tab Hit by pitch. \cr
+   stat_at_bats \tab integer \tab At-bats. \cr
+   stat_number_of_pitches \tab integer \tab Number of pitches. \cr
+   stat_innings_pitched \tab character \tab Innings pitched. \cr
+   stat_wins \tab integer \tab Wins. \cr
+   stat_losses \tab integer \tab Losses. \cr
+   stat_saves \tab integer \tab Saves. \cr
+   stat_save_opportunities \tab integer \tab Save opportunities. \cr
+   stat_holds \tab integer \tab Holds. \cr
+   stat_blown_saves \tab integer \tab Blown saves. \cr
+   stat_earned_runs \tab integer \tab Earned runs. \cr
+   stat_batters_faced \tab integer \tab Batters faced. \cr
+   stat_outs \tab integer \tab Outs recorded. \cr
+   stat_games_pitched \tab integer \tab Games pitched. \cr
+   stat_complete_games \tab integer \tab Complete games. \cr
+   stat_shutouts \tab integer \tab Shutouts. \cr
+   stat_pitches_thrown \tab integer \tab Pitches thrown. \cr
+   stat_balls \tab integer \tab Balls thrown. \cr
+   stat_strikes \tab integer \tab Strikes thrown. \cr
+   stat_strike_percentage \tab character \tab Strike percentage. \cr
+   stat_hit_batsmen \tab integer \tab Hit batsmen. \cr
+   stat_balks \tab integer \tab Balks. \cr
+   stat_wild_pitches \tab integer \tab Wild pitches. \cr
+   stat_rbi \tab integer \tab Runs batted in. \cr
+   stat_games_finished \tab integer \tab Games finished. \cr
+   stat_runs_scored_per9 \tab character \tab Runs scored per nine innings. \cr
+   stat_home_runs_per9 \tab character \tab Home runs allowed per nine innings. \cr
+   stat_inherited_runners \tab integer \tab Inherited runners. \cr
+   stat_inherited_runners_scored \tab integer \tab Inherited runners who scored. \cr
+   stat_catchers_interference \tab integer \tab Catcher's interference. \cr
+   stat_sac_bunts \tab integer \tab Sacrifice bunts. \cr
+   stat_sac_flies \tab integer \tab Sacrifice flies. \cr
+   stat_ground_into_double_play \tab integer \tab Grounded into double plays. \cr
+   stat_ground_into_triple_play \tab integer \tab Grounded into triple plays. \cr
+   stat_plate_appearances \tab integer \tab Plate appearances. \cr
+   stat_total_bases \tab integer \tab Total bases. \cr
+   stat_left_on_base \tab integer \tab Runners left on base. \cr
+   stat_at_bats_per_home_run \tab character \tab At-bats per home run. \cr
+   game_type \tab character \tab Game type (e.g. regular season, postseason). \cr
+   num_teams \tab integer \tab Number of teams represented in the split. \cr
+   stat_avg \tab character \tab Batting average. \cr
+   stat_obp \tab character \tab On-base percentage. \cr
+   stat_slg \tab character \tab Slugging percentage. \cr
+   stat_ops \tab character \tab On-base plus slugging. \cr
+   stat_outs_pitched \tab integer \tab Outs pitched. \cr
+   stat_whip \tab character \tab Walks plus hits per inning pitched. \cr
+   stat_ground_outs_to_airouts \tab character \tab Ground-out to air-out ratio. \cr
+   stat_pitches_per_inning \tab character \tab Pitches per inning. \cr
+   stat_strikeout_walk_ratio \tab character \tab Strikeout-to-walk ratio. \cr
+   stat_strikeouts_per9inn \tab character \tab Strikeouts per nine innings. \cr
+   stat_walks_per9inn \tab character \tab Walks per nine innings. \cr
+   stat_hits_per9inn \tab character \tab Hits per nine innings. \cr
+   team_id \tab integer \tab Team id (MLBAM). \cr
+   team_name \tab character \tab Team name. \cr
+   team_link \tab character \tab MLB Stats API relative link for the team. \cr
+   opponent_id \tab integer \tab Opponent team id. \cr
+   opponent_name \tab character \tab Opponent team name. \cr
+   opponent_link \tab character \tab MLB Stats API relative link for the opponent. \cr
+   pitcher_id \tab integer \tab Pitcher MLBAMID. \cr
+   pitcher_full_name \tab character \tab Pitcher full name. \cr
+   pitcher_link \tab character \tab MLB Stats API relative link for the pitcher. \cr
+   pitcher_first_name \tab character \tab Pitcher first name. \cr
+   pitcher_last_name \tab character \tab Pitcher last name. \cr
+   batter_id \tab integer \tab Batter MLBAMID. \cr
+   batter_full_name \tab character \tab Batter full name. \cr
+   batter_link \tab character \tab MLB Stats API relative link for the batter. \cr
+   batter_first_name \tab character \tab Batter first name. \cr
+   batter_last_name \tab character \tab Batter last name. \cr
+   total_splits \tab integer \tab Number of stat splits returned. \cr
+   type_display_name \tab character \tab Display name of the stat type. \cr
+   group_display_name \tab character \tab Display name of the stat group. \cr
+   player_id \tab numeric \tab Player MLBAMID. \cr
+   game_pk \tab numeric \tab Game primary key (MLBAM game id). \cr
 }
 }
 \description{

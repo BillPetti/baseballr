@@ -4,57 +4,57 @@
 #' @param df A data frame of statistics that includes, at a minimum, the following columns: IP (innings pitched), BF (batters faced), uBB (unintentional walks), HBP (Hit By Pitch), x1B (singles), x2B (doubles), x3B (triples), HR (home runs), AB (at-bats), SH (sacrifice hits), SO (strike outs), and season.
 #' @return Returns a tibble with the following columns:
 #' 
-#'   |col_name         |types     |
-#'   |:----------------|:---------|
-#'   |bbref_id         |character |
-#'   |season           |integer   |
-#'   |Name             |character |
-#'   |Age              |numeric   |
-#'   |Level            |character |
-#'   |Team             |character |
-#'   |G                |numeric   |
-#'   |GS               |numeric   |
-#'   |W                |numeric   |
-#'   |L                |numeric   |
-#'   |SV               |numeric   |
-#'   |IP               |numeric   |
-#'   |H                |numeric   |
-#'   |R                |numeric   |
-#'   |ER               |numeric   |
-#'   |uBB              |numeric   |
-#'   |BB               |numeric   |
-#'   |SO               |numeric   |
-#'   |HR               |numeric   |
-#'   |HBP              |numeric   |
-#'   |ERA              |numeric   |
-#'   |AB               |numeric   |
-#'   |X1B              |numeric   |
-#'   |X2B              |numeric   |
-#'   |X3B              |numeric   |
-#'   |IBB              |numeric   |
-#'   |GDP              |numeric   |
-#'   |SF               |numeric   |
-#'   |SB               |numeric   |
-#'   |CS               |numeric   |
-#'   |PO               |numeric   |
-#'   |BF               |numeric   |
-#'   |Pit              |numeric   |
-#'   |Str              |numeric   |
-#'   |StL              |numeric   |
-#'   |StS              |numeric   |
-#'   |GB.FB            |numeric   |
-#'   |LD               |numeric   |
-#'   |PU               |numeric   |
-#'   |WHIP             |numeric   |
-#'   |BAbip            |numeric   |
-#'   |SO9              |numeric   |
-#'   |SO.W             |numeric   |
-#'   |SO_perc          |numeric   |
-#'   |uBB_perc         |numeric   |
-#'   |SO_uBB           |numeric   |
-#'   |FIP              |numeric   |
-#'   |wOBA_against     |numeric   |
-#'   |wOBA_CON_against |numeric   |
+#'   |col_name         |types     |description                                              |
+#'   |:----------------|:---------|:--------------------------------------------------------|
+#'   |bbref_id         |character |Baseball-Reference player id                             |
+#'   |season           |integer   |Season (4-digit year)                                    |
+#'   |Name             |character |Player name                                              |
+#'   |Age              |numeric   |Player age                                               |
+#'   |Level            |character |Level of play (e.g. MLB or minor-league level)           |
+#'   |Team             |character |Team name                                                |
+#'   |G                |numeric   |Games                                                    |
+#'   |GS               |numeric   |Games started                                            |
+#'   |W                |numeric   |Wins                                                     |
+#'   |L                |numeric   |Losses                                                   |
+#'   |SV               |numeric   |Saves                                                    |
+#'   |IP               |numeric   |Innings pitched                                          |
+#'   |H                |numeric   |Hits allowed                                             |
+#'   |R                |numeric   |Runs allowed                                             |
+#'   |ER               |numeric   |Earned runs allowed                                      |
+#'   |uBB              |numeric   |Unintentional walks allowed                              |
+#'   |BB               |numeric   |Walks (bases on balls) allowed                           |
+#'   |SO               |numeric   |Strikeouts                                               |
+#'   |HR               |numeric   |Home runs allowed                                        |
+#'   |HBP              |numeric   |Hit batters                                              |
+#'   |ERA              |numeric   |Earned run average                                       |
+#'   |AB               |numeric   |At-bats against                                          |
+#'   |X1B              |numeric   |Singles allowed                                          |
+#'   |X2B              |numeric   |Doubles allowed                                          |
+#'   |X3B              |numeric   |Triples allowed                                          |
+#'   |IBB              |numeric   |Intentional walks allowed                                |
+#'   |GDP              |numeric   |Grounded into double plays induced                       |
+#'   |SF               |numeric   |Sacrifice flies allowed                                  |
+#'   |SB               |numeric   |Stolen bases allowed                                     |
+#'   |CS               |numeric   |Caught stealing                                          |
+#'   |PO               |numeric   |Pickoffs                                                 |
+#'   |BF               |numeric   |Batters faced                                            |
+#'   |Pit              |numeric   |Pitches thrown                                           |
+#'   |Str              |numeric   |Strikes thrown                                           |
+#'   |StL              |numeric   |Strikes looking (called)                                 |
+#'   |StS              |numeric   |Strikes swinging (whiffs)                                |
+#'   |GB.FB            |numeric   |Ground ball to fly ball ratio                            |
+#'   |LD               |numeric   |Line drives allowed                                      |
+#'   |PU               |numeric   |Pop ups (infield fly) induced                            |
+#'   |WHIP             |numeric   |Walks plus hits per inning pitched                       |
+#'   |BAbip            |numeric   |Batting average on balls in play allowed                 |
+#'   |SO9              |numeric   |Strikeouts per nine innings                              |
+#'   |SO.W             |numeric   |Strikeout-to-walk ratio                                  |
+#'   |SO_perc          |numeric   |Strikeout percentage                                     |
+#'   |uBB_perc         |numeric   |Unintentional walk percentage                            |
+#'   |SO_uBB           |numeric   |Strikeout percentage minus unintentional walk percentage |
+#'   |FIP              |numeric   |Fielding independent pitching                            |
+#'   |wOBA_against     |numeric   |Weighted on-base average against (based on batters faced)|
+#'   |wOBA_CON_against |numeric   |Weighted on-base average against per instance of fair contact|
 #'   
 #' @importFrom dplyr left_join desc arrange
 #' @import rvest

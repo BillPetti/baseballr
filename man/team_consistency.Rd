@@ -10,13 +10,13 @@ team_consistency(year)
 \item{year}{Season consistency should be run for.}
 }
 \value{
-Returns a tibble with the following columns\tabular{ll}{
-   col_name \tab types \cr
-   Team \tab character \cr
-   Con_R \tab numeric \cr
-   Con_RA \tab numeric \cr
-   Con_R_Ptile \tab numeric \cr
-   Con_RA_Ptile \tab numeric \cr
+Returns a tibble with the following columns\tabular{lll}{
+   col_name \tab types \tab description \cr
+   Team \tab character \tab Team name. \cr
+   Con_R \tab numeric \tab Run-scoring consistency score for the season. \cr
+   Con_RA \tab numeric \tab Run-prevention (runs allowed) consistency score. \cr
+   Con_R_Ptile \tab numeric \tab Percentile rank of run-scoring consistency. \cr
+   Con_RA_Ptile \tab numeric \tab Percentile rank of run-prevention consistency. \cr
 }
 }
 \description{
