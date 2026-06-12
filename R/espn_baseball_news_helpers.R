@@ -11,15 +11,7 @@
 #' @return A `baseballr_data` tibble of articles, or `NULL` on error.
 #' @noRd
 .espn_baseball_news <- function(league, limit = 50, ...) {
-  if (!league %in% c("mlb")) {
-    stop(
-      paste0(
-        "league must be one of 'mlb', got: ",
-        league
-      ),
-      call. = FALSE
-    )
-  }
+  .espn_baseball_validate_league(league)
 
   .args <- mget(setdiff(names(formals()), "..."))
 
@@ -127,15 +119,7 @@
 #' @return A `baseballr_data` tibble of articles, or `NULL` on error.
 #' @noRd
 .espn_baseball_team_news <- function(league, team_id, limit = 25, ...) {
-  if (!league %in% c("mlb")) {
-    stop(
-      paste0(
-        "league must be one of 'mlb', got: ",
-        league
-      ),
-      call. = FALSE
-    )
-  }
+  .espn_baseball_validate_league(league)
 
   .args <- mget(setdiff(names(formals()), "..."))
 

@@ -280,6 +280,25 @@ most_recent_mlb_season <- function() {
     as.double(substr(Sys.Date(), 1, 4)) - 1
   )
 }
+
+#' @title
+#' **Most Recent College Baseball Season**
+#' @description NCAA college baseball seasons run roughly February through June
+#'   (the College World Series finishes in late June) and are labelled by the
+#'   year in which they end. This returns the current season's year from
+#'   February onward, and the prior year in January (before the season opens).
+#' @return An integer indicating the year of the most recent NCAA college
+#'   baseball season.
+#' @export
+#' @examples
+#' most_recent_college_baseball_season()
+most_recent_college_baseball_season <- function() {
+  ifelse(
+    as.double(substr(Sys.Date(), 6, 7)) >= 2,
+    as.double(substr(Sys.Date(), 1, 4)),
+    as.double(substr(Sys.Date(), 1, 4)) - 1
+  )
+}
 # Functions for custom class
 # turn a data.frame into a tibble/baseballr_data
 make_baseballr_data <- function(df, type, timestamp){
