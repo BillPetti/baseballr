@@ -7,22 +7,49 @@
 # fox_mlb_boxscore -- only the team/league endpoints + game odds.
 # Reverse-engineering notes + an OpenAPI 3.1 spec live in the sdv-internal-refs repo.
 
+# Publicly-observable Fox Sports web client key; used as a last-resort fallback.
+# Override per-session with `options(baseballr.fox_data_key = ...)` or the
+# `BASEBALLR_FOX_DATA_KEY` environment variable.
 .FOX_MLB_KEY <- "jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq"
 .fox_or <- function(a, b) if (is.null(a) || length(a) == 0) b else a
 
+# Resolve the Fox API key from option -> env var -> literal fallback.
+.fox_mlb_key <- function() {
+  getOption(
+    "baseballr.fox_data_key",
+    Sys.getenv("BASEBALLR_FOX_DATA_KEY", unset = .FOX_MLB_KEY)
+  )
+}
+
 #' @keywords internal
-#' @importFrom httr2 request req_url_query req_headers req_retry req_perform resp_body_string
+#' @importFrom httr2 request req_url_query req_headers req_timeout req_proxy req_retry req_perform resp_body_string
 #' @importFrom jsonlite fromJSON
-.fox_mlb_get <- function(path, query = list()) {
-  query[["apikey"]] <- .fox_or(query[["apikey"]], getOption("baseballr.fox_key", .FOX_MLB_KEY))
+.fox_mlb_get <- function(path, query = list(), timeout = 60,
+                         proxy = getOption("baseballr.proxy")) {
+  key <- .fox_or(query[["apikey"]], .fox_mlb_key())
+  if (length(key) == 0 || is.na(key) || !nzchar(key)) {
+    cli::cli_abort(c(
+      "No Fox Sports API key configured.",
+      "i" = "Set {.code options(baseballr.fox_data_key = \"<key>\")} or the {.envvar BASEBALLR_FOX_DATA_KEY} environment variable."
+    ))
+  }
+  query[["apikey"]] <- key
   query[["api-version"]] <- .fox_or(query[["api-version"]], "1.1")
-  res <- httr2::request(paste0("https://api.foxsports.com/bifrost/v1/", path)) |>
+  req <- httr2::request(paste0("https://api.foxsports.com/bifrost/v1/", path)) |>
     httr2::req_url_query(!!!query) |>
     httr2::req_headers(Origin = "https://www.foxsports.com",
                        Referer = "https://www.foxsports.com/") |>
-    httr2::req_retry(max_tries = 3, backoff = ~ 2) |>
-    httr2::req_perform()
-  res |>
+    httr2::req_timeout(timeout) |>
+    httr2::req_retry(max_tries = 3, backoff = ~ 2)
+  if (!is.null(proxy)) {
+    req <- if (is.list(proxy)) {
+      do.call(httr2::req_proxy, c(list(req), proxy))
+    } else {
+      httr2::req_proxy(req, url = proxy)
+    }
+  }
+  req |>
+    httr2::req_perform() |>
     httr2::resp_body_string(encoding = "UTF-8") |>
     jsonlite::fromJSON(simplifyDataFrame = FALSE, simplifyVector = FALSE, simplifyMatrix = FALSE)
 }
@@ -140,7 +167,7 @@
 #' @importFrom dplyr as_tibble bind_rows
 .fox_mlb_resource <- function(resource, game_id = NULL, team_id = NULL,
                               category = "batting", who = "player", page = 0) {
-  out <- data.frame()
+  out <- NULL
   tryCatch(
     expr = {
       raw <- switch(
@@ -162,7 +189,8 @@
         make_baseballr_data(paste0("Fox Sports MLB ", resource), Sys.time())
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: invalid arguments or no Fox MLB {resource} data available!"))
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no Fox MLB {resource} data available!")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     }
   )
   out
