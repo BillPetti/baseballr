@@ -52,7 +52,8 @@
 #' @keywords internal
 #' @noRd
 .ncaa_is_blocked <- function(body) {
-  !is.null(body) && nzchar(body) && grepl(.ncaa_block_markers, body)
+  !is.null(body) && nzchar(body) &&
+    grepl(.ncaa_block_markers, body, ignore.case = TRUE)
 }
 
 #' Return a cached, stealth-configured chromote session, creating one if needed.
@@ -110,7 +111,8 @@
   # rejects the tiny Akamai interstitial AND the occasional partial render that
   # lands before the real content paints.
   ok <- function(h) {
-    !is.null(h) && nchar(h) > 3000 && !grepl(.ncaa_block_markers, h) &&
+    !is.null(h) && nchar(h) > 3000 &&
+      !grepl(.ncaa_block_markers, h, ignore.case = TRUE) &&
       grepl("<table", h, ignore.case = TRUE)
   }
   read_dom <- function(sess) {
