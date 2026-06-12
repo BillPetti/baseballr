@@ -20,40 +20,25 @@ ncaa_lineups(game_info_url = NULL, ...)
 
 ## Value
 
-Returns a tibble of each school's starting lineup and starting pitcher
+Returns a tibble of each team's batting lineup (one row per batter, in
+batting order) parsed from the game's `individual_stats` box scores.
 
-|               |           |
-|---------------|-----------|
-| col_name      | types     |
-| year          | numeric   |
-| player_name   | character |
-| position      | character |
-| slug          | character |
-| batting_order | character |
-| team_name     | character |
-| sub           | numeric   |
-| attendance    | character |
-| game_date     | character |
-| location      | character |
-| player_id     | integer   |
-| team_id       | numeric   |
-| team_url      | character |
-| conference_id | numeric   |
-| conference    | character |
-| division      | numeric   |
-| season_id     | numeric   |
+|               |           |                                                  |
+|---------------|-----------|--------------------------------------------------|
+| col_name      | types     | description                                      |
+| player_name   | character | Player name.                                     |
+| position      | character | Fielding position (the box score "P" column).    |
+| batting_order | integer   | Spot in the batting order (box-score row order). |
+| team_name     | character | Team name (from the box-score totals row).       |
+| player_id     | integer   | stats.ncaa.org player identifier.                |
+| player_url    | character | Full stats.ncaa.org url for the player page.     |
+| slug          | character | Relative stats.ncaa.org url for the player page. |
 
-## Examples
+## Details
 
-``` r
-# \donttest{
-  try(ncaa_lineups(game_info_url="https://stats.ncaa.org/contests/2167178/box_score"))
-#> 2026-06-12 03:20:17.122245: Invalid arguments provided
-#> Error in ncaa_lineups(game_info_url = "https://stats.ncaa.org/contests/2167178/box_score") : 
-#>   object 'lineup_table' not found
-  try(ncaa_lineups(game_info_url="https://stats.ncaa.org/game/index/4587474?org_id=528"))
-#> 2026-06-12 03:20:22.637211: Invalid arguments provided
-#> Error in ncaa_lineups(game_info_url = "https://stats.ncaa.org/game/index/4587474?org_id=528") : 
-#>   object 'lineup_table' not found
-# }
-```
+Live usage (reads `stats.ncaa.org`, which is behind Akamai bot
+protection and needs the optional `chromote` + Google Chrome browser
+fallback, so it is shown here rather than as a runnable example):
+
+    ncaa_lineups(game_info_url = "https://stats.ncaa.org/contests/2167178/box_score")
+    ncaa_lineups(game_info_url = "https://stats.ncaa.org/game/index/4587474?org_id=528")

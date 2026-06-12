@@ -20,13 +20,14 @@
 ## Package Overview
 
 baseballr is an R package for acquiring and analyzing baseball data from
-online sources. It wraps the MLB Stats API, ESPN (MLB), FanGraphs,
-Baseball Reference, Baseball Savant / Statcast, the NCAA baseball stats
-site, Spotrac, the Chadwick Bureau register, and Retrosheet, exporting
-~290 functions across multiple data-source families: `mlb_*()`,
-`espn_mlb_*()`, `fg_*()`, `bref_*()`, `statcast_*()` /
-`scrape_statcast_savant*()`, `ncaa_*()`, `sptrc_*()`, `chadwick_*()`,
-`retrosheet_*()`, plus `load_*()` data loaders,
+online sources. It wraps the MLB Stats API, ESPN (MLB and NCAA college
+baseball), Fox Sports (Bifrost), FanGraphs, Baseball Reference, Baseball
+Savant / Statcast, the NCAA baseball stats site, Spotrac, the Chadwick
+Bureau register, and Retrosheet, exporting ~375 functions across
+multiple data-source families: `mlb_*()`, `espn_mlb_*()`,
+`espn_college_baseball_*()`, `fox_mlb_*()`, `fg_*()`, `bref_*()`,
+`statcast_*()` / `scrape_statcast_savant*()`, `ncaa_*()`, `sptrc_*()`,
+`chadwick_*()`, `retrosheet_*()`, plus `load_*()` data loaders,
 `metrics`/`woba_plus`/`fip_plus` analytics, and the
 [`ggspraychart()`](https://billpetti.github.io/baseballr/reference/ggspraychart.md)
 visualization.
@@ -78,9 +79,17 @@ pkgdown::build_site()
 
     R/                            # All package source code
       mlb.R                       # MLB Stats API doc-grouping topic + shared helpers
-      mlb_*.R                     # MLB Stats API endpoint wrappers (~110 functions):
+      mlb_*.R                     # MLB Stats API endpoint wrappers (~88 functions):
                                   #   types/codes, game, players, teams, standings,
                                   #   league, draft, awards, jobs, all-star, hr derby
+      espn_mlb_*.R                # ESPN MLB wrappers (107 functions); thin shims over
+                                  #   espn_baseball_*_helpers.R + espn_mlb_box_helpers.R
+      espn_college_baseball_*.R   # ESPN NCAA college-baseball wrappers (70 functions);
+                                  #   league-parameterized twins of the espn_mlb_* family
+      espn_baseball_*_helpers.R / utils_espn.R
+                                  # shared ESPN httr2 layer (.retry_request, honours
+                                  #   options(baseballr.proxy=); .report_api_error/_warning)
+      fox_*.R                     # Fox Sports Bifrost MLB wrappers (fox_mlb_*, 6 functions)
       fangraphs.R                 # FanGraphs doc-grouping topic
       fg_*.R                      # FanGraphs wrappers: fg_batter_leaders, fg_pitcher_leaders,
                                   #   fg_fielder_leaders, fg_team_*, fg_milb_*, fg_park, fg_guts
@@ -93,6 +102,8 @@ pkgdown::build_site()
       ncaa*.R                     # NCAA baseball: ncaa_scrape(), ncaa_pbp(), ncaa_roster(),
                                   #   ncaa_schedule_info(), ncaa_game_logs(), ncaa_lineups(),
                                   #   ncaa_park_factor(), ncaa_school_id_lu(), ncaa_teams()
+      ncaa_chromote.R             # stealth headless-Chrome fallback for stats.ncaa.org
+                                  #   (Akamai bypass; optional `chromote` Suggests dep)
       chadwick*.R                 # Chadwick Bureau register: chadwick_player_lu(),
                                   #   playerid_lookup(), playername_lookup(), install helpers
       metrics.R / metrics_*.R     # woba_plus(), fip_plus(), team_consistency(),
@@ -117,6 +128,8 @@ pkgdown::build_site()
 | Baseball Reference | `bref_` | [`bref_daily_batter()`](https://billpetti.github.io/baseballr/reference/bref_daily_batter.md), [`bref_team_results()`](https://billpetti.github.io/baseballr/reference/bref_team_results.md) |
 | Baseball Savant | `statcast_` / `sc_` | [`statcast_search()`](https://billpetti.github.io/baseballr/reference/statcast_search.md), [`statcast_leaderboards()`](https://billpetti.github.io/baseballr/reference/statcast_leaderboards.md) |
 | ESPN MLB | `espn_mlb_` | [`espn_mlb_pbp()`](https://billpetti.github.io/baseballr/reference/espn_mlb_pbp.md), [`espn_mlb_scoreboard()`](https://billpetti.github.io/baseballr/reference/espn_mlb_scoreboard.md), [`espn_mlb_team_box()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_box.md) |
+| ESPN College Baseball | `espn_college_baseball_` | [`espn_college_baseball_pbp()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_pbp.md), [`espn_college_baseball_scoreboard()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_scoreboard.md) |
+| Fox Sports (Bifrost) | `fox_mlb_` | [`fox_mlb_team_roster()`](https://billpetti.github.io/baseballr/reference/fox_mlb_team_roster.md), [`fox_mlb_standings()`](https://billpetti.github.io/baseballr/reference/fox_mlb_standings.md) |
 | NCAA baseball | `ncaa_` | [`ncaa_scrape()`](https://billpetti.github.io/baseballr/reference/ncaa_scrape.md), [`ncaa_roster()`](https://billpetti.github.io/baseballr/reference/ncaa_roster.md) |
 | Spotrac | `sptrc_` | [`sptrc_team_active_payroll()`](https://billpetti.github.io/baseballr/reference/sptrc_team_active_payroll.md) |
 | Chadwick Bureau | `chadwick_` | [`chadwick_player_lu()`](https://billpetti.github.io/baseballr/reference/chadwick_player_lu.md), [`playerid_lookup()`](https://billpetti.github.io/baseballr/reference/chadwick_player_id_lu.md) |
@@ -278,7 +291,32 @@ not thread `...`, so there is no per-call proxy override). Use
 [`cli::cli_alert_danger()`](https://cli.r-lib.org/reference/cli_alert.html).
 ESPN’s baseball game-summary boxscore groups stats by side
 (`batting`/`pitching`/`fielding`), which is why the box parsers are
-baseball-specific rather than shared with the basketball siblings.
+baseball-specific rather than shared with the basketball siblings. The
+**ESPN College Baseball wrappers** (`espn_college_baseball_*()`, in
+`R/espn_college_baseball_*.R`) are league-parameterized twins of the
+same helpers (sport `baseball`, league `college-baseball`), so they
+return the same shapes; extend the shared helper rather than duplicating
+logic.
+
+**Fox Sports (Bifrost) MLB wrappers** (`fox_mlb_*()`, in `R/fox_*.R`)
+are read-only and flatten Fox’s layout-oriented JSON (sections -\>
+tables -\> rows -\> cells) into tidy `baseballr_data` tibbles over
+`api.foxsports.com/bifrost/v1/mlb/*`.
+
+**stats.ncaa.org sits behind Akamai Bot Manager.** It returns a hard 403
+or a soft HTTP-200 `bm-verify` interstitial to `httr2`/`curl` on the
+client’s TLS/sensor fingerprint, so no header set clears it.
+[`request_with_proxy()`](https://billpetti.github.io/baseballr/reference/request_with_proxy.md)
+stops retrying 403s, detects the soft interstitial, and falls back to a
+**stealth headless-Chrome** fetch in `R/ncaa_chromote.R` (real Chrome
+UA, `navigator.webdriver` hidden, block/challenge markers matched
+case-insensitively), wrapping the rendered HTML in a synthetic 200
+response so callers are unchanged. `chromote` + Google Chrome are an
+**optional `Suggests`** dependency; when absent the scrapers emit a
+clear install message. Because the fallback launches a browser, the NCAA
+function examples are shown in each Rd’s `Details` (not as executable
+`@examples`) so `R CMD check --run-donttest` never tries to start
+Chrome.
 
 **FanGraphs requires a Cloudflare-exempt `User-Agent`.** As of
 2026-06-03 FanGraphs sits behind a Cloudflare JS challenge that 403s

@@ -42,20 +42,20 @@ and may change as Spotrac updates its layout.
 # \donttest{
   try(sptrc_league_payrolls(year = most_recent_mlb_season()))
 #> ── MLB Payroll data from Spotrac.com ──────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 03:20:44 UTC
+#> ℹ Data updated: 2026-06-12 11:24:29 UTC
 #> # A tibble: 32 × 11
 #>    year  team  team_abbr  rank record avg_age_team
 #>    <chr> <chr> <chr>     <dbl> <chr>  <chr>       
-#>  1 2026  NYM   NYM           1 29-38  29.0        
-#>  2 2026  LAD   LAD           2 43-25  29.3        
+#>  1 2026  NYM   NYM           1 30-38  29.0        
+#>  2 2026  LAD   LAD           2 44-25  29.3        
 #>  3 2026  NYY   NYY           3 41-26  30.1        
 #>  4 2026  TOR   TOR           4 33-36  29.7        
 #>  5 2026  PHI   PHI           5 37-31  30.0        
 #>  6 2026  ATL   ATL           6 45-23  30.8        
 #>  7 2026  HOU   HOU           7 31-39  28.5        
-#>  8 2026  CHC   CHC           8 34-34  29.6        
+#>  8 2026  CHC   CHC           8 35-34  29.6        
 #>  9 2026  SD    SD            9 35-32  29.0        
-#> 10 2026  DET   DET          10 28-40  28.1        
+#> 10 2026  DET   DET          10 29-40  28.1        
 #> # ℹ 22 more rows
 #> # ℹ 5 more variables: total_payroll_allocations <dbl>,
 #> #   active_26_man <dbl>, injured <dbl>, retained <dbl>, buried <dbl>

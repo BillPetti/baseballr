@@ -37,3 +37,17 @@ runs_scored_home, runs_allowed_home, run_scored_away, runs_allowed_away,
 base_pf (base park factor), home_game_adj (an adjustment for the
 percentage of home games played) final_pf (park factor after
 adjustments)
+
+|                   |           |                                                |
+|-------------------|-----------|------------------------------------------------|
+| col_name          | types     | description                                    |
+| school            | character | Team name.                                     |
+| home_game         | numeric   | Number of home games in the sample.            |
+| away_game         | numeric   | Number of away games in the sample.            |
+| runs_scored_home  | numeric   | Runs scored by the team in home games.         |
+| runs_allowed_home | numeric   | Runs allowed by the team in home games.        |
+| runs_scored_away  | numeric   | Runs scored by the team in away games.         |
+| runs_allowed_away | numeric   | Runs allowed by the team in away games.        |
+| base_pf           | numeric   | Base park factor (before adjustment).          |
+| home_game_adj     | numeric   | Adjustment for the share of home games played. |
+| final_pf          | numeric   | Park factor after adjustments.                 |

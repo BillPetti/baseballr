@@ -33,7 +33,7 @@ From the NCAA website:
 
 try(ncaa_teams(year = most_recent_ncaa_baseball_season(), division = "1"))
 #> ── NCAA Baseball Teams data from stats.ncaa.org ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 03:23:55 UTC
+#> ℹ Data updated: 2026-06-12 11:27:42 UTC
 #> # A tibble: 308 × 9
 #>    team_id team_name    team_url conference_id conference division  year
 #>    <chr>   <chr>        <chr>    <chr>         <chr>      <chr>    <dbl>
@@ -74,8 +74,28 @@ team_id <- ncaa_teams_df %>%
 year <- most_recent_ncaa_baseball_season()
 
 ncaa_team_player_stats(team_id = team_id, year = year, "batting")
-#> ! 2026-06-12 03:24:00.560393: stats.ncaa.org returned an Akamai bot-challenge for the team stats endpoint; no data could be retrieved. This endpoint is gated and cannot be scraped without a browser session.
-#> data frame with 0 columns and 0 rows
+#> ── NCAA Baseball Team Batting Stats data from stats.ncaa.org ───────────
+#> ℹ Data updated: 2026-06-12 11:28:00 UTC
+#> # A tibble: 36 × 42
+#>     year team_name   team_id conference_id conference division player_id
+#>    <int> <chr>         <dbl>         <int> <chr>         <dbl>     <int>
+#>  1  2026 Florida St.     234           821 ACC               1   9678004
+#>  2  2026 Florida St.     234           821 ACC               1   9680283
+#>  3  2026 Florida St.     234           821 ACC               1   9703054
+#>  4  2026 Florida St.     234           821 ACC               1   9686071
+#>  5  2026 Florida St.     234           821 ACC               1   9699227
+#>  6  2026 Florida St.     234           821 ACC               1   9690199
+#>  7  2026 Florida St.     234           821 ACC               1   9698044
+#>  8  2026 Florida St.     234           821 ACC               1   9702164
+#>  9  2026 Florida St.     234           821 ACC               1   9684157
+#> 10  2026 Florida St.     234           821 ACC               1   9690665
+#> # ℹ 26 more rows
+#> # ℹ 35 more variables: player_url <chr>, player_name <chr>, Yr <chr>,
+#> #   Pos <chr>, Jersey <chr>, Ht <chr>, `B/T` <chr>, GP <dbl>, GS <dbl>,
+#> #   BA <dbl>, OBPct <dbl>, SlgPct <dbl>, R <dbl>, AB <dbl>, H <dbl>,
+#> #   `2B` <dbl>, `3B` <dbl>, TB <dbl>, HR <dbl>, RBI <dbl>, BB <dbl>,
+#> #   HBP <dbl>, SF <dbl>, SH <dbl>, K <dbl>, DP <dbl>, CS <dbl>,
+#> #   Picked <dbl>, SB <dbl>, IBB <dbl>, GDP <dbl>, RBI2out <dbl>, …
 ```
 
 The same can be done for pitching, just by changing the `type`
@@ -84,8 +104,37 @@ parameter:
 ``` r
 
 ncaa_team_player_stats(team_id = team_id, year = year,  "pitching")
-#> ! 2026-06-12 03:24:05.683883: stats.ncaa.org returned an Akamai bot-challenge for the team stats endpoint; no data could be retrieved. This endpoint is gated and cannot be scraped without a browser session.
-#> data frame with 0 columns and 0 rows
+#> ── NCAA Baseball Team Pitching Stats data from stats.ncaa.org ──────────
+#> ℹ Data updated: 2026-06-12 11:28:16 UTC
+#> # A tibble: 19 × 49
+#>     year team_name   team_id conference_id conference division player_id
+#>    <int> <chr>         <dbl>         <int> <chr>         <dbl>     <int>
+#>  1  2026 Florida St.     234           821 ACC               1   9703054
+#>  2  2026 Florida St.     234           821 ACC               1   9690199
+#>  3  2026 Florida St.     234           821 ACC               1   9698044
+#>  4  2026 Florida St.     234           821 ACC               1   9684157
+#>  5  2026 Florida St.     234           821 ACC               1   9690665
+#>  6  2026 Florida St.     234           821 ACC               1   9698671
+#>  7  2026 Florida St.     234           821 ACC               1  11248066
+#>  8  2026 Florida St.     234           821 ACC               1  11248103
+#>  9  2026 Florida St.     234           821 ACC               1  11248107
+#> 10  2026 Florida St.     234           821 ACC               1  11248110
+#> 11  2026 Florida St.     234           821 ACC               1  11248122
+#> 12  2026 Florida St.     234           821 ACC               1  11248141
+#> 13  2026 Florida St.     234           821 ACC               1  11248145
+#> 14  2026 Florida St.     234           821 ACC               1  11248150
+#> 15  2026 Florida St.     234           821 ACC               1  11248106
+#> 16  2026 Florida St.     234           821 ACC               1  11248117
+#> 17  2026 Florida St.     234           821 ACC               1  11248168
+#> 18  2026 Florida St.     234           821 ACC               1        NA
+#> 19  2026 Florida St.     234           821 ACC               1        NA
+#> # ℹ 42 more variables: player_url <chr>, player_name <chr>, Yr <chr>,
+#> #   Pos <chr>, Jersey <chr>, Ht <chr>, `B/T` <chr>, App <dbl>,
+#> #   GS <dbl>, ERA <dbl>, IP <dbl>, CG <dbl>, H <dbl>, R <dbl>,
+#> #   ER <dbl>, BB <dbl>, SO <dbl>, SHO <dbl>, BF <dbl>, `P-OAB` <dbl>,
+#> #   `2B-A` <dbl>, `3B-A` <dbl>, Bk <dbl>, `HR-A` <dbl>, WP <dbl>,
+#> #   HB <dbl>, IBB <dbl>, `Inh Run` <dbl>, `Inh Run Score` <dbl>,
+#> #   SHA <dbl>, SFA <dbl>, Pitches <dbl>, GO <dbl>, FO <dbl>, W <dbl>, …
 ```
 
 Now, the function is dependent on the user knowing the `team_id` used by

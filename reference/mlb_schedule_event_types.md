@@ -24,7 +24,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_schedule_event_types())
 #> ── MLB Schedule Event Types data from MLB.com ─────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 03:19:31 UTC
+#> ℹ Data updated: 2026-06-12 11:24:11 UTC
 #> # A tibble: 19 × 2
 #>    schedule_event_type_code schedule_event_type_name          
 #>    <chr>                    <chr>                             

@@ -22,7 +22,7 @@ ncaa_game_logs(player_id, year, type = "batting", span = "game", ...)
 - type:
 
   The kind of statistics you want to return. Current options are
-  'batting' or 'pitching'.
+  'batting', 'pitching', or 'fielding'.
 
 - span:
 
@@ -35,66 +35,60 @@ ncaa_game_logs(player_id, year, type = "batting", span = "game", ...)
 
 ## Value
 
-A data frame containing player and school information as well as game by
-game statistics
+A data frame containing player and school information as well as
+game-by-game statistics. The exact stat columns vary by `type` (batting
+/ pitching / fielding) and `span` (game / career); the table below shows
+the pitching (`type = "pitching"`, `span = "game"`) columns.
 
-|               |           |
-|---------------|-----------|
-| col_name      | types     |
-| player_id     | numeric   |
-| player_name   | character |
-| Date          | character |
-| Opponent      | character |
-| Result        | character |
-| App           | numeric   |
-| G             | numeric   |
-| GS            | numeric   |
-| IP            | numeric   |
-| CG            | numeric   |
-| H             | numeric   |
-| R             | numeric   |
-| ER            | numeric   |
-| BB            | numeric   |
-| SO            | numeric   |
-| SHO           | numeric   |
-| BF            | numeric   |
-| P-OAB         | numeric   |
-| 2B-A          | numeric   |
-| 3B-A          | numeric   |
-| Bk            | numeric   |
-| HR-A          | numeric   |
-| WP            | numeric   |
-| HB            | numeric   |
-| IBB           | numeric   |
-| Inh Run       | numeric   |
-| Inh Run Score | numeric   |
-| SHA           | numeric   |
-| SFA           | numeric   |
-| Pitches       | numeric   |
-| GO            | numeric   |
-| FO            | numeric   |
-| W             | numeric   |
-| L             | numeric   |
-| SV            | numeric   |
-| OrdAppeared   | numeric   |
-| KL            | numeric   |
-| pickoffs      | character |
+|               |           |                                           |
+|---------------|-----------|-------------------------------------------|
+| col_name      | types     | description                               |
+| player_id     | numeric   | stats.ncaa.org player identifier.         |
+| player_name   | character | Player name.                              |
+| Date          | character | Game date.                                |
+| Opponent      | character | Opponent name.                            |
+| Result        | character | Game result (W/L and score).              |
+| App           | numeric   | Appearances.                              |
+| G             | numeric   | Games.                                    |
+| GS            | numeric   | Games started.                            |
+| IP            | numeric   | Innings pitched.                          |
+| CG            | numeric   | Complete games.                           |
+| H             | numeric   | Hits allowed.                             |
+| R             | numeric   | Runs allowed.                             |
+| ER            | numeric   | Earned runs allowed.                      |
+| BB            | numeric   | Walks (bases on balls) allowed.           |
+| SO            | numeric   | Strikeouts.                               |
+| SHO           | numeric   | Shutouts.                                 |
+| BF            | numeric   | Batters faced.                            |
+| P-OAB         | numeric   | Opponent at-bats.                         |
+| 2B-A          | numeric   | Doubles allowed.                          |
+| 3B-A          | numeric   | Triples allowed.                          |
+| Bk            | numeric   | Balks.                                    |
+| HR-A          | numeric   | Home runs allowed.                        |
+| WP            | numeric   | Wild pitches.                             |
+| HB            | numeric   | Hit batters.                              |
+| IBB           | numeric   | Intentional walks allowed.                |
+| Inh Run       | numeric   | Inherited runners.                        |
+| Inh Run Score | numeric   | Inherited runners who scored.             |
+| SHA           | numeric   | Sacrifice hits allowed.                   |
+| SFA           | numeric   | Sacrifice flies allowed.                  |
+| Pitches       | numeric   | Pitch count.                              |
+| GO            | numeric   | Ground outs induced.                      |
+| FO            | numeric   | Fly outs induced.                         |
+| W             | numeric   | Wins.                                     |
+| L             | numeric   | Losses.                                   |
+| SV            | numeric   | Saves.                                    |
+| OrdAppeared   | numeric   | Order in which the pitcher appeared.      |
+| KL            | numeric   | Strikeouts looking (called third strike). |
+| pickoffs      | character | Pickoffs.                                 |
 
-## Examples
+## Details
 
-``` r
-# \donttest{
-  try(ncaa_game_logs(player_id = 2649785, year = 2023, type = "pitching", span = "game"))
-#> 2026-06-12 03:19:51.053211: Invalid arguments provided
-#> data frame with 0 columns and 0 rows
-  try(ncaa_game_logs(player_id = 2477974, year = 2023, type = "pitching", span = "career"))
-#> 2026-06-12 03:19:56.259344: Invalid arguments provided
-#> data frame with 0 columns and 0 rows
-  try(ncaa_game_logs(player_id = 2680961, year = 2023, type = "batting", span = "game"))
-#> 2026-06-12 03:20:01.456378: Invalid arguments provided
-#> data frame with 0 columns and 0 rows
-  try(ncaa_game_logs(player_id = 2486588, year = 2023, type = "batting", span = "career"))
-#> 2026-06-12 03:20:06.695405: Invalid arguments provided
-#> data frame with 0 columns and 0 rows
-# }
-```
+Live usage (reads `stats.ncaa.org`, which is behind Akamai bot
+protection and needs the optional `chromote` + Google Chrome browser
+fallback, so it is shown here rather than as a runnable example):
+
+    ncaa_game_logs(player_id = 2649785, year = 2023, type = "pitching", span = "game")
+    ncaa_game_logs(player_id = 2477974, year = 2023, type = "pitching", span = "career")
+    ncaa_game_logs(player_id = 2680961, year = 2023, type = "batting", span = "game")
+    ncaa_game_logs(player_id = 2486588, year = 2023, type = "batting", span = "career")

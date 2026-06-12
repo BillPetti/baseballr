@@ -127,7 +127,7 @@ get_ncaa_baseball_roster function.</p></dd>
 
 <dt id="arg-type">type<a class="anchor" aria-label="anchor" href="#arg-type"></a></dt>
 <dd><p>The kind of statistics you want to return. Current options
-are 'batting' or 'pitching'.</p></dd>
+are 'batting', 'pitching', or 'fielding'.</p></dd>
 
 
 <dt id="arg-span">span<a class="anchor" aria-label="anchor" href="#arg-span"></a></dt>
@@ -141,9 +141,10 @@ returns seasonal stats for a player's career.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A data frame containing player and school information
-as well as game by game statistics</p>
-    </div>
+    <p>A data frame containing player and school information as well as
+game-by-game statistics. The exact stat columns vary by <code>type</code>
+(batting / pitching / fielding) and <code>span</code> (game / career); the table
+below shows the pitching (<code>type = "pitching"</code>, <code>span = "game"</code>) columns.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>player_id</td><td>numeric</td><td>stats.ncaa.org player identifier.</td></tr><tr><td>player_name</td><td>character</td><td>Player name.</td></tr><tr><td>Date</td><td>character</td><td>Game date.</td></tr><tr><td>Opponent</td><td>character</td><td>Opponent name.</td></tr><tr><td>Result</td><td>character</td><td>Game result (W/L and score).</td></tr><tr><td>App</td><td>numeric</td><td>Appearances.</td></tr><tr><td>G</td><td>numeric</td><td>Games.</td></tr><tr><td>GS</td><td>numeric</td><td>Games started.</td></tr><tr><td>IP</td><td>numeric</td><td>Innings pitched.</td></tr><tr><td>CG</td><td>numeric</td><td>Complete games.</td></tr><tr><td>H</td><td>numeric</td><td>Hits allowed.</td></tr><tr><td>R</td><td>numeric</td><td>Runs allowed.</td></tr><tr><td>ER</td><td>numeric</td><td>Earned runs allowed.</td></tr><tr><td>BB</td><td>numeric</td><td>Walks (bases on balls) allowed.</td></tr><tr><td>SO</td><td>numeric</td><td>Strikeouts.</td></tr><tr><td>SHO</td><td>numeric</td><td>Shutouts.</td></tr><tr><td>BF</td><td>numeric</td><td>Batters faced.</td></tr><tr><td>P-OAB</td><td>numeric</td><td>Opponent at-bats.</td></tr><tr><td>2B-A</td><td>numeric</td><td>Doubles allowed.</td></tr><tr><td>3B-A</td><td>numeric</td><td>Triples allowed.</td></tr><tr><td>Bk</td><td>numeric</td><td>Balks.</td></tr><tr><td>HR-A</td><td>numeric</td><td>Home runs allowed.</td></tr><tr><td>WP</td><td>numeric</td><td>Wild pitches.</td></tr><tr><td>HB</td><td>numeric</td><td>Hit batters.</td></tr><tr><td>IBB</td><td>numeric</td><td>Intentional walks allowed.</td></tr><tr><td>Inh Run</td><td>numeric</td><td>Inherited runners.</td></tr><tr><td>Inh Run Score</td><td>numeric</td><td>Inherited runners who scored.</td></tr><tr><td>SHA</td><td>numeric</td><td>Sacrifice hits allowed.</td></tr><tr><td>SFA</td><td>numeric</td><td>Sacrifice flies allowed.</td></tr><tr><td>Pitches</td><td>numeric</td><td>Pitch count.</td></tr><tr><td>GO</td><td>numeric</td><td>Ground outs induced.</td></tr><tr><td>FO</td><td>numeric</td><td>Fly outs induced.</td></tr><tr><td>W</td><td>numeric</td><td>Wins.</td></tr><tr><td>L</td><td>numeric</td><td>Losses.</td></tr><tr><td>SV</td><td>numeric</td><td>Saves.</td></tr><tr><td>OrdAppeared</td><td>numeric</td><td>Order in which the pitcher appeared.</td></tr><tr><td>KL</td><td>numeric</td><td>Strikeouts looking (called third strike).</td></tr><tr><td>pickoffs</td><td>character</td><td>Pickoffs.</td></tr></table></div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>

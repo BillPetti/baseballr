@@ -61,9 +61,83 @@
     ([`.retry_request()`](https://billpetti.github.io/baseballr/reference/dot-retry_request.md))
     that honours `options(baseballr.proxy = ...)`. Live tests are gated
     behind `ESPN_MLB_TESTS=1` (`skip_espn_test()`).
+- Added a full **ESPN College Baseball** wrapper family
+  (`espn_college_baseball_*()`, 70 functions) covering ESPN’s NCAA
+  college-baseball endpoints (sport `baseball`, league
+  `college-baseball`). They are thin twins of the `espn_mlb_*()` family
+  over the same league-parameterized helpers, so return shapes match
+  their MLB counterparts. Coverage includes game data
+  ([`espn_college_baseball_scoreboard()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_scoreboard.md),
+  [`espn_college_baseball_pbp()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_pbp.md),
+  [`espn_college_baseball_team_box()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_team_box.md),
+  [`espn_college_baseball_player_box()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_player_box.md),
+  [`espn_college_baseball_game_all()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_all.md),
+  [`espn_college_baseball_game_rosters()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_rosters.md)),
+  teams / standings / rankings / news / conferences, the team-detail and
+  athlete families, the core-v2 reference graph (seasons, season types,
+  groups, venues, coaches, calendar), per-competitor game sub-resources,
+  and tournaments (the College World Series is an ESPN tournament).
+  Endpoints ESPN does not serve for college baseball (injuries,
+  win-probability, betting futures/odds, athlete contracts,
+  transactions, draft, depth charts) are intentionally omitted. A new
+  helper
+  [`most_recent_college_baseball_season()`](https://billpetti.github.io/baseballr/reference/most_recent_college_baseball_season.md)
+  supplies the season default. Endpoint/return catalog and captured
+  sample bodies live in the `sdv-internal-refs` repo.
 
 #### Bug fixes
 
+- The NCAA family
+  ([`ncaa_schedule_info()`](https://billpetti.github.io/baseballr/reference/ncaa_schedule_info.md),
+  [`ncaa_roster()`](https://billpetti.github.io/baseballr/reference/ncaa_roster.md),
+  [`ncaa_teams()`](https://billpetti.github.io/baseballr/reference/ncaa_teams.md),
+  [`ncaa_team_player_stats()`](https://billpetti.github.io/baseballr/reference/ncaa_team_player_stats.md),
+  [`ncaa_pbp()`](https://billpetti.github.io/baseballr/reference/ncaa_pbp.md),
+  [`ncaa_game_logs()`](https://billpetti.github.io/baseballr/reference/ncaa_game_logs.md),
+  [`ncaa_lineups()`](https://billpetti.github.io/baseballr/reference/ncaa_lineups.md),
+  [`ncaa_park_factor()`](https://billpetti.github.io/baseballr/reference/ncaa_park_factor.md))
+  can fetch `stats.ncaa.org` again — clearing the new Akamai 403 / soft
+  `bm-verify` block — after the site simultaneously (a) tightened its
+  Akamai bot protection and (b) redesigned its pages
+  ([\#410](https://github.com/billpetti/baseballr/issues/410)). Each
+  affected scraper was also updated for the new page layout (details
+  below); clearing the block needs the optional `chromote` + Google
+  Chrome browser fallback.
+  - **Akamai bypass.** `stats.ncaa.org` now blocks every `httr2`/`curl`
+    request — a hard 403 or a soft HTTP-200 `bm-verify` interstitial —
+    on the client’s TLS/sensor fingerprint, so no header set can clear
+    it, and a *vanilla* headless Chrome is blocked too (Akamai
+    fingerprints the `HeadlessChrome` user-agent and the
+    `navigator.webdriver` flag).
+    [`request_with_proxy()`](https://billpetti.github.io/baseballr/reference/request_with_proxy.md)
+    now falls back to a **stealth headless-Chrome** fetch (real Chrome
+    user-agent, `navigator.webdriver` hidden) via the optional
+    `chromote` package, wrapping the rendered HTML in a synthetic
+    response so every caller is unaffected. The browser session is
+    cached and reused. `chromote` + Google Chrome are an optional
+    (`Suggests`) dependency; when absent the scrapers emit a clear
+    install message. The fast `httr2` path is used whenever Akamai
+    allows it and resumes automatically if the edge relaxes.
+  - **Page-redesign parsers.** Each scraper was updated for the new
+    layout:
+    [`ncaa_schedule_info()`](https://billpetti.github.io/baseballr/reference/ncaa_schedule_info.md)
+    selects the schedule table by its header columns (it moved out of
+    `<fieldset>` into a plain `<table>`);
+    [`ncaa_team_player_stats()`](https://billpetti.github.io/baseballr/reference/ncaa_team_player_stats.md)
+    reads the migrated `/teams/{season_team_id}/season_to_date_stats`
+    `#stat_grid`;
+    [`ncaa_pbp()`](https://billpetti.github.io/baseballr/reference/ncaa_pbp.md)
+    follows the “Play By Play” tab and parses the `table.table` inning
+    tables;
+    [`ncaa_game_logs()`](https://billpetti.github.io/baseballr/reference/ncaa_game_logs.md)
+    reads the `/players/{id}` `#game_log` / `#career_totals` grids; and
+    [`ncaa_lineups()`](https://billpetti.github.io/baseballr/reference/ncaa_lineups.md)
+    derives the batting order from the `individual_stats` box scores.
+- [`ncaa_game_logs()`](https://billpetti.github.io/baseballr/reference/ncaa_game_logs.md)
+  and
+  [`ncaa_team_player_stats()`](https://billpetti.github.io/baseballr/reference/ncaa_team_player_stats.md)
+  gain **`type = "fielding"`** support (previously only `"batting"` /
+  `"pitching"`).
 - `edge_frequency(df, group = ...)` now groups by the column named in
   the `group` argument. It previously grouped by a literal column named
   `group` (`.data$group`), so passing a `group` (e.g. `"pitcher"`)

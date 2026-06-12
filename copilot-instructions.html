@@ -136,6 +136,16 @@
 <td>
 <code><a href="reference/espn_mlb_pbp.html">espn_mlb_pbp()</a></code>, <code><a href="reference/espn_mlb_scoreboard.html">espn_mlb_scoreboard()</a></code>
 </td>
+</tr><tr><td><code>espn_college_baseball_</code></td>
+<td>ESPN (NCAA college baseball)</td>
+<td>
+<code><a href="reference/espn_college_baseball_pbp.html">espn_college_baseball_pbp()</a></code>, <code><a href="reference/espn_college_baseball_scoreboard.html">espn_college_baseball_scoreboard()</a></code>
+</td>
+</tr><tr><td><code>fox_mlb_</code></td>
+<td>Fox Sports (Bifrost) MLB</td>
+<td>
+<code><a href="reference/fox_mlb_team_roster.html">fox_mlb_team_roster()</a></code>, <code><a href="reference/fox_mlb_standings.html">fox_mlb_standings()</a></code>
+</td>
 </tr><tr><td><code>ncaa_</code></td>
 <td>NCAA baseball stats site</td>
 <td><code><a href="reference/ncaa_team_player_stats.html">ncaa_team_player_stats()</a></code></td>
@@ -177,6 +187,9 @@
 <li><p><strong>Default arguments.</strong> Give a single default value (e.g. <code>output = "default"</code>), document the choices, and validate inside the function. Do not use <code>match.arg</code>-style <code>c(...)</code> choice-vector defaults in signatures.</p></li>
 <li><p><strong>HTTP helpers / FanGraphs.</strong> Don’t call <code>httr</code>/<code>httr2</code> directly; use the source helpers (<code>mlb_api_call()</code>, <code>fg_api_call()</code>, <code><a href="reference/request_with_proxy.html">request_with_proxy()</a></code>, <code><a href="reference/dot-retry_request.html">.retry_request()</a></code>). FanGraphs sits behind Cloudflare and 403s plain/library <code>User-Agent</code>s, so route FanGraphs requests through <code>fg_api_call()</code> – it sends the Cloudflare-exempt <code>okhttp/4.12.0</code> UA. <code>mlb_api_call()</code> keeps a plain UA for the MLB Stats API. (okhttp-UA approach adapted from upstream PR #405.)</p></li>
 <li><p><strong>ESPN MLB (<code>espn_mlb_*</code>).</strong> Public wrappers in <code>R/espn_mlb_*.R</code> are thin shims over <code>R/espn_baseball_*_helpers.R</code>; the game-summary box parsers live in <code>R/espn_mlb_box_helpers.R</code>. They share the <code>httr2</code> layer in <code>R/utils_espn.R</code> (<code><a href="reference/dot-retry_request.html">.retry_request()</a></code>, honouring <code>options(baseballr.proxy = ...)</code>) and report via <code><a href="reference/dot-report_api_error.html">.report_api_error()</a></code> / <code><a href="reference/dot-report_api_warning.html">.report_api_warning()</a></code>, not raw <code>cli::cli_alert_*()</code>.</p></li>
+<li><p><strong>ESPN College Baseball (<code>espn_college_baseball_*</code>).</strong> Thin league-parameterized twins of the ESPN MLB family (sport <code>baseball</code>, league <code>college-baseball</code>) over the same helpers, so they return matching shapes. Extend the shared helper; don’t duplicate parsing logic.</p></li>
+<li><p><strong>Fox Sports (<code>fox_mlb_*</code>).</strong> Read-only Bifrost MLB wrappers over <code>api.foxsports.com/bifrost/v1/mlb/*</code> that flatten Fox’s layout JSON (sections -&gt; tables -&gt; rows -&gt; cells) into <code>baseballr_data</code> tibbles.</p></li>
+<li><p><strong>NCAA Akamai fallback.</strong> <code>stats.ncaa.org</code> 403s / soft-<code>bm-verify</code>-challenges <code>httr2</code>/<code>curl</code> requests; <code><a href="reference/request_with_proxy.html">request_with_proxy()</a></code> falls back to a stealth headless-Chrome fetch in <code>R/ncaa_chromote.R</code> via the optional <code>chromote</code> (<code>Suggests</code>) package. Because that launches a browser, NCAA function examples live in the Rd <code>Details</code> block, not as executable <code>@examples</code>. Extend the participants/fallback module; don’t add new ad-hoc browser launches.</p></li>
 </ul></div>
 <div class="section level2">
 <h2 id="testing">Testing<a class="anchor" aria-label="anchor" href="#testing"></a></h2>

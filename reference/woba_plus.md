@@ -25,41 +25,41 @@ woba_plus(df)
 Returns a tibble with the wOBA factors calculated and the following
 columns:
 
-|          |           |
-|----------|-----------|
-| col_name | types     |
-| bbref_id | character |
-| season   | integer   |
-| Name     | character |
-| Age      | numeric   |
-| Level    | character |
-| Team     | character |
-| G        | numeric   |
-| PA       | numeric   |
-| AB       | numeric   |
-| R        | numeric   |
-| H        | numeric   |
-| X1B      | numeric   |
-| X2B      | numeric   |
-| X3B      | numeric   |
-| HR       | numeric   |
-| RBI      | numeric   |
-| BB       | numeric   |
-| IBB      | numeric   |
-| uBB      | numeric   |
-| SO       | numeric   |
-| HBP      | numeric   |
-| SH       | numeric   |
-| SF       | numeric   |
-| GDP      | numeric   |
-| SB       | numeric   |
-| CS       | numeric   |
-| BA       | numeric   |
-| OBP      | numeric   |
-| SLG      | numeric   |
-| OPS      | numeric   |
-| wOBA     | numeric   |
-| wOBA_CON | numeric   |
+|          |           |                                                       |
+|----------|-----------|-------------------------------------------------------|
+| col_name | types     | description                                           |
+| bbref_id | character | Baseball-Reference player id                          |
+| season   | integer   | Season (4-digit year)                                 |
+| Name     | character | Player name                                           |
+| Age      | numeric   | Player age                                            |
+| Level    | character | Level of play (e.g. MLB or minor-league level)        |
+| Team     | character | Team name                                             |
+| G        | numeric   | Games played                                          |
+| PA       | numeric   | Plate appearances                                     |
+| AB       | numeric   | At-bats                                               |
+| R        | numeric   | Runs scored                                           |
+| H        | numeric   | Hits                                                  |
+| X1B      | numeric   | Singles                                               |
+| X2B      | numeric   | Doubles                                               |
+| X3B      | numeric   | Triples                                               |
+| HR       | numeric   | Home runs                                             |
+| RBI      | numeric   | Runs batted in                                        |
+| BB       | numeric   | Walks (bases on balls)                                |
+| IBB      | numeric   | Intentional walks                                     |
+| uBB      | numeric   | Unintentional walks (BB minus IBB)                    |
+| SO       | numeric   | Strikeouts                                            |
+| HBP      | numeric   | Hit by pitch                                          |
+| SH       | numeric   | Sacrifice hits (bunts)                                |
+| SF       | numeric   | Sacrifice flies                                       |
+| GDP      | numeric   | Grounded into double plays                            |
+| SB       | numeric   | Stolen bases                                          |
+| CS       | numeric   | Caught stealing                                       |
+| BA       | numeric   | Batting average                                       |
+| OBP      | numeric   | On-base percentage                                    |
+| SLG      | numeric   | Slugging percentage                                   |
+| OPS      | numeric   | On-base plus slugging                                 |
+| wOBA     | numeric   | Weighted on-base average (per plate appearance)       |
+| wOBA_CON | numeric   | Weighted on-base average per instance of fair contact |
 
 ## Examples
 
@@ -70,7 +70,7 @@ columns:
    woba_plus(df)
  })
 #> ── MLB Daily Batter data from baseball-reference.com ───────────────────
-#> ℹ Data updated: 2026-06-12 03:20:51 UTC
+#> ℹ Data updated: 2026-06-12 11:24:34 UTC
 #> # A tibble: 764 × 32
 #>    bbref_id season Name    Age Level Team      G    PA    AB     R     H
 #>    <chr>     <int> <chr> <dbl> <chr> <chr> <dbl> <dbl> <dbl> <dbl> <dbl>

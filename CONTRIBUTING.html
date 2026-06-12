@@ -224,6 +224,21 @@
 <td>
 <code><a href="reference/statcast_search.html">statcast_search()</a></code>, <code><a href="reference/statcast_leaderboards.html">statcast_leaderboards()</a></code>
 </td>
+</tr><tr><td>ESPN MLB</td>
+<td><code>espn_mlb_</code></td>
+<td>
+<code><a href="reference/espn_mlb_pbp.html">espn_mlb_pbp()</a></code>, <code><a href="reference/espn_mlb_scoreboard.html">espn_mlb_scoreboard()</a></code>
+</td>
+</tr><tr><td>ESPN College Baseball</td>
+<td><code>espn_college_baseball_</code></td>
+<td>
+<code><a href="reference/espn_college_baseball_pbp.html">espn_college_baseball_pbp()</a></code>, <code><a href="reference/espn_college_baseball_scoreboard.html">espn_college_baseball_scoreboard()</a></code>
+</td>
+</tr><tr><td>Fox Sports (Bifrost) MLB</td>
+<td><code>fox_mlb_</code></td>
+<td>
+<code><a href="reference/fox_mlb_team_roster.html">fox_mlb_team_roster()</a></code>, <code><a href="reference/fox_mlb_standings.html">fox_mlb_standings()</a></code>
+</td>
 </tr><tr><td>NCAA baseball</td>
 <td><code>ncaa_</code></td>
 <td>
@@ -278,7 +293,7 @@
 <code>@return</code> with a column-name/type table where applicable</li>
 <li><code>@export</code></li>
 <li><code>@family &lt;source&gt; Functions</code></li>
-<li>a runnable <code>@examples</code> block (wrap live-site calls in <code>\donttest{}</code> so <code>R CMD check</code> does not hit the network during routine checking)</li>
+<li>a runnable <code>@examples</code> block (wrap live-site calls in <code>\donttest{}</code> so <code>R CMD check</code> does not hit the network during routine checking). If a call cannot run under <code>R CMD check</code> – e.g. it needs the optional <code>chromote</code> + Google Chrome browser fallback (the NCAA <code>stats.ncaa.org</code> scrapers) – show it as a code block in the Rd <code>@details</code> section instead of <code>@examples</code>, so <code>--run-donttest</code> never launches a browser (a failed headless-Chrome launch leaks connections and fails the check).</li>
 </ul></div>
 <div class="section level3">
 <h3 id="code-style">Code Style<a class="anchor" aria-label="anchor" href="#code-style"></a></h3>
@@ -306,6 +321,8 @@
 <strong>Live-API tests are gated.</strong> Network-dependent tests skip on CRAN and CI and should guard against empty/transient responses. Do not assume the network is available in a check run.</li>
 <li>
 <strong>The NCAA stats site aggressively IP-bans scrapers.</strong> Tests and development work that hit NCAA endpoints (<code>ncaa_*</code>) must be done <strong>sparingly</strong> and cached wherever possible. Do not run NCAA tests in a tight loop, and do not add tests that hammer NCAA endpoints. A single careless test run can get your IP (or a CI runner’s IP) banned. When iterating on NCAA wrappers, save a sample payload locally and develop against the cached fixture.</li>
+<li>
+<strong><code>stats.ncaa.org</code> is behind Akamai Bot Manager.</strong> Direct <code>httr2</code>/<code>curl</code> requests get a hard 403 or a soft <code>bm-verify</code> interstitial, so <code><a href="reference/request_with_proxy.html">request_with_proxy()</a></code> falls back to a stealth headless-Chrome fetch (<code>R/ncaa_chromote.R</code>) via the optional <code>chromote</code> + Google Chrome dependency (<code>Suggests</code>). The live NCAA tests need that browser fallback and are opt-in: install <code>chromote</code> and set <code>NCAA_CHROMOTE_TESTS=1</code> (they <code>skip_on_cran()</code> / <code>skip_on_ci()</code>). Without the dependency the scrapers degrade with a clear install message rather than erroring.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="test-pattern">Test Pattern<a class="anchor" aria-label="anchor" href="#test-pattern"></a></h3>

@@ -1572,6 +1572,377 @@ reference data).
 
   **Get MLB win probability chart data from ESPN**
 
+## ESPN College Baseball
+
+### ESPN College Baseball Data Functions
+
+Functions exported by baseballr to access ESPN’s NCAA college baseball
+endpoints (scoreboard, schedule, game summary / play-by-play, box
+scores, teams, rosters, standings, athletes, leaders, conferences,
+rankings, and reference data). Thin twins of the ESPN MLB family over
+the same league-parameterized helpers.
+
+- [`espn_college_baseball_athletes_index()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_athletes_index.md)
+  :
+
+  **Get ESPN College Baseball Athletes Index**
+
+- [`espn_college_baseball_calendar()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_calendar.md)
+  :
+
+  **Get ESPN College Baseball Calendar**
+
+- [`espn_college_baseball_coach()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_coach.md)
+  :
+
+  **Get ESPN College Baseball Single-Coach Detail**
+
+- [`espn_college_baseball_coach_record()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_coach_record.md)
+  :
+
+  **Get ESPN College Baseball Coach Career Record (Long Format)**
+
+- [`espn_college_baseball_coach_season()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_coach_season.md)
+  :
+
+  **Get ESPN College Baseball Coach-in-Season Detail**
+
+- [`espn_college_baseball_coaches()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_coaches.md)
+  :
+
+  **Get ESPN College Baseball Coaches**
+
+- [`espn_college_baseball_conferences()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_conferences.md)
+  :
+
+  **Get ESPN College Baseball Conferences**
+
+- [`espn_college_baseball_game_all()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_all.md)
+  :
+
+  **Get ESPN College Baseball Game All**
+
+- [`espn_college_baseball_game_broadcasts()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_broadcasts.md)
+  :
+
+  **Get ESPN College Baseball Event Broadcasts**
+
+- [`espn_college_baseball_game_official_detail()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_official_detail.md)
+  :
+
+  **Get ESPN College Baseball Event Official Detail (Single Official)**
+
+- [`espn_college_baseball_game_officials()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_officials.md)
+  :
+
+  **Get ESPN College Baseball Event Officials**
+
+- [`espn_college_baseball_game_play()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_play.md)
+  :
+
+  **Get ESPN College Baseball Event Play Detail (Single Play)**
+
+- [`espn_college_baseball_game_play_personnel()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_play_personnel.md)
+  :
+
+  **Get ESPN College Baseball Event Play Personnel (On-Court Lineup at
+  Play)**
+
+- [`espn_college_baseball_game_player_box()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_player_box.md)
+  :
+
+  **Get ESPN College Baseball Event Player Box Score (Long Format)**
+
+- [`espn_college_baseball_game_rosters()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_rosters.md)
+  :
+
+  **Get ESPN College Baseball Game Rosters**
+
+- [`espn_college_baseball_game_situation()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_situation.md)
+  :
+
+  **Get ESPN College Baseball Event Situation (Live)**
+
+- [`espn_college_baseball_game_team_leaders()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_team_leaders.md)
+  :
+
+  **Get ESPN College Baseball Event Competitor Leaders (Top
+  Performers)**
+
+- [`espn_college_baseball_game_team_linescores()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_team_linescores.md)
+  :
+
+  **Get ESPN College Baseball Event Competitor Linescores (Per-Inning)**
+
+- [`espn_college_baseball_game_team_records()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_team_records.md)
+  :
+
+  **Get ESPN College Baseball Event Competitor Records (At-Game
+  Breakdown)**
+
+- [`espn_college_baseball_game_team_roster()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_team_roster.md)
+  :
+
+  **Get ESPN College Baseball Event Competitor Roster (Game-Day)**
+
+- [`espn_college_baseball_game_team_roster_entry()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_team_roster_entry.md)
+  :
+
+  **Get ESPN College Baseball Event Competitor Roster Entry (Per-Athlete
+  Game-Day Row)**
+
+- [`espn_college_baseball_game_team_score()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_team_score.md)
+  :
+
+  **Get ESPN College Baseball Event Competitor Score (Single Row)**
+
+- [`espn_college_baseball_game_team_statistics()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_team_statistics.md)
+  :
+
+  **Get ESPN College Baseball Event Competitor Team Statistics (Long
+  Format)**
+
+- [`espn_college_baseball_leaders()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_leaders.md)
+  :
+
+  **Get ESPN College Baseball League Leaders**
+
+- [`espn_college_baseball_news()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_news.md)
+  :
+
+  **Get ESPN College Baseball News**
+
+- [`espn_college_baseball_pbp()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_pbp.md)
+  :
+
+  **Get ESPN College Baseball Play-by-Play**
+
+- [`espn_college_baseball_player_awards()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_player_awards.md)
+  :
+
+  **Get ESPN College Baseball Athlete Awards**
+
+- [`espn_college_baseball_player_box()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_player_box.md)
+  :
+
+  **Get ESPN College Baseball Player Box**
+
+- [`espn_college_baseball_player_career_stats()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_player_career_stats.md)
+  :
+
+  **Get ESPN College Baseball Athlete Career Stats (Long Format)**
+
+- [`espn_college_baseball_player_eventlog()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_player_eventlog.md)
+  :
+
+  **Get ESPN College Baseball Athlete Eventlog**
+
+- [`espn_college_baseball_player_gamelog()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_player_gamelog.md)
+  :
+
+  **Get ESPN College Baseball Athlete Gamelog**
+
+- [`espn_college_baseball_player_info()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_player_info.md)
+  :
+
+  **Get ESPN College Baseball Athlete Info**
+
+- [`espn_college_baseball_player_overview()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_player_overview.md)
+  :
+
+  **Get ESPN College Baseball Athlete Overview**
+
+- [`espn_college_baseball_player_seasons()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_player_seasons.md)
+  :
+
+  **Get ESPN College Baseball Athlete Career Seasons**
+
+- [`espn_college_baseball_player_splits()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_player_splits.md)
+  :
+
+  **Get ESPN College Baseball Athlete Splits**
+
+- [`espn_college_baseball_player_statisticslog()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_player_statisticslog.md)
+  :
+
+  **Get ESPN College Baseball Athlete Statisticslog**
+
+- [`espn_college_baseball_scoreboard()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_scoreboard.md)
+  :
+
+  **Get ESPN College Baseball Scoreboard**
+
+- [`espn_college_baseball_season_group()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_season_group.md)
+  :
+
+  **Get ESPN College Baseball Season Group Detail**
+
+- [`espn_college_baseball_season_group_children()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_season_group_children.md)
+  :
+
+  **Get ESPN College Baseball Season Group Children Index**
+
+- [`espn_college_baseball_season_group_teams()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_season_group_teams.md)
+  :
+
+  **Get ESPN College Baseball Season Group Teams Index**
+
+- [`espn_college_baseball_season_groups()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_season_groups.md)
+  :
+
+  **Get ESPN College Baseball Season Groups Index**
+
+- [`espn_college_baseball_season_info()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_season_info.md)
+  :
+
+  **Get ESPN College Baseball Season Info**
+
+- [`espn_college_baseball_season_leaders()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_season_leaders.md)
+  :
+
+  **Get ESPN College Baseball Season Leaders (Long Format)**
+
+- [`espn_college_baseball_season_ranking()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_season_ranking.md)
+  :
+
+  **Get ESPN College Baseball Season Ranking Detail**
+
+- [`espn_college_baseball_season_rankings()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_season_rankings.md)
+  :
+
+  **Get ESPN College Baseball Season Rankings Index**
+
+- [`espn_college_baseball_season_type()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_season_type.md)
+  :
+
+  **Get ESPN College Baseball Season-Type Detail**
+
+- [`espn_college_baseball_season_types()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_season_types.md)
+  :
+
+  **Get ESPN College Baseball Season Types Index**
+
+- [`espn_college_baseball_season_week()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_season_week.md)
+  :
+
+  **Get ESPN College Baseball Season-Week Detail**
+
+- [`espn_college_baseball_season_weeks()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_season_weeks.md)
+  :
+
+  **Get ESPN College Baseball Season Weeks Index**
+
+- [`espn_college_baseball_seasons()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_seasons.md)
+  :
+
+  **Get ESPN College Baseball Seasons**
+
+- [`espn_college_baseball_standings()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_standings.md)
+  :
+
+  **Get ESPN College Baseball Standings**
+
+- [`espn_college_baseball_team()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_team.md)
+  :
+
+  **Get ESPN College Baseball Team Detail**
+
+- [`espn_college_baseball_team_box()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_team_box.md)
+  :
+
+  **Get ESPN College Baseball Team Box**
+
+- [`espn_college_baseball_team_leaders()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_team_leaders.md)
+  :
+
+  **Get ESPN College Baseball Team Leaders**
+
+- [`espn_college_baseball_team_news()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_team_news.md)
+  :
+
+  **Get ESPN College Baseball Team News**
+
+- [`espn_college_baseball_team_record()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_team_record.md)
+  :
+
+  **Get ESPN College Baseball Team Record (Per Season Type)**
+
+- [`espn_college_baseball_team_record_detail()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_team_record_detail.md)
+  :
+
+  **Get ESPN College Baseball Team Record Detail (Long Format)**
+
+- [`espn_college_baseball_team_roster()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_team_roster.md)
+  :
+
+  **Get ESPN College Baseball Team Roster**
+
+- [`espn_college_baseball_team_schedule()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_team_schedule.md)
+  :
+
+  **Get ESPN College Baseball Team Schedule**
+
+- [`espn_college_baseball_team_season_profile()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_team_season_profile.md)
+  :
+
+  **Get ESPN College Baseball Team-in-Season Profile**
+
+- [`espn_college_baseball_team_season_roster()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_team_season_roster.md)
+  :
+
+  **Get ESPN College Baseball Team Roster (Per-Season, core-v2)**
+
+- [`espn_college_baseball_team_season_statistics()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_team_season_statistics.md)
+  :
+
+  **Get ESPN College Baseball Team Season Statistics (Long Format with
+  Rank)**
+
+- [`espn_college_baseball_teams()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_teams.md)
+  :
+
+  **Get ESPN College Baseball Teams**
+
+- [`espn_college_baseball_tournament()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_tournament.md)
+  :
+
+  **Get ESPN College Baseball Tournament Detail**
+
+- [`espn_college_baseball_tournament_season()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_tournament_season.md)
+  :
+
+  **Get ESPN College Baseball Tournament Season Detail**
+
+- [`espn_college_baseball_tournament_seasons()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_tournament_seasons.md)
+  :
+
+  **Get ESPN College Baseball Tournament Seasons List**
+
+- [`espn_college_baseball_tournaments()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_tournaments.md)
+  :
+
+  **Get ESPN College Baseball Tournaments Index**
+
+- [`espn_college_baseball_venues()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_venues.md)
+  :
+
+  **Get ESPN College Baseball Venues**
+
+- [`espn_college_baseball_week_ranking()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_week_ranking.md)
+  :
+
+  **Get ESPN College Baseball Per-Week Ranking Detail**
+
+- [`espn_college_baseball_week_rankings()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_week_rankings.md)
+  :
+
+  **Get ESPN College Baseball Per-Week Rankings Index**
+
+- [`most_recent_college_baseball_season()`](https://billpetti.github.io/baseballr/reference/most_recent_college_baseball_season.md)
+  :
+
+  **Most Recent College Baseball Season**
+
 ## Metrics
 
 ### Metrics Functions

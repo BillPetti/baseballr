@@ -25,6 +25,8 @@ one prefix.
 | `bref_` | Baseball Reference | [`bref_team_results()`](https://billpetti.github.io/baseballr/reference/bref_team_results.md) |
 | `statcast_` / `sc_` | Baseball Savant / Statcast | [`statcast_search()`](https://billpetti.github.io/baseballr/reference/statcast_search.md) |
 | `espn_mlb_` | ESPN (MLB) | [`espn_mlb_pbp()`](https://billpetti.github.io/baseballr/reference/espn_mlb_pbp.md), [`espn_mlb_scoreboard()`](https://billpetti.github.io/baseballr/reference/espn_mlb_scoreboard.md) |
+| `espn_college_baseball_` | ESPN (NCAA college baseball) | [`espn_college_baseball_pbp()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_pbp.md), [`espn_college_baseball_scoreboard()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_scoreboard.md) |
+| `fox_mlb_` | Fox Sports (Bifrost) MLB | [`fox_mlb_team_roster()`](https://billpetti.github.io/baseballr/reference/fox_mlb_team_roster.md), [`fox_mlb_standings()`](https://billpetti.github.io/baseballr/reference/fox_mlb_standings.md) |
 | `ncaa_` | NCAA baseball stats site | [`ncaa_team_player_stats()`](https://billpetti.github.io/baseballr/reference/ncaa_team_player_stats.md) |
 | `sptrc_` | Spotrac | [`sptrc_team_active_payroll()`](https://billpetti.github.io/baseballr/reference/sptrc_team_active_payroll.md) |
 | `chadwick_` | Chadwick Bureau register | [`chadwick_player_lu()`](https://billpetti.github.io/baseballr/reference/chadwick_player_lu.md) |
@@ -111,6 +113,26 @@ one prefix.
   /
   [`.report_api_warning()`](https://billpetti.github.io/baseballr/reference/dot-report_api_warning.md),
   not raw `cli::cli_alert_*()`.
+
+- **ESPN College Baseball (`espn_college_baseball_*`).** Thin
+  league-parameterized twins of the ESPN MLB family (sport `baseball`,
+  league `college-baseball`) over the same helpers, so they return
+  matching shapes. Extend the shared helper; don’t duplicate parsing
+  logic.
+
+- **Fox Sports (`fox_mlb_*`).** Read-only Bifrost MLB wrappers over
+  `api.foxsports.com/bifrost/v1/mlb/*` that flatten Fox’s layout JSON
+  (sections -\> tables -\> rows -\> cells) into `baseballr_data`
+  tibbles.
+
+- **NCAA Akamai fallback.** `stats.ncaa.org` 403s /
+  soft-`bm-verify`-challenges `httr2`/`curl` requests;
+  [`request_with_proxy()`](https://billpetti.github.io/baseballr/reference/request_with_proxy.md)
+  falls back to a stealth headless-Chrome fetch in `R/ncaa_chromote.R`
+  via the optional `chromote` (`Suggests`) package. Because that
+  launches a browser, NCAA function examples live in the Rd `Details`
+  block, not as executable `@examples`. Extend the participants/fallback
+  module; don’t add new ad-hoc browser launches.
 
 ## Testing
 

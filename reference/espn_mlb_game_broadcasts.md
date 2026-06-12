@@ -161,11 +161,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_game_broadcasts(event_id = "401283399")
-#> ✖ 2026-06-12 03:17:36.43244: Failed to retrieve ESPN mlb event broadcasts for event_id=401283399
+#> ✖ 2026-06-12 11:22:15.330282: Failed to retrieve ESPN mlb event broadcasts for event_id=401283399
 #> ✖ Args: league = "mlb", event_id = "401283399"
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN MLB Event Broadcasts (event_id=401283399) from ESPN.com ────────
-#> ℹ Data updated: 2026-06-12 03:17:36 UTC
+#> ℹ Data updated: 2026-06-12 11:22:15 UTC
 #> # A tibble: 0 × 0
 # }
 ```

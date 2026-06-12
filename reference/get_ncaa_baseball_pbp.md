@@ -65,4 +65,17 @@ ncaa_baseball_pbp(
 
 A data frame with play-by-play data for an individual game.
 
-A data frame with play-by-play data for an individual game.
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| game_date | character | Game date (NA on the redesigned page; use [`ncaa_schedule_info()`](https://billpetti.github.io/baseballr/reference/ncaa_schedule_info.md)). |
+| location | character | Venue / conditions line when present. |
+| attendance | logical | Reported attendance (NA on the redesigned page). |
+| inning | character | Inning number. |
+| inning_top_bot | character | Half-inning ("top" or "bot"). |
+| score | character | Running score (away-home) after the play. |
+| batting | character | Batting team name. |
+| fielding | character | Fielding team name. |
+| description | character | Play description text. |
+| game_pbp_url | character | stats.ncaa.org play-by-play url for the game. |
+| game_pbp_id | integer | stats.ncaa.org play-by-play (contest) identifier. |

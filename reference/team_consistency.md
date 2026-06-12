@@ -19,14 +19,14 @@ team_consistency(year)
 
 Returns a tibble with the following columns
 
-|              |           |
-|--------------|-----------|
-| col_name     | types     |
-| Team         | character |
-| Con_R        | numeric   |
-| Con_RA       | numeric   |
-| Con_R_Ptile  | numeric   |
-| Con_RA_Ptile | numeric   |
+|              |           |                                                  |
+|--------------|-----------|--------------------------------------------------|
+| col_name     | types     | description                                      |
+| Team         | character | Team name.                                       |
+| Con_R        | numeric   | Run-scoring consistency score for the season.    |
+| Con_RA       | numeric   | Run-prevention (runs allowed) consistency score. |
+| Con_R_Ptile  | numeric   | Percentile rank of run-scoring consistency.      |
+| Con_RA_Ptile | numeric   | Percentile rank of run-prevention consistency.   |
 
 ## Details
 

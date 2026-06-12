@@ -1,9 +1,9 @@
 # **NCAA Functions Overview**
 
 - [`ncaa_team_player_stats()`](https://billpetti.github.io/baseballr/reference/ncaa_team_player_stats.md):
-  This function allows the user to obtain batting or pitching statistics
-  for any school affiliated with the NCAA at the division I, II, or III
-  levels. The function acquires data from the NCAA's website
+  This function allows the user to obtain batting, pitching, or fielding
+  statistics for any school affiliated with the NCAA at the division I,
+  II, or III levels. The function acquires data from the NCAA's website
   (stats.ncaa.org) and returns a tibble.
 
 - [`ncaa_pbp()`](https://billpetti.github.io/baseballr/reference/ncaa_pbp.md):

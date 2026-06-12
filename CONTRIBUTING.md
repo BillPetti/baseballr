@@ -145,6 +145,9 @@ automatically.
 | FanGraphs | `fg_` | [`fg_batter_leaders()`](https://billpetti.github.io/baseballr/reference/fg_batter_leaders.md), [`fg_team_pitcher()`](https://billpetti.github.io/baseballr/reference/fg_team_pitcher.md) |
 | Baseball Reference | `bref_` | [`bref_daily_batter()`](https://billpetti.github.io/baseballr/reference/bref_daily_batter.md), [`bref_team_results()`](https://billpetti.github.io/baseballr/reference/bref_team_results.md) |
 | Baseball Savant / Statcast | `statcast_` / `sc_` | [`statcast_search()`](https://billpetti.github.io/baseballr/reference/statcast_search.md), [`statcast_leaderboards()`](https://billpetti.github.io/baseballr/reference/statcast_leaderboards.md) |
+| ESPN MLB | `espn_mlb_` | [`espn_mlb_pbp()`](https://billpetti.github.io/baseballr/reference/espn_mlb_pbp.md), [`espn_mlb_scoreboard()`](https://billpetti.github.io/baseballr/reference/espn_mlb_scoreboard.md) |
+| ESPN College Baseball | `espn_college_baseball_` | [`espn_college_baseball_pbp()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_pbp.md), [`espn_college_baseball_scoreboard()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_scoreboard.md) |
+| Fox Sports (Bifrost) MLB | `fox_mlb_` | [`fox_mlb_team_roster()`](https://billpetti.github.io/baseballr/reference/fox_mlb_team_roster.md), [`fox_mlb_standings()`](https://billpetti.github.io/baseballr/reference/fox_mlb_standings.md) |
 | NCAA baseball | `ncaa_` | [`ncaa_schedule_info()`](https://billpetti.github.io/baseballr/reference/ncaa_schedule_info.md), [`ncaa_roster()`](https://billpetti.github.io/baseballr/reference/ncaa_roster.md) |
 | Spotrac | `sptrc_` | [`sptrc_team_active_payroll()`](https://billpetti.github.io/baseballr/reference/sptrc_team_active_payroll.md) |
 | Chadwick Bureau register | `chadwick_` | [`chadwick_player_lu()`](https://billpetti.github.io/baseballr/reference/chadwick_player_lu.md) |
@@ -187,7 +190,13 @@ attaches provenance attributes.
 - `@export`
 - `@family <source> Functions`
 - a runnable `@examples` block (wrap live-site calls in `\donttest{}` so
-  `R CMD check` does not hit the network during routine checking)
+  `R CMD check` does not hit the network during routine checking). If a
+  call cannot run under `R CMD check` – e.g. it needs the optional
+  `chromote` + Google Chrome browser fallback (the NCAA `stats.ncaa.org`
+  scrapers) – show it as a code block in the Rd `@details` section
+  instead of `@examples`, so `--run-donttest` never launches a browser
+  (a failed headless-Chrome launch leaks connections and fails the
+  check).
 
 ### Code Style
 
@@ -244,6 +253,16 @@ CI.
   careless test run can get your IP (or a CI runner’s IP) banned. When
   iterating on NCAA wrappers, save a sample payload locally and develop
   against the cached fixture.
+- **`stats.ncaa.org` is behind Akamai Bot Manager.** Direct
+  `httr2`/`curl` requests get a hard 403 or a soft `bm-verify`
+  interstitial, so
+  [`request_with_proxy()`](https://billpetti.github.io/baseballr/reference/request_with_proxy.md)
+  falls back to a stealth headless-Chrome fetch (`R/ncaa_chromote.R`)
+  via the optional `chromote` + Google Chrome dependency (`Suggests`).
+  The live NCAA tests need that browser fallback and are opt-in: install
+  `chromote` and set `NCAA_CHROMOTE_TESTS=1` (they `skip_on_cran()` /
+  `skip_on_ci()`). Without the dependency the scrapers degrade with a
+  clear install message rather than erroring.
 
 ### Test Pattern
 

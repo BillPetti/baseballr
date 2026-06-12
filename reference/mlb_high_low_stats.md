@@ -174,7 +174,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_high_low_stats(org_type = 'Team', season = 2020, sort_stat = 'atBats'))
 #> ── MLB High Low Stats data from MLB.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 03:19:14 UTC
+#> ℹ Data updated: 2026-06-12 11:23:53 UTC
 #> # A tibble: 20 × 32
 #>    total_splits season date      is_home  rank game_innings stat_at_bats
 #>           <int>  <int> <chr>     <lgl>   <int>        <int>        <int>

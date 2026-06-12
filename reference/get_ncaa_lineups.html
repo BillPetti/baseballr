@@ -126,8 +126,8 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Returns a tibble of each school's starting lineup and starting pitcher</p>
-    </div>
+    <p>Returns a tibble of each team's batting lineup (one row per batter,
+in batting order) parsed from the game's <code>individual_stats</code> box scores.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>player_name</td><td>character</td><td>Player name.</td></tr><tr><td>position</td><td>character</td><td>Fielding position (the box score "P" column).</td></tr><tr><td>batting_order</td><td>integer</td><td>Spot in the batting order (box-score row order).</td></tr><tr><td>team_name</td><td>character</td><td>Team name (from the box-score totals row).</td></tr><tr><td>player_id</td><td>integer</td><td>stats.ncaa.org player identifier.</td></tr><tr><td>player_url</td><td>character</td><td>Full stats.ncaa.org url for the player page.</td></tr><tr><td>slug</td><td>character</td><td>Relative stats.ncaa.org url for the player page.</td></tr></table></div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
