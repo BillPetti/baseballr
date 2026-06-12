@@ -1,9 +1,9 @@
 #' @rdname ncaa_team_player_stats
 #' @title **Scrape NCAA baseball Team Player Stats (Division I, II, and III)**
-#' @description This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a tibble.
+#' @description This function allows the user to obtain batting, pitching, or fielding statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a tibble.
 #' @param team_id The numerical ID that the NCAA website uses to identify a team
 #' @param year The season for which data should be returned, in the form of "YYYY". Years currently available: 2013-2017.
-#' @param type A string indicating whether to return "batting" or "pitching" statistics
+#' @param type A string indicating whether to return "batting", "pitching", or "fielding" statistics
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return A data frame with the following variables
 #'  
@@ -63,7 +63,7 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
     cli::cli_abort("Enter valid year as a number (YYYY)")
   }
   if (is.null(type) | !(type %in% c("batting","pitching", "fielding"))) {
-    cli::cli_abort("Enter valid type: 'batting', 'pitching'")
+    cli::cli_abort("Enter valid type: 'batting', 'pitching', 'fielding'")
   }
   
   if (year < 2013) {
@@ -155,7 +155,6 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
                                       ~ as.numeric(as.character(.x))))
       )
 
-      
       player_url <- data_read %>%
         html_elements('#stat_grid a') %>%
         html_attr('href') %>%

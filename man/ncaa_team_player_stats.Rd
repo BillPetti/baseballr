@@ -16,7 +16,7 @@ ncaa_team_player_stats(
 
 \item{year}{The season for which data should be returned, in the form of "YYYY". Years currently available: 2013-2017.}
 
-\item{type}{A string indicating whether to return "batting" or "pitching" statistics}
+\item{type}{A string indicating whether to return "batting", "pitching", or "fielding" statistics}
 
 \item{...}{Additional arguments passed to an underlying function like httr.}
 }
@@ -61,7 +61,7 @@ A data frame with the following variables\tabular{ll}{
 }
 }
 \description{
-This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a tibble.
+This function allows the user to obtain batting, pitching, or fielding statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a tibble.
 }
 \examples{
 \donttest{

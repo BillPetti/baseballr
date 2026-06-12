@@ -16,7 +16,7 @@ ncaa_scrape(
 
 \item{year}{The season for which data should be returned, in the form of "YYYY". Years currently available: 2013-2017.}
 
-\item{type}{A string indicating whether to return "batting" or "pitching" statistics}
+\item{type}{A string indicating whether to return "batting", "pitching", or "fielding" statistics}
 
 \item{...}{Additional arguments passed to an underlying function like httr.}
 }

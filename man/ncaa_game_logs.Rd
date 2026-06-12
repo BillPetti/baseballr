@@ -13,7 +13,7 @@ get_ncaa_baseball_roster function.}
 \item{year}{The year of interest.}
 
 \item{type}{The kind of statistics you want to return. Current options
-are 'batting' or 'pitching'.}
+are 'batting', 'pitching', or 'fielding'.}
 
 \item{span}{The span of time; can either be 'game' for game logs in a season, or 'career' which
 returns seasonal stats for a player's career.}

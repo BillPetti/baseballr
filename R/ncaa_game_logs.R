@@ -4,7 +4,7 @@
 #' get_ncaa_baseball_roster function.
 #' @param year The year of interest.
 #' @param type The kind of statistics you want to return. Current options
-#' are 'batting' or 'pitching'.
+#' are 'batting', 'pitching', or 'fielding'.
 #' @param span The span of time; can either be 'game' for game logs in a season, or 'career' which
 #' returns seasonal stats for a player's career.
 #' @param ... Additional arguments passed to an underlying function like httr.
@@ -71,7 +71,7 @@ ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...
     cli::cli_abort("Enter valid year as a number (YYYY)")
   }
   if (is.null(type) | !(type %in% c("batting","pitching", "fielding"))) {
-    cli::cli_abort("Enter valid type: 'batting', 'pitching'")
+    cli::cli_abort("Enter valid type: 'batting', 'pitching', 'fielding'")
   }
   if (is.null(span) | !(span %in% c("game","career"))) {
     cli::cli_abort("Enter valid span: 'game', 'career'")

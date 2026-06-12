@@ -166,7 +166,13 @@ ncaa_pbp <- function(game_info_url = NA_character_,
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided for game_info_url, {game_info_url}, game_pbp_url: {game_pbp_url}"))
+      cli::cli_alert_danger(
+        paste0("{Sys.time()}: Could not retrieve or parse NCAA play-by-play from ",
+               "game_info_url {game_info_url} / game_pbp_url {game_pbp_url}. The ",
+               "stats.ncaa.org page layout may have changed or the request was ",
+               "challenged.")
+      )
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }
