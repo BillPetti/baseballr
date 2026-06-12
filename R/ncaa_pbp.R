@@ -31,10 +31,15 @@
 #' @importFrom purrr map
 #' @importFrom janitor make_clean_names
 #' @import rvest 
+#' @details
+#' Live usage (reads `stats.ncaa.org`, which is behind Akamai bot protection and
+#' needs the optional `chromote` + Google Chrome browser fallback, so it is shown
+#' here rather than as a runnable example):
+#'
+#' ```r
+#' ncaa_pbp(game_info_url = "https://stats.ncaa.org/contests/2167178/box_score")
+#' ```
 #' @export
-#' @examples \donttest{
-#'   try(ncaa_pbp(game_info_url = "https://stats.ncaa.org/contests/2167178/box_score"))
-#' }
 
 ncaa_pbp <- function(game_info_url = NA_character_, 
                               game_pbp_url = NA_character_,

@@ -17,10 +17,13 @@
 #'  |year          |numeric   |Season (4-digit year).                 |
 #'  |season_id     |numeric   |stats.ncaa.org season identifier.      |
 #'  
+#' @details
+#' Example usage (resolved from the bundled NCAA teams table):
+#'
+#' ```r
+#' ncaa_school_id_lu("Van")
+#' ```
 #' @export
-#' @examples \donttest{
-#'   try(ncaa_school_id_lu("Van"))
-#' }
 
 ncaa_school_id_lu <- function(team_name = NULL) {
   if (is.null(team_name)) {

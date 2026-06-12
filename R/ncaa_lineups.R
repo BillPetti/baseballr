@@ -17,12 +17,16 @@
 #'
 #' @importFrom stringr str_detect str_squish str_starts str_remove_all str_split_fixed
 #' @import rvest
+#' @details
+#' Live usage (reads `stats.ncaa.org`, which is behind Akamai bot protection and
+#' needs the optional `chromote` + Google Chrome browser fallback, so it is shown
+#' here rather than as a runnable example):
+#'
+#' ```r
+#' ncaa_lineups(game_info_url = "https://stats.ncaa.org/contests/2167178/box_score")
+#' ncaa_lineups(game_info_url = "https://stats.ncaa.org/game/index/4587474?org_id=528")
+#' ```
 #' @export
-#' @examples 
-#' \donttest{
-#'   try(ncaa_lineups(game_info_url="https://stats.ncaa.org/contests/2167178/box_score"))
-#'   try(ncaa_lineups(game_info_url="https://stats.ncaa.org/game/index/4587474?org_id=528"))
-#' }
 ncaa_lineups <- function(game_info_url = NULL, ...) {
   
   if (is.null(game_info_url)) {

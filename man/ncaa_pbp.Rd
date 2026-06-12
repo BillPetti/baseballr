@@ -51,8 +51,11 @@ A data frame with play-by-play data for an individual game.\tabular{lll}{
 \description{
 \strong{Get Play-By-Play Data for NCAA Baseball Games}
 }
-\examples{
-\donttest{
-  try(ncaa_pbp(game_info_url = "https://stats.ncaa.org/contests/2167178/box_score"))
-}
+\details{
+Live usage (reads \code{stats.ncaa.org}, which is behind Akamai bot protection and
+needs the optional \code{chromote} + Google Chrome browser fallback, so it is shown
+here rather than as a runnable example):
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ncaa_pbp(game_info_url = "https://stats.ncaa.org/contests/2167178/box_score")
+}\if{html}{\out{</div>}}
 }

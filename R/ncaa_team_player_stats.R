@@ -50,11 +50,15 @@
 #' @import dplyr
 #' @import rvest
 #' @importFrom stringr str_split
+#' @details
+#' Live usage (reads `stats.ncaa.org`, which is behind Akamai bot protection and
+#' needs the optional `chromote` + Google Chrome browser fallback, so it is shown
+#' here rather than as a runnable example):
+#'
+#' ```r
+#' ncaa_team_player_stats(team_id = 234, year = 2023, type = "batting")
+#' ```
 #' @export
-#' @examples
-#' \donttest{
-#'   try(ncaa_team_player_stats(team_id = 234, year = 2023, type = "batting"))
-#' }
 
 ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_season(), type = 'batting', ...) {
   

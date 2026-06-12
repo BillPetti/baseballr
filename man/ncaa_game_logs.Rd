@@ -69,11 +69,14 @@ below shows the pitching (\code{type = "pitching"}, \code{span = "game"}) column
 \description{
 \strong{Get NCAA Baseball Game Logs}
 }
-\examples{
-\donttest{
-  try(ncaa_game_logs(player_id = 2649785, year = 2023, type = "pitching", span = "game"))
-  try(ncaa_game_logs(player_id = 2477974, year = 2023, type = "pitching", span = "career"))
-  try(ncaa_game_logs(player_id = 2680961, year = 2023, type = "batting", span = "game"))
-  try(ncaa_game_logs(player_id = 2486588, year = 2023, type = "batting", span = "career"))
-}
+\details{
+Live usage (reads \code{stats.ncaa.org}, which is behind Akamai bot protection and
+needs the optional \code{chromote} + Google Chrome browser fallback, so it is shown
+here rather than as a runnable example):
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ncaa_game_logs(player_id = 2649785, year = 2023, type = "pitching", span = "game")
+ncaa_game_logs(player_id = 2477974, year = 2023, type = "pitching", span = "career")
+ncaa_game_logs(player_id = 2680961, year = 2023, type = "batting", span = "game")
+ncaa_game_logs(player_id = 2486588, year = 2023, type = "batting", span = "career")
+}\if{html}{\out{</div>}}
 }

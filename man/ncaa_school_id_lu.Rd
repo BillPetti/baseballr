@@ -27,8 +27,9 @@ conference, conference_id, division, year, and season_id\tabular{lll}{
 This function allows the user to look up the \code{team_id} needed
 for the \code{ncaa_team_player_stats()} function.
 }
-\examples{
-\donttest{
-  try(ncaa_school_id_lu("Van"))
-}
+\details{
+Example usage (resolved from the bundled NCAA teams table):
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ncaa_school_id_lu("Van")
+}\if{html}{\out{</div>}}
 }

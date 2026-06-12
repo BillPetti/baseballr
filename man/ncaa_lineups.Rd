@@ -27,9 +27,12 @@ in batting order) parsed from the game's \code{individual_stats} box scores.\tab
 \description{
 \strong{Retrieve lineups for a given NCAA game via its \code{game_info_url}}
 }
-\examples{
-\donttest{
-  try(ncaa_lineups(game_info_url="https://stats.ncaa.org/contests/2167178/box_score"))
-  try(ncaa_lineups(game_info_url="https://stats.ncaa.org/game/index/4587474?org_id=528"))
-}
+\details{
+Live usage (reads \code{stats.ncaa.org}, which is behind Akamai bot protection and
+needs the optional \code{chromote} + Google Chrome browser fallback, so it is shown
+here rather than as a runnable example):
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ncaa_lineups(game_info_url = "https://stats.ncaa.org/contests/2167178/box_score")
+ncaa_lineups(game_info_url = "https://stats.ncaa.org/game/index/4587474?org_id=528")
+}\if{html}{\out{</div>}}
 }

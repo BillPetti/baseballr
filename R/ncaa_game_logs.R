@@ -57,13 +57,18 @@
 #' @importFrom tibble tibble
 #' @importFrom tidyr extract_numeric
 #' @import rvest
+#' @details
+#' Live usage (reads `stats.ncaa.org`, which is behind Akamai bot protection and
+#' needs the optional `chromote` + Google Chrome browser fallback, so it is shown
+#' here rather than as a runnable example):
+#'
+#' ```r
+#' ncaa_game_logs(player_id = 2649785, year = 2023, type = "pitching", span = "game")
+#' ncaa_game_logs(player_id = 2477974, year = 2023, type = "pitching", span = "career")
+#' ncaa_game_logs(player_id = 2680961, year = 2023, type = "batting", span = "game")
+#' ncaa_game_logs(player_id = 2486588, year = 2023, type = "batting", span = "career")
+#' ```
 #' @export
-#' @examples \donttest{
-#'   try(ncaa_game_logs(player_id = 2649785, year = 2023, type = "pitching", span = "game"))
-#'   try(ncaa_game_logs(player_id = 2477974, year = 2023, type = "pitching", span = "career"))
-#'   try(ncaa_game_logs(player_id = 2680961, year = 2023, type = "batting", span = "game"))
-#'   try(ncaa_game_logs(player_id = 2486588, year = 2023, type = "batting", span = "career"))
-#' }
 
 ncaa_game_logs <- function(player_id, year, type = "batting", span = 'game', ...) {
   if (is.null(player_id)) {

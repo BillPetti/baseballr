@@ -65,8 +65,11 @@ batting (\code{type = "batting"}) columns.\tabular{lll}{
 \description{
 This function allows the user to obtain batting, pitching, or fielding statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a tibble.
 }
-\examples{
-\donttest{
-  try(ncaa_team_player_stats(team_id = 234, year = 2023, type = "batting"))
-}
+\details{
+Live usage (reads \code{stats.ncaa.org}, which is behind Akamai bot protection and
+needs the optional \code{chromote} + Google Chrome browser fallback, so it is shown
+here rather than as a runnable example):
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ncaa_team_player_stats(team_id = 234, year = 2023, type = "batting")
+}\if{html}{\out{</div>}}
 }

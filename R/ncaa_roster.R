@@ -23,11 +23,15 @@
 #'  
 #' @importFrom tibble tibble
 #' @import rvest
+#' @details
+#' Live usage (reads `stats.ncaa.org`, which is behind Akamai bot protection and
+#' needs the optional `chromote` + Google Chrome browser fallback, so it is shown
+#' here rather than as a runnable example):
+#'
+#' ```r
+#' ncaa_roster(team_id = 104, year = 2023)
+#' ```
 #' @export
-#' @examples
-#' \donttest{
-#'   try(ncaa_roster(team_id = 104, year = 2023))
-#' }
 
 ncaa_roster <- function(team_id = NULL, year, ...){
   if (is.null(team_id)) {
