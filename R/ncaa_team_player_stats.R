@@ -86,10 +86,28 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
         dplyr::filter(.data$season == year)
       season_id <- season_ids %>% dplyr::pull("id")
       type_id <- season_ids %>%
-        dplyr::pull(if (type == "pitching") "pitching_id" else "batting_id")
+        dplyr::pull(switch(type,
+          pitching = "pitching_id",
+          fielding = "fielding_id",
+          "batting_id"
+        ))
 
-      url <- paste0("https://stats.ncaa.org/team/", team_id,
-                    "/stats?id=", season_id, "&year_stat_category_id=", type_id)
+      # stats.ncaa.org migrated team stats from the franchise-centric
+      # /team/{team_id}/stats form to a per-season resource at
+      # /teams/{season_team_id}/season_to_date_stats. Resolve the season-team id
+      # (read off the still-working roster page) and request the category grid.
+      season_team_id <- .ncaa_resolve_season_team_id(team_id, season_id, ...)
+      if (is.na(season_team_id)) {
+        cli::cli_alert_warning(
+          paste0("{Sys.time()}: Could not resolve the stats.ncaa.org season-team ",
+                 "id for team {team_id} ({year}); the roster page was unavailable ",
+                 "or challenged. Install {{chromote}} + Google Chrome to enable ",
+                 "the browser fallback.")
+        )
+        return(df)
+      }
+      url <- paste0("https://stats.ncaa.org/teams/", season_team_id,
+                    "/season_to_date_stats?year_stat_category_id=", type_id)
 
       team_stats_resp <- request_with_proxy(url = url, ...)
       payload_txt <- httr2::resp_body_string(team_stats_resp)
@@ -98,102 +116,45 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
           .ncaa_is_interstitial(payload_txt)) {
         cli::cli_alert_warning(
           paste0("{Sys.time()}: stats.ncaa.org returned an Akamai bot-challenge ",
-                 "for the team stats endpoint; no data could be retrieved. This ",
-                 "endpoint is gated and cannot be scraped without a browser session.")
+                 "for the team {type} stats endpoint; no data could be retrieved. ",
+                 "Install {{chromote}} + Google Chrome to enable the browser fallback.")
         )
         return(df)
       }
 
       data_read <- xml2::read_html(payload_txt)
-      tables <- data_read %>% rvest::html_elements("table")
-      if (length(tables) < 3) {
+      stat_grid <- data_read %>% rvest::html_element("#stat_grid")
+      if (inherits(stat_grid, "xml_missing") || length(stat_grid) == 0) {
         cli::cli_alert_warning(
-          "{Sys.time()}: No stats table found for team {team_id} ({year})."
+          "{Sys.time()}: No #stat_grid table found for team {team_id} ({year})."
         )
         return(df)
       }
 
-      if (type == "batting") {
-        data <- tables[[3]] %>%
-          rvest::html_table()
-        df <- as.data.frame(data)
-        df$year <- year
-        df$team_id <- team_id
+      # One generic parse for batting / pitching / fielding. The redesigned grid
+      # labels the jersey column "#" (callers expect "Jersey") and batting uses
+      # "OPP DP" (callers expect "DP"). Identifier/text columns stay character;
+      # every other column (the per-category stats) is coerced to numeric --
+      # tolerant of the differing column sets across the three categories.
+      df <- stat_grid %>%
+        rvest::html_table() %>%
+        as.data.frame(check.names = FALSE) %>%
+        dplyr::rename(dplyr::any_of(c(Jersey = "#", DP = "OPP DP")))
+      df$Player <- gsub("x ", "", df$Player)
+      df$year <- year
+      df$team_id <- team_id
+      df <- df %>%
+        dplyr::left_join(load_ncaa_baseball_teams(),
+                         by = c("team_id" = "team_id", "year" = "year"))
+      text_cols <- c("team_name", "conference", "Jersey", "Player", "Yr", "Pos",
+                     "Ht", "B/T")
+      stat_cols <- setdiff(names(df), text_cols)
+      suppressWarnings(
         df <- df %>%
-          dplyr::left_join(load_ncaa_baseball_teams(),
-                           by = c("team_id" = "team_id", "year" = "year"))
-        df <- df %>%
-          dplyr::select("year", "team_name", "conference", "division", tidyr::everything())
-        df$Player <- gsub("x ", "", df$Player)
-        if (!"RBI2out" %in% names(df)) {
-          df$RBI2out <- NA
-        }
+          dplyr::mutate(dplyr::across(dplyr::any_of(stat_cols),
+                                      ~ as.numeric(as.character(.x))))
+      )
 
-        if('OPP DP' %in% colnames(df) == TRUE) {
-          df <- df %>%
-            dplyr::rename(DP = "OPP DP")
-        }
-
-        df <- df %>% dplyr::select(
-          "year","team_name","conference","division","Jersey","Player",
-          "Yr","Pos","GP","GS","BA","OBPct","SlgPct","R","AB",
-          "H","2B","3B","TB","HR","RBI","BB","HBP","SF","SH",
-          "K","DP","CS","Picked","SB","RBI2out","team_id","conference_id")
-
-        character_cols <- c("year", "team_name", "conference", "Jersey", "Player",
-                            "Yr", "Pos")
-
-        numeric_cols <- c("division", "GP", "GS", "BA", "OBPct", "SlgPct", "R", "AB",
-                          "H", "2B", "3B", "TB", "HR", "RBI", "BB", "HBP", "SF", "SH",
-                          "K", "DP", "CS", "Picked", "SB", "RBI2out", "team_id", "conference_id")
-
-        suppressWarnings(
-          df <- df %>%
-            dplyr::mutate_at(vars(character_cols), function(x){as.character(x)})
-        )
-        suppressWarnings(
-          df <- df %>%
-            dplyr::mutate_at(vars(numeric_cols), function(x){as.numeric(as.character(x))})
-        )
-
-      } else {
-        data <- tables[[3]] %>%
-          rvest::html_table()
-        df <- as.data.frame(data)
-        df <- df[,-6]
-        df$year <- year
-        df$team_id <- team_id
-        df <- df %>%
-          dplyr::left_join(load_ncaa_baseball_teams(), by = c("team_id" = "team_id", "year" = "year"))
-        df <- df %>% 
-          dplyr::select("year", "team_name", "conference", "division", tidyr::everything())
-        df$Player <- gsub("x ", "", df$Player)
-        
-        df <- df %>% dplyr::select( 
-          "year","team_name","conference","division","Jersey","Player",
-          "Yr","Pos","GP","App","GS","ERA","IP","H","R",
-          "ER","BB","SO","SHO","BF","P-OAB",
-          "2B-A","3B-A","Bk","HR-A","WP","HB",
-          "IBB","Inh Run","Inh Run Score",
-          "SHA","SFA","Pitches","GO","FO","W","L",
-          "SV","KL","team_id","conference_id")
-        
-        character_cols <- c("year", "team_name", "conference", "Jersey", "Player",
-                            "Yr", "Pos")
-        
-        numeric_cols <- c("division",  "GP", "App", "GS", "ERA", "IP", "H", "R", "ER",
-                          "BB", "SO", "SHO", "BF", "P-OAB", "2B-A", "3B-A", "Bk", "HR-A",
-                          "WP", "HB", "IBB", "Inh Run", "Inh Run Score", "SHA", "SFA",
-                          "Pitches", "GO", "FO", "W", "L", "SV", "KL", "team_id", "conference_id")
-        suppressWarnings(
-          df <- df %>%
-            dplyr::mutate_at(vars(character_cols), function(x){as.character(x)})
-        )
-        suppressWarnings(
-          df <- df %>%
-            dplyr::mutate_at(vars(numeric_cols), function(x){as.numeric(as.character(x))})
-        )
-      }
       
       player_url <- data_read %>%
         html_elements('#stat_grid a') %>%
@@ -208,10 +169,9 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
         as.data.frame() %>%
         dplyr::rename("player_names_join" = ".")
       
-      player_id <-
-        stringr::str_split(
-          pattern = '&stats_player_seq=',  
-          string = player_url$player_url, simplify = TRUE)[,2] %>%
+      # The redesigned grid links to /players/{id}?... (was ...&stats_player_seq={id}).
+      player_id <- player_url$player_url %>%
+        stringr::str_extract("players/(\\d+)", group = 1) %>%
         as.data.frame() %>%
         dplyr::rename("player_id" = ".")
       

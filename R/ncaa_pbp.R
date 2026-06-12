@@ -61,13 +61,18 @@ ncaa_pbp <- function(game_info_url = NA_character_,
           httr2::resp_body_string() %>% 
           xml2::read_html() 
         
-        game_pbp_url <- init_payload %>% 
-          rvest::html_elements("#root li:nth-child(3) a") %>%
-          rvest::html_attr("href") %>%
-          as.data.frame() %>%
-          dplyr::rename(pbp_url_slug = ".") %>%
-          dplyr::mutate(game_pbp_url = paste0("https://stats.ncaa.org", .data$pbp_url_slug)) %>%
-          dplyr::pull(.data$game_pbp_url)
+        # Follow the "Play By Play" tab link. The React redesign replaced the old
+        # `#root` nav with a labelled <a> to /contests/{id}/play_by_play; fall
+        # back to deriving it from the box-score URL if the link isn't present.
+        hrefs <- init_payload %>%
+          rvest::html_elements("a") %>%
+          rvest::html_attr("href")
+        pbp_slug <- unique(hrefs[grepl("play_by_play", hrefs)])
+        game_pbp_url <- if (length(pbp_slug) > 0) {
+          paste0("https://stats.ncaa.org", pbp_slug[1])
+        } else {
+          sub("box_score", "play_by_play", game_info_url)
+        }
         
         pbp_payload_resp <-  request_with_proxy(url = game_pbp_url, ...)
         
@@ -103,42 +108,37 @@ ncaa_pbp <- function(game_info_url = NA_character_,
         payload <- stringr::str_extract(file, "\\d+")
       }
       
-      game_info <- pbp_payload %>%
-        rvest::html_elements("table:nth-child(7)") %>%
-        rvest::html_table() %>%
-        as.data.frame() %>%
-        tidyr::spread("X1", "X2") 
-      
-      game_info <- dplyr::rename_with(game_info,~gsub(":", "", .x)) %>%
-        janitor::clean_names() %>%
-        dplyr::mutate(game_date = substr(.data$game_date, 1, 10))
-      att <- any(!grepl("attendance", colnames(game_info)))
-      if (att) {
-        game_info$attendance <- NA
-      } else {
-        game_info <- game_info %>%
-          dplyr::mutate(attendance = as.numeric(gsub(",", "", .data$attendance)))
+      # The redesigned /contests/{id}/play_by_play page renders each inning as a
+      # <table class="table"> whose column headers are the away / home team names
+      # (away | Score | home). The old key-value game-info table and the
+      # `mytable` inning class are gone.
+      table_list_innings <- pbp_payload %>%
+        rvest::html_elements("table.table")
+      if (length(table_list_innings) == 0) {
+        cli::cli_abort("{Sys.time()}: No play-by-play tables found at {game_pbp_url}")
       }
-      
-      table_list <- pbp_payload %>%
-        rvest::html_elements("[class='mytable']")
-      
-      condition <- table_list %>%
-        lapply(function(x) nrow(as.data.frame(x %>%
-                                                rvest::html_table())) > 3)
-      
-      table_list_innings <- table_list[which(unlist(condition))]
-      
       table_list_innings <- table_list_innings %>%
-        setNames(seq(1,length(table_list_innings)))
-      
-      teams <- tibble::tibble(away = (table_list_innings[[1]] %>%
-                                        rvest::html_table() %>%
-                                        as.data.frame())[1,1],
-                              home = (table_list_innings[[1]] %>%
-                                        rvest::html_table() %>%
-                                        as.data.frame())[1,3])
-      
+        stats::setNames(seq_along(table_list_innings))
+
+      header_names <- table_list_innings[[1]] %>%
+        rvest::html_table() %>%
+        names()
+      teams <- tibble::tibble(away = header_names[1], home = header_names[3])
+
+      # Game meta no longer ships as a tidy key-value table on the redesigned
+      # page; carry the venue/conditions line when present and leave date /
+      # attendance NA (the game date is available from `ncaa_schedule_info()`).
+      info_df <- table_list_innings[[1]] %>%
+        rvest::html_table() %>%
+        as.data.frame()
+      info_line <- if (nrow(info_df) > 0) as.character(info_df[[1]][1]) else NA_character_
+      game_info <- data.frame(
+        game_date = NA_character_,
+        location = if (!is.na(info_line) && grepl("\\.\\.", info_line)) info_line else NA_character_,
+        attendance = NA_real_,
+        stringsAsFactors = FALSE
+      )
+
       mapped_table <- purrr::map(.x = table_list_innings,
                                  ~format_baseball_pbp_tables(.x, teams = teams)) %>%
         dplyr::bind_rows(.id = "inning")
@@ -193,8 +193,11 @@ ncaa_baseball_pbp <- ncaa_pbp
 
 
 format_baseball_pbp_tables <- function(table_node, teams) {
-  table <- (table_node %>% 
-              rvest::html_table() %>%
+  # header = FALSE keeps the columns positional (X1 = away, X2 = score, X3 =
+  # home); the redesigned pbp tables carry the team names as the header row, so
+  # the leading `[-1, ]` below drops that team-name row, leaving only plays.
+  table <- (table_node %>%
+              rvest::html_table(header = FALSE) %>%
               as.data.frame() %>%
               dplyr::filter(!grepl(pattern = "R:", x = .data$X1)) %>%
               dplyr::mutate(batting = ifelse(.data$X1 != "", teams$away, teams$home)) %>%
