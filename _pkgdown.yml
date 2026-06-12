@@ -1,6 +1,7 @@
 url: https://billpetti.github.io/baseballr
 template:
   bootstrap: 5
+  light-switch: true
   bootswatch: flatly
   bslib:
     primary: "#0054AD"
@@ -48,7 +49,7 @@ home:
 navbar:
   structure:
     left:  [home, reference, articles, news, network, data, repo]
-    right: [twitter, github]
+    right: [search, x, github, lightswitch]
   # icon: https://raw.githubusercontent.com/BillPetti/baseballR/master/man/figures/logo.ico
   title: "baseballr"
   components:
@@ -198,13 +199,13 @@ navbar:
       icon: "fab fa-github fa-lg"
       href: https://github.com/billpetti/baseballr/
       aria-label: GitHub
-    twitter:
-      icon: "fa-twitter"
-      href: http://twitter.com/BillPetti
-      aria-label: Twitter
+    x:
+      icon: "fa-x-twitter"
+      href: https://x.com/BillPetti
+      aria-label: X (Twitter)
 repo:
   url:
-    home: https://github.com//billpetti/baseballr/
+    home: https://github.com/billpetti/baseballr/
     source: https://github.com/billpetti/baseballr/blob/master/
     issue: https://github.com/billpetti/baseballr/issues/
     user: https://github.com/billpetti/
