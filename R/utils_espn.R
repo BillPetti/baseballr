@@ -13,10 +13,10 @@ NULL
 # ---------------------------------------------------------------------------
 
 # ESPN models baseball as sport = "baseball" with a league slug. baseballr
-# wraps Major League Baseball (`mlb`); the validator is kept extensible so a
-# future college-baseball family can reuse the same helpers.
+# wraps Major League Baseball (`mlb`) and NCAA college baseball
+# (`college-baseball`); both reuse the same league-parameterized helpers.
 .espn_baseball_validate_league <- function(league) {
-  valid <- c("mlb")
+  valid <- c("mlb", "college-baseball")
   if (!league %in% valid) {
     cli::cli_abort(
       "league must be one of {.val {valid}}, not {.val {league}}."

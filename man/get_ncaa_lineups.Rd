@@ -12,7 +12,17 @@ get_ncaa_lineups(game_info_url = NULL, ...)
 \item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
-Returns a tibble of each school's starting lineup and starting pitcher
+Returns a tibble of each team's batting lineup (one row per batter,
+in batting order) parsed from the game's \code{individual_stats} box scores.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_name \tab character \tab Player name. \cr
+   position \tab character \tab Fielding position (the box score "P" column). \cr
+   batting_order \tab integer \tab Spot in the batting order (box-score row order). \cr
+   team_name \tab character \tab Team name (from the box-score totals row). \cr
+   player_id \tab integer \tab stats.ncaa.org player identifier. \cr
+   player_url \tab character \tab Full stats.ncaa.org url for the player page. \cr
+   slug \tab character \tab Relative stats.ncaa.org url for the player page. \cr
+}
 }
 \description{
 \strong{(legacy) Retrieve lineups for a given NCAA game via its \code{game_info_url}}

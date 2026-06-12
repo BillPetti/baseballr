@@ -14,6 +14,7 @@
 #   CHADWICK_TESTS=1    Chadwick register   (chadwick_*)
 #   BASEBALLR_LOAD_TESTS=1  data-repo loaders (load_*)
 #   ESPN_MLB_TESTS=1    ESPN MLB            (espn_mlb_*)
+#   ESPN_CBASE_TESTS=1  ESPN College Baseball (espn_college_baseball_*)
 #   FOX_TESTS=1         Fox Sports Bifrost  (fox_mlb_*)
 #
 # Example, to run the MLB Stats API tests locally:
@@ -90,6 +91,14 @@ skip_load_test <- function() {
 skip_espn_test <- function() {
   if (Sys.getenv("ESPN_MLB_TESTS") != "1") {
     skip("Set ESPN_MLB_TESTS=1 to run ESPN MLB (espn_mlb_*) tests")
+  } else {
+    invisible()
+  }
+}
+
+skip_espn_college_baseball_test <- function() {
+  if (Sys.getenv("ESPN_CBASE_TESTS") != "1") {
+    skip("Set ESPN_CBASE_TESTS=1 to run ESPN College Baseball (espn_college_baseball_*) tests")
   } else {
     invisible()
   }

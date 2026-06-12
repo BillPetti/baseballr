@@ -16,12 +16,17 @@ downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=s
 <!-- badges: end -->
 
 `baseballr` is a package written for R focused on baseball analysis. It
-includes functions for scraping various data from websites, such as
+includes functions for acquiring data from a range of sources — the [MLB
+Stats API](https://statsapi.mlb.com/), [ESPN](https://www.espn.com/)
+(MLB and NCAA college baseball), [Fox
+Sports](https://www.foxsports.com/),
 [FanGraphs.com](https://www.fangraphs.com/),
-[Baseball-Reference.com](https://www.baseball-reference.com/), and
-[baseballsavant.mlb.com](https://baseballsavant.mlb.com/). It also
-includes functions for calculating metrics, such as wOBA, FIP, and
-team-level consistency over custom time frames.
+[Baseball-Reference.com](https://www.baseball-reference.com/),
+[baseballsavant.mlb.com](https://baseballsavant.mlb.com/), the [NCAA
+stats site](https://stats.ncaa.org/), Spotrac, the Chadwick Bureau
+register, and Retrosheet. It also includes functions for calculating
+metrics, such as wOBA, FIP, and team-level consistency over custom time
+frames.
 
 You can read more about some of the functions and how to use them at its
 [official site](https://billpetti.github.io/baseballr/) as well as this
@@ -81,9 +86,9 @@ library(dplyr)
 bref_standings_on_date("2015-08-01", "NL East", from = FALSE)
 ```
 
-    ## ── MLB Standings on Date data from baseball-reference.com ─── baseballr 1.5.0 ──
+    ## ── MLB Standings on Date data from baseball-reference.com ─── baseballr 2.0.0 ──
 
-    ## ℹ Data updated: 2023-12-25 02:24:44 EST
+    ## ℹ Data updated: 2026-06-12 07:10:27 EDT
 
     ## # A tibble: 5 × 8
     ##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`
@@ -111,7 +116,7 @@ data %>%
     ## Columns: 30
     ## $ bbref_id <chr> "machama01", "duffyma01", "altuvjo01", "eatonad02", "choosh01…
     ## $ season   <int> 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2…
-    ## $ Name     <chr> "Manny Machado", "Matt Duffy", "José Altuve", "Adam Eaton", "…
+    ## $ Name     <chr> "Manny Machado", "Matt Duffy", "Jose Altuve", "Adam Eaton", "…
     ## $ Age      <dbl> 22, 24, 25, 26, 32, 21, 27, 28, 36, 28, 29, 29, 27, 29, 27, 2…
     ## $ Level    <chr> "Maj-AL", "Maj-NL", "Maj-AL", "Maj-AL", "Maj-AL", "Maj-AL", "…
     ## $ Team     <chr> "Baltimore", "San Francisco", "Houston", "Chicago", "Texas", …
@@ -135,10 +140,10 @@ data %>%
     ## $ GDP      <dbl> 5, 9, 6, 1, 1, 4, 2, 2, 9, 7, 5, 1, 4, 8, 1, 2, 3, 10, 5, 4, …
     ## $ SB       <dbl> 6, 8, 11, 9, 2, 10, 0, 0, 0, 3, 3, 4, 5, 4, 24, 2, 1, 0, 6, 0…
     ## $ CS       <dbl> 4, 0, 4, 4, 0, 2, 0, 0, 0, 1, 0, 1, 3, 2, 7, 2, 3, 0, 2, 0, 0…
-    ## $ BA       <dbl> 0.279, 0.286, 0.332, 0.322, 0.337, 0.353, 0.226, 0.281, 0.325…
+    ## $ BA       <dbl> 0.278, 0.286, 0.332, 0.322, 0.336, 0.353, 0.226, 0.281, 0.325…
     ## $ OBP      <dbl> 0.353, 0.326, 0.364, 0.392, 0.456, 0.395, 0.282, 0.341, 0.377…
     ## $ SLG      <dbl> 0.485, 0.387, 0.508, 0.448, 0.540, 0.558, 0.423, 0.506, 0.528…
-    ## $ OPS      <dbl> 0.839, 0.713, 0.872, 0.840, 0.996, 0.953, 0.705, 0.848, 0.906…
+    ## $ OPS      <dbl> 0.839, 0.713, 0.872, 0.840, 0.996, 0.953, 0.704, 0.847, 0.906…
 
 In terms of metric calculation, the package allows the user to calculate
 the consistency of team scoring and run prevention for any year using
@@ -198,9 +203,9 @@ bref_daily_pitcher("2015-04-05", "2015-04-30") %>%
   head(10)
 ```
 
-    ## ── MLB Daily Pitcher data from baseball-reference.com ─────── baseballr 1.5.0 ──
+    ## ── MLB Daily Pitcher data from baseball-reference.com ─────── baseballr 2.0.0 ──
 
-    ## ℹ Data updated: 2023-12-25 02:27:52 EST
+    ## ℹ Data updated: 2026-06-12 07:13:24 EDT
 
     ## # A tibble: 10 × 11
     ##    season Name               IP   ERA    SO   uBB   HBP    HR   FIP wOBA_against
@@ -244,31 +249,31 @@ stars](https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&log
 
 ## **Our Authors**
 
-- Bill Petti (@BillPetti)  
-  <!-- <a href="https://twitter.com/BillPetti" target="blank"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge" alt="@BillPetti" /></a> -->
-  <a href="https://github.com/BillPetti" target="blank"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&logo=Github&style=for-the-badge" alt="@BillPetti" /></a>
+  - Bill Petti (@BillPetti)  
+    <!-- <a href="https://twitter.com/BillPetti" target="blank"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=twitter&style=for-the-badge" alt="@BillPetti" /></a> -->
+    <a href="https://github.com/BillPetti" target="blank"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&logo=Github&style=for-the-badge" alt="@BillPetti" /></a>
 
-- Saiem Gilani (@saiemgilani)  
-  <!-- <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a> -->
-  <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
+  - Saiem Gilani (@saiemgilani)  
+    <!-- <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a> -->
+    <a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
 
 ## **Our Contributors (they’re awesome)**
 
-- Ben Baumer (@BaumerBen)  
-  <!-- <a href="https://twitter.com/BaumerBen" target="blank"><img src="https://img.shields.io/twitter/follow/BaumerBen?color=blue&label=%40BaumerBen&logo=twitter&style=for-the-badge" alt="@BaumerBen" /></a> -->
-  <a href="https://github.com/beanumber" target="blank"><img src="https://img.shields.io/github/followers/beanumber?color=eee&logo=Github&style=for-the-badge" alt="@beanumber" /></a>
+  - Ben Baumer (@BaumerBen)  
+    <!-- <a href="https://twitter.com/BaumerBen" target="blank"><img src="https://img.shields.io/twitter/follow/BaumerBen?color=blue&label=%40BaumerBen&logo=twitter&style=for-the-badge" alt="@BaumerBen" /></a> -->
+    <a href="https://github.com/beanumber" target="blank"><img src="https://img.shields.io/github/followers/beanumber?color=eee&logo=Github&style=for-the-badge" alt="@beanumber" /></a>
 
-- Ben Dilday (@BenDilday)  
-  <!-- <a href="https://twitter.com/BenDilday" target="blank"><img src="https://img.shields.io/twitter/follow/BenDilday?color=blue&label=%40BenDilday&logo=twitter&style=for-the-badge" alt="@BenDilday" /></a>  -->
-  <a href="https://github.com/bdilday" target="blank"><img src="https://img.shields.io/github/followers/bdilday?color=eee&logo=Github&style=for-the-badge" alt="@bdilday" /></a>
+  - Ben Dilday (@BenDilday)  
+    <!-- <a href="https://twitter.com/BenDilday" target="blank"><img src="https://img.shields.io/twitter/follow/BenDilday?color=blue&label=%40BenDilday&logo=twitter&style=for-the-badge" alt="@BenDilday" /></a>  -->
+    <a href="https://github.com/bdilday" target="blank"><img src="https://img.shields.io/github/followers/bdilday?color=eee&logo=Github&style=for-the-badge" alt="@bdilday" /></a>
 
-- Robert Frey (@RobertFrey40)  
-  <!-- <a href="https://twitter.com/RobertFrey40" target="blank"><img src="https://img.shields.io/twitter/follow/RobertFrey40?color=blue&label=%40RobertFrey40&logo=twitter&style=for-the-badge" alt="@RobertFrey40" /></a>  -->
-  <a href="https://github.com/robert-frey" target="blank"><img src="https://img.shields.io/github/followers/robert-frey?color=eee&logo=Github&style=for-the-badge" alt="@robert-frey" /></a>
+  - Robert Frey (@RobertFrey40)  
+    <!-- <a href="https://twitter.com/RobertFrey40" target="blank"><img src="https://img.shields.io/twitter/follow/RobertFrey40?color=blue&label=%40RobertFrey40&logo=twitter&style=for-the-badge" alt="@RobertFrey40" /></a>  -->
+    <a href="https://github.com/robert-frey" target="blank"><img src="https://img.shields.io/github/followers/robert-frey?color=eee&logo=Github&style=for-the-badge" alt="@robert-frey" /></a>
 
-- Camden Kay (@k_camden)  
-  <!-- <a href="https://twitter.com/k_camden" target="blank"><img src="https://img.shields.io/twitter/follow/k_camden?color=blue&label=%40k_camden&logo=twitter&style=for-the-badge" alt="@k_camden" /></a>  -->
-  <a href="https://github.com/camdenk" target="blank"><img src="https://img.shields.io/github/followers/camdenk?color=eee&logo=Github&style=for-the-badge" alt="@camdenk" /></a>
+  - Camden Kay (@k\_camden)  
+    <!-- <a href="https://twitter.com/k_camden" target="blank"><img src="https://img.shields.io/twitter/follow/k_camden?color=blue&label=%40k_camden&logo=twitter&style=for-the-badge" alt="@k_camden" /></a>  -->
+    <a href="https://github.com/camdenk" target="blank"><img src="https://img.shields.io/github/followers/camdenk?color=eee&logo=Github&style=for-the-badge" alt="@camdenk" /></a>
 
 ## **Citations**
 

@@ -16,48 +16,50 @@ ncaa_scrape(
 
 \item{year}{The season for which data should be returned, in the form of "YYYY". Years currently available: 2013-2017.}
 
-\item{type}{A string indicating whether to return "batting" or "pitching" statistics}
+\item{type}{A string indicating whether to return "batting", "pitching", or "fielding" statistics}
 
 \item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
-A data frame with the following variables\tabular{ll}{
-   col_name \tab types \cr
-   year \tab integer \cr
-   team_name \tab character \cr
-   team_id \tab numeric \cr
-   conference_id \tab integer \cr
-   conference \tab character \cr
-   division \tab numeric \cr
-   player_id \tab integer \cr
-   player_url \tab character \cr
-   player_name \tab character \cr
-   Yr \tab character \cr
-   Pos \tab character \cr
-   Jersey \tab character \cr
-   GP \tab numeric \cr
-   GS \tab numeric \cr
-   BA \tab numeric \cr
-   OBPct \tab numeric \cr
-   SlgPct \tab numeric \cr
-   R \tab numeric \cr
-   AB \tab numeric \cr
-   H \tab numeric \cr
-   2B \tab numeric \cr
-   3B \tab numeric \cr
-   TB \tab numeric \cr
-   HR \tab numeric \cr
-   RBI \tab numeric \cr
-   BB \tab numeric \cr
-   HBP \tab numeric \cr
-   SF \tab numeric \cr
-   SH \tab numeric \cr
-   K \tab numeric \cr
-   DP \tab numeric \cr
-   CS \tab numeric \cr
-   Picked \tab numeric \cr
-   SB \tab numeric \cr
-   RBI2out \tab numeric \cr
+A data frame with the following variables. The exact stat columns
+vary by \code{type} (batting / pitching / fielding); the table below shows the
+batting (\code{type = "batting"}) columns.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   year \tab integer \tab Season (4-digit year). \cr
+   team_name \tab character \tab Team name. \cr
+   team_id \tab numeric \tab Team NCAA id. \cr
+   conference_id \tab integer \tab Conference identifier. \cr
+   conference \tab character \tab Conference name. \cr
+   division \tab numeric \tab NCAA division (1, 2, 3). \cr
+   player_id \tab integer \tab stats.ncaa.org player identifier. \cr
+   player_url \tab character \tab Full stats.ncaa.org url for the player page. \cr
+   player_name \tab character \tab Player name. \cr
+   Yr \tab character \tab Academic class/year (Fr, So, Jr, Sr). \cr
+   Pos \tab character \tab Primary fielding position. \cr
+   Jersey \tab character \tab Jersey number (the site's "#" column). \cr
+   GP \tab numeric \tab Games played. \cr
+   GS \tab numeric \tab Games started. \cr
+   BA \tab numeric \tab Batting average. \cr
+   OBPct \tab numeric \tab On-base percentage. \cr
+   SlgPct \tab numeric \tab Slugging percentage. \cr
+   R \tab numeric \tab Runs scored. \cr
+   AB \tab numeric \tab At-bats. \cr
+   H \tab numeric \tab Hits. \cr
+   2B \tab numeric \tab Doubles. \cr
+   3B \tab numeric \tab Triples. \cr
+   TB \tab numeric \tab Total bases. \cr
+   HR \tab numeric \tab Home runs. \cr
+   RBI \tab numeric \tab Runs batted in. \cr
+   BB \tab numeric \tab Walks (bases on balls). \cr
+   HBP \tab numeric \tab Hit by pitch. \cr
+   SF \tab numeric \tab Sacrifice flies. \cr
+   SH \tab numeric \tab Sacrifice hits (bunts). \cr
+   K \tab numeric \tab Strikeouts. \cr
+   DP \tab numeric \tab Grounded into double plays (site's "OPP DP"). \cr
+   CS \tab numeric \tab Caught stealing. \cr
+   Picked \tab numeric \tab Times picked off. \cr
+   SB \tab numeric \tab Stolen bases. \cr
+   RBI2out \tab numeric \tab Runs batted in with two outs. \cr
 }
 }
 \description{

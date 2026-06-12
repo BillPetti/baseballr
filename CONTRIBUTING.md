@@ -137,6 +137,9 @@ prefix so the pkgdown `starts_with()` selectors pick them up automatically.
 | FanGraphs                        | `fg_`          | `fg_batter_leaders()`, `fg_team_pitcher()` |
 | Baseball Reference               | `bref_`        | `bref_daily_batter()`, `bref_team_results()` |
 | Baseball Savant / Statcast       | `statcast_` / `sc_` | `statcast_search()`, `statcast_leaderboards()` |
+| ESPN MLB                         | `espn_mlb_`    | `espn_mlb_pbp()`, `espn_mlb_scoreboard()` |
+| ESPN College Baseball            | `espn_college_baseball_` | `espn_college_baseball_pbp()`, `espn_college_baseball_scoreboard()` |
+| Fox Sports (Bifrost) MLB         | `fox_mlb_`     | `fox_mlb_team_roster()`, `fox_mlb_standings()` |
 | NCAA baseball                    | `ncaa_`        | `ncaa_schedule_info()`, `ncaa_roster()`  |
 | Spotrac                          | `sptrc_`       | `sptrc_team_active_payroll()`            |
 | Chadwick Bureau register         | `chadwick_`    | `chadwick_player_lu()`                   |
@@ -177,7 +180,12 @@ provenance attributes.
 - `@export`
 - `@family <source> Functions`
 - a runnable `@examples` block (wrap live-site calls in `\donttest{}` so
-  `R CMD check` does not hit the network during routine checking)
+  `R CMD check` does not hit the network during routine checking). If a call
+  cannot run under `R CMD check` -- e.g. it needs the optional `chromote` +
+  Google Chrome browser fallback (the NCAA `stats.ncaa.org` scrapers) -- show it
+  as a code block in the Rd `@details` section instead of `@examples`, so
+  `--run-donttest` never launches a browser (a failed headless-Chrome launch
+  leaks connections and fails the check).
 
 ### Code Style
 
@@ -224,6 +232,14 @@ skipped so they do not run during routine `R CMD check` or on CI.
   that hammer NCAA endpoints. A single careless test run can get your IP (or a
   CI runner's IP) banned. When iterating on NCAA wrappers, save a sample payload
   locally and develop against the cached fixture.
+- **`stats.ncaa.org` is behind Akamai Bot Manager.** Direct `httr2`/`curl`
+  requests get a hard 403 or a soft `bm-verify` interstitial, so
+  `request_with_proxy()` falls back to a stealth headless-Chrome fetch
+  (`R/ncaa_chromote.R`) via the optional `chromote` + Google Chrome dependency
+  (`Suggests`). The live NCAA tests need that browser fallback and are opt-in:
+  install `chromote` and set `NCAA_CHROMOTE_TESTS=1` (they `skip_on_cran()` /
+  `skip_on_ci()`). Without the dependency the scrapers degrade with a clear
+  install message rather than erroring.
 
 ### Test Pattern
 

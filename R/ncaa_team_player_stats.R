@@ -1,58 +1,64 @@
 #' @rdname ncaa_team_player_stats
 #' @title **Scrape NCAA baseball Team Player Stats (Division I, II, and III)**
-#' @description This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a tibble.
+#' @description This function allows the user to obtain batting, pitching, or fielding statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a tibble.
 #' @param team_id The numerical ID that the NCAA website uses to identify a team
 #' @param year The season for which data should be returned, in the form of "YYYY". Years currently available: 2013-2017.
-#' @param type A string indicating whether to return "batting" or "pitching" statistics
+#' @param type A string indicating whether to return "batting", "pitching", or "fielding" statistics
 #' @param ... Additional arguments passed to an underlying function like httr.
-#' @return A data frame with the following variables
-#'  
-#'    |col_name      |types     |
-#'    |:-------------|:---------|
-#'    |year          |integer   |
-#'    |team_name     |character |
-#'    |team_id       |numeric   |
-#'    |conference_id |integer   |
-#'    |conference    |character |
-#'    |division      |numeric   |
-#'    |player_id     |integer   |
-#'    |player_url    |character |
-#'    |player_name   |character |
-#'    |Yr            |character |
-#'    |Pos           |character |
-#'    |Jersey        |character |
-#'    |GP            |numeric   |
-#'    |GS            |numeric   |
-#'    |BA            |numeric   |
-#'    |OBPct         |numeric   |
-#'    |SlgPct        |numeric   |
-#'    |R             |numeric   |
-#'    |AB            |numeric   |
-#'    |H             |numeric   |
-#'    |2B            |numeric   |
-#'    |3B            |numeric   |
-#'    |TB            |numeric   |
-#'    |HR            |numeric   |
-#'    |RBI           |numeric   |
-#'    |BB            |numeric   |
-#'    |HBP           |numeric   |
-#'    |SF            |numeric   |
-#'    |SH            |numeric   |
-#'    |K             |numeric   |
-#'    |DP            |numeric   |
-#'    |CS            |numeric   |
-#'    |Picked        |numeric   |
-#'    |SB            |numeric   |
-#'    |RBI2out       |numeric   |
-#'  
+#' @return A data frame with the following variables. The exact stat columns
+#'   vary by `type` (batting / pitching / fielding); the table below shows the
+#'   batting (`type = "batting"`) columns.
+#'
+#'    |col_name      |types     |description                                    |
+#'    |:-------------|:---------|:----------------------------------------------|
+#'    |year          |integer   |Season (4-digit year).                         |
+#'    |team_name     |character |Team name.                                     |
+#'    |team_id       |numeric   |Team NCAA id.                                  |
+#'    |conference_id |integer   |Conference identifier.                         |
+#'    |conference    |character |Conference name.                               |
+#'    |division      |numeric   |NCAA division (1, 2, 3).                       |
+#'    |player_id     |integer   |stats.ncaa.org player identifier.              |
+#'    |player_url    |character |Full stats.ncaa.org url for the player page.   |
+#'    |player_name   |character |Player name.                                   |
+#'    |Yr            |character |Academic class/year (Fr, So, Jr, Sr).          |
+#'    |Pos           |character |Primary fielding position.                     |
+#'    |Jersey        |character |Jersey number (the site's "#" column).         |
+#'    |GP            |numeric   |Games played.                                  |
+#'    |GS            |numeric   |Games started.                                 |
+#'    |BA            |numeric   |Batting average.                               |
+#'    |OBPct         |numeric   |On-base percentage.                            |
+#'    |SlgPct        |numeric   |Slugging percentage.                           |
+#'    |R             |numeric   |Runs scored.                                   |
+#'    |AB            |numeric   |At-bats.                                       |
+#'    |H             |numeric   |Hits.                                          |
+#'    |2B            |numeric   |Doubles.                                       |
+#'    |3B            |numeric   |Triples.                                       |
+#'    |TB            |numeric   |Total bases.                                   |
+#'    |HR            |numeric   |Home runs.                                     |
+#'    |RBI           |numeric   |Runs batted in.                                |
+#'    |BB            |numeric   |Walks (bases on balls).                        |
+#'    |HBP           |numeric   |Hit by pitch.                                  |
+#'    |SF            |numeric   |Sacrifice flies.                               |
+#'    |SH            |numeric   |Sacrifice hits (bunts).                        |
+#'    |K             |numeric   |Strikeouts.                                    |
+#'    |DP            |numeric   |Grounded into double plays (site's "OPP DP").  |
+#'    |CS            |numeric   |Caught stealing.                               |
+#'    |Picked        |numeric   |Times picked off.                              |
+#'    |SB            |numeric   |Stolen bases.                                  |
+#'    |RBI2out       |numeric   |Runs batted in with two outs.                  |
+#'
 #' @import dplyr
 #' @import rvest
 #' @importFrom stringr str_split
+#' @details
+#' Live usage (reads `stats.ncaa.org`, which is behind Akamai bot protection and
+#' needs the optional `chromote` + Google Chrome browser fallback, so it is shown
+#' here rather than as a runnable example):
+#'
+#' ```r
+#' ncaa_team_player_stats(team_id = 234, year = 2023, type = "batting")
+#' ```
 #' @export
-#' @examples
-#' \donttest{
-#'   try(ncaa_team_player_stats(team_id = 234, year = 2023, type = "batting"))
-#' }
 
 ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_season(), type = 'batting', ...) {
   
@@ -63,7 +69,7 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
     cli::cli_abort("Enter valid year as a number (YYYY)")
   }
   if (is.null(type) | !(type %in% c("batting","pitching", "fielding"))) {
-    cli::cli_abort("Enter valid type: 'batting', 'pitching'")
+    cli::cli_abort("Enter valid type: 'batting', 'pitching', 'fielding'")
   }
   
   if (year < 2013) {
@@ -86,10 +92,28 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
         dplyr::filter(.data$season == year)
       season_id <- season_ids %>% dplyr::pull("id")
       type_id <- season_ids %>%
-        dplyr::pull(if (type == "pitching") "pitching_id" else "batting_id")
+        dplyr::pull(switch(type,
+          pitching = "pitching_id",
+          fielding = "fielding_id",
+          "batting_id"
+        ))
 
-      url <- paste0("https://stats.ncaa.org/team/", team_id,
-                    "/stats?id=", season_id, "&year_stat_category_id=", type_id)
+      # stats.ncaa.org migrated team stats from the franchise-centric
+      # /team/{team_id}/stats form to a per-season resource at
+      # /teams/{season_team_id}/season_to_date_stats. Resolve the season-team id
+      # (read off the still-working roster page) and request the category grid.
+      season_team_id <- .ncaa_resolve_season_team_id(team_id, season_id, ...)
+      if (is.na(season_team_id)) {
+        cli::cli_alert_warning(
+          paste0("{Sys.time()}: Could not resolve the stats.ncaa.org season-team ",
+                 "id for team {team_id} ({year}); the roster page was unavailable ",
+                 "or challenged. Install {{chromote}} + Google Chrome to enable ",
+                 "the browser fallback.")
+        )
+        return(df)
+      }
+      url <- paste0("https://stats.ncaa.org/teams/", season_team_id,
+                    "/season_to_date_stats?year_stat_category_id=", type_id)
 
       team_stats_resp <- request_with_proxy(url = url, ...)
       payload_txt <- httr2::resp_body_string(team_stats_resp)
@@ -98,103 +122,45 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
           .ncaa_is_interstitial(payload_txt)) {
         cli::cli_alert_warning(
           paste0("{Sys.time()}: stats.ncaa.org returned an Akamai bot-challenge ",
-                 "for the team stats endpoint; no data could be retrieved. This ",
-                 "endpoint is gated and cannot be scraped without a browser session.")
+                 "for the team {type} stats endpoint; no data could be retrieved. ",
+                 "Install {{chromote}} + Google Chrome to enable the browser fallback.")
         )
         return(df)
       }
 
       data_read <- xml2::read_html(payload_txt)
-      tables <- data_read %>% rvest::html_elements("table")
-      if (length(tables) < 3) {
+      stat_grid <- data_read %>% rvest::html_element("#stat_grid")
+      if (inherits(stat_grid, "xml_missing") || length(stat_grid) == 0) {
         cli::cli_alert_warning(
-          "{Sys.time()}: No stats table found for team {team_id} ({year})."
+          "{Sys.time()}: No #stat_grid table found for team {team_id} ({year})."
         )
         return(df)
       }
 
-      if (type == "batting") {
-        data <- tables[[3]] %>%
-          rvest::html_table()
-        df <- as.data.frame(data)
-        df$year <- year
-        df$team_id <- team_id
+      # One generic parse for batting / pitching / fielding. The redesigned grid
+      # labels the jersey column "#" (callers expect "Jersey") and batting uses
+      # "OPP DP" (callers expect "DP"). Identifier/text columns stay character;
+      # every other column (the per-category stats) is coerced to numeric --
+      # tolerant of the differing column sets across the three categories.
+      df <- stat_grid %>%
+        rvest::html_table() %>%
+        as.data.frame(check.names = FALSE) %>%
+        dplyr::rename(dplyr::any_of(c(Jersey = "#", DP = "OPP DP")))
+      df$Player <- gsub("x ", "", df$Player)
+      df$year <- year
+      df$team_id <- team_id
+      df <- df %>%
+        dplyr::left_join(load_ncaa_baseball_teams(),
+                         by = c("team_id" = "team_id", "year" = "year"))
+      text_cols <- c("team_name", "conference", "Jersey", "Player", "Yr", "Pos",
+                     "Ht", "B/T")
+      stat_cols <- setdiff(names(df), text_cols)
+      suppressWarnings(
         df <- df %>%
-          dplyr::left_join(load_ncaa_baseball_teams(),
-                           by = c("team_id" = "team_id", "year" = "year"))
-        df <- df %>%
-          dplyr::select("year", "team_name", "conference", "division", tidyr::everything())
-        df$Player <- gsub("x ", "", df$Player)
-        if (!"RBI2out" %in% names(df)) {
-          df$RBI2out <- NA
-        }
+          dplyr::mutate(dplyr::across(dplyr::any_of(stat_cols),
+                                      ~ as.numeric(as.character(.x))))
+      )
 
-        if('OPP DP' %in% colnames(df) == TRUE) {
-          df <- df %>%
-            dplyr::rename(DP = "OPP DP")
-        }
-
-        df <- df %>% dplyr::select(
-          "year","team_name","conference","division","Jersey","Player",
-          "Yr","Pos","GP","GS","BA","OBPct","SlgPct","R","AB",
-          "H","2B","3B","TB","HR","RBI","BB","HBP","SF","SH",
-          "K","DP","CS","Picked","SB","RBI2out","team_id","conference_id")
-
-        character_cols <- c("year", "team_name", "conference", "Jersey", "Player",
-                            "Yr", "Pos")
-
-        numeric_cols <- c("division", "GP", "GS", "BA", "OBPct", "SlgPct", "R", "AB",
-                          "H", "2B", "3B", "TB", "HR", "RBI", "BB", "HBP", "SF", "SH",
-                          "K", "DP", "CS", "Picked", "SB", "RBI2out", "team_id", "conference_id")
-
-        suppressWarnings(
-          df <- df %>%
-            dplyr::mutate_at(vars(character_cols), function(x){as.character(x)})
-        )
-        suppressWarnings(
-          df <- df %>%
-            dplyr::mutate_at(vars(numeric_cols), function(x){as.numeric(as.character(x))})
-        )
-
-      } else {
-        data <- tables[[3]] %>%
-          rvest::html_table()
-        df <- as.data.frame(data)
-        df <- df[,-6]
-        df$year <- year
-        df$team_id <- team_id
-        df <- df %>%
-          dplyr::left_join(load_ncaa_baseball_teams(), by = c("team_id" = "team_id", "year" = "year"))
-        df <- df %>% 
-          dplyr::select("year", "team_name", "conference", "division", tidyr::everything())
-        df$Player <- gsub("x ", "", df$Player)
-        
-        df <- df %>% dplyr::select( 
-          "year","team_name","conference","division","Jersey","Player",
-          "Yr","Pos","GP","App","GS","ERA","IP","H","R",
-          "ER","BB","SO","SHO","BF","P-OAB",
-          "2B-A","3B-A","Bk","HR-A","WP","HB",
-          "IBB","Inh Run","Inh Run Score",
-          "SHA","SFA","Pitches","GO","FO","W","L",
-          "SV","KL","team_id","conference_id")
-        
-        character_cols <- c("year", "team_name", "conference", "Jersey", "Player",
-                            "Yr", "Pos")
-        
-        numeric_cols <- c("division",  "GP", "App", "GS", "ERA", "IP", "H", "R", "ER",
-                          "BB", "SO", "SHO", "BF", "P-OAB", "2B-A", "3B-A", "Bk", "HR-A",
-                          "WP", "HB", "IBB", "Inh Run", "Inh Run Score", "SHA", "SFA",
-                          "Pitches", "GO", "FO", "W", "L", "SV", "KL", "team_id", "conference_id")
-        suppressWarnings(
-          df <- df %>%
-            dplyr::mutate_at(vars(character_cols), function(x){as.character(x)})
-        )
-        suppressWarnings(
-          df <- df %>%
-            dplyr::mutate_at(vars(numeric_cols), function(x){as.numeric(as.character(x))})
-        )
-      }
-      
       player_url <- data_read %>%
         html_elements('#stat_grid a') %>%
         html_attr('href') %>%
@@ -208,10 +174,9 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
         as.data.frame() %>%
         dplyr::rename("player_names_join" = ".")
       
-      player_id <-
-        stringr::str_split(
-          pattern = '&stats_player_seq=',  
-          string = player_url$player_url, simplify = TRUE)[,2] %>%
+      # The redesigned grid links to /players/{id}?... (was ...&stats_player_seq={id}).
+      player_id <- player_url$player_url %>%
+        stringr::str_extract("players/(\\d+)", group = 1) %>%
         as.data.frame() %>%
         dplyr::rename("player_id" = ".")
       
@@ -260,46 +225,48 @@ ncaa_team_player_stats <- function(team_id, year = most_recent_ncaa_baseball_sea
 #' @rdname ncaa_scrape
 #' @title **(legacy) Scrape NCAA baseball Team Player Stats (Division I, II, and III)**
 #' @inheritParams ncaa_team_player_stats
-#' @return A data frame with the following variables
-#'  
-#'    |col_name      |types     |
-#'    |:-------------|:---------|
-#'    |year          |integer   |
-#'    |team_name     |character |
-#'    |team_id       |numeric   |
-#'    |conference_id |integer   |
-#'    |conference    |character |
-#'    |division      |numeric   |
-#'    |player_id     |integer   |
-#'    |player_url    |character |
-#'    |player_name   |character |
-#'    |Yr            |character |
-#'    |Pos           |character |
-#'    |Jersey        |character |
-#'    |GP            |numeric   |
-#'    |GS            |numeric   |
-#'    |BA            |numeric   |
-#'    |OBPct         |numeric   |
-#'    |SlgPct        |numeric   |
-#'    |R             |numeric   |
-#'    |AB            |numeric   |
-#'    |H             |numeric   |
-#'    |2B            |numeric   |
-#'    |3B            |numeric   |
-#'    |TB            |numeric   |
-#'    |HR            |numeric   |
-#'    |RBI           |numeric   |
-#'    |BB            |numeric   |
-#'    |HBP           |numeric   |
-#'    |SF            |numeric   |
-#'    |SH            |numeric   |
-#'    |K             |numeric   |
-#'    |DP            |numeric   |
-#'    |CS            |numeric   |
-#'    |Picked        |numeric   |
-#'    |SB            |numeric   |
-#'    |RBI2out       |numeric   |
-#'    
+#' @return A data frame with the following variables. The exact stat columns
+#'   vary by `type` (batting / pitching / fielding); the table below shows the
+#'   batting (`type = "batting"`) columns.
+#'
+#'    |col_name      |types     |description                                    |
+#'    |:-------------|:---------|:----------------------------------------------|
+#'    |year          |integer   |Season (4-digit year).                         |
+#'    |team_name     |character |Team name.                                     |
+#'    |team_id       |numeric   |Team NCAA id.                                  |
+#'    |conference_id |integer   |Conference identifier.                         |
+#'    |conference    |character |Conference name.                               |
+#'    |division      |numeric   |NCAA division (1, 2, 3).                       |
+#'    |player_id     |integer   |stats.ncaa.org player identifier.              |
+#'    |player_url    |character |Full stats.ncaa.org url for the player page.   |
+#'    |player_name   |character |Player name.                                   |
+#'    |Yr            |character |Academic class/year (Fr, So, Jr, Sr).          |
+#'    |Pos           |character |Primary fielding position.                     |
+#'    |Jersey        |character |Jersey number (the site's "#" column).         |
+#'    |GP            |numeric   |Games played.                                  |
+#'    |GS            |numeric   |Games started.                                 |
+#'    |BA            |numeric   |Batting average.                               |
+#'    |OBPct         |numeric   |On-base percentage.                            |
+#'    |SlgPct        |numeric   |Slugging percentage.                           |
+#'    |R             |numeric   |Runs scored.                                   |
+#'    |AB            |numeric   |At-bats.                                       |
+#'    |H             |numeric   |Hits.                                          |
+#'    |2B            |numeric   |Doubles.                                       |
+#'    |3B            |numeric   |Triples.                                       |
+#'    |TB            |numeric   |Total bases.                                   |
+#'    |HR            |numeric   |Home runs.                                     |
+#'    |RBI           |numeric   |Runs batted in.                                |
+#'    |BB            |numeric   |Walks (bases on balls).                        |
+#'    |HBP           |numeric   |Hit by pitch.                                  |
+#'    |SF            |numeric   |Sacrifice flies.                               |
+#'    |SH            |numeric   |Sacrifice hits (bunts).                        |
+#'    |K             |numeric   |Strikeouts.                                    |
+#'    |DP            |numeric   |Grounded into double plays (site's "OPP DP").  |
+#'    |CS            |numeric   |Caught stealing.                               |
+#'    |Picked        |numeric   |Times picked off.                              |
+#'    |SB            |numeric   |Stolen bases.                                  |
+#'    |RBI2out       |numeric   |Runs batted in with two outs.                  |
+#'
 #' @keywords legacy
 #' @export
 ncaa_scrape <- ncaa_team_player_stats

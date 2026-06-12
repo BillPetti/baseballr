@@ -30,7 +30,13 @@ request_with_proxy <- function(url, ..., headers = .ncaa_headers(),
   req <- httr2::request(url) |>
     httr2::req_headers(!!!headers) |>
     httr2::req_timeout(15) |>
-    httr2::req_retry(max_tries = 3) |>
+    # Only 429 / 503 are worth retrying. A 403 is Akamai's "Access Denied" and
+    # never clears on retry -- it's handled by the browser fallback below, so
+    # retrying it just wastes the backoff budget.
+    httr2::req_retry(
+      max_tries = 3,
+      is_transient = function(resp) httr2::resp_status(resp) %in% c(429L, 503L)
+    ) |>
     httr2::req_error(is_error = function(resp) FALSE)
   if (!is.null(proxy)) {
     req <- if (is.list(proxy)) {
@@ -42,6 +48,30 @@ request_with_proxy <- function(url, ..., headers = .ncaa_headers(),
   resp <- httr2::req_perform(req)
   # Mandatory courtesy delay: stats.ncaa.org aggressively rate-limits / IP-bans.
   Sys.sleep(5)
+  # Akamai bot protection: stats.ncaa.org blocks httr2/curl regardless of
+  # headers, either with a hard 403 or a *soft* HTTP-200 interstitial challenge
+  # (a tiny `bm-verify` JS-redirect body). Detect both, fall back to a stealth
+  # headless-Chrome fetch, and wrap the rendered HTML in a synthetic 200 response
+  # so every caller (`resp_body_string()` -> `read_html()`) is unaffected. No-op
+  # for other hosts, for genuinely-served pages, and when chromote is absent.
+  if (grepl("stats\\.ncaa\\.org", url)) {
+    blocked <- httr2::resp_status(resp) == 403L
+    if (!blocked) {
+      body_peek <- tryCatch(httr2::resp_body_string(resp), error = function(e) "")
+      blocked <- .ncaa_is_blocked(body_peek)
+    }
+    if (blocked) {
+      html <- .ncaa_chromote_fetch(url)
+      if (!is.null(html) && nchar(html) > 0) {
+        resp <- httr2::response(
+          status_code = 200L,
+          url = url,
+          headers = list("Content-Type" = "text/html; charset=utf-8"),
+          body = charToRaw(enc2utf8(html))
+        )
+      }
+    }
+  }
   resp
 }
 
@@ -246,6 +276,25 @@ most_recent_ncaa_baseball_season <- function() {
 most_recent_mlb_season <- function() {
   ifelse(
     as.double(substr(Sys.Date(), 6, 7)) >= 3,
+    as.double(substr(Sys.Date(), 1, 4)),
+    as.double(substr(Sys.Date(), 1, 4)) - 1
+  )
+}
+
+#' @title
+#' **Most Recent College Baseball Season**
+#' @description NCAA college baseball seasons run roughly February through June
+#'   (the College World Series finishes in late June) and are labelled by the
+#'   year in which they end. This returns the current season's year from
+#'   February onward, and the prior year in January (before the season opens).
+#' @return An integer indicating the year of the most recent NCAA college
+#'   baseball season.
+#' @export
+#' @examples
+#' most_recent_college_baseball_season()
+most_recent_college_baseball_season <- function() {
+  ifelse(
+    as.double(substr(Sys.Date(), 6, 7)) >= 2,
     as.double(substr(Sys.Date(), 1, 4)),
     as.double(substr(Sys.Date(), 1, 4)) - 1
   )

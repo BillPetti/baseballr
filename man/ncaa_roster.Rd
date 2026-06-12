@@ -15,27 +15,30 @@ ncaa_roster(team_id = NULL, year, ...)
 }
 \value{
 A data frame containing roster information, including
-IDs and urls for each player (if available)\tabular{ll}{
-   col_name \tab types \cr
-   player_name \tab character \cr
-   class \tab character \cr
-   player_id \tab character \cr
-   season \tab numeric \cr
-   number \tab character \cr
-   position \tab character \cr
-   player_url \tab character \cr
-   team_name \tab character \cr
-   conference \tab character \cr
-   team_id \tab numeric \cr
-   division \tab numeric \cr
-   conference_id \tab numeric \cr
+IDs and urls for each player (if available)\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_name \tab character \tab Player name. \cr
+   class \tab character \tab Academic class/year (Fr, So, Jr, Sr). \cr
+   player_id \tab character \tab stats.ncaa.org player identifier. \cr
+   season \tab numeric \tab Season (4-digit year). \cr
+   number \tab character \tab Jersey number. \cr
+   position \tab character \tab Primary fielding position. \cr
+   player_url \tab character \tab Full stats.ncaa.org url for the player page. \cr
+   team_name \tab character \tab Team name. \cr
+   conference \tab character \tab Conference name. \cr
+   team_id \tab numeric \tab Team NCAA id. \cr
+   division \tab numeric \tab NCAA division (1, 2, 3). \cr
+   conference_id \tab numeric \tab Conference identifier. \cr
 }
 }
 \description{
 \strong{Get NCAA Baseball Rosters}
 }
-\examples{
-\donttest{
-  try(ncaa_roster(team_id = 104, year = 2023))
-}
+\details{
+Live usage (reads \code{stats.ncaa.org}, which is behind Akamai bot protection and
+needs the optional \code{chromote} + Google Chrome browser fallback, so it is shown
+here rather than as a runnable example):
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ncaa_roster(team_id = 104, year = 2023)
+}\if{html}{\out{</div>}}
 }

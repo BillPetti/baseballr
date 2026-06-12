@@ -6,28 +6,32 @@
 #' @return A data frame containing roster information, including
 #' IDs and urls for each player (if available)
 #' 
-#'  |col_name      |types     |
-#'  |:-------------|:---------|
-#'  |player_name   |character |
-#'  |class         |character |
-#'  |player_id     |character |
-#'  |season        |numeric   |
-#'  |number        |character |
-#'  |position      |character |
-#'  |player_url    |character |
-#'  |team_name     |character |
-#'  |conference    |character |
-#'  |team_id       |numeric   |
-#'  |division      |numeric   |
-#'  |conference_id |numeric   |
+#'  |col_name      |types     |description                                  |
+#'  |:-------------|:---------|:--------------------------------------------|
+#'  |player_name   |character |Player name.                                 |
+#'  |class         |character |Academic class/year (Fr, So, Jr, Sr).        |
+#'  |player_id     |character |stats.ncaa.org player identifier.            |
+#'  |season        |numeric   |Season (4-digit year).                       |
+#'  |number        |character |Jersey number.                               |
+#'  |position      |character |Primary fielding position.                   |
+#'  |player_url    |character |Full stats.ncaa.org url for the player page. |
+#'  |team_name     |character |Team name.                                   |
+#'  |conference    |character |Conference name.                             |
+#'  |team_id       |numeric   |Team NCAA id.                                |
+#'  |division      |numeric   |NCAA division (1, 2, 3).                     |
+#'  |conference_id |numeric   |Conference identifier.                       |
 #'  
 #' @importFrom tibble tibble
 #' @import rvest
+#' @details
+#' Live usage (reads `stats.ncaa.org`, which is behind Akamai bot protection and
+#' needs the optional `chromote` + Google Chrome browser fallback, so it is shown
+#' here rather than as a runnable example):
+#'
+#' ```r
+#' ncaa_roster(team_id = 104, year = 2023)
+#' ```
 #' @export
-#' @examples
-#' \donttest{
-#'   try(ncaa_roster(team_id = 104, year = 2023))
-#' }
 
 ncaa_roster <- function(team_id = NULL, year, ...){
   if (is.null(team_id)) {
@@ -133,8 +137,7 @@ ncaa_roster <- function(team_id = NULL, year, ...){
 #' @rdname get_ncaa_baseball_roster
 #' @title **(legacy) Get NCAA Baseball Rosters**
 #' @inheritParams ncaa_roster
-#' @return A data frame containing roster information, including
-#' IDs and urls for each player (if available)
+#' @inherit ncaa_roster return
 #' @keywords legacy
 #' @export
 ncaa_baseball_roster <- ncaa_roster
@@ -142,8 +145,7 @@ ncaa_baseball_roster <- ncaa_roster
 #' @rdname get_ncaa_baseball_roster
 #' @title **(legacy) Get NCAA Baseball Rosters**
 #' @inheritParams ncaa_baseball_roster
-#' @return A data frame containing roster information, including
-#' IDs and urls for each player (if available)
+#' @inherit ncaa_roster return
 #' @keywords legacy
 #' @export
 get_ncaa_baseball_roster <- ncaa_baseball_roster

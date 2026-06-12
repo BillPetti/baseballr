@@ -13,15 +13,7 @@
 #' @return A `baseballr_data` tibble of calendar entries, or `NULL` on error.
 #' @noRd
 .espn_baseball_calendar <- function(league, season, ...) {
-  if (!league %in% c("mlb")) {
-    stop(
-      paste0(
-        "league must be one of 'mlb', got: ",
-        league
-      ),
-      call. = FALSE
-    )
-  }
+  .espn_baseball_validate_league(league)
 
   .args <- mget(setdiff(names(formals()), "..."))
 

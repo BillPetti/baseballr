@@ -12,33 +12,27 @@ ncaa_lineups(game_info_url = NULL, ...)
 \item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
-Returns a tibble of each school's starting lineup and starting pitcher\tabular{ll}{
-   col_name \tab types \cr
-   year \tab numeric \cr
-   player_name \tab character \cr
-   position \tab character \cr
-   slug \tab character \cr
-   batting_order \tab character \cr
-   team_name \tab character \cr
-   sub \tab numeric \cr
-   attendance \tab character \cr
-   game_date \tab character \cr
-   location \tab character \cr
-   player_id \tab integer \cr
-   team_id \tab numeric \cr
-   team_url \tab character \cr
-   conference_id \tab numeric \cr
-   conference \tab character \cr
-   division \tab numeric \cr
-   season_id \tab numeric \cr
+Returns a tibble of each team's batting lineup (one row per batter,
+in batting order) parsed from the game's \code{individual_stats} box scores.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_name \tab character \tab Player name. \cr
+   position \tab character \tab Fielding position (the box score "P" column). \cr
+   batting_order \tab integer \tab Spot in the batting order (box-score row order). \cr
+   team_name \tab character \tab Team name (from the box-score totals row). \cr
+   player_id \tab integer \tab stats.ncaa.org player identifier. \cr
+   player_url \tab character \tab Full stats.ncaa.org url for the player page. \cr
+   slug \tab character \tab Relative stats.ncaa.org url for the player page. \cr
 }
 }
 \description{
 \strong{Retrieve lineups for a given NCAA game via its \code{game_info_url}}
 }
-\examples{
-\donttest{
-  try(ncaa_lineups(game_info_url="https://stats.ncaa.org/contests/2167178/box_score"))
-  try(ncaa_lineups(game_info_url="https://stats.ncaa.org/game/index/4587474?org_id=528"))
-}
+\details{
+Live usage (reads \code{stats.ncaa.org}, which is behind Akamai bot protection and
+needs the optional \code{chromote} + Google Chrome browser fallback, so it is shown
+here rather than as a runnable example):
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ncaa_lineups(game_info_url = "https://stats.ncaa.org/contests/2167178/box_score")
+ncaa_lineups(game_info_url = "https://stats.ncaa.org/game/index/4587474?org_id=528")
+}\if{html}{\out{</div>}}
 }

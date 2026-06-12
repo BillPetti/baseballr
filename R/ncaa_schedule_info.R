@@ -9,30 +9,30 @@
 #' result, score, innings (if more than regulation), and the url
 #' for the game itself.
 #' 
-#'   |col_name                |types     |
-#'   |:-----------------------|:---------|
-#'   |year                    |integer   |
-#'   |season_id               |integer   |
-#'   |date                    |character |
-#'   |home_team               |character |
-#'   |home_team_id            |integer   |
-#'   |home_team_conference    |character |
-#'   |home_team_conference_id |integer   |
-#'   |home_team_slug          |character |
-#'   |home_team_division      |integer   |
-#'   |away_team               |character |
-#'   |away_team_id            |integer   |
-#'   |away_team_conference    |character |
-#'   |away_team_conference_id |integer   |
-#'   |away_team_slug          |character |
-#'   |away_team_division      |integer   |
-#'   |neutral_site            |character |
-#'   |result                  |character |
-#'   |score                   |character |
-#'   |innings                 |character |
-#'   |slug                    |character |
-#'   |game_info_url           |character |
-#'   |contest_id              |integer   |
+#'   |col_name                |types     |description                                            |
+#'   |:-----------------------|:---------|:------------------------------------------------------|
+#'   |year                    |integer   |Season (4-digit year).                                 |
+#'   |season_id               |integer   |stats.ncaa.org season identifier.                      |
+#'   |date                    |character |Game date.                                             |
+#'   |home_team               |character |Home team name.                                        |
+#'   |home_team_id            |integer   |Home team NCAA id.                                     |
+#'   |home_team_conference    |character |Home team conference name.                             |
+#'   |home_team_conference_id |integer   |Home team conference id.                               |
+#'   |home_team_slug          |character |Relative stats.ncaa.org url for the home team.         |
+#'   |home_team_division      |integer   |Home team NCAA division (1, 2, 3).                     |
+#'   |away_team               |character |Away team name.                                        |
+#'   |away_team_id            |integer   |Away team NCAA id.                                     |
+#'   |away_team_conference    |character |Away team conference name.                             |
+#'   |away_team_conference_id |integer   |Away team conference id.                               |
+#'   |away_team_slug          |character |Relative stats.ncaa.org url for the away team.         |
+#'   |away_team_division      |integer   |Away team NCAA division (1, 2, 3).                     |
+#'   |neutral_site            |character |Neutral-site venue (when not hosted by either team).   |
+#'   |result                  |character |Win/loss/tie result for `team_id`.                     |
+#'   |score                   |character |Final score (e.g. "7-3").                              |
+#'   |innings                 |character |Innings played when other than regulation (extras).    |
+#'   |slug                    |character |Relative stats.ncaa.org url for the game.              |
+#'   |game_info_url           |character |Full stats.ncaa.org box-score url for the game.        |
+#'   |contest_id              |integer   |stats.ncaa.org contest (game) identifier.              |
 #'    
 #' @importFrom tibble tibble rownames_to_column
 #' @importFrom tidyr separate
@@ -73,25 +73,31 @@ ncaa_schedule_info <- function(team_id = NULL, year = NULL, pbp_links = FALSE, .
         xml2::read_html()
       
       if (year > 2018) {
-        sched_html <- payload %>%
-          rvest::html_elements("fieldset") %>%
-          rvest::html_elements("table")
+        # The stats.ncaa.org team-page redesign (2024) moved the schedule out of
+        # the old <fieldset><table> wrapper into a plain <table>. Select the
+        # schedule table by its header columns (Date + Opponent/Result) so the
+        # parser is resilient to that layout change (the per-cell structure --
+        # Date / Opponent(link) / Result(box-score link) / Attendance -- is
+        # unchanged, so the downstream slug extraction below still applies).
+        all_tables <- payload %>% rvest::html_elements("table")
+        is_sched <- vapply(all_tables, function(t) {
+          hdr <- tryCatch(names(rvest::html_table(t)), error = function(e) character(0))
+          ("Date" %in% hdr) && (("Opponent" %in% hdr) || ("Result" %in% hdr))
+        }, logical(1))
+        sched_html <- all_tables[is_sched]
         if (length(sched_html) == 0){
-          sched <- data.frame()          
+          sched <- data.frame()
           cli::cli_warn(glue::glue("No NCAA Schedule Information found for params (team_id: {team_id}, year = {year})"))
           return(sched)
         }
+        sched_html <- sched_html[1]
         grey_heading <- sched_html %>%
           rvest::html_elements(".grey_heading")
         xml2::xml_remove(grey_heading)
-        
-        sched_1 <- (payload %>%
-                      rvest::html_elements("fieldset") %>%
-                      rvest::html_elements("table")) [[1]] %>%
+
+        sched_1 <- sched_html[[1]] %>%
           rvest::html_elements("tr")
-        sched_2 <- (payload %>%
-                      rvest::html_elements("fieldset") %>%
-                      rvest::html_elements("table") %>% 
+        sched_2 <- (sched_html %>%
                       rvest::html_table())[[1]]
         if (nrow(sched_2) > 1) {
           sched_1 <- sched_1[2:length(sched_1)]
@@ -333,9 +339,7 @@ ncaa_schedule_info <- function(team_id = NULL, year = NULL, pbp_links = FALSE, .
 #' @rdname get_ncaa_schedule_info
 #' @title **(legacy) Get Schedule and Results for NCAA Baseball Teams**
 #' @inheritParams ncaa_schedule_info
-#' @return A data frame with the following fields: date, opponent,
-#' result, score, innings (if more than regulation), and the url
-#' for the game itself.
+#' @inherit ncaa_schedule_info return
 #' @keywords legacy
 #' @export
 get_ncaa_schedule_info <- ncaa_schedule_info
