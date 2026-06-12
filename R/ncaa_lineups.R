@@ -2,28 +2,19 @@
 #' @title **Retrieve lineups for a given NCAA game via its `game_info_url`**
 #' @param game_info_url The unique game info url
 #' @param ... Additional arguments passed to an underlying function like httr.
-#' @return Returns a tibble of each school's starting lineup and starting pitcher
-#' 
-#'  |col_name      |types     |
-#'  |:-------------|:---------|
-#'  |year          |numeric   |
-#'  |player_name   |character |
-#'  |position      |character |
-#'  |slug          |character |
-#'  |batting_order |character |
-#'  |team_name     |character |
-#'  |sub           |numeric   |
-#'  |attendance    |character |
-#'  |game_date     |character |
-#'  |location      |character |
-#'  |player_id     |integer   |
-#'  |team_id       |numeric   |
-#'  |team_url      |character |
-#'  |conference_id |numeric   |
-#'  |conference    |character |
-#'  |division      |numeric   |
-#'  |season_id     |numeric   |
-#' 
+#' @return Returns a tibble of each team's batting lineup (one row per batter,
+#'  in batting order) parsed from the game's `individual_stats` box scores.
+#'
+#'  |col_name      |types     |description                                  |
+#'  |:-------------|:---------|:--------------------------------------------|
+#'  |player_name   |character |Player name.                                 |
+#'  |position      |character |Fielding position (the box score "P" column).|
+#'  |batting_order |integer   |Spot in the batting order (box-score row order). |
+#'  |team_name     |character |Team name (from the box-score totals row).   |
+#'  |player_id     |integer   |stats.ncaa.org player identifier.            |
+#'  |player_url    |character |Full stats.ncaa.org url for the player page. |
+#'  |slug          |character |Relative stats.ncaa.org url for the player page. |
+#'
 #' @importFrom stringr str_detect str_squish str_starts str_remove_all str_split_fixed
 #' @import rvest
 #' @export
@@ -118,7 +109,7 @@ ncaa_lineups <- function(game_info_url = NULL, ...) {
 #' @rdname get_ncaa_lineups
 #' @title **(legacy) Retrieve lineups for a given NCAA game via its `game_info_url`**
 #' @inheritParams ncaa_lineups
-#' @return Returns a tibble of each school's starting lineup and starting pitcher
+#' @inherit ncaa_lineups return
 #' @keywords legacy
 #' @export
 get_ncaa_lineups <- ncaa_lineups

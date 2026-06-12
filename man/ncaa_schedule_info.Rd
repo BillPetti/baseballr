@@ -19,30 +19,30 @@ etc.)}
 \value{
 A data frame with the following fields: date, opponent,
 result, score, innings (if more than regulation), and the url
-for the game itself.\tabular{ll}{
-   col_name \tab types \cr
-   year \tab integer \cr
-   season_id \tab integer \cr
-   date \tab character \cr
-   home_team \tab character \cr
-   home_team_id \tab integer \cr
-   home_team_conference \tab character \cr
-   home_team_conference_id \tab integer \cr
-   home_team_slug \tab character \cr
-   home_team_division \tab integer \cr
-   away_team \tab character \cr
-   away_team_id \tab integer \cr
-   away_team_conference \tab character \cr
-   away_team_conference_id \tab integer \cr
-   away_team_slug \tab character \cr
-   away_team_division \tab integer \cr
-   neutral_site \tab character \cr
-   result \tab character \cr
-   score \tab character \cr
-   innings \tab character \cr
-   slug \tab character \cr
-   game_info_url \tab character \cr
-   contest_id \tab integer \cr
+for the game itself.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   year \tab integer \tab Season (4-digit year). \cr
+   season_id \tab integer \tab stats.ncaa.org season identifier. \cr
+   date \tab character \tab Game date. \cr
+   home_team \tab character \tab Home team name. \cr
+   home_team_id \tab integer \tab Home team NCAA id. \cr
+   home_team_conference \tab character \tab Home team conference name. \cr
+   home_team_conference_id \tab integer \tab Home team conference id. \cr
+   home_team_slug \tab character \tab Relative stats.ncaa.org url for the home team. \cr
+   home_team_division \tab integer \tab Home team NCAA division (1, 2, 3). \cr
+   away_team \tab character \tab Away team name. \cr
+   away_team_id \tab integer \tab Away team NCAA id. \cr
+   away_team_conference \tab character \tab Away team conference name. \cr
+   away_team_conference_id \tab integer \tab Away team conference id. \cr
+   away_team_slug \tab character \tab Relative stats.ncaa.org url for the away team. \cr
+   away_team_division \tab integer \tab Away team NCAA division (1, 2, 3). \cr
+   neutral_site \tab character \tab Neutral-site venue (when not hosted by either team). \cr
+   result \tab character \tab Win/loss/tie result for \code{team_id}. \cr
+   score \tab character \tab Final score (e.g. "7-3"). \cr
+   innings \tab character \tab Innings played when other than regulation (extras). \cr
+   slug \tab character \tab Relative stats.ncaa.org url for the game. \cr
+   game_info_url \tab character \tab Full stats.ncaa.org box-score url for the game. \cr
+   contest_id \tab integer \tab stats.ncaa.org contest (game) identifier. \cr
 }
 }
 \description{

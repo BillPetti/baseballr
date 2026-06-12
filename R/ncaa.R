@@ -3,7 +3,7 @@
 #' **NCAA Functions Overview**
 #' @description
 #'
-#' * `ncaa_team_player_stats()`: This function allows the user to obtain batting or pitching statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a tibble.
+#' * `ncaa_team_player_stats()`: This function allows the user to obtain batting, pitching, or fielding statistics for any school affiliated with the NCAA at the division I, II, or III levels. The function acquires data from the NCAA's website (stats.ncaa.org) and returns a tibble.
 #' * `ncaa_pbp()`: Get Play-By-Play Data for NCAA Baseball Games.
 #' * `ncaa_roster()`: Get NCAA Baseball Rosters.
 #' * `ncaa_game_logs()`: Get NCAA Baseball Game Logs.

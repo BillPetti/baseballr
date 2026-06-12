@@ -12,19 +12,19 @@
 #' @param ... Additional arguments passed to an underlying function like httr.
 #' @return A data frame with play-by-play data for an individual game.
 #' 
-#'  |col_name       |types     |
-#'  |:--------------|:---------|
-#'  |game_date      |character |
-#'  |location       |character |
-#'  |attendance     |logical   |
-#'  |inning         |character |
-#'  |inning_top_bot |character |
-#'  |score          |character |
-#'  |batting        |character |
-#'  |fielding       |character |
-#'  |description    |character |
-#'  |game_pbp_url   |character |
-#'  |game_pbp_id    |integer   |
+#'  |col_name       |types     |description                                         |
+#'  |:--------------|:---------|:---------------------------------------------------|
+#'  |game_date      |character |Game date (NA on the redesigned page; use `ncaa_schedule_info()`). |
+#'  |location       |character |Venue / conditions line when present.               |
+#'  |attendance     |logical   |Reported attendance (NA on the redesigned page).    |
+#'  |inning         |character |Inning number.                                      |
+#'  |inning_top_bot |character |Half-inning ("top" or "bot").                       |
+#'  |score          |character |Running score (away-home) after the play.           |
+#'  |batting        |character |Batting team name.                                  |
+#'  |fielding       |character |Fielding team name.                                 |
+#'  |description    |character |Play description text.                              |
+#'  |game_pbp_url   |character |stats.ncaa.org play-by-play url for the game.       |
+#'  |game_pbp_id    |integer   |stats.ncaa.org play-by-play (contest) identifier.   |
 #'  
 #' @importFrom tibble tibble
 #' @importFrom tidyr gather spread
@@ -183,7 +183,7 @@ ncaa_pbp <- function(game_info_url = NA_character_,
 #' @rdname get_ncaa_baseball_pbp
 #' @title **(legacy) Get Play-By-Play Data for NCAA Baseball Games**
 #' @inheritParams ncaa_pbp
-#' @return A data frame with play-by-play data for an individual game.
+#' @inherit ncaa_pbp return
 #' @keywords legacy
 #' @export
 get_ncaa_baseball_pbp <- ncaa_pbp
@@ -192,7 +192,7 @@ get_ncaa_baseball_pbp <- ncaa_pbp
 #' @rdname get_ncaa_baseball_pbp
 #' @title **(legacy) Get Play-By-Play Data for NCAA Baseball Games**
 #' @inheritParams ncaa_pbp
-#' @return A data frame with play-by-play data for an individual game.
+#' @inherit ncaa_pbp return
 #' @keywords legacy
 #' @export
 ncaa_baseball_pbp <- ncaa_pbp

@@ -44,9 +44,20 @@ in \code{raw_html_path} directory)}
 \item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
-A data frame with play-by-play data for an individual game.
-
-A data frame with play-by-play data for an individual game.
+A data frame with play-by-play data for an individual game.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   game_date \tab character \tab Game date (NA on the redesigned page; use \code{ncaa_schedule_info()}). \cr
+   location \tab character \tab Venue / conditions line when present. \cr
+   attendance \tab logical \tab Reported attendance (NA on the redesigned page). \cr
+   inning \tab character \tab Inning number. \cr
+   inning_top_bot \tab character \tab Half-inning ("top" or "bot"). \cr
+   score \tab character \tab Running score (away-home) after the play. \cr
+   batting \tab character \tab Batting team name. \cr
+   fielding \tab character \tab Fielding team name. \cr
+   description \tab character \tab Play description text. \cr
+   game_pbp_url \tab character \tab stats.ncaa.org play-by-play url for the game. \cr
+   game_pbp_id \tab integer \tab stats.ncaa.org play-by-play (contest) identifier. \cr
+}
 }
 \description{
 \strong{(legacy) Get Play-By-Play Data for NCAA Baseball Games}

@@ -21,8 +21,50 @@ returns seasonal stats for a player's career.}
 \item{...}{Additional arguments passed to an underlying function like httr.}
 }
 \value{
-A data frame containing player and school information
-as well as game by game statistics
+A data frame containing player and school information as well as
+game-by-game statistics. The exact stat columns vary by \code{type}
+(batting / pitching / fielding) and \code{span} (game / career); the table
+below shows the pitching (\code{type = "pitching"}, \code{span = "game"}) columns.\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_id \tab numeric \tab stats.ncaa.org player identifier. \cr
+   player_name \tab character \tab Player name. \cr
+   Date \tab character \tab Game date. \cr
+   Opponent \tab character \tab Opponent name. \cr
+   Result \tab character \tab Game result (W/L and score). \cr
+   App \tab numeric \tab Appearances. \cr
+   G \tab numeric \tab Games. \cr
+   GS \tab numeric \tab Games started. \cr
+   IP \tab numeric \tab Innings pitched. \cr
+   CG \tab numeric \tab Complete games. \cr
+   H \tab numeric \tab Hits allowed. \cr
+   R \tab numeric \tab Runs allowed. \cr
+   ER \tab numeric \tab Earned runs allowed. \cr
+   BB \tab numeric \tab Walks (bases on balls) allowed. \cr
+   SO \tab numeric \tab Strikeouts. \cr
+   SHO \tab numeric \tab Shutouts. \cr
+   BF \tab numeric \tab Batters faced. \cr
+   P-OAB \tab numeric \tab Opponent at-bats. \cr
+   2B-A \tab numeric \tab Doubles allowed. \cr
+   3B-A \tab numeric \tab Triples allowed. \cr
+   Bk \tab numeric \tab Balks. \cr
+   HR-A \tab numeric \tab Home runs allowed. \cr
+   WP \tab numeric \tab Wild pitches. \cr
+   HB \tab numeric \tab Hit batters. \cr
+   IBB \tab numeric \tab Intentional walks allowed. \cr
+   Inh Run \tab numeric \tab Inherited runners. \cr
+   Inh Run Score \tab numeric \tab Inherited runners who scored. \cr
+   SHA \tab numeric \tab Sacrifice hits allowed. \cr
+   SFA \tab numeric \tab Sacrifice flies allowed. \cr
+   Pitches \tab numeric \tab Pitch count. \cr
+   GO \tab numeric \tab Ground outs induced. \cr
+   FO \tab numeric \tab Fly outs induced. \cr
+   W \tab numeric \tab Wins. \cr
+   L \tab numeric \tab Losses. \cr
+   SV \tab numeric \tab Saves. \cr
+   OrdAppeared \tab numeric \tab Order in which the pitcher appeared. \cr
+   KL \tab numeric \tab Strikeouts looking (called third strike). \cr
+   pickoffs \tab character \tab Pickoffs. \cr
+}
 }
 \description{
 \strong{(legacy) Get NCAA Baseball Game Logs}

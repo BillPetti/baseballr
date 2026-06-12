@@ -11,7 +11,17 @@ school_id_lu(team_name = NULL)
 }
 \value{
 Returns a tibble with school identification data: team_id, team_name, team_url,
-conference, conference_id, division, year, and season_id
+conference, conference_id, division, year, and season_id\tabular{lll}{
+   col_name \tab types \tab description \cr
+   team_id \tab numeric \tab Team NCAA id. \cr
+   team_name \tab character \tab Team name. \cr
+   team_url \tab character \tab Relative stats.ncaa.org team url. \cr
+   conference_id \tab numeric \tab Conference identifier. \cr
+   conference \tab character \tab Conference name. \cr
+   division \tab numeric \tab NCAA division (1, 2, 3). \cr
+   year \tab numeric \tab Season (4-digit year). \cr
+   season_id \tab numeric \tab stats.ncaa.org season identifier. \cr
+}
 }
 \description{
 \strong{(legacy) Lookup NCAA baseball school IDs (Division I, II, and III)}

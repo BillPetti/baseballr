@@ -21,7 +21,19 @@ Defaults to 'conference'.}
 \value{
 A data frame with the following fields: school, home_game,
 away_game, runs_scored_home, runs_allowed_home, run_scored_away,
-runs_allowed_away, base_pf (base park factor), home_game_adj (an adjustment for the percentage of home games played) final_pf (park factor after adjustments)
+runs_allowed_away, base_pf (base park factor), home_game_adj (an adjustment for the percentage of home games played) final_pf (park factor after adjustments)\tabular{lll}{
+   col_name \tab types \tab description \cr
+   school \tab character \tab Team name. \cr
+   home_game \tab numeric \tab Number of home games in the sample. \cr
+   away_game \tab numeric \tab Number of away games in the sample. \cr
+   runs_scored_home \tab numeric \tab Runs scored by the team in home games. \cr
+   runs_allowed_home \tab numeric \tab Runs allowed by the team in home games. \cr
+   runs_scored_away \tab numeric \tab Runs scored by the team in away games. \cr
+   runs_allowed_away \tab numeric \tab Runs allowed by the team in away games. \cr
+   base_pf \tab numeric \tab Base park factor (before adjustment). \cr
+   home_game_adj \tab numeric \tab Adjustment for the share of home games played. \cr
+   final_pf \tab numeric \tab Park factor after adjustments. \cr
+}
 }
 \description{
 \strong{(legacy) Get Park Effects for NCAA Baseball Teams}

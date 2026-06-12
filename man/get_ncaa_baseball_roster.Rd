@@ -18,10 +18,21 @@ get_ncaa_baseball_roster(team_id = NULL, year, ...)
 }
 \value{
 A data frame containing roster information, including
-IDs and urls for each player (if available)
-
-A data frame containing roster information, including
-IDs and urls for each player (if available)
+IDs and urls for each player (if available)\tabular{lll}{
+   col_name \tab types \tab description \cr
+   player_name \tab character \tab Player name. \cr
+   class \tab character \tab Academic class/year (Fr, So, Jr, Sr). \cr
+   player_id \tab character \tab stats.ncaa.org player identifier. \cr
+   season \tab numeric \tab Season (4-digit year). \cr
+   number \tab character \tab Jersey number. \cr
+   position \tab character \tab Primary fielding position. \cr
+   player_url \tab character \tab Full stats.ncaa.org url for the player page. \cr
+   team_name \tab character \tab Team name. \cr
+   conference \tab character \tab Conference name. \cr
+   team_id \tab numeric \tab Team NCAA id. \cr
+   division \tab numeric \tab NCAA division (1, 2, 3). \cr
+   conference_id \tab numeric \tab Conference identifier. \cr
+}
 }
 \description{
 \strong{(legacy) Get NCAA Baseball Rosters}
