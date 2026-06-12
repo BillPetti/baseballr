@@ -123,7 +123,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_game_linescore(game_pk = 566001))
 #> ── MLB Game Linescore data from MLB.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 11:57:00 UTC
+#> ℹ Data updated: 2026-06-12 12:15:51 UTC
 #> # A tibble: 9 × 95
 #>   game_pk home_team_id home_team_name away_team_id away_team_name    num
 #>     <dbl> <chr>        <chr>          <chr>        <chr>           <int>

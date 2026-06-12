@@ -88,7 +88,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_teams(season = 2021, sport_ids = c(1)))
 #> ── MLB Teams data from MLB.com ────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 11:57:28 UTC
+#> ℹ Data updated: 2026-06-12 12:16:16 UTC
 #> # A tibble: 30 × 33
 #>    all_star_status team_id team_full_name       link    season team_code
 #>    <chr>             <int> <chr>                <chr>    <int> <chr>    

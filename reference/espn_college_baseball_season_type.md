@@ -137,7 +137,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_season_type(season_type = 2, season = 2025))
 #> ── ESPN COLLEGE-BASEBALL Season Type Detail ───────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 11:55:13 UTC
+#> ℹ Data updated: 2026-06-12 12:14:10 UTC
 #> # A tibble: 1 × 16
 #>   league    season season_type  type name  abbreviation  year start_date
 #>   <chr>      <int>       <int> <int> <chr> <chr>        <int> <chr>     

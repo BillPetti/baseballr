@@ -70,7 +70,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_team_info(team_id = 147))
 #> ── MLB Team Info data from MLB.com ────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 11:57:27 UTC
+#> ℹ Data updated: 2026-06-12 12:16:15 UTC
 #> # A tibble: 1 × 33
 #>   all_star_status team_id team_full_name   link         season team_code
 #>   <chr>             <int> <chr>            <chr>         <int> <chr>    
