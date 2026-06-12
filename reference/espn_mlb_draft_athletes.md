@@ -165,7 +165,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_draft_athletes(season = 2024)
 #> ── ESPN MLB Draft Athletes ────────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 12:23:25 UTC
+#> ℹ Data updated: 2026-06-12 12:39:17 UTC
 #> # A tibble: 0 × 4
 #> # ℹ 4 variables: league <chr>, season <int>, athlete_id <chr>,
 #> #   ref <chr>

@@ -32,23 +32,8 @@ From the NCAA website:
 ``` r
 
 try(ncaa_teams(year = most_recent_ncaa_baseball_season(), division = "1"))
-#> ── NCAA Baseball Teams data from stats.ncaa.org ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 12:28:20 UTC
-#> # A tibble: 308 × 9
-#>    team_id team_name    team_url conference_id conference division  year
-#>    <chr>   <chr>        <chr>    <chr>         <chr>      <chr>    <dbl>
-#>  1 NA      Boston Coll… /teams/… 821           ACC        1         2026
-#>  2 NA      California   /teams/… 821           ACC        1         2026
-#>  3 NA      Clemson      /teams/… 821           ACC        1         2026
-#>  4 NA      Duke         /teams/… 821           ACC        1         2026
-#>  5 NA      Florida St.  /teams/… 821           ACC        1         2026
-#>  6 NA      Georgia Tech /teams/… 821           ACC        1         2026
-#>  7 NA      Louisville   /teams/… 821           ACC        1         2026
-#>  8 NA      Miami (FL)   /teams/… 821           ACC        1         2026
-#>  9 NA      NC State     /teams/… 821           ACC        1         2026
-#> 10 NA      North Carol… /teams/… 821           ACC        1         2026
-#> # ℹ 298 more rows
-#> # ℹ 2 more variables: season_id <chr>, season_team_id <chr>
+#> 2026-06-12 12:43:14.799911: Invalid arguments provided
+#> data frame with 0 columns and 0 rows
 ```
 
 The function,
@@ -74,28 +59,9 @@ team_id <- ncaa_teams_df %>%
 year <- most_recent_ncaa_baseball_season()
 
 ncaa_team_player_stats(team_id = team_id, year = year, "batting")
-#> ── NCAA Baseball Team Batting Stats data from stats.ncaa.org ───────────
-#> ℹ Data updated: 2026-06-12 12:28:45 UTC
-#> # A tibble: 36 × 42
-#>     year team_name   team_id conference_id conference division player_id
-#>    <int> <chr>         <dbl>         <int> <chr>         <dbl>     <int>
-#>  1  2026 Florida St.     234           821 ACC               1   9678004
-#>  2  2026 Florida St.     234           821 ACC               1   9680283
-#>  3  2026 Florida St.     234           821 ACC               1   9703054
-#>  4  2026 Florida St.     234           821 ACC               1   9686071
-#>  5  2026 Florida St.     234           821 ACC               1   9699227
-#>  6  2026 Florida St.     234           821 ACC               1   9690199
-#>  7  2026 Florida St.     234           821 ACC               1   9698044
-#>  8  2026 Florida St.     234           821 ACC               1   9702164
-#>  9  2026 Florida St.     234           821 ACC               1   9684157
-#> 10  2026 Florida St.     234           821 ACC               1   9690665
-#> # ℹ 26 more rows
-#> # ℹ 35 more variables: player_url <chr>, player_name <chr>, Yr <chr>,
-#> #   Pos <chr>, Jersey <chr>, Ht <chr>, `B/T` <chr>, GP <dbl>, GS <dbl>,
-#> #   BA <dbl>, OBPct <dbl>, SlgPct <dbl>, R <dbl>, AB <dbl>, H <dbl>,
-#> #   `2B` <dbl>, `3B` <dbl>, TB <dbl>, HR <dbl>, RBI <dbl>, BB <dbl>,
-#> #   HBP <dbl>, SF <dbl>, SH <dbl>, K <dbl>, DP <dbl>, CS <dbl>,
-#> #   Picked <dbl>, SB <dbl>, IBB <dbl>, GDP <dbl>, RBI2out <dbl>, …
+#> ✖ 2026-06-12 12:43:36.833317: NCAA browser fallback failed: Chrome debugging port not open after 10 seconds.
+#> ! 2026-06-12 12:43:36.841171: stats.ncaa.org returned an Akamai bot-challenge for the team batting stats endpoint; no data could be retrieved. Install {chromote} + Google Chrome to enable the browser fallback.
+#> data frame with 0 columns and 0 rows
 ```
 
 The same can be done for pitching, just by changing the `type`
@@ -105,7 +71,7 @@ parameter:
 
 ncaa_team_player_stats(team_id = team_id, year = year,  "pitching")
 #> ── NCAA Baseball Team Pitching Stats data from stats.ncaa.org ──────────
-#> ℹ Data updated: 2026-06-12 12:28:59 UTC
+#> ℹ Data updated: 2026-06-12 12:44:01 UTC
 #> # A tibble: 19 × 49
 #>     year team_name   team_id conference_id conference division player_id
 #>    <int> <chr>         <dbl>         <int> <chr>         <dbl>     <int>

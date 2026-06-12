@@ -225,7 +225,7 @@ Saiem Gilani
 ``` r
 # \donttest{
 try(espn_mlb_pbp(game_id = 401071880))
-#> ✖ 2026-06-12 12:23:34.73571: Invalid arguments or no play-by-play data for 401071880 available!
+#> ✖ 2026-06-12 12:39:28.296302: Invalid arguments or no play-by-play data for 401071880 available!
 #> ✖ Args: game_id = 401071880
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> NULL

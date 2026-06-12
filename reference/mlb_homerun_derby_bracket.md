@@ -68,7 +68,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_homerun_derby_bracket(game_pk = 511101))
 #> ── MLB Homerun Derby Bracket data from MLB.com ────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 12:24:52 UTC
+#> ℹ Data updated: 2026-06-12 12:40:53 UTC
 #> # A tibble: 7 × 40
 #>   game_pk event_name event_type_code event_type_name event_date venue_id
 #>     <int> <chr>      <chr>           <chr>           <chr>         <int>

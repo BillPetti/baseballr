@@ -168,7 +168,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_team_news(team_id = "13", limit = 5)
 #> ── ESPN MLB Team News (team_id=13) from ESPN.com ──── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 12:23:51 UTC
+#> ℹ Data updated: 2026-06-12 12:39:46 UTC
 #> # A tibble: 5 × 9
 #>         id type   headline description published premium byline link_web
 #>      <int> <chr>  <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>   
