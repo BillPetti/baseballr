@@ -57,6 +57,7 @@ navbar:
       description: Functions to Access Men's Baseball Play by Play Data
       icon: fa-home
       href: index.html
+      aria-label: Home
     reference:
       icon: "fas fa-code"
       text: " Funcs"
@@ -196,6 +197,7 @@ navbar:
     github:
       icon: "fab fa-github fa-lg"
       href: https://github.com/billpetti/baseballr/
+      aria-label: GitHub
     twitter:
       icon: "fa-twitter"
       href: http://twitter.com/BillPetti
