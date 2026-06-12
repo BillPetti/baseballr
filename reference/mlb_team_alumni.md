@@ -85,13 +85,13 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_team_alumni(team_id = 137, stat_group = 'hitting', season = 2021))
 #> ── MLB Team Alumni data from MLB.com ──────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:44:02 UTC
+#> ℹ Data updated: 2026-06-12 03:19:38 UTC
 #> # A tibble: 43 × 46
 #>    player_id player_full_name  link  first_name last_name primary_number
 #>        <int> <chr>             <chr> <chr>      <chr>     <chr>         
 #>  1    501303 Ehire Adrianza    /api… Ehire      Adrianza  6             
 #>  2    542881 Tyler Anderson    /api… Tyler      Anderson  31            
-#>  3    641312 Shaun Anderson    /api… Shaun      Anderson  64            
+#>  3    641312 Shaun Anderson    /api… Shaun      Anderson  NA            
 #>  4    624414 Christian Arroyo  /api… Christian  Arroyo    39            
 #>  5    623214 Abiatal Avelino   /api… Abiatal    Avelino   NA            
 #>  6    642772 Luis Alexander B… /api… Luis       Basabe    NA            

@@ -158,11 +158,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_game_powerindex(event_id = 401283399)
-#> ✖ 2026-06-09 20:42:06.254769: Failed to retrieve ESPN mlb event powerindex for event_id=401283399
+#> ✖ 2026-06-12 03:17:39.556518: Failed to retrieve ESPN mlb event powerindex for event_id=401283399
 #> ✖ Args: league = "mlb", event_id = 401283399
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN MLB Event Power Index ─────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:42:06 UTC
+#> ℹ Data updated: 2026-06-12 03:17:39 UTC
 #> # A tibble: 0 × 0
 # }
 ```

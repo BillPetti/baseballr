@@ -212,7 +212,7 @@ Saiem Gilani
   espn_mlb_player_info(athlete_id = "1966")
 #> $Bio
 #> ── ESPN MLB Athlete Bio from ESPN.com ─────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:42:19 UTC
+#> ℹ Data updated: 2026-06-12 03:17:49 UTC
 #> # A tibble: 1 × 20
 #>   id    uid            guid  first_name last_name full_name display_name
 #>   <chr> <chr>          <chr> <chr>      <chr>     <chr>     <chr>       
@@ -225,7 +225,7 @@ Saiem Gilani
 #> 
 #> $Team
 #> ── ESPN MLB Athlete Team from ESPN.com ────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:42:19 UTC
+#> ℹ Data updated: 2026-06-12 03:17:49 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                                 
 #>   <chr>                                                                 
@@ -233,7 +233,7 @@ Saiem Gilani
 #> 
 #> $Position
 #> ── ESPN MLB Athlete Position from ESPN.com ────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:42:19 UTC
+#> ℹ Data updated: 2026-06-12 03:17:49 UTC
 #> # A tibble: 1 × 5
 #>   id    name         display_name   abbreviation leaf 
 #>   <chr> <chr>        <chr>          <chr>        <lgl>
@@ -241,7 +241,7 @@ Saiem Gilani
 #> 
 #> $Status
 #> ── ESPN MLB Athlete Status from ESPN.com ──────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:42:19 UTC
+#> ℹ Data updated: 2026-06-12 03:17:49 UTC
 #> # A tibble: 1 × 4
 #>   id    name    type    abbreviation
 #>   <chr> <chr>   <chr>   <chr>       
@@ -249,7 +249,7 @@ Saiem Gilani
 #> 
 #> $College
 #> ── ESPN MLB Athlete College from ESPN.com ─────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:42:19 UTC
+#> ℹ Data updated: 2026-06-12 03:17:49 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                          
 #>   <chr>                                                          
@@ -257,7 +257,7 @@ Saiem Gilani
 #> 
 #> $Draft
 #> ── ESPN MLB Athlete Draft from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:42:19 UTC
+#> ℹ Data updated: 2026-06-12 03:17:49 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

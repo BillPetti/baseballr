@@ -39,8 +39,8 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_jobs_official_scorers(sport_id=1))
 #> ── MLB Jobs Official Scorers data from MLB.com ────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:43:43 UTC
-#> # A tibble: 236 × 7
+#> ℹ Data updated: 2026-06-12 03:19:18 UTC
+#> # A tibble: 235 × 7
 #>    jersey_number job           job_code title person_id person_full_name
 #>    <chr>         <chr>         <chr>    <chr>     <int> <chr>           
 #>  1 ""            Official Sco… SCOR     Offi…    582413 Fernando Alcala 
@@ -53,7 +53,7 @@ Returns a tibble with the following columns
 #>  8 ""            Official Sco… SCOR     Offi…    679730 Devin Benson    
 #>  9 ""            Official Sco… SCOR     Offi…    482136 Brian Berger    
 #> 10 ""            Official Sco… SCOR     Offi…    550488 Court Berry-Tri…
-#> # ℹ 226 more rows
+#> # ℹ 225 more rows
 #> # ℹ 1 more variable: person_link <chr>
 # }
 ```

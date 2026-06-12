@@ -213,7 +213,7 @@ Saiem Gilani
   espn_mlb_team(team_id = "13", season = 2025)
 #> $Info
 #> ── ESPN MLB Team Info from ESPN.com ───────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:42:32 UTC
+#> ℹ Data updated: 2026-06-12 03:18:00 UTC
 #> # A tibble: 1 × 12
 #>   id    uid     slug  abbreviation display_name short_display_name name 
 #>   <chr> <chr>   <chr> <chr>        <chr>        <chr>              <chr>
@@ -223,25 +223,25 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN MLB Team Record from ESPN.com ─────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:42:32 UTC
+#> ℹ Data updated: 2026-06-12 03:18:00 UTC
 #> # A tibble: 3 × 4
 #>   description    type  summary stats        
 #>   <chr>          <chr> <chr>   <list>       
-#> 1 Overall Record total 32-33   <df [32 × 2]>
+#> 1 Overall Record total 34-34   <df [32 × 2]>
 #> 2 Home Record    home  17-14   <df [32 × 2]>
-#> 3 Away Record    road  15-19   <df [32 × 2]>
+#> 3 Away Record    road  17-20   <df [32 × 2]>
 #> 
 #> $NextEvent
 #> ── ESPN MLB Team Next Event from ESPN.com ─────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:42:32 UTC
+#> ℹ Data updated: 2026-06-12 03:18:00 UTC
 #> # A tibble: 1 × 4
 #>   id        date              name                            short_name
 #>   <chr>     <chr>             <chr>                           <chr>     
-#> 1 401815690 2026-06-09T23:40Z Texas Rangers at Kansas City R… TEX @ KC  
+#> 1 401815717 2026-06-11T18:10Z Texas Rangers at Kansas City R… TEX @ KC  
 #> 
 #> $StandingSummary
 #> ── ESPN MLB Team Standing Summary from ESPN.com ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:42:32 UTC
+#> ℹ Data updated: 2026-06-12 03:18:00 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary
 #>   <chr>           

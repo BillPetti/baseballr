@@ -48,7 +48,7 @@ them in different systems of record.
 # \donttest{
   try(playerid_lookup("Garcia", "Karim"))
 #> ── Player ID Lookup from the Chadwick Bureau's public register of baseba
-#> ℹ Data updated: 2026-06-09 20:41:36 UTC
+#> ℹ Data updated: 2026-06-12 03:17:09 UTC
 #> # A tibble: 0 × 11
 #> # ℹ 11 variables: first_name <chr>, last_name <chr>, given_name <chr>,
 #> #   name_suffix <chr>, nick_name <chr>, birth_year <int>,

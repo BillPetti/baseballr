@@ -43,7 +43,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_team_coaches(team_id = 137, season = 2021))
 #> ── MLB Team Coaches data from MLB.com ─────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:44:02 UTC
+#> ℹ Data updated: 2026-06-12 03:19:39 UTC
 #> # A tibble: 17 × 7
 #>    jersey_number job             job_id title person_id person_full_name
 #>    <chr>         <chr>           <chr>  <chr>     <int> <chr>           

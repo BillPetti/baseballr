@@ -39,8 +39,8 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_jobs_datacasters(sport_id=1))
 #> ── MLB Jobs Datacasters data from MLB.com ─────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:43:43 UTC
-#> # A tibble: 213 × 7
+#> ℹ Data updated: 2026-06-12 03:19:17 UTC
+#> # A tibble: 214 × 7
 #>    jersey_number job      job_code title    person_id person_full_name  
 #>    <chr>         <chr>    <chr>    <chr>        <int> <chr>             
 #>  1 ""            Stringer MSTR     Stringer    666938 Edward Alvarez    
@@ -53,7 +53,7 @@ Returns a tibble with the following columns
 #>  8 ""            Stringer MSTR     Stringer    821942 Amanda Bachelder  
 #>  9 ""            Stringer MSTR     Stringer    670060 Keith Barnes      
 #> 10 ""            Stringer MSTR     Stringer    427022 Matt Bartlett     
-#> # ℹ 203 more rows
+#> # ℹ 204 more rows
 #> # ℹ 1 more variable: person_link <chr>
 # }
 ```

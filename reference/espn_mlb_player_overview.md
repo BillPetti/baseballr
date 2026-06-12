@@ -194,12 +194,12 @@ Saiem Gilani
   espn_mlb_player_overview(athlete_id = "1966", season = 2024)
 #> $Statistics
 #> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-06-09 20:42:19 UTC
+#> ℹ Data updated: 2026-06-12 03:17:49 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-06-09 20:42:19 UTC
+#> ℹ Data updated: 2026-06-12 03:17:49 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -207,32 +207,32 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-06-09 20:42:19 UTC
+#> ℹ Data updated: 2026-06-12 03:17:49 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-06-09 20:42:19 UTC
+#> ℹ Data updated: 2026-06-12 03:17:49 UTC
 #> # A tibble: 13 × 5
 #>    headline                           description published byline type 
 #>    <chr>                              <chr>       <chr>     <chr>  <chr>
-#>  1 Sources: Brewers, prospect Luis L… Outfield p… 2026-06-… NA     Head…
-#>  2 White Sox top hitting prospect Br… Outfielder… 2026-06-… Jesse… Head…
-#>  3 Paul Skenes surprises Pittsburgh-… The 2025 N… 2026-06-… ESPN   Story
-#>  4 Fantasy baseball closer stock wat… Everything… 2026-06-… Eric … Story
-#>  5 Fantasy baseball: Slugfest in Veg… All of the… 2026-06-… ESPN … Story
-#>  6 Fantasy Baseball Reliever Depth C… Our update… 2026-06-… Fanta… Story
-#>  7 Fantasy baseball forecaster: Team… Stay ahead… 2026-06-… Trist… Story
-#>  8 Fantasy baseball forecaster: Pitc… Keep up to… 2026-06-… Trist… Story
-#>  9 MLB betting tips for Tuesday: Roy… All of the… 2026-06-… Derek… Story
-#> 10 2026 MLB All-Star full roster pre… Bryce Harp… 2026-06-… David… Story
-#> 11 How could an MLB salary cap work?… We examine… 2026-06-… Jeff … Story
-#> 12 Brewers outlast A's in 12 innings… The Brewer… 2026-06-… NA     Head…
-#> 13 Angels' Trey Mancini 3-for-4 in 1… Angels fir… 2026-06-… NA     Head…
+#>  1 2026 MLB ABS challenge system tra… "The ABS c… 2026-06-… ESPN   Story
+#>  2 Dodgers' Ohtani exits early with … "Dodgers t… 2026-06-… NA     Head…
+#>  3 Braves-White Sox postponed by rai… "The Atlan… 2026-06-… NA     Head…
+#>  4 Phillies add outfield depth, acqu… "The Phill… 2026-06-… NA     Head…
+#>  5 Dodgers' catcher Will Smith on in… "The Los A… 2026-06-… NA     Head…
+#>  6 Kennedy: Red Sox's season 'embarr… "Red Sox p… 2026-06-… NA     Head…
+#>  7 Fantasy baseball lineup advice fo… "Everythin… 2026-06-… ESPN … Story
+#>  8 Red Sox's Aroldis Chapman says Ya… "If the Ya… 2026-06-… Enriq… Head…
+#>  9 Tarik Skubal returning to Tigers'… "Tarik Sku… 2026-06-… NA     Head…
+#> 10 Buxton hits 50 HRs? Goodman break… "Eric Kara… 2026-06-… Eric … Story
+#> 11 Dodgers star Mookie Betts guest s… "Unsurpris… 2026-06-… ESPN   Story
+#> 12 Fantasy baseball forecaster: Team… "Stay ahea… 2026-06-… Trist… Story
+#> 13 Fantasy baseball forecaster: Pitc… "Keep up t… 2026-06-… Trist… Story
 #> 
 #> $FantasyOutlook
 #> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────
-#> ℹ Data updated: 2026-06-09 20:42:19 UTC
+#> ℹ Data updated: 2026-06-12 03:17:49 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

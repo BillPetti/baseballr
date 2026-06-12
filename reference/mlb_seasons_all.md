@@ -66,8 +66,8 @@ Returns a tibble with the following columns:
 # \donttest{
  try(mlb_seasons_all(sport_id = 1))
 #> ── MLB Seasons - All Seasons data from MLB.com ────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:43:58 UTC
-#> # A tibble: 151 × 21
+#> ℹ Data updated: 2026-06-12 03:19:33 UTC
+#> # A tibble: 152 × 21
 #>    season_id has_wildcard pre_season_start_date season_start_date
 #>    <chr>     <lgl>        <chr>                 <chr>            
 #>  1 1876      FALSE        1876-01-01            1876-04-22       
@@ -80,7 +80,7 @@ Returns a tibble with the following columns:
 #>  8 1883      FALSE        1883-01-01            1883-05-01       
 #>  9 1884      FALSE        1884-01-01            1884-05-01       
 #> 10 1885      FALSE        1885-01-01            1885-04-30       
-#> # ℹ 141 more rows
+#> # ℹ 142 more rows
 #> # ℹ 17 more variables: regular_season_start_date <chr>,
 #> #   regular_season_end_date <chr>, season_end_date <chr>,
 #> #   offseason_start_date <chr>, off_season_end_date <chr>,

@@ -4,6 +4,21 @@
 
 #### New features
 
+- Added read-only **Fox Sports “Bifrost”** MLB wrappers (`fox_mlb_*()`)
+  over `api.foxsports.com/bifrost/v1/mlb/*`:
+  [`fox_mlb_team_roster()`](https://billpetti.github.io/baseballr/reference/fox_mlb_team_roster.md),
+  [`fox_mlb_team_stats()`](https://billpetti.github.io/baseballr/reference/fox_mlb_team_stats.md),
+  [`fox_mlb_team_gamelog()`](https://billpetti.github.io/baseballr/reference/fox_mlb_team_gamelog.md),
+  [`fox_mlb_standings()`](https://billpetti.github.io/baseballr/reference/fox_mlb_standings.md),
+  [`fox_mlb_league_leaders()`](https://billpetti.github.io/baseballr/reference/fox_mlb_league_leaders.md),
+  and
+  [`fox_mlb_odds()`](https://billpetti.github.io/baseballr/reference/fox_mlb_odds.md).
+  They flatten Fox’s layout-oriented JSON (sections → tables → rows →
+  cells) into tidy `baseballr_data` tibbles. Fox does not expose MLB
+  play-by-play or boxscore via `event/{id}/data`, so those are
+  intentionally omitted. Parallels the cfbfastR / hoopR / fastRhockey /
+  sportsdataverse-py `fox_*` families; reverse-engineering notes + an
+  OpenAPI 3.1 spec live in the `sdv-internal-refs` repo.
 - Added a full **ESPN MLB** wrapper family (`espn_mlb_*()`, 100+
   functions) mirroring the naming and structure of the sister
   SportsDataverse packages (hoopR `espn_nba_*`/`espn_mbb_*`, wehoop

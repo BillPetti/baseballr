@@ -182,7 +182,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_team_odds_records(team_id = 13, season = 2026)
 #> ── ESPN MLB Team Odds-Records ─────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:42:35 UTC
+#> ℹ Data updated: 2026-06-12 03:18:03 UTC
 #> # A tibble: 60 × 13
 #>    league team_id season season_type category_type    category_abbrev
 #>    <chr>  <chr>    <int>       <int> <chr>            <chr>          

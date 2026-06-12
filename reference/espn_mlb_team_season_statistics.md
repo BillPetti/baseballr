@@ -182,7 +182,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_team_season_statistics(team_id = 13, season = 2024)
 #> ── ESPN MLB Team Season Statistics ────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:42:39 UTC
+#> ℹ Data updated: 2026-06-12 03:18:07 UTC
 #> # A tibble: 170 × 13
 #>    league season season_type team_id category_name category_display
 #>    <chr>   <int>       <int> <chr>   <chr>         <chr>           

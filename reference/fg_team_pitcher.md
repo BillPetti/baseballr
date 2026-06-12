@@ -656,7 +656,7 @@ A data frame of pitcher data.
 # \donttest{
   try(fg_team_pitcher(startseason = 2015, endseason = 2015, qual = 150))
 #> ── MLB Team Pitching data from FanGraphs.com ──────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-09 20:43:00 UTC
+#> ℹ Data updated: 2026-06-12 03:18:25 UTC
 #> # A tibble: 30 × 427
 #>    Season team_name SeasonMin SeasonMax     W     L   ERA     G    GS
 #>     <int> <chr>         <int>     <int> <int> <int> <dbl> <int> <int>

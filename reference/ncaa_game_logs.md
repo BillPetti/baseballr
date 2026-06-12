@@ -85,16 +85,16 @@ game statistics
 ``` r
 # \donttest{
   try(ncaa_game_logs(player_id = 2649785, year = 2023, type = "pitching", span = "game"))
-#> 2026-06-09 20:44:12.47665: Invalid arguments provided
+#> 2026-06-12 03:19:51.053211: Invalid arguments provided
 #> data frame with 0 columns and 0 rows
   try(ncaa_game_logs(player_id = 2477974, year = 2023, type = "pitching", span = "career"))
-#> 2026-06-09 20:44:17.714408: Invalid arguments provided
+#> 2026-06-12 03:19:56.259344: Invalid arguments provided
 #> data frame with 0 columns and 0 rows
   try(ncaa_game_logs(player_id = 2680961, year = 2023, type = "batting", span = "game"))
-#> 2026-06-09 20:44:22.961334: Invalid arguments provided
+#> 2026-06-12 03:20:01.456378: Invalid arguments provided
 #> data frame with 0 columns and 0 rows
   try(ncaa_game_logs(player_id = 2486588, year = 2023, type = "batting", span = "career"))
-#> 2026-06-09 20:44:28.212001: Invalid arguments provided
+#> 2026-06-12 03:20:06.695405: Invalid arguments provided
 #> data frame with 0 columns and 0 rows
 # }
 ```

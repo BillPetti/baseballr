@@ -289,6 +289,43 @@ BibTex Citation
 
 # Package index
 
+## Fox Sports (Bifrost)
+
+### Fox Sports MLB Data Functions
+
+Read-only Fox Sports (Bifrost) MLB wrappers (roster, team stats, game
+log, standings, leaders, odds)
+
+- [`fox_mlb_league_leaders()`](https://billpetti.github.io/baseballr/reference/fox_mlb_league_leaders.md)
+  :
+
+  **Get Fox Sports MLB statistical leaders**
+
+- [`fox_mlb_odds()`](https://billpetti.github.io/baseballr/reference/fox_mlb_odds.md)
+  :
+
+  **Get Fox Sports MLB game odds**
+
+- [`fox_mlb_standings()`](https://billpetti.github.io/baseballr/reference/fox_mlb_standings.md)
+  :
+
+  **Get Fox Sports MLB standings**
+
+- [`fox_mlb_team_gamelog()`](https://billpetti.github.io/baseballr/reference/fox_mlb_team_gamelog.md)
+  :
+
+  **Get Fox Sports MLB team game log**
+
+- [`fox_mlb_team_roster()`](https://billpetti.github.io/baseballr/reference/fox_mlb_team_roster.md)
+  :
+
+  **Get Fox Sports MLB team roster**
+
+- [`fox_mlb_team_stats()`](https://billpetti.github.io/baseballr/reference/fox_mlb_team_stats.md)
+  :
+
+  **Get Fox Sports MLB team stat leaders**
+
 ## Baseball Savant (Statcast)
 
 ### Baseball Savant / Statcast Data Functions
