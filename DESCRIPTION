@@ -49,7 +49,7 @@ Suggests:
     future,
     ggrepel,
     knitr,
-    pacman,
+    pak,
     progressr (>= 0.6.0),
     reshape2,
     rmarkdown,

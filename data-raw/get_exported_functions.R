@@ -1,6 +1,6 @@
 library(pkgapi)
 library(tidyverse)
-pacman::p_load_current_gh("r-lib/pkgapi")
+pak::pak("r-lib/pkgapi")
 pkg <- pkgapi::map_package()
 function_calls <- pkg$calls
 exported <- pkg$defs %>% 

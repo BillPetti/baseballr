@@ -44,7 +44,6 @@ jobs:
             any::knitr
             any::mlbplotR
             any::oddsapiR
-            any::pacman
             any::pak
             any::ragg
             any::remotes

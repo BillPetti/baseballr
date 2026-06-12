@@ -14,11 +14,11 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-# You can install using the pacman package using the following code:
-# if (!requireNamespace('pacman', quietly = TRUE)){
-#   install.packages('pacman')
+# You can install using the pak package using the following code:
+# if (!requireNamespace('pak', quietly = TRUE)){
+#   install.packages('pak')
 # }
-# pacman::p_load_current_gh("r-lib/pkgapi")
+# pak::pak("r-lib/pkgapi")
 # library(pkgapi)
 # pkg <- pkgapi::map_package(path = "../")
 # library(dplyr)
@@ -72,11 +72,11 @@ I'm Saiem Gilani, one of the [authors](https://billpetti.github.io/baseballr/aut
 
 ## **Install** [**`baseballr`**](https://billpetti.github.io/baseballr/)
 ```{r install_baseballr_gs, message=FALSE,eval=FALSE}
-# You can install using the pacman package using the following code:
-if (!requireNamespace('pacman', quietly = TRUE)){
-  install.packages('pacman')
+# You can install using the pak package using the following code:
+if (!requireNamespace('pak', quietly = TRUE)){
+  install.packages('pak')
 }
-pacman::p_load_current_gh("billpetti/baseballr")
+pak::pak("billpetti/baseballr")
 ```
 
 ### **The Data**

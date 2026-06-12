@@ -3,12 +3,14 @@ output: github_document
 ---
 
 ```{r readme_setup, include = FALSE}
-# You can install using the pacman package using the following code:
-if (!requireNamespace('pacman', quietly = TRUE)){
-  install.packages('pacman')
+# Ensure the packages used in this README are installed (via pak) and loaded.
+if (!requireNamespace('pak', quietly = TRUE)){
+  install.packages('pak')
 }
-
-pacman::p_load(dplyr)
+if (!requireNamespace('dplyr', quietly = TRUE)){
+  pak::pak('dplyr')
+}
+library(dplyr)
 ```
 
 # 
@@ -56,11 +58,11 @@ install.packages("baseballr")
 You can install the released version of [**```baseballr```**](https://github.com/BillPetti/baseballr) from [GitHub](https://github.com/BillPetti/baseballr) with:
 
 ``` r
-# You can install using the pacman package using the following code:
-if (!requireNamespace('pacman', quietly = TRUE)){
-  install.packages('pacman')
+# You can install using the pak package using the following code:
+if (!requireNamespace('pak', quietly = TRUE)){
+  install.packages('pak')
 }
-pacman::p_load_current_gh("BillPetti/baseballr")
+pak::pak("BillPetti/baseballr")
 ```
 
 ``` r
