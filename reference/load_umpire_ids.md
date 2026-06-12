@@ -29,7 +29,7 @@ Function returns a tibble with the following columns:
 # \donttest{
   try(load_umpire_ids())
 #> ── MLB Umpire IDs data from baseballr-data repository ──────────────────
-#> ℹ Data updated: 2026-06-12 11:23:33 UTC
+#> ℹ Data updated: 2026-06-12 11:42:17 UTC
 #> # A tibble: 140,609 × 5
 #>        id position name           game_pk game_date 
 #>     <int> <chr>    <chr>            <int> <IDate>   

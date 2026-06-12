@@ -123,7 +123,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_game_team_score(event_id = "401778093", team_id = "113"))
 #> ── ESPN COLLEGE-BASEBALL Event Competitor Score ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 11:21:43 UTC
+#> ℹ Data updated: 2026-06-12 11:40:30 UTC
 #> # A tibble: 1 × 8
 #>   league           event_id team_id value display_value winner source_id
 #>   <chr>            <chr>    <chr>   <dbl> <chr>         <lgl>  <chr>    

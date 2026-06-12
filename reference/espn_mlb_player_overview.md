@@ -194,12 +194,12 @@ Saiem Gilani
   espn_mlb_player_overview(athlete_id = "1966", season = 2024)
 #> $Statistics
 #> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-06-12 11:22:28 UTC
+#> ℹ Data updated: 2026-06-12 11:41:15 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-06-12 11:22:28 UTC
+#> ℹ Data updated: 2026-06-12 11:41:15 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -207,32 +207,32 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-06-12 11:22:28 UTC
+#> ℹ Data updated: 2026-06-12 11:41:15 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-06-12 11:22:28 UTC
+#> ℹ Data updated: 2026-06-12 11:41:15 UTC
 #> # A tibble: 13 × 5
 #>    headline                           description published byline type 
 #>    <chr>                              <chr>       <chr>     <chr>  <chr>
-#>  1 2026 MLB ABS challenge system tra… "The ABS c… 2026-06-… ESPN   Story
-#>  2 Dodgers' Ohtani exits early with … "Dodgers s… 2026-06-… NA     Head…
-#>  3 Braves-White Sox postponed by rai… "The Atlan… 2026-06-… NA     Head…
-#>  4 Phillies add outfield depth, acqu… "The Phill… 2026-06-… NA     Head…
-#>  5 Dodgers' catcher Will Smith on in… "The Los A… 2026-06-… NA     Head…
-#>  6 Kennedy: Red Sox's season 'embarr… "Red Sox p… 2026-06-… NA     Head…
-#>  7 Fantasy baseball lineup advice fo… "Everythin… 2026-06-… ESPN … Story
-#>  8 Red Sox's Aroldis Chapman says Ya… "If the Ya… 2026-06-… Enriq… Head…
-#>  9 Tarik Skubal returning to Tigers'… "Tarik Sku… 2026-06-… NA     Head…
-#> 10 Buxton hits 50 HRs? Goodman break… "Eric Kara… 2026-06-… Eric … Story
-#> 11 Dodgers star Mookie Betts guest s… "Unsurpris… 2026-06-… ESPN   Story
-#> 12 Fantasy baseball forecaster: Team… "Stay ahea… 2026-06-… Trist… Story
-#> 13 Fantasy baseball forecaster: Pitc… "Keep up t… 2026-06-… Trist… Story
+#>  1 MLB betting tips for Friday: Harp… "All of th… 2026-06-… Derek… Story
+#>  2 2026 Men's College World Series: … "From an S… 2026-06-… Kiley… Story
+#>  3 Early verdict on 2026 MLB disappo… "A number … 2026-06-… David… Story
+#>  4 2026 MLB ABS challenge system tra… "The ABS c… 2026-06-… ESPN   Story
+#>  5 Dodgers' Ohtani exits early with … "Dodgers s… 2026-06-… NA     Head…
+#>  6 Braves-White Sox postponed by rai… "The Atlan… 2026-06-… NA     Head…
+#>  7 Phillies add outfield depth, acqu… "The Phill… 2026-06-… NA     Head…
+#>  8 Dodgers' catcher Will Smith on in… "The Los A… 2026-06-… NA     Head…
+#>  9 Kennedy: Red Sox's season 'embarr… "Red Sox p… 2026-06-… NA     Head…
+#> 10 Fantasy baseball lineup advice fo… "Everythin… 2026-06-… ESPN … Story
+#> 11 Red Sox's Aroldis Chapman says Ya… "If the Ya… 2026-06-… Enriq… Head…
+#> 12 Tarik Skubal returning to Tigers'… "Tarik Sku… 2026-06-… NA     Head…
+#> 13 Buxton hits 50 HRs? Goodman break… "Eric Kara… 2026-06-… Eric … Story
 #> 
 #> $FantasyOutlook
 #> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────
-#> ℹ Data updated: 2026-06-12 11:22:28 UTC
+#> ℹ Data updated: 2026-06-12 11:41:15 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

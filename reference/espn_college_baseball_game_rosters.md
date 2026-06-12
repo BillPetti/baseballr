@@ -279,7 +279,7 @@ Saiem Gilani
 # \donttest{
 try(espn_college_baseball_game_rosters(game_id = "401778093"))
 #> ── ESPN College Baseball Game Roster Information from ESPN.com ─────────
-#> ℹ Data updated: 2026-06-12 11:21:40 UTC
+#> ℹ Data updated: 2026-06-12 11:40:28 UTC
 #> # A tibble: 18 × 145
 #>    athlete_id athlete_uid    athlete_type first_name last_name full_name
 #>         <int> <chr>          <chr>        <chr>      <chr>     <chr>    

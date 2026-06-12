@@ -164,11 +164,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_game_play_personnel(event_id = 401283399, play_id = 4012833994)
-#> ✖ 2026-06-12 11:22:17.886247: Failed to retrieve ESPN mlb play personnel for event_id=401283399, play_id=4012833994
+#> ✖ 2026-06-12 11:41:05.080238: Failed to retrieve ESPN mlb play personnel for event_id=401283399, play_id=4012833994
 #> ✖ Args: league = "mlb", event_id = 401283399, play_id = 4012833994
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN MLB Event Play Personnel ──────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 11:22:17 UTC
+#> ℹ Data updated: 2026-06-12 11:41:05 UTC
 #> # A tibble: 0 × 0
 # }
 ```

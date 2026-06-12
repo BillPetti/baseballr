@@ -36,11 +36,11 @@ You can install the released version of
 
 ``` r
 
-# You can install using the pacman package using the following code:
-if (!requireNamespace('pacman', quietly = TRUE)){
-  install.packages('pacman')
+# You can install using the pak package using the following code:
+if (!requireNamespace('pak', quietly = TRUE)){
+  install.packages('pak')
 }
-pacman::p_load_current_gh("BillPetti/baseballr")
+pak::pak("BillPetti/baseballr")
 ```
 
 ``` r
@@ -82,7 +82,7 @@ bref_standings_on_date("2015-08-01", "NL East", from = FALSE)
 ``` R
 ## ── MLB Standings on Date data from baseball-reference.com ─── baseballr 2.0.0 ──
 
-## ℹ Data updated: 2026-06-12 07:10:27 EDT
+## ℹ Data updated: 2026-06-12 07:31:45 EDT
 
 ## # A tibble: 5 × 8
 ##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`
@@ -213,7 +213,7 @@ bref_daily_pitcher("2015-04-05", "2015-04-30") %>%
 ``` R
 ## ── MLB Daily Pitcher data from baseball-reference.com ─────── baseballr 2.0.0 ──
 
-## ℹ Data updated: 2026-06-12 07:13:24 EDT
+## ℹ Data updated: 2026-06-12 07:34:40 EDT
 
 ## # A tibble: 10 × 11
 ##    season Name               IP   ERA    SO   uBB   HBP    HR   FIP wOBA_against

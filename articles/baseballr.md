@@ -40,11 +40,11 @@ to show you some of what you can do with this edition of the package.
 
 ``` r
 
-# You can install using the pacman package using the following code:
-if (!requireNamespace('pacman', quietly = TRUE)){
-  install.packages('pacman')
+# You can install using the pak package using the following code:
+if (!requireNamespace('pak', quietly = TRUE)){
+  install.packages('pak')
 }
-pacman::p_load_current_gh("billpetti/baseballr")
+pak::pak("billpetti/baseballr")
 ```
 
 ### **The Data**

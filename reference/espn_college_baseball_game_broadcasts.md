@@ -121,7 +121,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_game_broadcasts(event_id = "401778093"))
 #> ── ESPN COLLEGE-BASEBALL Event Broadcasts (event_id=401778093) from ESPN
-#> ℹ Data updated: 2026-06-12 11:21:37 UTC
+#> ℹ Data updated: 2026-06-12 11:40:24 UTC
 #> # A tibble: 2 × 10
 #>   event_id broadcast_id type_id type_short_name type_long_name market_id
 #>   <chr>    <chr>        <chr>   <chr>           <chr>          <chr>    
