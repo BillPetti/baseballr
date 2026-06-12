@@ -27,7 +27,7 @@ Returns a tibble with the following columns:
 # \donttest{
   try(mlb_baseball_stats())
 #> ── MLB Baseball Stats data from MLB.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 12:15:39 UTC
+#> ℹ Data updated: 2026-06-12 12:24:37 UTC
 #> # A tibble: 324 × 5
 #>    stat_name        stat_lookup_param is_counting stat_label stat_group
 #>    <chr>            <chr>             <lgl>       <chr>      <chr>     

@@ -194,14 +194,14 @@ Other ESPN MLB Functions:
 ``` r
 # \donttest{
 espn_mlb_wp(game_id = 401283399)
-#> ✖ 2026-06-12 12:14:56.052499: game_id '401283399' invalid or no ESPN win probability data available!
+#> ✖ 2026-06-12 12:23:58.908828: game_id '401283399' invalid or no ESPN win probability data available!
 #> ✖ Args: game_id = 401283399
 #> ✖ Error: `clean_names()` requires that either names or dimnames be non-null.
 #> $code
 #> [1] 404
 #> 
 #> $message
-#> [1] "Error invoking GET: http://sports.core.api.espn.pvt/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/status, status=404, duration=2 ms, message=null, cache=CACHE_MISS"
+#> [1] "Error invoking GET: http://sports.core.api.espn.pvt/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/status, status=404, duration=3 ms, message=null, cache=CACHE_MISS"
 #> 
 # }
 ```

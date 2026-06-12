@@ -158,12 +158,12 @@ Saiem Gilani
   try(espn_college_baseball_player_overview(athlete_id = "3730", season = 2025))
 #> $Statistics
 #> ── ESPN COLLEGE-BASEBALL Athlete Overview Statistics from ESPN.com ─────
-#> ℹ Data updated: 2026-06-12 12:14:05 UTC
+#> ℹ Data updated: 2026-06-12 12:23:06 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN COLLEGE-BASEBALL Athlete Overview NextGame from ESPN.com ───────
-#> ℹ Data updated: 2026-06-12 12:14:05 UTC
+#> ℹ Data updated: 2026-06-12 12:23:06 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -171,17 +171,17 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN COLLEGE-BASEBALL Athlete Overview Last5Games from ESPN.com ─────
-#> ℹ Data updated: 2026-06-12 12:14:05 UTC
+#> ℹ Data updated: 2026-06-12 12:23:06 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN COLLEGE-BASEBALL Athlete Overview Headlines from ESPN.com ──────
-#> ℹ Data updated: 2026-06-12 12:14:05 UTC
+#> ℹ Data updated: 2026-06-12 12:23:06 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $FantasyOutlook
 #> ── ESPN COLLEGE-BASEBALL Athlete Overview FantasyOutlook from ESPN.com ─
-#> ℹ Data updated: 2026-06-12 12:14:05 UTC
+#> ℹ Data updated: 2026-06-12 12:23:06 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

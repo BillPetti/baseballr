@@ -145,11 +145,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_player_gamelog(athlete_id = "3730", season = 2025))
-#> ✖ 2026-06-12 12:14:05.051382: Failed to retrieve ESPN college-baseball athlete gamelog for athlete_id=3730, season=2025
+#> ✖ 2026-06-12 12:23:06.10463: Failed to retrieve ESPN college-baseball athlete gamelog for athlete_id=3730, season=2025
 #> ✖ Args: league = "college-baseball", athlete_id = "3730", season = 2025
 #> ✖ Error: The API returned an error, HTTP Response Code 500
 #> ── ESPN COLLEGE-BASEBALL Athlete Gamelog from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-06-12 12:14:04 UTC
+#> ℹ Data updated: 2026-06-12 12:23:05 UTC
 #> # A tibble: 0 × 0
 # }
 ```

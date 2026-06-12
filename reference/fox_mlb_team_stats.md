@@ -24,7 +24,7 @@ A `baseballr_data` tibble: `team_id`, `category`, `stat`,
 ``` r
  try(fox_mlb_team_stats("1")) 
 #> ── Fox Sports MLB team_stats ──────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 12:15:22 UTC
+#> ℹ Data updated: 2026-06-12 12:24:19 UTC
 #> # A tibble: 29 × 6
 #>    team_id category     stat              stat_abbreviation player value
 #>    <chr>   <chr>        <chr>             <chr>             <chr>  <chr>

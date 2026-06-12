@@ -30,7 +30,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_situation_codes())
 #> ── MLB Situation Codes data from MLB.com ──────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 12:16:10 UTC
+#> ℹ Data updated: 2026-06-12 12:25:08 UTC
 #> # A tibble: 602 × 8
 #>    situation_code sort_order navigation_menu situation_code_description
 #>    <chr>               <int> <chr>           <chr>                     

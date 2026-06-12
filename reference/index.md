@@ -2,6 +2,9 @@
 
 ## Fox Sports (Bifrost)
 
+Read-only Fox Sports (Bifrost) MLB wrappers (roster, team stats, game
+log, standings, leaders, odds)
+
 ### Fox Sports MLB Data Functions
 
 Read-only Fox Sports (Bifrost) MLB wrappers (roster, team stats, game
@@ -39,6 +42,9 @@ log, standings, leaders, odds)
 
 ## Baseball Savant (Statcast)
 
+Functions exported by baseballr to access Baseball Savant (Statcast) MLB
+Data
+
 ### Baseball Savant / Statcast Data Functions
 
 Functions exported by baseballr to access Baseball Savant (Statcast) MLB
@@ -68,6 +74,8 @@ Data
   **Query Statcast by Date Range and Players**
 
 ## Baseball Savant Helpers
+
+Functions exported by baseballr to process Baseball Savant MLB Data
 
 ### Baseball Savant MLB Helper Functions
 
@@ -110,6 +118,9 @@ Functions exported by baseballr to process Baseball Savant MLB Data
   data**
 
 ## baseballr Data Repository
+
+Functions exported by baseballr to access data hosted in the baseballr
+data repository
 
 ### baseballr Data Repository Loader Functions
 
@@ -159,6 +170,8 @@ data repository
   since 2008**
 
 ## NCAA Baseball
+
+Functions exported by baseballr to access NCAA Baseball Data
 
 ### NCAA Baseball Data Functions
 
@@ -233,6 +246,8 @@ Functions exported by baseballr to access NCAA Baseball Data
 
 ## Retrosheet
 
+Functions exported by baseballr to access Retrosheet Data
+
 ### Retrosheet Data Functions
 
 Functions exported by baseballr to access Retrosheet Data
@@ -243,6 +258,8 @@ Functions exported by baseballr to access Retrosheet Data
   **Get, Parse, and Format Retrosheet Event and Roster Files**
 
 ## FanGraphs
+
+Functions exported by baseballr to access FanGraphs’ MLB and MiLB Data
 
 ### FanGraphs MLB and MiLB Data Functions
 
@@ -326,6 +343,8 @@ Functions exported by baseballr to access FanGraphs’ MLB and MiLB Data
 
 ## Baseball Reference
 
+Functions exported by baseballr to access Baseball Reference’s MLB Data
+
 ### Baseball Reference MLB Data Functions
 
 Functions exported by baseballr to access Baseball Reference’s MLB Data
@@ -355,6 +374,9 @@ Functions exported by baseballr to access Baseball Reference’s MLB Data
   **Scrape Team Results**
 
 ## Chadwick Bureau Player Lookup
+
+Functions exported by baseballr to access baseball player information
+from the Chadwick Bureau’s Public Register of Baseball Players
 
 ### Chadwick Bureau Player Lookup Functions
 
@@ -391,6 +413,8 @@ from the Chadwick Bureau’s Public Register of Baseball Players
 
 ## Spotrac
 
+Functions exported by baseballr to access Spotrac Contracts Data
+
 ### MLB Contracts Data functions
 
 Functions exported by baseballr to access Spotrac Contracts Data
@@ -419,6 +443,9 @@ Functions exported by baseballr to access Spotrac Contracts Data
   **MLB Functions Overview**
 
 ## MLB Stats - Types and Codes
+
+Functions exported by baseballr to access MLB Stats - Types and Codes
+Data
 
 ### MLB Stats - Types and Codes Data Functions
 
@@ -557,6 +584,8 @@ Data
 
 ## MLB Stats - Game
 
+Functions exported by baseballr to access MLB Stats - Game Data
+
 ### MLB Stats - Game Data Functions
 
 Functions exported by baseballr to access MLB Stats - Game Data
@@ -693,6 +722,8 @@ Functions exported by baseballr to access MLB Stats - Game Data
 
 ## MLB Stats - Players
 
+Functions exported by baseballr to access MLB Stats - Player Data
+
 ### MLB Stats - Player Data Functions
 
 Functions exported by baseballr to access MLB Stats - Player Data
@@ -744,6 +775,8 @@ Functions exported by baseballr to access MLB Stats - Player Data
   **MLB Stats Leaders**
 
 ## MLB Stats - Teams
+
+Functions exported by baseballr to access MLB Stats - Teams Data
 
 ### MLB Stats - Teams Data Functions
 
@@ -818,6 +851,8 @@ Functions exported by baseballr to access MLB Stats - Teams Data
 
 ## MLB Stats - Standings
 
+Functions exported by baseballr to access MLB Stats - Standings Data
+
 ### MLB Stats - Standings Data Functions
 
 Functions exported by baseballr to access MLB Stats - Standings Data
@@ -833,6 +868,8 @@ Functions exported by baseballr to access MLB Stats - Standings Data
   **MLB Standings Types**
 
 ## MLB Stats - League
+
+Functions exported by baseballr to access MLB Stats - League Data
 
 ### MLB Stats - League Data Functions
 
@@ -875,6 +912,8 @@ Functions exported by baseballr to access MLB Stats - League Data
 
 ## MLB Stats - Draft
 
+Functions exported by baseballr to access MLB Stats - Draft Data
+
 ### MLB Stats - Draft Data Functions
 
 Functions exported by baseballr to access MLB Stats - Draft Data
@@ -901,6 +940,8 @@ Functions exported by baseballr to access MLB Stats - Draft Data
   **Retrieve draft prospect information by year**
 
 ## MLB Stats - Awards
+
+Functions exported by baseballr to access MLB Stats - Awards Data
 
 ### MLB Stats - Awards Data Functions
 
@@ -967,6 +1008,8 @@ Functions exported by baseballr to access MLB Stats - Awards Data
 
 ## MLB Stats - Jobs
 
+Functions exported by baseballr to access MLB Stats - Jobs Data
+
 ### MLB Stats - Jobs Data Functions
 
 Functions exported by baseballr to access MLB Stats - Jobs Data
@@ -1003,6 +1046,11 @@ Functions exported by baseballr to access MLB Stats - Jobs Data
   **MLB Jobs Umpires**
 
 ## ESPN MLB
+
+Functions exported by baseballr to access ESPN’s Major League Baseball
+endpoints (scoreboard, schedule, game summary / play-by-play, box
+scores, teams, rosters, standings, athletes, leaders, draft, and
+reference data).
 
 ### ESPN MLB Data Functions
 
@@ -1574,6 +1622,12 @@ reference data).
 
 ## ESPN College Baseball
 
+Functions exported by baseballr to access ESPN’s NCAA college baseball
+endpoints (scoreboard, schedule, game summary / play-by-play, box
+scores, teams, rosters, standings, athletes, leaders, conferences,
+rankings, and reference data). Thin twins of the ESPN MLB family over
+the same league-parameterized helpers.
+
 ### ESPN College Baseball Data Functions
 
 Functions exported by baseballr to access ESPN’s NCAA college baseball
@@ -1945,6 +1999,8 @@ the same league-parameterized helpers.
 
 ## Metrics
 
+Functions exported by baseballr to calculate metrics
+
 ### Metrics Functions
 
 Functions exported by baseballr to calculate metrics
@@ -1977,6 +2033,8 @@ Functions exported by baseballr to calculate metrics
 
 ## Visualizations
 
+Functions exported by baseballr to create visuals
+
 ### Visualizations Functions
 
 Functions exported by baseballr to create visuals
@@ -1987,6 +2045,8 @@ Functions exported by baseballr to create visuals
   **Generate spray charts with ggplot2**
 
 ## Included Data
+
+Data exported by baseballr for ease of use
 
 ### Included baseballr data
 
@@ -2047,6 +2107,8 @@ Data exported by baseballr for ease of use
   **Retry an http request (with optional proxy) and rate-limit**
 
 ## Legacy
+
+Functions superseded by new naming convention
 
 ### Legacy Functions
 
