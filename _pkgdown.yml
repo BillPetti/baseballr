@@ -198,7 +198,7 @@ navbar:
       - text: "Data Repository"
         href: https://github.com/sportsdataverse/baseballr-data
     x:
-      icon: "fa-x-twitter"
+      icon: "fab fa-x-twitter fa-lg"
       href: https://x.com/BillPetti
       aria-label: X (Twitter)
 repo:
