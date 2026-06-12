@@ -130,11 +130,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_season_group_teams(group_id = 5, season = 2025))
-#> ✖ 2026-06-12 13:44:42.388157: Failed to retrieve ESPN college-baseball group 5 teams
+#> ✖ 2026-06-12 14:08:01.709641: Failed to retrieve ESPN college-baseball group 5 teams
 #> ✖ Args: league = "college-baseball", season = 2025, season_type = 2L, group_id = 5
 #> ✖ Error: The API returned an error, HTTP Response Code 500
 #> ── ESPN COLLEGE-BASEBALL Season Group Teams Index ─── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 13:44:42 UTC
+#> ℹ Data updated: 2026-06-12 14:08:01 UTC
 #> # A tibble: 0 × 0
 # }
 ```

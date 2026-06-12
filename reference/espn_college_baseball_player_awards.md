@@ -118,7 +118,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_player_awards(athlete_id = "3730"))
 #> ── ESPN COLLEGE-BASEBALL Athlete Awards from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-06-12 13:44:38 UTC
+#> ℹ Data updated: 2026-06-12 14:07:57 UTC
 #> # A tibble: 0 × 6
 #> # ℹ 6 variables: season <chr>, award_id <chr>, name <chr>,
 #> #   description <chr>, date <chr>, type <chr>

@@ -24,7 +24,7 @@ standings columns, `entity_id`).
 ``` r
  try(fox_mlb_standings("1")) 
 #> ── Fox Sports MLB standings ───────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 13:45:52 UTC
+#> ℹ Data updated: 2026-06-12 14:09:05 UTC
 #> # A tibble: 90 × 24
 #>    team_id section  al_east v2       w_l   pct   gb    home  away  rs   
 #>    <chr>   <chr>    <chr>   <chr>    <chr> <chr> <chr> <chr> <chr> <chr>

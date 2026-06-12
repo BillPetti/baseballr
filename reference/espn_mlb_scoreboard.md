@@ -204,7 +204,7 @@ Other ESPN MLB Functions:
 # \donttest{
 try(espn_mlb_scoreboard(season = 20230423))
 #> ── ESPN MLB Scoreboard Information from ESPN.com ──── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 13:45:13 UTC
+#> ℹ Data updated: 2026-06-12 14:08:30 UTC
 #> # A tibble: 15 × 60
 #>    matchup matchup_short season season_type season_slug game_id game_uid
 #>    <chr>   <chr>          <int>       <int> <chr>         <int> <chr>   

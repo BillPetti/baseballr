@@ -138,11 +138,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_college_baseball_team_season_statistics(team_id = 59, season = 2025)
-#> ✖ 2026-06-12 13:44:50.915013: Failed to retrieve ESPN college-baseball team season statistics for team_id=59, season=2025, season_type=2
+#> ✖ 2026-06-12 14:08:10.681682: Failed to retrieve ESPN college-baseball team season statistics for team_id=59, season=2025, season_type=2
 #> ✖ Args: league = "college-baseball", team_id = 59, season = 2025, season_type = 2L
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN COLLEGE-BASEBALL Team Season Statistics ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 13:44:50 UTC
+#> ℹ Data updated: 2026-06-12 14:08:10 UTC
 #> # A tibble: 0 × 0
 # }
 ```

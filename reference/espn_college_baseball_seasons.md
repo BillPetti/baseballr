@@ -116,7 +116,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_seasons())
 #> ── ESPN COLLEGE-BASEBALL Seasons from ESPN.com ────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 13:44:46 UTC
+#> ℹ Data updated: 2026-06-12 14:08:06 UTC
 #> # A tibble: 1 × 5
 #>   season start_date end_date display_name season_type_count
 #>    <int> <chr>      <chr>    <chr>                    <int>

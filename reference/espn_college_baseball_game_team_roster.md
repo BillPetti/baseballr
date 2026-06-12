@@ -127,7 +127,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_game_team_roster(event_id = "401778093", team_id = "113"))
 #> ── ESPN COLLEGE-BASEBALL Competitor Roster ────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 13:44:35 UTC
+#> ℹ Data updated: 2026-06-12 14:07:54 UTC
 #> # A tibble: 0 × 5
 #> # ℹ 5 variables: league <chr>, event_id <chr>, team_id <chr>,
 #> #   athlete_id <chr>, ref <chr>

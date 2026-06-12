@@ -135,7 +135,7 @@ Saiem Gilani
 # \donttest{
   espn_college_baseball_team_roster(team_id = "59", season = 2025)
 #> ── ESPN COLLEGE-BASEBALL Team Roster from ESPN.com ── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 13:44:49 UTC
+#> ℹ Data updated: 2026-06-12 14:08:09 UTC
 #> # A tibble: 100 × 15
 #>    athlete_id full_name      jersey position_abbrev position_name height
 #>    <chr>      <chr>          <chr>  <chr>           <chr>         <chr> 
