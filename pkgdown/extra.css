@@ -232,19 +232,19 @@ a {
 [data-bs-theme="dark"] aside {
   color: #D5E3F1;
 }
-[data-bs-theme="dark"] #main h1,
-[data-bs-theme="dark"] #main h2,
-[data-bs-theme="dark"] #main h3,
-[data-bs-theme="dark"] #main h4,
-[data-bs-theme="dark"] #main h5,
-[data-bs-theme="dark"] #main h6,
-[data-bs-theme="dark"] #main .h1,
-[data-bs-theme="dark"] #main .h2,
-[data-bs-theme="dark"] #main .h3,
-[data-bs-theme="dark"] #main .h4 {
+[data-bs-theme="dark"] :is(#main, aside) h1,
+[data-bs-theme="dark"] :is(#main, aside) h2,
+[data-bs-theme="dark"] :is(#main, aside) h3,
+[data-bs-theme="dark"] :is(#main, aside) h4,
+[data-bs-theme="dark"] :is(#main, aside) h5,
+[data-bs-theme="dark"] :is(#main, aside) h6,
+[data-bs-theme="dark"] :is(#main, aside) .h1,
+[data-bs-theme="dark"] :is(#main, aside) .h2,
+[data-bs-theme="dark"] :is(#main, aside) .h3,
+[data-bs-theme="dark"] :is(#main, aside) .h4 {
   color: #D5E3F1;
 }
-[data-bs-theme="dark"] #main a,
+[data-bs-theme="dark"] :is(#main, aside) a,
 [data-bs-theme="dark"] aside a,
 [data-bs-theme="dark"] .links {
   color: #80AAD6;
