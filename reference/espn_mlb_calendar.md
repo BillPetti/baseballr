@@ -170,7 +170,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_calendar(season = 2025)
 #> ── ESPN MLB Calendar from ESPN.com ────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 11:40:57 UTC
+#> ℹ Data updated: 2026-06-12 11:55:25 UTC
 #> # A tibble: 56 × 12
 #>    season season_type season_type_label season_start_date
 #>    <chr>  <chr>       <chr>             <chr>            

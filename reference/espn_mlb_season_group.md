@@ -184,7 +184,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_season_group(group_id = 5, season = 2025)
 #> ── ESPN MLB Season Group Detail ───────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 11:41:19 UTC
+#> ℹ Data updated: 2026-06-12 11:55:45 UTC
 #> # A tibble: 1 × 15
 #>   league season season_type group_id uid   name  abbreviation short_name
 #>   <chr>   <int>       <int> <chr>    <chr> <chr> <chr>        <chr>     

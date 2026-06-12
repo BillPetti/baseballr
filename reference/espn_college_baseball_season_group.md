@@ -139,11 +139,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_season_group(group_id = 5, season = 2025))
-#> ✖ 2026-06-12 11:40:38.721344: Failed to retrieve ESPN college-baseball group 5 for season=2025
+#> ✖ 2026-06-12 11:55:09.195782: Failed to retrieve ESPN college-baseball group 5 for season=2025
 #> ✖ Args: league = "college-baseball", season = 2025, season_type = 2L, group_id = 5
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN COLLEGE-BASEBALL Season Group Detail ──────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 11:40:38 UTC
+#> ℹ Data updated: 2026-06-12 11:55:09 UTC
 #> # A tibble: 0 × 0
 # }
 ```

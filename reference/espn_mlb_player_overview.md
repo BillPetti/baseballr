@@ -194,12 +194,12 @@ Saiem Gilani
   espn_mlb_player_overview(athlete_id = "1966", season = 2024)
 #> $Statistics
 #> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-06-12 11:41:15 UTC
+#> ℹ Data updated: 2026-06-12 11:55:40 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-06-12 11:41:15 UTC
+#> ℹ Data updated: 2026-06-12 11:55:40 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -207,12 +207,12 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-06-12 11:41:15 UTC
+#> ℹ Data updated: 2026-06-12 11:55:40 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-06-12 11:41:15 UTC
+#> ℹ Data updated: 2026-06-12 11:55:40 UTC
 #> # A tibble: 13 × 5
 #>    headline                           description published byline type 
 #>    <chr>                              <chr>       <chr>     <chr>  <chr>
@@ -232,7 +232,7 @@ Saiem Gilani
 #> 
 #> $FantasyOutlook
 #> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────
-#> ℹ Data updated: 2026-06-12 11:41:15 UTC
+#> ℹ Data updated: 2026-06-12 11:55:40 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

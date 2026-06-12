@@ -77,7 +77,7 @@ Returns a tibble with the following columns:
 # \donttest{
  try(mlb_all_star_write_ins(league_id = 103, season = 2021))
 #> ── MLB All-Star Write-Ins data from MLB.com ───────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 11:42:19 UTC
+#> ℹ Data updated: 2026-06-12 11:56:45 UTC
 #> # A tibble: 490 × 45
 #>    player_id full_name      link     first_name last_name primary_number
 #>        <int> <chr>          <chr>    <chr>      <chr>     <chr>         

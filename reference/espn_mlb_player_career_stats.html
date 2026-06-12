@@ -27,7 +27,7 @@ and 2 is sparse — many athletes only have type 0 populated.'><meta property="o
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
-      <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="../index.html" title="An R package to quickly obtain clean and tidy men's baseball play by play data"><span class="fa fa-home"></span></a></li>
+      <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="../index.html" title="An R package to quickly obtain clean and tidy men's baseball play by play data" aria-label="Home"><span class="fa fa-home"></span></a></li>
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--funcs" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-code"></span>  Funcs</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown--funcs"><li><a class="dropdown-item" href="../reference/index.html">Function Index</a></li>
@@ -102,7 +102,7 @@ and 2 is sparse — many athletes only have type 0 populated.'><meta property="o
   <ul class="dropdown-menu" aria-labelledby="dropdown--data"><li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/baseballr-data">Data Repository</a></li>
   </ul></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><a class="external-link nav-link" href="http://twitter.com/BillPetti" aria-label="Twitter"><span class="fa fa-twitter"></span></a></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/billpetti/baseballr/"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/billpetti/baseballr/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
 
@@ -281,7 +281,7 @@ Pass a vector like <code>c(0L, 1L, 2L)</code> to bind multiple types via a
 <span class="r-in"><span>  <span class="co"># Aaron Judge — regular + postseason combined</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_mlb_player_career_stats</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="fl">33192</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Athlete Career Stats ──────────────────── <span style="font-style: italic;">baseballr 2.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-12 11:41:12 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-12 11:55:38 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 94 × 17</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    league athlete_id stat_type_id split_id split_name split_type</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
@@ -303,7 +303,7 @@ Pass a vector like <code>c(0L, 1L, 2L)</code> to bind multiple types via a
 <span class="r-in"><span>  <span class="co"># Just career aggregate</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_mlb_player_career_stats</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="fl">33192</span>, stat_type <span class="op">=</span> <span class="fl">2L</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Athlete Career Stats ──────────────────── <span style="font-style: italic;">baseballr 2.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-12 11:41:12 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-12 11:55:38 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 59 × 17</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    league athlete_id stat_type_id split_id split_name     split_type</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>

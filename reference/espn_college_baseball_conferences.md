@@ -107,10 +107,10 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_conferences())
-#> ✖ 2026-06-12 11:40:22.150808: Invalid arguments or no conferences info available!
+#> ✖ 2026-06-12 11:54:53.76568: Invalid arguments or no conferences info available!
 #> ✖ Error: The API returned an error, HTTP Response Code 400
 #> ── ESPN College Baseball Conferences Information from ESPN.com ─────────
-#> ℹ Data updated: 2026-06-12 11:40:22 UTC
+#> ℹ Data updated: 2026-06-12 11:54:53 UTC
 #> # A tibble: 0 × 7
 #> # ℹ 7 variables: group_id <chr>, conference_short_name <chr>,
 #> #   conference_uid <chr>, conference_name <chr>, conference_logo <chr>,

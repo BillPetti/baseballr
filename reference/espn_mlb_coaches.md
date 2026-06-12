@@ -163,7 +163,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_coaches(season = 2025)
 #> ── ESPN MLB Coaches from ESPN.com ─────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 11:40:58 UTC
+#> ℹ Data updated: 2026-06-12 11:55:26 UTC
 #> # A tibble: 30 × 6
 #>    coach_id first_name last_name full_name experience team_id
 #>    <chr>    <chr>      <chr>     <chr>          <int> <chr>  

@@ -125,7 +125,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_season_weeks(season = 2025))
 #> ── ESPN COLLEGE-BASEBALL Season Weeks Index ───────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 11:40:44 UTC
+#> ℹ Data updated: 2026-06-12 11:55:14 UTC
 #> # A tibble: 0 × 5
 #> # ℹ 5 variables: league <chr>, season <int>, season_type <int>,
 #> #   week <int>, ref <chr>
