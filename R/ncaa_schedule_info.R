@@ -73,25 +73,31 @@ ncaa_schedule_info <- function(team_id = NULL, year = NULL, pbp_links = FALSE, .
         xml2::read_html()
       
       if (year > 2018) {
-        sched_html <- payload %>%
-          rvest::html_elements("fieldset") %>%
-          rvest::html_elements("table")
+        # The stats.ncaa.org team-page redesign (2024) moved the schedule out of
+        # the old <fieldset><table> wrapper into a plain <table>. Select the
+        # schedule table by its header columns (Date + Opponent/Result) so the
+        # parser is resilient to that layout change (the per-cell structure --
+        # Date / Opponent(link) / Result(box-score link) / Attendance -- is
+        # unchanged, so the downstream slug extraction below still applies).
+        all_tables <- payload %>% rvest::html_elements("table")
+        is_sched <- vapply(all_tables, function(t) {
+          hdr <- tryCatch(names(rvest::html_table(t)), error = function(e) character(0))
+          ("Date" %in% hdr) && (("Opponent" %in% hdr) || ("Result" %in% hdr))
+        }, logical(1))
+        sched_html <- all_tables[is_sched]
         if (length(sched_html) == 0){
-          sched <- data.frame()          
+          sched <- data.frame()
           cli::cli_warn(glue::glue("No NCAA Schedule Information found for params (team_id: {team_id}, year = {year})"))
           return(sched)
         }
+        sched_html <- sched_html[1]
         grey_heading <- sched_html %>%
           rvest::html_elements(".grey_heading")
         xml2::xml_remove(grey_heading)
-        
-        sched_1 <- (payload %>%
-                      rvest::html_elements("fieldset") %>%
-                      rvest::html_elements("table")) [[1]] %>%
+
+        sched_1 <- sched_html[[1]] %>%
           rvest::html_elements("tr")
-        sched_2 <- (payload %>%
-                      rvest::html_elements("fieldset") %>%
-                      rvest::html_elements("table") %>% 
+        sched_2 <- (sched_html %>%
                       rvest::html_table())[[1]]
         if (nrow(sched_2) > 1) {
           sched_1 <- sched_1[2:length(sched_1)]

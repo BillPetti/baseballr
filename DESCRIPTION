@@ -41,6 +41,7 @@ Imports:
     tibble (>= 3.0),
     tidyr (>= 1.0.0)
 Suggests:
+    chromote,
     crayon (>= 1.3.4),
     curl,
     DBI,
