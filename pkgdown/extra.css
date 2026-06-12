@@ -221,3 +221,31 @@ a {
      text-shadow: 0 0 10px #07C8F9, 0 0 11px #07C8F9;
     }
   }
+
+/* ── Dark-mode legibility ──────────────────────────────────────────────────
+   The text/heading colours above are hardcoded #0f0f0f for the light theme and
+   are invisible on the dark page. These rules apply ONLY in dark mode
+   ([data-bs-theme="dark"]) and only to page content (#main / aside), so the
+   light theme, fonts, glow, navbar and dropdowns are untouched. Colours are
+   from this site's own palette (beau-blue / iceberg). */
+[data-bs-theme="dark"] body,
+[data-bs-theme="dark"] aside {
+  color: #D5E3F1;
+}
+[data-bs-theme="dark"] #main h1,
+[data-bs-theme="dark"] #main h2,
+[data-bs-theme="dark"] #main h3,
+[data-bs-theme="dark"] #main h4,
+[data-bs-theme="dark"] #main h5,
+[data-bs-theme="dark"] #main h6,
+[data-bs-theme="dark"] #main .h1,
+[data-bs-theme="dark"] #main .h2,
+[data-bs-theme="dark"] #main .h3,
+[data-bs-theme="dark"] #main .h4 {
+  color: #D5E3F1;
+}
+[data-bs-theme="dark"] #main a,
+[data-bs-theme="dark"] aside a,
+[data-bs-theme="dark"] .links {
+  color: #80AAD6;
+}
