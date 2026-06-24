@@ -161,11 +161,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_game_team_linescores(event_id = 401283399, team_id = 29)
-#> ✖ 2026-06-12 14:08:23.080972: Failed to retrieve ESPN mlb competitor linescores for event_id=401283399, team_id=29
+#> ✖ 2026-06-24 02:04:51.120684: Failed to retrieve ESPN mlb competitor linescores for event_id=401283399, team_id=29
 #> ✖ Args: league = "mlb", event_id = 401283399, team_id = 29
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN MLB Competitor Linescores ─────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:08:23 UTC
+#> ℹ Data updated: 2026-06-24 02:04:51 UTC
 #> # A tibble: 0 × 0
 # }
 ```

@@ -188,7 +188,7 @@ try(espn_college_baseball_pbp(game_id = "401778093"))
 #> • `` -> `...45`
 #> • `` -> `...46`
 #> ── ESPN MLB Play-by-Play Information from ESPN.com ── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:07:57 UTC
+#> ℹ Data updated: 2026-06-24 02:04:20 UTC
 #> # A tibble: 581 × 72
 #>    id           sequence_number text  away_score home_score scoring_play
 #>    <chr>        <chr>           <chr>      <int>      <int> <lgl>       

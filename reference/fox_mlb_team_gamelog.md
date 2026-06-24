@@ -24,19 +24,19 @@ A `baseballr_data` tibble (long): `team_id`, `season_type`, `category`,
 ``` r
  try(fox_mlb_team_gamelog("1")) 
 #> ── Fox Sports MLB gamelog ─────────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:09:06 UTC
+#> ℹ Data updated: 2026-06-24 02:05:39 UTC
 #> # A tibble: 95 × 8
 #>    team_id season_type   category game_id game_date opponent stat  value
 #>    <chr>   <chr>         <chr>    <chr>   <chr>     <chr>    <chr> <chr>
-#>  1 1       REGULAR SEAS… hitting  95717   6/11      SEA      ab    30   
-#>  2 1       REGULAR SEAS… hitting  95717   6/11      SEA      h     7    
-#>  3 1       REGULAR SEAS… hitting  95717   6/11      SEA      r     7    
-#>  4 1       REGULAR SEAS… hitting  95717   6/11      SEA      x2b   1    
-#>  5 1       REGULAR SEAS… hitting  95717   6/11      SEA      x3b   0    
-#>  6 1       REGULAR SEAS… hitting  95717   6/11      SEA      hr    2    
-#>  7 1       REGULAR SEAS… hitting  95717   6/11      SEA      rbi   6    
-#>  8 1       REGULAR SEAS… hitting  95717   6/11      SEA      bb    3    
-#>  9 1       REGULAR SEAS… hitting  95717   6/11      SEA      so    7    
-#> 10 1       REGULAR SEAS… hitting  95717   6/11      SEA      sb    0    
+#>  1 1       REGULAR SEAS… hitting  95861   6/22      @LAA     ab    37   
+#>  2 1       REGULAR SEAS… hitting  95861   6/22      @LAA     h     11   
+#>  3 1       REGULAR SEAS… hitting  95861   6/22      @LAA     r     6    
+#>  4 1       REGULAR SEAS… hitting  95861   6/22      @LAA     x2b   1    
+#>  5 1       REGULAR SEAS… hitting  95861   6/22      @LAA     x3b   1    
+#>  6 1       REGULAR SEAS… hitting  95861   6/22      @LAA     hr    2    
+#>  7 1       REGULAR SEAS… hitting  95861   6/22      @LAA     rbi   6    
+#>  8 1       REGULAR SEAS… hitting  95861   6/22      @LAA     bb    1    
+#>  9 1       REGULAR SEAS… hitting  95861   6/22      @LAA     so    12   
+#> 10 1       REGULAR SEAS… hitting  95861   6/22      @LAA     sb    1    
 #> # ℹ 85 more rows
 ```

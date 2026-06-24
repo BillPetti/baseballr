@@ -127,8 +127,8 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_game_team_statistics(event_id = "401778093", team_id = "113"))
 #> ── ESPN COLLEGE-BASEBALL Competitor Statistics ────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:07:55 UTC
-#> # A tibble: 79 × 10
+#> ℹ Data updated: 2026-06-24 02:04:18 UTC
+#> # A tibble: 80 × 10
 #>    league      event_id team_id category_name category_display stat_name
 #>    <chr>       <chr>    <chr>   <chr>         <chr>            <chr>    
 #>  1 college-ba… 4017780… 113     batting       Batting          hitByPit…
@@ -141,7 +141,7 @@ Saiem Gilani
 #>  8 college-ba… 4017780… 113     batting       Batting          runs     
 #>  9 college-ba… 4017780… 113     batting       Batting          GIDPs    
 #> 10 college-ba… 4017780… 113     batting       Batting          sacFlies 
-#> # ℹ 69 more rows
+#> # ℹ 70 more rows
 #> # ℹ 4 more variables: stat_abbrev <chr>, stat_display <chr>,
 #> #   value <dbl>, display_value <chr>
 # }

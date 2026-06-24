@@ -194,12 +194,12 @@ Saiem Gilani
   espn_mlb_player_overview(athlete_id = "1966", season = 2024)
 #> $Statistics
 #> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-06-12 14:08:28 UTC
+#> ℹ Data updated: 2026-06-24 02:04:57 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-06-12 14:08:28 UTC
+#> ℹ Data updated: 2026-06-24 02:04:57 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -207,32 +207,32 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-06-12 14:08:28 UTC
+#> ℹ Data updated: 2026-06-24 02:04:57 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-06-12 14:08:28 UTC
+#> ℹ Data updated: 2026-06-24 02:04:57 UTC
 #> # A tibble: 13 × 5
 #>    headline                           description published byline type 
 #>    <chr>                              <chr>       <chr>     <chr>  <chr>
-#>  1 Fantasy Baseball Forecaster Week … "Set your … 2026-06-… Trist… Story
-#>  2 Fantasy baseball forecaster: Team… "Stay ahea… 2026-06-… Trist… Story
-#>  3 Fantasy baseball forecaster: Pitc… "Keep up t… 2026-06-… Trist… Story
-#>  4 Fantasy Baseball Reliever Depth C… "Our updat… 2026-06-… Fanta… Story
-#>  5 MLB betting tips for Friday: Harp… "All of th… 2026-06-… Derek… Story
-#>  6 2026 Men's College World Series: … "From an S… 2026-06-… Kiley… Story
-#>  7 Early verdict on 2026 MLB disappo… "A number … 2026-06-… David… Story
-#>  8 2026 MLB ABS challenge system tra… "The ABS c… 2026-06-… ESPN   Story
-#>  9 Dodgers' Ohtani exits early with … "Dodgers s… 2026-06-… NA     Head…
-#> 10 Braves-White Sox postponed by rai… "The Atlan… 2026-06-… NA     Head…
-#> 11 Phillies add outfield depth, acqu… "The Phill… 2026-06-… NA     Head…
-#> 12 Dodgers' catcher Will Smith on in… "The Los A… 2026-06-… NA     Head…
-#> 13 Kennedy: Red Sox's season 'embarr… "Red Sox p… 2026-06-… NA     Head…
+#>  1 Mets' Juan Soto exits against Cub… "The Mets'… 2026-06-… Jorge… Head…
+#>  2 Giants' Rafael Devers apologized … "Giants fi… 2026-06-… Tim K… Head…
+#>  3 Twins GM says club has 'no plans'… "The Minne… 2026-06-… NA     Head…
+#>  4 Cubs' Counsell perplexed by raino… "After his… 2026-06-… NA     Head…
+#>  5 Phillies scratch slugger Kyle Sch… "Major lea… 2026-06-… NA     Head…
+#>  6 Royals' Cole Ragans likely to hav… "Cole Raga… 2026-06-… NA     Head…
+#>  7 Nationals' CJ Abrams late scratch… "Nationals… 2026-06-… NA     Head…
+#>  8 Stearns says there's still time f… "Mets pres… 2026-06-… Jorge… Head…
+#>  9 Pirates' Griffin (forearm) to beg… "Pirates r… 2026-06-… NA     Head…
+#> 10 Fantasy baseball lineup advice fo… "Everythin… 2026-06-… ESPN … Story
+#> 11 Yankees manager bothered by Jazz … "Yankees s… 2026-06-… NA     Head…
+#> 12 Reds activate Elly De La Cruz aft… "The Reds … 2026-06-… NA     Head…
+#> 13 Brewers release former starting t… "Luis Reng… 2026-06-… NA     Head…
 #> 
 #> $FantasyOutlook
 #> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────
-#> ℹ Data updated: 2026-06-12 14:08:28 UTC
+#> ℹ Data updated: 2026-06-24 02:04:57 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

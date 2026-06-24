@@ -147,7 +147,7 @@ Saiem Gilani
 # \donttest{
   espn_college_baseball_team_schedule(team_id = "59", season = 2025)
 #> ── ESPN COLLEGE-BASEBALL Team Schedule from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-06-12 14:08:09 UTC
+#> ℹ Data updated: 2026-06-24 02:04:34 UTC
 #> # A tibble: 57 × 21
 #>    event_id  season season_type  week date  name  short_name opponent_id
 #>    <chr>      <int>       <int> <int> <chr> <chr> <chr>      <chr>      

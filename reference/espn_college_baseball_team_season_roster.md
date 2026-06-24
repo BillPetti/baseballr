@@ -123,7 +123,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_team_season_roster(team_id = "59", season = 2025))
 #> ── ESPN COLLEGE-BASEBALL Team Season Roster ───────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:08:10 UTC
+#> ℹ Data updated: 2026-06-24 02:04:35 UTC
 #> # A tibble: 109 × 5
 #>    league           team_id season athlete_id ref                       
 #>    <chr>            <chr>    <int> <chr>      <chr>                     

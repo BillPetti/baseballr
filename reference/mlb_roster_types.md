@@ -25,7 +25,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_roster_types())
 #> ── MLB Roster Types data from MLB.com ─────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:09:47 UTC
+#> ℹ Data updated: 2026-06-24 02:06:25 UTC
 #> # A tibble: 9 × 3
 #>   roster_type_description   roster_type_lookup_n…¹ roster_type_parameter
 #>   <chr>                     <chr>                  <chr>                

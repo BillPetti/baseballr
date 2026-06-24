@@ -219,12 +219,12 @@ Saiem Gilani
 # \donttest{
 try(espn_mlb_team_stats(team_id = 13, year = 2020))
 #> ── ESPN MLB Team Season Stats from ESPN.com ───────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:08:43 UTC
-#> # A tibble: 1 × 272
+#> ℹ Data updated: 2026-06-24 02:05:15 UTC
+#> # A tibble: 1 × 273
 #>   team_id team_guid  team_uid team_sdr team_slug team_location team_name
 #>     <int> <chr>      <chr>    <chr>    <chr>     <chr>         <chr>    
 #> 1      13 4fa2cf46-… s:1~l:1… 87       texas-ra… Texas         Rangers  
-#> # ℹ 265 more variables: team_abbreviation <chr>,
+#> # ℹ 266 more variables: team_abbreviation <chr>,
 #> #   team_display_name <chr>, team_short_display_name <chr>,
 #> #   team_color <chr>, team_alternate_color <chr>, team_is_active <lgl>,
 #> #   is_all_star <lgl>, logo_href <chr>, logo_dark_href <chr>,

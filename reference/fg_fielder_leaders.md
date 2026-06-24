@@ -207,7 +207,7 @@ A data frame of fielder data.
 # \donttest{
   try(fg_fielder_leaders(startseason = 2023, endseason = 2023))
 #> ── MLB Player Fielding Leaders data from FanGraphs.com ─────────────────
-#> ℹ Data updated: 2026-06-12 14:08:51 UTC
+#> ℹ Data updated: 2026-06-24 02:05:24 UTC
 #> # A tibble: 2,293 × 63
 #>    Season team_name xMLBAMID PlayerNameRoute   PlayerName       playerid
 #>     <int> <chr>        <int> <chr>             <chr>               <int>
@@ -215,8 +215,8 @@ A data frame of fielder data.
 #>  2   2023 - - -       595978 Austin Hedges     Austin Hedges       12976
 #>  3   2023 MIL         661388 William Contreras William Contrer…    20503
 #>  4   2023 NYM         682626 Francisco Alvarez Francisco Alvar…    26121
-#>  5   2023 CHC         621020 Dansby Swanson    Dansby Swanson      18314
-#>  6   2023 TEX         641680 Jonah Heim        Jonah Heim          16930
+#>  5   2023 TEX         641680 Jonah Heim        Jonah Heim          16930
+#>  6   2023 CHC         621020 Dansby Swanson    Dansby Swanson      18314
 #>  7   2023 ATL         669221 Sean Murphy       Sean Murphy         19352
 #>  8   2023 TOR         672386 Alejandro Kirk    Alejandro Kirk      22581
 #>  9   2023 SEA         663728 Cal Raleigh       Cal Raleigh         21534

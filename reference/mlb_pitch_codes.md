@@ -34,7 +34,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_pitch_codes())
 #> ── MLB Pitch Codes data from MLB.com ──────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:09:45 UTC
+#> ℹ Data updated: 2026-06-24 02:06:23 UTC
 #> # A tibble: 39 × 12
 #>    pitch_code pitch_description           swing_status swing_miss_status
 #>    <chr>      <chr>                       <lgl>        <lgl>            

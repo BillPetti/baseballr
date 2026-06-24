@@ -33,7 +33,7 @@ From the NCAA website:
 
 try(ncaa_teams(year = most_recent_ncaa_baseball_season(), division = "1"))
 #> ── NCAA Baseball Teams data from stats.ncaa.org ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:13:06 UTC
+#> ℹ Data updated: 2026-06-24 02:09:59 UTC
 #> # A tibble: 308 × 9
 #>    team_id team_name    team_url conference_id conference division  year
 #>    <chr>   <chr>        <chr>    <chr>         <chr>      <chr>    <dbl>
@@ -75,7 +75,7 @@ year <- most_recent_ncaa_baseball_season()
 
 ncaa_team_player_stats(team_id = team_id, year = year, "batting")
 #> ── NCAA Baseball Team Batting Stats data from stats.ncaa.org ───────────
-#> ℹ Data updated: 2026-06-12 14:13:24 UTC
+#> ℹ Data updated: 2026-06-24 02:10:24 UTC
 #> # A tibble: 36 × 42
 #>     year team_name   team_id conference_id conference division player_id
 #>    <int> <chr>         <dbl>         <int> <chr>         <dbl>     <int>
@@ -105,7 +105,7 @@ parameter:
 
 ncaa_team_player_stats(team_id = team_id, year = year,  "pitching")
 #> ── NCAA Baseball Team Pitching Stats data from stats.ncaa.org ──────────
-#> ℹ Data updated: 2026-06-12 14:13:41 UTC
+#> ℹ Data updated: 2026-06-24 02:10:42 UTC
 #> # A tibble: 19 × 49
 #>     year team_name   team_id conference_id conference division player_id
 #>    <int> <chr>         <dbl>         <int> <chr>         <dbl>     <int>

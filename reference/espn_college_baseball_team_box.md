@@ -176,13 +176,13 @@ Saiem Gilani
 # \donttest{
 try(espn_college_baseball_team_box(game_id = "401778093"))
 #> ── ESPN MLB Team Box Information from ESPN.com ────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:08:07 UTC
-#> # A tibble: 2 × 95
+#> ℹ Data updated: 2026-06-24 02:04:31 UTC
+#> # A tibble: 2 × 96
 #>     game_id season season_type game_date  game_date_time      team_id
 #>       <int>  <int>       <int> <date>     <dttm>                <int>
 #> 1 401778093   2025           5 2025-06-15 2025-06-15 19:00:00     146
 #> 2 401778093   2025           5 2025-06-15 2025-06-15 19:00:00     113
-#> # ℹ 89 more variables: team_uid <chr>, team_slug <chr>,
+#> # ℹ 90 more variables: team_uid <chr>, team_slug <chr>,
 #> #   team_location <chr>, team_name <chr>, team_abbreviation <chr>,
 #> #   team_display_name <chr>, team_short_display_name <chr>,
 #> #   team_color <chr>, team_alternate_color <chr>, team_logo <chr>,

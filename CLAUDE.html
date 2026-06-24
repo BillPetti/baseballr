@@ -177,6 +177,7 @@
 <span></span>
 <span><span class="co"># Build pkgdown site locally</span></span>
 <span><span class="fu">pkgdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgdown.r-lib.org/reference/build_site.html" class="external-link">build_site</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>CI under <code>.github/workflows/</code>: <code>R-CMD-check.yaml</code> (R CMD check matrix), <code>pkgdown.yaml</code> (builds + deploys the pkgdown site), and <code>rhub.yaml</code> (R-hub multi-platform checks). None set the live-test env vars, so the external-service tests skip on CI — see <strong>Testing</strong> below.</p>
 </div>
 <div class="section level2">
 <h2 id="project-structure">Project Structure<a class="anchor" aria-label="anchor" href="#project-structure"></a></h2>

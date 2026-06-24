@@ -75,6 +75,11 @@ devtools::install()
 pkgdown::build_site()
 ```
 
+CI under `.github/workflows/`: `R-CMD-check.yaml` (R CMD check matrix),
+`pkgdown.yaml` (builds + deploys the pkgdown site), and `rhub.yaml`
+(R-hub multi-platform checks). None set the live-test env vars, so the
+external-service tests skip on CI — see **Testing** below.
+
 ## Project Structure
 
     R/                            # All package source code

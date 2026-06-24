@@ -158,7 +158,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_season_awards(season = 2024)
 #> ── ESPN MLB Season Awards Index ───────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:08:31 UTC
+#> ℹ Data updated: 2026-06-24 02:05:00 UTC
 #> # A tibble: 14 × 4
 #>    season award_id ref                                            league
 #>     <int> <chr>    <chr>                                          <chr> 

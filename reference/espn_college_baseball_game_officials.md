@@ -118,11 +118,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_game_officials(event_id = "401778093"))
-#> ✖ 2026-06-12 14:07:51.062671: Failed to retrieve ESPN college-baseball event officials for event_id=401778093
+#> ✖ 2026-06-24 02:04:12.966143: Failed to retrieve ESPN college-baseball event officials for event_id=401778093
 #> ✖ Args: league = "college-baseball", event_id = "401778093"
 #> ✖ Error: The API returned an error, HTTP Response Code 500
 #> ── ESPN COLLEGE-BASEBALL Event Officials (event_id=401778093) from ESPN.
-#> ℹ Data updated: 2026-06-12 14:07:51 UTC
+#> ℹ Data updated: 2026-06-24 02:04:12 UTC
 #> # A tibble: 0 × 0
 # }
 ```

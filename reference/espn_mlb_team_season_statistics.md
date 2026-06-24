@@ -182,8 +182,8 @@ Saiem Gilani
 # \donttest{
   espn_mlb_team_season_statistics(team_id = 13, season = 2024)
 #> ── ESPN MLB Team Season Statistics ────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:08:43 UTC
-#> # A tibble: 170 × 13
+#> ℹ Data updated: 2026-06-24 02:05:15 UTC
+#> # A tibble: 171 × 13
 #>    league season season_type team_id category_name category_display
 #>    <chr>   <int>       <int> <chr>   <chr>         <chr>           
 #>  1 mlb      2024           2 13      batting       Batting         
@@ -196,7 +196,7 @@ Saiem Gilani
 #>  8 mlb      2024           2 13      batting       Batting         
 #>  9 mlb      2024           2 13      batting       Batting         
 #> 10 mlb      2024           2 13      batting       Batting         
-#> # ℹ 160 more rows
+#> # ℹ 161 more rows
 #> # ℹ 7 more variables: stat_name <chr>, stat_abbrev <chr>,
 #> #   stat_display <chr>, value <dbl>, display_value <chr>, rank <int>,
 #> #   rank_display_value <chr>

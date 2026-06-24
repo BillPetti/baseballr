@@ -163,15 +163,14 @@ Saiem Gilani
 # \donttest{
   espn_mlb_news(limit = 5)
 #> ── ESPN MLB News from ESPN.com ────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:08:24 UTC
-#> # A tibble: 5 × 9
-#>         id type  headline  description published premium byline link_web
-#>      <int> <chr> <chr>     <chr>       <chr>     <lgl>   <chr>  <chr>   
-#> 1 49020670 Story Fantasy … Set your l… 2026-06-… FALSE   Trist… https:/…
-#> 2 31165089 Story Fantasy … Stay ahead… 2026-06-… FALSE   Trist… https:/…
-#> 3 31165100 Story Fantasy … Keep up to… 2026-06-… FALSE   Trist… https:/…
-#> 4  4053281 Story Fantasy … Our update… 2026-06-… FALSE   Fanta… https:/…
-#> 5 49039283 Story MLB bett… All of the… 2026-06-… FALSE   Derek… https:/…
-#> # ℹ 1 more variable: league_id <chr>
+#> ℹ Data updated: 2026-06-24 02:04:53 UTC
+#> # A tibble: 5 × 8
+#>       id type  headline description published premium link_web league_id
+#>    <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>    <chr>    
+#> 1 4.92e7 Recap Phillie… — Bryson S… 2026-06-… FALSE   http://… 10       
+#> 2 4.92e7 Media Kansas … Kansas Cit… 2026-06-… FALSE   https:/… 10       
+#> 3 4.92e7 Media New Yor… New York Y… 2026-06-… FALSE   https:/… 10       
+#> 4 4.92e7 Recap Jazz Ch… — Jazz Chi… 2026-06-… FALSE   http://… 10       
+#> 5 4.92e7 Media Seattle… Seattle Ma… 2026-06-… FALSE   https:/… 10       
 # }
 ```

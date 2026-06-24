@@ -24,7 +24,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_wind_direction_codes())
 #> ── MLB Wind Direction Codes data from MLB.com ─────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-12 14:09:59 UTC
+#> ℹ Data updated: 2026-06-24 02:06:40 UTC
 #> # A tibble: 11 × 2
 #>    wind_direction_code wind_direction_description
 #>    <chr>               <chr>                     
