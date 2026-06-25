@@ -106,6 +106,7 @@
 #'   |delta_run_exp                                |numeric   |Change in run expectancy on the play. |
 #'   |bat_speed                                    |numeric   |Bat speed at the point of contact (mph). |
 #'   |swing_length                                 |numeric   |Length of the swing path to contact (feet). |
+#'   |miss_distance                                |numeric   |Distance between the bat and the ball on a swing-and-miss (inches). |
 #'   |estimated_slg_using_speedangle               |numeric   |Expected slugging based on exit velocity and launch angle. |
 #'   |delta_pitcher_run_exp                        |numeric   |Change in run expectancy credited to the pitcher. |
 #'   |hyper_speed                                  |numeric   |Adjusted (90th-percentile) exit velocity (mph). |
@@ -254,6 +255,13 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
   # changes ("can't assign N names to an M column data.table", #337, #354,
   # #371, #390) -- assign the known names positionally and leave any extra
   # trailing columns under the names Savant already supplied.
+  #
+  # Positional assignment only self-heals for columns Savant *appends*. When a
+  # new column lands mid-frame the canonical vector below must include it at its
+  # real position, otherwise every column after it is renamed one position off
+  # (which both drops the new column's name and silently mislabels the rest).
+  # Savant inserted `miss_distance` between `swing_length` and
+  # `estimated_slg_using_speedangle`, so it is placed there below (#408).
   statcast_columns <- c(
     "pitch_type", "game_date", "release_speed", "release_pos_x",
     "release_pos_z", "player_name", "batter", "pitcher",
@@ -278,6 +286,7 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
     "fld_score", "post_away_score", "post_home_score", "post_bat_score",
     "post_fld_score", "if_fielding_alignment", "of_fielding_alignment", "spin_axis",
     "delta_home_win_exp", "delta_run_exp", "bat_speed", "swing_length",
+    "miss_distance",
     "estimated_slg_using_speedangle", "delta_pitcher_run_exp", "hyper_speed", "home_score_diff",
     "bat_score_diff", "home_win_exp", "bat_win_exp", "age_pit_legacy",
     "age_bat_legacy", "age_pit", "age_bat", "n_thruorder_pitcher",
