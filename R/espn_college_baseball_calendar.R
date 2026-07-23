@@ -10,7 +10,6 @@ NULL
 #' **Get ESPN College Baseball Calendar**
 #' @rdname espn_college_baseball_calendar
 #' @author Saiem Gilani
-#' @inheritParams espn_mlb_calendar
 #' @param season Season year (numeric). Defaults to the most recent college
 #'   baseball season.
 #' @inherit espn_mlb_calendar return
