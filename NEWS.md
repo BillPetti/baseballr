@@ -324,7 +324,7 @@ get_ncaa_park_factor(736, c(2015:2019),type = "division")
 
 ## Other
 
-Messages have been added to all functions that pull data from [FanGraphs.com](https://plus.fangraphs.com/product/fangraphs-membership/?switch-subscription=254671&item=85029&_wcsnonce=62a468b8ba&auto-switch=true) and [Baseball-Reference.com](https://stathead.com). The messages ask users to support both sites through their paid subscription services. Please consider supporting both, especially if you are using `baseballr` to pull data from their sites.
+Messages have been added to all functions that pull data from [FanGraphs.com](https://plus.fangraphs.com/product/fangraphs-membership/?switch-subscription=254671&item=85029&_wcsnonce=62a468b8ba&auto-switch=true) and [Baseball-Reference.com](https://www.sports-reference.com/stathead/). The messages ask users to support both sites through their paid subscription services. Please consider supporting both, especially if you are using `baseballr` to pull data from their sites.
 
 # baseballr 0.7 (2020-01-07)
 
@@ -878,7 +878,7 @@ print(output, width = Inf)
 
 # baseballr 0.3.1 (2016-11-22)
 
-The latest release of the [`baseballr`](https://billpetti.github.io/baseballr/) includes a function for acquiring player statistics from the [NCAA's website](http://stats.ncaa.org) for baseball teams across the three major divisions (I, II, III).
+The latest release of the [`baseballr`](https://billpetti.github.io/baseballr/) includes a function for acquiring player statistics from the [NCAA's website](https://stats.ncaa.org) for baseball teams across the three major divisions (I, II, III).
 
 The function, `ncaa_scrape`, requires the user to pass values for three parameters for the function to work:
 
