@@ -77,6 +77,9 @@ Use the prefix that matches the data source. Never mix sources behind one prefix
   `User-Agent`s, so route FanGraphs requests through `fg_api_call()` -- it sends
   the Cloudflare-exempt `okhttp/4.12.0` UA. `mlb_api_call()` keeps a plain UA for
   the MLB Stats API. (okhttp-UA approach adapted from upstream PR #405.)
+  The leaders API only applies `startdate`/`enddate` when `month = "1000"`; the
+  `fg_*_leaders()` / `fg_team_*()` wrappers auto-set it when dates are supplied
+  (#326) -- apply the same guard to new date-accepting FanGraphs wrappers.
 - **ESPN MLB (`espn_mlb_*`).** Public wrappers in `R/espn_mlb_*.R` are thin shims
   over `R/espn_baseball_*_helpers.R`; the game-summary box parsers live in
   `R/espn_mlb_box_helpers.R`. They share the `httr2` layer in `R/utils_espn.R`
