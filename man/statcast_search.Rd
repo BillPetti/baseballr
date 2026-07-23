@@ -140,6 +140,7 @@ Returns a tibble with Statcast data with the following columns:\tabular{lll}{
    delta_run_exp \tab numeric \tab Change in run expectancy on the play. \cr
    bat_speed \tab numeric \tab Bat speed at the point of contact (mph). \cr
    swing_length \tab numeric \tab Length of the swing path to contact (feet). \cr
+   miss_distance \tab numeric \tab Distance between the bat and the ball on a swing-and-miss (inches). \cr
    estimated_slg_using_speedangle \tab numeric \tab Expected slugging based on exit velocity and launch angle. \cr
    delta_pitcher_run_exp \tab numeric \tab Change in run expectancy credited to the pitcher. \cr
    hyper_speed \tab numeric \tab Adjusted (90th-percentile) exit velocity (mph). \cr
