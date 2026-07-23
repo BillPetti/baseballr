@@ -194,12 +194,12 @@ Saiem Gilani
   espn_mlb_player_overview(athlete_id = "1966", season = 2024)
 #> $Statistics
 #> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-06-24 02:04:57 UTC
+#> ℹ Data updated: 2026-07-23 17:32:59 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-06-24 02:04:57 UTC
+#> ℹ Data updated: 2026-07-23 17:32:59 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -207,32 +207,32 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-06-24 02:04:57 UTC
+#> ℹ Data updated: 2026-07-23 17:32:59 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-06-24 02:04:57 UTC
+#> ℹ Data updated: 2026-07-23 17:32:59 UTC
 #> # A tibble: 13 × 5
 #>    headline                           description published byline type 
 #>    <chr>                              <chr>       <chr>     <chr>  <chr>
-#>  1 Mets' Juan Soto exits against Cub… "The Mets'… 2026-06-… Jorge… Head…
-#>  2 Giants' Rafael Devers apologized … "Giants fi… 2026-06-… Tim K… Head…
-#>  3 Twins GM says club has 'no plans'… "The Minne… 2026-06-… NA     Head…
-#>  4 Cubs' Counsell perplexed by raino… "After his… 2026-06-… NA     Head…
-#>  5 Phillies scratch slugger Kyle Sch… "Major lea… 2026-06-… NA     Head…
-#>  6 Royals' Cole Ragans likely to hav… "Cole Raga… 2026-06-… NA     Head…
-#>  7 Nationals' CJ Abrams late scratch… "Nationals… 2026-06-… NA     Head…
-#>  8 Stearns says there's still time f… "Mets pres… 2026-06-… Jorge… Head…
-#>  9 Pirates' Griffin (forearm) to beg… "Pirates r… 2026-06-… NA     Head…
-#> 10 Fantasy baseball lineup advice fo… "Everythin… 2026-06-… ESPN … Story
-#> 11 Yankees manager bothered by Jazz … "Yankees s… 2026-06-… NA     Head…
-#> 12 Reds activate Elly De La Cruz aft… "The Reds … 2026-06-… NA     Head…
-#> 13 Brewers release former starting t… "Luis Reng… 2026-06-… NA     Head…
+#>  1 2026 MLB trade deadline tracker: … Which cont… 2026-07-… ESPN   Story
+#>  2 Fantasy baseball forecaster: Team… Stay ahead… 2026-07-… Trist… Story
+#>  3 MLB betting tips for Thursday: Di… All of the… 2026-07-… Derek… Story
+#>  4 Fantasy Baseball Reliever Depth C… Our update… 2026-07-… Fanta… Story
+#>  5 Fantasy baseball forecaster: Pitc… Keep up to… 2026-07-… Trist… Story
+#>  6 Fantasy baseball: Bobby Witt Jr. … All of the… 2026-07-… ESPN … Story
+#>  7 MLB Power Rankings Week 17: Fast-… Our first … 2026-07-… ESPN   Story
+#>  8 2026 MLB ABS challenge system tra… The ABS ch… 2026-07-… ESPN   Story
+#>  9 Orioles end Red Sox's record-tyin… The Oriole… 2026-07-… NA     Head…
+#> 10 A's place J.T. Ginn on IL with bl… The Athlet… 2026-07-… NA     Head…
+#> 11 Pirates CF Jake Mangum (foot) scr… Pirates ce… 2026-07-… NA     Head…
+#> 12 Dodgers' Shohei Ohtani throws 30-… Dodgers st… 2026-07-… NA     Head…
+#> 13 Yankees' Caballero hit with pitch… Yankees sh… 2026-07-… NA     Head…
 #> 
 #> $FantasyOutlook
 #> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────
-#> ℹ Data updated: 2026-06-24 02:04:57 UTC
+#> ℹ Data updated: 2026-07-23 17:32:59 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

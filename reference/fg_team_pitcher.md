@@ -76,7 +76,11 @@ fg_team_pitcher(
 
 - month:
 
-  (character) Month for which you want data.
+  (character) Month for which you want data. Defaults to "0" (full
+  season). Special values: "13" (vs LHP split), "14" (vs RHP split),
+  "1000" (custom date range). When `startdate`/`enddate` are supplied
+  and `month` is left at its default, it is set to "1000" automatically
+  so the date filters take effect.
 
 - hand:
 
@@ -656,7 +660,7 @@ A data frame of pitcher data.
 # \donttest{
   try(fg_team_pitcher(startseason = 2015, endseason = 2015, qual = 150))
 #> ── MLB Team Pitching data from FanGraphs.com ──────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:31 UTC
+#> ℹ Data updated: 2026-07-23 17:33:33 UTC
 #> # A tibble: 30 × 427
 #>    Season team_name SeasonMin SeasonMax     W     L   ERA     G    GS
 #>     <int> <chr>         <int>     <int> <int> <int> <dbl> <int> <int>

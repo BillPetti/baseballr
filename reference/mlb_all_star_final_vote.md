@@ -81,14 +81,14 @@ Returns a tibble with the following columns:
 # \donttest{
   try(mlb_all_star_final_vote(league_id = 103, season = 2021))
 #> ── MLB All-Star Final Votes data from MLB.com ─────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:56 UTC
+#> ℹ Data updated: 2026-07-23 17:33:57 UTC
 #> # A tibble: 25 × 49
 #>    player_id full_name         link  first_name last_name primary_number
 #>        <int> <chr>             <chr> <chr>      <chr>     <chr>         
 #>  1    547989 José Abreu        /api… José       Abreu     79            
 #>  2    665489 Vladimir Guerrer… /api… Vladimir   Guerrero  27            
 #>  3    493329 Yuli Gurriel      /api… Yulieski   Gurriel   10            
-#>  4    518934 DJ LeMahieu       /api… David      LeMahieu  26            
+#>  4    518934 DJ LeMahieu       /api… David      LeMahieu  NA            
 #>  5    543760 Marcus Semien     /api… Marcus     Semien    10            
 #>  6    666182 Bo Bichette       /api… Bo         Bichette  19            
 #>  7    593428 Xander Bogaerts   /api… Xander     Bogaerts  2             

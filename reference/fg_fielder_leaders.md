@@ -77,7 +77,11 @@ fg_fielder_leaders(
 
 - month:
 
-  (character) Month for which you want data.
+  (character) Month for which you want data. Defaults to "0" (full
+  season). Special values: "13" (vs LHP split), "14" (vs RHP split),
+  "1000" (custom date range). When `startdate`/`enddate` are supplied
+  and `month` is left at its default, it is set to "1000" automatically
+  so the date filters take effect.
 
 - hand:
 
@@ -207,7 +211,7 @@ A data frame of fielder data.
 # \donttest{
   try(fg_fielder_leaders(startseason = 2023, endseason = 2023))
 #> ── MLB Player Fielding Leaders data from FanGraphs.com ─────────────────
-#> ℹ Data updated: 2026-06-24 02:05:24 UTC
+#> ℹ Data updated: 2026-07-23 17:33:25 UTC
 #> # A tibble: 2,293 × 63
 #>    Season team_name xMLBAMID PlayerNameRoute   PlayerName       playerid
 #>     <int> <chr>        <int> <chr>             <chr>               <int>

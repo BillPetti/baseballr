@@ -171,25 +171,22 @@ Saiem Gilani
   try(espn_college_baseball_player_info(athlete_id = "3730"))
 #> $Bio
 #> ── ESPN COLLEGE-BASEBALL Athlete Bio from ESPN.com ── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:04:22 UTC
-#> # A tibble: 1 × 11
+#> ℹ Data updated: 2026-07-23 17:32:28 UTC
+#> # A tibble: 1 × 12
 #>   id    uid       first_name last_name full_name display_name short_name
 #>   <chr> <chr>     <chr>      <chr>     <chr>     <chr>        <chr>     
 #> 1 3730  s:1~l:14… J          Aboites   J Aboites J Aboites    J. Aboites
-#> # ℹ 4 more variables: active <lgl>, birth_city <chr>,
+#> # ℹ 5 more variables: jersey <chr>, active <lgl>, birth_city <chr>,
 #> #   birth_state <chr>, birth_country <chr>
 #> 
 #> $Team
 #> ── ESPN COLLEGE-BASEBALL Athlete Team from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-06-24 02:04:22 UTC
-#> # A tibble: 1 × 1
-#>   x_ref                                                                 
-#>   <chr>                                                                 
-#> 1 http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-ba…
+#> ℹ Data updated: 2026-07-23 17:32:28 UTC
+#> # A tibble: 0 × 0
 #> 
 #> $Position
 #> ── ESPN COLLEGE-BASEBALL Athlete Position from ESPN.com ────────────────
-#> ℹ Data updated: 2026-06-24 02:04:22 UTC
+#> ℹ Data updated: 2026-07-23 17:32:28 UTC
 #> # A tibble: 1 × 5
 #>   id    name                 display_name         abbreviation leaf 
 #>   <chr> <chr>                <chr>                <chr>        <lgl>
@@ -197,17 +194,17 @@ Saiem Gilani
 #> 
 #> $Status
 #> ── ESPN COLLEGE-BASEBALL Athlete Status from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-06-24 02:04:22 UTC
+#> ℹ Data updated: 2026-07-23 17:32:28 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $College
 #> ── ESPN COLLEGE-BASEBALL Athlete College from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-06-24 02:04:22 UTC
+#> ℹ Data updated: 2026-07-23 17:32:28 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Draft
 #> ── ESPN COLLEGE-BASEBALL Athlete Draft from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-06-24 02:04:22 UTC
+#> ℹ Data updated: 2026-07-23 17:32:28 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

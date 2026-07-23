@@ -71,27 +71,27 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_team_affiliates(team_ids = 147))
 #> ── MLB Team Affiliates data from MLB.com ──────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:06:35 UTC
+#> ℹ Data updated: 2026-07-23 17:34:33 UTC
 #> # A tibble: 11 × 35
 #>    all_star_status team_id team_full_name         link  season team_code
 #>    <chr>             <int> <chr>                  <chr>  <int> <chr>    
-#>  1 N                   147 New York Yankees       /api…   2026 nya      
-#>  2 F                   386 New York Yankees Pros… /api…   2026 nyp      
-#>  3 N                   531 Scranton/Wilkes-Barre… /api…   2026 swb      
-#>  4 N                  1956 Somerset Patriots      /api…   2026 som      
-#>  5 N                   537 Hudson Valley Renegad… /api…   2026 hdv      
-#>  6 N                   634 DSL NYY Bombers        /api…   2026 dyb      
-#>  7 N                   635 DSL NYY Yankees        /api…   2026 dya      
-#>  8 N                   475 FCL Yankees            /api…   2026 fya      
-#>  9 N                   587 Tampa Tarpons          /api…   2026 tpa      
-#> 10 N                  3308 Yankees Alternate Tra… /api…   2026 nys      
-#> 11 O                  3309 Yankees Organization   /api…   2026 nyo      
+#>  1 F                   386 New York Yankees Pros… /api…   2026 nyp      
+#>  2 N                   531 Scranton/Wilkes-Barre… /api…   2026 swb      
+#>  3 N                  1956 Somerset Patriots      /api…   2026 som      
+#>  4 N                   537 Hudson Valley Renegad… /api…   2026 hdv      
+#>  5 N                   634 DSL NYY Bombers        /api…   2026 dyb      
+#>  6 N                   635 DSL NYY Yankees        /api…   2026 dya      
+#>  7 N                   475 FCL Yankees            /api…   2026 fya      
+#>  8 N                   587 Tampa Tarpons          /api…   2026 tpa      
+#>  9 N                  3308 Yankees Alternate Tra… /api…   2026 nys      
+#> 10 O                  3309 Yankees Organization   /api…   2026 nyo      
+#> 11 N                   147 New York Yankees       /api…   2026 nya      
 #> # ℹ 29 more variables: file_code <chr>, team_abbreviation <chr>,
 #> #   team_name <chr>, location_name <chr>, first_year_of_play <chr>,
-#> #   short_name <chr>, franchise_name <chr>, club_name <chr>,
-#> #   active <lgl>, parent_org_name <chr>, parent_org_id <int>,
-#> #   spring_league_id <int>, spring_league_name <chr>,
-#> #   spring_league_link <chr>, spring_league_abbreviation <chr>,
-#> #   venue_id <int>, venue_name <chr>, venue_link <chr>, …
+#> #   short_name <chr>, parent_org_name <chr>, parent_org_id <int>,
+#> #   franchise_name <chr>, club_name <chr>, active <lgl>,
+#> #   venue_id <int>, venue_name <chr>, venue_link <chr>,
+#> #   league_id <int>, league_name <chr>, league_link <chr>,
+#> #   sport_id <int>, sport_link <chr>, sport_name <chr>, …
 # }
 ```

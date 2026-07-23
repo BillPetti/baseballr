@@ -131,26 +131,26 @@ requested:
 # \donttest{
   try(mlb_draft_prospects(year = 2020))
 #> ── MLB Draft Prospects data from MLB.com ──────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:06:03 UTC
-#> # A tibble: 2,554 × 102
-#>    bis_player_id headshot_link       is_drafted is_pass year  pick_round
-#>            <int> <chr>               <lgl>      <lgl>   <chr> <chr>     
-#>  1       5012729 https://img.mlbsta… FALSE      FALSE   2020  NA        
-#>  2        804300 https://img.mlbsta… FALSE      FALSE   2020  NA        
-#>  3       5010766 https://img.mlbsta… FALSE      FALSE   2020  NA        
-#>  4       5009176 https://img.mlbsta… TRUE       FALSE   2020  1         
-#>  5            NA https://img.mlbsta… TRUE       FALSE   2020  1         
-#>  6       5012222 https://img.mlbsta… FALSE      FALSE   2020  NA        
-#>  7       5001780 https://img.mlbsta… FALSE      FALSE   2020  NA        
-#>  8       5002839 https://img.mlbsta… FALSE      FALSE   2020  NA        
-#>  9       5001752 https://img.mlbsta… FALSE      FALSE   2020  NA        
-#> 10        767407 https://img.mlbsta… FALSE      FALSE   2020  NA        
-#> # ℹ 2,544 more rows
-#> # ℹ 96 more variables: pick_number <int>, rank <int>,
-#> #   scouting_report <chr>, blurb <chr>, home_city <chr>,
-#> #   home_state <chr>, home_country <chr>, school_name <chr>,
-#> #   school_school_class <chr>, school_country <chr>,
-#> #   school_state <chr>, person_id <int>, person_full_name <chr>,
-#> #   person_link <chr>, person_first_name <chr>, …
+#> ℹ Data updated: 2026-07-23 17:34:03 UTC
+#> # A tibble: 2,500 × 102
+#>    bis_player_id pick_round pick_number  rank scouting_report      blurb
+#>            <int> <chr>            <int> <int> <chr>                <chr>
+#>  1       5012013 3                   82    97 https://atmlb.com/2… Ther…
+#>  2        793928 2                   39    74 https://atmlb.com/3… Avon…
+#>  3        807255 1                    1     1 https://atmlb.com/2… Tork…
+#>  4            NA 1                    1     1 https://atmlb.com/2… Tork…
+#>  5        788201 1                    2    10 https://atmlb.com/2… A 36…
+#>  6            NA 1                    2    10 https://atmlb.com/2… A 36…
+#>  7        792606 1                    3     9 https://atmlb.com/2… Meye…
+#>  8            NA 1                    3     9 https://atmlb.com/2… Meye…
+#>  9        771881 1                    4     3 https://atmlb.com/3… Thou…
+#> 10        415542 1                    5     2 https://atmlb.com/2… Mart…
+#> # ℹ 2,490 more rows
+#> # ℹ 96 more variables: headshot_link <chr>, is_drafted <lgl>,
+#> #   is_pass <lgl>, year <chr>, home_city <chr>, home_state <chr>,
+#> #   home_country <chr>, school_name <chr>, school_school_class <chr>,
+#> #   school_country <chr>, school_state <chr>, person_id <int>,
+#> #   person_full_name <chr>, person_link <chr>, person_first_name <chr>,
+#> #   person_last_name <chr>, person_birth_date <chr>, …
 # }
 ```

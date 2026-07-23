@@ -57,7 +57,7 @@ and the following values:
 # \donttest{
   try(mlb_sports())
 #> ── MLB Sports data from MLB.com ───────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:06:32 UTC
+#> ℹ Data updated: 2026-07-23 17:34:30 UTC
 #> # A tibble: 20 × 7
 #>    sport_id sport_code sport_link          sport_name sport_abbreviation
 #>       <int> <chr>      <chr>               <chr>      <chr>             

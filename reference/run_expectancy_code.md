@@ -61,7 +61,7 @@ At the plate-appearance level the analogous state columns are named
                          playerid = 621043, player_type = 'batter') 
    run_expectancy_code(df, level = "plate appearances")
  })
-#> # A tibble: 159 × 133
+#> # A tibble: 159 × 134
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
 #>  1 FF         2016-04-06          92.8         -2.25          6.89
@@ -75,7 +75,7 @@ At the plate-appearance level the analogous state columns are named
 #>  9 SI         2016-04-06          91.4         -1.89          6.71
 #> 10 SI         2016-04-06          91.6         -1.73          6.8 
 #> # ℹ 149 more rows
-#> # ℹ 128 more variables: player_name <chr>, batter <dbl>, pitcher <dbl>,
+#> # ℹ 129 more variables: player_name <chr>, batter <dbl>, pitcher <dbl>,
 #> #   events <chr>, description <chr>, spin_dir <lgl>,
 #> #   spin_rate_deprecated <lgl>, break_angle_deprecated <lgl>,
 #> #   break_length_deprecated <lgl>, zone <dbl>, des <chr>,

@@ -147,8 +147,8 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_team_record_detail(team_id = "59", season = 2025, record_id = 0))
 #> ── ESPN COLLEGE-BASEBALL Team Record Detail ───────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:04:33 UTC
-#> # A tibble: 19 × 15
+#> ℹ Data updated: 2026-07-23 17:32:38 UTC
+#> # A tibble: 29 × 15
 #>    league team_id season season_type record_id record_name record_abbrev
 #>    <chr>  <chr>    <int>       <int> <chr>     <chr>       <chr>        
 #>  1 colle… 59        2025           2 0         overall     Total        
@@ -161,15 +161,7 @@ Saiem Gilani
 #>  8 colle… 59        2025           2 0         overall     Total        
 #>  9 colle… 59        2025           2 0         overall     Total        
 #> 10 colle… 59        2025           2 0         overall     Total        
-#> 11 colle… 59        2025           2 0         overall     Total        
-#> 12 colle… 59        2025           2 0         overall     Total        
-#> 13 colle… 59        2025           2 0         overall     Total        
-#> 14 colle… 59        2025           2 0         overall     Total        
-#> 15 colle… 59        2025           2 0         overall     Total        
-#> 16 colle… 59        2025           2 0         overall     Total        
-#> 17 colle… 59        2025           2 0         overall     Total        
-#> 18 colle… 59        2025           2 0         overall     Total        
-#> 19 colle… 59        2025           2 0         overall     Total        
+#> # ℹ 19 more rows
 #> # ℹ 8 more variables: record_display <chr>, record_type <chr>,
 #> #   record_summary <chr>, stat_name <chr>, stat_abbrev <chr>,
 #> #   stat_display <chr>, value <dbl>, stat_display_value <chr>

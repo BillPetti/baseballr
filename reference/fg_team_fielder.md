@@ -76,7 +76,11 @@ fg_team_fielder(
 
 - month:
 
-  (character) Month for which you want data.
+  (character) Month for which you want data. Defaults to "0" (full
+  season). Special values: "13" (vs LHP split), "14" (vs RHP split),
+  "1000" (custom date range). When `startdate`/`enddate` are supplied
+  and `month` is left at its default, it is set to "1000" automatically
+  so the date filters take effect.
 
 - hand:
 
@@ -203,7 +207,7 @@ A data frame of fielder data.
 # \donttest{
   try(fg_team_fielder(startseason = 2023, endseason = 2023, qual = 150))
 #> ── MLB Team Fielding data from FanGraphs.com ──────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:31 UTC
+#> ℹ Data updated: 2026-07-23 17:33:32 UTC
 #> # A tibble: 30 × 60
 #>    Season team_name SeasonMin SeasonMax Pos   Position     G    GS   Inn
 #>     <int> <chr>         <int>     <int> <chr> <chr>    <int> <int> <int>

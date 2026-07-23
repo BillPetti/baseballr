@@ -37,7 +37,7 @@ Function returns a tibble with various columns, including:
 # \donttest{
   try(load_game_info_sup())
 #> ── Supplementary MLB Game Info data from baseballr-data repository ─────
-#> ℹ Data updated: 2026-06-24 02:05:45 UTC
+#> ℹ Data updated: 2026-07-23 17:33:46 UTC
 #> # A tibble: 41,946 × 18
 #>    game_date  game_pk venue_name      venue_id temperature other_weather
 #>    <IDate>      <int> <chr>              <int>       <int> <chr>        

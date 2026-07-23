@@ -146,26 +146,26 @@ Saiem Gilani
 # \donttest{
 try(espn_college_baseball_standings(year = 2025))
 #> ── ESPN College Baseball Standings Information from ESPN.com ───────────
-#> ℹ Data updated: 2026-06-24 02:04:30 UTC
-#> # A tibble: 63 × 22
-#>    team_id team               avgpointsagainst avgpointsfor differential
-#>      <int> <chr>                         <dbl>        <dbl>        <dbl>
-#>  1     146 Coastal Carolina …                0            0            0
-#>  2      58 Arkansas Razorbac…                0            0            0
-#>  3      96 North Carolina Ta…                0            0            0
-#>  4     126 Texas Longhorns                   0            0            0
-#>  5     136 West Virginia Mou…                0            0            0
-#>  6      85 LSU Tigers                        0            0            0
-#>  7      72 Florida State Sem…                0            0            0
-#>  8      66 UCLA Bruins                       0            0            0
-#>  9     199 Tennessee Volunte…                0            0            0
-#> 10     273 Oregon Ducks                      0            0            0
+#> ℹ Data updated: 2026-07-23 17:32:35 UTC
+#> # A tibble: 63 × 32
+#>    team_id team            otlosses otwins avgpointsagainst avgpointsfor
+#>      <int> <chr>           <chr>    <chr>             <dbl>        <dbl>
+#>  1     146 Coastal Caroli… 0        0                     0            0
+#>  2      58 Arkansas Razor… 0        0                     0            0
+#>  3      96 North Carolina… 0        0                     0            0
+#>  4     126 Texas Longhorns 0        0                     0            0
+#>  5     136 West Virginia … 0        0                     0            0
+#>  6      85 LSU Tigers      0        0                     0            0
+#>  7      72 Florida State … 0        0                     0            0
+#>  8      66 UCLA Bruins     0        0                     0            0
+#>  9     199 Tennessee Volu… 0        0                     0            0
+#> 10     273 Oregon Ducks    0        0                     0            0
 #> # ℹ 53 more rows
-#> # ℹ 17 more variables: divisionwinpercent <dbl>, gamesbehind <dbl>,
-#> #   gamesplayed <chr>, leaguewinpercent <dbl>, losses <dbl>,
-#> #   pointdifferential <chr>, pointsagainst <chr>, pointsfor <chr>,
-#> #   streak <dbl>, ties <chr>, winpercent <dbl>, wins <dbl>,
-#> #   divisionpercent <chr>, magicnumberdivision <chr>,
-#> #   magicnumberwildcard <chr>, playoffpercent <chr>, total <chr>
+#> # ℹ 26 more variables: differential <dbl>, divisionwinpercent <dbl>,
+#> #   gamesbehind <dbl>, gamesplayed <chr>, leaguewinpercent <dbl>,
+#> #   losses <dbl>, playoffseed <dbl>, pointdifferential <chr>,
+#> #   points <chr>, pointsagainst <chr>, pointsfor <chr>, streak <dbl>,
+#> #   ties <chr>, winpercent <dbl>, wins <dbl>, divisionpercent <chr>,
+#> #   homelosses <chr>, hometies <chr>, homewins <chr>, …
 # }
 ```

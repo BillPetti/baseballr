@@ -402,26 +402,26 @@ columns:
 # \donttest{
   try(fg_pitcher_game_logs(playerid = "19755", year = 2023))
 #> ── MLB Pitcher Game Log data from FanGraphs.com ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:26 UTC
-#> # A tibble: 23 × 367
-#>    PlayerName    playerid Date  Opp   teamid season Team  HomeAway   Age
-#>    <chr>            <int> <chr> <chr>  <int>  <int> <chr> <chr>    <int>
-#>  1 Shohei Ohtani    19755 2023… CIN        1   2023 LAA   H           28
-#>  2 Shohei Ohtani    19755 2023… SFG        1   2023 LAA   H           28
-#>  3 Shohei Ohtani    19755 2023… SEA        1   2023 LAA   H           28
-#>  4 Shohei Ohtani    19755 2023… @DET       1   2023 LAA   A           28
-#>  5 Shohei Ohtani    19755 2023… PIT        1   2023 LAA   H           28
-#>  6 Shohei Ohtani    19755 2023… HOU        1   2023 LAA   H           28
-#>  7 Shohei Ohtani    19755 2023… @SDP       1   2023 LAA   A           28
-#>  8 Shohei Ohtani    19755 2023… CHW        1   2023 LAA   H           28
-#>  9 Shohei Ohtani    19755 2023… LAD        1   2023 LAA   H           28
-#> 10 Shohei Ohtani    19755 2023… @TEX       1   2023 LAA   A           28
+#> ℹ Data updated: 2026-07-23 17:33:28 UTC
+#> # A tibble: 23 × 369
+#>    PlayerName    playerid Date      hometeamid Opp   teamid season Team 
+#>    <chr>            <int> <chr>          <int> <chr>  <int>  <int> <chr>
+#>  1 Shohei Ohtani    19755 2023-08-…          1 CIN        1   2023 LAA  
+#>  2 Shohei Ohtani    19755 2023-08-…          1 SFG        1   2023 LAA  
+#>  3 Shohei Ohtani    19755 2023-08-…          1 SEA        1   2023 LAA  
+#>  4 Shohei Ohtani    19755 2023-07-…          6 @DET       1   2023 LAA  
+#>  5 Shohei Ohtani    19755 2023-07-…          1 PIT        1   2023 LAA  
+#>  6 Shohei Ohtani    19755 2023-07-…          1 HOU        1   2023 LAA  
+#>  7 Shohei Ohtani    19755 2023-07-…         29 @SDP       1   2023 LAA  
+#>  8 Shohei Ohtani    19755 2023-06-…          1 CHW        1   2023 LAA  
+#>  9 Shohei Ohtani    19755 2023-06-…          1 LAD        1   2023 LAA  
+#> 10 Shohei Ohtani    19755 2023-06-…         13 @TEX       1   2023 LAA  
 #> # ℹ 13 more rows
-#> # ℹ 358 more variables: W <dbl>, L <dbl>, ERA <dbl>, G <dbl>, GS <dbl>,
-#> #   QS <dbl>, CG <dbl>, ShO <dbl>, SV <dbl>, HLD <dbl>, BS <dbl>,
-#> #   IP <dbl>, TBF <dbl>, H <dbl>, R <dbl>, ER <dbl>, HR <dbl>,
-#> #   BB <dbl>, IBB <dbl>, HBP <dbl>, WP <dbl>, BK <dbl>, SO <dbl>,
-#> #   `K/9` <dbl>, `BB/9` <dbl>, `H/9` <dbl>, `K/BB` <dbl>, `IFH%` <dbl>,
-#> #   `BUH%` <dbl>, GB <dbl>, FB <dbl>, LD <dbl>, IFFB <dbl>, …
+#> # ℹ 361 more variables: HomeAway <chr>, Age <int>, W <dbl>, L <dbl>,
+#> #   ERA <dbl>, G <dbl>, GS <dbl>, QS <dbl>, CG <dbl>, ShO <dbl>,
+#> #   SV <dbl>, HLD <dbl>, BS <dbl>, IP <dbl>, TBF <dbl>, H <dbl>,
+#> #   R <dbl>, ER <dbl>, HR <dbl>, BB <dbl>, IBB <dbl>, HBP <dbl>,
+#> #   WP <dbl>, BK <dbl>, SO <dbl>, `K/9` <dbl>, `BB/9` <dbl>,
+#> #   `H/9` <dbl>, `K/BB` <dbl>, `IFH%` <dbl>, `BUH%` <dbl>, GB <dbl>, …
 # }
 ```

@@ -76,7 +76,11 @@ fg_pitch_leaders(
 
 - month:
 
-  (character) Month for which you want data.
+  (character) Month for which you want data. Defaults to "0" (full
+  season). Special values: "13" (vs LHP split), "14" (vs RHP split),
+  "1000" (custom date range). When `startdate`/`enddate` are supplied
+  and `month` is left at its default, it is set to "1000" automatically
+  so the date filters take effect.
 
 - hand:
 

@@ -153,6 +153,17 @@
   [\#371](https://github.com/billpetti/baseballr/issues/371),
   [\#390](https://github.com/billpetti/baseballr/issues/390)).
 - [`statcast_search()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
+  now recognizes Baseball Savant’s `miss_distance` column (the
+  bat-tracking swing-and-miss distance). Savant inserted it *mid-frame*
+  — between `swing_length` and `estimated_slg_using_speedangle`, not as
+  a trailing column — so the length-tolerant positional rename labeled
+  it (and every column after it) one position off: `miss_distance`
+  dropped out and the trailing bat-tracking columns were silently
+  mislabeled. `miss_distance` is now in the canonical column list at its
+  real position, so it comes through under its own name and the columns
+  after it line up again
+  ([\#408](https://github.com/billpetti/baseballr/issues/408)).
+- [`statcast_search()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
   (via
   [`process_statcast_payload()`](https://billpetti.github.io/baseballr/reference/process_statcast_payload.md))
   now normalizes blank character fields to `NA`. Baseball Savant exports
@@ -266,6 +277,23 @@
   [`rename()`](https://dplyr.tidyverse.org/reference/rename.html)
   pattern (verified live: `fg_pitcher_leaders(month = "13")` returns
   data).
+- [`fg_batter_leaders()`](https://billpetti.github.io/baseballr/reference/fg_batter_leaders.md),
+  [`fg_pitcher_leaders()`](https://billpetti.github.io/baseballr/reference/fg_pitcher_leaders.md),
+  [`fg_fielder_leaders()`](https://billpetti.github.io/baseballr/reference/fg_fielder_leaders.md),
+  [`fg_team_batter()`](https://billpetti.github.io/baseballr/reference/fg_team_batter.md),
+  [`fg_team_pitcher()`](https://billpetti.github.io/baseballr/reference/fg_team_pitcher.md),
+  and
+  [`fg_team_fielder()`](https://billpetti.github.io/baseballr/reference/fg_team_fielder.md)
+  now honor `startdate`/`enddate` out of the box
+  ([\#326](https://github.com/billpetti/baseballr/issues/326)).
+  FanGraphs only applies a custom date range when `month = "1000"`, so
+  supplying dates with the default `month = "0"` silently returned the
+  full-season board. `month` is now set to `"1000"` automatically when a
+  date range is requested without an explicit `month`, and the `month`
+  documentation covers the special values (`"13"` vs LHP, `"14"` vs RHP,
+  `"1000"` date range). Verified live: a 2023-03-26..2023-04-26 pull
+  returns the date-ranged board (max 118 PA) instead of the full season
+  (max 753 PA).
 - [`ncaa_park_factor()`](https://billpetti.github.io/baseballr/reference/ncaa_park_factor.md)
   no longer errors mid-pipeline when the NCAA schedule is unavailable
   ([\#302](https://github.com/billpetti/baseballr/issues/302)).
@@ -734,10 +762,11 @@ method](https://library.fangraphs.com/park-factors-5-year-regressed/):
 
 Messages have been added to all functions that pull data from
 [FanGraphs.com](https://plus.fangraphs.com/product/fangraphs-membership/?switch-subscription=254671&item=85029&_wcsnonce=62a468b8ba&auto-switch=true)
-and [Baseball-Reference.com](https://stathead.com). The messages ask
-users to support both sites through their paid subscription services.
-Please consider supporting both, especially if you are using `baseballr`
-to pull data from their sites.
+and
+[Baseball-Reference.com](https://www.sports-reference.com/stathead/).
+The messages ask users to support both sites through their paid
+subscription services. Please consider supporting both, especially if
+you are using `baseballr` to pull data from their sites.
 
 ## baseballr 0.7 (2020-01-07)
 
@@ -1413,7 +1442,7 @@ print(output, width = Inf)
 The latest release of the
 [`baseballr`](https://billpetti.github.io/baseballr/) includes a
 function for acquiring player statistics from the [NCAA’s
-website](http://stats.ncaa.org) for baseball teams across the three
+website](https://stats.ncaa.org) for baseball teams across the three
 major divisions (I, II, III).
 
 The function, `ncaa_scrape`, requires the user to pass values for three

@@ -77,7 +77,11 @@ fg_batter_leaders(
 
 - month:
 
-  (character) Month for which you want data.
+  (character) Month for which you want data. Defaults to "0" (full
+  season). Special values: "13" (vs LHP split), "14" (vs RHP split),
+  "1000" (custom date range). When `startdate`/`enddate` are supplied
+  and `month` is left at its default, it is set to "1000" automatically
+  so the date filters take effect.
 
 - hand:
 
@@ -591,7 +595,7 @@ A data frame of batter data.
 # \donttest{
   try(fg_batter_leaders(startseason = 2023, endseason = 2023))
 #> ── MLB Player Batting Leaders data from FanGraphs.com ──────────────────
-#> ℹ Data updated: 2026-06-24 02:05:23 UTC
+#> ℹ Data updated: 2026-07-23 17:33:24 UTC
 #> # A tibble: 1,457 × 447
 #>    Season team_name Bats  xMLBAMID PlayerNameRoute  PlayerName  playerid
 #>     <int> <chr>     <chr>    <int> <chr>            <chr>          <int>

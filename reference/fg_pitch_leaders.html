@@ -183,7 +183,11 @@
 
 
 <dt id="arg-month">month<a class="anchor" aria-label="anchor" href="#arg-month"></a></dt>
-<dd><p>(character) Month for which you want data.</p></dd>
+<dd><p>(character) Month for which you want data. Defaults to "0"
+(full season). Special values: "13" (vs LHP split), "14" (vs RHP split),
+"1000" (custom date range). When <code>startdate</code>/<code>enddate</code> are supplied and
+<code>month</code> is left at its default, it is set to "1000" automatically so the
+date filters take effect.</p></dd>
 
 
 <dt id="arg-hand">hand<a class="anchor" aria-label="anchor" href="#arg-hand"></a></dt>
@@ -244,7 +248,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

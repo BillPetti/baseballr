@@ -377,26 +377,26 @@ columns:
 # \donttest{
   try(fg_batter_game_logs(playerid = 19755, year = 2023))
 #> ── MLB Batter Game Logs data from FanGraphs.com ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:19 UTC
-#> # A tibble: 135 × 342
-#>    PlayerName    playerid Date   Team  Opp   season   Age BatOrder Pos  
-#>    <chr>            <int> <chr>  <chr> <chr>  <int> <int> <chr>    <chr>
-#>  1 Shohei Ohtani    19755 2023-… LAA   @OAK    2023    28 2        DH   
-#>  2 Shohei Ohtani    19755 2023-… LAA   @OAK    2023    28 2        DH   
-#>  3 Shohei Ohtani    19755 2023-… LAA   @OAK    2023    28 3        DH   
-#>  4 Shohei Ohtani    19755 2023-… LAA   @PHI    2023    28 3        DH   
-#>  5 Shohei Ohtani    19755 2023-… LAA   @PHI    2023    28 2        DH   
-#>  6 Shohei Ohtani    19755 2023-… LAA   @PHI    2023    28 2        DH   
-#>  7 Shohei Ohtani    19755 2023-… LAA   @NYM    2023    28 2        DH   
-#>  8 Shohei Ohtani    19755 2023-… LAA   @NYM    2023    28 2        DH   
-#>  9 Shohei Ohtani    19755 2023-… LAA   @NYM    2023    28 2        DH   
-#> 10 Shohei Ohtani    19755 2023-… LAA   CIN     2023    28 2        DH   
+#> ℹ Data updated: 2026-07-23 17:33:21 UTC
+#> # A tibble: 135 × 344
+#>    PlayerName    playerid Date       hometeamid Team  Opp   season   Age
+#>    <chr>            <int> <chr>           <int> <chr> <chr>  <int> <int>
+#>  1 Shohei Ohtani    19755 2023-09-03         10 LAA   @OAK    2023    28
+#>  2 Shohei Ohtani    19755 2023-09-02         10 LAA   @OAK    2023    28
+#>  3 Shohei Ohtani    19755 2023-09-01         10 LAA   @OAK    2023    28
+#>  4 Shohei Ohtani    19755 2023-08-30         26 LAA   @PHI    2023    28
+#>  5 Shohei Ohtani    19755 2023-08-29         26 LAA   @PHI    2023    28
+#>  6 Shohei Ohtani    19755 2023-08-28         26 LAA   @PHI    2023    28
+#>  7 Shohei Ohtani    19755 2023-08-27         25 LAA   @NYM    2023    28
+#>  8 Shohei Ohtani    19755 2023-08-26         25 LAA   @NYM    2023    28
+#>  9 Shohei Ohtani    19755 2023-08-25         25 LAA   @NYM    2023    28
+#> 10 Shohei Ohtani    19755 2023-08-23          1 LAA   CIN     2023    28
 #> # ℹ 125 more rows
-#> # ℹ 333 more variables: G <dbl>, AB <dbl>, PA <dbl>, H <dbl>,
-#> #   `1B` <dbl>, `2B` <dbl>, `3B` <dbl>, HR <dbl>, R <dbl>, RBI <dbl>,
-#> #   BB <dbl>, IBB <dbl>, SO <dbl>, HBP <dbl>, SF <dbl>, SH <dbl>,
-#> #   GDP <dbl>, SB <dbl>, CS <dbl>, AVG <dbl>, GB <dbl>, FB <dbl>,
-#> #   LD <dbl>, IFFB <dbl>, Pitches <dbl>, Balls <dbl>, Strikes <dbl>,
-#> #   IFH <dbl>, BU <dbl>, BUH <dbl>, `BB%` <dbl>, `K%` <dbl>, …
+#> # ℹ 336 more variables: BatOrder <chr>, Pos <chr>, G <dbl>, AB <dbl>,
+#> #   PA <dbl>, H <dbl>, `1B` <dbl>, `2B` <dbl>, `3B` <dbl>, HR <dbl>,
+#> #   R <dbl>, RBI <dbl>, BB <dbl>, IBB <dbl>, SO <dbl>, HBP <dbl>,
+#> #   SF <dbl>, SH <dbl>, GDP <dbl>, SB <dbl>, CS <dbl>, AVG <dbl>,
+#> #   GB <dbl>, FB <dbl>, LD <dbl>, IFFB <dbl>, Pitches <dbl>,
+#> #   Balls <dbl>, Strikes <dbl>, IFH <dbl>, BU <dbl>, BUH <dbl>, …
 # }
 ```

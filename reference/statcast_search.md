@@ -158,6 +158,7 @@ Returns a tibble with Statcast data with the following columns:
 | delta_run_exp | numeric | Change in run expectancy on the play. |
 | bat_speed | numeric | Bat speed at the point of contact (mph). |
 | swing_length | numeric | Length of the swing path to contact (feet). |
+| miss_distance | numeric | Distance between the bat and the ball on a swing-and-miss (inches). |
 | estimated_slg_using_speedangle | numeric | Expected slugging based on exit velocity and launch angle. |
 | delta_pitcher_run_exp | numeric | Change in run expectancy credited to the pitcher. |
 | hyper_speed | numeric | Adjusted (90th-percentile) exit velocity (mph). |
@@ -207,8 +208,8 @@ reference.
                       playerid = 547180, 
                       player_type = 'batter'))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-06-24 02:06:47 UTC
-#> # A tibble: 82 × 118
+#> ℹ Data updated: 2026-07-23 17:34:44 UTC
+#> # A tibble: 82 × 119
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
 #>  1 FF         2022-10-15          96.4         -2.61          5.49
@@ -222,7 +223,7 @@ reference.
 #>  9 FF         2022-10-15          95.8         -1.47          5.64
 #> 10 FF         2022-10-15          98.8          2.13          5.77
 #> # ℹ 72 more rows
-#> # ℹ 113 more variables: player_name <chr>, batter <dbl>, pitcher <dbl>,
+#> # ℹ 114 more variables: player_name <chr>, batter <dbl>, pitcher <dbl>,
 #> #   events <chr>, description <chr>, spin_dir <lgl>,
 #> #   spin_rate_deprecated <lgl>, break_angle_deprecated <lgl>,
 #> #   break_length_deprecated <lgl>, zone <dbl>, des <chr>,
@@ -234,8 +235,8 @@ reference.
                       playerid = 664285, 
                       player_type = 'pitcher'))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-06-24 02:06:47 UTC
-#> # A tibble: 92 × 118
+#> ℹ Data updated: 2026-07-23 17:34:44 UTC
+#> # A tibble: 92 × 119
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
 #>  1 CU         2022-10-13          78.1          1.09          6.06
@@ -249,7 +250,7 @@ reference.
 #>  9 CH         2022-10-13          91.6          0.73          6.19
 #> 10 CU         2022-10-13          81            0.84          6.13
 #> # ℹ 82 more rows
-#> # ℹ 113 more variables: player_name <chr>, batter <dbl>, pitcher <dbl>,
+#> # ℹ 114 more variables: player_name <chr>, batter <dbl>, pitcher <dbl>,
 #> #   events <chr>, description <chr>, spin_dir <lgl>,
 #> #   spin_rate_deprecated <lgl>, break_angle_deprecated <lgl>,
 #> #   break_length_deprecated <lgl>, zone <dbl>, des <chr>,
@@ -259,8 +260,8 @@ reference.
   try(statcast_search(start_date = "2022-11-04", 
                       end_date = "2022-11-06"))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-06-24 02:06:47 UTC
-#> # A tibble: 250 × 118
+#> ℹ Data updated: 2026-07-23 17:34:44 UTC
+#> # A tibble: 250 × 119
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
 #>  1 CU         2022-11-05          80.8          1.01          6.1 
@@ -274,7 +275,7 @@ reference.
 #>  9 CU         2022-11-05          81.1          1.25          6.18
 #> 10 SI         2022-11-05          95.7          0.62          6.34
 #> # ℹ 240 more rows
-#> # ℹ 113 more variables: player_name <chr>, batter <dbl>, pitcher <dbl>,
+#> # ℹ 114 more variables: player_name <chr>, batter <dbl>, pitcher <dbl>,
 #> #   events <chr>, description <chr>, spin_dir <lgl>,
 #> #   spin_rate_deprecated <lgl>, break_angle_deprecated <lgl>,
 #> #   break_length_deprecated <lgl>, zone <dbl>, des <chr>,

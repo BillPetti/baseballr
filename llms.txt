@@ -252,7 +252,7 @@ Releases**](https://billpetti.github.io/baseballr/news/index.html)
 ## Follow the SportsDataverse (@SportsDataverse) on Twitter and star this repo
 
 [![GitHub
-stars](https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&logo=github&style=for-the-badge&label=Star%20baseballr&maxAge=2592000)](https://github.com/billpetti/baseballr/stargazers/)
+stars](https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&logo=github&style=for-the-badge&label=Star%20baseballr&maxAge=2592000)](https://github.com/billpetti/baseballr/stargazers)
 
 ## **Our Authors**
 

@@ -213,7 +213,7 @@ Saiem Gilani
   espn_mlb_team(team_id = "13", season = 2025)
 #> $Info
 #> ── ESPN MLB Team Info from ESPN.com ───────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:08 UTC
+#> ℹ Data updated: 2026-07-23 17:33:10 UTC
 #> # A tibble: 1 × 12
 #>   id    uid     slug  abbreviation display_name short_display_name name 
 #>   <chr> <chr>   <chr> <chr>        <chr>        <chr>              <chr>
@@ -223,29 +223,29 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN MLB Team Record from ESPN.com ─────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:08 UTC
+#> ℹ Data updated: 2026-07-23 17:33:10 UTC
 #> # A tibble: 3 × 4
 #>   description    type  summary stats        
 #>   <chr>          <chr> <chr>   <list>       
-#> 1 Overall Record total 38-41   <df [32 × 2]>
-#> 2 Home Record    home  19-18   <df [32 × 2]>
-#> 3 Away Record    road  19-23   <df [32 × 2]>
+#> 1 Overall Record total 51-51   <df [32 × 2]>
+#> 2 Home Record    home  25-24   <df [32 × 2]>
+#> 3 Away Record    road  26-27   <df [32 × 2]>
 #> 
 #> $NextEvent
 #> ── ESPN MLB Team Next Event from ESPN.com ─────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:08 UTC
+#> ℹ Data updated: 2026-07-23 17:33:10 UTC
 #> # A tibble: 1 × 4
-#>   id        date              name                           short_name
-#>   <chr>     <chr>             <chr>                          <chr>     
-#> 1 401815874 2026-06-23T22:40Z Texas Rangers at Miami Marlins TEX @ MIA 
+#>   id        date              name                            short_name
+#>   <chr>     <chr>             <chr>                           <chr>     
+#> 1 401816248 2026-07-25T00:05Z Seattle Mariners at Texas Rang… SEA @ TEX 
 #> 
 #> $StandingSummary
 #> ── ESPN MLB Team Standing Summary from ESPN.com ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:05:08 UTC
+#> ℹ Data updated: 2026-07-23 17:33:10 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary
 #>   <chr>           
-#> 1 3rd in AL West  
+#> 1 1st in AL West  
 #> 
 #> $Coaches
 #> data frame with 0 columns and 0 rows

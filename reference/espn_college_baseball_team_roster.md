@@ -135,20 +135,20 @@ Saiem Gilani
 # \donttest{
   espn_college_baseball_team_roster(team_id = "59", season = 2025)
 #> ── ESPN COLLEGE-BASEBALL Team Roster from ESPN.com ── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:04:34 UTC
+#> ℹ Data updated: 2026-07-23 17:32:38 UTC
 #> # A tibble: 100 × 15
 #>    athlete_id full_name      jersey position_abbrev position_name height
 #>    <chr>      <chr>          <chr>  <chr>           <chr>         <chr> 
-#>  1 3730       J Aboites      NA     UN              Unspecified …  NA   
-#>  2 10616      J Aboites      NA     UN              Unspecified …  NA   
-#>  3 15102      J. Aboites     NA     UN              Unspecified …  NA   
-#>  4 31563      Carter Aldrete NA     UN              Unspecified … "6' 1…
-#>  5 2680       T Allen        NA     UN              Unspecified …  NA   
-#>  6 1036       A Aplin        NA     UN              Unspecified …  NA   
-#>  7 1037       Austin Barnes  NA     UN              Unspecified … "5' 9…
-#>  8 1106       J Barrett      NA     UN              Unspecified …  NA   
-#>  9 4004       C Beall        NA     UN              Unspecified …  NA   
-#> 10 1400       M Benjamin     NA     UN              Unspecified …  NA   
+#>  1 3730       J Aboites      0      UN              Unspecified …  NA   
+#>  2 10616      J Aboites      0      UN              Unspecified …  NA   
+#>  3 15102      J. Aboites     0      UN              Unspecified …  NA   
+#>  4 31563      Carter Aldrete 0      UN              Unspecified … "6' 1…
+#>  5 2680       T Allen        0      UN              Unspecified …  NA   
+#>  6 1036       A Aplin        0      UN              Unspecified …  NA   
+#>  7 1037       Austin Barnes  0      UN              Unspecified … "5' 9…
+#>  8 1106       J Barrett      0      UN              Unspecified …  NA   
+#>  9 4004       C Beall        0      UN              Unspecified …  NA   
+#> 10 1400       M Benjamin     0      UN              Unspecified …  NA   
 #> # ℹ 90 more rows
 #> # ℹ 9 more variables: weight <chr>, age <chr>, birth_date <chr>,
 #> #   birth_place <chr>, headshot <chr>, link_web <chr>, status <chr>,

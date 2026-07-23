@@ -341,6 +341,24 @@ Build new FanGraphs wrappers on `fg_api_call()`, never `mlb_api_call()`.
 (The okhttp-UA approach was adapted from upstream PR \#405; see
 `NEWS.md`.)
 
+**FanGraphs leaderboard `month` parameter is modal, not just a month.**
+The leaders API only applies `startdate`/`enddate` when
+`month = "1000"`; with the default `month = "0"` it silently returns the
+full-season board. The six leaderboard/team wrappers
+([`fg_batter_leaders()`](https://billpetti.github.io/baseballr/reference/fg_batter_leaders.md),
+[`fg_pitcher_leaders()`](https://billpetti.github.io/baseballr/reference/fg_pitcher_leaders.md),
+[`fg_fielder_leaders()`](https://billpetti.github.io/baseballr/reference/fg_fielder_leaders.md),
+[`fg_team_batter()`](https://billpetti.github.io/baseballr/reference/fg_team_batter.md),
+[`fg_team_pitcher()`](https://billpetti.github.io/baseballr/reference/fg_team_pitcher.md),
+[`fg_team_fielder()`](https://billpetti.github.io/baseballr/reference/fg_team_fielder.md))
+auto-set `month <- "1000"` when a date range is supplied and `month` was
+left at its default (#326). Other special values: `"13"` = vs-LHP split,
+`"14"` = vs-RHP split (the split boards return a much narrower column
+projection – keep
+[`dplyr::any_of()`](https://tidyselect.r-lib.org/reference/all_of.html)
+on their selections, \#323). Apply the same guard to any new FanGraphs
+wrapper that accepts dates.
+
 ## Testing
 
 Tests live in `tests/testthat/`. Many hit live sites and are gated /

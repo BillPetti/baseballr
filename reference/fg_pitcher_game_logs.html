@@ -141,27 +141,27 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">fg_pitcher_game_logs</span><span class="op">(</span>playerid <span class="op">=</span> <span class="st">"19755"</span>, year <span class="op">=</span> <span class="fl">2023</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Pitcher Game Log data from FanGraphs.com ───── <span style="font-style: italic;">baseballr 2.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-06-24 02:05:26 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 23 × 367</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    PlayerName    playerid Date  Opp   teamid season Team  HomeAway   Age</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023… CIN        1   <span style="text-decoration: underline;">2</span>023 LAA   H           28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023… SFG        1   <span style="text-decoration: underline;">2</span>023 LAA   H           28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023… SEA        1   <span style="text-decoration: underline;">2</span>023 LAA   H           28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023… @DET       1   <span style="text-decoration: underline;">2</span>023 LAA   A           28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023… PIT        1   <span style="text-decoration: underline;">2</span>023 LAA   H           28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023… HOU        1   <span style="text-decoration: underline;">2</span>023 LAA   H           28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023… @SDP       1   <span style="text-decoration: underline;">2</span>023 LAA   A           28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023… CHW        1   <span style="text-decoration: underline;">2</span>023 LAA   H           28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023… LAD        1   <span style="text-decoration: underline;">2</span>023 LAA   H           28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023… @TEX       1   <span style="text-decoration: underline;">2</span>023 LAA   A           28</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-07-23 17:33:28 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 23 × 369</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    PlayerName    playerid Date      hometeamid Opp   teamid season Team </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-08-…          1 CIN        1   <span style="text-decoration: underline;">2</span>023 LAA  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-08-…          1 SFG        1   <span style="text-decoration: underline;">2</span>023 LAA  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-08-…          1 SEA        1   <span style="text-decoration: underline;">2</span>023 LAA  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-07-…          6 @DET       1   <span style="text-decoration: underline;">2</span>023 LAA  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-07-…          1 PIT        1   <span style="text-decoration: underline;">2</span>023 LAA  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-07-…          1 HOU        1   <span style="text-decoration: underline;">2</span>023 LAA  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-07-…         29 @SDP       1   <span style="text-decoration: underline;">2</span>023 LAA  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-06-…          1 CHW        1   <span style="text-decoration: underline;">2</span>023 LAA  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-06-…          1 LAD        1   <span style="text-decoration: underline;">2</span>023 LAA  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Shohei Ohtani    <span style="text-decoration: underline;">19</span>755 2023-06-…         13 @TEX       1   <span style="text-decoration: underline;">2</span>023 LAA  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 13 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 358 more variables: W &lt;dbl&gt;, L &lt;dbl&gt;, ERA &lt;dbl&gt;, G &lt;dbl&gt;, GS &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   QS &lt;dbl&gt;, CG &lt;dbl&gt;, ShO &lt;dbl&gt;, SV &lt;dbl&gt;, HLD &lt;dbl&gt;, BS &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   IP &lt;dbl&gt;, TBF &lt;dbl&gt;, H &lt;dbl&gt;, R &lt;dbl&gt;, ER &lt;dbl&gt;, HR &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   BB &lt;dbl&gt;, IBB &lt;dbl&gt;, HBP &lt;dbl&gt;, WP &lt;dbl&gt;, BK &lt;dbl&gt;, SO &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `K/9` &lt;dbl&gt;, `BB/9` &lt;dbl&gt;, `H/9` &lt;dbl&gt;, `K/BB` &lt;dbl&gt;, `IFH%` &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `BUH%` &lt;dbl&gt;, GB &lt;dbl&gt;, FB &lt;dbl&gt;, LD &lt;dbl&gt;, IFFB &lt;dbl&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 361 more variables: HomeAway &lt;chr&gt;, Age &lt;int&gt;, W &lt;dbl&gt;, L &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ERA &lt;dbl&gt;, G &lt;dbl&gt;, GS &lt;dbl&gt;, QS &lt;dbl&gt;, CG &lt;dbl&gt;, ShO &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   SV &lt;dbl&gt;, HLD &lt;dbl&gt;, BS &lt;dbl&gt;, IP &lt;dbl&gt;, TBF &lt;dbl&gt;, H &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   R &lt;dbl&gt;, ER &lt;dbl&gt;, HR &lt;dbl&gt;, BB &lt;dbl&gt;, IBB &lt;dbl&gt;, HBP &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   WP &lt;dbl&gt;, BK &lt;dbl&gt;, SO &lt;dbl&gt;, `K/9` &lt;dbl&gt;, `BB/9` &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `H/9` &lt;dbl&gt;, `K/BB` &lt;dbl&gt;, `IFH%` &lt;dbl&gt;, `BUH%` &lt;dbl&gt;, GB &lt;dbl&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
@@ -174,7 +174,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

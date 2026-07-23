@@ -279,8 +279,8 @@ Saiem Gilani
 # \donttest{
 try(espn_college_baseball_game_rosters(game_id = "401778093"))
 #> ── ESPN College Baseball Game Roster Information from ESPN.com ─────────
-#> ℹ Data updated: 2026-06-24 02:04:15 UTC
-#> # A tibble: 18 × 145
+#> ℹ Data updated: 2026-07-23 17:32:23 UTC
+#> # A tibble: 18 × 146
 #>    athlete_id athlete_uid    athlete_type first_name last_name full_name
 #>         <int> <chr>          <chr>        <chr>      <chr>     <chr>    
 #>  1      83667 s:1~l:14~a:83… baseball     Trent      Caraway   Trent Ca…
@@ -301,12 +301,12 @@ try(espn_college_baseball_game_rosters(game_id = "401778093"))
 #> 16      66857 s:1~l:14~a:66… baseball     Dean       Mihos     Dean Mih…
 #> 17      58759 s:1~l:14~a:58… baseball     Ty         Dooley    Ty Dooley
 #> 18      58929 s:1~l:14~a:58… baseball     Wells      Sykes     Wells Sy…
-#> # ℹ 139 more variables: athlete_display_name <chr>, short_name <chr>,
+#> # ℹ 140 more variables: athlete_display_name <chr>, short_name <chr>,
 #> #   weight <int>, display_weight <chr>, height <int>,
 #> #   display_height <chr>, birth_place_city <chr>,
 #> #   birth_place_state <chr>, birth_place_country <chr>, slug <chr>,
-#> #   position_id <int>, position_name <chr>,
-#> #   position_display_name <chr>, position_abbreviation <chr>,
-#> #   position_leaf <lgl>, linked <lgl>, active <lgl>, bats_type <chr>, …
+#> #   athlete_jersey_number <chr>, position_id <int>,
+#> #   position_name <chr>, position_display_name <chr>,
+#> #   position_abbreviation <chr>, position_leaf <lgl>, linked <lgl>, …
 # }
 ```

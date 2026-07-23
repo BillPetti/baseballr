@@ -28,8 +28,8 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_game_status_codes())
 #> ── MLB Game Status Codes data from MLB.com ────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-06-24 02:06:11 UTC
-#> # A tibble: 209 × 6
+#> ℹ Data updated: 2026-07-23 17:34:11 UTC
+#> # A tibble: 210 × 6
 #>    abstract_game_state coded_game_state detailed_state       status_code
 #>    <chr>               <chr>            <chr>                <chr>      
 #>  1 Preview             S                Scheduled            S          
@@ -42,7 +42,7 @@ Returns a tibble with the following columns
 #>  8 Preview             P                Delayed Start: Fog   PF         
 #>  9 Preview             P                Delayed Start: Cold  PC         
 #> 10 Preview             P                Delayed Start: Air … PD         
-#> # ℹ 199 more rows
+#> # ℹ 200 more rows
 #> # ℹ 2 more variables: abstract_game_code <chr>, reason <chr>
 # }
 ```
