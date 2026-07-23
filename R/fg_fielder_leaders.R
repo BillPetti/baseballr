@@ -10,7 +10,11 @@
 #' @param endseason (character) Last season for which you want data.
 #' @param startdate (character) Start date for which you want data.
 #' @param enddate (character) End date for which you want data.
-#' @param month (character) Month for which you want data.
+#' @param month (character) Month for which you want data. Defaults to "0"
+#'   (full season). Special values: "13" (vs LHP split), "14" (vs RHP split),
+#'   "1000" (custom date range). When `startdate`/`enddate` are supplied and
+#'   `month` is left at its default, it is set to "1000" automatically so the
+#'   date filters take effect.
 #' @param hand (character) Handedness of batter. Options are "L", "R", or "B". Empty string returns all.
 #' @param team (character) Teams for which you want data, comma separated.
 #' @param pageitems (character) Number of items per page.
@@ -118,6 +122,12 @@ fg_fielder_leaders <- function(
     sortdir = "default",
     sortstat = "Defense") {
   
+  # FanGraphs only honors startdate/enddate when month = "1000"; otherwise the
+  # API silently returns the full-season board (#326).
+  if ((startdate != "" || enddate != "") && month %in% c("", "0")) {
+    month <- "1000"
+  }
+
   params <- list(
     age = age,
     pos = pos,

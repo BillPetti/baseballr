@@ -382,3 +382,23 @@ test_that("FanGraphs Batting Leaders vs-LHP/RHP splits (month = 13/14) return da
   expect_in(core, colnames(x))
   expect_s3_class(x, "data.frame")
 })
+
+# FanGraphs only applies startdate/enddate when month = "1000"; supplying dates
+# with the default month = "0" silently returned the full-season board (#326).
+# The wrapper now auto-sets month = "1000" when a date range is requested.
+# Verified live: 2023-03-26..2023-04-26 -> 947 rows / max PA 118 (auto and
+# explicit month = "1000" identical); full season -> 1457 rows / max PA 753.
+test_that("FanGraphs Batting Leaders date range applies without an explicit month (#326)", {
+  skip_fangraphs_test()
+  skip_on_cran()
+
+  x <- fg_batter_leaders(startdate = "2023-03-26", enddate = "2023-04-26")
+
+  if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
+    skip("No data returned from FanGraphs at test time")
+  }
+
+  # A one-month window cannot contain a qualified full season of plate
+  # appearances; without the auto month = "1000" this maxed at 753.
+  expect_lt(max(x$PA, na.rm = TRUE), 200)
+})

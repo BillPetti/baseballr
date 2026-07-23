@@ -47,7 +47,11 @@ fg_pitcher_leaders(
 
 \item{enddate}{(character) End date for which you want data.}
 
-\item{month}{(character) Month for which you want data.}
+\item{month}{(character) Month for which you want data. Defaults to "0"
+(full season). Special values: "13" (vs LHP split), "14" (vs RHP split),
+"1000" (custom date range). When \code{startdate}/\code{enddate} are supplied and
+\code{month} is left at its default, it is set to "1000" automatically so the
+date filters take effect.}
 
 \item{hand}{(character) Handedness of batter. Options are "L", "R", or "B". Empty string returns all.}
 
