@@ -36,3 +36,7 @@ logo.png
 ^\.pytest_cache$
 ^\.lintr$
 ^\.ncaa_proxies\.csv$
+^\.omc$
+^\.understand-anything$
+^R/\.omc$
+^R/\.ruff_cache$

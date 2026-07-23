@@ -9,3 +9,8 @@ docs
 .ncaa_proxies.csv
 .ncaa_*.R
 .ncaa_*.log
+
+# local AI/tooling caches
+.omc/
+.understand-anything/
+.ruff_cache/
