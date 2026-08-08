@@ -53,8 +53,7 @@ bref_team_results <- function(Tm, year) {
   data <- NULL
   tryCatch(
     expr = {
-      data <- url |> 
-        xml2::read_html() |>
+      data <- bref_read_html(url) |>
         rvest::html_element("#team_schedule") |>
         rvest::html_table()
       data <- data[-3]
@@ -81,10 +80,10 @@ bref_team_results <- function(Tm, year) {
       
       data <- data |>
         make_baseballr_data("MLB Team Results data from baseball-reference.com",Sys.time())
-      Sys.sleep(5)
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team results data available!")
+      cli::cli_alert_info("Original error: {conditionMessage(e)}")
     },
     finally = {
     }

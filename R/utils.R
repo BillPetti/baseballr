@@ -1,6 +1,47 @@
 .datatable.aware <- TRUE
 
 #' @title
+#' **Read HTML from Baseball Reference with retry on rate-limit (429)**
+#'
+#' @description
+#' Baseball Reference rate-limits (HTTP 429) scrapers that make rapid
+#' sequential requests.  `xml2::read_html()` has no built-in retry, so a
+#' 429 surfaces as a generic error and the caller's `tryCatch` swallows it
+#' into a misleading "Invalid arguments or no data available" message (#344).
+#'
+#' This helper uses `httr2::req_retry()` to retry 429 / 503 responses
+#' with exponential backoff (up to 3 tries), then passes the response
+#' body to `xml2::read_html()`.  A 5-second courtesy delay mirrors the
+#' existing NCAA scraper convention.
+#'
+#' @param url A Baseball Reference URL.
+#' @param max_tries Integer. Maximum number of attempts (default 3).
+#' @return An XML document as returned by [xml2::read_html()].
+#' @keywords internal
+bref_read_html <- function(url, max_tries = 3L) {
+  resp <- httr2::request(url) |>
+    httr2::req_headers(
+      "User-Agent" = "Mozilla/5.0 (compatible; baseballr R package)"
+    ) |>
+    httr2::req_timeout(30) |>
+    httr2::req_retry(
+      max_tries = max_tries,
+      is_transient = function(resp) httr2::resp_status(resp) %in% c(429L, 503L)
+    ) |>
+    httr2::req_error(is_error = function(resp) FALSE) |>
+    httr2::req_perform()
+
+  # Courtesy delay to avoid tripping Baseball Reference rate limits.
+  Sys.sleep(5)
+
+  if (httr2::resp_status(resp) != 200L) {
+    stop(sprintf("HTTP %d fetching %s", httr2::resp_status(resp), url))
+  }
+
+  xml2::read_html(httr2::resp_body_string(resp))
+}
+
+#' @title
 #' **Retry an http request (with optional proxy) and rate-limit**
 #' @description
 #' `httr2`-based GET helper used by the NCAA (`stats.ncaa.org`) scrapers. Pass a
