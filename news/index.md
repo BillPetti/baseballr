@@ -159,6 +159,21 @@
 
 #### Bug fixes
 
+- [`bref_standings_on_date()`](https://billpetti.github.io/baseballr/reference/bref_standings_on_date.md),
+  [`bref_daily_batter()`](https://billpetti.github.io/baseballr/reference/bref_daily_batter.md),
+  [`bref_daily_pitcher()`](https://billpetti.github.io/baseballr/reference/bref_daily_pitcher.md),
+  and
+  [`bref_team_results()`](https://billpetti.github.io/baseballr/reference/bref_team_results.md)
+  now retry on HTTP 429 (Too Many Requests) from Baseball Reference with
+  exponential backoff (up to 3 tries) via a new
+  [`bref_read_html()`](https://billpetti.github.io/baseballr/reference/bref_read_html.md)
+  helper that wraps
+  [`httr2::req_retry()`](https://httr2.r-lib.org/reference/req_retry.html).
+  Previously, a 429 was swallowed by the `tryCatch` into a misleading
+  “Invalid arguments or no data available” message, leaving the returned
+  data as `NULL`
+  ([\#344](https://github.com/billpetti/baseballr/issues/344)). Error
+  handlers also now print the original error message for diagnosis.
 - The NCAA family
   ([`ncaa_schedule_info()`](https://billpetti.github.io/baseballr/reference/ncaa_schedule_info.md),
   [`ncaa_roster()`](https://billpetti.github.io/baseballr/reference/ncaa_roster.md),

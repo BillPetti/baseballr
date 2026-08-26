@@ -140,7 +140,7 @@ for games scheduled or played
 # \donttest{
   try(mlb_schedule_postseason_series(season = 2021, sport_id = 1))
 #> ── MLB Schedule - Post-season Series data from MLB.com ─────────────────
-#> ℹ Data updated: 2026-08-26 19:34:34 UTC
+#> ℹ Data updated: 2026-08-26 20:08:26 UTC
 #> # A tibble: 38 × 72
 #>    total_items total_games total_games_in_progress game_pk game_guid    
 #>          <int>       <int>                   <int>   <int> <chr>        

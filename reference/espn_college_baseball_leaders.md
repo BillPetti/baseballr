@@ -135,11 +135,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_leaders(season = 2025, season_type = 2))
-#> ✖ 2026-08-26 19:32:21.712964: Failed to retrieve ESPN college-baseball leaders for season=2025
+#> ✖ 2026-08-26 20:06:03.117962: Failed to retrieve ESPN college-baseball leaders for season=2025
 #> ✖ Args: league = "college-baseball", season = 2025, season_type = 2
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN COLLEGE-BASEBALL Leaders from ESPN.com ────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-26 19:32:21 UTC
+#> ℹ Data updated: 2026-08-26 20:06:03 UTC
 #> # A tibble: 0 × 0
 # }
 ```

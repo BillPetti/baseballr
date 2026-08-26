@@ -48,7 +48,7 @@ may change as Spotrac updates its layout.
 # \donttest{
  try(sptrc_team_active_payroll(team_abbr = "BAL", year = most_recent_mlb_season()))
 #> ── MLB Active Payroll data from Spotrac.com ───────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-26 19:34:48 UTC
+#> ℹ Data updated: 2026-08-26 20:08:42 UTC
 #> # A tibble: 54 × 18
 #>     year team  player_name      roster_status pos   exp   options_minor
 #>    <dbl> <chr> <chr>            <chr>         <chr> <chr> <chr>        

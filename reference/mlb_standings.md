@@ -127,7 +127,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_standings(season = 2021, league_id = 103))
 #> ── MLB Standings data from MLB.com ────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-26 19:34:36 UTC
+#> ℹ Data updated: 2026-08-26 20:08:29 UTC
 #> # A tibble: 15 × 57
 #>    standings_type last_updated             team_records_season
 #>    <chr>          <chr>                    <chr>              
