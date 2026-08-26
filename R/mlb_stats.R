@@ -62,6 +62,11 @@ NULL
 #' @param league_id League ID to return statistics for a given league. Default to "Qualified" player pool.
 #' @param sport_ids The sport_id(s) to return information and ranking information for.
 #' @param sort_stat Sort return based on stat.
+#' @param sit_codes Situational split code(s) to filter on when
+#'   `stat_type = "statSplits"` -- e.g. `"vl"` (vs left), `"vr"` (vs right),
+#'   `"h"` (home), `"a"` (away), `"risp"` (runners in scoring position).
+#'   Multiple codes may be passed as a vector; see the MLB Stats API
+#'   `situationCodes` endpoint for the full list.
 #' @param order Order return based on either desc or asc.
 #' @param limit A limit to limit return to a particular number of records.
 #' @param offset An offset to returns i+1 as the first record in the set of players.
@@ -148,9 +153,11 @@ mlb_stats <- function(stat_type = NULL,
                       sort_stat = NULL,
                       order = NULL,
                       limit = 1000,
-                      offset = NULL){
-  
+                      offset = NULL,
+                      sit_codes = NULL){
+
   sport_ids <- paste(sport_ids, collapse = ',')
+  if (!is.null(sit_codes)) sit_codes <- paste(sit_codes, collapse = ',')
   mlb_endpoint <- mlb_stats_endpoint("v1/stats")
   query_params <- list(
     stats = stat_type,
@@ -165,7 +172,8 @@ mlb_stats <- function(stat_type = NULL,
     sortStat = sort_stat,
     order = order,
     limit = limit,
-    offset = offset
+    offset = offset,
+    sitCodes = sit_codes
   )
   
   mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)

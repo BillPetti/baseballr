@@ -69,9 +69,18 @@ mlb_game_info <- function(game_pk) {
     expr = {
       payload <- jsonlite::fromJSON(api_call)
       
-      lookup_table <- payload$liveData$boxscore$info |>
-        as.data.frame() |>
-        tidyr::spread(.data$label, .data$value)
+      # Pregame the boxscore info block is absent; degrade gracefully so the
+      # fields that ARE available (venue, weather, status) still return (#363).
+      box_info <- payload$liveData$boxscore$info
+      has_box_info <- !is.null(box_info) && length(box_info) > 0 && NROW(box_info) > 0
+      if (has_box_info) {
+        lookup_table <- box_info |>
+          as.data.frame() |>
+          tidyr::spread(.data$label, .data$value)
+      } else {
+        lookup_table <- data.frame(`First pitch` = NA_character_, T = NA_character_,
+                                   check.names = FALSE)
+      }
       
       year <- stringr::str_sub(payload$gameData$game$calendarEventID, -10, -7)
       
@@ -96,7 +105,7 @@ mlb_game_info <- function(game_pk) {
                            game_type = payload$gameData$game$type,
                            home_sport_code = "mlb",
                            official_scorer = payload$gameData$officialScorer$fullName,
-                           date = names(lookup_table)[1],
+                           date = if (has_box_info) names(lookup_table)[1] else NA_character_,
                            status_ind = payload$gameData$status$statusCode,
                            home_league_id = payload$gameData$teams$home$league$id,
                            gameday_sw = payload$gameData$game$gamedayType) |>

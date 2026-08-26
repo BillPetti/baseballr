@@ -5,6 +5,11 @@
 #' @param season Year to return information and ranking for a particular statistic in a given year. 
 #' @param sport_ids The sport_id(s) to return information and ranking information for.
 #' @param sort_stat Sort return based on stat.
+#' @param sit_codes Situational split code(s) to filter on when
+#'   `stat_type = "statSplits"` -- e.g. `"vl"`, `"vr"`, `"h"`, `"a"`,
+#'   `"risp"`. Multiple codes may be passed as a vector. Note the leaders
+#'   endpoints ignore `sitCodes` upstream; use `stat_type = "statSplits"`
+#'   here or in [mlb_stats()] for situational splits.
 #' @param order Order return based on either desc or asc.
 #' 
 #' @return Returns a tibble with the following columns
@@ -65,9 +70,11 @@ mlb_teams_stats <- function(stat_type = NULL,
                             season = NULL,
                             sport_ids = NULL,
                             sort_stat = NULL,
-                            order = NULL){
-  
+                            order = NULL,
+                            sit_codes = NULL){
+
   sport_ids <- paste(sport_ids, collapse = ',')
+  if (!is.null(sit_codes)) sit_codes <- paste(sit_codes, collapse = ',')
   mlb_endpoint <- mlb_stats_endpoint("v1/teams/stats")
   query_params <- list(
     stats = stat_type,
@@ -76,7 +83,8 @@ mlb_teams_stats <- function(stat_type = NULL,
     season = season,
     sportIds = sport_ids,
     sortStat = sort_stat,
-    order = order
+    order = order,
+    sitCodes = sit_codes
   )
   
   mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)

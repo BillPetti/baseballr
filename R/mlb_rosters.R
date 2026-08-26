@@ -1,5 +1,8 @@
 #' @title **Find MLB Rosters by Roster Type**
-#' @param team_id team_id to return team roster information for a particular club.
+#' @param team_id team_id to return team roster information for a particular
+#'   club. Look up ids with [mlb_teams()] -- e.g.
+#'   `mlb_teams(season = 2025, sport_ids = 1)` returns `team_id` alongside
+#'   `team_full_name`.
 #' @param season Year to return team roster information for a particular club in a specific season.
 #' @param date Date to return team roster and their coaching staff directorial information for a particular team. 
 #' @param roster_type roster_type to return team directorial information for. See ```mlb_roster_types()``` for more options.
