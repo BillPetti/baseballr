@@ -11,7 +11,8 @@ mlb_teams_stats(
   season = NULL,
   sport_ids = NULL,
   sort_stat = NULL,
-  order = NULL
+  order = NULL,
+  sit_codes = NULL
 )
 }
 \arguments{
@@ -28,6 +29,12 @@ mlb_teams_stats(
 \item{sort_stat}{Sort return based on stat.}
 
 \item{order}{Order return based on either desc or asc.}
+
+\item{sit_codes}{Situational split code(s) to filter on when
+\code{stat_type = "statSplits"} -- e.g. \code{"vl"}, \code{"vr"}, \code{"h"}, \code{"a"},
+\code{"risp"}. Multiple codes may be passed as a vector. Note the leaders
+endpoints ignore \code{sitCodes} upstream; use \code{stat_type = "statSplits"}
+here or in \code{\link[=mlb_stats]{mlb_stats()}} for situational splits.}
 }
 \value{
 Returns a tibble with the following columns\tabular{lll}{

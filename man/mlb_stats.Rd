@@ -17,7 +17,8 @@ mlb_stats(
   sort_stat = NULL,
   order = NULL,
   limit = 1000,
-  offset = NULL
+  offset = NULL,
+  sit_codes = NULL
 )
 }
 \arguments{
@@ -79,6 +80,12 @@ Acceptable values include:
 \item{limit}{A limit to limit return to a particular number of records.}
 
 \item{offset}{An offset to returns i+1 as the first record in the set of players.}
+
+\item{sit_codes}{Situational split code(s) to filter on when
+\code{stat_type = "statSplits"} -- e.g. \code{"vl"} (vs left), \code{"vr"} (vs right),
+\code{"h"} (home), \code{"a"} (away), \code{"risp"} (runners in scoring position).
+Multiple codes may be passed as a vector; see the MLB Stats API
+\code{situationCodes} endpoint for the full list.}
 }
 \value{
 Returns a tibble with the following columns\tabular{lll}{

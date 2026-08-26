@@ -9,6 +9,10 @@
 #' @param playerid The MLBAM ID for the player whose data you want to query.
 #' @param player_type The player type. Can be `batter` or `pitcher`.
 #' Default is `batter`
+#' @param route The Baseball Savant search route. Defaults to the MLB search
+#'   (`"statcast_search"`); `statcast_search_minors()` and
+#'   `statcast_search_wbc()` pass the minor-league and World Baseball Classic
+#'   routes for you.
 #' @param ... currently ignored
 #' @return Returns a tibble with Statcast data with the following columns:
 #' 
@@ -156,7 +160,8 @@
 
 statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
                             playerid = NULL,
-                            player_type = "batter", ...) {
+                            player_type = "batter", ...,
+                            route = "statcast_search") {
   # Check for other user errors.
   if (start_date <= "2015-03-01") { # March 1, 2015 was the first date of Spring Training.
     cli::cli_alert_info("Some metrics such as Exit Velocity and Batted Ball Events have only been compiled since 2015.")
@@ -226,7 +231,7 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
   }
   
   url_vars <- paste0(vars$pairs, collapse = "&")
-  url <- paste0("https://baseballsavant.mlb.com/statcast_search/csv?", url_vars)
+  url <- paste0("https://baseballsavant.mlb.com/", route, "/csv?", url_vars)
   # message(url)
   
   # Do a try/catch to show errors that the user may encounter while downloading.
@@ -248,18 +253,20 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
       cli::cli_alert_warning("{conditionMessage(cond)}")
     }
   )
-  # Baseball Savant periodically appends new columns to the CSV export (for
-  # example bat_speed/swing_length, arm_angle, and the attack_* family). The
-  # download already carries a header row, so rather than overwrite every name
-  # from a fixed-length vector -- which errors the moment the column count
-  # changes ("can't assign N names to an M column data.table", #337, #354,
-  # #371, #390) -- assign the known names positionally and leave any extra
-  # trailing columns under the names Savant already supplied.
+  # Baseball Savant's CSV export carries a header row whose names are already
+  # the canonical snake_case identifiers (verified against the live export
+  # 2026-08-26: 119/119 columns identical to the reference vector below).
+  # Earlier versions overwrote those names POSITIONALLY from the fixed-length
+  # vector, which broke two ways every time Savant changed the export: a
+  # changed column count errored outright (#337, #354, #371, #390), and a
+  # column inserted mid-frame silently shifted every later name one position
+  # off -- the "n_thruorder_pitcher is showing AGE" class (#408, #416).
   #
-  # Positional assignment only self-heals for columns Savant *appends*. When a
-  # new column lands mid-frame the canonical vector below must include it at its
-  # real position, otherwise every column after it is renamed one position off
-  # (which both drops the new column's name and silently mislabels the rest).
+  # The header is now trusted as-is and NEVER renamed by position.
+  # `statcast_columns` remains as the documented reference schema, used only
+  # to surface drift: genuinely new Savant columns arrive under their own
+  # names, and a message flags them so the reference (and the @return docs)
+  # can be updated deliberately.
   # Savant inserted `miss_distance` between `swing_length` and
   # `estimated_slg_using_speedangle`, so it is placed there below (#408).
   statcast_columns <- c(
@@ -295,8 +302,19 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
     "arm_angle", "attack_angle", "attack_direction", "swing_path_tilt",
     "intercept_ball_minus_batter_pos_x_inches", "intercept_ball_minus_batter_pos_y_inches"
   )
-  n_known <- min(length(statcast_columns), ncol(payload))
-  names(payload)[seq_len(n_known)] <- statcast_columns[seq_len(n_known)]
+  new_cols <- setdiff(names(payload), statcast_columns)
+  missing_cols <- setdiff(statcast_columns, names(payload))
+  if (length(new_cols) > 0) {
+    cli::cli_inform(c(
+      "i" = "Baseball Savant added column{?s} not yet in baseballr's reference schema: {.field {new_cols}}.",
+      " " = "They are returned under Savant's own names; please report at {.url https://github.com/BillPetti/baseballr/issues} so the documentation can be updated."
+    ))
+  }
+  if (length(missing_cols) > 0 && ncol(payload) > 1) {
+    cli::cli_inform(c(
+      "i" = "Column{?s} in baseballr's reference schema absent from this Savant export: {.field {missing_cols}}."
+    ))
+  }
 
   # returns 0 rows on failure but > 1 columns
   if (nrow(payload) > 1) {
@@ -436,3 +454,60 @@ scrape_statcast_savant_pitcher <- statcast_search_pitchers
 #' @keywords legacy
 #' @export
 scrape_statcast_savant_pitcher_all <- statcast_search_pitchers
+#' @rdname statcast_search
+#' @description `statcast_search_minors()` queries the minor-league Statcast
+#'   search (`statcast-search-minors`) -- same shape and columns, MiLB games
+#'   (Triple-A tracking began 2023).
+#' @export
+#' @examples
+#' \donttest{
+#'   try(statcast_search_minors(start_date = "2024-06-01", end_date = "2024-06-01"))
+#' }
+statcast_search_minors <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
+                                   playerid = NULL, player_type = "batter", ...) {
+  statcast_search(start_date, end_date, playerid = playerid,
+                  player_type = player_type, ...,
+                  route = "statcast-search-minors")
+}
+
+#' @rdname statcast_search
+#' @description `statcast_search_wbc()` queries the World Baseball Classic
+#'   Statcast search (`statcast-search-world-baseball-classic`); WBC games are
+#'   siloed to this route and not reachable from the regular search.
+#' @export
+#' @examples
+#' \donttest{
+#'   try(statcast_search_wbc(start_date = "2023-03-21", end_date = "2023-03-21"))
+#' }
+statcast_search_wbc <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
+                                playerid = NULL, player_type = "batter", ...) {
+  statcast_search(start_date, end_date, playerid = playerid,
+                  player_type = player_type, ...,
+                  route = "statcast-search-world-baseball-classic")
+}
+
+#' **Baseball Savant pitch-type colors**
+#'
+#' @description Returns Baseball Savant's pitch-type color palette as a tibble
+#'   (`pitch_type` abbreviation, `pitch_name`, and `color` hex code), for
+#'   coloring pitch charts consistently with Savant's own visuals.
+#' @return A tibble with columns `pitch_type`, `pitch_name`, `color`.
+#' @export
+#' @examples
+#' statcast_pitch_colors()
+statcast_pitch_colors <- function() {
+  tibble::tibble(
+    pitch_type = c("FF", "SI", "FC", "CH", "FS", "FO", "SC", "CU", "KC",
+                   "CS", "SL", "ST", "SV", "KN", "EP", "FA", "IN", "PO"),
+    pitch_name = c("4-Seam Fastball", "Sinker", "Cutter", "Changeup",
+                   "Splitter", "Forkball", "Screwball", "Curveball",
+                   "Knuckle Curve", "Slow Curve", "Slider", "Sweeper",
+                   "Slurve", "Knuckleball", "Eephus", "Other", "Intentional Ball",
+                   "Pitchout"),
+    color = c("#D22D49", "#FE9D00", "#933F2C", "#1DBE3A", "#3BACAC",
+              "#55CCAB", "#60DB33", "#00D1ED", "#6236CD", "#274BFC",
+              "#EEE716", "#DDB33A", "#93AFD4", "#3C44CD", "#888888",
+              "#888888", "#888888", "#888888")
+  ) |>
+    make_baseballr_data("MLB Baseball Savant pitch-type colors", Sys.time())
+}

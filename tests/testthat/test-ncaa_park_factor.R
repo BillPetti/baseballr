@@ -25,6 +25,7 @@ schedule_fixture <- data.frame(
 # blocking requests), the function used to error mid-pipeline with
 # "Column `home_team_id` not found". It must now warn and return an empty frame.
 test_that("ncaa_park_factor fails gracefully when the NCAA schedule is unavailable (#302)", {
+  testthat::skip_on_cran()
   testthat::local_mocked_bindings(
     load_ncaa_baseball_teams = function(...) teams_fixture,
     ncaa_schedule_info       = function(...) data.frame()
@@ -41,6 +42,7 @@ test_that("ncaa_park_factor fails gracefully when the NCAA schedule is unavailab
 
 # Guard must not change the happy path: a valid schedule still yields a park factor.
 test_that("ncaa_park_factor computes a park factor from a valid schedule (#302)", {
+  testthat::skip_on_cran()
   testthat::local_mocked_bindings(
     load_ncaa_baseball_teams = function(...) teams_fixture,
     ncaa_schedule_info       = function(...) schedule_fixture

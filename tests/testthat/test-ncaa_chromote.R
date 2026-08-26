@@ -1,4 +1,5 @@
 test_that(".ncaa_is_blocked() flags Akamai block/challenge bodies", {
+  testthat::skip_on_cran()
   # hard 403 page
   expect_true(baseballr:::.ncaa_is_blocked("<html><body>Access Denied</body></html>"))
   # soft HTTP-200 interstitial (bm-verify / akamai_validation / interstitial JS)
@@ -48,6 +49,7 @@ skip_ncaa_live <- function() {
 }
 
 test_that("ncaa_team_player_stats() returns each stat category", {
+  testthat::skip_on_cran()
   skip_ncaa_live()
   on.exit(try(baseballr:::.ncaa_browser_close(), silent = TRUE), add = TRUE)
 
@@ -60,6 +62,7 @@ test_that("ncaa_team_player_stats() returns each stat category", {
 })
 
 test_that("ncaa_pbp() parses the redesigned play-by-play page", {
+  testthat::skip_on_cran()
   skip_ncaa_live()
   on.exit(try(baseballr:::.ncaa_browser_close(), silent = TRUE), add = TRUE)
 
@@ -70,6 +73,7 @@ test_that("ncaa_pbp() parses the redesigned play-by-play page", {
 })
 
 test_that("ncaa_game_logs() returns game and career spans", {
+  testthat::skip_on_cran()
   skip_ncaa_live()
   on.exit(try(baseballr:::.ncaa_browser_close(), silent = TRUE), add = TRUE)
 
@@ -80,6 +84,7 @@ test_that("ncaa_game_logs() returns game and career spans", {
 })
 
 test_that("ncaa_lineups() derives the batting order per team", {
+  testthat::skip_on_cran()
   skip_ncaa_live()
   on.exit(try(baseballr:::.ncaa_browser_close(), silent = TRUE), add = TRUE)
 

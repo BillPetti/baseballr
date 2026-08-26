@@ -2,6 +2,41 @@
 
 ### New features
 
+- `statcast_search()` no longer renames Savant CSV columns by position.
+  Savant's own header row is trusted as-is (its names are already the
+  canonical identifiers), so a column inserted mid-export can never again
+  silently shift every downstream value — the "`n_thruorder_pitcher` showing
+  `AGE`" failure class (#337, #354, #371, #390, #408, #416). Genuinely new
+  Savant columns now arrive under their own names with an informational
+  message.
+- `statcast_search_minors()` and `statcast_search_wbc()` — the minor-league
+  and World Baseball Classic Statcast searches (separate Savant routes, same
+  columns) (#339, #395).
+- `statcast_pitch_colors()` — Baseball Savant's pitch-type color palette as
+  a tibble for consistent pitch charts (#356).
+- Eleven `load_mlb_*()` loaders for the pre-computed MLB model datasets on
+  the sportsdataverse-data releases (expected stats/HR, batter projections,
+  Stuff+/Command+/xERA, OAA, catcher framing, RE24 matrix, WE table, WPA),
+  mirroring sportsdataverse-py's loader surface.
+- `mlb_stats()` and `mlb_teams_stats()` gain `sit_codes` for situational
+  splits via `stat_type = "statSplits"` (vs L/R, home/away, RISP, ...)
+  (#278, #304, #383). Note the upstream leaders endpoints ignore `sitCodes`.
+
+### Bug fixes
+
+- `mlb_pbp()` no longer back-fills the at-bat-level `matchup.postOn*` /
+  `matchup.splits.menOnBase` columns across at-bat and half-inning
+  boundaries — bases-empty plays previously inherited baserunner ids from
+  the next at-bat (#263). This corrects long-standing output.
+- `mlb_pbp()`'s `count.balls.start` / `count.strikes.start` are now true
+  pre-pitch counts (the previous event's post-pitch count within the
+  at-bat, 0-0 before the first pitch). They previously carried the
+  post-pitch counts under a pre-pitch name (#131, #252).
+- `mlb_game_info()` degrades gracefully for games that have not started:
+  venue/weather/status return with `NA` attendance and first-pitch fields
+  instead of erroring (#363).
+- `mlb_rosters()` documents the `mlb_teams()` team-id lookup (#376).
+
 - Added read-only **Fox Sports "Bifrost"** MLB wrappers (`fox_mlb_*()`) over `api.foxsports.com/bifrost/v1/mlb/*`: `fox_mlb_team_roster()`, `fox_mlb_team_stats()`, `fox_mlb_team_gamelog()`, `fox_mlb_standings()`, `fox_mlb_league_leaders()`, and `fox_mlb_odds()`. They flatten Fox's layout-oriented JSON (sections → tables → rows → cells) into tidy `baseballr_data` tibbles. Fox does not expose MLB play-by-play or boxscore via `event/{id}/data`, so those are intentionally omitted. Parallels the cfbfastR / hoopR / fastRhockey / sportsdataverse-py `fox_*` families; reverse-engineering notes + an OpenAPI 3.1 spec live in the `sdv-internal-refs` repo.
 - Added a full **ESPN MLB** wrapper family (`espn_mlb_*()`, 100+ functions) mirroring the naming and structure of the sister SportsDataverse packages (hoopR `espn_nba_*`/`espn_mbb_*`, wehoop `espn_wnba_*`/`espn_wbb_*`, cfbfastR `espn_cfb_*`). It covers ESPN's three public hosts:
   - **Game data** (`site.api.espn.com`): `espn_mlb_scoreboard()`, `espn_mlb_pbp()` (pitch/at-bat level), `espn_mlb_team_box()`, `espn_mlb_player_box()`, `espn_mlb_game_all()`, `espn_mlb_game_rosters()`, `espn_mlb_teams()`, `espn_mlb_team_current_roster()`, `espn_mlb_standings()`, `espn_mlb_betting()`. Baseball-specific extractors with no basketball analogue: `espn_mlb_game_probables()` (probable / announced starting pitchers) and `espn_mlb_game_info()` (venue, attendance, game duration, and the umpire crew).

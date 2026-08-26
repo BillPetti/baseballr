@@ -7,7 +7,10 @@
 mlb_rosters(team_id = NULL, season = NULL, date = NULL, roster_type = NULL)
 }
 \arguments{
-\item{team_id}{team_id to return team roster information for a particular club.}
+\item{team_id}{team_id to return team roster information for a particular
+club. Look up ids with \code{\link[=mlb_teams]{mlb_teams()}} -- e.g.
+\code{mlb_teams(season = 2025, sport_ids = 1)} returns \code{team_id} alongside
+\code{team_full_name}.}
 
 \item{season}{Year to return team roster information for a particular club in a specific season.}
 

@@ -223,8 +223,15 @@ mlb_pbp <- function(game_pk) {
       pbp <- plays |>
         dplyr::left_join(at_bats, by = c("endTime" = "playEndTime"))
       
+      # Fill the at-bat key first, then fill the at-bat-level columns WITHIN
+      # each at-bat only -- the previous unscoped fill back-filled postOn*/
+      # menOnBase across at-bat and half-inning boundaries, inventing
+      # baserunners on bases-empty plays (#263).
       pbp <- pbp |>
+        tidyr::fill("atBatIndex", .direction = "up") |>
+        dplyr::group_by(.data$atBatIndex) |>
         tidyr::fill("atBatIndex":"matchup.splits.menOnBase", .direction = "up") |>
+        dplyr::ungroup() |>
         dplyr::mutate(
           game_pk = game_pk,
           game_date = substr(payload$gameData$datetime$dateTime, 1, 10)) |>
@@ -302,7 +309,21 @@ mlb_pbp <- function(game_pk) {
           "count.outs.start" = "count.outs.x",
           "count.balls.end" = "count.balls.y",
           "count.strikes.end" = "count.strikes.y",
-          "count.outs.end" = "count.outs.y") |>
+          "count.outs.end" = "count.outs.y")
+
+      # The playEvents count.* fields (the .x side of the join, renamed .start
+      # above) are POST-event counts; the .y side (.end) is the at-bat's FINAL
+      # count. True pre-pitch counts are the previous event's post-event count
+      # within the at-bat, 0-0 before the first event (#131, #252).
+      pbp <- pbp |>
+        dplyr::group_by(.data$game_pk, .data$atBatIndex) |>
+        dplyr::arrange(.data$index, .by_group = TRUE) |>
+        dplyr::mutate(
+          count.balls.start = dplyr::lag(.data$count.balls.start, default = 0),
+          count.strikes.start = dplyr::lag(.data$count.strikes.start, default = 0)
+        ) |>
+        dplyr::ungroup() |>
+        dplyr::arrange(desc(.data$atBatIndex), desc(.data$index)) |>
         make_baseballr_data("MLB Play-by-Play data from MLB.com",Sys.time())
     },
     error = function(e) {
