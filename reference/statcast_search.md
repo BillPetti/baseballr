@@ -240,7 +240,7 @@ reference.
                       playerid = 547180, 
                       player_type = 'batter'))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-08-26 20:08:44 UTC
+#> ℹ Data updated: 2026-08-26 20:36:54 UTC
 #> # A tibble: 82 × 119
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
@@ -267,7 +267,7 @@ reference.
                       playerid = 664285, 
                       player_type = 'pitcher'))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-08-26 20:08:44 UTC
+#> ℹ Data updated: 2026-08-26 20:36:54 UTC
 #> # A tibble: 92 × 119
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
@@ -292,7 +292,7 @@ reference.
   try(statcast_search(start_date = "2022-11-04", 
                       end_date = "2022-11-06"))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-08-26 20:08:44 UTC
+#> ℹ Data updated: 2026-08-26 20:36:54 UTC
 #> # A tibble: 250 × 119
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
@@ -333,7 +333,7 @@ reference.
 # \donttest{
   try(statcast_search_minors(start_date = "2024-06-01", end_date = "2024-06-01"))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-08-26 20:08:45 UTC
+#> ℹ Data updated: 2026-08-26 20:36:55 UTC
 #> # A tibble: 4,399 × 119
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
@@ -358,7 +358,7 @@ reference.
 # \donttest{
   try(statcast_search_wbc(start_date = "2023-03-21", end_date = "2023-03-21"))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-08-26 20:08:45 UTC
+#> ℹ Data updated: 2026-08-26 20:36:56 UTC
 #> # A tibble: 2,673 × 119
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>

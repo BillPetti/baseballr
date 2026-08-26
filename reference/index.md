@@ -349,6 +349,11 @@ Functions exported by baseballr to access FanGraphs’ MLB and MiLB Data
 
   **Scrape Pitcher Leaderboards from FanGraphs**
 
+- [`fg_projections()`](https://billpetti.github.io/baseballr/reference/fg_projections.md)
+  :
+
+  **Scrape FanGraphs player projections**
+
 - [`fg_team_batter()`](https://billpetti.github.io/baseballr/reference/fg_team_batter.md)
   :
 
@@ -2066,6 +2071,11 @@ Functions exported by baseballr to create visuals
   :
 
   **Generate spray charts with ggplot2**
+
+- [`ggpitchzone()`](https://billpetti.github.io/baseballr/reference/ggpitchzone.md)
+  :
+
+  **Plot pitch locations with the strike zone with ggplot2**
 
 ## Included Data
 

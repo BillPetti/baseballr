@@ -106,3 +106,14 @@ betts_16 |>
   coord_fixed() +
   theme_bw()
 ```
+
+## Pitch locations with the strike zone
+
+[`ggpitchzone()`](https://billpetti.github.io/baseballr/reference/ggpitchzone.md)
+plots plate-crossing locations from the catcher’s perspective with the
+batter’s strike zone overlaid, using the Savant palette by default:
+
+``` r
+
+ggpitchzone(betts_16)
+```

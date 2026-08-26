@@ -42,6 +42,14 @@
   [\#304](https://github.com/billpetti/baseballr/issues/304),
   [\#383](https://github.com/billpetti/baseballr/issues/383)). Note the
   upstream leaders endpoints ignore `sitCodes`.
+- [`fg_projections()`](https://billpetti.github.io/baseballr/reference/fg_projections.md)
+  — FanGraphs player projections (Steamer, ZiPS, ATC, THE BAT and
+  rest-of-season variants; batting and pitching)
+  ([\#182](https://github.com/billpetti/baseballr/issues/182)).
+- [`ggpitchzone()`](https://billpetti.github.io/baseballr/reference/ggpitchzone.md)
+  — pitch-location plot from the catcher’s perspective with the strike
+  zone overlaid, colored with the Savant pitch-type palette
+  ([\#260](https://github.com/billpetti/baseballr/issues/260)).
 
 #### Bug fixes
 
@@ -66,6 +74,12 @@
   venue/weather/status return with `NA` attendance and first-pitch
   fields instead of erroring
   ([\#363](https://github.com/billpetti/baseballr/issues/363)).
+
+- [`mlb_pbp()`](https://billpetti.github.io/baseballr/reference/mlb_pbp.md)
+  works for pre-2010 games again: play events are tied to their at-bat
+  by position instead of an `endTime` join the older feeds don’t carry
+  ([\#233](https://github.com/billpetti/baseballr/issues/233)).
+  Modern-game output is unchanged.
 
 - [`mlb_rosters()`](https://billpetti.github.io/baseballr/reference/mlb_rosters.md)
   documents the
