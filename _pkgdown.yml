@@ -392,6 +392,7 @@ reference:
     desc: Functions exported by baseballr to create visuals
     contents:
       - '`ggspraychart`'
+      - '`ggpitchzone`'
   - title: Included Data
     subtitle: Included baseballr data
     desc: Data exported by baseballr for ease of use

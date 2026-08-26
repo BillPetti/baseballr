@@ -21,6 +21,11 @@
 - `mlb_stats()` and `mlb_teams_stats()` gain `sit_codes` for situational
   splits via `stat_type = "statSplits"` (vs L/R, home/away, RISP, ...)
   (#278, #304, #383). Note the upstream leaders endpoints ignore `sitCodes`.
+- `fg_projections()` — FanGraphs player projections (Steamer, ZiPS, ATC,
+  THE BAT and rest-of-season variants; batting and pitching) (#182).
+- `ggpitchzone()` — pitch-location plot from the catcher's perspective with
+  the strike zone overlaid, colored with the Savant pitch-type palette
+  (#260).
 
 ### Bug fixes
 
@@ -35,6 +40,9 @@
 - `mlb_game_info()` degrades gracefully for games that have not started:
   venue/weather/status return with `NA` attendance and first-pitch fields
   instead of erroring (#363).
+- `mlb_pbp()` works for pre-2010 games again: play events are tied to their
+  at-bat by position instead of an `endTime` join the older feeds don't
+  carry (#233). Modern-game output is unchanged.
 - `mlb_rosters()` documents the `mlb_teams()` team-id lookup (#376).
 
 - Added read-only **Fox Sports "Bifrost"** MLB wrappers (`fox_mlb_*()`) over `api.foxsports.com/bifrost/v1/mlb/*`: `fox_mlb_team_roster()`, `fox_mlb_team_stats()`, `fox_mlb_team_gamelog()`, `fox_mlb_standings()`, `fox_mlb_league_leaders()`, and `fox_mlb_odds()`. They flatten Fox's layout-oriented JSON (sections → tables → rows → cells) into tidy `baseballr_data` tibbles. Fox does not expose MLB play-by-play or boxscore via `event/{id}/data`, so those are intentionally omitted. Parallels the cfbfastR / hoopR / fastRhockey / sportsdataverse-py `fox_*` families; reverse-engineering notes + an OpenAPI 3.1 spec live in the `sdv-internal-refs` repo.

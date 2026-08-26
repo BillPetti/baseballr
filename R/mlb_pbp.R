@@ -186,10 +186,17 @@ mlb_pbp <- function(game_pk) {
         jsonlite::toJSON() |> 
         jsonlite::fromJSON(flatten = TRUE)
       
-      plays <- payload$liveData$plays$allPlays$playEvents |> 
-        dplyr::bind_rows()
-      
+      # Keep each event tied to its at-bat by POSITION. The old approach
+      # re-derived the link by joining on endTime == playEndTime, which
+      # pre-2010 feeds don't carry at all (#233) and which depends on
+      # timestamp string equality even when present.
+      play_events <- payload$liveData$plays$allPlays$playEvents
+      names(play_events) <- as.character(seq_along(play_events))
+      plays <- play_events |>
+        dplyr::bind_rows(.id = "ab_row")
+
       at_bats <- payload$liveData$plays$allPlays
+      at_bats$ab_row <- as.character(seq_len(nrow(at_bats)))
       
       current <- payload$liveData$plays$currentPlay
       
@@ -221,7 +228,8 @@ mlb_pbp <- function(game_pk) {
         dplyr::select(-c(tidyr::one_of(list_columns)))
       
       pbp <- plays |>
-        dplyr::left_join(at_bats, by = c("endTime" = "playEndTime"))
+        dplyr::left_join(at_bats, by = "ab_row") |>
+        dplyr::select(-dplyr::any_of(c("ab_row", "playEndTime")))
       
       # Fill the at-bat key first, then fill the at-bat-level columns WITHIN
       # each at-bat only -- the previous unscoped fill back-filled postOn*/
