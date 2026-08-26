@@ -84,6 +84,19 @@ devtools::install_github("BillPetti/baseballr", ref = "development_branch")
 
 The package consists of two main sets of functions: data acquisition and metric calculation.
 
+Data acquisition spans the MLB Stats API (`mlb_*()`, including situational
+splits via `sit_codes`), Baseball Savant / Statcast (`statcast_search()` for
+MLB plus `statcast_search_minors()` and `statcast_search_wbc()` for the
+minor-league and World Baseball Classic routes), FanGraphs (`fg_*()`),
+Baseball Reference (`bref_*()`), ESPN (`espn_mlb_*()`,
+`espn_college_baseball_*()`), Fox Sports (`fox_mlb_*()`), NCAA
+(`ncaa_*()`), Spotrac (`sptrc_*()`), the Chadwick Bureau register
+(`chadwick_*()`), and Retrosheet (`retrosheet_data()`). Pre-computed
+season datasets — NCAA schedules/pbp, umpire ids, and eleven MLB model
+datasets (expected stats, Stuff+, OAA, catcher framing, run/win
+expectancy, and more) — load from the SportsDataverse data releases via
+the `load_*()` family.
+
 For example, if you want to see the standings for a specific MLB division on a given date, you can use the `bref_standings_on_date()` function. Just pass the year, month, day, and division you want:
 
 ```{r bref_standings_on_date}
