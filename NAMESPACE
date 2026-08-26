@@ -206,6 +206,7 @@ export(fg_park_hand)
 export(fg_pitch_leaders)
 export(fg_pitcher_game_logs)
 export(fg_pitcher_leaders)
+export(fg_projections)
 export(fg_team_batter)
 export(fg_team_fielder)
 export(fg_team_pitcher)
@@ -232,6 +233,7 @@ export(get_pbp_mlb)
 export(get_probables_mlb)
 export(get_retrosheet_data)
 export(get_umpire_ids_petti)
+export(ggpitchzone)
 export(ggspraychart)
 export(helper_espn_mlb_pbp)
 export(helper_espn_mlb_player_box)
@@ -423,6 +425,7 @@ importFrom(dplyr,
 )
 importFrom(ggplot2,
   "%+replace%",
+  .data,
   aes,
   aes_string,
   coord_fixed,
@@ -430,12 +433,16 @@ importFrom(ggplot2,
   element_text,
   geom_curve,
   geom_point,
+  geom_rect,
   geom_segment,
   ggplot,
+  labs,
+  scale_color_manual,
   scale_fill_continuous,
   scale_fill_manual,
   stat_density2d,
   theme,
+  theme_bw,
   theme_minimal,
   xlim,
   ylim
