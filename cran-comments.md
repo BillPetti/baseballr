@@ -45,9 +45,30 @@ shown in each function's documentation `Details` rather than as executable
 examples, so routine checks never launch a browser. Vignettes are included for
 getting started, NCAA scraping, and Statcast usage.
 
+* **CRAN-prep pass (2026-08-26)**: `statcast_search()` now trusts Savant's
+  CSV header row instead of renaming columns positionally (fixes a recurring
+  silent column-shift class); new `statcast_search_minors()` /
+  `statcast_search_wbc()` / `statcast_pitch_colors()`; eleven `load_mlb_*()`
+  model-dataset loaders; `sit_codes` splits on `mlb_stats()` /
+  `mlb_teams_stats()`; `mlb_pbp()` base-state and pre-pitch count
+  corrections; pregame `mlb_game_info()` no longer errors; documentation
+  migrated to roxygen2 8.1.0; `cph` role added; LICENSE year refreshed. The
+  full test suite skips on CRAN (tests run in continuous integration on
+  every push).
+
+## Test environments
+
+* local Windows 10, R 4.6.1
+* GitHub Actions: windows-latest (release), ubuntu-latest (release, oldrel-1)
+* R-hub: linux, windows, macos (R-devel)
+
 ## R CMD check results
 
 0 errors | 0 warnings | 0 notes
+
+(The local Windows run shows one NOTE about a `''NULL''` file in the check
+directory; this is a known artifact of rcmdcheck on Windows in the local
+environment and does not appear on the CI platforms.)
 
 ## revdepcheck results
 

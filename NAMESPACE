@@ -239,6 +239,17 @@ export(helper_espn_mlb_team_box)
 export(label_statcast_imputed_data)
 export(linear_weights_savant)
 export(load_game_info_sup)
+export(load_mlb_batter_projection)
+export(load_mlb_catcher_framing)
+export(load_mlb_command_plus)
+export(load_mlb_expected_hr)
+export(load_mlb_expected_stats)
+export(load_mlb_oaa)
+export(load_mlb_re24_matrix)
+export(load_mlb_stuff_plus)
+export(load_mlb_we_table)
+export(load_mlb_wpa)
+export(load_mlb_xera)
 export(load_ncaa_baseball_pbp)
 export(load_ncaa_baseball_schedule)
 export(load_ncaa_baseball_season_ids)
@@ -368,10 +379,13 @@ export(sptrc_league_payrolls)
 export(sptrc_team_active_payroll)
 export(standings_on_date_bref)
 export(statcast_leaderboards)
+export(statcast_pitch_colors)
 export(statcast_search)
 export(statcast_search.default)
 export(statcast_search_batters)
+export(statcast_search_minors)
 export(statcast_search_pitchers)
+export(statcast_search_wbc)
 export(statline_from_statcast)
 export(team_consistency)
 export(team_results_bref)
@@ -382,97 +396,123 @@ import(utils)
 importFrom(Rcpp,getRcppVersion)
 importFrom(RcppParallel,defaultNumThreads)
 importFrom(cli,cli_abort)
-importFrom(data.table,data.table)
-importFrom(data.table,fread)
-importFrom(data.table,rbindlist)
-importFrom(data.table,setDT)
-importFrom(dplyr,across)
-importFrom(dplyr,any_of)
-importFrom(dplyr,arrange)
-importFrom(dplyr,as_tibble)
-importFrom(dplyr,bind_cols)
-importFrom(dplyr,bind_rows)
-importFrom(dplyr,desc)
-importFrom(dplyr,filter)
-importFrom(dplyr,group_by)
-importFrom(dplyr,left_join)
-importFrom(dplyr,mutate)
-importFrom(dplyr,mutate_at)
-importFrom(dplyr,mutate_if)
-importFrom(dplyr,rename)
-importFrom(dplyr,row_number)
-importFrom(dplyr,select)
-importFrom(dplyr,ungroup)
-importFrom(ggplot2,"%+replace%")
-importFrom(ggplot2,aes)
-importFrom(ggplot2,aes_string)
-importFrom(ggplot2,coord_fixed)
-importFrom(ggplot2,element_blank)
-importFrom(ggplot2,element_text)
-importFrom(ggplot2,geom_curve)
-importFrom(ggplot2,geom_point)
-importFrom(ggplot2,geom_segment)
-importFrom(ggplot2,ggplot)
-importFrom(ggplot2,scale_fill_continuous)
-importFrom(ggplot2,scale_fill_manual)
-importFrom(ggplot2,stat_density2d)
-importFrom(ggplot2,theme)
-importFrom(ggplot2,theme_minimal)
-importFrom(ggplot2,xlim)
-importFrom(ggplot2,ylim)
+importFrom(data.table,
+  data.table,
+  fread,
+  rbindlist,
+  setDT
+)
+importFrom(dplyr,
+  across,
+  any_of,
+  arrange,
+  as_tibble,
+  bind_cols,
+  bind_rows,
+  desc,
+  filter,
+  group_by,
+  left_join,
+  mutate,
+  mutate_at,
+  mutate_if,
+  rename,
+  row_number,
+  select,
+  ungroup
+)
+importFrom(ggplot2,
+  "%+replace%",
+  aes,
+  aes_string,
+  coord_fixed,
+  element_blank,
+  element_text,
+  geom_curve,
+  geom_point,
+  geom_segment,
+  ggplot,
+  scale_fill_continuous,
+  scale_fill_manual,
+  stat_density2d,
+  theme,
+  theme_minimal,
+  xlim,
+  ylim
+)
 importFrom(glue,glue)
-importFrom(httr2,req_headers)
-importFrom(httr2,req_perform)
-importFrom(httr2,req_proxy)
-importFrom(httr2,req_retry)
-importFrom(httr2,req_timeout)
-importFrom(httr2,req_url_query)
-importFrom(httr2,request)
-importFrom(httr2,resp_body_string)
-importFrom(janitor,adorn_totals)
-importFrom(janitor,clean_names)
-importFrom(janitor,make_clean_names)
-importFrom(jsonlite,fromJSON)
-importFrom(jsonlite,toJSON)
-importFrom(lubridate,day)
-importFrom(lubridate,month)
-importFrom(lubridate,with_tz)
-importFrom(lubridate,year)
-importFrom(lubridate,ymd_hm)
+importFrom(httr2,
+  req_headers,
+  req_perform,
+  req_proxy,
+  req_retry,
+  req_timeout,
+  req_url_query,
+  request,
+  resp_body_string
+)
+importFrom(janitor,
+  adorn_totals,
+  clean_names,
+  make_clean_names
+)
+importFrom(jsonlite,
+  fromJSON,
+  toJSON
+)
+importFrom(lubridate,
+  day,
+  month,
+  with_tz,
+  year,
+  ymd_hm
+)
 importFrom(magrittr,"%>%")
-importFrom(purrr,map)
-importFrom(purrr,map_df)
-importFrom(rlang,"%||%")
-importFrom(rlang,.data)
+importFrom(purrr,
+  map,
+  map_df
+)
+importFrom(rlang,
+  "%||%",
+  .data
+)
 importFrom(stats,setNames)
-importFrom(stringr,str_count)
-importFrom(stringr,str_detect)
-importFrom(stringr,str_extract)
-importFrom(stringr,str_length)
-importFrom(stringr,str_remove_all)
-importFrom(stringr,str_split)
-importFrom(stringr,str_split_fixed)
-importFrom(stringr,str_squish)
-importFrom(stringr,str_starts)
-importFrom(stringr,str_sub)
-importFrom(stringr,str_trim)
-importFrom(tibble,rownames_to_column)
-importFrom(tibble,tibble)
-importFrom(tibble,tribble)
-importFrom(tidyr,everything)
-importFrom(tidyr,extract_numeric)
-importFrom(tidyr,gather)
-importFrom(tidyr,hoist)
-importFrom(tidyr,pivot_wider)
-importFrom(tidyr,replace_na)
-importFrom(tidyr,separate)
-importFrom(tidyr,spread)
-importFrom(tidyr,unchop)
-importFrom(tidyr,unnest)
-importFrom(tidyr,unnest_wider)
-importFrom(utils,URLdecode)
-importFrom(utils,URLencode)
-importFrom(utils,download.file)
-importFrom(utils,tail)
-importFrom(utils,unzip)
-importFrom(utils,write.csv)
+importFrom(stringr,
+  str_count,
+  str_detect,
+  str_extract,
+  str_length,
+  str_remove_all,
+  str_split,
+  str_split_fixed,
+  str_squish,
+  str_starts,
+  str_sub,
+  str_trim
+)
+importFrom(tibble,
+  rownames_to_column,
+  tibble,
+  tribble
+)
+importFrom(tidyr,
+  everything,
+  extract_numeric,
+  gather,
+  hoist,
+  pivot_wider,
+  replace_na,
+  separate,
+  spread,
+  unchop,
+  unnest,
+  unnest_wider
+)
+importFrom(utils,
+  URLdecode,
+  URLencode,
+  download.file,
+  tail,
+  unzip,
+  write.csv
+)

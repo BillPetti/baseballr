@@ -124,3 +124,9 @@ Use the prefix that matches the data source. Never mix sources behind one prefix
   (`feat:`, `fix:`, `docs:`, `test:`, `refactor:`, `chore:`).
 - **Never** add AI tools as commit co-authors. Omit any `Co-Authored-By` trailer
   that references an AI assistant.
+
+## Statcast column contract (load-bearing)
+
+- `statcast_search()` trusts Savant's CSV header row as-is. NEVER rename columns positionally from a fixed vector — that caused the recurring shifted-columns bug class (#416 et al.). `statcast_columns` is a reference schema used only to surface drift.
+- Minors/WBC searches are separate Savant routes: `statcast_search_minors()` / `statcast_search_wbc()` (pass `route=` through the core; don't fork the body).
+- Every test leads with `skip_on_cran()`; the suite runs fully in CI (`NOT_CRAN=true`).

@@ -50,6 +50,7 @@ test_that("Statcast Search", {
 # keep "" -- which downstream helpers such as metrics_linear_weights_savant()
 # do not treat as missing (#275). This is a pure, network-free parse test.
 test_that("process_statcast_payload normalizes empty character fields to NA (#275)", {
+  testthat::skip_on_cran()
   # csv_from_url() returns a data.table, so exercise that class here -- a plain
   # data.frame would not catch class-specific indexing bugs.
   payload <- data.table::as.data.table(as.data.frame(

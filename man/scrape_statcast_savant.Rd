@@ -15,7 +15,8 @@ scrape_statcast_savant(
   end_date = Sys.Date(),
   playerid = NULL,
   player_type = "batter",
-  ...
+  ...,
+  route = "statcast_search"
 )
 
 scrape_statcast_savant.Date(
@@ -23,7 +24,8 @@ scrape_statcast_savant.Date(
   end_date = Sys.Date(),
   playerid = NULL,
   player_type = "batter",
-  ...
+  ...,
+  route = "statcast_search"
 )
 
 scrape_statcast_savant.default(
@@ -55,6 +57,11 @@ Format must be in YYYY-MM-DD format.}
 Default is \code{batter}}
 
 \item{...}{currently ignored}
+
+\item{route}{The Baseball Savant search route. Defaults to the MLB search
+(\code{"statcast_search"}); \code{statcast_search_minors()} and
+\code{statcast_search_wbc()} pass the minor-league and World Baseball Classic
+routes for you.}
 
 \item{batterid}{The MLBAM ID for the batter whose data you want to query.}
 

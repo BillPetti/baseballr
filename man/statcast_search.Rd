@@ -5,6 +5,8 @@
 \alias{statcast_search.default}
 \alias{statcast_search_batters}
 \alias{statcast_search_pitchers}
+\alias{statcast_search_minors}
+\alias{statcast_search_wbc}
 \title{\strong{Query Statcast by Date Range and Players}}
 \usage{
 statcast_search(
@@ -12,7 +14,8 @@ statcast_search(
   end_date = Sys.Date(),
   playerid = NULL,
   player_type = "batter",
-  ...
+  ...,
+  route = "statcast_search"
 )
 
 statcast_search.default(
@@ -26,6 +29,22 @@ statcast_search.default(
 statcast_search_batters(start_date, end_date, batterid = NULL, ...)
 
 statcast_search_pitchers(start_date, end_date, pitcherid = NULL, ...)
+
+statcast_search_minors(
+  start_date = Sys.Date() - 1,
+  end_date = Sys.Date(),
+  playerid = NULL,
+  player_type = "batter",
+  ...
+)
+
+statcast_search_wbc(
+  start_date = Sys.Date() - 1,
+  end_date = Sys.Date(),
+  playerid = NULL,
+  player_type = "batter",
+  ...
+)
 }
 \arguments{
 \item{start_date}{Date of first game for which you want data.
@@ -40,6 +59,11 @@ Format must be in YYYY-MM-DD format.}
 Default is \code{batter}}
 
 \item{...}{currently ignored}
+
+\item{route}{The Baseball Savant search route. Defaults to the MLB search
+(\code{"statcast_search"}); \code{statcast_search_minors()} and
+\code{statcast_search_wbc()} pass the minor-league and World Baseball Classic
+routes for you.}
 
 \item{batterid}{The MLBAM ID for the batter whose data you want to query.}
 
@@ -181,6 +205,14 @@ Returns a tibble with the same Statcast pitch-level columns as
 }
 \description{
 This function allows you to query Statcast data as provided on \url{https://baseballsavant.mlb.com}
+
+\code{statcast_search_minors()} queries the minor-league Statcast
+search (\code{statcast-search-minors}) -- same shape and columns, MiLB games
+(Triple-A tracking began 2023).
+
+\code{statcast_search_wbc()} queries the World Baseball Classic
+Statcast search (\code{statcast-search-world-baseball-classic}); WBC games are
+siloed to this route and not reachable from the regular search.
 }
 \examples{
 \donttest{
@@ -213,5 +245,11 @@ This function allows you to query Statcast data as provided on \url{https://base
     daily <- statcast_search_pitchers(start_date = "2016-04-06",
       end_date = "2016-04-06", pitcherid = NULL)
   })
+}
+\donttest{
+  try(statcast_search_minors(start_date = "2024-06-01", end_date = "2024-06-01"))
+}
+\donttest{
+  try(statcast_search_wbc(start_date = "2023-03-21", end_date = "2023-03-21"))
 }
 }

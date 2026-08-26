@@ -83,6 +83,7 @@ test_that("espn_college_baseball_news returns articles", {
 })
 
 test_that("invalid league is rejected by the shared validator", {
+  testthat::skip_on_cran()
   expect_error(
     baseballr:::.espn_baseball_validate_league("nfl"),
     "league must be one of"

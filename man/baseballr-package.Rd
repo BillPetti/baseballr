@@ -24,6 +24,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Saiem Gilani \email{saiem.gilani@gmail.com} (\href{https://orcid.org/0000-0002-7194-9067}{ORCID})
   \item Bill Petti \email{billpetti@gmail.com}
 }
 
@@ -33,6 +34,7 @@ Other contributors:
   \item Ben Dilday \email{ben.dilday.phd@gmail.com} [contributor]
   \item Robert Frey \email{rfrey22@gmail.com} [contributor]
   \item Camden Kay \email{camden.kay23@gmail.com} [contributor]
+  \item baseballr authors [copyright holder]
 }
 
 }

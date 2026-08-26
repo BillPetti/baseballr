@@ -32,6 +32,28 @@ exporting ~375 functions across multiple data-source families: `mlb_*()`,
 `metrics`/`woba_plus`/`fip_plus` analytics, and the `ggspraychart()`
 visualization.
 
+## Statcast column contract (load-bearing)
+
+`statcast_search()` trusts Baseball Savant's CSV header row AS-IS — never
+rename columns by position from a fixed vector. The positional scheme caused
+the recurring silently-shifted-columns class (#337 #354 #371 #390 #408 #416:
+"n_thruorder_pitcher shows AGE") every time Savant inserted a column
+mid-export. `statcast_columns` in `R/sc_statcast_search.R` is the documented
+REFERENCE schema only, used to surface drift via an informational message;
+update it (and the @return table) when Savant adds columns, but the data is
+never renamed against it. Minors and WBC use separate Savant routes via
+`statcast_search_minors()` / `statcast_search_wbc()` (`route=` on the core).
+
+## Release-dataset loaders
+
+`load_mlb_*` (11, `R/mlb_model_loaders.R`) share `.mlb_model_release_loader()`
+over the sportsdataverse-data tags mlb_hitting_models / mlb_pitching_models /
+mlb_fielding_models / mlb_game_state, mirroring sportsdataverse-py's
+`load_mlb_*` surface. NCAA loaders cover ncaa_baseball_pbp / _schedules
+(assets currently end at 2023 — backfill tracked in #367/#325). Every test in
+the suite leads with `skip_on_cran()`; new tests must too.
+
+
 When this guide differs from current repository docs, treat `CONTRIBUTING.md` and
 current test implementations as authoritative.
 
