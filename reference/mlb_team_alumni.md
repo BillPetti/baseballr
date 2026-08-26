@@ -85,7 +85,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_team_alumni(team_id = 137, stat_group = 'hitting', season = 2021))
 #> ── MLB Team Alumni data from MLB.com ──────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-26 19:19:35 UTC
+#> ℹ Data updated: 2026-08-26 19:34:38 UTC
 #> # A tibble: 43 × 46
 #>    player_id player_full_name  link  first_name last_name primary_number
 #>        <int> <chr>             <chr> <chr>      <chr>     <chr>         

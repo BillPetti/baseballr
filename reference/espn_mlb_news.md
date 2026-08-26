@@ -163,7 +163,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_news(limit = 5)
 #> ── ESPN MLB News from ESPN.com ────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-26 19:17:32 UTC
+#> ℹ Data updated: 2026-08-26 19:32:54 UTC
 #> # A tibble: 5 × 9
 #>         id type   headline description published premium byline link_web
 #>      <int> <chr>  <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>   

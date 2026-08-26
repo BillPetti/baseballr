@@ -343,6 +343,20 @@ acquired using baseballr. Statcast data goes back to 2015 and contains a
 multitude of data points for each pitch/batted ball event so there’s
 endless things to go research!</p>
 </div>
+<div class="section level2">
+<h2 id="beyond-mlb-minors-and-the-world-baseball-classic">Beyond MLB: minors and the World Baseball Classic<a class="anchor" aria-label="anchor" href="#beyond-mlb-minors-and-the-world-baseball-classic"></a>
+</h2>
+<p>Baseball Savant serves minor-league and World Baseball Classic
+Statcast data from separate search routes, so those games never appear
+in <code><a href="../reference/statcast_search.html">statcast_search()</a></code> results. The package wraps them with
+the same interface and columns:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Triple-A pitch data (Statcast tracking in MiLB parks began 2023)</span></span>
+<span><span class="va">milb</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/statcast_search.html">statcast_search_minors</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="st">"2024-06-01"</span>, end_date <span class="op">=</span> <span class="st">"2024-06-01"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># World Baseball Classic</span></span>
+<span><span class="va">wbc</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/statcast_search.html">statcast_search_wbc</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="st">"2023-03-21"</span>, end_date <span class="op">=</span> <span class="st">"2023-03-21"</span><span class="op">)</span></span></code></pre></div>
+</div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>

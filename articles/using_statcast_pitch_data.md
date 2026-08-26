@@ -190,3 +190,19 @@ These were just two examples of things you can do with pitch data
 acquired using baseballr. Statcast data goes back to 2015 and contains a
 multitude of data points for each pitch/batted ball event so there’s
 endless things to go research!
+
+## Beyond MLB: minors and the World Baseball Classic
+
+Baseball Savant serves minor-league and World Baseball Classic Statcast
+data from separate search routes, so those games never appear in
+[`statcast_search()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
+results. The package wraps them with the same interface and columns:
+
+``` r
+
+# Triple-A pitch data (Statcast tracking in MiLB parks began 2023)
+milb <- statcast_search_minors(start_date = "2024-06-01", end_date = "2024-06-01")
+
+# World Baseball Classic
+wbc <- statcast_search_wbc(start_date = "2023-03-21", end_date = "2023-03-21")
+```

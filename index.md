@@ -67,6 +67,24 @@ devtools::install_github("BillPetti/baseballr", ref = "development_branch")
 The package consists of two main sets of functions: data acquisition and
 metric calculation.
 
+Data acquisition spans the MLB Stats API (`mlb_*()`, including
+situational splits via `sit_codes`), Baseball Savant / Statcast
+([`statcast_search()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
+for MLB plus
+[`statcast_search_minors()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
+and
+[`statcast_search_wbc()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
+for the minor-league and World Baseball Classic routes), FanGraphs
+(`fg_*()`), Baseball Reference (`bref_*()`), ESPN (`espn_mlb_*()`,
+`espn_college_baseball_*()`), Fox Sports (`fox_mlb_*()`), NCAA
+(`ncaa_*()`), Spotrac (`sptrc_*()`), the Chadwick Bureau register
+(`chadwick_*()`), and Retrosheet
+([`retrosheet_data()`](https://billpetti.github.io/baseballr/reference/retrosheet_data.md)).
+Pre-computed season datasets — NCAA schedules/pbp, umpire ids, and
+eleven MLB model datasets (expected stats, Stuff+, OAA, catcher framing,
+run/win expectancy, and more) — load from the SportsDataverse data
+releases via the `load_*()` family.
+
 For example, if you want to see the standings for a specific MLB
 division on a given date, you can use the
 [`bref_standings_on_date()`](https://billpetti.github.io/baseballr/reference/bref_standings_on_date.md)
@@ -82,7 +100,7 @@ bref_standings_on_date("2015-08-01", "NL East", from = FALSE)
 ``` R
 ## ── MLB Standings on Date data from baseball-reference.com ─── baseballr 2.0.0 ──
 
-## ℹ Data updated: 2026-08-26 14:47:05 EDT
+## ℹ Data updated: 2026-08-26 15:15:59 EDT
 
 ## # A tibble: 5 × 8
 ##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`
@@ -213,7 +231,7 @@ bref_daily_pitcher("2015-04-05", "2015-04-30") %>%
 ``` R
 ## ── MLB Daily Pitcher data from baseball-reference.com ─────── baseballr 2.0.0 ──
 
-## ℹ Data updated: 2026-08-26 14:50:02 EDT
+## ℹ Data updated: 2026-08-26 15:18:54 EDT
 
 ## # A tibble: 10 × 11
 ##    season Name               IP   ERA    SO   uBB   HBP    HR   FIP wOBA_against

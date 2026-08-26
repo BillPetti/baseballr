@@ -188,6 +188,7 @@
 <strong>Functionality</strong><a class="anchor" aria-label="anchor" href="#functionality"></a>
 </h2>
 <p>The package consists of two main sets of functions: data acquisition and metric calculation.</p>
+<p>Data acquisition spans the MLB Stats API (<code>mlb_*()</code>, including situational splits via <code>sit_codes</code>), Baseball Savant / Statcast (<code><a href="reference/statcast_search.html">statcast_search()</a></code> for MLB plus <code><a href="reference/statcast_search.html">statcast_search_minors()</a></code> and <code><a href="reference/statcast_search.html">statcast_search_wbc()</a></code> for the minor-league and World Baseball Classic routes), FanGraphs (<code>fg_*()</code>), Baseball Reference (<code>bref_*()</code>), ESPN (<code>espn_mlb_*()</code>, <code>espn_college_baseball_*()</code>), Fox Sports (<code>fox_mlb_*()</code>), NCAA (<code>ncaa_*()</code>), Spotrac (<code>sptrc_*()</code>), the Chadwick Bureau register (<code>chadwick_*()</code>), and Retrosheet (<code><a href="reference/retrosheet_data.html">retrosheet_data()</a></code>). Pre-computed season datasets — NCAA schedules/pbp, umpire ids, and eleven MLB model datasets (expected stats, Stuff+, OAA, catcher framing, run/win expectancy, and more) — load from the SportsDataverse data releases via the <code>load_*()</code> family.</p>
 <p>For example, if you want to see the standings for a specific MLB division on a given date, you can use the <code><a href="reference/bref_standings_on_date.html">bref_standings_on_date()</a></code> function. Just pass the year, month, day, and division you want:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://billpetti.github.io/baseballr/">baseballr</a></span><span class="op">)</span></span>
@@ -195,7 +196,7 @@
 <span><span class="fu"><a href="reference/bref_standings_on_date.html">bref_standings_on_date</a></span><span class="op">(</span><span class="st">"2015-08-01"</span>, <span class="st">"NL East"</span>, from <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="do">## ── MLB Standings on Date data from baseball-reference.com ─── baseballr 2.0.0 ──</span></span>
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="do">## ℹ Data updated: 2026-08-26 14:47:05 EDT</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="do">## ℹ Data updated: 2026-08-26 15:15:59 EDT</span></span>
 <span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
 <span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="do">## # A tibble: 5 × 8</span></span>
 <span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="do">##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`</span></span>
@@ -286,7 +287,7 @@
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb14"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="do">## ── MLB Daily Pitcher data from baseball-reference.com ─────── baseballr 2.0.0 ──</span></span>
 <span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="do">## ℹ Data updated: 2026-08-26 14:50:02 EDT</span></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="do">## ℹ Data updated: 2026-08-26 15:18:54 EDT</span></span>
 <span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a></span>
 <span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="do">## # A tibble: 10 × 11</span></span>
 <span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="do">##    season Name               IP   ERA    SO   uBB   HBP    HR   FIP wOBA_against</span></span>

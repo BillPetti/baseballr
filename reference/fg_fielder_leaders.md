@@ -211,7 +211,7 @@ A data frame of fielder data.
 # \donttest{
   try(fg_fielder_leaders(startseason = 2023, endseason = 2023))
 #> ── MLB Player Fielding Leaders data from FanGraphs.com ─────────────────
-#> ℹ Data updated: 2026-08-26 19:18:06 UTC
+#> ℹ Data updated: 2026-08-26 19:33:27 UTC
 #> # A tibble: 2,293 × 63
 #>    Season team_name xMLBAMID PlayerNameRoute   PlayerName       playerid
 #>     <int> <chr>        <int> <chr>             <chr>               <int>

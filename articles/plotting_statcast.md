@@ -86,3 +86,23 @@ betts_grpd %>%
 
 # ggsave("betts_angle_speed_year.png", scale = 1.2, width = 14, height = 8.5, units = "in")
 ```
+
+## Coloring by pitch type
+
+[`statcast_pitch_colors()`](https://billpetti.github.io/baseballr/reference/statcast_pitch_colors.md)
+returns Baseball Savant’s own pitch-type palette, so plots colored by
+`pitch_type` match what readers see on Savant:
+
+``` r
+
+pal <- statcast_pitch_colors()
+pitch_pal <- setNames(pal$color, pal$pitch_type)
+
+betts_16 |>
+  dplyr::filter(!is.na(pitch_type)) |>
+  ggplot(aes(x = plate_x, y = plate_z, color = pitch_type)) +
+  geom_point(alpha = 0.5) +
+  scale_color_manual(values = pitch_pal) +
+  coord_fixed() +
+  theme_bw()
+```
