@@ -32,7 +32,7 @@ columns).
 ``` r
  try(fox_mlb_league_leaders("batting")) 
 #> ── Fox Sports MLB league_leaders ──────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:35:47 UTC
+#> ℹ Data updated: 2026-08-26 21:13:34 UTC
 #> # A tibble: 100 × 7
 #>    players v2                g     entity_id pa    ab    h    
 #>    <chr>   <chr>             <chr> <chr>     <chr> <chr> <chr>

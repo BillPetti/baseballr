@@ -16,8 +16,11 @@ standings_on_date_bref(date, division, from = FALSE)
 
 - division:
 
-  One or more of AL East, AL Central, AL West, AL Overall, NL East, NL
-  Central, NL West, and NL Overall
+  One of AL East, AL Central, AL West, AL Overall, NL East, NL Central,
+  NL West, and NL Overall. Which divisions exist depends on the date:
+  before 1969 only `AL Overall` / `NL Overall`; 1969-1993 adds
+  East/West; 1994 onward adds Central. Requesting a division that did
+  not exist for the date errors with the era's available options.
 
 - from:
 

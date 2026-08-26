@@ -81,6 +81,21 @@
   ([\#233](https://github.com/billpetti/baseballr/issues/233)).
   Modern-game output is unchanged.
 
+- `mlb_pbp(add_base_state = TRUE)` appends per-event pre-pitch
+  base-occupancy columns (`pre_on_1b` / `pre_on_2b` / `pre_on_3b`,
+  runner MLBAM ids) reconstructed from the feed’s runner-movement
+  records, including the extra-innings automatic runner. Validated
+  pitch-for-pitch against Statcast’s own `on_1b/2b/3b` columns:
+  4,388/4,388 states agree across a full 15-game slate
+  ([\#276](https://github.com/billpetti/baseballr/issues/276)).
+
+- [`bref_standings_on_date()`](https://billpetti.github.io/baseballr/reference/bref_standings_on_date.md)
+  supports every divisional era: pre-1969 league-only standings,
+  1969-1993 East/West, and 1994+ East/Central/West. Tables are named
+  from the page’s own section headings, and requesting a division that
+  did not exist for the date errors with the era’s available options
+  ([\#253](https://github.com/billpetti/baseballr/issues/253)).
+
 - [`mlb_rosters()`](https://billpetti.github.io/baseballr/reference/mlb_rosters.md)
   documents the
   [`mlb_teams()`](https://billpetti.github.io/baseballr/reference/mlb_teams.md)

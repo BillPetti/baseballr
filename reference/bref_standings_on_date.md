@@ -17,8 +17,11 @@ bref_standings_on_date(date, division, from = FALSE)
 
 - division:
 
-  One or more of AL East, AL Central, AL West, AL Overall, NL East, NL
-  Central, NL West, and NL Overall
+  One of AL East, AL Central, AL West, AL Overall, NL East, NL Central,
+  NL West, and NL Overall. Which divisions exist depends on the date:
+  before 1969 only `AL Overall` / `NL Overall`; 1969-1993 adds
+  East/West; 1994 onward adds Central. Requesting a division that did
+  not exist for the date errors with the era's available options.
 
 - from:
 
@@ -49,7 +52,7 @@ division, with the following columns:
 # \donttest{
   try(bref_standings_on_date(date = "2015-08-04", division = "AL East"))
 #> ── MLB Standings on Date data from baseball-reference.com ──────────────
-#> ℹ Data updated: 2026-08-26 20:33:42 UTC
+#> ℹ Data updated: 2026-08-26 21:11:31 UTC
 #> # A tibble: 5 × 8
 #>   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`
 #>   <chr> <int> <int>  <dbl> <chr> <int> <int>      <dbl>

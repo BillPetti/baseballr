@@ -194,12 +194,12 @@ Saiem Gilani
   espn_mlb_player_overview(athlete_id = "1966", season = 2024)
 #> $Statistics
 #> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-08-26 20:35:04 UTC
+#> ℹ Data updated: 2026-08-26 21:12:50 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-08-26 20:35:04 UTC
+#> ℹ Data updated: 2026-08-26 21:12:50 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -207,32 +207,32 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-08-26 20:35:04 UTC
+#> ℹ Data updated: 2026-08-26 21:12:50 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-08-26 20:35:04 UTC
+#> ℹ Data updated: 2026-08-26 21:12:50 UTC
 #> # A tibble: 13 × 5
 #>    headline                           description published byline type 
 #>    <chr>                              <chr>       <chr>     <chr>  <chr>
-#>  1 Fantasy baseball lineup advice fo… "Everythin… 2026-08-… ESPN … Story
-#>  2 TWG Global defends Dodgers' finan… "TWG Globa… 2026-08-… Alden… Head…
-#>  3 The Playoff Playbook: How to win … "Made the … 2026-08-… Trist… Story
-#>  4 Buss brothers joining new Padres … "The Buss … 2026-08-… Dave … Head…
-#>  5 Fantasy baseball forecaster: Team… "Stay ahea… 2026-08-… Trist… Story
-#>  6 Fantasy baseball forecaster: Pitc… "Keep up t… 2026-08-… Trist… Story
-#>  7 Fantasy Baseball Reliever Depth C… "Our updat… 2026-08-… Fanta… Story
-#>  8 MLB betting tips for Wednesday: W… "All of th… 2026-08-… Derek… Story
-#>  9 Fantasy baseball news and notes: … "All of th… 2026-08-… ESPN … Story
-#> 10 For Venezuelan players, WBC joy e… "MLB's Ven… 2026-08-… Alden… Story
-#> 11 MLB 2026: Breaking down AL West, … "We put th… 2026-08-… David… Story
-#> 12 Pirates' Paul Skenes tosses 6 shu… "Paul Sken… 2026-08-… NA     Head…
-#> 13 Minnesota Twins OF Byron Buxton e… "Minnesota… 2026-08-… NA     Head…
+#>  1 Cubs' Ben Brown suffers setback d… "Cubs righ… 2026-08-… NA     Head…
+#>  2 Fantasy baseball lineup advice fo… "Everythin… 2026-08-… ESPN … Story
+#>  3 TWG Global defends Dodgers' finan… "TWG Globa… 2026-08-… Alden… Head…
+#>  4 The Playoff Playbook: How to win … "Made the … 2026-08-… Trist… Story
+#>  5 Buss brothers joining new Padres … "The Buss … 2026-08-… Dave … Head…
+#>  6 Fantasy baseball forecaster: Team… "Stay ahea… 2026-08-… Trist… Story
+#>  7 Fantasy baseball forecaster: Pitc… "Keep up t… 2026-08-… Trist… Story
+#>  8 Fantasy Baseball Reliever Depth C… "Our updat… 2026-08-… Fanta… Story
+#>  9 MLB betting tips for Wednesday: W… "All of th… 2026-08-… Derek… Story
+#> 10 Fantasy baseball news and notes: … "All of th… 2026-08-… ESPN … Story
+#> 11 For Venezuelan players, WBC joy e… "MLB's Ven… 2026-08-… Alden… Story
+#> 12 MLB 2026: Breaking down AL West, … "We put th… 2026-08-… David… Story
+#> 13 Pirates' Paul Skenes tosses 6 shu… "Paul Sken… 2026-08-… NA     Head…
 #> 
 #> $FantasyOutlook
 #> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────
-#> ℹ Data updated: 2026-08-26 20:35:04 UTC
+#> ℹ Data updated: 2026-08-26 21:12:50 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

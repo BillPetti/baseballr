@@ -5,7 +5,7 @@
 ## Usage
 
 ``` r
-mlb_pbp(game_pk)
+mlb_pbp(game_pk, add_base_state = FALSE)
 ```
 
 ## Arguments
@@ -13,6 +13,15 @@ mlb_pbp(game_pk)
 - game_pk:
 
   The date for which you want to find game_pk values for MLB games
+
+- add_base_state:
+
+  If `TRUE`, append per-event pre-pitch base-occupancy columns
+  `pre_on_1b` / `pre_on_2b` / `pre_on_3b` (runner MLBAM ids, `NA` when
+  the base is empty), reconstructed from the feed's runner-movement
+  records. The API itself only publishes end-of-plate-appearance base
+  state (`matchup.postOn*`); this derives the state before each pitch.
+  Defaults to `FALSE`.
 
 ## Value
 
@@ -190,7 +199,7 @@ function.
 # \donttest{
   try(mlb_pbp(game_pk = 632970))
 #> ── MLB Play-by-Play data from MLB.com ─────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-26 20:36:30 UTC
+#> ℹ Data updated: 2026-08-26 21:14:21 UTC
 #> # A tibble: 336 × 151
 #>    game_pk game_date  index startTime       endTime isPitch type  playId
 #>      <dbl> <chr>      <int> <chr>           <chr>   <lgl>   <chr> <chr> 
