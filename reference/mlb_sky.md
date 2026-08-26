@@ -24,7 +24,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_sky())
 #> ── MLB Sky (Weather) Codes data from MLB.com ──────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-26 21:14:33 UTC
+#> ℹ Data updated: 2026-08-26 21:30:59 UTC
 #> # A tibble: 10 × 2
 #>    sky_code      sky_description
 #>    <chr>         <chr>          
