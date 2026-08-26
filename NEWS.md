@@ -43,6 +43,17 @@
 - `mlb_pbp()` works for pre-2010 games again: play events are tied to their
   at-bat by position instead of an `endTime` join the older feeds don't
   carry (#233). Modern-game output is unchanged.
+- `mlb_pbp(add_base_state = TRUE)` appends per-event pre-pitch base-occupancy
+  columns (`pre_on_1b` / `pre_on_2b` / `pre_on_3b`, runner MLBAM ids)
+  reconstructed from the feed's runner-movement records, including the
+  extra-innings automatic runner. Validated pitch-for-pitch against
+  Statcast's own `on_1b/2b/3b` columns: 4,388/4,388 states agree across a
+  full 15-game slate (#276).
+- `bref_standings_on_date()` supports every divisional era: pre-1969
+  league-only standings, 1969-1993 East/West, and 1994+ East/Central/West.
+  Tables are named from the page's own section headings, and requesting a
+  division that did not exist for the date errors with the era's available
+  options (#253).
 - `mlb_rosters()` documents the `mlb_teams()` team-id lookup (#376).
 
 - Added read-only **Fox Sports "Bifrost"** MLB wrappers (`fox_mlb_*()`) over `api.foxsports.com/bifrost/v1/mlb/*`: `fox_mlb_team_roster()`, `fox_mlb_team_stats()`, `fox_mlb_team_gamelog()`, `fox_mlb_standings()`, `fox_mlb_league_leaders()`, and `fox_mlb_odds()`. They flatten Fox's layout-oriented JSON (sections → tables → rows → cells) into tidy `baseballr_data` tibbles. Fox does not expose MLB play-by-play or boxscore via `event/{id}/data`, so those are intentionally omitted. Parallels the cfbfastR / hoopR / fastRhockey / sportsdataverse-py `fox_*` families; reverse-engineering notes + an OpenAPI 3.1 spec live in the `sdv-internal-refs` repo.

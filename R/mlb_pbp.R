@@ -2,6 +2,12 @@
 #' @title **Acquire pitch-by-pitch data for Major and Minor League games**
 #'
 #' @param game_pk The date for which you want to find game_pk values for MLB games
+#' @param add_base_state If `TRUE`, append per-event pre-pitch base-occupancy
+#'   columns `pre_on_1b` / `pre_on_2b` / `pre_on_3b` (runner MLBAM ids, `NA`
+#'   when the base is empty), reconstructed from the feed's runner-movement
+#'   records. The API itself only publishes end-of-plate-appearance base
+#'   state (`matchup.postOn*`); this derives the state before each pitch.
+#'   Defaults to `FALSE`.
 #' @importFrom jsonlite fromJSON
 #' @return Returns a tibble that includes over 100 columns of data provided
 #' by the MLB Stats API at a pitch level.
@@ -174,7 +180,7 @@
 #'   try(mlb_pbp(game_pk = 632970))
 #' }
 
-mlb_pbp <- function(game_pk) {
+mlb_pbp <- function(game_pk, add_base_state = FALSE) {
   
   mlb_endpoint <- mlb_stats_endpoint(glue::glue("v1.1/game/{game_pk}/feed/live"))
   
@@ -331,7 +337,18 @@ mlb_pbp <- function(game_pk) {
           count.strikes.start = dplyr::lag(.data$count.strikes.start, default = 0)
         ) |>
         dplyr::ungroup() |>
-        dplyr::arrange(desc(.data$atBatIndex), desc(.data$index)) |>
+        dplyr::arrange(desc(.data$atBatIndex), desc(.data$index))
+
+      if (isTRUE(add_base_state)) {
+        # match the pbp frame's key types (the jsonlite round-trip leaves
+        # atBatIndex as character while playEvents' index stays integer)
+        base_state <- .mlb_base_state(payload) |>
+          dplyr::mutate(atBatIndex = as.character(.data$atBatIndex))
+        pbp <- pbp |>
+          dplyr::left_join(base_state, by = c("atBatIndex", "index"))
+      }
+
+      pbp <- pbp |>
         make_baseballr_data("MLB Play-by-Play data from MLB.com",Sys.time())
     },
     error = function(e) {
