@@ -2,8 +2,11 @@
 #' @title **Scrape MLB Standings on a Given Date**
 #' @description This function allows you to scrape the standings from MLB for any date you choose.
 #' @param date a date object
-#' @param division One or more of AL East, AL Central, AL West,
-#' AL Overall, NL East, NL Central, NL West, and NL Overall
+#' @param division One of AL East, AL Central, AL West, AL Overall, NL East,
+#' NL Central, NL West, and NL Overall. Which divisions exist depends on the
+#' date: before 1969 only `AL Overall` / `NL Overall`; 1969-1993 adds
+#' East/West; 1994 onward adds Central. Requesting a division that did not
+#' exist for the date errors with the era's available options.
 #' @param from a logical indicating whether you want standings up to and
 #' including the date (FALSE, default) or rather standings for games played
 #' after the date
@@ -28,49 +31,63 @@
 #' }
 
 bref_standings_on_date <- function(date, division, from = FALSE) {
-  all_divisions <- c("AL East", "AL Central", "AL West", "AL Overall", "NL East", 
-                     "NL Central", "NL West", "NL Overall")
-  if(!(division %in% all_divisions)){
-    stop("Please select a division in the following: \n'AL East', 'AL Central', 'AL West', 'AL Overall',\n'NL Central', 'NL West', 'NL Overall'")
+  yr <- lubridate::year(date)
+
+  # Division structure by era (#253): before 1969 the leagues had no
+  # divisions; 1969-1993 each league split East/West; 1994 onward
+  # East/Central/West. The B-Ref page only publishes tables that existed,
+  # so validate the request against the era instead of a fixed list.
+  era_divisions <-
+    if (yr < 1969) {
+      c("AL Overall", "NL Overall")
+    } else if (yr < 1994) {
+      c("AL East", "AL West", "AL Overall",
+        "NL East", "NL West", "NL Overall")
+    } else {
+      c("AL East", "AL Central", "AL West", "AL Overall",
+        "NL East", "NL Central", "NL West", "NL Overall")
+    }
+  if (!(division %in% era_divisions)) {
+    cli::cli_abort(c(
+      "No {.val {division}} standings exist for {yr}.",
+      "i" = "Divisions published for {yr}: {.val {era_divisions}}."
+    ))
   }
-  
+
   url <- paste0("https://www.baseball-reference.com/boxes",
-                "?year=", sprintf("%04i", lubridate::year(date)), "&month=",
+                "?year=", sprintf("%04i", yr), "&month=",
                 sprintf("%02i", lubridate::month(date)), "&day=", sprintf("%02i",
                                                                           lubridate::day(date)))
-  
+
   x <- NULL
   tryCatch(
     expr = {
       html_doc <- bref_read_html(url)
-      
-      tables <- html_doc |> 
+
+      # The page carries one section heading per standings table, in DOM
+      # order: first every division "up to and including" the date, then the
+      # same set for games "after" the date (verified empirically via games
+      # played: the first block averages the season-to-date game count).
+      # Name the tables from the headings rather than a fixed-order vector,
+      # so the era's table count (4, 12, or 16) never misaligns.
+      headings <- html_doc |>
+        rvest::html_elements(".section_heading h2") |>
+        rvest::html_text() |>
+        gsub(pattern = "\\s+", replacement = " ") |>
+        trimws()
+      stand_names <- headings[grepl("Division$|Overall$", headings)] |>
+        gsub(pattern = " Division$", replacement = "")
+
+      tables <- html_doc |>
         rvest::html_elements("table")
-      min <- length(tables)
-      max <- length(tables) - 15
-      tables <- tables[min:max] |> rvest::html_table()
-      #table_names <- html_doc |> rvest::html_elements(".section_heading") |> rvest::html_text() |> gsub(pattern = "\\s+", replacement = " ") |> gsub(pattern = " Division", replacement = "") |> trimws(which = c("left")) |> trimws(which = c("right")) |> .[1:16]
-      
-      table_names <- c("NL Overall", "AL Overall", "NL West" , "NL Central", "NL East", "AL West", "AL Central", "AL East", "NL Overall", "AL Overall", "NL West" , "NL Central", "NL East", "AL West", "AL Central", "AL East")
-      table_names[1:8] <- paste0(table_names[1:8], "_after_", date)     # Customizing list names for "After this Date" case
-      table_names[9:16] <- paste0(table_names[9:16], "_up to_", date)   # Customizing list names for "From this Date" case
-      
-      names(tables) <- table_names
-      
-      after <- tables[1:8]
-      
-      current <- tables[9:16]
-      
-      if (from == FALSE) {
-        div_date <- paste0(division, "_up to_", date)
-        x <- current[div_date]
-        x <- x[[1]]
-      } else if (from != FALSE) {
-        div_date <- paste0(division, "_after_", date)
-        x <- after[div_date]
-        x <- x[[1]]
-      }
-      x <- x |>
+      n <- length(stand_names)
+      stand_tables <- tables[(length(tables) - n + 1):length(tables)] |>
+        rvest::html_table()
+
+      half <- n / 2
+      block <- if (isTRUE(from)) (half + 1):n else 1:half
+      idx <- which(stand_names[block] == division)
+      x <- stand_tables[[block[idx[1]]]] |>
         make_baseballr_data("MLB Standings on Date data from baseball-reference.com",Sys.time())
     },
     error = function(e) {

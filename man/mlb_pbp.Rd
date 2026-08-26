@@ -4,10 +4,17 @@
 \alias{mlb_pbp}
 \title{\strong{Acquire pitch-by-pitch data for Major and Minor League games}}
 \usage{
-mlb_pbp(game_pk)
+mlb_pbp(game_pk, add_base_state = FALSE)
 }
 \arguments{
 \item{game_pk}{The date for which you want to find game_pk values for MLB games}
+
+\item{add_base_state}{If \code{TRUE}, append per-event pre-pitch base-occupancy
+columns \code{pre_on_1b} / \code{pre_on_2b} / \code{pre_on_3b} (runner MLBAM ids, \code{NA}
+when the base is empty), reconstructed from the feed's runner-movement
+records. The API itself only publishes end-of-plate-appearance base
+state (\verb{matchup.postOn*}); this derives the state before each pitch.
+Defaults to \code{FALSE}.}
 }
 \value{
 Returns a tibble that includes over 100 columns of data provided
