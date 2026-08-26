@@ -65,10 +65,17 @@ Data
 
   **Query Baseball Savant Leaderboards**
 
+- [`statcast_pitch_colors()`](https://billpetti.github.io/baseballr/reference/statcast_pitch_colors.md)
+  :
+
+  **Baseball Savant pitch-type colors**
+
 - [`statcast_search()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
   [`statcast_search.default()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
   [`statcast_search_batters()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
   [`statcast_search_pitchers()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
+  [`statcast_search_minors()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
+  [`statcast_search_wbc()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
   :
 
   **Query Statcast by Date Range and Players**
@@ -168,6 +175,22 @@ data repository
 
   **Download a data frame of all umpires and their mlbamids for games
   since 2008**
+
+- [`load_mlb_expected_stats()`](https://billpetti.github.io/baseballr/reference/mlb_model_loaders.md)
+  [`load_mlb_expected_hr()`](https://billpetti.github.io/baseballr/reference/mlb_model_loaders.md)
+  [`load_mlb_batter_projection()`](https://billpetti.github.io/baseballr/reference/mlb_model_loaders.md)
+  [`load_mlb_stuff_plus()`](https://billpetti.github.io/baseballr/reference/mlb_model_loaders.md)
+  [`load_mlb_command_plus()`](https://billpetti.github.io/baseballr/reference/mlb_model_loaders.md)
+  [`load_mlb_xera()`](https://billpetti.github.io/baseballr/reference/mlb_model_loaders.md)
+  [`load_mlb_oaa()`](https://billpetti.github.io/baseballr/reference/mlb_model_loaders.md)
+  [`load_mlb_catcher_framing()`](https://billpetti.github.io/baseballr/reference/mlb_model_loaders.md)
+  [`load_mlb_re24_matrix()`](https://billpetti.github.io/baseballr/reference/mlb_model_loaders.md)
+  [`load_mlb_we_table()`](https://billpetti.github.io/baseballr/reference/mlb_model_loaders.md)
+  [`load_mlb_wpa()`](https://billpetti.github.io/baseballr/reference/mlb_model_loaders.md)
+  :
+
+  **Load pre-computed MLB model datasets from the SportsDataverse data
+  repo**
 
 ## NCAA Baseball
 

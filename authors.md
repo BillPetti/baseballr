@@ -15,6 +15,8 @@
 
 - **Camden Kay**. Contributor.
 
+- **baseballr authors**. Copyright holder.
+
 ## Citation
 
 Source:

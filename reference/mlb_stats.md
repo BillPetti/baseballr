@@ -18,7 +18,8 @@ mlb_stats(
   sort_stat = NULL,
   order = NULL,
   limit = 1000,
-  offset = NULL
+  offset = NULL,
+  sit_codes = NULL
 )
 ```
 
@@ -142,6 +143,14 @@ mlb_stats(
 
   An offset to returns i+1 as the first record in the set of players.
 
+- sit_codes:
+
+  Situational split code(s) to filter on when `stat_type = "statSplits"`
+  – e.g. `"vl"` (vs left), `"vr"` (vs right), `"h"` (home), `"a"`
+  (away), `"risp"` (runners in scoring position). Multiple codes may be
+  passed as a vector; see the MLB Stats API `situationCodes` endpoint
+  for the full list.
+
 ## Value
 
 Returns a tibble with the following columns
@@ -217,7 +226,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_stats(stat_type = 'season', stat_group = 'hitting', season = 2021))
 #> ── MLB Stats data from MLB.com ────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-07-23 17:34:33 UTC
+#> ℹ Data updated: 2026-08-26 19:19:33 UTC
 #> # A tibble: 132 × 61
 #>    total_splits season num_teams  rank   age games_played ground_outs
 #>           <int> <chr>      <int> <int> <int>        <int>       <int>

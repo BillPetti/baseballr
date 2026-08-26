@@ -77,14 +77,14 @@ Returns a tibble with the following columns:
 # \donttest{
  try(mlb_all_star_write_ins(league_id = 103, season = 2021))
 #> ── MLB All-Star Write-Ins data from MLB.com ───────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-07-23 17:33:57 UTC
+#> ℹ Data updated: 2026-08-26 19:18:45 UTC
 #> # A tibble: 490 × 45
 #>    player_id full_name      link     first_name last_name primary_number
 #>        <int> <chr>          <chr>    <chr>      <chr>     <chr>         
 #>  1    595978 Austin Hedges  /api/v1… Austin     Hedges    27            
 #>  2    605194 Jharel Cotton  /api/v1… Jharel     Cotton    NA            
 #>  3    451584 Wade Davis     /api/v1… Wade       Davis     40            
-#>  4    663554 Casey Mize     /api/v1… Casey      Mize      12            
+#>  4    663554 Casey Mize     /api/v1… Casey      Mize      32            
 #>  5    609280 Miguel Andujar /api/v1… Miguel     Andujar   41            
 #>  6    521230 Liam Hendriks  /api/v1… Liam       Hendriks  31            
 #>  7    642048 Tayler Saucedo /api/v1… Tayler     Saucedo   55            

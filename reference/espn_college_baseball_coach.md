@@ -122,11 +122,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_coach(coach_id = 52120))
-#> ✖ 2026-07-23 17:32:18.265767: Failed to retrieve ESPN college-baseball coach 52120
+#> ✖ 2026-08-26 19:16:49.90597: Failed to retrieve ESPN college-baseball coach 52120
 #> ✖ Args: league = "college-baseball", coach_id = 52120
-#> ✖ Error: The API returned an error, HTTP Response Code 500
+#> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN COLLEGE-BASEBALL Coach Detail ─────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-07-23 17:32:18 UTC
+#> ℹ Data updated: 2026-08-26 19:16:49 UTC
 #> # A tibble: 0 × 0
 # }
 ```

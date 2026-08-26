@@ -24,8 +24,8 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_game_types())
 #> ── MLB Game Types data from MLB.com ───────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-07-23 17:34:11 UTC
-#> # A tibble: 12 × 2
+#> ℹ Data updated: 2026-08-26 19:19:05 UTC
+#> # A tibble: 11 × 2
 #>    game_type_id game_type_description     
 #>    <chr>        <chr>                     
 #>  1 S            Spring Training           
@@ -35,10 +35,9 @@ Returns a tibble with the following columns
 #>  5 L            League Championship Series
 #>  6 W            World Series              
 #>  7 C            Championship              
-#>  8 N            Nineteenth Century Series 
-#>  9 P            Playoffs                  
-#> 10 A            All-Star Game             
-#> 11 I            Intrasquad                
-#> 12 E            Exhibition                
+#>  8 P            Postseason                
+#>  9 A            All-Star Game             
+#> 10 I            Intrasquad                
+#> 11 E            Exhibition                
 # }
 ```

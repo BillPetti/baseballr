@@ -82,7 +82,7 @@ bref_standings_on_date("2015-08-01", "NL East", from = FALSE)
 ``` R
 ## ── MLB Standings on Date data from baseball-reference.com ─── baseballr 2.0.0 ──
 
-## ℹ Data updated: 2026-06-12 07:31:45 EDT
+## ℹ Data updated: 2026-08-26 14:47:05 EDT
 
 ## # A tibble: 5 × 8
 ##   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`
@@ -137,10 +137,10 @@ data %>%
 ## $ GDP      <dbl> 5, 9, 6, 1, 1, 4, 2, 2, 9, 7, 5, 1, 4, 8, 1, 2, 3, 10, 5, 4, …
 ## $ SB       <dbl> 6, 8, 11, 9, 2, 10, 0, 0, 0, 3, 3, 4, 5, 4, 24, 2, 1, 0, 6, 0…
 ## $ CS       <dbl> 4, 0, 4, 4, 0, 2, 0, 0, 0, 1, 0, 1, 3, 2, 7, 2, 3, 0, 2, 0, 0…
-## $ BA       <dbl> 0.278, 0.286, 0.332, 0.322, 0.336, 0.353, 0.226, 0.281, 0.325…
+## $ BA       <dbl> 0.279, 0.286, 0.332, 0.322, 0.337, 0.353, 0.226, 0.281, 0.325…
 ## $ OBP      <dbl> 0.353, 0.326, 0.364, 0.392, 0.456, 0.395, 0.282, 0.341, 0.377…
 ## $ SLG      <dbl> 0.485, 0.387, 0.508, 0.448, 0.540, 0.558, 0.423, 0.506, 0.528…
-## $ OPS      <dbl> 0.839, 0.713, 0.872, 0.840, 0.996, 0.953, 0.704, 0.847, 0.906…
+## $ OPS      <dbl> 0.839, 0.713, 0.872, 0.840, 0.996, 0.953, 0.705, 0.848, 0.906…
 ```
 
 In terms of metric calculation, the package allows the user to calculate
@@ -213,7 +213,7 @@ bref_daily_pitcher("2015-04-05", "2015-04-30") %>%
 ``` R
 ## ── MLB Daily Pitcher data from baseball-reference.com ─────── baseballr 2.0.0 ──
 
-## ℹ Data updated: 2026-06-12 07:34:40 EDT
+## ℹ Data updated: 2026-08-26 14:50:02 EDT
 
 ## # A tibble: 10 × 11
 ##    season Name               IP   ERA    SO   uBB   HBP    HR   FIP wOBA_against
@@ -252,7 +252,7 @@ Releases**](https://billpetti.github.io/baseballr/news/index.html)
 ## Follow the SportsDataverse (@SportsDataverse) on Twitter and star this repo
 
 [![GitHub
-stars](https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&logo=github&style=for-the-badge&label=Star%20baseballr&maxAge=2592000)](https://github.com/billpetti/baseballr/stargazers)
+stars](https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&logo=github&style=for-the-badge&label=Star%20baseballr&maxAge=2592000)](https://github.com/BillPetti/baseballr/)
 
 ## **Our Authors**
 

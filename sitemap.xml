@@ -325,6 +325,7 @@
 <url><loc>https://billpetti.github.io/baseballr/reference/mlb_league_leader_types.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/mlb_logical_events.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/mlb_metrics.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/mlb_model_loaders.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/mlb_pbp.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/mlb_pbp_diff.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/mlb_people.html</loc></url>
@@ -405,6 +406,7 @@
 <url><loc>https://billpetti.github.io/baseballr/reference/statcast.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/statcast_impute.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/statcast_leaderboards.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/statcast_pitch_colors.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/statcast_search.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/statline_from_statcast.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/stats_api_live_empty_df.html</loc></url>

@@ -168,7 +168,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_franchise(franchise_id = 13)
 #> ── ESPN MLB Franchise from ESPN.com ───────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-07-23 17:32:47 UTC
+#> ℹ Data updated: 2026-08-26 19:17:23 UTC
 #> # A tibble: 1 × 16
 #>   id    uid      slug  location name  nickname abbreviation display_name
 #>   <chr> <chr>    <chr> <chr>    <chr> <lgl>    <chr>        <chr>       

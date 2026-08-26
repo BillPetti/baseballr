@@ -12,7 +12,11 @@ mlb_rosters(team_id = NULL, season = NULL, date = NULL, roster_type = NULL)
 
 - team_id:
 
-  team_id to return team roster information for a particular club.
+  team_id to return team roster information for a particular club. Look
+  up ids with
+  [`mlb_teams()`](https://billpetti.github.io/baseballr/reference/mlb_teams.md)
+  – e.g. `mlb_teams(season = 2025, sport_ids = 1)` returns `team_id`
+  alongside `team_full_name`.
 
 - season:
 
@@ -64,7 +68,7 @@ columns:
 # \donttest{
   try(mlb_rosters(team_id = 109, season = 2018, roster_type = 'active'))
 #> ── MLB Roster data from MLB.com ───────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-07-23 17:34:24 UTC
+#> ℹ Data updated: 2026-08-26 19:19:23 UTC
 #> # A tibble: 49 × 15
 #>    jersey_number person_id person_full_name person_link    position_code
 #>    <chr>             <int> <chr>            <chr>          <chr>        
@@ -85,7 +89,7 @@ columns:
 #> #   roster_type <chr>, season <dbl>, date <chr>
   try(mlb_rosters(team_id = 109, season = 2018, roster_type = 'coach'))
 #> ── MLB Roster data from MLB.com ───────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-07-23 17:34:25 UTC
+#> ℹ Data updated: 2026-08-26 19:19:23 UTC
 #> # A tibble: 13 × 12
 #>    jersey_number job             job_id title person_id person_full_name
 #>    <chr>         <chr>           <chr>  <chr>     <int> <chr>           

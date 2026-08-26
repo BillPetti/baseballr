@@ -23,6 +23,9 @@ Useful links:
 
 Authors:
 
+- Saiem Gilani <saiem.gilani@gmail.com>
+  ([ORCID](https://orcid.org/0000-0002-7194-9067))
+
 - Bill Petti <billpetti@gmail.com>
 
 Other contributors:
@@ -34,3 +37,5 @@ Other contributors:
 - Robert Frey <rfrey22@gmail.com> \[contributor\]
 
 - Camden Kay <camden.kay23@gmail.com> \[contributor\]
+
+- baseballr authors \[copyright holder\]

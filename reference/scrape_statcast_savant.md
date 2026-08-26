@@ -10,7 +10,8 @@ scrape_statcast_savant(
   end_date = Sys.Date(),
   playerid = NULL,
   player_type = "batter",
-  ...
+  ...,
+  route = "statcast_search"
 )
 
 scrape_statcast_savant.Date(
@@ -18,7 +19,8 @@ scrape_statcast_savant.Date(
   end_date = Sys.Date(),
   playerid = NULL,
   player_type = "batter",
-  ...
+  ...,
+  route = "statcast_search"
 )
 
 scrape_statcast_savant.default(
@@ -61,6 +63,15 @@ scrape_statcast_savant_pitcher_all(start_date, end_date, pitcherid = NULL, ...)
 - ...:
 
   currently ignored
+
+- route:
+
+  The Baseball Savant search route. Defaults to the MLB search
+  (`"statcast_search"`);
+  [`statcast_search_minors()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
+  and
+  [`statcast_search_wbc()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
+  pass the minor-league and World Baseball Classic routes for you.
 
 - batterid:
 

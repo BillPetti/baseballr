@@ -3,6 +3,14 @@
 This function allows you to query Statcast data as provided on
 <https://baseballsavant.mlb.com>
 
+`statcast_search_minors()` queries the minor-league Statcast search
+(`statcast-search-minors`) – same shape and columns, MiLB games
+(Triple-A tracking began 2023).
+
+`statcast_search_wbc()` queries the World Baseball Classic Statcast
+search (`statcast-search-world-baseball-classic`); WBC games are siloed
+to this route and not reachable from the regular search.
+
 ## Usage
 
 ``` r
@@ -11,7 +19,8 @@ statcast_search(
   end_date = Sys.Date(),
   playerid = NULL,
   player_type = "batter",
-  ...
+  ...,
+  route = "statcast_search"
 )
 
 statcast_search.default(
@@ -25,6 +34,22 @@ statcast_search.default(
 statcast_search_batters(start_date, end_date, batterid = NULL, ...)
 
 statcast_search_pitchers(start_date, end_date, pitcherid = NULL, ...)
+
+statcast_search_minors(
+  start_date = Sys.Date() - 1,
+  end_date = Sys.Date(),
+  playerid = NULL,
+  player_type = "batter",
+  ...
+)
+
+statcast_search_wbc(
+  start_date = Sys.Date() - 1,
+  end_date = Sys.Date(),
+  playerid = NULL,
+  player_type = "batter",
+  ...
+)
 ```
 
 ## Arguments
@@ -50,6 +75,13 @@ statcast_search_pitchers(start_date, end_date, pitcherid = NULL, ...)
 - ...:
 
   currently ignored
+
+- route:
+
+  The Baseball Savant search route. Defaults to the MLB search
+  (`"statcast_search"`); `statcast_search_minors()` and
+  `statcast_search_wbc()` pass the minor-league and World Baseball
+  Classic routes for you.
 
 - batterid:
 
@@ -208,7 +240,7 @@ reference.
                       playerid = 547180, 
                       player_type = 'batter'))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-07-23 17:34:44 UTC
+#> ℹ Data updated: 2026-08-26 19:19:47 UTC
 #> # A tibble: 82 × 119
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
@@ -235,7 +267,7 @@ reference.
                       playerid = 664285, 
                       player_type = 'pitcher'))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-07-23 17:34:44 UTC
+#> ℹ Data updated: 2026-08-26 19:19:47 UTC
 #> # A tibble: 92 × 119
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
@@ -260,7 +292,7 @@ reference.
   try(statcast_search(start_date = "2022-11-04", 
                       end_date = "2022-11-06"))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-07-23 17:34:44 UTC
+#> ℹ Data updated: 2026-08-26 19:19:47 UTC
 #> # A tibble: 250 × 119
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
@@ -297,5 +329,55 @@ reference.
     daily <- statcast_search_pitchers(start_date = "2016-04-06",
       end_date = "2016-04-06", pitcherid = NULL)
   })
+# }
+# \donttest{
+  try(statcast_search_minors(start_date = "2024-06-01", end_date = "2024-06-01"))
+#> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
+#> ℹ Data updated: 2026-08-26 19:19:49 UTC
+#> # A tibble: 4,399 × 119
+#>    pitch_type game_date  release_speed release_pos_x release_pos_z
+#>    <chr>      <date>             <dbl>         <dbl>         <dbl>
+#>  1 SL         2024-06-01          83.9         -2.34          5.86
+#>  2 FF         2024-06-01          96.6         -1.87          6.29
+#>  3 SL         2024-06-01          85           -2.14          6.11
+#>  4 FF         2024-06-01          95.6         -2.01          6.24
+#>  5 CH         2024-06-01          85.9         -1.35          4.84
+#>  6 SI         2024-06-01          91.3         -1.2           4.91
+#>  7 FS         2024-06-01          88.5         -2.3           6.19
+#>  8 FF         2024-06-01          98.1         -1.9           5.97
+#>  9 SI         2024-06-01          93.4         -2.02          5.74
+#> 10 SI         2024-06-01          91.3         -1.3           5.01
+#> # ℹ 4,389 more rows
+#> # ℹ 114 more variables: player_name <chr>, batter <dbl>, pitcher <dbl>,
+#> #   events <chr>, description <chr>, spin_dir <lgl>,
+#> #   spin_rate_deprecated <lgl>, break_angle_deprecated <lgl>,
+#> #   break_length_deprecated <lgl>, zone <dbl>, des <chr>,
+#> #   game_type <chr>, stand <chr>, p_throws <chr>, home_team <chr>,
+#> #   away_team <chr>, type <chr>, hit_location <int>, bb_type <chr>, …
+# }
+# \donttest{
+  try(statcast_search_wbc(start_date = "2023-03-21", end_date = "2023-03-21"))
+#> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
+#> ℹ Data updated: 2026-08-26 19:19:49 UTC
+#> # A tibble: 2,673 × 119
+#>    pitch_type game_date  release_speed release_pos_x release_pos_z
+#>    <chr>      <date>             <dbl>         <dbl>         <dbl>
+#>  1 FF         2023-03-21          95.5         -2.38          5.43
+#>  2 KC         2023-03-21          77.7         -2.51          5.33
+#>  3 FF         2023-03-21          94.6         -2.54          5.31
+#>  4 CH         2023-03-21          89.3         -2.63          5.19
+#>  5 KC         2023-03-21          77.2         -2.46          5.5 
+#>  6 SL         2023-03-21          84           -2.54          5.25
+#>  7 FC         2023-03-21          90           -1.58          5.09
+#>  8 NA         2023-03-21          NA           NA            NA   
+#>  9 CU         2023-03-21          82.9         -1.84          5.19
+#> 10 CH         2023-03-21          87.2         -2.64          5.13
+#> # ℹ 2,663 more rows
+#> # ℹ 114 more variables: player_name <chr>, batter <dbl>, pitcher <dbl>,
+#> #   events <chr>, description <chr>, spin_dir <lgl>,
+#> #   spin_rate_deprecated <lgl>, break_angle_deprecated <lgl>,
+#> #   break_length_deprecated <lgl>, zone <dbl>, des <chr>,
+#> #   game_type <chr>, stand <chr>, p_throws <chr>, home_team <chr>,
+#> #   away_team <chr>, type <chr>, hit_location <int>, bb_type <chr>, …
 # }
 ```

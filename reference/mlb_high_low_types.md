@@ -29,7 +29,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_high_low_types())
 #> ── MLB High Low Types data from MLB.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-07-23 17:34:12 UTC
+#> ℹ Data updated: 2026-08-26 19:19:06 UTC
 #> # A tibble: 43 × 7
 #>    stat_name        stat_lookup_param is_counting stat_label stat_groups
 #>    <chr>            <chr>             <lgl>       <chr>      <list<chr>>

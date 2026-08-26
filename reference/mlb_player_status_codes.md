@@ -24,7 +24,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_player_status_codes())
 #> ── MLB Player Status Codes data from MLB.com ──────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-07-23 17:34:23 UTC
+#> ℹ Data updated: 2026-08-26 19:19:21 UTC
 #> # A tibble: 36 × 2
 #>    player_status_code player_status_description
 #>    <chr>              <chr>                    

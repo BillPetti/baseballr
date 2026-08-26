@@ -1,4 +1,4 @@
 # License
 
-    YEAR: 2020
+    YEAR: 2026
     COPYRIGHT HOLDER: baseballr Authors

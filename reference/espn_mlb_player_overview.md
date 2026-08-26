@@ -194,12 +194,12 @@ Saiem Gilani
   espn_mlb_player_overview(athlete_id = "1966", season = 2024)
 #> $Statistics
 #> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-07-23 17:32:59 UTC
+#> ℹ Data updated: 2026-08-26 19:17:36 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-07-23 17:32:59 UTC
+#> ℹ Data updated: 2026-08-26 19:17:36 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -207,32 +207,32 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-07-23 17:32:59 UTC
+#> ℹ Data updated: 2026-08-26 19:17:36 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-07-23 17:32:59 UTC
+#> ℹ Data updated: 2026-08-26 19:17:36 UTC
 #> # A tibble: 13 × 5
 #>    headline                           description published byline type 
 #>    <chr>                              <chr>       <chr>     <chr>  <chr>
-#>  1 2026 MLB trade deadline tracker: … Which cont… 2026-07-… ESPN   Story
-#>  2 Fantasy baseball forecaster: Team… Stay ahead… 2026-07-… Trist… Story
-#>  3 MLB betting tips for Thursday: Di… All of the… 2026-07-… Derek… Story
-#>  4 Fantasy Baseball Reliever Depth C… Our update… 2026-07-… Fanta… Story
-#>  5 Fantasy baseball forecaster: Pitc… Keep up to… 2026-07-… Trist… Story
-#>  6 Fantasy baseball: Bobby Witt Jr. … All of the… 2026-07-… ESPN … Story
-#>  7 MLB Power Rankings Week 17: Fast-… Our first … 2026-07-… ESPN   Story
-#>  8 2026 MLB ABS challenge system tra… The ABS ch… 2026-07-… ESPN   Story
-#>  9 Orioles end Red Sox's record-tyin… The Oriole… 2026-07-… NA     Head…
-#> 10 A's place J.T. Ginn on IL with bl… The Athlet… 2026-07-… NA     Head…
-#> 11 Pirates CF Jake Mangum (foot) scr… Pirates ce… 2026-07-… NA     Head…
-#> 12 Dodgers' Shohei Ohtani throws 30-… Dodgers st… 2026-07-… NA     Head…
-#> 13 Yankees' Caballero hit with pitch… Yankees sh… 2026-07-… NA     Head…
+#>  1 TWG Global defends Dodgers' finan… "TWG Globa… 2026-08-… Alden… Head…
+#>  2 The Playoff Playbook: How to win … "Made the … 2026-08-… Trist… Story
+#>  3 Buss brothers joining new Padres … "The Buss … 2026-08-… Dave … Head…
+#>  4 Fantasy baseball forecaster: Team… "Stay ahea… 2026-08-… Trist… Story
+#>  5 Fantasy baseball forecaster: Pitc… "Keep up t… 2026-08-… Trist… Story
+#>  6 Fantasy Baseball Reliever Depth C… "Our updat… 2026-08-… Fanta… Story
+#>  7 MLB betting tips for Wednesday: W… "All of th… 2026-08-… Derek… Story
+#>  8 Fantasy baseball news and notes: … "All of th… 2026-08-… ESPN … Story
+#>  9 For Venezuelan players, WBC joy e… "MLB's Ven… 2026-08-… Alden… Story
+#> 10 MLB 2026: Breaking down AL West, … "We put th… 2026-08-… David… Story
+#> 11 Pirates' Paul Skenes tosses 6 shu… "Paul Sken… 2026-08-… NA     Head…
+#> 12 Minnesota Twins OF Byron Buxton e… "Minnesota… 2026-08-… NA     Head…
+#> 13 Diamondbacks earn 40th comeback w… "Diamondba… 2026-08-… NA     Head…
 #> 
 #> $FantasyOutlook
 #> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────
-#> ℹ Data updated: 2026-07-23 17:32:59 UTC
+#> ℹ Data updated: 2026-08-26 19:17:36 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

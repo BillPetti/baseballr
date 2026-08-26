@@ -4,6 +4,75 @@
 
 #### New features
 
+- [`statcast_search()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
+  no longer renames Savant CSV columns by position. Savant’s own header
+  row is trusted as-is (its names are already the canonical
+  identifiers), so a column inserted mid-export can never again silently
+  shift every downstream value — the “`n_thruorder_pitcher` showing
+  `AGE`” failure class
+  ([\#337](https://github.com/billpetti/baseballr/issues/337),
+  [\#354](https://github.com/billpetti/baseballr/issues/354),
+  [\#371](https://github.com/billpetti/baseballr/issues/371),
+  [\#390](https://github.com/billpetti/baseballr/issues/390),
+  [\#408](https://github.com/billpetti/baseballr/issues/408),
+  [\#416](https://github.com/billpetti/baseballr/issues/416)). Genuinely
+  new Savant columns now arrive under their own names with an
+  informational message.
+- [`statcast_search_minors()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
+  and
+  [`statcast_search_wbc()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
+  — the minor-league and World Baseball Classic Statcast searches
+  (separate Savant routes, same columns)
+  ([\#339](https://github.com/billpetti/baseballr/issues/339),
+  [\#395](https://github.com/billpetti/baseballr/issues/395)).
+- [`statcast_pitch_colors()`](https://billpetti.github.io/baseballr/reference/statcast_pitch_colors.md)
+  — Baseball Savant’s pitch-type color palette as a tibble for
+  consistent pitch charts
+  ([\#356](https://github.com/billpetti/baseballr/issues/356)).
+- Eleven `load_mlb_*()` loaders for the pre-computed MLB model datasets
+  on the sportsdataverse-data releases (expected stats/HR, batter
+  projections, Stuff+/Command+/xERA, OAA, catcher framing, RE24 matrix,
+  WE table, WPA), mirroring sportsdataverse-py’s loader surface.
+- [`mlb_stats()`](https://billpetti.github.io/baseballr/reference/mlb_stats.md)
+  and
+  [`mlb_teams_stats()`](https://billpetti.github.io/baseballr/reference/mlb_teams_stats.md)
+  gain `sit_codes` for situational splits via `stat_type = "statSplits"`
+  (vs L/R, home/away, RISP, …)
+  ([\#278](https://github.com/billpetti/baseballr/issues/278),
+  [\#304](https://github.com/billpetti/baseballr/issues/304),
+  [\#383](https://github.com/billpetti/baseballr/issues/383)). Note the
+  upstream leaders endpoints ignore `sitCodes`.
+
+#### Bug fixes
+
+- [`mlb_pbp()`](https://billpetti.github.io/baseballr/reference/mlb_pbp.md)
+  no longer back-fills the at-bat-level `matchup.postOn*` /
+  `matchup.splits.menOnBase` columns across at-bat and half-inning
+  boundaries — bases-empty plays previously inherited baserunner ids
+  from the next at-bat
+  ([\#263](https://github.com/billpetti/baseballr/issues/263)). This
+  corrects long-standing output.
+
+- [`mlb_pbp()`](https://billpetti.github.io/baseballr/reference/mlb_pbp.md)’s
+  `count.balls.start` / `count.strikes.start` are now true pre-pitch
+  counts (the previous event’s post-pitch count within the at-bat, 0-0
+  before the first pitch). They previously carried the post-pitch counts
+  under a pre-pitch name
+  ([\#131](https://github.com/billpetti/baseballr/issues/131),
+  [\#252](https://github.com/billpetti/baseballr/issues/252)).
+
+- [`mlb_game_info()`](https://billpetti.github.io/baseballr/reference/mlb_game_info.md)
+  degrades gracefully for games that have not started:
+  venue/weather/status return with `NA` attendance and first-pitch
+  fields instead of erroring
+  ([\#363](https://github.com/billpetti/baseballr/issues/363)).
+
+- [`mlb_rosters()`](https://billpetti.github.io/baseballr/reference/mlb_rosters.md)
+  documents the
+  [`mlb_teams()`](https://billpetti.github.io/baseballr/reference/mlb_teams.md)
+  team-id lookup
+  ([\#376](https://github.com/billpetti/baseballr/issues/376)).
+
 - Added read-only **Fox Sports “Bifrost”** MLB wrappers (`fox_mlb_*()`)
   over `api.foxsports.com/bifrost/v1/mlb/*`:
   [`fox_mlb_team_roster()`](https://billpetti.github.io/baseballr/reference/fox_mlb_team_roster.md),
@@ -19,11 +88,13 @@
   intentionally omitted. Parallels the cfbfastR / hoopR / fastRhockey /
   sportsdataverse-py `fox_*` families; reverse-engineering notes + an
   OpenAPI 3.1 spec live in the `sdv-internal-refs` repo.
+
 - Added a full **ESPN MLB** wrapper family (`espn_mlb_*()`, 100+
   functions) mirroring the naming and structure of the sister
   SportsDataverse packages (hoopR `espn_nba_*`/`espn_mbb_*`, wehoop
   `espn_wnba_*`/`espn_wbb_*`, cfbfastR `espn_cfb_*`). It covers ESPN’s
   three public hosts:
+
   - **Game data** (`site.api.espn.com`):
     [`espn_mlb_scoreboard()`](https://billpetti.github.io/baseballr/reference/espn_mlb_scoreboard.md),
     [`espn_mlb_pbp()`](https://billpetti.github.io/baseballr/reference/espn_mlb_pbp.md)
@@ -61,6 +132,7 @@
     ([`.retry_request()`](https://billpetti.github.io/baseballr/reference/dot-retry_request.md))
     that honours `options(baseballr.proxy = ...)`. Live tests are gated
     behind `ESPN_MLB_TESTS=1` (`skip_espn_test()`).
+
 - Added a full **ESPN College Baseball** wrapper family
   (`espn_college_baseball_*()`, 70 functions) covering ESPN’s NCAA
   college-baseball endpoints (sport `baseball`, league

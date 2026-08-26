@@ -12,7 +12,8 @@ mlb_teams_stats(
   season = NULL,
   sport_ids = NULL,
   sort_stat = NULL,
-  order = NULL
+  order = NULL,
+  sit_codes = NULL
 )
 ```
 
@@ -48,6 +49,15 @@ mlb_teams_stats(
 - order:
 
   Order return based on either desc or asc.
+
+- sit_codes:
+
+  Situational split code(s) to filter on when `stat_type = "statSplits"`
+  – e.g. `"vl"`, `"vr"`, `"h"`, `"a"`, `"risp"`. Multiple codes may be
+  passed as a vector. Note the leaders endpoints ignore `sitCodes`
+  upstream; use `stat_type = "statSplits"` here or in
+  [`mlb_stats()`](https://billpetti.github.io/baseballr/reference/mlb_stats.md)
+  for situational splits.
 
 ## Value
 
@@ -106,7 +116,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_teams_stats(stat_type = 'season', stat_group = 'hitting', season = 2021))
 #> ── MLB Teams Stats data from MLB.com ──────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-07-23 17:34:36 UTC
+#> ℹ Data updated: 2026-08-26 19:19:38 UTC
 #> # A tibble: 50 × 43
 #>    total_splits season  rank games_played ground_outs air_outs  runs
 #>           <int> <chr>  <int>        <int>       <int>    <int> <int>
