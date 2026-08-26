@@ -42,8 +42,7 @@ bref_standings_on_date <- function(date, division, from = FALSE) {
   x <- NULL
   tryCatch(
     expr = {
-      html_doc <- url |> 
-        xml2::read_html()
+      html_doc <- bref_read_html(url)
       
       tables <- html_doc |> 
         rvest::html_elements("table")
@@ -73,10 +72,10 @@ bref_standings_on_date <- function(date, division, from = FALSE) {
       }
       x <- x |>
         make_baseballr_data("MLB Standings on Date data from baseball-reference.com",Sys.time())
-      Sys.sleep(5)
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no standings on date data available!")
+      cli::cli_alert_info("Original error: {conditionMessage(e)}")
     },
     finally = {
     }

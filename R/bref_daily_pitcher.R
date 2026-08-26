@@ -69,8 +69,7 @@ bref_daily_pitcher <- function(t1, t2) {
   df <- NULL
   tryCatch(
     expr = {
-      payload <- paste0("https://www.baseball-reference.com/leagues/daily.cgi?user_team=&bust_cache=&type=p&lastndays=7&dates=fromandto&fromandto=", t1, ".", t2, "&level=mlb&franch=&stat=&stat_value=0") |> 
-        xml2::read_html()
+      payload <- bref_read_html(paste0("https://www.baseball-reference.com/leagues/daily.cgi?user_team=&bust_cache=&type=p&lastndays=7&dates=fromandto&fromandto=", t1, ".", t2, "&level=mlb&franch=&stat=&stat_value=0"))
       
       df <- payload |>
         rvest::html_elements(xpath = '//*[@id="daily"]') |>
@@ -129,10 +128,10 @@ bref_daily_pitcher <- function(t1, t2) {
       
       df <- df |>
         make_baseballr_data("MLB Daily Pitcher data from baseball-reference.com",Sys.time())
-      Sys.sleep(5)
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no daily pitcher data available!")
+      cli::cli_alert_info("Original error: {conditionMessage(e)}")
     },
     finally = {
     }
