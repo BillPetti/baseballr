@@ -55,11 +55,22 @@ getting started, NCAA scraping, and Statcast usage.
   migrated to roxygen2 8.1.0; `cph` role added; LICENSE year refreshed. The
   full test suite skips on CRAN (tests run in continuous integration on
   every push).
+* Further additions in the same cycle: `fg_projections()` (FanGraphs
+  projection systems), `ggpitchzone()` (strike-zone pitch plot),
+  `mlb_pbp(add_base_state = TRUE)` (opt-in per-event base-occupancy
+  reconstruction, validated pitch-for-pitch against Statcast's published
+  base-state columns), pre-2010 `mlb_pbp()` support restored, era-aware
+  `bref_standings_on_date()` (pre-1969 and 1969-1993 layouts), and
+  Baseball Reference requests now retry HTTP 429 with exponential
+  backoff.
 
 ## Test environments
 
 * local Windows 10, R 4.6.1
-* GitHub Actions: windows-latest (release), ubuntu-latest (release, oldrel-1)
+* win-builder (R-devel): three passes during the cycle, all
+  0 errors | 0 warnings | 0 notes
+* GitHub Actions: macos-latest (release), windows-latest (release),
+  ubuntu-latest (release, oldrel-1)
 * R-hub: linux, windows, macos (R-devel)
 
 ## R CMD check results
