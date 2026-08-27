@@ -83,22 +83,26 @@ ncaa_school_id_lu("Vand")
 ## **Our Contributors**
 -   [Ben Baumer](https://x.com/BaumerBen)
 <a href='https://x.com/BaumerBen' target='blank'><img src='https://img.shields.io/twitter/follow/BaumerBen?color=blue&amp;label=%40BaumerBen&amp;logo=x&amp;style=for-the-badge' alt='@BaumerBen'/></a>
+<a href='https://github.com/beanumber' target='blank'><img src='https://img.shields.io/github/followers/beanumber?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@beanumber'/></a>
 -   [Ben Dilday](https://x.com/BenDilday)
 <a href='https://x.com/BenDilday' target='blank'><img src='https://img.shields.io/twitter/follow/BenDilday?color=blue&amp;label=%40BenDilday&amp;logo=x&amp;style=for-the-badge' alt='@BenDilday'/></a>
+<a href='https://github.com/bdilday' target='blank'><img src='https://img.shields.io/github/followers/bdilday?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@bdilday'/></a>
 -   [Robert Frey](https://x.com/RobertFrey40)
 <a href='https://x.com/RobertFrey40' target='blank'><img src='https://img.shields.io/twitter/follow/RobertFrey40?color=blue&amp;label=%40RobertFrey40&amp;logo=x&amp;style=for-the-badge' alt='@RobertFrey40'/></a>
+<a href='https://github.com/robert-frey' target='blank'><img src='https://img.shields.io/github/followers/robert-frey?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@robert-frey'/></a>
 -   [Camden Kay](https://x.com/k_camden)
 <a href='https://x.com/k_camden' target='blank'><img src='https://img.shields.io/twitter/follow/k_camden?color=blue&amp;label=%40k_camden&amp;logo=x&amp;style=for-the-badge' alt='@k_camden'/></a>
+<a href='https://github.com/camdenk' target='blank'><img src='https://img.shields.io/github/followers/camdenk?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@camdenk'/></a>
 
 ## **Citation**
 
 To cite the [**`baseballr`**](https://baseballr.sportsdataverse.org/) R package in publications, use:
 
-BibTex Citation
+BibTeX Citation
 
 ```bibtex
 @misc{baseballr,
-  author = {Bill Petti, Saiem Gilani},
+  author = {Bill Petti and Saiem Gilani},
   title = {baseballr: An R Package for Baseball Data Acquisition and Analysis},
   url = {https://baseballr.sportsdataverse.org/},
   year = {2026}

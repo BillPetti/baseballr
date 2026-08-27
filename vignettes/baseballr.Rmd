@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with baseballr"
 description: "Getting started with using <code>baseballr</code> and men's baseball data."
-author: "Saiem Gilani <br> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
+author: "Bill Petti, Saiem Gilani <br><a href='https://x.com/BillPetti' target='blank'><img src='https://img.shields.io/twitter/follow/BillPetti?color=blue&amp;label=%40BillPetti&amp;logo=x&amp;style=for-the-badge' alt='@BillPetti'/></a> <a href='https://github.com/BillPetti' target='blank'><img src='https://img.shields.io/github/followers/BillPetti?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@BillPetti'/></a> <a href='https://x.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
 date: "`r Sys.Date()`"
 opengraph:
   image: 
