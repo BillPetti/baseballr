@@ -1,8 +1,15 @@
 ---
 title: "Plotting Statcast data"
-author: "Bill Petti"
+author: "Bill Petti, Saiem Gilani <br><a href='https://x.com/BillPetti' target='blank'><img src='https://img.shields.io/twitter/follow/BillPetti?color=blue&amp;label=%40BillPetti&amp;logo=x&amp;style=for-the-badge' alt='@BillPetti'/></a> <a href='https://github.com/BillPetti' target='blank'><img src='https://img.shields.io/github/followers/BillPetti?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@BillPetti'/></a> <a href='https://x.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
 date: "`r Sys.Date()`"
 output: html_document
+description: "In this example, the baseballr package is used to acquire Statcast data for Mookie Betts from 2015-2016."
+opengraph:
+  image:
+    src: "https://raw.githubusercontent.com/sportsdataverse/baseballr-data/main/themes/baseballr_gh.png"
+  twitter:
+    card: summary_large_image
+    creator: "@saiemgilani"
 ---
 
 ```{r setup, include = FALSE}
@@ -117,3 +124,48 @@ with the batter's strike zone overlaid, using the Savant palette by default:
 ```{r, eval=FALSE}
 ggpitchzone(betts_16)
 ```
+
+# **Our Authors**
+-   [Bill Petti](https://x.com/BillPetti)
+<a href='https://x.com/BillPetti' target='blank'><img src='https://img.shields.io/twitter/follow/BillPetti?color=blue&amp;label=%40BillPetti&amp;logo=x&amp;style=for-the-badge' alt='@BillPetti'/></a>
+<a href='https://github.com/BillPetti' target='blank'><img src='https://img.shields.io/github/followers/BillPetti?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@BillPetti'/></a>
+-   [Saiem Gilani](https://x.com/saiemgilani)
+<a href='https://x.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge' alt='@saiemgilani'/></a>
+<a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>
+
+## **Our Contributors**
+-   [Ben Baumer](https://x.com/BaumerBen)
+<a href='https://x.com/BaumerBen' target='blank'><img src='https://img.shields.io/twitter/follow/BaumerBen?color=blue&amp;label=%40BaumerBen&amp;logo=x&amp;style=for-the-badge' alt='@BaumerBen'/></a>
+-   [Ben Dilday](https://x.com/BenDilday)
+<a href='https://x.com/BenDilday' target='blank'><img src='https://img.shields.io/twitter/follow/BenDilday?color=blue&amp;label=%40BenDilday&amp;logo=x&amp;style=for-the-badge' alt='@BenDilday'/></a>
+-   [Robert Frey](https://x.com/RobertFrey40)
+<a href='https://x.com/RobertFrey40' target='blank'><img src='https://img.shields.io/twitter/follow/RobertFrey40?color=blue&amp;label=%40RobertFrey40&amp;logo=x&amp;style=for-the-badge' alt='@RobertFrey40'/></a>
+-   [Camden Kay](https://x.com/k_camden)
+<a href='https://x.com/k_camden' target='blank'><img src='https://img.shields.io/twitter/follow/k_camden?color=blue&amp;label=%40k_camden&amp;logo=x&amp;style=for-the-badge' alt='@k_camden'/></a>
+
+## **Citation**
+
+To cite the [**`baseballr`**](https://baseballr.sportsdataverse.org/) R package in publications, use:
+
+BibTex Citation
+
+```bibtex
+@misc{baseballr,
+  author = {Bill Petti, Saiem Gilani},
+  title = {baseballr: An R Package for Baseball Data Acquisition and Analysis},
+  url = {https://baseballr.sportsdataverse.org/},
+  year = {2026}
+}
+```
+
+## **Related SportsDataverse packages**
+
+-   [**cfbfastR**](https://cfbfastR.sportsdataverse.org/) - college football
+-   [**hoopR**](https://hoopR.sportsdataverse.org/) - men's basketball
+-   [**wehoop**](https://wehoop.sportsdataverse.org/) - women's basketball
+-   [**baseballr**](https://baseballr.sportsdataverse.org/) - baseball
+-   [**fastRhockey**](https://fastRhockey.sportsdataverse.org/) - hockey
+-   [**oddsapiR**](https://oddsapiR.sportsdataverse.org/) - betting odds
+-   [**sportyR**](https://sportyR.sportsdataverse.org/) - playing surfaces
+-   [**sportsdataverse-py**](https://py.sportsdataverse.org/) - the Python package
+-   [**sportsdataverse-R**](https://r.sportsdataverse.org/) - the R meta-package
