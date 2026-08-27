@@ -595,15 +595,15 @@ A data frame of batter data.
 # \donttest{
   try(fg_batter_leaders(startseason = 2023, endseason = 2023))
 #> ── MLB Player Batting Leaders data from FanGraphs.com ──────────────────
-#> ℹ Data updated: 2026-08-26 21:29:48 UTC
+#> ℹ Data updated: 2026-08-27 10:41:46 UTC
 #> # A tibble: 1,457 × 447
 #>    Season team_name Bats  xMLBAMID PlayerNameRoute   PlayerName playerid
 #>     <int> <chr>     <chr>    <int> <chr>             <chr>         <int>
 #>  1   2023 ATL       R       660670 Ronald Acuna Jr.  Ronald Ac…    18401
 #>  2   2023 LAD       L       518692 Freddie Freeman   Freddie F…     5361
 #>  3   2023 LAD       R       605141 Mookie Betts      Mookie Be…    13611
-#>  4   2023 ATL       L       621566 Matt Olson        Matt Olson    14344
-#>  5   2023 LAA       L       660271 Shohei Ohtani     Shohei Oh…    19755
+#>  4   2023 LAA       L       660271 Shohei Ohtani     Shohei Oh…    19755
+#>  5   2023 ATL       L       621566 Matt Olson        Matt Olson    14344
 #>  6   2023 TEX       R       543760 Marcus Semien     Marcus Se…    12533
 #>  7   2023 TEX       L       608369 Corey Seager      Corey Sea…    13624
 #>  8   2023 SDP       L       665742 Juan Soto         Juan Soto     20123

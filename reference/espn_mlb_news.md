@@ -163,15 +163,14 @@ Saiem Gilani
 # \donttest{
   espn_mlb_news(limit = 5)
 #> ── ESPN MLB News from ESPN.com ────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-26 21:29:18 UTC
-#> # A tibble: 5 × 9
-#>         id type   headline description published premium byline link_web
-#>      <int> <chr>  <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>   
-#> 1 49734633 Headl… Cubs' B… "Cubs righ… 2026-08-… FALSE   NA     https:/…
-#> 2 49734271 Media  Rays ta… "Rays take… 2026-08-… FALSE   NA     https:/…
-#> 3 49733049 Story  Fantasy… "Everythin… 2026-08-… FALSE   ESPN … https:/…
-#> 4 49734165 Recap  Freddy … "— Freddy … 2026-08-… FALSE   NA     http://…
-#> 5 49733730 Headl… TWG Glo… "TWG Globa… 2026-08-… FALSE   Alden… https:/…
-#> # ℹ 1 more variable: league_id <chr>
+#> ℹ Data updated: 2026-08-27 10:41:18 UTC
+#> # A tibble: 5 × 8
+#>       id type  headline description published premium link_web league_id
+#>    <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>    <chr>    
+#> 1 4.97e7 Prev… Braves … Los Angele… 2026-08-… FALSE   http://… 10       
+#> 2 4.97e7 Prev… Rockies… Colorado R… 2026-08-… FALSE   http://… 10       
+#> 3 4.97e7 Prev… Orioles… Baltimore … 2026-08-… FALSE   http://… 10       
+#> 4 4.97e7 Prev… Blue Ja… Kansas Cit… 2026-08-… FALSE   http://… 10       
+#> 5 4.97e7 Prev… Yankees… Houston As… 2026-08-… FALSE   http://… 10       
 # }
 ```

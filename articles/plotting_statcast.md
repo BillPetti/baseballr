@@ -15,7 +15,7 @@ library(reshape2)
 library(zoo)
 ```
 
-## find Mookie Betts’ MLBAMID
+### find Mookie Betts’ MLBAMID
 
 ``` r
 
@@ -24,7 +24,7 @@ betts_id <- playerid_lookup("Betts") %>%
   dplyr::select(mlbam_id, first_name, last_name)
 ```
 
-## scrape Betts’ Statcast data, by pitch removing those with a batted ball speed of 0
+### scrape Betts’ Statcast data, by pitch removing those with a batted ball speed of 0
 
 ``` r
 
@@ -36,7 +36,7 @@ betts <- dplyr::bind_rows(betts_15, betts_16) %>%
   dplyr::filter(launch_speed != 0)
 ```
 
-## calculate average launch angles and batted ball speeds by game
+### calculate average launch angles and batted ball speeds by game
 
 ``` r
 
@@ -50,7 +50,7 @@ betts_grpd <- betts %>%
   dplyr::mutate(Year = as.factor(substr(game_date,1,4)))
 ```
 
-## calculate Betts’ average launch angle and batted ball speed by year
+### calculate Betts’ average launch angle and batted ball speed by year
 
 ``` r
 
@@ -61,7 +61,7 @@ betts_avg_speed_yr <- betts %>%
     angle = round(mean(launch_angle, na.rm = TRUE),1))
 ```
 
-## plot the data
+### plot the data
 
 ``` r
 
@@ -80,14 +80,14 @@ betts_grpd %>%
   scale_color_manual(values = c("#5F9ED1", "#FF800E"))
 ```
 
-## Uncomment and run to export plot to your working directory
+### Uncomment and run to export plot to your working directory
 
 ``` r
 
 # ggsave("betts_angle_speed_year.png", scale = 1.2, width = 14, height = 8.5, units = "in")
 ```
 
-## Coloring by pitch type
+### Coloring by pitch type
 
 [`statcast_pitch_colors()`](https://billpetti.github.io/baseballr/reference/statcast_pitch_colors.md)
 returns Baseball Savant’s own pitch-type palette, so plots colored by
@@ -107,7 +107,7 @@ betts_16 |>
   theme_bw()
 ```
 
-## Pitch locations with the strike zone
+### Pitch locations with the strike zone
 
 [`ggpitchzone()`](https://billpetti.github.io/baseballr/reference/ggpitchzone.md)
 plots plate-crossing locations from the catcher’s perspective with the
@@ -117,3 +117,58 @@ batter’s strike zone overlaid, using the Savant palette by default:
 
 ggpitchzone(betts_16)
 ```
+
+## **Our Authors**
+
+- [Bill Petti](https://x.com/BillPetti)
+  [![@BillPetti](https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=x&style=for-the-badge)](https://x.com/BillPetti)
+  [![@BillPetti](https://img.shields.io/github/followers/BillPetti?color=eee&logo=Github&style=for-the-badge)](https://github.com/BillPetti)
+- [Saiem Gilani](https://x.com/saiemgilani)
+  [![@saiemgilani](https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=x&style=for-the-badge)](https://x.com/saiemgilani)
+  [![@saiemgilani](https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge)](https://github.com/saiemgilani)
+
+### **Our Contributors**
+
+- [Ben Baumer](https://x.com/BaumerBen)
+  [![@BaumerBen](https://img.shields.io/twitter/follow/BaumerBen?color=blue&label=%40BaumerBen&logo=x&style=for-the-badge)](https://x.com/BaumerBen)
+  [![@beanumber](https://img.shields.io/github/followers/beanumber?color=eee&logo=Github&style=for-the-badge)](https://github.com/beanumber)
+- [Ben Dilday](https://x.com/BenDilday)
+  [![@BenDilday](https://img.shields.io/twitter/follow/BenDilday?color=blue&label=%40BenDilday&logo=x&style=for-the-badge)](https://x.com/BenDilday)
+  [![@bdilday](https://img.shields.io/github/followers/bdilday?color=eee&logo=Github&style=for-the-badge)](https://github.com/bdilday)
+- [Robert Frey](https://x.com/RobertFrey40)
+  [![@RobertFrey40](https://img.shields.io/twitter/follow/RobertFrey40?color=blue&label=%40RobertFrey40&logo=x&style=for-the-badge)](https://x.com/RobertFrey40)
+  [![@robert-frey](https://img.shields.io/github/followers/robert-frey?color=eee&logo=Github&style=for-the-badge)](https://github.com/robert-frey)
+- [Camden Kay](https://x.com/k_camden)
+  [![@k_camden](https://img.shields.io/twitter/follow/k_camden?color=blue&label=%40k_camden&logo=x&style=for-the-badge)](https://x.com/k_camden)
+  [![@camdenk](https://img.shields.io/github/followers/camdenk?color=eee&logo=Github&style=for-the-badge)](https://github.com/camdenk)
+
+### **Citation**
+
+To cite the [**`baseballr`**](https://baseballr.sportsdataverse.org/) R
+package in publications, use:
+
+BibTeX Citation
+
+``` bibtex
+@misc{baseballr,
+  author = {Bill Petti and Saiem Gilani},
+  title = {baseballr: An R Package for Baseball Data Acquisition and Analysis},
+  url = {https://baseballr.sportsdataverse.org/},
+  year = {2026}
+}
+```
+
+### **Related SportsDataverse packages**
+
+- [**cfbfastR**](https://cfbfastR.sportsdataverse.org/) - college
+  football
+- [**hoopR**](https://hoopR.sportsdataverse.org/) - men’s basketball
+- [**wehoop**](https://wehoop.sportsdataverse.org/) - women’s basketball
+- [**baseballr**](https://baseballr.sportsdataverse.org/) - baseball
+- [**fastRhockey**](https://fastRhockey.sportsdataverse.org/) - hockey
+- [**oddsapiR**](https://oddsapiR.sportsdataverse.org/) - betting odds
+- [**sportyR**](https://sportyR.sportsdataverse.org/) - playing surfaces
+- [**sportsdataverse-py**](https://py.sportsdataverse.org/) - the Python
+  package
+- [**sportsdataverse-R**](https://r.sportsdataverse.org/) - the R
+  meta-package

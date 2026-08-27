@@ -35,7 +35,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_sports_info(sport_id = 1))
 #> ── MLB Sports Info data from MLB.com ──────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-26 21:31:00 UTC
+#> ℹ Data updated: 2026-08-27 10:44:07 UTC
 #> # A tibble: 1 × 7
 #>   sport_id sport_code sport_link       sport_name     sport_abbreviation
 #>      <int> <chr>      <chr>            <chr>          <chr>             

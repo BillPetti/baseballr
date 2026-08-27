@@ -24,7 +24,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_review_reasons())
 #> ── MLB Review Reasons data from MLB.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-26 21:30:53 UTC
+#> ℹ Data updated: 2026-08-27 10:44:01 UTC
 #> # A tibble: 27 × 2
 #>    review_reason_code review_reason_description
 #>    <chr>              <chr>                    

@@ -2,6 +2,8 @@
 
 ## baseballr 2.0.0
 
+CRAN release: 2026-08-26
+
 #### New features
 
 - [`statcast_search()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)

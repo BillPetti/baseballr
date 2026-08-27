@@ -33,7 +33,7 @@ From the NCAA website:
 
 try(ncaa_teams(year = most_recent_ncaa_baseball_season(), division = "1"))
 #> ── NCAA Baseball Teams data from stats.ncaa.org ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-26 21:34:27 UTC
+#> ℹ Data updated: 2026-08-27 10:47:32 UTC
 #> # A tibble: 308 × 9
 #>    team_id team_name    team_url conference_id conference division  year
 #>    <chr>   <chr>        <chr>    <chr>         <chr>      <chr>    <dbl>
@@ -75,7 +75,7 @@ year <- most_recent_ncaa_baseball_season()
 
 ncaa_team_player_stats(team_id = team_id, year = year, "batting")
 #> ── NCAA Baseball Team Batting Stats data from stats.ncaa.org ───────────
-#> ℹ Data updated: 2026-08-26 21:34:52 UTC
+#> ℹ Data updated: 2026-08-27 10:47:50 UTC
 #> # A tibble: 36 × 42
 #>     year team_name   team_id conference_id conference division player_id
 #>    <int> <chr>         <dbl>         <int> <chr>         <dbl>     <int>
@@ -105,7 +105,7 @@ parameter:
 
 ncaa_team_player_stats(team_id = team_id, year = year,  "pitching")
 #> ── NCAA Baseball Team Pitching Stats data from stats.ncaa.org ──────────
-#> ℹ Data updated: 2026-08-26 21:35:09 UTC
+#> ℹ Data updated: 2026-08-27 10:48:07 UTC
 #> # A tibble: 19 × 49
 #>     year team_name   team_id conference_id conference division player_id
 #>    <int> <chr>         <dbl>         <int> <chr>         <dbl>     <int>
@@ -171,3 +171,58 @@ ncaa_school_id_lu("Vand")
 #> 17     736 Vanderbilt /team/736…           911 SEC               1  2010
 #> # ℹ 2 more variables: season_id <dbl>, season_team_id <dbl>
 ```
+
+## **Our Authors**
+
+- [Bill Petti](https://x.com/BillPetti)
+  [![@BillPetti](https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=x&style=for-the-badge)](https://x.com/BillPetti)
+  [![@BillPetti](https://img.shields.io/github/followers/BillPetti?color=eee&logo=Github&style=for-the-badge)](https://github.com/BillPetti)
+- [Saiem Gilani](https://x.com/saiemgilani)
+  [![@saiemgilani](https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=x&style=for-the-badge)](https://x.com/saiemgilani)
+  [![@saiemgilani](https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge)](https://github.com/saiemgilani)
+
+### **Our Contributors**
+
+- [Ben Baumer](https://x.com/BaumerBen)
+  [![@BaumerBen](https://img.shields.io/twitter/follow/BaumerBen?color=blue&label=%40BaumerBen&logo=x&style=for-the-badge)](https://x.com/BaumerBen)
+  [![@beanumber](https://img.shields.io/github/followers/beanumber?color=eee&logo=Github&style=for-the-badge)](https://github.com/beanumber)
+- [Ben Dilday](https://x.com/BenDilday)
+  [![@BenDilday](https://img.shields.io/twitter/follow/BenDilday?color=blue&label=%40BenDilday&logo=x&style=for-the-badge)](https://x.com/BenDilday)
+  [![@bdilday](https://img.shields.io/github/followers/bdilday?color=eee&logo=Github&style=for-the-badge)](https://github.com/bdilday)
+- [Robert Frey](https://x.com/RobertFrey40)
+  [![@RobertFrey40](https://img.shields.io/twitter/follow/RobertFrey40?color=blue&label=%40RobertFrey40&logo=x&style=for-the-badge)](https://x.com/RobertFrey40)
+  [![@robert-frey](https://img.shields.io/github/followers/robert-frey?color=eee&logo=Github&style=for-the-badge)](https://github.com/robert-frey)
+- [Camden Kay](https://x.com/k_camden)
+  [![@k_camden](https://img.shields.io/twitter/follow/k_camden?color=blue&label=%40k_camden&logo=x&style=for-the-badge)](https://x.com/k_camden)
+  [![@camdenk](https://img.shields.io/github/followers/camdenk?color=eee&logo=Github&style=for-the-badge)](https://github.com/camdenk)
+
+### **Citation**
+
+To cite the [**`baseballr`**](https://baseballr.sportsdataverse.org/) R
+package in publications, use:
+
+BibTeX Citation
+
+``` bibtex
+@misc{baseballr,
+  author = {Bill Petti and Saiem Gilani},
+  title = {baseballr: An R Package for Baseball Data Acquisition and Analysis},
+  url = {https://baseballr.sportsdataverse.org/},
+  year = {2026}
+}
+```
+
+### **Related SportsDataverse packages**
+
+- [**cfbfastR**](https://cfbfastR.sportsdataverse.org/) - college
+  football
+- [**hoopR**](https://hoopR.sportsdataverse.org/) - men’s basketball
+- [**wehoop**](https://wehoop.sportsdataverse.org/) - women’s basketball
+- [**baseballr**](https://baseballr.sportsdataverse.org/) - baseball
+- [**fastRhockey**](https://fastRhockey.sportsdataverse.org/) - hockey
+- [**oddsapiR**](https://oddsapiR.sportsdataverse.org/) - betting odds
+- [**sportyR**](https://sportyR.sportsdataverse.org/) - playing surfaces
+- [**sportsdataverse-py**](https://py.sportsdataverse.org/) - the Python
+  package
+- [**sportsdataverse-R**](https://r.sportsdataverse.org/) - the R
+  meta-package

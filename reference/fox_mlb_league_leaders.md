@@ -32,19 +32,19 @@ columns).
 ``` r
  try(fox_mlb_league_leaders("batting")) 
 #> ── Fox Sports MLB league_leaders ──────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-26 21:30:05 UTC
+#> ℹ Data updated: 2026-08-27 10:42:02 UTC
 #> # A tibble: 100 × 7
 #>    players v2                g     entity_id pa    ab    h    
 #>    <chr>   <chr>             <chr> <chr>     <chr> <chr> <chr>
-#>  1 1       B. Reynolds       134   10496     NA    NA    NA   
-#>  2 2       B. Harper         133   5349      NA    NA    NA   
-#>  3 3       X. Edwards        133   11608     NA    NA    NA   
-#>  4 4       P. Crow-Armstrong 133   11825     NA    NA    NA   
-#>  5 5       J. Caminero       133   13593     NA    NA    NA   
-#>  6 6       C. Young          133   13642     NA    NA    NA   
-#>  7 7       S. Stewart        133   14786     NA    NA    NA   
-#>  8 8       M. Olson          132   5666      NA    NA    NA   
-#>  9 9       O. Albies         132   7214      NA    NA    NA   
-#> 10 10      R. Devers         132   8041      NA    NA    NA   
+#>  1 1       B. Reynolds       135   10496     NA    NA    NA   
+#>  2 2       B. Harper         134   5349      NA    NA    NA   
+#>  3 3       X. Edwards        134   11608     NA    NA    NA   
+#>  4 4       P. Crow-Armstrong 134   11825     NA    NA    NA   
+#>  5 5       S. Stewart        134   14786     NA    NA    NA   
+#>  6 6       M. Olson          133   5666      NA    NA    NA   
+#>  7 7       O. Albies         133   7214      NA    NA    NA   
+#>  8 8       R. Devers         133   8041      NA    NA    NA   
+#>  9 9       P. Alonso         133   8988      NA    NA    NA   
+#> 10 10      I. Herrera        133   11292     NA    NA    NA   
 #> # ℹ 90 more rows
 ```

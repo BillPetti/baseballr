@@ -17,6 +17,12 @@
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="Using Statcast Pitch Data">
+<meta name="description" content="Working with pitch-by-pitch Statcast data from Baseball Savant - acquiring it with &lt;code&gt;statcast_search()&lt;/code&gt; and shaping it for pitch-level analysis.">
+<meta property="og:description" content="Working with pitch-by-pitch Statcast data from Baseball Savant - acquiring it with &lt;code&gt;statcast_search()&lt;/code&gt; and shaping it for pitch-level analysis.">
+<meta property="og:image" content="https://raw.githubusercontent.com/sportsdataverse/baseballr-data/main/themes/baseballr_gh.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@saiemgilani">
+<meta name="twitter:site" content="@BillPetti">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -145,9 +151,15 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Using Statcast Pitch Data</h1>
-                        <h4 data-toc-skip class="author">Camden Kay</h4>
+                        <h4 data-toc-skip class="author">Bill Petti,
+Saiem Gilani
+<br><a href="https://x.com/BillPetti" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&amp;label=%40BillPetti&amp;logo=x&amp;style=for-the-badge" alt="@BillPetti"></a>
+<a href="https://github.com/BillPetti" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@BillPetti"></a>
+<a href="https://x.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge" alt="@saiemgilani"></a>
+<a href="https://github.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a>
+</h4>
             
-            <h4 data-toc-skip class="date">2026-08-26</h4>
+            <h4 data-toc-skip class="date">2026-08-27</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/billpetti/baseballr/blob/master/vignettes/using_statcast_pitch_data.Rmd" class="external-link"><code>vignettes/using_statcast_pitch_data.Rmd</code></a></small>
       <div class="d-none name"><code>using_statcast_pitch_data.Rmd</code></div>
@@ -356,6 +368,98 @@ the same interface and columns:</p>
 <span></span>
 <span><span class="co"># World Baseball Classic</span></span>
 <span><span class="va">wbc</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/statcast_search.html">statcast_search_wbc</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="st">"2023-03-21"</span>, end_date <span class="op">=</span> <span class="st">"2023-03-21"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="our-authors">
+<strong>Our Authors</strong><a class="anchor" aria-label="anchor" href="#our-authors"></a>
+</h2>
+<ul>
+<li>
+<a href="https://x.com/BillPetti" class="external-link">Bill Petti</a>
+<a href="https://x.com/BillPetti" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/BillPetti?color=blue&amp;label=%40BillPetti&amp;logo=x&amp;style=for-the-badge" alt="@BillPetti"></a>
+<a href="https://github.com/BillPetti" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/BillPetti?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@BillPetti"></a>
+</li>
+<li>
+<a href="https://x.com/saiemgilani" class="external-link">Saiem Gilani</a>
+<a href="https://x.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge" alt="@saiemgilani"></a>
+<a href="https://github.com/saiemgilani" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@saiemgilani"></a>
+</li>
+</ul>
+<div class="section level3">
+<h3 id="our-contributors">
+<strong>Our Contributors</strong><a class="anchor" aria-label="anchor" href="#our-contributors"></a>
+</h3>
+<ul>
+<li>
+<a href="https://x.com/BaumerBen" class="external-link">Ben Baumer</a>
+<a href="https://x.com/BaumerBen" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/BaumerBen?color=blue&amp;label=%40BaumerBen&amp;logo=x&amp;style=for-the-badge" alt="@BaumerBen"></a>
+<a href="https://github.com/beanumber" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/beanumber?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@beanumber"></a>
+</li>
+<li>
+<a href="https://x.com/BenDilday" class="external-link">Ben Dilday</a>
+<a href="https://x.com/BenDilday" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/BenDilday?color=blue&amp;label=%40BenDilday&amp;logo=x&amp;style=for-the-badge" alt="@BenDilday"></a>
+<a href="https://github.com/bdilday" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/bdilday?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@bdilday"></a>
+</li>
+<li>
+<a href="https://x.com/RobertFrey40" class="external-link">Robert Frey</a>
+<a href="https://x.com/RobertFrey40" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/RobertFrey40?color=blue&amp;label=%40RobertFrey40&amp;logo=x&amp;style=for-the-badge" alt="@RobertFrey40"></a>
+<a href="https://github.com/robert-frey" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/robert-frey?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@robert-frey"></a>
+</li>
+<li>
+<a href="https://x.com/k_camden" class="external-link">Camden Kay</a>
+<a href="https://x.com/k_camden" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/k_camden?color=blue&amp;label=%40k_camden&amp;logo=x&amp;style=for-the-badge" alt="@k_camden"></a>
+<a href="https://github.com/camdenk" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/camdenk?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@camdenk"></a>
+</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="citation">
+<strong>Citation</strong><a class="anchor" aria-label="anchor" href="#citation"></a>
+</h3>
+<p>To cite the <a href="https://baseballr.sportsdataverse.org/" class="external-link"><strong><code>baseballr</code></strong></a>
+R package in publications, use:</p>
+<p>BibTeX Citation</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">baseballr</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>  <span class="dt">author</span> = {Bill Petti and Saiem Gilani},</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>  <span class="dt">title</span> = {baseballr: An R Package for Baseball Data Acquisition and Analysis},</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>  <span class="dt">url</span> = {https://baseballr.sportsdataverse.org/},</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>  <span class="dt">year</span> = {2026}</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="related-sportsdataverse-packages">
+<strong>Related SportsDataverse packages</strong><a class="anchor" aria-label="anchor" href="#related-sportsdataverse-packages"></a>
+</h3>
+<ul>
+<li>
+<a href="https://cfbfastR.sportsdataverse.org/" class="external-link"><strong>cfbfastR</strong></a>
+- college football</li>
+<li>
+<a href="https://hoopR.sportsdataverse.org/" class="external-link"><strong>hoopR</strong></a> -
+men’s basketball</li>
+<li>
+<a href="https://wehoop.sportsdataverse.org/" class="external-link"><strong>wehoop</strong></a> -
+women’s basketball</li>
+<li>
+<a href="https://baseballr.sportsdataverse.org/" class="external-link"><strong>baseballr</strong></a>
+- baseball</li>
+<li>
+<a href="https://fastRhockey.sportsdataverse.org/" class="external-link"><strong>fastRhockey</strong></a>
+- hockey</li>
+<li>
+<a href="https://oddsapiR.sportsdataverse.org/" class="external-link"><strong>oddsapiR</strong></a>
+- betting odds</li>
+<li>
+<a href="https://sportyR.sportsdataverse.org/" class="external-link"><strong>sportyR</strong></a>
+- playing surfaces</li>
+<li>
+<a href="https://py.sportsdataverse.org/" class="external-link"><strong>sportsdataverse-py</strong></a>
+- the Python package</li>
+<li>
+<a href="https://r.sportsdataverse.org/" class="external-link"><strong>sportsdataverse-R</strong></a>
+- the R meta-package</li>
+</ul>
+</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

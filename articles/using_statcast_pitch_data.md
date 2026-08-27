@@ -206,3 +206,58 @@ milb <- statcast_search_minors(start_date = "2024-06-01", end_date = "2024-06-01
 # World Baseball Classic
 wbc <- statcast_search_wbc(start_date = "2023-03-21", end_date = "2023-03-21")
 ```
+
+## **Our Authors**
+
+- [Bill Petti](https://x.com/BillPetti)
+  [![@BillPetti](https://img.shields.io/twitter/follow/BillPetti?color=blue&label=%40BillPetti&logo=x&style=for-the-badge)](https://x.com/BillPetti)
+  [![@BillPetti](https://img.shields.io/github/followers/BillPetti?color=eee&logo=Github&style=for-the-badge)](https://github.com/BillPetti)
+- [Saiem Gilani](https://x.com/saiemgilani)
+  [![@saiemgilani](https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=x&style=for-the-badge)](https://x.com/saiemgilani)
+  [![@saiemgilani](https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge)](https://github.com/saiemgilani)
+
+### **Our Contributors**
+
+- [Ben Baumer](https://x.com/BaumerBen)
+  [![@BaumerBen](https://img.shields.io/twitter/follow/BaumerBen?color=blue&label=%40BaumerBen&logo=x&style=for-the-badge)](https://x.com/BaumerBen)
+  [![@beanumber](https://img.shields.io/github/followers/beanumber?color=eee&logo=Github&style=for-the-badge)](https://github.com/beanumber)
+- [Ben Dilday](https://x.com/BenDilday)
+  [![@BenDilday](https://img.shields.io/twitter/follow/BenDilday?color=blue&label=%40BenDilday&logo=x&style=for-the-badge)](https://x.com/BenDilday)
+  [![@bdilday](https://img.shields.io/github/followers/bdilday?color=eee&logo=Github&style=for-the-badge)](https://github.com/bdilday)
+- [Robert Frey](https://x.com/RobertFrey40)
+  [![@RobertFrey40](https://img.shields.io/twitter/follow/RobertFrey40?color=blue&label=%40RobertFrey40&logo=x&style=for-the-badge)](https://x.com/RobertFrey40)
+  [![@robert-frey](https://img.shields.io/github/followers/robert-frey?color=eee&logo=Github&style=for-the-badge)](https://github.com/robert-frey)
+- [Camden Kay](https://x.com/k_camden)
+  [![@k_camden](https://img.shields.io/twitter/follow/k_camden?color=blue&label=%40k_camden&logo=x&style=for-the-badge)](https://x.com/k_camden)
+  [![@camdenk](https://img.shields.io/github/followers/camdenk?color=eee&logo=Github&style=for-the-badge)](https://github.com/camdenk)
+
+### **Citation**
+
+To cite the [**`baseballr`**](https://baseballr.sportsdataverse.org/) R
+package in publications, use:
+
+BibTeX Citation
+
+``` bibtex
+@misc{baseballr,
+  author = {Bill Petti and Saiem Gilani},
+  title = {baseballr: An R Package for Baseball Data Acquisition and Analysis},
+  url = {https://baseballr.sportsdataverse.org/},
+  year = {2026}
+}
+```
+
+### **Related SportsDataverse packages**
+
+- [**cfbfastR**](https://cfbfastR.sportsdataverse.org/) - college
+  football
+- [**hoopR**](https://hoopR.sportsdataverse.org/) - men’s basketball
+- [**wehoop**](https://wehoop.sportsdataverse.org/) - women’s basketball
+- [**baseballr**](https://baseballr.sportsdataverse.org/) - baseball
+- [**fastRhockey**](https://fastRhockey.sportsdataverse.org/) - hockey
+- [**oddsapiR**](https://oddsapiR.sportsdataverse.org/) - betting odds
+- [**sportyR**](https://sportyR.sportsdataverse.org/) - playing surfaces
+- [**sportsdataverse-py**](https://py.sportsdataverse.org/) - the Python
+  package
+- [**sportsdataverse-R**](https://r.sportsdataverse.org/) - the R
+  meta-package
