@@ -3,7 +3,7 @@ title: "Using Statcast Pitch Data"
 author: "Bill Petti, Saiem Gilani <br><a href='https://x.com/BillPetti' target='blank'><img src='https://img.shields.io/twitter/follow/BillPetti?color=blue&amp;label=%40BillPetti&amp;logo=x&amp;style=for-the-badge' alt='@BillPetti'/></a> <a href='https://github.com/BillPetti' target='blank'><img src='https://img.shields.io/github/followers/BillPetti?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@BillPetti'/></a> <a href='https://x.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
 date: "`r Sys.Date()`"
 output: html_document
-description: "In this example, the baseballr package is used to acquire Statcast data for Corbin Burnes for the 2021 season."
+description: "Working with pitch-by-pitch Statcast data from Baseball Savant - acquiring it with <code>statcast_search()</code> and shaping it for pitch-level analysis."
 opengraph:
   image:
     src: "https://raw.githubusercontent.com/sportsdataverse/baseballr-data/main/themes/baseballr_gh.png"

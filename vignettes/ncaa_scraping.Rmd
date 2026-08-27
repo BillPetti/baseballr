@@ -3,7 +3,7 @@ title: "NCAA Scraping"
 author: "Bill Petti, Saiem Gilani <br><a href='https://x.com/BillPetti' target='blank'><img src='https://img.shields.io/twitter/follow/BillPetti?color=blue&amp;label=%40BillPetti&amp;logo=x&amp;style=for-the-badge' alt='@BillPetti'/></a> <a href='https://github.com/BillPetti' target='blank'><img src='https://img.shields.io/github/followers/BillPetti?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@BillPetti'/></a> <a href='https://x.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
 date: "2016-11-22"
 output: html_document
-description: "The latest release of the baseballr includes a function for acquiring player statistics from the NCAA's website for baseball teams across the three major divisions (I, II, III)."
+description: "Pulling college baseball player and team statistics from the NCAA's website with <code>ncaa_scrape()</code>, including batting, pitching and fielding splits by season."
 opengraph:
   image:
     src: "https://raw.githubusercontent.com/sportsdataverse/baseballr-data/main/themes/baseballr_gh.png"

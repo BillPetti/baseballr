@@ -3,7 +3,7 @@ title: "Plotting Statcast data"
 author: "Bill Petti, Saiem Gilani <br><a href='https://x.com/BillPetti' target='blank'><img src='https://img.shields.io/twitter/follow/BillPetti?color=blue&amp;label=%40BillPetti&amp;logo=x&amp;style=for-the-badge' alt='@BillPetti'/></a> <a href='https://github.com/BillPetti' target='blank'><img src='https://img.shields.io/github/followers/BillPetti?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@BillPetti'/></a> <a href='https://x.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
 date: "`r Sys.Date()`"
 output: html_document
-description: "In this example, the baseballr package is used to acquire Statcast data for Mookie Betts from 2015-2016."
+description: "Drawing strike-zone plots and pitch locations from Statcast data with <code>ggplot2</code>, including how to place the zone correctly for left- and right-handed batters."
 opengraph:
   image:
     src: "https://raw.githubusercontent.com/sportsdataverse/baseballr-data/main/themes/baseballr_gh.png"
