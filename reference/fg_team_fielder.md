@@ -207,8 +207,8 @@ A data frame of fielder data.
 # \donttest{
   try(fg_team_fielder(startseason = 2023, endseason = 2023, qual = 150))
 #> ── MLB Team Fielding data from FanGraphs.com ──────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-27 10:41:55 UTC
-#> # A tibble: 30 × 60
+#> ℹ Data updated: 2026-09-09 22:12:08 UTC
+#> # A tibble: 30 × 61
 #>    Season team_name SeasonMin SeasonMax Pos   Position     G    GS   Inn
 #>     <int> <chr>         <int>     <int> <chr> <chr>    <int> <int> <int>
 #>  1   2023 Brewers        2023      2023 ---   ---       2225  1458 12987
@@ -222,7 +222,7 @@ A data frame of fielder data.
 #>  9   2023 Yankees        2023      2023 ---   ---       2160  1458 12957
 #> 10   2023 Padres         2023      2023 ---   ---       2128  1458 12969
 #> # ℹ 20 more rows
-#> # ℹ 51 more variables: PO <int>, A <int>, E <int>, FE <int>, TE <int>,
+#> # ℹ 52 more variables: PO <int>, A <int>, E <int>, FE <int>, TE <int>,
 #> #   DP <int>, DPS <int>, DPT <int>, DPF <int>, Scp <int>, SB <int>,
 #> #   CS <int>, PB <int>, WP <int>, FP <dbl>, rSB <int>, rGDP <int>,
 #> #   rARM <int>, rGFP <int>, rPM <int>, rSZ <dbl>, rTS <int>,

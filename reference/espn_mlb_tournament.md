@@ -156,11 +156,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_tournament(tournament_id = 1)
-#> ✖ 2026-08-27 10:41:39.758307: Failed to retrieve ESPN mlb tournament 1
+#> ✖ 2026-09-09 22:11:46.998329: Failed to retrieve ESPN mlb tournament 1
 #> ✖ Args: league = "mlb", tournament_id = 1
 #> ✖ Error: The API returned an error, HTTP Response Code 400
 #> ── ESPN MLB Tournament Detail ─────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-27 10:41:39 UTC
+#> ℹ Data updated: 2026-09-09 22:11:46 UTC
 #> # A tibble: 0 × 0
 # }
 ```

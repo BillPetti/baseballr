@@ -194,12 +194,12 @@ Saiem Gilani
   espn_mlb_player_overview(athlete_id = "1966", season = 2024)
 #> $Statistics
 #> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-08-27 10:41:22 UTC
+#> ℹ Data updated: 2026-09-09 22:11:27 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-08-27 10:41:22 UTC
+#> ℹ Data updated: 2026-09-09 22:11:27 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -207,32 +207,32 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-08-27 10:41:22 UTC
+#> ℹ Data updated: 2026-09-09 22:11:27 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-08-27 10:41:22 UTC
+#> ℹ Data updated: 2026-09-09 22:11:27 UTC
 #> # A tibble: 13 × 5
 #>    headline                           description published byline type 
 #>    <chr>                              <chr>       <chr>     <chr>  <chr>
-#>  1 2026 MLB ABS challenge system tra… The ABS ch… 2026-08-… ESPN   Story
-#>  2 Dodgers' Sasaki to go on IL after… Dodgers ri… 2026-08-… Alden… Head…
-#>  3 Yankees' Fernando Cruz has partia… Yankees re… 2026-08-… Jorge… Head…
-#>  4 Peters ties White Sox record with… Tristan Pe… 2026-08-… NA     Head…
-#>  5 Crow-Armstrong, Cubs irate after … The Cubs a… 2026-08-… NA     Head…
-#>  6 Orioles OF O'Neill placed on 10-d… The Oriole… 2026-08-… NA     Head…
-#>  7 Brewers' Dustin May hit by line d… Brewers ri… 2026-08-… NA     Head…
-#>  8 Suarez's grand slam fuels 7-run 9… Facing a 9… 2026-08-… NA     Head…
-#>  9 Dodgers' Skubal starts Friday in … Hours befo… 2026-08-… Alden… Head…
-#> 10 Yankees place Fernando Cruz on IL… The Yankee… 2026-08-… NA     Head…
-#> 11 Schwarber ties Howard with Philli… Kyle Schwa… 2026-08-… NA     Head…
-#> 12 Cubs' Ben Brown suffers setback d… Cubs right… 2026-08-… NA     Head…
-#> 13 Fantasy baseball lineup advice fo… Everything… 2026-08-… ESPN … Story
+#>  1 Orioles put Alexander on IL; hope… The Oriole… 2026-09-… NA     Head…
+#>  2 Yankees placing 2B Jazz Chisholm … The Yankee… 2026-09-… Jorge… Head…
+#>  3 Fantasy baseball lineup advice: L… Everything… 2026-09-… ESPN … Story
+#>  4 Athletics prospects Leo De Vries,… The Athlet… 2026-09-… NA     Head…
+#>  5 Jalen Brunson becomes the latest … There have… 2026-09-… Jerem… Story
+#>  6 Fantasy baseball forecaster: Team… Stay ahead… 2026-09-… Trist… Story
+#>  7 Fantasy baseball forecaster: Pitc… Keep up to… 2026-09-… Trist… Story
+#>  8 Fantasy Baseball Reliever Depth C… Our update… 2026-09-… Fanta… Story
+#>  9 In Mike Trout, MLB's past is prol… From Micke… 2026-09-… Kent … Story
+#> 10 MLB betting tips for Wednesday: W… All of the… 2026-09-… Derek… Story
+#> 11 Fantasy baseball news and notes: … All of the… 2026-09-… ESPN … Story
+#> 12 2026 MLB core rankings: Who has t… Dodgers or… 2026-09-… Kiley… Story
+#> 13 MLB playoff tracker 2026: Clinchi… From curre… 2026-09-… ESPN   Story
 #> 
 #> $FantasyOutlook
 #> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────
-#> ℹ Data updated: 2026-08-27 10:41:22 UTC
+#> ℹ Data updated: 2026-09-09 22:11:27 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

@@ -56,6 +56,7 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--sdv" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-project-diagram"></span>  SDV</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown--sdv"><li><a class="external-link dropdown-item" href="https://sportsdataverse.org/">SportsDataverse</a></li>
+    <li><a class="external-link dropdown-item" href="https://sportsdataverse.org/cheatsheets/baseballr.pdf">Cheat Sheet (PDF)</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>R Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://r.sportsdataverse.org/">sportsdataverse-R</a></li>
@@ -137,20 +138,20 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">mlb_draft_prospects</span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2020</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Draft Prospects data from MLB.com ──────────── <span style="font-style: italic;">baseballr 2.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-27 10:43:39 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-09 22:14:18 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2,500 × 102</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    bis_player_id pick_round pick_number  rank scouting_report      blurb</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>        <span style="text-decoration: underline;">766</span>443 1                   28    27 https://atmlb.com/3… Well…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>            <span style="color: #BB0000;">NA</span> 1                   28    27 https://atmlb.com/3… Well…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>        <span style="text-decoration: underline;">780</span>065 1                   29    26 https://atmlb.com/3… Loui…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>            <span style="color: #BB0000;">NA</span> 1                   29    26 https://atmlb.com/3… Loui…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>        <span style="text-decoration: underline;">782</span>773 CB-A                30    37 https://atmlb.com/3… Thou…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>       5<span style="text-decoration: underline;">012</span>013 3                   82    97 https://atmlb.com/2… Ther…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>        <span style="text-decoration: underline;">793</span>928 2                   39    74 https://atmlb.com/3… Avon…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>        <span style="text-decoration: underline;">807</span>255 1                    1     1 https://atmlb.com/2… Tork…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>            <span style="color: #BB0000;">NA</span> 1                    1     1 https://atmlb.com/2… Tork…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>        <span style="text-decoration: underline;">788</span>201 1                    2    10 https://atmlb.com/2… A 36…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>       5<span style="text-decoration: underline;">012</span>013 3                   82    97 https://atmlb.com/2… Ther…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>        <span style="text-decoration: underline;">793</span>928 2                   39    74 https://atmlb.com/3… Avon…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>        <span style="text-decoration: underline;">807</span>255 1                    1     1 https://atmlb.com/2… Tork…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>            <span style="color: #BB0000;">NA</span> 1                    1     1 https://atmlb.com/2… Tork…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>        <span style="text-decoration: underline;">788</span>201 1                    2    10 https://atmlb.com/2… A 36…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>            <span style="color: #BB0000;">NA</span> 1                    2    10 https://atmlb.com/2… A 36…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>        <span style="text-decoration: underline;">792</span>606 1                    3     9 https://atmlb.com/2… Meye…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2,490 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 96 more variables: headshot_link &lt;chr&gt;, is_drafted &lt;lgl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   is_pass &lt;lgl&gt;, year &lt;chr&gt;, home_city &lt;chr&gt;, home_state &lt;chr&gt;,</span></span>

@@ -68,8 +68,8 @@ them in different systems of record.
 # \donttest{
   try(chadwick_player_lu())
 #> ── Player Lookup from the Chadwick Bureau's public register of baseball 
-#> ℹ Data updated: 2026-08-27 10:40:28 UTC
-#> # A tibble: 518,743 × 40
+#> ℹ Data updated: 2026-09-09 22:10:25 UTC
+#> # A tibble: 520,934 × 40
 #>    key_person key_uuid    key_mlbam key_retro key_bbref key_bbref_minors
 #>    <chr>      <chr>           <int> <chr>     <chr>     <chr>           
 #>  1 000007d9   000007d9-a…    472542 ""        ""        garcia001ado    
@@ -82,7 +82,7 @@ them in different systems of record.
 #>  8 0000815e   0000815e-3…        NA ""        ""        burr--001rob    
 #>  9 0000ba28   0000ba28-8…        NA ""        ""        love--001jac    
 #> 10 0000e73a   0000e73a-6…        NA ""        ""        hewitt000ale    
-#> # ℹ 518,733 more rows
+#> # ℹ 520,924 more rows
 #> # ℹ 34 more variables: key_fangraphs <int>, key_npb <int>,
 #> #   key_sr_nfl <chr>, key_sr_nba <chr>, key_sr_nhl <chr>,
 #> #   key_wikidata <chr>, name_last <chr>, name_first <chr>,

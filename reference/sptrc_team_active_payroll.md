@@ -47,25 +47,7 @@ may change as Spotrac updates its layout.
 ``` r
 # \donttest{
  try(sptrc_team_active_payroll(team_abbr = "BAL", year = most_recent_mlb_season()))
-#> ── MLB Active Payroll data from Spotrac.com ───────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-27 10:44:19 UTC
-#> # A tibble: 54 × 18
-#>     year team  player_name      roster_status pos   exp   options_minor
-#>    <dbl> <chr> <chr>            <chr>         <chr> <chr> <chr>        
-#>  1  2026 BAL   Pete Alonso      Active        1B    7     n/a          
-#>  2  2026 BAL   Chris Bassitt    Active        SP    9.13  n/a          
-#>  3  2026 BAL   Tyler O'Neill    Active        RF    7.059 n/a          
-#>  4  2026 BAL   Andrew Kittredge Active        RP    7.07  n/a          
-#>  5  2026 BAL   Gunnar Henderson Active        SS    3.036 3            
-#>  6  2026 BAL   Trevor Rogers    Active        SP    5.047 n/a          
-#>  7  2026 BAL   Kyle Bradish     Active        SP    3.16  2            
-#>  8  2026 BAL   Leody Taveras    Active        CF    4.031 0            
-#>  9  2026 BAL   Shane Baz        Active        SP    3.158 2            
-#> 10  2026 BAL   Samuel Basallo   Active        C     0.043 3            
-#> # ℹ 44 more rows
-#> # ℹ 11 more variables: status <chr>, payroll_salary <dbl>,
-#> #   payroll_salary_adjusted <dbl>, base_salary <dbl>,
-#> #   signing_bonus <dbl>, x <chr>, x_2 <chr>, x_3 <chr>, x_4 <chr>,
-#> #   x_5 <chr>, waiver_options <chr>
+#> ✖ 2026-09-09 22:15:24.879574: Invalid arguments or no contract data available!
+#> data frame with 0 columns and 0 rows
 # }
 ```

@@ -49,7 +49,7 @@ Returns a tibble of game content data with the following columns:
 # \donttest{
   try(mlb_game_content(game_pk = 566001))
 #> ── MLB Game Content data from MLB.com ─────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-27 10:43:44 UTC
+#> ℹ Data updated: 2026-09-09 22:14:24 UTC
 #> # A tibble: 8 × 21
 #>   title       call_letters espn_auth_required tbs_auth_required
 #>   <chr>       <chr>        <lgl>              <lgl>            

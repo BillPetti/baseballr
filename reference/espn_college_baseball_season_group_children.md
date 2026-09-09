@@ -131,7 +131,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_season_group_children(group_id = 5, season = 2025))
 #> ── ESPN COLLEGE-BASEBALL Season Group Children Index ───────────────────
-#> ℹ Data updated: 2026-08-27 10:40:54 UTC
+#> ℹ Data updated: 2026-09-09 22:10:55 UTC
 #> # A tibble: 0 × 6
 #> # ℹ 6 variables: league <chr>, season <int>, season_type <int>,
 #> #   parent_group_id <chr>, child_group_id <chr>, ref <chr>

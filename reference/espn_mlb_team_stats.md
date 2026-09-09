@@ -219,7 +219,7 @@ Saiem Gilani
 # \donttest{
 try(espn_mlb_team_stats(team_id = 13, year = 2020))
 #> ── ESPN MLB Team Season Stats from ESPN.com ───────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-27 10:41:39 UTC
+#> ℹ Data updated: 2026-09-09 22:11:46 UTC
 #> # A tibble: 1 × 273
 #>   team_id team_guid  team_uid team_sdr team_slug team_location team_name
 #>     <int> <chr>      <chr>    <chr>    <chr>     <chr>         <chr>    

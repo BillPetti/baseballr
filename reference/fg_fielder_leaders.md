@@ -211,8 +211,8 @@ A data frame of fielder data.
 # \donttest{
   try(fg_fielder_leaders(startseason = 2023, endseason = 2023))
 #> ── MLB Player Fielding Leaders data from FanGraphs.com ─────────────────
-#> ℹ Data updated: 2026-08-27 10:41:47 UTC
-#> # A tibble: 2,293 × 63
+#> ℹ Data updated: 2026-09-09 22:11:56 UTC
+#> # A tibble: 2,293 × 64
 #>    Season team_name xMLBAMID PlayerNameRoute   PlayerName       playerid
 #>     <int> <chr>        <int> <chr>             <chr>               <int>
 #>  1   2023 SFG         672275 Patrick Bailey    Patrick Bailey      27478
@@ -226,7 +226,7 @@ A data frame of fielder data.
 #>  9   2023 SEA         663728 Cal Raleigh       Cal Raleigh         21534
 #> 10   2023 COL         678662 Ezequiel Tovar    Ezequiel Tovar      24064
 #> # ℹ 2,283 more rows
-#> # ℹ 57 more variables: SeasonMin <int>, SeasonMax <int>, Pos <chr>,
+#> # ℹ 58 more variables: SeasonMin <int>, SeasonMax <int>, Pos <chr>,
 #> #   Position <chr>, G <int>, GS <int>, Inn <dbl>, PO <int>, A <int>,
 #> #   E <int>, FE <int>, TE <int>, DP <int>, DPS <int>, DPT <int>,
 #> #   DPF <int>, SB <int>, CS <int>, PB <int>, WP <int>, FP <dbl>,

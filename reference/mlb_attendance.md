@@ -124,7 +124,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_attendance(team_id = 109, season = 2021))
 #> ── MLB Attendance data from MLB.com ───────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-27 10:43:34 UTC
+#> ℹ Data updated: 2026-09-09 22:14:10 UTC
 #> # A tibble: 1 × 32
 #>   openings_total openings_total_away openings_total_home
 #>            <int>               <int>               <int>

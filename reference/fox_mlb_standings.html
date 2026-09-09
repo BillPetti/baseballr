@@ -56,6 +56,7 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--sdv" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-project-diagram"></span>  SDV</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown--sdv"><li><a class="external-link dropdown-item" href="https://sportsdataverse.org/">SportsDataverse</a></li>
+    <li><a class="external-link dropdown-item" href="https://sportsdataverse.org/cheatsheets/baseballr.pdf">Cheat Sheet (PDF)</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>R Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://r.sportsdataverse.org/">sportsdataverse-R</a></li>
@@ -138,20 +139,20 @@ the standings columns, <code>entity_id</code>).</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">fox_mlb_standings</span><span class="op">(</span><span class="st">"1"</span><span class="op">)</span><span class="op">)</span> </span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Fox Sports MLB standings ───────────────────────── <span style="font-style: italic;">baseballr 2.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-27 10:42:02 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-09 22:12:17 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 90 × 24</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    team_id section  al_east v2       w_l   pct   gb    home  away  rs   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1       DIVISION 1       Rays     79-54 .594  -     43-23 36-31 595  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1       DIVISION 2       Yankees  75-57 .568  3.5   34-29 41-28 595  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1       DIVISION 3       Red Sox  73-60 .549  6.0   34-32 39-28 600  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1       DIVISION 4       Orioles  65-68 .489  14.0  34-34 31-34 604  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1       DIVISION 5       Blue Ja… 65-69 .485  14.5  34-34 31-35 527  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 1       DIVISION <span style="color: #BB0000;">NA</span>      White S… 70-63 .526  -     41-27 29-36 641  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 1       DIVISION <span style="color: #BB0000;">NA</span>      Guardia… 68-66 .507  2.5   31-34 37-32 543  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1       DIVISION <span style="color: #BB0000;">NA</span>      Twins    64-70 .478  6.5   35-31 29-39 615  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1       DIVISION <span style="color: #BB0000;">NA</span>      Tigers   62-71 .466  8.0   33-33 29-38 592  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1       DIVISION <span style="color: #BB0000;">NA</span>      Royals   59-75 .440  11.5  36-30 23-45 565  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1       DIVISION 1       Rays     86-58 .597  -     47-25 39-33 654  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1       DIVISION 2       Yankees  82-62 .569  4.0   38-31 44-31 651  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1       DIVISION 3       Red Sox  80-66 .548  7.0   36-35 44-31 648  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1       DIVISION 4       Blue Ja… 73-74 .497  14.5  37-35 36-39 589  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1       DIVISION 5       Orioles  70-76 .479  17.0  35-39 35-37 652  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 1       DIVISION <span style="color: #BB0000;">NA</span>      White S… 75-69 .521  -     43-29 32-40 683  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 1       DIVISION <span style="color: #BB0000;">NA</span>      Guardia… 74-72 .507  2.0   36-39 38-33 593  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1       DIVISION <span style="color: #BB0000;">NA</span>      Twins    69-76 .476  6.5   38-34 31-42 673  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1       DIVISION <span style="color: #BB0000;">NA</span>      Tigers   66-79 .455  9.5   35-36 31-43 634  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1       DIVISION <span style="color: #BB0000;">NA</span>      Royals   64-82 .438  12.0  38-36 26-46 624  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 80 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 14 more variables: ra &lt;chr&gt;, diff &lt;chr&gt;, l10 &lt;chr&gt;, strk &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   entity_id &lt;chr&gt;, al_central &lt;chr&gt;, al_west &lt;chr&gt;, nl_east &lt;chr&gt;,</span></span>

@@ -56,6 +56,7 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--sdv" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-project-diagram"></span>  SDV</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown--sdv"><li><a class="external-link dropdown-item" href="https://sportsdataverse.org/">SportsDataverse</a></li>
+    <li><a class="external-link dropdown-item" href="https://sportsdataverse.org/cheatsheets/baseballr.pdf">Cheat Sheet (PDF)</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>R Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://r.sportsdataverse.org/">sportsdataverse-R</a></li>
@@ -243,8 +244,8 @@ date filters take effect.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">fg_fielder_leaders</span><span class="op">(</span>startseason <span class="op">=</span> <span class="fl">2023</span>, endseason <span class="op">=</span> <span class="fl">2023</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── MLB Player Fielding Leaders data from FanGraphs.com ─────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-08-27 10:41:47 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2,293 × 63</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-09 22:11:56 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2,293 × 64</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Season team_name xMLBAMID PlayerNameRoute   PlayerName       playerid</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>023 SFG         <span style="text-decoration: underline;">672</span>275 Patrick Bailey    Patrick Bailey      <span style="text-decoration: underline;">27</span>478</span>
@@ -258,7 +259,7 @@ date filters take effect.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   <span style="text-decoration: underline;">2</span>023 SEA         <span style="text-decoration: underline;">663</span>728 Cal Raleigh       Cal Raleigh         <span style="text-decoration: underline;">21</span>534</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   <span style="text-decoration: underline;">2</span>023 COL         <span style="text-decoration: underline;">678</span>662 Ezequiel Tovar    Ezequiel Tovar      <span style="text-decoration: underline;">24</span>064</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2,283 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 57 more variables: SeasonMin &lt;int&gt;, SeasonMax &lt;int&gt;, Pos &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 58 more variables: SeasonMin &lt;int&gt;, SeasonMax &lt;int&gt;, Pos &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Position &lt;chr&gt;, G &lt;int&gt;, GS &lt;int&gt;, Inn &lt;dbl&gt;, PO &lt;int&gt;, A &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   E &lt;int&gt;, FE &lt;int&gt;, TE &lt;int&gt;, DP &lt;int&gt;, DPS &lt;int&gt;, DPT &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   DPF &lt;int&gt;, SB &lt;int&gt;, CS &lt;int&gt;, PB &lt;int&gt;, WP &lt;int&gt;, FP &lt;dbl&gt;,</span></span>

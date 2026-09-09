@@ -294,6 +294,18 @@ stars](https://img.shields.io/github/stars/billpetti/baseballr.svg?color=eee&log
 - Camden Kay (@k_camden)  
   [![@camdenk](https://img.shields.io/github/followers/camdenk?color=eee&logo=Github&style=for-the-badge)](https://github.com/camdenk)
 
+## **Cheat sheet**
+
+A printable one-page reference for **`baseballr`** — the function
+families, the loaders, and what each one returns.
+
+📄 **[Download the baseballr cheat sheet
+(PDF)](https://sportsdataverse.org/cheatsheets/baseballr.pdf)**
+
+Free to download, print and hand out; light and dark, US Letter
+landscape. Every SportsDataverse package has one — browse them all at
+**[sportsdataverse.org/cheatsheets](https://sportsdataverse.org/cheatsheets)**.
+
 ## **Citations**
 
 To cite the [**`baseballr`**](https://billpetti.github.io/baseballr/) R

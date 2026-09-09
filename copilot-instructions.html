@@ -56,6 +56,7 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--sdv" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-project-diagram"></span>  SDV</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown--sdv"><li><a class="external-link dropdown-item" href="https://sportsdataverse.org/">SportsDataverse</a></li>
+    <li><a class="external-link dropdown-item" href="https://sportsdataverse.org/cheatsheets/baseballr.pdf">Cheat Sheet (PDF)</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>R Packages</h6></li>
     <li><a class="external-link dropdown-item" href="https://r.sportsdataverse.org/">sportsdataverse-R</a></li>
@@ -226,6 +227,10 @@
 <li>Minors/WBC searches are separate Savant routes: <code><a href="reference/statcast_search.html">statcast_search_minors()</a></code> / <code><a href="reference/statcast_search.html">statcast_search_wbc()</a></code> (pass <code>route=</code> through the core; don’t fork the body).</li>
 <li>Every test leads with <code>skip_on_cran()</code>; the suite runs fully in CI (<code>NOT_CRAN=true</code>).</li>
 </ul></div>
+<div class="section level2">
+<h2 id="cheat-sheet">Cheat sheet<a class="anchor" aria-label="anchor" href="#cheat-sheet"></a></h2>
+<p>There is a printable one-page reference for this package at <a href="https://sportsdataverse.org/cheatsheets/baseballr.pdf" class="external-link uri">https://sportsdataverse.org/cheatsheets/baseballr.pdf</a>, one of <a href="https://sportsdataverse.org/cheatsheets" class="external-link">a set covering every SportsDataverse package</a>. Keep it in mind when adding or renaming an exported function: the sheet is a hand-built canvas, so a surface change means the sheet needs a revision too.</p>
+</div>
 </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

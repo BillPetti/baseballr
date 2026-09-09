@@ -167,11 +167,11 @@ Leaning Right 89 = CF - RF Gap 98 = RF - RF Gap 91 = RF - Leaning Left
 # \donttest{
   try(statcast_leaderboards(leaderboard = "expected_statistics", year = 2018))
 #> ── MLB Baseball Savant Statcast Leaderboards data from baseballsavant.ml
-#> ℹ Data updated: 2026-08-27 10:44:20 UTC
+#> ℹ Data updated: 2026-09-09 22:15:25 UTC
 #> # A tibble: 249 × 14
 #>     year `last_name, first_name` player_id    pa   bip    ba est_ba
 #>    <int> <chr>                       <int> <int> <int> <dbl>  <dbl>
-#>  1  2018 Lindor, Francisco          596019   745   560 0.277  0.289
+#>  1  2018 Lindor, Francisco          596019   745   560 0.277  0.291
 #>  2  2018 Turner, Trea               607208   740   534 0.271  0.273
 #>  3  2018 Machado, Manny             592518   709   533 0.297  0.284
 #>  4  2018 Hernández, César           514917   708   454 0.253  0.242
@@ -187,7 +187,7 @@ Leaning Right 89 = CF - RF Gap 98 = RF - RF Gap 91 = RF - Leaning Left
 #> #   est_woba <dbl>, est_woba_minus_woba_diff <dbl>
   try(statcast_leaderboards(leaderboard = "arm_strength", year = 2020))
 #> ── MLB Baseball Savant Statcast Leaderboards data from baseballsavant.ml
-#> ℹ Data updated: 2026-08-27 10:44:20 UTC
+#> ℹ Data updated: 2026-09-09 22:15:25 UTC
 #> # A tibble: 183 × 27
 #>     year fielder_name     player_id team_name primary_position
 #>    <dbl> <chr>                <int> <lgl>                <int>

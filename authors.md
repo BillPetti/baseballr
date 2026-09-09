@@ -20,16 +20,16 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/billpetti/baseballr/blob/master/DESCRIPTION)
+[`inst/CITATION`](https://github.com/billpetti/baseballr/blob/master/inst/CITATION)
 
-Petti B, Gilani S (2026). *baseballr: Acquiring and Analyzing Baseball
-Data*. R package version 2.0.0,
-<https://billpetti.github.io/baseballr/>.
+Bill Petti and Saiem Gilani (2026). baseballr: The SportsDataverse's R
+Package for Baseball Data. R package version 2.0.0. Retrieved from
+https://billpetti.github.io/baseballr/
 
-    @Manual{,
-      title = {baseballr: Acquiring and Analyzing Baseball Data},
+    @Misc{petti_gilani_baseballr,
       author = {Bill Petti and Saiem Gilani},
+      title = {baseballr: The SportsDataverse's R Package for Baseball Data.},
+      url = {https://billpetti.github.io/baseballr/},
       year = {2026},
       note = {R package version 2.0.0},
-      url = {https://billpetti.github.io/baseballr/},
     }

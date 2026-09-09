@@ -667,7 +667,7 @@ A data frame of pitcher data.
 # \donttest{
   try(fg_pitcher_leaders(startseason = 2023, endseason = 2023))
 #> ── MLB Player Pitching Leaders data from FanGraphs.com ─────────────────
-#> ℹ Data updated: 2026-08-27 10:41:53 UTC
+#> ℹ Data updated: 2026-09-09 22:12:05 UTC
 #> # A tibble: 863 × 520
 #>    Season team_name Throws xMLBAMID PlayerNameRoute PlayerName  playerid
 #>     <int> <chr>     <chr>     <int> <chr>           <chr>          <int>

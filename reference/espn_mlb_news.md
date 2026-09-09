@@ -163,14 +163,15 @@ Saiem Gilani
 # \donttest{
   espn_mlb_news(limit = 5)
 #> ── ESPN MLB News from ESPN.com ────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-08-27 10:41:18 UTC
-#> # A tibble: 5 × 8
-#>       id type  headline description published premium link_web league_id
-#>    <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>    <chr>    
-#> 1 4.97e7 Prev… Braves … Los Angele… 2026-08-… FALSE   http://… 10       
-#> 2 4.97e7 Prev… Rockies… Colorado R… 2026-08-… FALSE   http://… 10       
-#> 3 4.97e7 Prev… Orioles… Baltimore … 2026-08-… FALSE   http://… 10       
-#> 4 4.97e7 Prev… Blue Ja… Kansas Cit… 2026-08-… FALSE   http://… 10       
-#> 5 4.97e7 Prev… Yankees… Houston As… 2026-08-… FALSE   http://… 10       
+#> ℹ Data updated: 2026-09-09 22:11:23 UTC
+#> # A tibble: 5 × 9
+#>         id type   headline description published premium byline link_web
+#>      <int> <chr>  <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>   
+#> 1 49885108 Recap  Henry B… — Henry Bo… 2026-09-… FALSE   NA     http://…
+#> 2 49885105 Recap  Colt Ke… — Colt Kei… 2026-09-… FALSE   NA     http://…
+#> 3 49884916 Headl… Orioles… The Oriole… 2026-09-… FALSE   NA     https:/…
+#> 4 49884876 Media  Minneso… Minnesota … 2026-09-… FALSE   NA     https:/…
+#> 5 49884671 Headl… Yankees… The Yankee… 2026-09-… FALSE   Jorge… https:/…
+#> # ℹ 1 more variable: league_id <chr>
 # }
 ```
