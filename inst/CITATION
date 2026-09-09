@@ -1,0 +1,23 @@
+## DESCRIPTION carries no Date field, so fall back to the build year.
+year <- if (!is.null(meta$Date)) sub("-.*", "", meta$Date) else format(Sys.Date(), "%Y")
+note <- sprintf("R package version %s", meta$Version)
+
+bibentry(
+  bibtype  = "Misc",
+  header   = "To cite the baseballr R package in publications, use:",
+  key      = "petti_gilani_baseballr",
+  author   = c(
+    person("Bill", "Petti", email = "billpetti@gmail.com"),
+    person("Saiem", "Gilani", email = "saiem.gilani@gmail.com",
+           comment = c(ORCID = "0000-0002-7194-9067"))
+  ),
+  title    = "baseballr: The SportsDataverse's R Package for Baseball Data.",
+  url      = "https://billpetti.github.io/baseballr/",
+  year     = year,
+  note     = note,
+  textVersion = paste0(
+    "Bill Petti and Saiem Gilani (", year, "). baseballr: The ",
+    "SportsDataverse's R Package for Baseball Data. ", note,
+    ". Retrieved from https://billpetti.github.io/baseballr/"
+  )
+)

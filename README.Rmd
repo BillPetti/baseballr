@@ -193,6 +193,17 @@ Pull request are welcome, but I cannot guarantee that they will be accepted or a
 <!-- <a href="https://twitter.com/k_camden" target="blank"><img src="https://img.shields.io/twitter/follow/k_camden?color=blue&label=%40k_camden&logo=twitter&style=for-the-badge" alt="@k_camden" /></a>  -->
 <a href="https://github.com/camdenk" target="blank"><img src="https://img.shields.io/github/followers/camdenk?color=eee&logo=Github&style=for-the-badge" alt="@camdenk" /></a>
 
+<!-- cheatsheet-section -->
+## **Cheat sheet**
+
+A printable one-page reference for **`baseballr`** — the function families, the loaders, and what each one returns.
+
+📄 **[Download the baseballr cheat sheet (PDF)](https://sportsdataverse.org/cheatsheets/baseballr.pdf)**
+
+Free to download, print and hand out; light and dark, US Letter landscape.
+Every SportsDataverse package has one — browse them all at
+**[sportsdataverse.org/cheatsheets](https://sportsdataverse.org/cheatsheets)**.
+
 ## **Citations**
 
 To cite the [**`baseballr`**](https://billpetti.github.io/baseballr/) R package in publications, use:

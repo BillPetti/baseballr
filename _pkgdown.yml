@@ -141,6 +141,8 @@ navbar:
       menu:
       - text: SportsDataverse
         href: https://sportsdataverse.org/
+      - text: "Cheat Sheet (PDF)"
+        href: https://sportsdataverse.org/cheatsheets/baseballr.pdf
       - text: --------------------------------
       - text: "R Packages"
       - text: sportsdataverse-R
