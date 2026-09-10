@@ -1,5 +1,8 @@
-## DESCRIPTION carries no Date field, so fall back to the build year.
-year <- if (!is.null(meta$Date)) sub("-.*", "", meta$Date) else format(Sys.Date(), "%Y")
+## The citation year is PINNED to the release year, not derived from the
+## current date. DESCRIPTION has no Date field, so the previous fallback
+## made the same package version cite as a different year every calendar
+## year, and drift from the bibtex block published in README.md.
+year <- 2021
 note <- sprintf("R package version %s", meta$Version)
 
 bibentry(
