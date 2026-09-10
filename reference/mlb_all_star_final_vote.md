@@ -81,7 +81,7 @@ Returns a tibble with the following columns:
 # \donttest{
   try(mlb_all_star_final_vote(league_id = 103, season = 2021))
 #> ── MLB All-Star Final Votes data from MLB.com ─────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:17:49 UTC
+#> ℹ Data updated: 2026-09-10 00:49:49 UTC
 #> # A tibble: 25 × 49
 #>    player_id full_name         link  first_name last_name primary_number
 #>        <int> <chr>             <chr> <chr>      <chr>     <chr>         

@@ -157,7 +157,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_seasons()
 #> ── ESPN MLB Seasons from ESPN.com ─────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:15:05 UTC
+#> ℹ Data updated: 2026-09-10 00:47:40 UTC
 #> # A tibble: 1 × 5
 #>   season start_date end_date display_name season_type_count
 #>    <int> <chr>      <chr>    <chr>                    <int>

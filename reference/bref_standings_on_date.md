@@ -52,7 +52,7 @@ division, with the following columns:
 # \donttest{
   try(bref_standings_on_date(date = "2015-08-04", division = "AL East"))
 #> ── MLB Standings on Date data from baseball-reference.com ──────────────
-#> ℹ Data updated: 2026-09-10 00:13:18 UTC
+#> ℹ Data updated: 2026-09-10 00:46:01 UTC
 #> # A tibble: 5 × 8
 #>   Tm        W     L `W-L%` GB       RS    RA `pythW-L%`
 #>   <chr> <int> <int>  <dbl> <chr> <int> <int>      <dbl>

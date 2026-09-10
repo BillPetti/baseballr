@@ -33,7 +33,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_positions())
 #> ── MLB Positions data from MLB.com ────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:18:12 UTC
+#> ℹ Data updated: 2026-09-10 00:50:16 UTC
 #> # A tibble: 37 × 11
 #>    position_short_name position_full_name position_abbreviation
 #>    <chr>               <chr>              <chr>                

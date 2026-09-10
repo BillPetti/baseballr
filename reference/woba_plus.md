@@ -70,7 +70,7 @@ columns:
    woba_plus(df)
  })
 #> ── MLB Daily Batter data from baseball-reference.com ───────────────────
-#> ℹ Data updated: 2026-09-10 00:18:48 UTC
+#> ℹ Data updated: 2026-09-10 00:50:45 UTC
 #> # A tibble: 764 × 32
 #>    bbref_id season Name    Age Level Team      G    PA    AB     R     H
 #>    <chr>     <int> <chr> <dbl> <chr> <chr> <dbl> <dbl> <dbl> <dbl> <dbl>

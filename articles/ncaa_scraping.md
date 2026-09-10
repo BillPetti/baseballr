@@ -33,7 +33,7 @@ From the NCAA website:
 
 try(ncaa_teams(year = most_recent_ncaa_baseball_season(), division = "1"))
 #> ── NCAA Baseball Teams data from stats.ncaa.org ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:21:54 UTC
+#> ℹ Data updated: 2026-09-10 00:53:49 UTC
 #> # A tibble: 308 × 9
 #>    team_id team_name    team_url conference_id conference division  year
 #>    <chr>   <chr>        <chr>    <chr>         <chr>      <chr>    <dbl>
@@ -74,28 +74,9 @@ team_id <- ncaa_teams_df %>%
 year <- most_recent_ncaa_baseball_season()
 
 ncaa_team_player_stats(team_id = team_id, year = year, "batting")
-#> ── NCAA Baseball Team Batting Stats data from stats.ncaa.org ───────────
-#> ℹ Data updated: 2026-09-10 00:22:19 UTC
-#> # A tibble: 36 × 42
-#>     year team_name   team_id conference_id conference division player_id
-#>    <int> <chr>         <dbl>         <int> <chr>         <dbl>     <int>
-#>  1  2026 Florida St.     234           821 ACC               1  11248078
-#>  2  2026 Florida St.     234           821 ACC               1  11248120
-#>  3  2026 Florida St.     234           821 ACC               1   9698671
-#>  4  2026 Florida St.     234           821 ACC               1  11248107
-#>  5  2026 Florida St.     234           821 ACC               1   9703054
-#>  6  2026 Florida St.     234           821 ACC               1   9689493
-#>  7  2026 Florida St.     234           821 ACC               1   9680283
-#>  8  2026 Florida St.     234           821 ACC               1   9690665
-#>  9  2026 Florida St.     234           821 ACC               1  11248066
-#> 10  2026 Florida St.     234           821 ACC               1   9684157
-#> # ℹ 26 more rows
-#> # ℹ 35 more variables: player_url <chr>, player_name <chr>, Yr <chr>,
-#> #   Pos <chr>, Jersey <chr>, Ht <chr>, `B/T` <chr>, GP <dbl>, GS <dbl>,
-#> #   BA <dbl>, OBPct <dbl>, SlgPct <dbl>, R <dbl>, AB <dbl>, H <dbl>,
-#> #   `2B` <dbl>, `3B` <dbl>, TB <dbl>, HR <dbl>, RBI <dbl>, BB <dbl>,
-#> #   HBP <dbl>, SF <dbl>, SH <dbl>, K <dbl>, DP <dbl>, CS <dbl>,
-#> #   Picked <dbl>, SB <dbl>, IBB <dbl>, GDP <dbl>, RBI2out <dbl>, …
+#> ✖ 2026-09-10 00:54:11.025934: NCAA browser fallback failed: Chrome debugging port not open after 10 seconds.
+#> ! 2026-09-10 00:54:11.033561: stats.ncaa.org returned an Akamai bot-challenge for the team batting stats endpoint; no data could be retrieved. Install {chromote} + Google Chrome to enable the browser fallback.
+#> data frame with 0 columns and 0 rows
 ```
 
 The same can be done for pitching, just by changing the `type`
@@ -105,7 +86,7 @@ parameter:
 
 ncaa_team_player_stats(team_id = team_id, year = year,  "pitching")
 #> ── NCAA Baseball Team Pitching Stats data from stats.ncaa.org ──────────
-#> ℹ Data updated: 2026-09-10 00:22:36 UTC
+#> ℹ Data updated: 2026-09-10 00:54:37 UTC
 #> # A tibble: 19 × 49
 #>     year team_name   team_id conference_id conference division player_id
 #>    <int> <chr>         <dbl>         <int> <chr>         <dbl>     <int>

@@ -177,7 +177,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_game_propbets(event_id = 401283399, provider_id = 58)
 #> ── ESPN MLB Event Prop Bets ───────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:14:50 UTC
+#> ℹ Data updated: 2026-09-10 00:47:23 UTC
 #> # A tibble: 0 × 13
 #> # ℹ 13 variables: league <chr>, event_id <chr>, provider_id <chr>,
 #> #   athlete_id <chr>, prop_type_id <chr>, prop_type_name <chr>,
