@@ -24,7 +24,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_pitch_types())
 #> ── MLB Pitch Types data from MLB.com ──────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-09 22:14:57 UTC
+#> ℹ Data updated: 2026-09-10 00:18:11 UTC
 #> # A tibble: 24 × 2
 #>    pitch_type_code pitch_type_description
 #>    <chr>           <chr>                 

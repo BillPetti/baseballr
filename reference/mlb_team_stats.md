@@ -98,7 +98,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_team_stats(team_id = 137, stat_type = 'season', stat_group = 'hitting', season = 2021))
 #> ── MLB Team Stats data from MLB.com ───────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-09 22:15:15 UTC
+#> ℹ Data updated: 2026-09-10 00:18:23 UTC
 #> # A tibble: 1 × 39
 #>   season games_played ground_outs air_outs  runs doubles triples
 #>   <chr>         <int>       <int>    <int> <int>   <int>   <int>

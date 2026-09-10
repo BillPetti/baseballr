@@ -216,7 +216,7 @@ Saiem Gilani
 ``` r
 # \donttest{
 try(espn_mlb_team_box(game_id = 401071880))
-#> ✖ 2026-09-09 22:11:38.56365: Invalid arguments or no team box score data for 401071880 available!
+#> ✖ 2026-09-10 00:15:06.925435: Invalid arguments or no team box score data for 401071880 available!
 #> ✖ Args: game_id = 401071880
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> NULL

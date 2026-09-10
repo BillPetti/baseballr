@@ -76,7 +76,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_league(seasons = 2021, sport_id = 1))
 #> ── MLB League data from MLB.com ───────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-09 22:14:45 UTC
+#> ℹ Data updated: 2026-09-10 00:18:05 UTC
 #> # A tibble: 4 × 40
 #>   league_id league_name       league_link        league_abbreviation
 #>       <int> <chr>             <chr>              <chr>              

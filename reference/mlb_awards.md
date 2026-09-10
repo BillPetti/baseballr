@@ -32,7 +32,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_awards())
 #> ── MLB Awards data from MLB.com ───────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-09 22:14:11 UTC
+#> ℹ Data updated: 2026-09-10 00:17:50 UTC
 #> # A tibble: 682 × 10
 #>    award_id       award_name   award_description sort_order active notes
 #>    <chr>          <chr>        <chr>                  <int> <lgl>  <chr>

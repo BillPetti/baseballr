@@ -167,7 +167,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_player_eventlog_v2(athlete_id = 33192, season = 2025)
 #> ── ESPN MLB Athlete Event Log ─────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-09 22:11:26 UTC
+#> ℹ Data updated: 2026-09-10 00:14:56 UTC
 #> # A tibble: 25 × 8
 #>    league athlete_id season event_id  team_id played event_ref          
 #>    <chr>  <chr>       <int> <chr>     <chr>   <lgl>  <chr>              

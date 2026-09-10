@@ -57,7 +57,7 @@ schedule, with the following columns:
 # \donttest{
   try(bref_team_results("NYM", 2015))
 #> ── MLB Team Results data from baseball-reference.com ───────────────────
-#> ℹ Data updated: 2026-09-09 22:10:03 UTC
+#> ℹ Data updated: 2026-09-10 00:13:23 UTC
 #> # A tibble: 162 × 22
 #>       Gm Date    Tm    H_A   Opp   Result     R    RA Inn   Record  Rank
 #>    <dbl> <chr>   <chr> <chr> <chr> <chr>  <dbl> <dbl> <chr> <chr>  <dbl>
@@ -77,7 +77,7 @@ schedule, with the following columns:
 #> #   Orig_Scheduled <chr>, Year <dbl>
   try(bref_team_results(Tm="TBR", year=2008))
 #> ── MLB Team Results data from baseball-reference.com ───────────────────
-#> ℹ Data updated: 2026-09-09 22:10:08 UTC
+#> ℹ Data updated: 2026-09-10 00:13:28 UTC
 #> # A tibble: 162 × 22
 #>       Gm Date    Tm    H_A   Opp   Result     R    RA Inn   Record  Rank
 #>    <dbl> <chr>   <chr> <chr> <chr> <chr>  <dbl> <dbl> <chr> <chr>  <dbl>

@@ -24,7 +24,7 @@ standings columns, `entity_id`).
 ``` r
  try(fox_mlb_standings("1")) 
 #> ── Fox Sports MLB standings ───────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-09 22:12:17 UTC
+#> ℹ Data updated: 2026-09-10 00:15:39 UTC
 #> # A tibble: 90 × 24
 #>    team_id section  al_east v2       w_l   pct   gb    home  away  rs   
 #>    <chr>   <chr>    <chr>   <chr>    <chr> <chr> <chr> <chr> <chr> <chr>
@@ -35,8 +35,8 @@ standings columns, `entity_id`).
 #>  5 1       DIVISION 5       Orioles  70-76 .479  17.0  35-39 35-37 652  
 #>  6 1       DIVISION NA      White S… 75-69 .521  -     43-29 32-40 683  
 #>  7 1       DIVISION NA      Guardia… 74-72 .507  2.0   36-39 38-33 593  
-#>  8 1       DIVISION NA      Twins    69-76 .476  6.5   38-34 31-42 673  
-#>  9 1       DIVISION NA      Tigers   66-79 .455  9.5   35-36 31-43 634  
+#>  8 1       DIVISION NA      Twins    69-77 .473  7.0   38-34 31-43 675  
+#>  9 1       DIVISION NA      Tigers   67-79 .459  9.0   36-36 31-43 641  
 #> 10 1       DIVISION NA      Royals   64-82 .438  12.0  38-36 26-46 624  
 #> # ℹ 80 more rows
 #> # ℹ 14 more variables: ra <chr>, diff <chr>, l10 <chr>, strk <chr>,

@@ -242,7 +242,7 @@ Saiem Gilani
 # \donttest{
 try(espn_mlb_team_current_roster(team_id = 13))
 #> ── ESPN MLB Team Current Roster Information from ESPN.com ──────────────
-#> ℹ Data updated: 2026-09-09 22:11:39 UTC
+#> ℹ Data updated: 2026-09-10 00:15:07 UTC
 #> # A tibble: 290 × 96
 #>    team_id team_uid  team_slug team_location team_name team_abbreviation
 #>      <int> <chr>     <chr>     <chr>         <chr>     <chr>            
