@@ -311,6 +311,6 @@ BibTex Citation
   author = {Bill Petti and Saiem Gilani},
   title = {baseballr: The SportsDataverse's R Package for Baseball Data.},
   url = {https://billpetti.github.io/baseballr/},
-  year = {2021}
+  year = {2026}
 }
 ```

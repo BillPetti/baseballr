@@ -2,7 +2,7 @@
 ## current date. DESCRIPTION has no Date field, so the previous fallback
 ## made the same package version cite as a different year every calendar
 ## year, and drift from the bibtex block published in README.md.
-year <- 2021
+year <- 2026
 note <- sprintf("R package version %s", meta$Version)
 
 bibentry(
