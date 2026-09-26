@@ -95,7 +95,9 @@ mlb_standings <- function(
     standingsTypes = standings_type
   )
   
-  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params)
+  # comma-join a vector (league_id = c(103, 104)): url_modify_query() refuses
+  # vectors otherwise, and the MLB Stats API reads comma-separated ids
+  mlb_endpoint <- httr2::url_modify_query(mlb_endpoint, !!!query_params, .multi = "comma")
   
   standings <- NULL
   tryCatch(

@@ -29,6 +29,13 @@
 
 ### Bug fixes
 
+- `mlb_standings()` accepts a vector `league_id`, as documented
+  (`league_id = c(103, 104)` for both leagues): `httr2::url_modify_query()`
+  refused it ("All vector elements of `...` must be length 1"), so the call
+  failed before reaching the API. The ids are now comma-joined, which the MLB
+  Stats API reads.
+- `httr2 (>= 1.1.0)`: `httr2::url_modify_query()`, which the MLB Stats API
+  wrappers build every request with, first appeared in httr2 1.1.0.
 - `mlb_pbp()` no longer back-fills the at-bat-level `matchup.postOn*` /
   `matchup.splits.menOnBase` columns across at-bat and half-inning
   boundaries — bases-empty plays previously inherited baserunner ids from
