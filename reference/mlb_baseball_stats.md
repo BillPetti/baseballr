@@ -27,8 +27,8 @@ Returns a tibble with the following columns:
 # \donttest{
   try(mlb_baseball_stats())
 #> ── MLB Baseball Stats data from MLB.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:49:50 UTC
-#> # A tibble: 329 × 5
+#> ℹ Data updated: 2026-09-26 06:31:40 UTC
+#> # A tibble: 330 × 5
 #>    stat_name        stat_lookup_param is_counting stat_label stat_group
 #>    <chr>            <chr>             <lgl>       <chr>      <chr>     
 #>  1 airOuts          ao                TRUE        Airouts    pitching  
@@ -41,6 +41,6 @@ Returns a tibble with the following columns:
 #>  8 battingAverage   avg               FALSE       NA         hitting   
 #>  9 battingAverage   avg               FALSE       NA         pitching  
 #> 10 battingAverage   avg               FALSE       NA         catching  
-#> # ℹ 319 more rows
+#> # ℹ 320 more rows
 # }
 ```

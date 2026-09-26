@@ -81,7 +81,7 @@ Returns a tibble with the following columns:
 # \donttest{
  try(mlb_all_star_ballots(league_id = 103, season = 2021))
 #> ── MLB All-Star Ballots data from MLB.com ─────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:49:48 UTC
+#> ℹ Data updated: 2026-09-26 06:31:38 UTC
 #> # A tibble: 136 × 49
 #>    player_id full_name         link  first_name last_name primary_number
 #>        <int> <chr>             <chr> <chr>      <chr>     <chr>         
@@ -91,7 +91,7 @@ Returns a tibble with the following columns:
 #>  4    665489 Vladimir Guerrer… /api… Vladimir   Guerrero  27            
 #>  5    493329 Yuli Gurriel      /api… Yulieski   Gurriel   10            
 #>  6    663993 Nathaniel Lowe    /api… David      Lowe      46            
-#>  7    641820 Trey Mancini      /api… Joseph     Mancini   34            
+#>  7    641820 Trey Mancini      /api… Joseph     Mancini   16            
 #>  8    647304 Josh Naylor       /api… Joshua-Do… Naylor    12            
 #>  9    621566 Matt Olson        /api… Matthew    Olson     28            
 #> 10    593934 Miguel Sanó       /api… Miguel     Sanó      22            

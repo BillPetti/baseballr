@@ -7,7 +7,10 @@ strength metrics. Returns empty for events without predictor data
 format: one row per (team × statistic). Typical stats include
 matchup quality, predicted score, win probability, and team
 strength metrics. Returns empty for events without predictor data
-(often the case for already-played games)."><meta property="og:image" content="https://raw.githubusercontent.com/BillPetti/baseballR/master/logo.png"><meta name="twitter:card" content="summary"><meta name="twitter:creator" content="@BillPetti"><meta name="twitter:site" content="@BillPetti"></head><body>
+(often the case for already-played games)."><meta property="og:image" content="https://raw.githubusercontent.com/BillPetti/baseballR/master/logo.png"><meta name="twitter:card" content="summary"><meta name="twitter:creator" content="@BillPetti"><meta name="twitter:site" content="@BillPetti"><!-- Privacy-friendly analytics by Plausible --><script async src="https://plausible.io/js/pa-Ew15aGRkVafJaVnVdAL7i.js"></script><script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -275,11 +278,11 @@ strength metrics. Returns empty for events without predictor data
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_mlb_game_predictor</span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401283399</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-09-10 00:47:22.674445: Failed to retrieve ESPN mlb event predictor for event_id=401283399</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-09-26 06:29:26.800152: Failed to retrieve ESPN mlb event predictor for event_id=401283399</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "mlb", event_id = 401283399</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: The API returned an error, HTTP Response Code 404</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Event Predictor ───────────────────────── <span style="font-style: italic;">baseballr 2.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-10 00:47:22 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-26 06:29:26 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

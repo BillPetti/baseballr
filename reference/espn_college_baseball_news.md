@@ -116,14 +116,14 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_news(limit = 5))
 #> ── ESPN COLLEGE-BASEBALL News from ESPN.com ───────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:46:52 UTC
+#> ℹ Data updated: 2026-09-26 06:29:03 UTC
 #> # A tibble: 5 × 8
 #>       id type  headline description published premium link_web league_id
 #>    <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>    <chr>    
-#> 1 4.97e7 Media SEC's V… SEC Associ… 2026-08-… FALSE   https:/… 14       
-#> 2 4.97e7 Media Jay Joh… Johnson re… 2026-08-… FALSE   https:/… 14       
-#> 3 4.97e7 Media Dellucc… SEC Networ… 2026-08-… FALSE   https:/… 14       
-#> 4 4.97e7 Media Remembe… In his own… 2026-08-… FALSE   https:/… 14       
-#> 5 4.96e7 Media Notable… On SEC Now… 2026-08-… FALSE   https:/… 14       
+#> 1 5.00e7 Head… UCF ext… UCF baseba… 2026-09-… FALSE   https:/… 14       
+#> 2 4.97e7 Media SEC's V… SEC Associ… 2026-08-… FALSE   https:/… 14       
+#> 3 4.97e7 Media Jay Joh… Johnson re… 2026-08-… FALSE   https:/… 14       
+#> 4 4.97e7 Media Dellucc… SEC Networ… 2026-08-… FALSE   https:/… 14       
+#> 5 4.97e7 Media Remembe… In his own… 2026-08-… FALSE   https:/… 14       
 # }
 ```

@@ -163,14 +163,15 @@ Saiem Gilani
 # \donttest{
   espn_mlb_news(limit = 5)
 #> ── ESPN MLB News from ESPN.com ────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:47:26 UTC
-#> # A tibble: 5 × 8
-#>       id type  headline description published premium link_web league_id
-#>    <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>    <chr>    
-#> 1 4.99e7 Media Washing… Washington… 2026-09-… FALSE   https:/… 10       
-#> 2 4.99e7 Recap Merrill… — Jackson … 2026-09-… FALSE   http://… 10       
-#> 3 4.99e7 Head… Willson… Willson Co… 2026-09-… FALSE   https:/… 10       
-#> 4 4.99e7 Recap Rookie … — Rookie K… 2026-09-… FALSE   http://… 10       
-#> 5 4.99e7 Media Texas R… Texas Rang… 2026-09-… FALSE   https:/… 10       
+#> ℹ Data updated: 2026-09-26 06:29:30 UTC
+#> # A tibble: 5 × 9
+#>         id type  headline  description published premium byline link_web
+#>      <int> <chr> <chr>     <chr>       <chr>     <lgl>   <chr>  <chr>   
+#> 1 48305211 Story 2026 MLB… The ABS ch… 2026-09-… FALSE   ESPN   https:/…
+#> 2 50031183 Recap Bolte an… — Henry Bo… 2026-09-… FALSE   NA     http://…
+#> 3 50031167 Recap Detmers … — Reid Det… 2026-09-… FALSE   NA     http://…
+#> 4 50031157 Media Los Ange… Los Angele… 2026-09-… FALSE   NA     https:/…
+#> 5 50031116 Media Houston … Houston As… 2026-09-… FALSE   NA     https:/…
+#> # ℹ 1 more variable: league_id <chr>
 # }
 ```

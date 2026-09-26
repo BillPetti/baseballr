@@ -127,25 +127,25 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_standings(season = 2021, league_id = 103))
 #> ── MLB Standings data from MLB.com ────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-10 00:50:24 UTC
+#> ℹ Data updated: 2026-09-26 06:32:12 UTC
 #> # A tibble: 15 × 57
 #>    standings_type last_updated             team_records_season
 #>    <chr>          <chr>                    <chr>              
-#>  1 regularSeason  2025-03-05T17:14:31.247Z 2021               
-#>  2 regularSeason  2025-03-05T17:14:31.247Z 2021               
-#>  3 regularSeason  2025-03-05T17:14:31.247Z 2021               
-#>  4 regularSeason  2025-03-05T17:14:31.247Z 2021               
-#>  5 regularSeason  2025-03-05T17:14:31.247Z 2021               
-#>  6 regularSeason  2026-04-22T20:08:37.147Z 2021               
-#>  7 regularSeason  2026-04-22T20:08:37.147Z 2021               
-#>  8 regularSeason  2026-04-22T20:08:37.147Z 2021               
-#>  9 regularSeason  2026-04-22T20:08:37.147Z 2021               
-#> 10 regularSeason  2026-04-22T20:08:37.147Z 2021               
-#> 11 regularSeason  2026-04-22T20:08:35.072Z 2021               
-#> 12 regularSeason  2026-04-22T20:08:35.072Z 2021               
-#> 13 regularSeason  2026-04-22T20:08:35.072Z 2021               
-#> 14 regularSeason  2026-04-22T20:08:35.072Z 2021               
-#> 15 regularSeason  2026-04-22T20:08:35.072Z 2021               
+#>  1 regularSeason  2026-09-11T17:17:07.872Z 2021               
+#>  2 regularSeason  2026-09-11T17:17:07.872Z 2021               
+#>  3 regularSeason  2026-09-11T17:17:07.872Z 2021               
+#>  4 regularSeason  2026-09-11T17:17:07.872Z 2021               
+#>  5 regularSeason  2026-09-11T17:17:07.872Z 2021               
+#>  6 regularSeason  2026-09-11T17:17:02.952Z 2021               
+#>  7 regularSeason  2026-09-11T17:17:02.952Z 2021               
+#>  8 regularSeason  2026-09-11T17:17:02.952Z 2021               
+#>  9 regularSeason  2026-09-11T17:17:02.952Z 2021               
+#> 10 regularSeason  2026-09-11T17:17:02.952Z 2021               
+#> 11 regularSeason  2026-09-11T17:16:21.203Z 2021               
+#> 12 regularSeason  2026-09-11T17:16:21.203Z 2021               
+#> 13 regularSeason  2026-09-11T17:16:21.203Z 2021               
+#> 14 regularSeason  2026-09-11T17:16:21.203Z 2021               
+#> 15 regularSeason  2026-09-11T17:16:21.203Z 2021               
 #> # ℹ 54 more variables: team_records_clinch_indicator <chr>,
 #> #   team_records_division_rank <chr>, team_records_league_rank <chr>,
 #> #   team_records_sport_rank <chr>, team_records_games_played <int>,
