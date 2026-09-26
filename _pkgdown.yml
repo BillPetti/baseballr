@@ -1,10 +1,25 @@
 url: https://billpetti.github.io/baseballr
 deploy:
   install_metadata: true
+# pkgdown renders every top-level and .github/*.md file as a page; keep the
+# contributor/agent notes out of the search index so results stay on-topic.
+search:
+  exclude:
+  - CLAUDE.html
+  - copilot-instructions.html
+
 template:
   bootstrap: 5
   light-switch: true
   bootswatch: flatly
+  includes:
+    in_header: |
+      <!-- Privacy-friendly analytics by Plausible -->
+      <script async src="https://plausible.io/js/pa-Ew15aGRkVafJaVnVdAL7i.js"></script>
+      <script>
+        window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+        plausible.init()
+      </script>
   bslib:
     primary: "#0054AD"
     secondary: "#2178C0"
