@@ -32,7 +32,7 @@ columns).
 ``` r
  try(fox_mlb_league_leaders("batting")) 
 #> ── Fox Sports MLB league_leaders ──────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:30:06 UTC
+#> ℹ Data updated: 2026-09-26 20:23:19 UTC
 #> # A tibble: 100 × 7
 #>    players v2                g     entity_id pa    ab    h    
 #>    <chr>   <chr>             <chr> <chr>     <chr> <chr> <chr>
@@ -44,7 +44,7 @@ columns).
 #>  6 6       B. Reynolds       160   10496     NA    NA    NA   
 #>  7 7       J. Caminero       160   13593     NA    NA    NA   
 #>  8 8       S. Stewart        160   14786     NA    NA    NA   
-#>  9 9       I. Herrera        159   11292     NA    NA    NA   
-#> 10 10      M. Busch          159   11663     NA    NA    NA   
+#>  9 9       B. Bichette       159   9447      NA    NA    NA   
+#> 10 10      I. Herrera        159   11292     NA    NA    NA   
 #> # ℹ 90 more rows
 ```

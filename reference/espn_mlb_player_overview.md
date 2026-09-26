@@ -194,12 +194,12 @@ Saiem Gilani
   espn_mlb_player_overview(athlete_id = "1966", season = 2024)
 #> $Statistics
 #> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-09-26 06:29:32 UTC
+#> ℹ Data updated: 2026-09-26 20:22:33 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-09-26 06:29:32 UTC
+#> ℹ Data updated: 2026-09-26 20:22:33 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -207,32 +207,32 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-09-26 06:29:32 UTC
+#> ℹ Data updated: 2026-09-26 20:22:33 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-09-26 06:29:32 UTC
+#> ℹ Data updated: 2026-09-26 20:22:33 UTC
 #> # A tibble: 13 × 5
 #>    headline                           description published byline type 
 #>    <chr>                              <chr>       <chr>     <chr>  <chr>
-#>  1 2026 MLB ABS challenge system tra… "The ABS c… 2026-09-… ESPN   Story
-#>  2 Diamondbacks place Burnes on IL i… "Arizona r… 2026-09-… NA     Head…
-#>  3 Dodgers' Roberts says he trusts O… "Los Angel… 2026-09-… NA     Head…
-#>  4 Marlins' Perez one-hits Braves in… "Eury Pere… 2026-09-… NA     Head…
-#>  5 White Sox's Montgomery sets singl… "White Sox… 2026-09-… Jesse… Head…
-#>  6 De La Cruz becomes fourth Reds pl… "Elly De L… 2026-09-… NA     Head…
-#>  7 Yankees to meet Red Sox in playof… "The Yanke… 2026-09-… NA     Head…
-#>  8 Bill Giles, longtime Phillies own… "Bill Gile… 2026-09-… NA     Head…
-#>  9 Jays' Guerrero expresses 'regret'… "Blue Jays… 2026-09-… NA     Head…
-#> 10 Red Sox-Cubs finale set to be pla… "The Red S… 2026-09-… Jesse… Head…
-#> 11 Yankees honor CC Sabathia with Mo… "The New Y… 2026-09-… Assoc… Head…
-#> 12 Fantasy baseball lineup advice: K… "Everythin… 2026-09-… ESPN … Story
-#> 13 Alex Bregman back with Cubs after… "Cubs 3B A… 2026-09-… NA     Head…
+#>  1 Fantasy baseball lineup advice fo… Everything… 2026-09-… ESPN … Story
+#>  2 Rangers lose Josh Jung to broken … The Ranger… 2026-09-… NA     Head…
+#>  3 Jays' Max Scherzer waits to decid… Blue Jays … 2026-09-… NA     Head…
+#>  4 MLB betting tips for Saturday: Yo… All of the… 2026-09-… Derek… Story
+#>  5 Fantasy baseball news: Jung, Gasp… All of the… 2026-09-… ESPN … Story
+#>  6 What to watch during MLB's final … There's st… 2026-09-… David… Story
+#>  7 MLB playoffs 2026: 5 questions fo… From an in… 2026-09-… Jorge… Story
+#>  8 MLB playoff picture 2026: Clinchi… From curre… 2026-09-… ESPN   Story
+#>  9 2026 MLB ABS challenge system tra… The ABS ch… 2026-09-… ESPN   Story
+#> 10 Diamondbacks place Burnes on IL i… Arizona ri… 2026-09-… NA     Head…
+#> 11 Dodgers' Roberts says he trusts O… Los Angele… 2026-09-… NA     Head…
+#> 12 Marlins' Perez one-hits Braves in… Eury Perez… 2026-09-… NA     Head…
+#> 13 White Sox's Montgomery sets singl… White Sox … 2026-09-… Jesse… Head…
 #> 
 #> $FantasyOutlook
 #> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────
-#> ℹ Data updated: 2026-09-26 06:29:32 UTC
+#> ℹ Data updated: 2026-09-26 20:22:33 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

@@ -135,11 +135,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_game_play(event_id = "401778093", play_id = "4017780931"))
-#> ✖ 2026-09-26 06:28:59.433671: Failed to retrieve ESPN college-baseball event play detail for event_id=401778093, play_id=4017780931
+#> ✖ 2026-09-26 20:21:51.316243: Failed to retrieve ESPN college-baseball event play detail for event_id=401778093, play_id=4017780931
 #> ✖ Args: league = "college-baseball", event_id = "401778093", play_id = "4017780931"
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN COLLEGE-BASEBALL Event Play Detail ────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:28:59 UTC
+#> ℹ Data updated: 2026-09-26 20:21:51 UTC
 #> # A tibble: 0 × 0
 # }
 ```

@@ -24,7 +24,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_game_types())
 #> ── MLB Game Types data from MLB.com ───────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:31:54 UTC
+#> ℹ Data updated: 2026-09-26 20:25:23 UTC
 #> # A tibble: 11 × 2
 #>    game_type_id game_type_description     
 #>    <chr>        <chr>                     

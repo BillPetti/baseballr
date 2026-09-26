@@ -25,7 +25,7 @@ A `baseballr_data` tibble, one row per player: `team_id`,
 ``` r
  try(fox_mlb_team_roster("1")) 
 #> ── Fox Sports MLB roster ──────────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-26 06:30:07 UTC
+#> ℹ Data updated: 2026-09-26 20:23:22 UTC
 #> # A tibble: 28 × 9
 #>    team_id position_group player          pos   age   ht    wt    school
 #>    <chr>   <chr>          <chr>           <chr> <chr> <chr> <chr> <chr> 
