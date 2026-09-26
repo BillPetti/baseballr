@@ -28,7 +28,7 @@ Imports:
     dplyr (>= 1.0.10),
     ggplot2,
     glue,
-    httr2 (>= 1.0.0),
+    httr2 (>= 1.1.0),
     janitor,
     jsonlite,
     lubridate,

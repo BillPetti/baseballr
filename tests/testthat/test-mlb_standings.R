@@ -63,3 +63,13 @@ test_that("MLB Standings", {
   expect_in(sort(cols), sort(colnames(x)))
   expect_s3_class(x, "data.frame")
 })
+
+test_that("MLB Standings accepts a vector league_id", {
+  seen <- NULL
+  local_mocked_bindings(mlb_api_call = function(url) {
+    seen <<- url
+    stop("offline")
+  })
+  suppressMessages(mlb_standings(season = 2025, league_id = c(103, 104)))
+  expect_match(seen, "leagueId=103(,|%2C)104")
+})
