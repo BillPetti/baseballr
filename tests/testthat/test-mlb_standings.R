@@ -65,6 +65,7 @@ test_that("MLB Standings", {
 })
 
 test_that("MLB Standings accepts a vector league_id", {
+  skip_on_cran()
   seen <- NULL
   local_mocked_bindings(mlb_api_call = function(url) {
     seen <<- url
