@@ -25,6 +25,11 @@
   each group's name and parent as of every season, every source's ids and
   names for it, and each team's affiliation by season (MLB 1901+, NCAA
   baseball 2010+).
+- `load_mlb_park_dimensions()` — every MLB venue's fence distances (feet, at
+  MLB's seven markers), capacity, turf, roof, azimuth, elevation and location
+  by season, 2001+, from the `mlb_parks` sportsdataverse-data release. Built
+  from the MLB Stats API with cited corrections for fence moves the API lags
+  or misses; `venue_id` stays character.
 - `mlb_stats()` and `mlb_teams_stats()` gain `sit_codes` for situational
   splits via `stat_type = "statSplits"` (vs L/R, home/away, RISP, ...)
   (#278, #304, #383). Note the upstream leaders endpoints ignore `sitCodes`.
