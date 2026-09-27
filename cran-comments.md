@@ -62,7 +62,8 @@ getting started, NCAA scraping, and Statcast usage.
   base-state columns), pre-2010 `mlb_pbp()` support restored, era-aware
   `bref_standings_on_date()` (pre-1969 and 1969-1993 layouts), and
   Baseball Reference requests now retry HTTP 429 with exponential
-  backoff.
+  backoff; eight `load_mlb_*()` / `load_ncaa_baseball_*()` group loaders
+  (season-by-season league, division and conference memberships).
 
 ## Test environments
 
