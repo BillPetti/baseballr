@@ -87,7 +87,7 @@ Returns a tibble with the following columns:
     fip_plus(df)
   })
 #> ── MLB Daily Pitcher data from baseball-reference.com ──────────────────
-#> ℹ Data updated: 2026-09-27 04:37:15 UTC
+#> ℹ Data updated: 2026-09-27 20:53:49 UTC
 #> # A tibble: 453 × 49
 #>    bbref_id season Name    Age Level Team      G    GS     W     L    SV
 #>    <chr>     <int> <chr> <dbl> <chr> <chr> <dbl> <dbl> <dbl> <dbl> <dbl>

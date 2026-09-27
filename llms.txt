@@ -489,6 +489,12 @@ data repository
   **Load MLB groups (leagues and divisions) from the SportsDataverse
   data repo**
 
+- [`load_mlb_park_dimensions()`](https://billpetti.github.io/baseballr/reference/load_mlb_park_dimensions.md)
+  :
+
+  **Load MLB park dimensions by season from the SportsDataverse data
+  repo**
+
 - [`load_mlb_team_group_seasons()`](https://billpetti.github.io/baseballr/reference/load_mlb_team_group_seasons.md)
   :
 

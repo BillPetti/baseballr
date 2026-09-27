@@ -28,7 +28,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_game_status_codes())
 #> ── MLB Game Status Codes data from MLB.com ────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:39:06 UTC
+#> ℹ Data updated: 2026-09-27 20:55:47 UTC
 #> # A tibble: 210 × 6
 #>    abstract_game_state coded_game_state detailed_state       status_code
 #>    <chr>               <chr>            <chr>                <chr>      

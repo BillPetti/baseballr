@@ -213,7 +213,7 @@ Saiem Gilani
   espn_mlb_team(team_id = "13", season = 2025)
 #> $Info
 #> ── ESPN MLB Team Info from ESPN.com ───────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:36:44 UTC
+#> ℹ Data updated: 2026-09-27 20:53:21 UTC
 #> # A tibble: 1 × 12
 #>   id    uid     slug  abbreviation display_name short_display_name name 
 #>   <chr> <chr>   <chr> <chr>        <chr>        <chr>              <chr>
@@ -223,7 +223,7 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN MLB Team Record from ESPN.com ─────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:36:44 UTC
+#> ℹ Data updated: 2026-09-27 20:53:21 UTC
 #> # A tibble: 3 × 4
 #>   description    type  summary stats        
 #>   <chr>          <chr> <chr>   <list>       
@@ -233,15 +233,15 @@ Saiem Gilani
 #> 
 #> $NextEvent
 #> ── ESPN MLB Team Next Event from ESPN.com ─────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:36:44 UTC
+#> ℹ Data updated: 2026-09-27 20:53:21 UTC
 #> # A tibble: 1 × 4
 #>   id        date              name                            short_name
 #>   <chr>     <chr>             <chr>                           <chr>     
-#> 1 401817097 2026-09-26T20:10Z Texas Rangers at Minnesota Twi… TEX @ MIN 
+#> 1 401817112 2026-09-27T19:10Z Texas Rangers at Minnesota Twi… TEX @ MIN 
 #> 
 #> $StandingSummary
 #> ── ESPN MLB Team Standing Summary from ESPN.com ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:36:45 UTC
+#> ℹ Data updated: 2026-09-27 20:53:21 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary
 #>   <chr>           

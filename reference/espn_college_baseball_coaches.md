@@ -125,7 +125,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_coaches(season = 2025))
 #> ── ESPN COLLEGE-BASEBALL Coaches from ESPN.com ────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-27 04:35:45 UTC
+#> ℹ Data updated: 2026-09-27 20:52:38 UTC
 #> # A tibble: 0 × 0
 # }
 ```

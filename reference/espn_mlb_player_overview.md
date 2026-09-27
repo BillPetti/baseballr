@@ -194,12 +194,12 @@ Saiem Gilani
   espn_mlb_player_overview(athlete_id = "1966", season = 2024)
 #> $Statistics
 #> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-09-27 04:36:33 UTC
+#> ℹ Data updated: 2026-09-27 20:53:13 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-09-27 04:36:33 UTC
+#> ℹ Data updated: 2026-09-27 20:53:13 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -207,32 +207,32 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-09-27 04:36:33 UTC
+#> ℹ Data updated: 2026-09-27 20:53:13 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-09-27 04:36:33 UTC
+#> ℹ Data updated: 2026-09-27 20:53:13 UTC
 #> # A tibble: 13 × 5
 #>    headline                           description published byline type 
 #>    <chr>                              <chr>       <chr>     <chr>  <chr>
-#>  1 Rangers' quest for AL West title,… The Texas … 2026-09-… Assoc… Head…
-#>  2 Guardians clinch AL Central title… The Guardi… 2026-09-… NA     Head…
-#>  3 MLB playoff picture 2026: Clinchi… From curre… 2026-09-… ESPN   Story
-#>  4 Rays starter Griffin Jax OK after… Rays start… 2026-09-… NA     Head…
-#>  5 Pirates' Kirby Yates retires afte… Two-time A… 2026-09-… NA     Head…
-#>  6 Season over for Dodgers' Blake Tr… Dodgers ri… 2026-09-… NA     Head…
-#>  7 Brewers' Yelich named first capta… With franc… 2026-09-… NA     Head…
-#>  8 Phillies' Nola, pitching on short… Clinging t… 2026-09-… NA     Head…
-#>  9 Juan Soto exits Mets' win after H… Mets left … 2026-09-… NA     Head…
-#> 10 Tigers' emotional Justin Verlande… Justin Ver… 2026-09-… NA     Head…
-#> 11 Fantasy baseball lineup advice fo… Everything… 2026-09-… ESPN … Story
-#> 12 Rangers lose Josh Jung to broken … The Ranger… 2026-09-… NA     Head…
-#> 13 Jays' Max Scherzer waits to decid… Blue Jays … 2026-09-… NA     Head…
+#>  1 Francisco Lindor hits 300th caree… Francisco … 2026-09-… NA     Head…
+#>  2 Yankees give Schlittler Game 1 st… American L… 2026-09-… Jorge… Head…
+#>  3 What to watch during MLB's final … There's st… 2026-09-… David… Story
+#>  4 MLB, White House discuss playing … The White … 2026-09-… NA     Head…
+#>  5 MLB betting tips for Sunday: Athl… All of the… 2026-09-… Derek… Story
+#>  6 Fantasy Baseball Reliever Depth C… Our update… 2026-09-… Fanta… Story
+#>  7 Fantasy baseball news: Judgment d… All of the… 2026-09-… ESPN … Story
+#>  8 MLB playoff picture 2026: Clinchi… From curre… 2026-09-… ESPN   Story
+#>  9 2026 MLB ABS challenge system tra… The ABS ch… 2026-09-… ESPN   Story
+#> 10 Padres secure home field for wild… The Padres… 2026-09-… NA     Head…
+#> 11 Rangers' quest for AL West title,… The Texas … 2026-09-… Assoc… Head…
+#> 12 Guardians clinch AL Central title… Six games … 2026-09-… NA     Head…
+#> 13 Rays starter Griffin Jax OK after… Rays start… 2026-09-… NA     Head…
 #> 
 #> $FantasyOutlook
 #> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────
-#> ℹ Data updated: 2026-09-27 04:36:33 UTC
+#> ℹ Data updated: 2026-09-27 20:53:13 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

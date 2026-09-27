@@ -45,6 +45,12 @@ CRAN release: 2026-08-26
   name and parent as of every season, every source’s ids and names for
   it, and each team’s affiliation by season (MLB 1901+, NCAA baseball
   2010+).
+- [`load_mlb_park_dimensions()`](https://billpetti.github.io/baseballr/reference/load_mlb_park_dimensions.md)
+  — every MLB venue’s fence distances (feet, at MLB’s seven markers),
+  capacity, turf, roof, azimuth, elevation and location by season,
+  2001+, from the `mlb_parks` sportsdataverse-data release. Built from
+  the MLB Stats API with cited corrections for fence moves the API lags
+  or misses; `venue_id` stays character.
 - [`mlb_stats()`](https://billpetti.github.io/baseballr/reference/mlb_stats.md)
   and
   [`mlb_teams_stats()`](https://billpetti.github.io/baseballr/reference/mlb_teams_stats.md)
