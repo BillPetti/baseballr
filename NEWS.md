@@ -18,6 +18,13 @@
   the sportsdataverse-data releases (expected stats/HR, batter projections,
   Stuff+/Command+/xERA, OAA, catcher framing, RE24 matrix, WE table, WPA),
   mirroring sportsdataverse-py's loader surface.
+- `load_mlb_groups()`, `load_mlb_group_seasons()`, `load_mlb_group_aliases()`,
+  `load_mlb_team_group_seasons()` and their `load_ncaa_baseball_*()` twins —
+  season-by-season league / division / conference reference tables from the
+  `mlb_groups` and `ncaa_baseball_groups` sportsdataverse-data releases:
+  each group's name and parent as of every season, every source's ids and
+  names for it, and each team's affiliation by season (MLB 1901+, NCAA
+  baseball 2010+).
 - `mlb_stats()` and `mlb_teams_stats()` gain `sit_codes` for situational
   splits via `stat_type = "statSplits"` (vs L/R, home/away, RISP, ...)
   (#278, #304, #383). Note the upstream leaders endpoints ignore `sitCodes`.
