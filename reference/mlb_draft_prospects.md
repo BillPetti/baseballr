@@ -131,7 +131,7 @@ requested:
 # \donttest{
   try(mlb_draft_prospects(year = 2020))
 #> ── MLB Draft Prospects data from MLB.com ──────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-26 20:25:15 UTC
+#> ℹ Data updated: 2026-09-27 04:38:58 UTC
 #> # A tibble: 2,500 × 102
 #>    bis_player_id pick_round pick_number  rank scouting_report      blurb
 #>            <int> <chr>            <int> <int> <chr>                <chr>

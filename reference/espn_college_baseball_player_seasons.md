@@ -114,11 +114,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_player_seasons(athlete_id = "3730"))
-#> ✖ 2026-09-26 20:22:01.493161: Failed to retrieve ESPN college-baseball athlete seasons for athlete_id=3730
+#> ✖ 2026-09-27 04:35:59.936543: Failed to retrieve ESPN college-baseball athlete seasons for athlete_id=3730
 #> ✖ Args: league = "college-baseball", athlete_id = "3730"
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN COLLEGE-BASEBALL Athlete Seasons ──────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-26 20:22:01 UTC
+#> ℹ Data updated: 2026-09-27 04:35:59 UTC
 #> # A tibble: 0 × 0
 # }
 ```

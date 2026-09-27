@@ -163,15 +163,14 @@ Saiem Gilani
 # \donttest{
   espn_mlb_news(limit = 5)
 #> ── ESPN MLB News from ESPN.com ────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-26 20:22:30 UTC
-#> # A tibble: 5 × 9
-#>         id type   headline description published premium byline link_web
-#>      <int> <chr>  <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>   
-#> 1 50035710 Recap  Mets be… — A.J. Ewi… 2026-09-… FALSE   NA     http://…
-#> 2 50034553 Story  Fantasy… Everything… 2026-09-… FALSE   ESPN … https:/…
-#> 3 50035257 Headl… Rangers… The Ranger… 2026-09-… FALSE   NA     https:/…
-#> 4 50034954 Media  New Yor… New York M… 2026-09-… FALSE   NA     https:/…
-#> 5 50034219 Headl… Jays' M… Blue Jays … 2026-09-… FALSE   NA     https:/…
-#> # ℹ 1 more variable: league_id <chr>
+#> ℹ Data updated: 2026-09-27 04:36:30 UTC
+#> # A tibble: 5 × 8
+#>       id type  headline description published premium link_web league_id
+#>    <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>    <chr>    
+#> 1 5.00e7 Recap Machado… "— Manny M… 2026-09-… FALSE   http://… 10       
+#> 2 5.00e7 Media USA hoc… "USA hocke… 2026-09-… FALSE   https:/… 10       
+#> 3 5.00e7 Media Arizona… "Arizona D… 2026-09-… FALSE   https:/… 10       
+#> 4 5.00e7 Recap Phillie… "— Aaron N… 2026-09-… FALSE   http://… 10       
+#> 5 5.00e7 Media Tampa B… " Tampa Ba… 2026-09-… FALSE   https:/… 10       
 # }
 ```

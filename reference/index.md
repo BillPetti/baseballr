@@ -147,6 +147,47 @@ data repository
   **Download a data frame of supplemental data about MLB games since
   2008.**
 
+- [`load_mlb_group_aliases()`](https://billpetti.github.io/baseballr/reference/load_mlb_group_aliases.md)
+  :
+
+  **Load MLB group aliases from the SportsDataverse data repo**
+
+- [`load_mlb_group_seasons()`](https://billpetti.github.io/baseballr/reference/load_mlb_group_seasons.md)
+  :
+
+  **Load MLB group names and parents by season from the SportsDataverse
+  data repo**
+
+- [`load_mlb_groups()`](https://billpetti.github.io/baseballr/reference/load_mlb_groups.md)
+  :
+
+  **Load MLB groups (leagues and divisions) from the SportsDataverse
+  data repo**
+
+- [`load_mlb_team_group_seasons()`](https://billpetti.github.io/baseballr/reference/load_mlb_team_group_seasons.md)
+  :
+
+  **Load MLB team league and division memberships by season from the
+  SportsDataverse data repo**
+
+- [`load_ncaa_baseball_group_aliases()`](https://billpetti.github.io/baseballr/reference/load_ncaa_baseball_group_aliases.md)
+  :
+
+  **Load NCAA baseball group aliases from the SportsDataverse data
+  repo**
+
+- [`load_ncaa_baseball_group_seasons()`](https://billpetti.github.io/baseballr/reference/load_ncaa_baseball_group_seasons.md)
+  :
+
+  **Load NCAA baseball group names and parents by season from the
+  SportsDataverse data repo**
+
+- [`load_ncaa_baseball_groups()`](https://billpetti.github.io/baseballr/reference/load_ncaa_baseball_groups.md)
+  :
+
+  **Load NCAA baseball groups (divisions and conferences) from the
+  SportsDataverse data repo**
+
 - [`load_ncaa_baseball_pbp()`](https://billpetti.github.io/baseballr/reference/load_ncaa_baseball_pbp.md)
   :
 
@@ -163,6 +204,12 @@ data repository
 
   **Load cleaned NCAA men's college baseball season IDs from the
   baseballr data repo**
+
+- [`load_ncaa_baseball_team_group_seasons()`](https://billpetti.github.io/baseballr/reference/load_ncaa_baseball_team_group_seasons.md)
+  :
+
+  **Load NCAA baseball team division and conference memberships by
+  season from the SportsDataverse data repo**
 
 - [`load_ncaa_baseball_teams()`](https://billpetti.github.io/baseballr/reference/load_ncaa_baseball_teams.md)
   :

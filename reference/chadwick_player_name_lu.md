@@ -44,7 +44,7 @@ them in different systems of record.
 # \donttest{
   try(playername_lookup(4885))
 #> ── Player Name Lookup from the Chadwick Bureau's public register of base
-#> ℹ Data updated: 2026-09-26 20:21:37 UTC
+#> ℹ Data updated: 2026-09-27 04:35:35 UTC
 #> # A tibble: 1 × 11
 #>   name_first name_last name_given  name_suffix name_nick  birth_year
 #>   <chr>      <chr>     <chr>       <chr>       <chr>           <int>
@@ -53,7 +53,7 @@ them in different systems of record.
 #> #   key_retro <chr>, key_bbref <chr>, key_fangraphs <int>
   try(playername_lookup("kaaihki01"))
 #> ── Player Name Lookup from the Chadwick Bureau's public register of base
-#> ℹ Data updated: 2026-09-26 20:21:42 UTC
+#> ℹ Data updated: 2026-09-27 04:35:39 UTC
 #> # A tibble: 1 × 11
 #>   name_first name_last name_given name_suffix name_nick birth_year
 #>   <chr>      <chr>     <chr>      <chr>       <chr>          <int>

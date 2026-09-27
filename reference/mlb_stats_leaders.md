@@ -185,7 +185,7 @@ Returns a tibble with the following columns
 # \donttest{
  try(mlb_stats_leaders(leader_categories='homeRuns',sport_id=1, season = 2021))
 #> ── MLB Stats Leaders data from MLB.com ────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-26 20:25:50 UTC
+#> ℹ Data updated: 2026-09-27 04:39:27 UTC
 #> # A tibble: 306 × 23
 #>    leader_category  rank value season num_teams team_id team_name       
 #>    <chr>           <int> <chr> <chr>      <int>   <int> <chr>           

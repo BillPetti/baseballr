@@ -35,6 +35,16 @@ CRAN release: 2026-08-26
   on the sportsdataverse-data releases (expected stats/HR, batter
   projections, Stuff+/Command+/xERA, OAA, catcher framing, RE24 matrix,
   WE table, WPA), mirroring sportsdataverse-py’s loader surface.
+- [`load_mlb_groups()`](https://billpetti.github.io/baseballr/reference/load_mlb_groups.md),
+  [`load_mlb_group_seasons()`](https://billpetti.github.io/baseballr/reference/load_mlb_group_seasons.md),
+  [`load_mlb_group_aliases()`](https://billpetti.github.io/baseballr/reference/load_mlb_group_aliases.md),
+  [`load_mlb_team_group_seasons()`](https://billpetti.github.io/baseballr/reference/load_mlb_team_group_seasons.md)
+  and their `load_ncaa_baseball_*()` twins — season-by-season league /
+  division / conference reference tables from the `mlb_groups` and
+  `ncaa_baseball_groups` sportsdataverse-data releases: each group’s
+  name and parent as of every season, every source’s ids and names for
+  it, and each team’s affiliation by season (MLB 1901+, NCAA baseball
+  2010+).
 - [`mlb_stats()`](https://billpetti.github.io/baseballr/reference/mlb_stats.md)
   and
   [`mlb_teams_stats()`](https://billpetti.github.io/baseballr/reference/mlb_teams_stats.md)

@@ -271,9 +271,17 @@
 <url><loc>https://billpetti.github.io/baseballr/reference/linear_weights_savant.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/load_baseball.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/load_game_info_sup.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/load_mlb_group_aliases.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/load_mlb_group_seasons.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/load_mlb_groups.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/load_mlb_team_group_seasons.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/load_ncaa_baseball_group_aliases.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/load_ncaa_baseball_group_seasons.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/load_ncaa_baseball_groups.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/load_ncaa_baseball_pbp.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/load_ncaa_baseball_schedule.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/load_ncaa_baseball_season_ids.html</loc></url>
+<url><loc>https://billpetti.github.io/baseballr/reference/load_ncaa_baseball_team_group_seasons.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/load_ncaa_baseball_teams.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/load_umpire_ids.html</loc></url>
 <url><loc>https://billpetti.github.io/baseballr/reference/metrics.html</loc></url>

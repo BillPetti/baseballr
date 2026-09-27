@@ -165,7 +165,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_player_statisticslog(athlete_id = "1966", season = 2024)
 #> ── ESPN MLB Athlete Statisticslog from ESPN.com ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-26 20:22:34 UTC
+#> ℹ Data updated: 2026-09-27 04:36:34 UTC
 #> # A tibble: 1 × 2
 #>   season$`$ref`                                               statistics
 #>   <chr>                                                       <list>    

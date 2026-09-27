@@ -170,11 +170,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_game_predictor(event_id = 401283399)
-#> ✖ 2026-09-26 20:22:25.371116: Failed to retrieve ESPN mlb event predictor for event_id=401283399
+#> ✖ 2026-09-27 04:36:25.574272: Failed to retrieve ESPN mlb event predictor for event_id=401283399
 #> ✖ Args: league = "mlb", event_id = 401283399
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN MLB Event Predictor ───────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-26 20:22:25 UTC
+#> ℹ Data updated: 2026-09-27 04:36:25 UTC
 #> # A tibble: 0 × 0
 # }
 ```
