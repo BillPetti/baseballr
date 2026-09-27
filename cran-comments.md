@@ -63,7 +63,8 @@ getting started, NCAA scraping, and Statcast usage.
   `bref_standings_on_date()` (pre-1969 and 1969-1993 layouts), and
   Baseball Reference requests now retry HTTP 429 with exponential
   backoff; eight `load_mlb_*()` / `load_ncaa_baseball_*()` group loaders
-  (season-by-season league, division and conference memberships).
+  (season-by-season league, division and conference memberships) and
+  `load_mlb_park_dimensions()` (MLB park dimensions by season).
 
 ## Test environments
 

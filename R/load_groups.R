@@ -35,14 +35,16 @@
 # release URLs, reads each csv with the contract column classes, optionally
 # writes into a DB, and tags the result baseballr_data. A file that fails to
 # download warns and contributes a zero-row frame carrying the contract schema.
+# `tag` and `cols` let other sdv-reference-data tables (mlb_parks) reuse it.
 #' @keywords internal
 #' @noRd
 .groups_release_loader <- function(league, table, description,
                                    seasons = NULL, min_season = NULL,
                                    max_season = NULL,
-                                   dbConnection = NULL, tablename = NULL, ...) {
+                                   dbConnection = NULL, tablename = NULL, ...,
+                                   tag = paste0(league, "_groups"),
+                                   cols = .groups_col_classes[[table]]) {
   in_db <- !is.null(dbConnection) && !is.null(tablename)
-  cols <- .groups_col_classes[[table]]
 
   # seasons = TRUE reads the release's all-seasons file
   file_stem <- paste0(league, "_", table)
@@ -55,7 +57,7 @@
   }
   urls <- paste0(
     "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/",
-    league, "_groups/", file_stem, ".csv"
+    tag, "/", file_stem, ".csv"
   )
 
   read_one <- function(url) {
