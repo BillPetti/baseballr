@@ -40,7 +40,7 @@
 .groups_release_loader <- function(league, table, description,
                                    seasons = NULL, min_season = NULL,
                                    max_season = NULL,
-                                   dbConnection = NULL, tablename = NULL) {
+                                   dbConnection = NULL, tablename = NULL, ...) {
   in_db <- !is.null(dbConnection) && !is.null(tablename)
   cols <- .groups_col_classes[[table]]
 
@@ -49,7 +49,8 @@
   if (!is.null(min_season) && !isTRUE(seasons)) {
     stopifnot(is.numeric(seasons),
               all(seasons >= min_season),
-              all(seasons <= max_season))
+              all(seasons <= max_season),
+              all(seasons == trunc(seasons)))
     file_stem <- paste0(file_stem, "_", seasons)
   }
   urls <- paste0(
@@ -76,7 +77,7 @@
   out <- lapply(urls, progressively(read_one, p))
   out <- data.table::rbindlist(out, use.names = TRUE, fill = TRUE)
   if (in_db) {
-    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
+    DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE, ...)
     return(invisible(NULL))
   }
   out |>
@@ -117,7 +118,7 @@ load_mlb_groups <- function(..., dbConnection = NULL, tablename = NULL) {
   on.exit(options(old), add = TRUE)
   .groups_release_loader("mlb", "groups",
     "MLB groups from the SportsDataverse data repo",
-    dbConnection = dbConnection, tablename = tablename)
+    dbConnection = dbConnection, tablename = tablename, ...)
 }
 
 #' @title
@@ -152,7 +153,7 @@ load_mlb_group_seasons <- function(..., dbConnection = NULL, tablename = NULL) {
   on.exit(options(old), add = TRUE)
   .groups_release_loader("mlb", "group_seasons",
     "MLB group seasons from the SportsDataverse data repo",
-    dbConnection = dbConnection, tablename = tablename)
+    dbConnection = dbConnection, tablename = tablename, ...)
 }
 
 #' @title
@@ -187,7 +188,7 @@ load_mlb_group_aliases <- function(..., dbConnection = NULL, tablename = NULL) {
   on.exit(options(old), add = TRUE)
   .groups_release_loader("mlb", "group_aliases",
     "MLB group aliases from the SportsDataverse data repo",
-    dbConnection = dbConnection, tablename = tablename)
+    dbConnection = dbConnection, tablename = tablename, ...)
 }
 
 #' @title
@@ -230,7 +231,7 @@ load_mlb_team_group_seasons <- function(seasons = most_recent_mlb_season(), ...,
     "MLB team group seasons from the SportsDataverse data repo",
     seasons = seasons, min_season = 1901,
     max_season = most_recent_mlb_season(),
-    dbConnection = dbConnection, tablename = tablename)
+    dbConnection = dbConnection, tablename = tablename, ...)
 }
 
 #' @title
@@ -254,7 +255,7 @@ load_ncaa_baseball_groups <- function(..., dbConnection = NULL, tablename = NULL
   on.exit(options(old), add = TRUE)
   .groups_release_loader("ncaa_baseball", "groups",
     "NCAA baseball groups from the SportsDataverse data repo",
-    dbConnection = dbConnection, tablename = tablename)
+    dbConnection = dbConnection, tablename = tablename, ...)
 }
 
 #' @title
@@ -276,7 +277,7 @@ load_ncaa_baseball_group_seasons <- function(..., dbConnection = NULL, tablename
   on.exit(options(old), add = TRUE)
   .groups_release_loader("ncaa_baseball", "group_seasons",
     "NCAA baseball group seasons from the SportsDataverse data repo",
-    dbConnection = dbConnection, tablename = tablename)
+    dbConnection = dbConnection, tablename = tablename, ...)
 }
 
 #' @title
@@ -298,7 +299,7 @@ load_ncaa_baseball_group_aliases <- function(..., dbConnection = NULL, tablename
   on.exit(options(old), add = TRUE)
   .groups_release_loader("ncaa_baseball", "group_aliases",
     "NCAA baseball group aliases from the SportsDataverse data repo",
-    dbConnection = dbConnection, tablename = tablename)
+    dbConnection = dbConnection, tablename = tablename, ...)
 }
 
 #' @title
@@ -325,5 +326,5 @@ load_ncaa_baseball_team_group_seasons <- function(seasons = most_recent_ncaa_bas
     "NCAA baseball team group seasons from the SportsDataverse data repo",
     seasons = seasons, min_season = 2010,
     max_season = most_recent_ncaa_baseball_season(),
-    dbConnection = dbConnection, tablename = tablename)
+    dbConnection = dbConnection, tablename = tablename, ...)
 }

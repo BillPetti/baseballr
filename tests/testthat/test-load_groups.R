@@ -71,6 +71,7 @@ test_that("group loaders reject seasons before the league's first season", {
   skip_on_cran()
   expect_error(load_mlb_team_group_seasons(seasons = 1900))
   expect_error(load_ncaa_baseball_team_group_seasons(seasons = 2009))
+  expect_error(load_mlb_team_group_seasons(seasons = 2012.5))
 })
 
 test_that("a failed download warns and returns the contract columns", {
@@ -88,9 +89,7 @@ test_that("load_mlb_team_group_seasons live: Astros move to the AL West in 2013"
   skip_on_cran()
   skip_load_test()
   x <- load_mlb_team_group_seasons(seasons = 2012:2013)
-  if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
-    skip("No rows returned from the release at test time")
-  }
+  expect_setequal(unique(x$season), c(2012L, 2013L))
   cols <- c("league", "season", "team_id", "team_name", "conference_id", "division_id")
   expect_in(sort(cols), sort(colnames(x)))
   astros <- x[x$team_id == "18", ]
