@@ -65,7 +65,7 @@ home:
 
 navbar:
   structure:
-    left:  [home, reference, articles, news, network, data, repo]
+    left:  [home, reference, articles, news, network, data, status, repo]
     right: [search, x, github, lightswitch]
   # icon: https://raw.githubusercontent.com/BillPetti/baseballR/master/man/figures/logo.ico
   title: "baseballr"
@@ -214,6 +214,9 @@ navbar:
       menu:
       - text: "Data Repository"
         href: https://github.com/sportsdataverse/baseballr-data
+    status:
+      text: "Data status"
+      href: https://sportsdataverse.org/status
     x:
       icon: "fab fa-x-twitter fa-lg"
       href: https://x.com/BillPetti

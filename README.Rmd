@@ -45,6 +45,15 @@ You can read more about some of the functions and how to use them at its
 [Hardball Times
 article](https://tht.fangraphs.com/developing-the-baseballr-package-for-r/).
 
+## Data status
+
+The `load_*()` functions read release assets on [sportsdataverse-data](https://github.com/sportsdataverse/sportsdataverse-data/releases). The badges below are rebuilt nightly from each producer's latest workflow run and newest release files; idle means the sport is out of season. Full detail: [sportsdataverse.org/status](https://sportsdataverse.org/status).
+
+| Dataset | Data updated | Through | Pipeline | Update workflows |
+|:--|:--|:--|:--|:--|
+| [MLB and college baseball](https://github.com/sportsdataverse/baseballr-data) | [![baseballr-data data updated](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fbaseballr-data%2Fupdated.json)](https://github.com/sportsdataverse/sportsdataverse-data/releases) | [![baseballr-data through season](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fbaseballr-data%2Fthrough.json)](https://github.com/sportsdataverse/sportsdataverse-data/releases) | [![baseballr-data pipeline state](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fbaseballr-data%2Fstatus.json)](https://sportsdataverse.org/status#baseballr-data) | [![baseballr-data mlb_models_cron](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fbaseballr-data%2Fwf-mlb_models_cron.json)](https://github.com/sportsdataverse/baseballr-data/actions/workflows/mlb_models_cron.yml) [![baseballr-data daily_ncaa_baseball](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fbaseballr-data%2Fwf-daily_ncaa_baseball.json)](https://github.com/sportsdataverse/baseballr-data/actions/workflows/daily_ncaa_baseball.yml) |
+| [Conference, division and ballpark reference](https://github.com/sportsdataverse/sdv-reference-data) | [![sdv-reference-data data updated](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fsdv-reference-data%2Fupdated.json)](https://github.com/sportsdataverse/sportsdataverse-data/releases) | [![sdv-reference-data through season](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fsdv-reference-data%2Fthrough.json)](https://github.com/sportsdataverse/sportsdataverse-data/releases) | [![sdv-reference-data pipeline state](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fsdv-reference-data%2Fstatus.json)](https://sportsdataverse.org/status#sdv-reference-data) | &mdash; |
+
 ## Installation
 
 You can install the CRAN version of
