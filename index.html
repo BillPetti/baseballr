@@ -128,6 +128,7 @@
 <li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/baseballr-data">Data Repository</a></li>
   </ul>
 </li>
+<li class="nav-item"><a class="external-link nav-link" href="https://sportsdataverse.org/status">Data status</a></li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
@@ -164,6 +165,45 @@
 
 <p><code>baseballr</code> is a package written for R focused on baseball analysis. It includes functions for acquiring data from a range of sources — the <a href="https://statsapi.mlb.com/" class="external-link">MLB Stats API</a>, <a href="https://www.espn.com/" class="external-link">ESPN</a> (MLB and NCAA college baseball), <a href="https://www.foxsports.com/" class="external-link">Fox Sports</a>, <a href="https://www.fangraphs.com/" class="external-link">FanGraphs.com</a>, <a href="https://www.baseball-reference.com/" class="external-link">Baseball-Reference.com</a>, <a href="https://baseballsavant.mlb.com/" class="external-link">baseballsavant.mlb.com</a>, the <a href="https://stats.ncaa.org/" class="external-link">NCAA stats site</a>, Spotrac, the Chadwick Bureau register, and Retrosheet. It also includes functions for calculating metrics, such as wOBA, FIP, and team-level consistency over custom time frames.</p>
 <p>You can read more about some of the functions and how to use them at its <a href="https://billpetti.github.io/baseballr/">official site</a> as well as this <a href="https://tht.fangraphs.com/developing-the-baseballr-package-for-r/" class="external-link">Hardball Times article</a>.</p>
+<div class="section level2">
+<h2 id="data-status">Data status<a class="anchor" aria-label="anchor" href="#data-status"></a>
+</h2>
+<p>The <code>load_*()</code> functions read release assets on <a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link">sportsdataverse-data</a>. The badges below are rebuilt nightly from each producer’s latest workflow run and newest release files; idle means the sport is out of season. Full detail: <a href="https://sportsdataverse.org/status" class="external-link">sportsdataverse.org/status</a>.</p>
+<table class="table">
+<colgroup>
+<col width="6%">
+<col width="17%">
+<col width="17%">
+<col width="17%">
+<col width="40%">
+</colgroup>
+<thead><tr>
+<th align="left">Dataset</th>
+<th align="left">Data updated</th>
+<th align="left">Through</th>
+<th align="left">Pipeline</th>
+<th align="left">Update workflows</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left"><a href="https://github.com/sportsdataverse/baseballr-data" class="external-link">MLB and college baseball</a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fbaseballr-data%2Fupdated.json" alt="baseballr-data data updated"></a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fbaseballr-data%2Fthrough.json" alt="baseballr-data through season"></a></td>
+<td align="left"><a href="https://sportsdataverse.org/status#baseballr-data" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fbaseballr-data%2Fstatus.json" alt="baseballr-data pipeline state"></a></td>
+<td align="left">
+<a href="https://github.com/sportsdataverse/baseballr-data/actions/workflows/mlb_models_cron.yml" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fbaseballr-data%2Fwf-mlb_models_cron.json" alt="baseballr-data mlb_models_cron"></a> <a href="https://github.com/sportsdataverse/baseballr-data/actions/workflows/daily_ncaa_baseball.yml" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fbaseballr-data%2Fwf-daily_ncaa_baseball.json" alt="baseballr-data daily_ncaa_baseball"></a>
+</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/sportsdataverse/sdv-reference-data" class="external-link">Conference, division and ballpark reference</a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fsdv-reference-data%2Fupdated.json" alt="sdv-reference-data data updated"></a></td>
+<td align="left"><a href="https://github.com/sportsdataverse/sportsdataverse-data/releases" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fsdv-reference-data%2Fthrough.json" alt="sdv-reference-data through season"></a></td>
+<td align="left"><a href="https://sportsdataverse.org/status#sdv-reference-data" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsportsdataverse%2F.github%2Fmain%2Fstatus%2Fbadges%2Fsdv-reference-data%2Fstatus.json" alt="sdv-reference-data pipeline state"></a></td>
+<td align="left">—</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>

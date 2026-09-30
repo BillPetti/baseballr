@@ -95,6 +95,7 @@ Get ESPN MLB News"><meta property="og:image" content="https://raw.githubusercont
   <button class="nav-link dropdown-toggle" type="button" id="dropdown--data" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fas fa-database"></span>  Data</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown--data"><li><a class="external-link dropdown-item" href="https://github.com/sportsdataverse/baseballr-data">Data Repository</a></li>
   </ul></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://sportsdataverse.org/status">Data status</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://x.com/BillPetti" aria-label="X (Twitter)"><span class="fa fab fa-x-twitter fa-lg"></span></a></li>
@@ -268,15 +269,15 @@ Get ESPN MLB News"><meta property="og:image" content="https://raw.githubusercont
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_mlb_news</span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB News from ESPN.com ────────────────────── <span style="font-style: italic;">baseballr 2.0.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-27 20:53:10 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-09-30 14:27:13 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 9</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         id type   headline description published premium byline link_web</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 50<span style="text-decoration: underline;">045</span>225 Headl… Rain fo… The regula… 2026-09-… FALSE   <span style="color: #BB0000;">NA</span>     https:/…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 50<span style="text-decoration: underline;">044</span>380 Headl… Francis… Francisco … 2026-09-… FALSE   <span style="color: #BB0000;">NA</span>     https:/…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 50<span style="text-decoration: underline;">044</span>091 Headl… Yankees… American L… 2026-09-… FALSE   Jorge… https:/…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 50<span style="text-decoration: underline;">015</span>050 Story  What to… There's st… 2026-09-… FALSE   David… https:/…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 50<span style="text-decoration: underline;">041</span>787 Headl… MLB, Wh… The White … 2026-09-… FALSE   <span style="color: #BB0000;">NA</span>     https:/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 50<span style="text-decoration: underline;">066</span>623 Headl… Astros … <span style="color: #949494;">"</span>Astros pl… 2026-09-… FALSE   <span style="color: #BB0000;">NA</span>     https:/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 50<span style="text-decoration: underline;">008</span>164 Story  MLB wil… <span style="color: #949494;">"</span>The wild-… 2026-09-… FALSE   ESPN   https:/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 50<span style="text-decoration: underline;">045</span>993 Story  2026 ML… <span style="color: #949494;">"</span>Which tea… 2026-09-… FALSE   ESPN   https:/…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 50<span style="text-decoration: underline;">065</span>336 Recap  Schlitt… <span style="color: #949494;">"</span>— Cam Sch… 2026-09-… FALSE   <span style="color: #BB0000;">NA</span>     http://…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 50<span style="text-decoration: underline;">065</span>292 Recap  White S… <span style="color: #949494;">"</span>— Colson … 2026-09-… FALSE   <span style="color: #BB0000;">NA</span>     http://…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1 more variable: league_id &lt;chr&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

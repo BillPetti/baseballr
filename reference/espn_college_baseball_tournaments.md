@@ -109,11 +109,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_tournaments())
-#> ✖ 2026-09-27 20:52:59.044662: Failed to retrieve ESPN college-baseball tournaments
+#> ✖ 2026-09-30 14:26:57.150639: Failed to retrieve ESPN college-baseball tournaments
 #> ✖ Args: league = "college-baseball"
 #> ✖ Error: The API returned an error, HTTP Response Code 400
 #> ── ESPN COLLEGE-BASEBALL Tournaments Index ────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-27 20:52:58 UTC
+#> ℹ Data updated: 2026-09-30 14:26:57 UTC
 #> # A tibble: 0 × 0
 # }
 ```

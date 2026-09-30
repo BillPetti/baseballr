@@ -44,22 +44,22 @@ Returns a tibble with the following columns
 #> 14                     t_double_play <NA>
 #> 15                     t_triple_play <NA>
 #> 16 f_defensive_shift_violation_error <NA>
-#>                                                      names chance error
-#> 1                 \033[38;5;246m# A tibble: 16 × 1\033[39m   TRUE FALSE
-#> 2                                           names           FALSE FALSE
-#> 3      \033[3m\033[38;5;246m<chr>\033[39m\033[23m           FALSE FALSE
-#> 4                  \033[38;5;250m 1\033[39m assist          FALSE FALSE
-#> 5                  \033[38;5;250m 2\033[39m outfieldAssist   TRUE FALSE
-#> 6  \033[38;5;250m 3\033[39m \033[31mNA\033[39m              FALSE FALSE
-#> 7  \033[38;5;250m 4\033[39m \033[31mNA\033[39m               TRUE  TRUE
-#> 8                  \033[38;5;250m 5\033[39m putout           TRUE  TRUE
-#> 9  \033[38;5;250m 6\033[39m \033[31mNA\033[39m               TRUE  TRUE
-#> 10                 \033[38;5;250m 7\033[39m error            TRUE  TRUE
-#> 11 \033[38;5;250m 8\033[39m \033[31mNA\033[39m               TRUE  TRUE
-#> 12 \033[38;5;250m 9\033[39m \033[31mNA\033[39m               TRUE  TRUE
-#> 13 \033[38;5;250m10\033[39m \033[31mNA\033[39m              FALSE  TRUE
-#> 14 \033[38;5;250m11\033[39m \033[31mNA\033[39m              FALSE FALSE
-#> 15 \033[38;5;250m12\033[39m \033[31mNA\033[39m              FALSE FALSE
-#> 16 \033[38;5;250m13\033[39m \033[31mNA\033[39m              FALSE  TRUE
+#>                                                      names error chance
+#> 1                 \033[38;5;246m# A tibble: 16 × 1\033[39m FALSE   TRUE
+#> 2                                           names          FALSE  FALSE
+#> 3      \033[3m\033[38;5;246m<chr>\033[39m\033[23m          FALSE  FALSE
+#> 4                  \033[38;5;250m 1\033[39m assist         FALSE  FALSE
+#> 5                  \033[38;5;250m 2\033[39m outfieldAssist FALSE   TRUE
+#> 6  \033[38;5;250m 3\033[39m \033[31mNA\033[39m             FALSE  FALSE
+#> 7  \033[38;5;250m 4\033[39m \033[31mNA\033[39m              TRUE   TRUE
+#> 8                  \033[38;5;250m 5\033[39m putout          TRUE   TRUE
+#> 9  \033[38;5;250m 6\033[39m \033[31mNA\033[39m              TRUE   TRUE
+#> 10                 \033[38;5;250m 7\033[39m error           TRUE   TRUE
+#> 11 \033[38;5;250m 8\033[39m \033[31mNA\033[39m              TRUE   TRUE
+#> 12 \033[38;5;250m 9\033[39m \033[31mNA\033[39m              TRUE   TRUE
+#> 13 \033[38;5;250m10\033[39m \033[31mNA\033[39m              TRUE  FALSE
+#> 14 \033[38;5;250m11\033[39m \033[31mNA\033[39m             FALSE  FALSE
+#> 15 \033[38;5;250m12\033[39m \033[31mNA\033[39m             FALSE  FALSE
+#> 16 \033[38;5;250m13\033[39m \033[31mNA\033[39m              TRUE  FALSE
 # }
 ```

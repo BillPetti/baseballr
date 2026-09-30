@@ -33,7 +33,7 @@ From the NCAA website:
 
 try(ncaa_teams(year = most_recent_ncaa_baseball_season(), division = "1"))
 #> ── NCAA Baseball Teams data from stats.ncaa.org ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-27 20:59:13 UTC
+#> ℹ Data updated: 2026-09-30 14:34:31 UTC
 #> # A tibble: 308 × 9
 #>    team_id team_name    team_url conference_id conference division  year
 #>    <chr>   <chr>        <chr>    <chr>         <chr>      <chr>    <dbl>
@@ -74,7 +74,7 @@ team_id <- ncaa_teams_df %>%
 year <- most_recent_ncaa_baseball_season()
 
 ncaa_team_player_stats(team_id = team_id, year = year, "batting")
-#> ! 2026-09-27 21:00:03.188734: stats.ncaa.org returned an Akamai bot-challenge for the team batting stats endpoint; no data could be retrieved. Install {chromote} + Google Chrome to enable the browser fallback.
+#> ! 2026-09-30 14:35:22.418577: stats.ncaa.org returned an Akamai bot-challenge for the team batting stats endpoint; no data could be retrieved. Install {chromote} + Google Chrome to enable the browser fallback.
 #> data frame with 0 columns and 0 rows
 ```
 
@@ -84,7 +84,7 @@ parameter:
 ``` r
 
 ncaa_team_player_stats(team_id = team_id, year = year,  "pitching")
-#> ! 2026-09-27 21:00:44.549757: stats.ncaa.org returned an Akamai bot-challenge for the team pitching stats endpoint; no data could be retrieved. Install {chromote} + Google Chrome to enable the browser fallback.
+#> ! 2026-09-30 14:36:04.124349: stats.ncaa.org returned an Akamai bot-challenge for the team pitching stats endpoint; no data could be retrieved. Install {chromote} + Google Chrome to enable the browser fallback.
 #> data frame with 0 columns and 0 rows
 ```
 

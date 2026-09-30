@@ -102,7 +102,7 @@ League
 # \donttest{
   try(mlb_game_pks("2019-04-29"))
 #> ── MLB Game Pks data from MLB.com ─────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-27 20:55:47 UTC
+#> ℹ Data updated: 2026-09-30 14:30:34 UTC
 #> # A tibble: 9 × 57
 #>   game_pk gameGuid     link  gameType season gameDate officialDate isTie
 #>     <int> <chr>        <chr> <chr>    <chr>  <chr>    <chr>        <lgl>

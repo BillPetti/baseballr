@@ -32,19 +32,19 @@ columns).
 ``` r
  try(fox_mlb_league_leaders("batting")) 
 #> ── Fox Sports MLB league_leaders ──────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-27 20:53:49 UTC
+#> ℹ Data updated: 2026-09-30 14:28:02 UTC
 #> # A tibble: 100 × 7
-#>    players v2                g     entity_id pa    ab    h    
-#>    <chr>   <chr>             <chr> <chr>     <chr> <chr> <chr>
-#>  1 1       B. Harper         161   5349      NA    NA    NA   
-#>  2 2       M. Olson          161   5666      NA    NA    NA   
-#>  3 3       O. Albies         161   7214      NA    NA    NA   
-#>  4 4       P. Alonso         161   8988      NA    NA    NA   
-#>  5 5       B. Reynolds       161   10496     NA    NA    NA   
-#>  6 6       P. Crow-Armstrong 161   11825     NA    NA    NA   
-#>  7 7       J. Caminero       161   13593     NA    NA    NA   
-#>  8 8       S. Stewart        161   14786     NA    NA    NA   
-#>  9 9       I. Herrera        160   11292     NA    NA    NA   
-#> 10 10      A. Burleson       160   12072     NA    NA    NA   
+#>    players v2             g     entity_id pa    ab    h    
+#>    <chr>   <chr>          <chr> <chr>     <chr> <chr> <chr>
+#>  1 1       P. Goldschmidt 1     5016      NA    NA    NA   
+#>  2 2       J. Altuve      1     5058      NA    NA    NA   
+#>  3 3       M. Machado     1     5147      NA    NA    NA   
+#>  4 4       B. Harper      1     5349      NA    NA    NA   
+#>  5 5       X. Bogaerts    1     5359      NA    NA    NA   
+#>  6 6       T. Story       1     5645      NA    NA    NA   
+#>  7 7       D. Smith       1     5657      NA    NA    NA   
+#>  8 8       M. Olson       1     5666      NA    NA    NA   
+#>  9 9       J. Realmuto    1     5752      NA    NA    NA   
+#> 10 10      R. Grichuk     1     5805      NA    NA    NA   
 #> # ℹ 90 more rows
 ```

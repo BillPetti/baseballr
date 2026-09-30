@@ -148,10 +148,10 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_mlb_conferences())
-#> ✖ 2026-09-27 20:53:03.344869: Invalid arguments or no conferences info available!
+#> ✖ 2026-09-30 14:27:02.13881: Invalid arguments or no conferences info available!
 #> ✖ Error: `select()` doesn't handle lists.
 #> ── ESPN MLB Conferences Information from ESPN.com ─── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-27 20:53:03 UTC
+#> ℹ Data updated: 2026-09-30 14:27:02 UTC
 #> # A tibble: 0 × 7
 #> # ℹ 7 variables: group_id <chr>, conference_short_name <chr>,
 #> #   conference_uid <chr>, conference_name <chr>, conference_logo <chr>,
