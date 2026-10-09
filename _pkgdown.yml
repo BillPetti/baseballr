@@ -194,6 +194,14 @@ navbar:
         href: https://recruitR.sportsdataverse.org/
       - text: puntr
         href: https://puntalytics.github.io/puntr/
+      - text: softballR
+        href: https://github.com/sportsdataverse/softballR/
+      - text: nwslR
+        href: https://github.com/nwslR/nwslR/
+      - text: cfbseedR
+        href: https://cfbseedR.sportsdataverse.org/
+      - text: sdvplotR
+        href: https://sdvplotR.sportsdataverse.org/
       - text: --------------------------------
       - text: "Python Packages"
       - text: sportsdataverse-py
@@ -202,12 +210,18 @@ navbar:
         href: https://sportypy.sportsdataverse.org/
       - text: collegebaseball
         href: https://collegebaseball.readthedocs.io/en/latest/index.html
+      - text: sdvplot
+        href: https://sdvplot.sportsdataverse.org/
+      - text: nwslpy
+        href: https://github.com/nwslR/nwslpy/
       - text: --------------------------------
       - text: "Node.js Packages"
       - text: sportsdataverse.js
         href: https://js.sportsdataverse.org/
       - text: nfl-nerd
         href: https://github.com/nntrn/nfl-nerd/
+      - text: sdvplot-js
+        href: https://plot.sportsdataverse.org/
     data:
       icon: "fas fa-database"
       text: " Data"
