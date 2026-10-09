@@ -152,7 +152,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_positions()
 #> ── ESPN MLB Positions Index ───────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 03:45:30 UTC
+#> ℹ Data updated: 2026-10-09 04:39:58 UTC
 #> # A tibble: 23 × 3
 #>    position_id ref                                                league
 #>    <chr>       <chr>                                              <chr> 

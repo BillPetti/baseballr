@@ -174,11 +174,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_powerindex(season = 2025)
-#> ✖ 2026-10-09 03:45:31.096375: Failed to retrieve ESPN mlb powerindex for season=2025
+#> ✖ 2026-10-09 04:39:58.898155: Failed to retrieve ESPN mlb powerindex for season=2025
 #> ✖ Args: league = "mlb", season = 2025, season_type = 2:3
 #> ✖ Error: The API returned an error, HTTP Response Code 400
 #> ── ESPN MLB Season Power Index ────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 03:45:31 UTC
+#> ℹ Data updated: 2026-10-09 04:39:58 UTC
 #> # A tibble: 0 × 0
 # }
 ```

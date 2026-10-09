@@ -49,7 +49,7 @@ A `baseballr_data` tibble:
 # \donttest{
   try(load_ncaa_baseball_group_aliases())
 #> ── NCAA baseball group aliases from the SportsDataverse data repo ──────
-#> ℹ Data updated: 2026-10-09 03:46:21 UTC
+#> ℹ Data updated: 2026-10-09 04:40:52 UTC
 #> # A tibble: 620 × 8
 #>    league  group_id source source_id name_kind value valid_from valid_to
 #>    <chr>   <chr>    <chr>  <chr>     <chr>     <chr>      <int>    <int>

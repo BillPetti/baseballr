@@ -325,7 +325,7 @@ landscape. Every SportsDataverse package has one — browse them all at
 To cite the [**`baseballr`**](https://billpetti.github.io/baseballr/) R
 package in publications, use:
 
-BibTex Citation
+BibTeX Citation
 
 ``` bibtex
 @misc{petti_gilani_2021,

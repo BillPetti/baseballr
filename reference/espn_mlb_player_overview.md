@@ -194,12 +194,12 @@ Saiem Gilani
   espn_mlb_player_overview(athlete_id = "1966", season = 2024)
 #> $Statistics
 #> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-10-09 03:45:28 UTC
+#> ℹ Data updated: 2026-10-09 04:39:56 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-10-09 03:45:28 UTC
+#> ℹ Data updated: 2026-10-09 04:39:56 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -207,32 +207,32 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-10-09 03:45:28 UTC
+#> ℹ Data updated: 2026-10-09 04:39:56 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-10-09 03:45:28 UTC
+#> ℹ Data updated: 2026-10-09 04:39:56 UTC
 #> # A tibble: 13 × 5
 #>    headline                           description published byline type 
 #>    <chr>                              <chr>       <chr>     <chr>  <chr>
-#>  1 MLB division series 2026: Live up… Can Clevel… 2026-10-… ESPN   Story
-#>  2 MLB proposes shorter regular seas… Major Leag… 2026-10-… Jesse… Head…
-#>  3 Tampa Bay Rays troll New York Yan… Someone in… 2026-10-… ESPN   Story
-#>  4 Every team's odds to win the 2026… Every MLB … 2026-10-… Doug … Story
-#>  5 MLB playoffs 2026: Is this the Mi… The Brew C… 2026-10-… Bradf… Story
-#>  6 MLB divisional round odds: Chicag… The divisi… 2026-10-… ESPN   Story
-#>  7 As Yankees fall short again, Aaro… Aaron Judg… 2026-10-… Jorge… Head…
-#>  8 Rays complete sweep of Yankees to… Victor Mes… 2026-10-… Buste… Head…
-#>  9 Mitchell robs Padres of tying hom… Garrett Mi… 2026-10-… Alden… Head…
-#> 10 2026 MLB playoffs: Offseason ques… Here's how… 2026-10-… ESPN   Story
-#> 11 MLB playoffs 2026: Previewing Dod… It's the N… 2026-10-… ESPN   Story
-#> 12 2026 MLB playoffs: Schedule, post… We have yo… 2026-10-… ESPN   Story
-#> 13 MLB division series 2026: Takeawa… It was a l… 2026-10-… ESPN   Story
+#>  1 Ramirez, Guardians top White Sox,… Jose Ramir… 2026-10-… NA     Head…
+#>  2 MLB division series 2026: Takeawa… The ALDS i… 2026-10-… ESPN   Story
+#>  3 2026 MLB playoffs: Schedule, post… We have yo… 2026-10-… ESPN   Story
+#>  4 MLB proposes shorter regular seas… Major Leag… 2026-10-… Jesse… Head…
+#>  5 Tampa Bay Rays troll New York Yan… Someone in… 2026-10-… ESPN   Story
+#>  6 Every team's odds to win the 2026… Every MLB … 2026-10-… Doug … Story
+#>  7 MLB playoffs 2026: Is this the Mi… The Brew C… 2026-10-… Bradf… Story
+#>  8 MLB divisional round odds: Chicag… The divisi… 2026-10-… ESPN   Story
+#>  9 As Yankees fall short again, Aaro… Aaron Judg… 2026-10-… Jorge… Head…
+#> 10 Rays complete sweep of Yankees to… Victor Mes… 2026-10-… Buste… Head…
+#> 11 Mitchell robs Padres of tying hom… Garrett Mi… 2026-10-… Alden… Head…
+#> 12 2026 MLB playoffs: Offseason ques… Here's how… 2026-10-… ESPN   Story
+#> 13 MLB playoffs 2026: Previewing Dod… It's the N… 2026-10-… ESPN   Story
 #> 
 #> $FantasyOutlook
 #> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────
-#> ℹ Data updated: 2026-10-09 03:45:28 UTC
+#> ℹ Data updated: 2026-10-09 04:39:56 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

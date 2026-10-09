@@ -185,7 +185,7 @@ Saiem Gilani
   # Aaron Judge — regular + postseason combined
   espn_mlb_player_career_stats(athlete_id = 33192)
 #> ── ESPN MLB Athlete Career Stats ──────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 03:45:25 UTC
+#> ℹ Data updated: 2026-10-09 04:39:53 UTC
 #> # A tibble: 94 × 17
 #>    league athlete_id stat_type_id split_id split_name split_type
 #>    <chr>  <chr>      <chr>        <chr>    <chr>      <chr>     
@@ -207,7 +207,7 @@ Saiem Gilani
   # Just career aggregate
   espn_mlb_player_career_stats(athlete_id = 33192, stat_type = 2L)
 #> ── ESPN MLB Athlete Career Stats ──────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 03:45:26 UTC
+#> ℹ Data updated: 2026-10-09 04:39:53 UTC
 #> # A tibble: 59 × 17
 #>    league athlete_id stat_type_id split_id split_name     split_type
 #>    <chr>  <chr>      <chr>        <chr>    <chr>          <chr>     

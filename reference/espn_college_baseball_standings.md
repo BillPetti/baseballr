@@ -146,7 +146,7 @@ Saiem Gilani
 # \donttest{
 try(espn_college_baseball_standings(year = 2025))
 #> ── ESPN College Baseball Standings Information from ESPN.com ───────────
-#> ℹ Data updated: 2026-10-09 03:45:03 UTC
+#> ℹ Data updated: 2026-10-09 04:39:30 UTC
 #> # A tibble: 63 × 32
 #>    team_id team            otlosses otwins avgpointsagainst avgpointsfor
 #>      <int> <chr>           <chr>    <chr>             <dbl>        <dbl>
