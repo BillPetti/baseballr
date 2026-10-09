@@ -119,7 +119,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_season_rankings(season = 2025))
 #> ── ESPN COLLEGE-BASEBALL Season Rankings Index ────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:26:46 UTC
+#> ℹ Data updated: 2026-10-09 03:45:01 UTC
 #> # A tibble: 1 × 4
 #>   league           season ranking_id ref                                
 #>   <chr>             <int> <chr>      <chr>                              

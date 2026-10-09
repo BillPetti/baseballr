@@ -146,7 +146,7 @@ Saiem Gilani
 # \donttest{
   espn_college_baseball_team_season_profile(team_id = "59", season = 2025)
 #> ── ESPN COLLEGE-BASEBALL Team Season Profile from ESPN.com ─────────────
-#> ℹ Data updated: 2026-09-30 14:26:53 UTC
+#> ℹ Data updated: 2026-10-09 03:45:07 UTC
 #> # A tibble: 1 × 35
 #>   id    guid            uid   slug  location name  nickname abbreviation
 #>   <chr> <chr>           <chr> <chr> <chr>    <chr> <chr>    <chr>       

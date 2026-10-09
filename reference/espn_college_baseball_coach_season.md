@@ -130,11 +130,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_coach_season(coach_id = 52120, season = 2025))
-#> ✖ 2026-09-30 14:26:24.747751: Failed to retrieve ESPN college-baseball coach-in-season detail for coach_id=52120, season=2025
+#> ✖ 2026-10-09 03:44:46.111898: Failed to retrieve ESPN college-baseball coach-in-season detail for coach_id=52120, season=2025
 #> ✖ Args: league = "college-baseball", coach_id = 52120, season = 2025
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN COLLEGE-BASEBALL Coach-in-Season Detail ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:26:24 UTC
+#> ℹ Data updated: 2026-10-09 03:44:46 UTC
 #> # A tibble: 0 × 0
 # }
 ```

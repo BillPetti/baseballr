@@ -66,7 +66,7 @@ one row per player, with the following columns:
 # \donttest{
   try(bref_daily_batter(t1="2015-05-10", t2="2015-06-20"))
 #> ── MLB Daily Batter data from baseball-reference.com ───────────────────
-#> ℹ Data updated: 2026-09-30 14:25:21 UTC
+#> ℹ Data updated: 2026-10-09 03:44:01 UTC
 #> # A tibble: 658 × 30
 #>    bbref_id season Name    Age Level Team      G    PA    AB     R     H
 #>    <chr>     <int> <chr> <dbl> <chr> <chr> <dbl> <dbl> <dbl> <dbl> <dbl>

@@ -68,8 +68,8 @@ them in different systems of record.
 # \donttest{
   try(chadwick_player_lu())
 #> ── Player Lookup from the Chadwick Bureau's public register of baseball 
-#> ℹ Data updated: 2026-09-30 14:26:03 UTC
-#> # A tibble: 520,934 × 40
+#> ℹ Data updated: 2026-10-09 03:44:34 UTC
+#> # A tibble: 526,894 × 40
 #>    key_person key_uuid    key_mlbam key_retro key_bbref key_bbref_minors
 #>    <chr>      <chr>           <int> <chr>     <chr>     <chr>           
 #>  1 000007d9   000007d9-a…    472542 ""        ""        garcia001ado    
@@ -77,12 +77,12 @@ them in different systems of record.
 #>  3 00002834   00002834-f…    533242 ""        ""        smith-001ado    
 #>  4 00002901   00002901-1…        NA ""        ""        decarl000lou    
 #>  5 000045b3   000045b3-e…        NA ""        ""        spaine001har    
-#>  6 00006177   00006177-b…        NA ""        ""        battle001elg    
+#>  6 00006177   00006177-b…    555235 ""        ""        battle001elg    
 #>  7 00007bd0   00007bd0-4…        NA ""        ""        desous000jam    
 #>  8 0000815e   0000815e-3…        NA ""        ""        burr--001rob    
 #>  9 0000ba28   0000ba28-8…        NA ""        ""        love--001jac    
 #> 10 0000e73a   0000e73a-6…        NA ""        ""        hewitt000ale    
-#> # ℹ 520,924 more rows
+#> # ℹ 526,884 more rows
 #> # ℹ 34 more variables: key_fangraphs <int>, key_npb <int>,
 #> #   key_sr_nfl <chr>, key_sr_nba <chr>, key_sr_nhl <chr>,
 #> #   key_wikidata <chr>, name_last <chr>, name_first <chr>,

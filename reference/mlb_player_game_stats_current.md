@@ -126,7 +126,7 @@ Returns a tibble with the following columns:
 # \donttest{
   try(mlb_player_game_stats_current(person_id = 660271))
 #> ── MLB Player Game Stats - Current Game data from MLB.com ──────────────
-#> ℹ Data updated: 2026-09-30 14:30:48 UTC
+#> ℹ Data updated: 2026-10-09 03:48:16 UTC
 #> # A tibble: 0 × 0
 # }
 ```

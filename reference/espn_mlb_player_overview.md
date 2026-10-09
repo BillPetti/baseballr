@@ -194,12 +194,12 @@ Saiem Gilani
   espn_mlb_player_overview(athlete_id = "1966", season = 2024)
 #> $Statistics
 #> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-09-30 14:27:17 UTC
+#> ℹ Data updated: 2026-10-09 03:45:28 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-09-30 14:27:17 UTC
+#> ℹ Data updated: 2026-10-09 03:45:28 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -207,32 +207,32 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-09-30 14:27:17 UTC
+#> ℹ Data updated: 2026-10-09 03:45:28 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-09-30 14:27:17 UTC
+#> ℹ Data updated: 2026-10-09 03:45:28 UTC
 #> # A tibble: 13 × 5
 #>    headline                           description published byline type 
 #>    <chr>                              <chr>       <chr>     <chr>  <chr>
-#>  1 Astros frustrated by boos from sp… The crowd … 2026-09-… NA     Head…
-#>  2 MLB wild-card round odds: The fav… The wild-c… 2026-09-… ESPN   Story
-#>  3 2026 MLB wild-card series Day 2: … Which team… 2026-09-… ESPN   Story
-#>  4 Red Sox OF Anthony (hand) exits e… It's uncle… 2026-09-… Jeff … Head…
-#>  5 Padres pummel Cubs behind Tatis' … The Padres… 2026-09-… Alden… Head…
-#>  6 2026 MLB wild-card series Day 1: … Relive the… 2026-09-… ESPN   Story
-#>  7 Schlittler, Rice lead Yankees' ro… Cam Schlit… 2026-09-… Jorge… Head…
-#>  8 2026 MLB playoffs: Schedule, post… We have yo… 2026-09-… ESPN   Story
-#>  9 Dodgers expect healthier Shohei O… The Dodger… 2026-09-… NA     Head…
-#> 10 Three-time All-Star pitcher Liam … Liam Hendr… 2026-09-… NA     Head…
-#> 11 White Sox top Astros in Game 1; f… The White … 2026-09-… Bradf… Head…
-#> 12 Mattingly's call to Duran in 7th … Don Mattin… 2026-09-… NA     Head…
-#> 13 Twins believe future is bright wi… The top pr… 2026-09-… NA     Head…
+#>  1 MLB division series 2026: Live up… Can Clevel… 2026-10-… ESPN   Story
+#>  2 MLB proposes shorter regular seas… Major Leag… 2026-10-… Jesse… Head…
+#>  3 Tampa Bay Rays troll New York Yan… Someone in… 2026-10-… ESPN   Story
+#>  4 Every team's odds to win the 2026… Every MLB … 2026-10-… Doug … Story
+#>  5 MLB playoffs 2026: Is this the Mi… The Brew C… 2026-10-… Bradf… Story
+#>  6 MLB divisional round odds: Chicag… The divisi… 2026-10-… ESPN   Story
+#>  7 As Yankees fall short again, Aaro… Aaron Judg… 2026-10-… Jorge… Head…
+#>  8 Rays complete sweep of Yankees to… Victor Mes… 2026-10-… Buste… Head…
+#>  9 Mitchell robs Padres of tying hom… Garrett Mi… 2026-10-… Alden… Head…
+#> 10 2026 MLB playoffs: Offseason ques… Here's how… 2026-10-… ESPN   Story
+#> 11 MLB playoffs 2026: Previewing Dod… It's the N… 2026-10-… ESPN   Story
+#> 12 2026 MLB playoffs: Schedule, post… We have yo… 2026-10-… ESPN   Story
+#> 13 MLB division series 2026: Takeawa… It was a l… 2026-10-… ESPN   Story
 #> 
 #> $FantasyOutlook
 #> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────
-#> ℹ Data updated: 2026-09-30 14:27:17 UTC
+#> ℹ Data updated: 2026-10-09 03:45:28 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

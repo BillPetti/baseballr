@@ -62,7 +62,7 @@ A `baseballr_data` tibble:
 # \donttest{
   try(load_ncaa_baseball_team_group_seasons(seasons = 2025))
 #> ── NCAA baseball team group seasons from the SportsDataverse data repo ─
-#> ℹ Data updated: 2026-09-30 14:30:13 UTC
+#> ℹ Data updated: 2026-10-09 03:47:41 UTC
 #> # A tibble: 943 × 11
 #>    league        season team_id team_id_source team_name  subdivision_id
 #>    <chr>          <int> <chr>   <chr>          <chr>      <chr>         

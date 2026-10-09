@@ -203,7 +203,7 @@ Other ESPN MLB Functions:
 ``` r
 # \donttest{
 try(espn_mlb_betting(game_id = 401283399))
-#> ✖ 2026-09-30 14:26:59.513802: Invalid arguments or no betting data available!
+#> ✖ 2026-10-09 03:45:11.907651: Invalid arguments or no betting data available!
 #> ✖ Args: game_id = 401283399
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> $pickcenter

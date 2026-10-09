@@ -25,7 +25,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_job_types())
 #> ── MLB Job Types data from MLB.com ────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-09-30 14:30:39 UTC
+#> ℹ Data updated: 2026-10-09 03:48:07 UTC
 #> # A tibble: 393 × 3
 #>    job_code job                        sort_order
 #>    <chr>    <chr>                           <int>
