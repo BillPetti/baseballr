@@ -346,7 +346,7 @@ make_baseballr_data <- function(df, type, timestamp){
   out <- df |>
     tidyr::as_tibble()
   
-  class(out) <- c("baseballr_data","tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("baseballr_data","tbl_df","tbl","data.frame")
   attr(out,"baseballr_timestamp") <- timestamp
   attr(out,"baseballr_type") <- type
   return(out)

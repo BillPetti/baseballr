@@ -62,7 +62,7 @@ Use the prefix that matches the data source. Never mix sources behind one prefix
 - **Data pipeline.** Finish transforms with
   `... |> janitor::clean_names() |> make_baseballr_data("<description>", Sys.time())`.
   `make_baseballr_data()` sets class
-  `c("baseballr_data", "tbl_df", "tbl", "data.table", "data.frame")` and attaches
+  `c("baseballr_data", "tbl_df", "tbl", "data.frame")` and attaches
   `baseballr_timestamp` / `baseballr_type` attributes.
 - **Column-drift resilience.** Drop columns with
   `dplyr::select(-dplyr::any_of("col"))`, never bare `select(-"col")`, because

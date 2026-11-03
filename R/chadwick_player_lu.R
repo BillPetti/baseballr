@@ -65,7 +65,7 @@ chadwick_player_lu <- function() {
   
   df <- lapply(urls, progressively(loader, p))
   df <- rbindlist_with_attrs(df)
-  class(df) <- c("baseballr_data","tbl_df","tbl","data.table","data.frame")
+  class(df) <- c("baseballr_data","tbl_df","tbl","data.frame")
   
   
   df <- df |>

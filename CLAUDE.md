@@ -183,7 +183,7 @@ raw_data |>
 ```
 
 `make_baseballr_data()` (in `R/utils.R`) coerces to a tibble, sets the class to
-`c("baseballr_data", "tbl_df", "tbl", "data.table", "data.frame")`, and attaches
+`c("baseballr_data", "tbl_df", "tbl", "data.frame")`, and attaches
 `baseballr_timestamp` and `baseballr_type` attributes.
 
 ### Return-Value Initialization (CRITICAL)

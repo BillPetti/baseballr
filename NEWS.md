@@ -41,6 +41,13 @@
 
 ### Bug fixes
 
+- `tail()` works on the result of every loader, `chadwick_player_lu()`, and
+  every function that returns a `baseballr_data` tibble. The class vector they
+  set, in the `load_ncaa_baseball_*()` loaders, `chadwick_player_lu()` and
+  `make_baseballr_data()`, still listed `data.table`, so `tail()` failed with
+  "Can't subset columns past the end" (the bug fixed in hoopR as
+  [hoopR#88](https://github.com/sportsdataverse/hoopR/issues/88)). The class is
+  now `baseballr_data` / `tbl_df` / `tbl` / `data.frame`.
 - `mlb_standings()` accepts a vector `league_id`, as documented
   (`league_id = c(103, 104)` for both leagues): `httr2::url_modify_query()`
   refused it ("All vector elements of `...` must be length 1"), so the call

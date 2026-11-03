@@ -38,7 +38,7 @@ load_ncaa_baseball_schedule <- function(seasons = most_recent_ncaa_baseball_seas
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
     out <- NULL
   } else {
-    class(out) <- c("baseballr_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("baseballr_data","tbl_df","tbl","data.frame")
   }
   out
 }
