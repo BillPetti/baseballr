@@ -313,9 +313,6 @@ A data frame of pitcher data.\tabular{lll}{
    rBTV \tab numeric \tab Regressed base-state team value. \cr
    EBV \tab integer \tab Earned-base value (raw component). \cr
    ESV \tab integer \tab Earned-strike value (raw component). \cr
-   rFTeamV \tab numeric \tab Regressed fielding team value. \cr
-   rBTeamV \tab numeric \tab Regressed base-running team value. \cr
-   rTV \tab numeric \tab Regressed total team value. \cr
    pfx_FA_pct \tab numeric \tab PITCHf/x four-seam fastballs usage percentage. \cr
    pfx_FC_pct \tab numeric \tab PITCHf/x cutters usage percentage. \cr
    pfx_FS_pct \tab numeric \tab PITCHf/x splitters usage percentage. \cr
