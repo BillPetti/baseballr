@@ -57,7 +57,7 @@ the suite leads with `skip_on_cran()`; new tests must too.
 When this guide differs from current repository docs, treat `CONTRIBUTING.md` and
 current test implementations as authoritative.
 
-- **Version**: 2.0.0
+- **Version**: 2.0.0.9000
 - **R Requirement**: >= 4.1.0 (the package uses the native pipe `|>`)
 - **License**: MIT
 - **Author (aut)**: Bill Petti <billpetti@gmail.com>
