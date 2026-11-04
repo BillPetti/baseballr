@@ -213,7 +213,7 @@ Saiem Gilani
   espn_mlb_team(team_id = "13", season = 2025)
 #> $Info
 #> ── ESPN MLB Team Info from ESPN.com ───────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:40:07 UTC
+#> ℹ Data updated: 2026-11-04 00:41:04 UTC
 #> # A tibble: 1 × 12
 #>   id    uid     slug  abbreviation display_name short_display_name name 
 #>   <chr> <chr>   <chr> <chr>        <chr>        <chr>              <chr>
@@ -223,29 +223,24 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN MLB Team Record from ESPN.com ─────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:40:07 UTC
+#> ℹ Data updated: 2026-11-04 00:41:04 UTC
 #> # A tibble: 3 × 4
-#>   description    type  summary stats        
-#>   <chr>          <chr> <chr>   <list>       
-#> 1 Overall Record total 80-82   <df [33 × 2]>
-#> 2 Home Record    home  45-36   <df [33 × 2]>
-#> 3 Away Record    road  35-46   <df [33 × 2]>
+#>   description    stats         summary type 
+#>   <chr>          <list>        <chr>   <chr>
+#> 1 Overall Record <df [36 × 2]> 81-81   total
+#> 2 Home Record    <df [36 × 2]> 48-33   home 
+#> 3 Away Record    <df [36 × 2]> 33-48   road 
 #> 
 #> $NextEvent
-#> ── ESPN MLB Team Next Event from ESPN.com ─────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:40:07 UTC
-#> # A tibble: 1 × 4
-#>   id        date              name                            short_name
-#>   <chr>     <chr>             <chr>                           <chr>     
-#> 1 401817112 2026-09-27T19:10Z Texas Rangers at Minnesota Twi… TEX @ MIN 
+#> data frame with 0 columns and 0 rows
 #> 
 #> $StandingSummary
 #> ── ESPN MLB Team Standing Summary from ESPN.com ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:40:07 UTC
+#> ℹ Data updated: 2026-11-04 00:41:04 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary
 #>   <chr>           
-#> 1 2nd in AL West  
+#> 1 3rd in AL West  
 #> 
 #> $Coaches
 #> data frame with 0 columns and 0 rows

@@ -182,8 +182,8 @@ end_timecode
                    start_timecode = "20210808_231704", 
                    end_timecode = "20210808_233711"))
 #> ── MLB Play-by-Play diff data from MLB.com ────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:42:48 UTC
-#> # A tibble: 50 × 141
+#> ℹ Data updated: 2026-11-04 00:44:53 UTC
+#> # A tibble: 50 × 144
 #>    game_pk game_date  index startTime       endTime isPitch type  playId
 #>      <dbl> <chr>      <int> <chr>           <chr>   <lgl>   <chr> <chr> 
 #>  1  632970 2021-08-08     2 2021-08-08T23:… 2021-0… TRUE    pitch 0c67e…
@@ -197,7 +197,7 @@ end_timecode
 #>  9  632970 2021-08-08     2 2021-08-08T23:… 2021-0… TRUE    pitch aae6b…
 #> 10  632970 2021-08-08     1 2021-08-08T23:… 2021-0… TRUE    pitch 63658…
 #> # ℹ 40 more rows
-#> # ℹ 133 more variables: pitchNumber <int>, details.description <chr>,
+#> # ℹ 136 more variables: pitchNumber <int>, details.description <chr>,
 #> #   details.event <chr>, details.awayScore <int>,
 #> #   details.homeScore <int>, details.isScoringPlay <lgl>,
 #> #   details.hasReview <lgl>, details.code <chr>,

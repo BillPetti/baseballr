@@ -42,28 +42,29 @@ plate umpire for the `game_pk` requested
 # \donttest{
   try(mlb_batting_orders(game_pk=566001))
 #> ── MLB Game Starting Batting Order data from MLB.com ───────────────────
-#> ℹ Data updated: 2026-10-09 04:42:23 UTC
-#> # A tibble: 18 × 8
-#>        id fullName abbreviation batting_order batting_position_num team 
-#>     <int> <chr>    <chr>        <chr>         <chr>                <chr>
-#>  1 606299 José Pe… 2B           1             0                    away 
-#>  2 458015 Joey Vo… 1B           2             0                    away 
-#>  3 553993 Eugenio… 3B           3             0                    away 
-#>  4 608385 Jesse W… LF           4             0                    away 
-#>  5 624577 Yasiel … RF           5             0                    away 
-#>  6 594988 Scott S… CF           6             0                    away 
-#>  7 578428 Jose Ig… SS           7             0                    away 
-#>  8 571466 Tucker … C            8             0                    away 
-#>  9 543699 Tanner … P            9             0                    away 
-#> 10 643446 Jeff Mc… 2B           1             0                    home 
-#> 11 624413 Pete Al… 1B           2             0                    home 
-#> 12 607043 Brandon… LF           3             0                    home 
-#> 13 624424 Michael… RF           4             0                    home 
-#> 14 453943 Todd Fr… 3B           5             0                    home 
-#> 15 467092 Wilson … C            6             0                    home 
-#> 16 642708 Amed Ro… SS           7             0                    home 
-#> 17 501571 Juan La… CF           8             0                    home 
-#> 18 554430 Zack Wh… P            9             0                    home 
-#> # ℹ 2 more variables: teamName <chr>, teamID <int>
+#> ℹ Data updated: 2026-11-04 00:44:33 UTC
+#> # A tibble: 18 × 9
+#>        id fullName         nameSlug           abbreviation batting_order
+#>     <int> <chr>            <chr>              <chr>        <chr>        
+#>  1 606299 José Peraza      jose-peraza-606299 2B           1            
+#>  2 458015 Joey Votto       joey-votto-458015  1B           2            
+#>  3 553993 Eugenio Suárez   eugenio-suarez-55… 3B           3            
+#>  4 608385 Jesse Winker     jesse-winker-6083… LF           4            
+#>  5 624577 Yasiel Puig      yasiel-puig-624577 RF           5            
+#>  6 594988 Scott Schebler   scott-schebler-59… CF           6            
+#>  7 578428 Jose Iglesias    jose-iglesias-578… SS           7            
+#>  8 571466 Tucker Barnhart  tucker-barnhart-5… C            8            
+#>  9 543699 Tanner Roark     tanner-roark-5436… P            9            
+#> 10 643446 Jeff McNeil      jeff-mcneil-643446 2B           1            
+#> 11 624413 Pete Alonso      pete-alonso-624413 1B           2            
+#> 12 607043 Brandon Nimmo    brandon-nimmo-607… LF           3            
+#> 13 624424 Michael Conforto michael-conforto-… RF           4            
+#> 14 453943 Todd Frazier     todd-frazier-4539… 3B           5            
+#> 15 467092 Wilson Ramos     wilson-ramos-4670… C            6            
+#> 16 642708 Amed Rosario     amed-rosario-6427… SS           7            
+#> 17 501571 Juan Lagares     juan-lagares-5015… CF           8            
+#> 18 554430 Zack Wheeler     zack-wheeler-5544… P            9            
+#> # ℹ 4 more variables: batting_position_num <chr>, team <chr>,
+#> #   teamName <chr>, teamID <int>
 # }
 ```

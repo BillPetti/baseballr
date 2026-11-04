@@ -242,26 +242,7 @@ Saiem Gilani
 # \donttest{
 try(espn_mlb_team_current_roster(team_id = 13))
 #> ── ESPN MLB Team Current Roster Information from ESPN.com ──────────────
-#> ℹ Data updated: 2026-10-09 04:40:08 UTC
-#> # A tibble: 290 × 96
-#>    team_id team_uid  team_slug team_location team_name team_abbreviation
-#>      <int> <chr>     <chr>     <chr>         <chr>     <chr>            
-#>  1      13 s:1~l:10… texas-ra… Texas         Rangers   TEX              
-#>  2      13 s:1~l:10… texas-ra… Texas         Rangers   TEX              
-#>  3      13 s:1~l:10… texas-ra… Texas         Rangers   TEX              
-#>  4      13 s:1~l:10… texas-ra… Texas         Rangers   TEX              
-#>  5      13 s:1~l:10… texas-ra… Texas         Rangers   TEX              
-#>  6      13 s:1~l:10… texas-ra… Texas         Rangers   TEX              
-#>  7      13 s:1~l:10… texas-ra… Texas         Rangers   TEX              
-#>  8      13 s:1~l:10… texas-ra… Texas         Rangers   TEX              
-#>  9      13 s:1~l:10… texas-ra… Texas         Rangers   TEX              
-#> 10      13 s:1~l:10… texas-ra… Texas         Rangers   TEX              
-#> # ℹ 280 more rows
-#> # ℹ 90 more variables: team_display_name <chr>, team_short_name <chr>,
-#> #   team_color <chr>, team_alternate_color <chr>, team_is_active <lgl>,
-#> #   franchise..ref <chr>, franchise.id <chr>, franchise.uid <chr>,
-#> #   franchise.slug <chr>, franchise.location <chr>,
-#> #   franchise.name <chr>, franchise.abbreviation <chr>,
-#> #   franchise.displayName <chr>, franchise.shortDisplayName <chr>, …
+#> ℹ Data updated: 2026-11-04 00:41:05 UTC
+#> # A tibble: 0 × 0
 # }
 ```

@@ -39,8 +39,8 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_team_personnel(team_id = 137, date = "08/28/2016"))
 #> ── MLB Team Personnel data from MLB.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:43:05 UTC
-#> # A tibble: 15 × 7
+#> ℹ Data updated: 2026-11-04 00:45:08 UTC
+#> # A tibble: 15 × 8
 #>    jersey_number job             job_id title person_id person_full_name
 #>    <chr>         <chr>           <chr>  <chr>     <int> <chr>           
 #>  1 "21"          Special Assist… SASU   Spec…    113645 Shawon Dunston  
@@ -58,6 +58,6 @@ Returns a tibble with the following columns
 #> 13 ""            Coordinator, P… CPIT   Coor…    111351 Bert Bradley    
 #> 14 ""            Strength and C… SCCR   Stre…    580104 Geoff Head      
 #> 15 ""            Assistant Trai… ATRA   Assi…    599862 Mark Gruesbeck  
-#> # ℹ 1 more variable: person_link <chr>
+#> # ℹ 2 more variables: person_link <chr>, person_name_slug <chr>
 # }
 ```

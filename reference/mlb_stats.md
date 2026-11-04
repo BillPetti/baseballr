@@ -226,8 +226,8 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_stats(stat_type = 'season', stat_group = 'hitting', season = 2021))
 #> ── MLB Stats data from MLB.com ────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:43:01 UTC
-#> # A tibble: 132 × 61
+#> ℹ Data updated: 2026-11-04 00:45:05 UTC
+#> # A tibble: 132 × 62
 #>    total_splits season num_teams  rank   age games_played ground_outs
 #>           <int> <chr>      <int> <int> <int>        <int>       <int>
 #>  1          132 2021           2     1    28          148         141
@@ -241,7 +241,7 @@ Returns a tibble with the following columns
 #>  9          132 2021           1     9    29          138         117
 #> 10          132 2021           2    10    29          155         156
 #> # ℹ 122 more rows
-#> # ℹ 54 more variables: air_outs <int>, runs <int>, doubles <int>,
+#> # ℹ 55 more variables: air_outs <int>, runs <int>, doubles <int>,
 #> #   triples <int>, home_runs <int>, strike_outs <int>,
 #> #   base_on_balls <int>, intentional_walks <int>, hits <int>,
 #> #   hit_by_pitch <int>, avg <chr>, at_bats <int>, obp <chr>, slg <chr>,

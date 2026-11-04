@@ -176,7 +176,7 @@ Saiem Gilani
   espn_college_baseball_team(team_id = "59", season = 2025)
 #> $Info
 #> ── ESPN COLLEGE-BASEBALL Team Info from ESPN.com ──── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:39:31 UTC
+#> ℹ Data updated: 2026-11-04 00:40:26 UTC
 #> # A tibble: 1 × 12
 #>   id    uid     slug  abbreviation display_name short_display_name name 
 #>   <chr> <chr>   <chr> <chr>        <chr>        <chr>              <chr>
@@ -186,28 +186,24 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN COLLEGE-BASEBALL Team Record from ESPN.com ── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:39:31 UTC
-#> # A tibble: 1 × 4
-#>   description    type  summary stats        
-#>   <chr>          <chr> <chr>   <list>       
-#> 1 Overall Record total 39-21   <df [29 × 2]>
+#> ℹ Data updated: 2026-11-04 00:40:26 UTC
+#> # A tibble: 3 × 4
+#>   description    stats         summary type 
+#>   <chr>          <list>        <chr>   <chr>
+#> 1 Overall Record <df [32 × 2]> 35-22   total
+#> 2 Home Record    <df [32 × 2]> 26-9    home 
+#> 3 Away Record    <df [32 × 2]> 9-11    road 
 #> 
 #> $NextEvent
-#> ── ESPN COLLEGE-BASEBALL Team Next Event from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-10-09 04:39:31 UTC
-#> # A tibble: 2 × 4
-#>   id        date              name                            short_name
-#>   <chr>     <chr>             <chr>                           <chr>     
-#> 1 401873827 2026-05-31T19:00Z Nebraska Cornhuskers at Arizon… NEB @ ASU 
-#> 2 401873831 2026-06-01T00:00Z Arizona State Sun Devils at Ol… ASU @ MISS
+#> data frame with 0 columns and 0 rows
 #> 
 #> $StandingSummary
 #> ── ESPN COLLEGE-BASEBALL Team Standing Summary from ESPN.com ───────────
-#> ℹ Data updated: 2026-10-09 04:39:31 UTC
+#> ℹ Data updated: 2026-11-04 00:40:26 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary
 #>   <chr>           
-#> 1 1st in Big 12   
+#> 1 1st             
 #> 
 #> $Coaches
 #> data frame with 0 columns and 0 rows

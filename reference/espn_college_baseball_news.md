@@ -116,14 +116,15 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_news(limit = 5))
 #> ── ESPN COLLEGE-BASEBALL News from ESPN.com ───────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:39:20 UTC
-#> # A tibble: 5 × 8
-#>       id type  headline description published premium link_web league_id
-#>    <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>    <chr>    
-#> 1 5.00e7 Head… UCF ext… UCF baseba… 2026-09-… FALSE   https:/… 14       
-#> 2 4.97e7 Media SEC's V… SEC Associ… 2026-08-… FALSE   https:/… 14       
-#> 3 4.97e7 Media Jay Joh… Johnson re… 2026-08-… FALSE   https:/… 14       
-#> 4 4.97e7 Media Dellucc… SEC Networ… 2026-08-… FALSE   https:/… 14       
-#> 5 4.97e7 Media Remembe… In his own… 2026-08-… FALSE   https:/… 14       
+#> ℹ Data updated: 2026-11-04 00:40:13 UTC
+#> # A tibble: 5 × 9
+#>         id type   headline description published premium byline link_web
+#>      <int> <chr>  <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>   
+#> 1 50327726 Headl… Commiss… Big 12 com… 2026-10-… FALSE   Pete … https:/…
+#> 2 50196596 Headl… NCAA su… The NCAA h… 2026-10-… FALSE   NA     https:/…
+#> 3 49973671 Headl… UCF ext… UCF baseba… 2026-09-… FALSE   NA     https:/…
+#> 4 49727424 Media  SEC's V… SEC Associ… 2026-08-… FALSE   NA     https:/…
+#> 5 49727036 Media  Jay Joh… Johnson re… 2026-08-… FALSE   NA     https:/…
+#> # ℹ 1 more variable: league_id <chr>
 # }
 ```

@@ -199,8 +199,8 @@ function.
 # \donttest{
   try(mlb_pbp(game_pk = 632970))
 #> ── MLB Play-by-Play data from MLB.com ─────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:42:46 UTC
-#> # A tibble: 336 × 151
+#> ℹ Data updated: 2026-11-04 00:44:52 UTC
+#> # A tibble: 336 × 156
 #>    game_pk game_date  index startTime       endTime isPitch type  playId
 #>      <dbl> <chr>      <int> <chr>           <chr>   <lgl>   <chr> <chr> 
 #>  1  632970 2021-08-08     2 2021-08-08T23:… 2021-0… TRUE    pitch 6fce9…
@@ -214,7 +214,7 @@ function.
 #>  9  632970 2021-08-08     0 2021-08-09T02:… 2021-0… FALSE   acti… NA    
 #> 10  632970 2021-08-08     5 2021-08-09T02:… 2021-0… TRUE    pitch f0450…
 #> # ℹ 326 more rows
-#> # ℹ 143 more variables: pitchNumber <int>, details.description <chr>,
+#> # ℹ 148 more variables: pitchNumber <int>, details.description <chr>,
 #> #   details.event <chr>, details.awayScore <int>,
 #> #   details.homeScore <int>, details.isScoringPlay <lgl>,
 #> #   details.hasReview <lgl>, details.code <chr>,

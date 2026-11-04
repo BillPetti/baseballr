@@ -185,8 +185,8 @@ Returns a tibble with the following columns
 # \donttest{
  try(mlb_stats_leaders(leader_categories='homeRuns',sport_id=1, season = 2021))
 #> ── MLB Stats Leaders data from MLB.com ────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:43:02 UTC
-#> # A tibble: 306 × 23
+#> ℹ Data updated: 2026-11-04 00:45:05 UTC
+#> # A tibble: 306 × 24
 #>    leader_category  rank value season num_teams team_id team_name       
 #>    <chr>           <int> <chr> <chr>      <int>   <int> <chr>           
 #>  1 homeRuns            1 48    2021           1     141 Toronto Blue Ja…
@@ -200,11 +200,11 @@ Returns a tibble with the following columns
 #>  9 homeRuns            6 39    2021           1     133 Oakland Athleti…
 #> 10 homeRuns           10 38    2021           1     111 Boston Red Sox  
 #> # ℹ 296 more rows
-#> # ℹ 16 more variables: team_link <chr>, league_id <int>,
+#> # ℹ 17 more variables: team_link <chr>, league_id <int>,
 #> #   league_name <chr>, league_link <chr>, person_id <int>,
 #> #   person_full_name <chr>, person_link <chr>, person_first_name <chr>,
-#> #   person_last_name <chr>, sport_id <int>, sport_link <chr>,
-#> #   sport_abbreviation <chr>, stat_group <chr>, total_splits <int>,
-#> #   game_type_id <chr>, game_type_description <chr>
+#> #   person_last_name <chr>, person_name_slug <chr>, sport_id <int>,
+#> #   sport_link <chr>, sport_abbreviation <chr>, stat_group <chr>,
+#> #   total_splits <int>, game_type_id <chr>, …
 # }
 ```

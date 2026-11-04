@@ -375,9 +375,6 @@ A data frame of pitcher data.
 | rBTV | numeric | Regressed base-state team value. |
 | EBV | integer | Earned-base value (raw component). |
 | ESV | integer | Earned-strike value (raw component). |
-| rFTeamV | numeric | Regressed fielding team value. |
-| rBTeamV | numeric | Regressed base-running team value. |
-| rTV | numeric | Regressed total team value. |
 | pfx_FA_pct | numeric | PITCHf/x four-seam fastballs usage percentage. |
 | pfx_FC_pct | numeric | PITCHf/x cutters usage percentage. |
 | pfx_FS_pct | numeric | PITCHf/x splitters usage percentage. |
@@ -660,8 +657,8 @@ A data frame of pitcher data.
 # \donttest{
   try(fg_team_pitcher(startseason = 2015, endseason = 2015, qual = 150))
 #> ── MLB Team Pitching data from FanGraphs.com ──────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:40:32 UTC
-#> # A tibble: 30 × 427
+#> ℹ Data updated: 2026-11-04 00:41:29 UTC
+#> # A tibble: 30 × 422
 #>    Season team_name SeasonMin SeasonMax     W     L   ERA     G    GS
 #>     <int> <chr>         <int>     <int> <int> <int> <dbl> <int> <int>
 #>  1   2015 CHC            2015      2015    97    65  3.36   714   162
@@ -675,7 +672,7 @@ A data frame of pitcher data.
 #>  9   2015 NYY            2015      2015    87    75  4.03   659   162
 #> 10   2015 CHW            2015      2015    76    86  3.98   576   162
 #> # ℹ 20 more rows
-#> # ℹ 418 more variables: QS <int>, CG <int>, ShO <int>, SV <int>,
+#> # ℹ 413 more variables: QS <int>, CG <int>, ShO <int>, SV <int>,
 #> #   BS <int>, IP <dbl>, TBF <int>, H <int>, R <int>, ER <int>,
 #> #   HR <int>, BB <int>, IBB <int>, HBP <int>, WP <int>, BK <int>,
 #> #   SO <int>, GB <int>, FB <int>, LD <int>, IFFB <int>, Pitches <int>,

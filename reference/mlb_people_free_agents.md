@@ -45,8 +45,8 @@ Returns a tibble with the following columns:
 # \donttest{
   try(mlb_people_free_agents(season = 2018))
 #> ── MLB People - Free Agents data from MLB.com ─────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:42:49 UTC
-#> # A tibble: 515 × 17
+#> ℹ Data updated: 2026-11-04 00:44:54 UTC
+#> # A tibble: 515 × 18
 #>    notes date_signed date_declared sort_order player_id player_full_name
 #>    <chr> <chr>       <chr>              <int>     <int> <chr>           
 #>  1 Mino… 2018-12-17  2018-11-30            NA    592094 Jason Adam      
@@ -60,10 +60,10 @@ Returns a tibble with the following columns:
 #>  9 Trad… 2018-12-15  2018-12-15            NA    475174 Yonder Alonso   
 #> 10 Trad… 2018-12-06  2018-12-06            NA    501625 Jose Alvarez    
 #> # ℹ 505 more rows
-#> # ℹ 11 more variables: player_link <chr>, original_team_id <int>,
-#> #   original_team_name <chr>, original_team_link <chr>,
-#> #   new_team_id <int>, new_team_name <chr>, new_team_link <chr>,
-#> #   position_code <chr>, position_name <chr>, position_type <chr>,
-#> #   position_abbreviation <chr>
+#> # ℹ 12 more variables: player_link <chr>, player_name_slug <chr>,
+#> #   original_team_id <int>, original_team_name <chr>,
+#> #   original_team_link <chr>, new_team_id <int>, new_team_name <chr>,
+#> #   new_team_link <chr>, position_code <chr>, position_name <chr>,
+#> #   position_type <chr>, position_abbreviation <chr>
 # }
 ```

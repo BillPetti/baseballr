@@ -306,9 +306,6 @@ A data frame of batter data.
 | rBTV | numeric | Regressed base-state team value. |
 | EBV | integer | Earned-base value (raw component). |
 | ESV | integer | Earned-strike value (raw component). |
-| rFTeamV | numeric | Regressed fielding team value. |
-| rBTeamV | numeric | Regressed base-running team value. |
-| rTV | numeric | Regressed total team value. |
 | pfx_FA_pct | numeric | PITCHf/x four-seam fastballs usage percentage. |
 | pfx_FC_pct | numeric | PITCHf/x cutters usage percentage. |
 | pfx_FS_pct | numeric | PITCHf/x splitters usage percentage. |
@@ -588,8 +585,8 @@ A data frame of batter data.
 # \donttest{
   try(fg_team_batter(startseason = 2015, endseason = 2015, qual = 200))
 #> ── MLB Team Batting data from FanGraphs.com ───────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:40:31 UTC
-#> # A tibble: 30 × 412
+#> ℹ Data updated: 2026-11-04 00:41:28 UTC
+#> # A tibble: 30 × 407
 #>    Season team_name SeasonMin SeasonMax     G    AB    PA     H  `1B`
 #>     <int> <chr>         <int>     <int> <int> <int> <int> <int> <int>
 #>  1   2015 TOR            2015      2015  2337  5509  6231  1480   923
@@ -603,7 +600,7 @@ A data frame of batter data.
 #>  9   2015 KCR            2015      2015  2263  5575  6116  1497  1016
 #> 10   2015 TEX            2015      2015  2358  5511  6187  1419   936
 #> # ℹ 20 more rows
-#> # ℹ 403 more variables: `2B` <int>, `3B` <int>, HR <int>, R <int>,
+#> # ℹ 398 more variables: `2B` <int>, `3B` <int>, HR <int>, R <int>,
 #> #   RBI <int>, BB <int>, IBB <int>, SO <int>, HBP <int>, SF <int>,
 #> #   SH <int>, GDP <int>, SB <int>, CS <int>, AVG <dbl>, GB <int>,
 #> #   FB <int>, LD <int>, IFFB <int>, Pitches <int>, Balls <int>,

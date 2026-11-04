@@ -63,16 +63,16 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_awards_recipient(award_id = 'MLBHOF', season = 2020))
 #> ── MLB Awards Recipient data from MLB.com ─────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:42:21 UTC
-#> # A tibble: 4 × 15
+#> ℹ Data updated: 2026-11-04 00:44:31 UTC
+#> # A tibble: 4 × 16
 #>   award_id award_name   date    season votes notes player_id player_link
 #>   <chr>    <chr>        <chr>   <chr>  <int> <chr>     <int> <chr>      
 #> 1 MLBHOF   Hall Of Fame 2020-0… 2020      12 Mode…    692968 /api/v1/pe…
 #> 2 MLBHOF   Hall Of Fame 2020-0… 2020      13 Mode…    122247 /api/v1/pe…
 #> 3 MLBHOF   Hall Of Fame 2020-0… 2020     396 NA       116539 /api/v1/pe…
 #> 4 MLBHOF   Hall Of Fame 2020-0… 2020     304 NA       123833 /api/v1/pe…
-#> # ℹ 7 more variables: player_name_first_last <chr>,
-#> #   player_primary_position_code <chr>,
+#> # ℹ 8 more variables: player_name_first_last <chr>,
+#> #   player_name_slug <chr>, player_primary_position_code <chr>,
 #> #   player_primary_position_name <chr>,
 #> #   player_primary_position_type <chr>,
 #> #   player_primary_position_abbreviation <chr>, team_id <int>,

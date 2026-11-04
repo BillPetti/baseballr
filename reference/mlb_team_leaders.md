@@ -74,8 +74,8 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_team_leaders(team_id = 137, leader_categories = "homeRuns", season = 2021))
 #> ── MLB Team Leaders data from MLB.com ─────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:43:05 UTC
-#> # A tibble: 52 × 22
+#> ℹ Data updated: 2026-11-04 00:45:07 UTC
+#> # A tibble: 52 × 23
 #>    leader_category  rank value season team_id team_name        team_link
 #>    <chr>           <int> <chr> <chr>    <int> <chr>            <chr>    
 #>  1 homeRuns            1 29    2021       137 San Francisco G… /api/v1/…
@@ -89,11 +89,11 @@ Returns a tibble with the following columns
 #>  9 homeRuns            8 13    2021       137 San Francisco G… /api/v1/…
 #> 10 homeRuns           10 12    2021       137 San Francisco G… /api/v1/…
 #> # ℹ 42 more rows
-#> # ℹ 15 more variables: league_id <int>, league_name <chr>,
+#> # ℹ 16 more variables: league_id <int>, league_name <chr>,
 #> #   league_link <chr>, person_id <int>, person_full_name <chr>,
 #> #   person_link <chr>, person_first_name <chr>, person_last_name <chr>,
-#> #   sport_id <int>, sport_link <chr>, sport_abbreviation <chr>,
-#> #   stat_group <chr>, total_splits <int>, game_type_id <chr>,
-#> #   game_type_description <chr>
+#> #   person_name_slug <chr>, sport_id <int>, sport_link <chr>,
+#> #   sport_abbreviation <chr>, stat_group <chr>, total_splits <int>,
+#> #   game_type_id <chr>, game_type_description <chr>
 # }
 ```

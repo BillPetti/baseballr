@@ -125,20 +125,20 @@ requested:
 # \donttest{
  try(mlb_draft_latest(year = 2020))
 #> ── MLB Draft (Latest) data from MLB.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:42:25 UTC
-#> # A tibble: 4 × 96
+#> ℹ Data updated: 2026-11-04 00:44:34 UTC
+#> # A tibble: 4 × 95
 #>   pick_round pick_number display_pick_number round_pick_number
 #>   <chr>            <int>               <int>             <int>
 #> 1 5                  160                 160                29
 #> 2 5                  160                 160                29
 #> 3 5                  160                 160                29
 #> 4 5                  160                 160                29
-#> # ℹ 92 more variables: pick_value <chr>, signing_bonus <chr>,
+#> # ℹ 91 more variables: pick_value <chr>, signing_bonus <chr>,
 #> #   home_city <chr>, home_state <chr>, home_country <chr>,
 #> #   school_name <chr>, school_school_class <chr>, school_country <chr>,
 #> #   school_state <chr>, headshot_link <chr>, person_id <int>,
 #> #   person_full_name <chr>, person_link <chr>, person_first_name <chr>,
-#> #   person_last_name <chr>, person_primary_number <chr>,
-#> #   person_birth_date <chr>, person_current_age <int>, …
+#> #   person_last_name <chr>, person_birth_date <chr>,
+#> #   person_current_age <int>, person_birth_city <chr>, …
 # }
 ```

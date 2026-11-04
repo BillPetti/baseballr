@@ -68,29 +68,29 @@ columns:
 # \donttest{
   try(mlb_rosters(team_id = 109, season = 2018, roster_type = 'active'))
 #> ── MLB Roster data from MLB.com ───────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:42:51 UTC
-#> # A tibble: 49 × 15
-#>    jersey_number person_id person_full_name person_link    position_code
-#>    <chr>             <int> <chr>            <chr>          <chr>        
-#>  1 13               605113 Nick Ahmed       /api/v1/peopl… 6            
-#>  2 35               542882 Matt Andriese    /api/v1/peopl… 1            
-#>  3 5                488671 Alex Avila       /api/v1/peopl… 2            
-#>  4 33               545332 Jake Barrett     /api/v1/peopl… 1            
-#>  5 31               502202 Brad Boxberger   /api/v1/peopl… 1            
-#>  6 61               611093 Silvino Bracho   /api/v1/peopl… 1            
-#>  7 25               605151 Archie Bradley   /api/v1/peopl… 1            
-#>  8 19               593647 Sócrates Brito   /api/v1/peopl… 9            
-#>  9 32               453329 Clay Buchholz    /api/v1/peopl… 1            
-#> 10 40               605177 Andrew Chafin    /api/v1/peopl… 1            
+#> ℹ Data updated: 2026-11-04 00:44:57 UTC
+#> # A tibble: 49 × 16
+#>    jersey_number person_id person_full_name person_link person_name_slug
+#>    <chr>             <int> <chr>            <chr>       <chr>           
+#>  1 13               605113 Nick Ahmed       /api/v1/pe… nick-ahmed-6051…
+#>  2 35               542882 Matt Andriese    /api/v1/pe… matt-andriese-5…
+#>  3 5                488671 Alex Avila       /api/v1/pe… alex-avila-4886…
+#>  4 33               545332 Jake Barrett     /api/v1/pe… jake-barrett-54…
+#>  5 31               502202 Brad Boxberger   /api/v1/pe… brad-boxberger-…
+#>  6 61               611093 Silvino Bracho   /api/v1/pe… silvino-bracho-…
+#>  7 25               605151 Archie Bradley   /api/v1/pe… archie-bradley-…
+#>  8 19               593647 Sócrates Brito   /api/v1/pe… socrates-brito-…
+#>  9 32               453329 Clay Buchholz    /api/v1/pe… clay-buchholz-4…
+#> 10 40               605177 Andrew Chafin    /api/v1/pe… andrew-chafin-6…
 #> # ℹ 39 more rows
-#> # ℹ 10 more variables: position_name <chr>, position_type <chr>,
-#> #   position_abbreviation <chr>, status_code <chr>,
-#> #   status_description <chr>, link <chr>, team_id <int>,
-#> #   roster_type <chr>, season <dbl>, date <chr>
+#> # ℹ 11 more variables: position_code <chr>, position_name <chr>,
+#> #   position_type <chr>, position_abbreviation <chr>,
+#> #   status_code <chr>, status_description <chr>, link <chr>,
+#> #   team_id <int>, roster_type <chr>, season <dbl>, date <chr>
   try(mlb_rosters(team_id = 109, season = 2018, roster_type = 'coach'))
 #> ── MLB Roster data from MLB.com ───────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:42:52 UTC
-#> # A tibble: 13 × 12
+#> ℹ Data updated: 2026-11-04 00:44:57 UTC
+#> # A tibble: 13 × 13
 #>    jersey_number job             job_id title person_id person_full_name
 #>    <chr>         <chr>           <chr>  <chr>     <int> <chr>           
 #>  1 "17"          Manager         MNGR   Mana…    117950 Torey Lovullo   
@@ -106,7 +106,8 @@ columns:
 #> 11 "83"          Bullpen Catcher BCAT   Bull…    461861 Mark Reed       
 #> 12 "84"          Bullpen Catcher BCAT   Bull…    279827 Humberto Quinte…
 #> 13 ""            Senior Basebal… SBAD   Seni…    678771 Shawn Marette   
-#> # ℹ 6 more variables: person_link <chr>, link <chr>, team_id <int>,
-#> #   roster_type <chr>, season <dbl>, date <chr>
+#> # ℹ 7 more variables: person_link <chr>, person_name_slug <chr>,
+#> #   link <chr>, team_id <int>, roster_type <chr>, season <dbl>,
+#> #   date <chr>
 # }
 ```

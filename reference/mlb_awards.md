@@ -32,8 +32,8 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_awards())
 #> ── MLB Awards data from MLB.com ───────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:42:20 UTC
-#> # A tibble: 682 × 10
+#> ℹ Data updated: 2026-11-04 00:44:30 UTC
+#> # A tibble: 683 × 10
 #>    award_id       award_name   award_description sort_order active notes
 #>    <chr>          <chr>        <chr>                  <int> <lgl>  <chr>
 #>  1 MLBHOF         Hall Of Fame Member of Hall o…          1 TRUE   NA   
@@ -46,7 +46,7 @@ Returns a tibble with the following columns
 #>  8 RETIREDUNI_114 Uniform num… NA                         4 TRUE   NA   
 #>  9 RETIREDUNI_115 Uniform num… NA                         4 TRUE   NA   
 #> 10 RETIREDUNI_116 Uniform num… NA                         4 TRUE   NA   
-#> # ℹ 672 more rows
+#> # ℹ 673 more rows
 #> # ℹ 4 more variables: sport_id <int>, sport_link <chr>,
 #> #   league_id <int>, league_link <chr>
 # }

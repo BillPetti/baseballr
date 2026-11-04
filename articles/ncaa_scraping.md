@@ -32,23 +32,8 @@ From the NCAA website:
 ``` r
 
 try(ncaa_teams(year = most_recent_ncaa_baseball_season(), division = "1"))
-#> ── NCAA Baseball Teams data from stats.ncaa.org ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:46:15 UTC
-#> # A tibble: 308 × 9
-#>    team_id team_name    team_url conference_id conference division  year
-#>    <chr>   <chr>        <chr>    <chr>         <chr>      <chr>    <dbl>
-#>  1 NA      Boston Coll… /teams/… 821           ACC        1         2026
-#>  2 NA      California   /teams/… 821           ACC        1         2026
-#>  3 NA      Clemson      /teams/… 821           ACC        1         2026
-#>  4 NA      Duke         /teams/… 821           ACC        1         2026
-#>  5 NA      Florida St.  /teams/… 821           ACC        1         2026
-#>  6 NA      Georgia Tech /teams/… 821           ACC        1         2026
-#>  7 NA      Louisville   /teams/… 821           ACC        1         2026
-#>  8 NA      Miami (FL)   /teams/… 821           ACC        1         2026
-#>  9 NA      NC State     /teams/… 821           ACC        1         2026
-#> 10 NA      North Carol… /teams/… 821           ACC        1         2026
-#> # ℹ 298 more rows
-#> # ℹ 2 more variables: season_id <chr>, season_team_id <chr>
+#> 2026-11-04 00:46:15.795927: Invalid arguments provided
+#> data frame with 0 columns and 0 rows
 ```
 
 The function,
@@ -74,7 +59,7 @@ team_id <- ncaa_teams_df %>%
 year <- most_recent_ncaa_baseball_season()
 
 ncaa_team_player_stats(team_id = team_id, year = year, "batting")
-#> ! 2026-10-09 04:47:04.424762: stats.ncaa.org returned an Akamai bot-challenge for the team batting stats endpoint; no data could be retrieved. Install {chromote} + Google Chrome to enable the browser fallback.
+#> ! 2026-11-04 00:46:51.09328: Could not resolve the stats.ncaa.org season-team id for team 234 (2026); the roster page was unavailable or challenged. Install {chromote} + Google Chrome to enable the browser fallback.
 #> data frame with 0 columns and 0 rows
 ```
 
@@ -84,7 +69,7 @@ parameter:
 ``` r
 
 ncaa_team_player_stats(team_id = team_id, year = year,  "pitching")
-#> ! 2026-10-09 04:47:45.596048: stats.ncaa.org returned an Akamai bot-challenge for the team pitching stats endpoint; no data could be retrieved. Install {chromote} + Google Chrome to enable the browser fallback.
+#> ! 2026-11-04 00:47:26.389062: Could not resolve the stats.ncaa.org season-team id for team 234 (2026); the roster page was unavailable or challenged. Install {chromote} + Google Chrome to enable the browser fallback.
 #> data frame with 0 columns and 0 rows
 ```
 

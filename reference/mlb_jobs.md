@@ -44,8 +44,8 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_jobs(job_type='UMPR'))
 #> ── MLB Jobs data from MLB.com ─────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:42:41 UTC
-#> # A tibble: 98 × 7
+#> ℹ Data updated: 2026-11-04 00:44:47 UTC
+#> # A tibble: 98 × 8
 #>    jersey_number job    job_code title  person_id person_full_name
 #>    <chr>         <chr>  <chr>    <chr>      <int> <chr>           
 #>  1 67            Umpire UMPR     Umpire    596809 Ryan Additon    
@@ -59,6 +59,6 @@ Returns a tibble with the following columns
 #>  9 87            Umpire UMPR     Umpire    482608 Scott Barry     
 #> 10 38            Umpire UMPR     Umpire    644760 Adam Beck       
 #> # ℹ 88 more rows
-#> # ℹ 1 more variable: person_link <chr>
+#> # ℹ 2 more variables: person_link <chr>, person_name_slug <chr>
 # }
 ```

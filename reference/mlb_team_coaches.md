@@ -43,8 +43,8 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_team_coaches(team_id = 137, season = 2021))
 #> ── MLB Team Coaches data from MLB.com ─────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-10-09 04:43:03 UTC
-#> # A tibble: 17 × 7
+#> ℹ Data updated: 2026-11-04 00:45:06 UTC
+#> # A tibble: 17 × 8
 #>    jersey_number job             job_id title person_id person_full_name
 #>    <chr>         <chr>           <chr>  <chr>     <int> <chr>           
 #>  1 19            Manager         MNGR   Mana…    137002 Gabe Kapler     
@@ -64,6 +64,6 @@ Returns a tibble with the following columns
 #> 15 23            Third Base Coa… COA3   Thir…    124588 Ron Wotus       
 #> 16 91            Major League C… MAJC   Majo…    506912 Mark Hallberg   
 #> 17 99            Bullpen Catcher BCAT   Bull…    666065 Taira Uematsu   
-#> # ℹ 1 more variable: person_link <chr>
+#> # ℹ 2 more variables: person_link <chr>, person_name_slug <chr>
 # }
 ```
