@@ -17,6 +17,9 @@
 
 ### Bug fixes
 
+- `statcast_search_minors()` returns minor-league games again (#432). Baseball
+  Savant's `statcast-search-minors` route serves the MLB search unless the
+  query also carries `minors=true`, so the function was returning MLB pitches.
 - `mlb_standings()` accepts a vector `league_id`, as documented
   (`league_id = c(103, 104)` for both leagues): `httr2::url_modify_query()`
   refused it ("All vector elements of `...` must be length 1"), so the call

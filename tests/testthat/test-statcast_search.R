@@ -81,3 +81,20 @@ test_that("process_statcast_payload normalizes empty character fields to NA (#27
   )
   expect_false(any(has_blank))
 })
+
+# Savant's minors route serves the MLB search unless `minors=true` is also on
+# the query string (#432). Network-free: capture the URL the core builds.
+test_that("statcast_search_minors() asks Savant for minor-league games (#432)", {
+  testthat::skip_on_cran()
+  urls <- character()
+  local_mocked_bindings(csv_from_url = function(url, ...) {
+    urls <<- c(urls, url)
+    stop("offline")
+  })
+  suppressMessages(try(statcast_search_minors("2024-06-01", "2024-06-01"), silent = TRUE))
+  suppressMessages(try(statcast_search("2024-06-01", "2024-06-01"), silent = TRUE))
+  expect_length(urls, 2)
+  expect_match(urls[1], "/statcast-search-minors/csv?", fixed = TRUE)
+  expect_match(urls[1], "&minors=true", fixed = TRUE)
+  expect_no_match(urls[2], "minors=true", fixed = TRUE)
+})
