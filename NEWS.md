@@ -31,6 +31,13 @@
   "Can't subset columns past the end" (the bug fixed in hoopR as
   [hoopR#88](https://github.com/sportsdataverse/hoopR/issues/88)). The class is
   now `baseballr_data` / `tbl_df` / `tbl` / `data.frame`.
+- A slow release download no longer drops a season from a multi-season load.
+  The `.rds` reader behind every release-backed `load_*()` loader raises the
+  download timeout to at least 150 seconds (a larger `options(timeout)` is
+  kept, and the option is restored afterwards) and retries a failed download
+  twice. A 404 is not retried. If a file still fails, the warning names its
+  URL and says the result is incomplete; the seasons that loaded are still
+  returned.
 
 # baseballr 2.0.0
 
