@@ -38,6 +38,7 @@ Imports:
     RcppParallel,
     rlang (>= 1.0.4),
     rvest (>= 1.0.0),
+    stats,
     stringr (>= 1.5.0),
     tibble (>= 3.0),
     tidyr (>= 1.0.0)
@@ -56,7 +57,6 @@ Suggests:
     rmarkdown,
     RSQLite,
     scales,
-    stats,
     stringi,
     testthat,
     usethis (>= 1.6.0),
