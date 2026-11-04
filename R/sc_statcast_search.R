@@ -223,7 +223,13 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
     "min_abs", "0",
     "type", "details") |>
     dplyr::mutate(pairs = paste0(.data$var, "=", .data$value))
-  
+
+  # Savant serves the MLB search from the minors route unless `minors=true`
+  # is also passed (#432).
+  if (route == "statcast-search-minors") {
+    vars <- dplyr::bind_rows(vars, tibble::tibble(var = "minors", value = "true", pairs = "minors=true"))
+  }
+
   if (is.null(playerid)) {
     # message("No playerid specified. Collecting data for all batters/pitchers.")
     vars <- vars |> 
