@@ -158,17 +158,55 @@ csv_from_url <- function(...){
 #' @importFrom data.table data.table setDT
 #' @import rvest
 rds_from_url <- function(url) {
-  con <- url(url)
-  on.exit(close(con))
-  load <- try(readRDS(con), silent = TRUE)
-  
-  if (inherits(load, "try-error")) {
-    cli::cli_warn("Failed to readRDS from {.url {url}}")
-    return(data.table::data.table())
-  }
-  
+  load <- .read_release_asset(url, .read_rds_url)
+  if (inherits(load, "try-error")) return(data.table::data.table())
+
   data.table::setDT(load)
   return(load)
+}
+
+# Read one release asset with `read(url)`, retrying a failed read.
+#
+# A slow asset used to hit R's default 60 s `timeout`, and the loader dropped
+# that season from a multi-season load with a vague warning. The timeout is
+# raised to at least 150 s for the read (a larger user setting is kept), and a
+# failed read is tried again after 1 s and 2 s. A 404 is not retried. Warnings
+# from a read that then succeeds are passed on. When every try fails, it warns
+# that the file is missing from the result and returns the `try-error`.
+.read_release_asset <- function(url, read, tries = 3L) {
+  old <- options(timeout = max(150, getOption("timeout", 60)))
+  on.exit(options(old), add = TRUE)
+  for (i in seq_len(tries)) {
+    warns <- list()
+    out <- withCallingHandlers(
+      try(read(url), silent = TRUE),
+      warning = function(w) {
+        warns[[length(warns) + 1L]] <<- w
+        invokeRestart("muffleWarning")
+      }
+    )
+    if (!inherits(out, "try-error")) {
+      for (w in warns) warning(w)
+      return(out)
+    }
+    why <- unique(c(conditionMessage(attr(out, "condition")),
+                    vapply(warns, conditionMessage, character(1))))
+    if (i == tries || any(grepl("HTTP status was '404", why, fixed = TRUE))) break
+    Sys.sleep(i)
+  }
+  why <- paste(why, collapse = "; ")
+  cli::cli_warn(c(
+    "Failed to read {.url {url}} after {i} attempt{?s}.",
+    "!" = "The result is incomplete: it is missing this file.",
+    "x" = "{why}"
+  ))
+  out
+}
+
+.read_rds_url <- function(url) {
+  con <- url(url)
+  on.exit(close(con))
+  readRDS(con)
 }
 
 
