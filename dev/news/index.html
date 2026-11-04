@@ -134,6 +134,8 @@
 <div class="section level4">
 <h4 id="bug-fixes-2-0-0-9000">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-2-0-0-9000"></a></h4>
 <ul><li>
+<code><a href="../reference/statcast_search.html">statcast_search_minors()</a></code> returns minor-league games again (<a href="https://github.com/billpetti/baseballr/issues/432" class="external-link">#432</a>). Baseball Savant’s <code>statcast-search-minors</code> route serves the MLB search unless the query also carries <code>minors=true</code>, so the function was returning MLB pitches.</li>
+<li>
 <code><a href="../reference/mlb_standings.html">mlb_standings()</a></code> accepts a vector <code>league_id</code>, as documented (<code>league_id = c(103, 104)</code> for both leagues): <code><a href="https://httr2.r-lib.org/reference/url_modify.html" class="external-link">httr2::url_modify_query()</a></code> refused it (“All vector elements of <code>...</code> must be length 1”), so the call failed before reaching the API. The ids are now comma-joined, which the MLB Stats API reads.</li>
 <li>
 <code>httr2 (&gt;= 1.1.0)</code>: <code><a href="https://httr2.r-lib.org/reference/url_modify.html" class="external-link">httr2::url_modify_query()</a></code>, which the MLB Stats API wrappers build every request with, first appeared in httr2 1.1.0.</li>

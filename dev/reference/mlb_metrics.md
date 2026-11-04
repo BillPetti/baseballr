@@ -26,7 +26,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_metrics())
 #> ── MLB Metrics data from MLB.com ─────────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 05:35:41 UTC
+#> ℹ Data updated: 2026-11-04 06:10:50 UTC
 #> # A tibble: 22 × 4
 #>    metric_name        metric_id stat_group        metric_unit
 #>    <chr>                  <int> <chr>             <chr>      

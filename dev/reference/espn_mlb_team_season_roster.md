@@ -168,7 +168,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_team_season_roster(team_id = 13, season = 2025)
 #> ── ESPN MLB Team Season Roster ───────────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 05:31:43 UTC
+#> ℹ Data updated: 2026-11-04 06:07:31 UTC
 #> # A tibble: 200 × 5
 #>    league team_id season athlete_id ref                                 
 #>    <chr>  <chr>    <int> <chr>      <chr>                               

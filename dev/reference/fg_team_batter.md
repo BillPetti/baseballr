@@ -585,7 +585,7 @@ A data frame of batter data.
 # \donttest{
   try(fg_team_batter(startseason = 2015, endseason = 2015, qual = 200))
 #> ── MLB Team Batting data from FanGraphs.com ──── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 05:32:00 UTC
+#> ℹ Data updated: 2026-11-04 06:07:47 UTC
 #> # A tibble: 30 × 407
 #>    Season team_name SeasonMin SeasonMax     G    AB    PA     H  `1B`
 #>     <int> <chr>         <int>     <int> <int> <int> <int> <int> <int>

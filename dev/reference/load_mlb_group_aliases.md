@@ -49,7 +49,7 @@ A `baseballr_data` tibble:
 # \donttest{
   try(load_mlb_group_aliases())
 #> ── MLB group aliases from the SportsDataverse data repo ────────────────
-#> ℹ Data updated: 2026-11-04 05:32:19 UTC
+#> ℹ Data updated: 2026-11-04 06:08:05 UTC
 #> # A tibble: 96 × 8
 #>    league group_id  source source_id name_kind value valid_from valid_to
 #>    <chr>  <chr>     <chr>  <chr>     <chr>     <chr>      <int>    <int>

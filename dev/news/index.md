@@ -23,6 +23,12 @@
 
 #### Bug fixes
 
+- [`statcast_search_minors()`](https://billpetti.github.io/baseballr/dev/reference/statcast_search.md)
+  returns minor-league games again
+  ([\#432](https://github.com/billpetti/baseballr/issues/432)). Baseball
+  Savant’s `statcast-search-minors` route serves the MLB search unless
+  the query also carries `minors=true`, so the function was returning
+  MLB pitches.
 - [`mlb_standings()`](https://billpetti.github.io/baseballr/dev/reference/mlb_standings.md)
   accepts a vector `league_id`, as documented (`league_id = c(103, 104)`
   for both leagues):

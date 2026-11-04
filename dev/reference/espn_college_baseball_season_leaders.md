@@ -135,7 +135,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_season_leaders(season = 2025))
 #> ── ESPN COLLEGE-BASEBALL Season-Type Leaders ─── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 05:30:57 UTC
+#> ℹ Data updated: 2026-11-04 06:06:49 UTC
 #> # A tibble: 0 × 15
 #> # ℹ 15 variables: league <chr>, season <int>, season_type <int>,
 #> #   category_name <chr>, category_display <chr>, category_short <chr>,

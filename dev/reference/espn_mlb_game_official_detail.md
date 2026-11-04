@@ -168,11 +168,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_game_official_detail(event_id = 401283399, order = 1)
-#> ✖ 2026-11-04 05:31:16.829954: Failed to retrieve ESPN mlb event official detail for event_id=401283399, order=1
+#> ✖ 2026-11-04 06:07:07.230381: Failed to retrieve ESPN mlb event official detail for event_id=401283399, order=1
 #> ✖ Args: league = "mlb", event_id = 401283399, order = 1
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN MLB Event Official Detail ────────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 05:31:16 UTC
+#> ℹ Data updated: 2026-11-04 06:07:07 UTC
 #> # A tibble: 0 × 0
 # }
 ```

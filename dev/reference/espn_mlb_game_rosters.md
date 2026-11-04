@@ -319,11 +319,11 @@ Saiem Gilani
 ``` r
 # \donttest{
 try(espn_mlb_game_rosters(game_id = 401283399))
-#> ✖ 2026-11-04 05:31:19.742258: Invalid arguments or no game roster data for 401283399 available!
+#> ✖ 2026-11-04 06:07:09.951044: Invalid arguments or no game roster data for 401283399 available!
 #> ✖ Args: game_id = 401283399
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN MLB Game Roster Information from ESPN.com ──────────────────────
-#> ℹ Data updated: 2026-11-04 05:31:19 UTC
+#> ℹ Data updated: 2026-11-04 06:07:09 UTC
 #> # A tibble: 0 × 0
 # }
 ```

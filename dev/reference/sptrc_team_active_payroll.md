@@ -47,7 +47,7 @@ may change as Spotrac updates its layout.
 ``` r
 # \donttest{
  try(sptrc_team_active_payroll(team_abbr = "BAL", year = most_recent_mlb_season()))
-#> ✖ 2026-11-04 05:36:09.942085: Invalid arguments or no contract data available!
+#> ✖ 2026-11-04 06:11:18.549345: Invalid arguments or no contract data available!
 #> data frame with 0 columns and 0 rows
 # }
 ```
