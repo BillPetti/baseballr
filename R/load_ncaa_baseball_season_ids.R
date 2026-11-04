@@ -32,7 +32,7 @@ load_ncaa_baseball_season_ids <- function(...,
     DBI::dbWriteTable(dbConnection, tablename, out, append = TRUE)
     out <- NULL
   } else {
-    class(out) <- c("baseballr_data","tbl_df","tbl","data.table","data.frame")
+    class(out) <- c("baseballr_data","tbl_df","tbl","data.frame")
   }
   out
 }

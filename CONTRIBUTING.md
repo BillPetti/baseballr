@@ -169,7 +169,7 @@ raw_data |>
 ```
 
 `make_baseballr_data()` sets the class to
-`c("baseballr_data", "tbl_df", "tbl", "data.table", "data.frame")` and attaches
+`c("baseballr_data", "tbl_df", "tbl", "data.frame")` and attaches
 provenance attributes.
 
 ### Roxygen Documentation Checklist
