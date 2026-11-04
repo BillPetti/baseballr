@@ -1,0 +1,634 @@
+# CLAUDE.md – baseballr Development Guide
+
+**Table of Contents** *generated with
+[DocToc](https://github.com/thlorenz/doctoc)*
+
+- [CLAUDE.md – baseballr Development
+  Guide](#claudemd----baseballr-development-guide)
+- [Package Overview](#package-overview)
+- [Branching & PR Workflow](#branching--pr-workflow)
+- [Build & Development Commands](#build--development-commands)
+- [Project Structure](#project-structure)
+- [Key Coding Conventions](#key-coding-conventions)
+- [Testing](#testing)
+- [Baseball-Specific Details](#baseball-specific-details)
+- [NAMESPACE](#namespace)
+- [Documentation Maintenance](#documentation-maintenance)
+- [Commit Convention](#commit-convention)
+- [Common Pitfalls](#common-pitfalls)
+
+## Package Overview
+
+baseballr is an R package for acquiring and analyzing baseball data from
+online sources. It wraps the MLB Stats API, ESPN (MLB and NCAA college
+baseball), Fox Sports (Bifrost), FanGraphs, Baseball Reference, Baseball
+Savant / Statcast, the NCAA baseball stats site, Spotrac, the Chadwick
+Bureau register, and Retrosheet, exporting ~375 functions across
+multiple data-source families: `mlb_*()`, `espn_mlb_*()`,
+`espn_college_baseball_*()`, `fox_mlb_*()`, `fg_*()`, `bref_*()`,
+`statcast_*()` / `scrape_statcast_savant*()`, `ncaa_*()`, `sptrc_*()`,
+`chadwick_*()`, `retrosheet_*()`, plus `load_*()` data loaders,
+`metrics`/`woba_plus`/`fip_plus` analytics, and the
+[`ggspraychart()`](https://billpetti.github.io/baseballr/dev/reference/ggspraychart.md)
+visualization.
+
+## Statcast column contract (load-bearing)
+
+[`statcast_search()`](https://billpetti.github.io/baseballr/dev/reference/statcast_search.md)
+trusts Baseball Savant’s CSV header row AS-IS — never rename columns by
+position from a fixed vector. The positional scheme caused the recurring
+silently-shifted-columns class (#337 \#354 \#371 \#390 \#408 \#416:
+“n_thruorder_pitcher shows AGE”) every time Savant inserted a column
+mid-export. `statcast_columns` in `R/sc_statcast_search.R` is the
+documented REFERENCE schema only, used to surface drift via an
+informational message; update it (and the @return table) when Savant
+adds columns, but the data is never renamed against it. Minors and WBC
+use separate Savant routes via
+[`statcast_search_minors()`](https://billpetti.github.io/baseballr/dev/reference/statcast_search.md)
+/
+[`statcast_search_wbc()`](https://billpetti.github.io/baseballr/dev/reference/statcast_search.md)
+(`route=` on the core).
+
+## Release-dataset loaders
+
+`load_mlb_*` (11, `R/mlb_model_loaders.R`) share
+`.mlb_model_release_loader()` over the sportsdataverse-data tags
+mlb_hitting_models / mlb_pitching_models / mlb_fielding_models /
+mlb_game_state, mirroring sportsdataverse-py’s `load_mlb_*` surface.
+NCAA loaders cover ncaa_baseball_pbp / \_schedules (assets currently end
+at 2023 — backfill tracked in \#367/#325). Every test in the suite leads
+with `skip_on_cran()`; new tests must too.
+
+When this guide differs from current repository docs, treat
+`CONTRIBUTING.md` and current test implementations as authoritative.
+
+- **Version**: 2.0.0.9000
+- **R Requirement**: \>= 4.1.0 (the package uses the native pipe `|>`)
+- **License**: MIT
+- **Author (aut)**: Bill Petti <billpetti@gmail.com>
+- **Maintainer (cre)**: Saiem Gilani <saiem.gilani@gmail.com>
+- **pkgdown site**: <https://billpetti.github.io/baseballr/>
+- **Repo**: BillPetti/baseballr
+- **Branch**: `master` is the default branch and release branch.
+
+## Branching & PR Workflow
+
+- `master` is the default branch and release branch (NOT `main`).
+- Active development happens on `development_branch`; create feature
+  branches from the latest stable base and target `master` in PRs.
+- Keep code, tests, and roxygen/docs updates in the same PR when
+  changing exported behavior.
+
+## Build & Development Commands
+
+``` r
+
+# Regenerate roxygen documentation + NAMESPACE
+devtools::document()
+
+# Run all tests
+devtools::test()
+
+# Run a specific test file
+testthat::test_file("tests/testthat/test-mlb_pbp.R")
+
+# Full R CMD check
+devtools::check()
+
+# Install locally
+devtools::install()
+
+# Build pkgdown site locally
+pkgdown::build_site()
+```
+
+CI under `.github/workflows/`: `R-CMD-check.yaml` (R CMD check matrix),
+`pkgdown.yaml` (builds + deploys the pkgdown site), and `rhub.yaml`
+(R-hub multi-platform checks). None set the live-test env vars, so the
+external-service tests skip on CI — see **Testing** below.
+
+## Project Structure
+
+    R/                            # All package source code
+      mlb.R                       # MLB Stats API doc-grouping topic + shared helpers
+      mlb_*.R                     # MLB Stats API endpoint wrappers (~88 functions):
+                                  #   types/codes, game, players, teams, standings,
+                                  #   league, draft, awards, jobs, all-star, hr derby
+      espn_mlb_*.R                # ESPN MLB wrappers (107 functions); thin shims over
+                                  #   espn_baseball_*_helpers.R + espn_mlb_box_helpers.R
+      espn_college_baseball_*.R   # ESPN NCAA college-baseball wrappers (70 functions);
+                                  #   league-parameterized twins of the espn_mlb_* family
+      espn_baseball_*_helpers.R / utils_espn.R
+                                  # shared ESPN httr2 layer (.retry_request, honours
+                                  #   options(baseballr.proxy=); .report_api_error/_warning)
+      fox_*.R                     # Fox Sports Bifrost MLB wrappers (fox_mlb_*, 6 functions)
+      fangraphs.R                 # FanGraphs doc-grouping topic
+      fg_*.R                      # FanGraphs wrappers: fg_batter_leaders, fg_pitcher_leaders,
+                                  #   fg_fielder_leaders, fg_team_*, fg_milb_*, fg_park, fg_guts
+      bref.R / bref_*.R           # Baseball Reference: bref_daily_batter/pitcher,
+                                  #   bref_standings_on_date, bref_team_results
+      statcast / savant           # Baseball Savant: statcast_search(), statcast_leaderboards(),
+      (in fangraphs/metrics +     #   scrape_statcast_savant*(), plus helpers code_barrel(),
+       dedicated files)           #   edge_code(), process_statcast_payload(),
+                                  #   statline_from_statcast(), label_statcast_imputed_data()
+      ncaa*.R                     # NCAA baseball: ncaa_scrape(), ncaa_pbp(), ncaa_roster(),
+                                  #   ncaa_schedule_info(), ncaa_game_logs(), ncaa_lineups(),
+                                  #   ncaa_park_factor(), ncaa_school_id_lu(), ncaa_teams()
+      ncaa_chromote.R             # stealth headless-Chrome fallback for stats.ncaa.org
+                                  #   (Akamai bypass; optional `chromote` Suggests dep)
+      chadwick*.R                 # Chadwick Bureau register: chadwick_player_lu(),
+                                  #   playerid_lookup(), playername_lookup(), install helpers
+      metrics.R / metrics_*.R     # woba_plus(), fip_plus(), team_consistency(),
+                                  #   run_expectancy_code(), linear_weights_savant()
+      ggspraychart.R              # Spray-chart visualization
+      load_*.R                    # Data-repository loaders (load_ncaa_baseball_*, etc.)
+      utils.R                     # make_baseballr_data(), request_with_proxy(),
+                                  #   csv_from_url(), rds_from_url(), progressively()
+      data.R                      # Documentation for bundled datasets
+    tests/testthat/               # Test files
+    man/                          # Auto-generated roxygen docs (DO NOT EDIT)
+    NAMESPACE                     # Auto-generated by roxygen2 (DO NOT EDIT)
+
+## Key Coding Conventions
+
+### Function Naming
+
+| Data Source | Prefix | Example |
+|----|----|----|
+| MLB Stats API | `mlb_` | [`mlb_pbp()`](https://billpetti.github.io/baseballr/dev/reference/mlb_pbp.md), [`mlb_game_linescore()`](https://billpetti.github.io/baseballr/dev/reference/mlb_game_linescore.md), [`mlb_draft()`](https://billpetti.github.io/baseballr/dev/reference/mlb_draft.md) |
+| FanGraphs | `fg_` | [`fg_batter_leaders()`](https://billpetti.github.io/baseballr/dev/reference/fg_batter_leaders.md), [`fg_team_pitcher()`](https://billpetti.github.io/baseballr/dev/reference/fg_team_pitcher.md) |
+| Baseball Reference | `bref_` | [`bref_daily_batter()`](https://billpetti.github.io/baseballr/dev/reference/bref_daily_batter.md), [`bref_team_results()`](https://billpetti.github.io/baseballr/dev/reference/bref_team_results.md) |
+| Baseball Savant | `statcast_` / `sc_` | [`statcast_search()`](https://billpetti.github.io/baseballr/dev/reference/statcast_search.md), [`statcast_leaderboards()`](https://billpetti.github.io/baseballr/dev/reference/statcast_leaderboards.md) |
+| ESPN MLB | `espn_mlb_` | [`espn_mlb_pbp()`](https://billpetti.github.io/baseballr/dev/reference/espn_mlb_pbp.md), [`espn_mlb_scoreboard()`](https://billpetti.github.io/baseballr/dev/reference/espn_mlb_scoreboard.md), [`espn_mlb_team_box()`](https://billpetti.github.io/baseballr/dev/reference/espn_mlb_team_box.md) |
+| ESPN College Baseball | `espn_college_baseball_` | [`espn_college_baseball_pbp()`](https://billpetti.github.io/baseballr/dev/reference/espn_college_baseball_pbp.md), [`espn_college_baseball_scoreboard()`](https://billpetti.github.io/baseballr/dev/reference/espn_college_baseball_scoreboard.md) |
+| Fox Sports (Bifrost) | `fox_mlb_` | [`fox_mlb_team_roster()`](https://billpetti.github.io/baseballr/dev/reference/fox_mlb_team_roster.md), [`fox_mlb_standings()`](https://billpetti.github.io/baseballr/dev/reference/fox_mlb_standings.md) |
+| NCAA baseball | `ncaa_` | [`ncaa_scrape()`](https://billpetti.github.io/baseballr/dev/reference/ncaa_scrape.md), [`ncaa_roster()`](https://billpetti.github.io/baseballr/dev/reference/ncaa_roster.md) |
+| Spotrac | `sptrc_` | [`sptrc_team_active_payroll()`](https://billpetti.github.io/baseballr/dev/reference/sptrc_team_active_payroll.md) |
+| Chadwick Bureau | `chadwick_` | [`chadwick_player_lu()`](https://billpetti.github.io/baseballr/dev/reference/chadwick_player_lu.md), [`playerid_lookup()`](https://billpetti.github.io/baseballr/dev/reference/chadwick_player_id_lu.md) |
+| Retrosheet | `retrosheet_` | [`retrosheet_data()`](https://billpetti.github.io/baseballr/dev/reference/retrosheet_data.md) |
+| Analytics / metrics | (named) | [`woba_plus()`](https://billpetti.github.io/baseballr/dev/reference/woba_plus.md), [`fip_plus()`](https://billpetti.github.io/baseballr/dev/reference/fip_plus.md), [`run_expectancy_code()`](https://billpetti.github.io/baseballr/dev/reference/run_expectancy_code.md) |
+| Data loaders | `load_` | [`load_ncaa_baseball_pbp()`](https://billpetti.github.io/baseballr/dev/reference/load_ncaa_baseball_pbp.md), [`load_umpire_ids()`](https://billpetti.github.io/baseballr/dev/reference/load_umpire_ids.md) |
+| Visualization | (named) | [`ggspraychart()`](https://billpetti.github.io/baseballr/dev/reference/ggspraychart.md) |
+
+### Native Pipe
+
+Use the **native pipe `|>`** everywhere. `magrittr` (`%>%`) is
+**retained as a dependency only** because the NCAA wrappers still use it
+– do not introduce new `%>%` usage in non-NCAA code, and prefer
+migrating NCAA code to `|>` opportunistically.
+
+### Data Processing Pipeline
+
+``` r
+
+raw_data |>
+  data.frame(stringsAsFactors = FALSE) |>
+  dplyr::as_tibble() |>
+  janitor::clean_names() |>
+  make_baseballr_data("Description from source", Sys.time())
+```
+
+`make_baseballr_data()` (in `R/utils.R`) coerces to a tibble, sets the
+class to `c("baseballr_data", "tbl_df", "tbl", "data.frame")`, and
+attaches `baseballr_timestamp` and `baseballr_type` attributes.
+
+### Return-Value Initialization (CRITICAL)
+
+Every wrapper that returns a variable assigned inside a `tryCatch` must
+initialize that variable (usually `<- NULL`) **before** the `tryCatch`
+block. Otherwise, when the upstream site errors (500s, timeouts,
+connection resets, IP bans) the `error` handler runs, the return
+variable is never bound, and `return(<var>)` throws
+`object '<var>' not found` instead of the intended
+[`cli::cli_alert_danger()`](https://cli.r-lib.org/reference/cli_alert.html) +
+empty fallback.
+
+``` r
+
+mlb_func <- function(...) {
+  url <- "https://statsapi.mlb.com/..."
+
+  out <- NULL    # <-- MANDATORY. Not inside tryCatch.
+
+  tryCatch(
+    expr = {
+      resp <- request_with_proxy(url, ...)
+      out  <- resp |>
+        # ...parse... |>
+        janitor::clean_names() |>
+        make_baseballr_data("Data from MLB.com", Sys.time())
+    },
+    error = function(e) {
+      cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no data available!")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
+    },
+    warning = function(w) {
+      cli::cli_alert_warning("{Sys.time()}: Warning: {conditionMessage(w)}")
+    },
+    finally = {}
+  )
+  return(out)
+}
+```
+
+This rule applies to **every return variable name** – `out`, `df`,
+`pbp`, `leaders`, `payrolls`, `roster`, `resp`, `data`, etc. Initialize
+to the appropriate empty value: `NULL` for a single-object return,
+[`data.frame()`](https://rdrr.io/r/base/data.frame.html) /
+[`list()`](https://rdrr.io/r/base/list.html) where that is the
+documented shape.
+
+### Messaging Layer
+
+All user-facing messages use `cli`: -
+[`cli::cli_alert_danger()`](https://cli.r-lib.org/reference/cli_alert.html)
+in error handlers -
+[`cli::cli_alert_warning()`](https://cli.r-lib.org/reference/cli_alert.html)
+for warnings -
+[`cli::cli_alert_info()`](https://cli.r-lib.org/reference/cli_alert.html)
+for informational notes -
+[`cli::cli_warn()`](https://cli.r-lib.org/reference/cli_abort.html) /
+[`cli::cli_abort()`](https://cli.r-lib.org/reference/cli_abort.html) for
+raised conditions
+
+**Never pass a raw condition object to a `cli_*` function** – the
+message string is glue-interpolated, and a condition object will not
+render correctly (and can leak `glue` syntax from the message). Pass
+`conditionMessage(cond)` through a value placeholder instead:
+
+``` r
+
+# WRONG
+error = function(e) cli::cli_alert_danger("Error: {e}")
+
+# RIGHT
+error = function(e) cli::cli_alert_danger("Error: {conditionMessage(e)}")
+```
+
+### Column Drift Resilience
+
+The upstream sites (MLB Stats API, FanGraphs, Baseball Reference,
+Savant) add, rename, and occasionally drop columns over time. When
+dropping a known-transient column, use
+`dplyr::select(-dplyr::any_of("colname"))` instead of
+`dplyr::select(-"colname")`. The bare form errors the moment upstream
+removes that column; `any_of` no-ops silently. The same `any_of` guard
+applies to renames: `dplyr::rename(dplyr::any_of(c(new = "old")))`.
+
+### Null Safety
+
+Use `%||%` for null-safe defaults when parsing variable-shaped JSON:
+
+``` r
+
+value <- obj$field %||% NA_character_
+```
+
+`data.frame(list_of_items)` can produce unexpected column types when the
+API returns mixed `NULL`/value fields – supply `%||%` defaults before
+binding.
+
+### HTTP Layer
+
+baseballr talks to several different hosts (statsapi.mlb.com,
+fangraphs.com, baseball-reference.com, baseballsavant.mlb.com, the NCAA
+stats site, spotrac.com, and ESPN’s site.api / sports.core.api /
+site.web.api hosts), so there is no single base-URL or proxy convention
+as in single-source packages. Requests go through the package’s own
+helpers in `R/utils.R`, `R/utils_mlb_stats.R`, and `R/utils_espn.R`
+(`mlb_api_call()`, `fg_api_call()`,
+[`request_with_proxy()`](https://billpetti.github.io/baseballr/dev/reference/request_with_proxy.md),
+[`.retry_request()`](https://billpetti.github.io/baseballr/dev/reference/dot-retry_request.md),
+[`csv_from_url()`](https://billpetti.github.io/baseballr/dev/reference/csv_from_url.md),
+[`rds_from_url()`](https://billpetti.github.io/baseballr/dev/reference/rds_from_url.md));
+build each wrapper on the helper appropriate to its source rather than
+calling `httr`/`httr2` directly.
+
+**ESPN MLB wrappers** (`espn_mlb_*()`) live in `R/espn_mlb_*.R` (public)
+over shared internals in `R/espn_baseball_*_helpers.R` and the box
+parsers in `R/espn_mlb_box_helpers.R`. They share an `httr2` layer in
+`R/utils_espn.R`
+([`.retry_request()`](https://billpetti.github.io/baseballr/dev/reference/dot-retry_request.md),
+[`.resp_text()`](https://billpetti.github.io/baseballr/dev/reference/dot-resp_text.md),
+[`.report_api_error()`](https://billpetti.github.io/baseballr/dev/reference/dot-report_api_error.md)
+/
+[`.report_api_warning()`](https://billpetti.github.io/baseballr/dev/reference/dot-report_api_warning.md),
+`.empty_baseballr_data()`).
+[`.retry_request()`](https://billpetti.github.io/baseballr/dev/reference/dot-retry_request.md)
+honours a proxy from `options(baseballr.proxy = ...)` (ESPN wrappers do
+not thread `...`, so there is no per-call proxy override). Use
+`.report_api_error(e, hint, args)` in ESPN error handlers (with
+`.args <- mget(setdiff(names(formals()), "..."))`), not raw
+[`cli::cli_alert_danger()`](https://cli.r-lib.org/reference/cli_alert.html).
+ESPN’s baseball game-summary boxscore groups stats by side
+(`batting`/`pitching`/`fielding`), which is why the box parsers are
+baseball-specific rather than shared with the basketball siblings. The
+**ESPN College Baseball wrappers** (`espn_college_baseball_*()`, in
+`R/espn_college_baseball_*.R`) are league-parameterized twins of the
+same helpers (sport `baseball`, league `college-baseball`), so they
+return the same shapes; extend the shared helper rather than duplicating
+logic.
+
+**Fox Sports (Bifrost) MLB wrappers** (`fox_mlb_*()`, in `R/fox_*.R`)
+are read-only and flatten Fox’s layout-oriented JSON (sections -\>
+tables -\> rows -\> cells) into tidy `baseballr_data` tibbles over
+`api.foxsports.com/bifrost/v1/mlb/*`.
+
+**stats.ncaa.org sits behind Akamai Bot Manager.** It returns a hard 403
+or a soft HTTP-200 `bm-verify` interstitial to `httr2`/`curl` on the
+client’s TLS/sensor fingerprint, so no header set clears it.
+[`request_with_proxy()`](https://billpetti.github.io/baseballr/dev/reference/request_with_proxy.md)
+stops retrying 403s, detects the soft interstitial, and falls back to a
+**stealth headless-Chrome** fetch in `R/ncaa_chromote.R` (real Chrome
+UA, `navigator.webdriver` hidden, block/challenge markers matched
+case-insensitively), wrapping the rendered HTML in a synthetic 200
+response so callers are unchanged. `chromote` + Google Chrome are an
+**optional `Suggests`** dependency; when absent the scrapers emit a
+clear install message. Because the fallback launches a browser, the NCAA
+function examples are shown in each Rd’s `Details` (not as executable
+`@examples`) so `R CMD check --run-donttest` never tries to start
+Chrome.
+
+**FanGraphs requires a Cloudflare-exempt `User-Agent`.** As of
+2026-06-03 FanGraphs sits behind a Cloudflare JS challenge that 403s
+(`cf-mitigated: challenge`) *every* unrecognized client – including the
+plain/library `User-Agent` that used to slip through – and no header/TLS
+tweak passes it (it needs a JS runtime). The challenge exempts the
+okhttp client the FanGraphs mobile app uses, so **FanGraphs requests go
+through `fg_api_call()`**, which sends `User-Agent: okhttp/4.12.0` (and
+emits a `cli` hint if a 403 still slips through). `mlb_api_call()` keeps
+a plain package `User-Agent` for the MLB Stats API (which ignores it).
+The `.aspx` scrapers
+([`fg_guts()`](https://billpetti.github.io/baseballr/dev/reference/fg_guts.md),
+[`fg_park()`](https://billpetti.github.io/baseballr/dev/reference/fg_park.md),
+[`fg_park_hand()`](https://billpetti.github.io/baseballr/dev/reference/fg_park.md))
+and the FanGraphs game-log functions send the same okhttp UA inline.
+Build new FanGraphs wrappers on `fg_api_call()`, never `mlb_api_call()`.
+(The okhttp-UA approach was adapted from upstream PR \#405; see
+`NEWS.md`.)
+
+**FanGraphs leaderboard `month` parameter is modal, not just a month.**
+The leaders API only applies `startdate`/`enddate` when
+`month = "1000"`; with the default `month = "0"` it silently returns the
+full-season board. The six leaderboard/team wrappers
+([`fg_batter_leaders()`](https://billpetti.github.io/baseballr/dev/reference/fg_batter_leaders.md),
+[`fg_pitcher_leaders()`](https://billpetti.github.io/baseballr/dev/reference/fg_pitcher_leaders.md),
+[`fg_fielder_leaders()`](https://billpetti.github.io/baseballr/dev/reference/fg_fielder_leaders.md),
+[`fg_team_batter()`](https://billpetti.github.io/baseballr/dev/reference/fg_team_batter.md),
+[`fg_team_pitcher()`](https://billpetti.github.io/baseballr/dev/reference/fg_team_pitcher.md),
+[`fg_team_fielder()`](https://billpetti.github.io/baseballr/dev/reference/fg_team_fielder.md))
+auto-set `month <- "1000"` when a date range is supplied and `month` was
+left at its default (#326). Other special values: `"13"` = vs-LHP split,
+`"14"` = vs-RHP split (the split boards return a much narrower column
+projection – keep
+[`dplyr::any_of()`](https://tidyselect.r-lib.org/reference/all_of.html)
+on their selections, \#323). Apply the same guard to any new FanGraphs
+wrapper that accepts dates.
+
+## Testing
+
+Tests live in `tests/testthat/`. Many hit live sites and are gated /
+skipped (e.g. `skip_on_cran()`, `skip_on_ci()`); do not assume they run
+unconditionally.
+
+> **IMPORTANT CAUTION – NCAA IP bans.** The NCAA stats site aggressively
+> IP-bans scrapers. Tests and dev work that hit NCAA endpoints
+> (`ncaa_*()`, `load_ncaa_baseball_*()`) must be done **sparingly and
+> cached** – prefer running them once and reusing fixtures, never in a
+> tight loop, and keep them skipped on CI.
+
+### Environment-variable gates
+
+Every test that hits an external service is gated behind a
+source-specific helper in `tests/testthat/helper-skip.R`. Each helper
+`skip()`s unless its environment variable is set to `"1"`, so
+`R CMD check` (and CI) never fails when an upstream site is down,
+rate-limiting, has changed its schema, or is blocking automated access.
+**The first line of every live `test_that()` block is its source gate.**
+
+| Source                  | Env var                  | Helper                  |
+|-------------------------|--------------------------|-------------------------|
+| FanGraphs (`fg_*`)      | `FANGRAPHS_TESTS=1`      | `skip_fangraphs_test()` |
+| MLB Stats API (`mlb_*`) | `MLB_STATS_TESTS=1`      | `skip_mlb_test()`       |
+| Baseball Reference      | `BREF_TESTS=1`           | `skip_bref_test()`      |
+| Baseball Savant         | `STATCAST_TESTS=1`       | `skip_statcast_test()`  |
+| NCAA (`ncaa_*`)         | `NCAA_BASEBALL_TESTS=1`  | `skip_ncaa_test()`      |
+| Spotrac (`sptrc_*`)     | `SPOTRAC_TESTS=1`        | `skip_sptrc_test()`     |
+| Chadwick (`chadwick_*`) | `CHADWICK_TESTS=1`       | `skip_chadwick_test()`  |
+| Data loaders (`load_*`) | `BASEBALLR_LOAD_TESTS=1` | `skip_load_test()`      |
+| ESPN MLB (`espn_mlb_*`) | `ESPN_MLB_TESTS=1`       | `skip_espn_test()`      |
+
+``` r
+
+# Run one source's live tests locally:
+Sys.setenv(MLB_STATS_TESTS = "1"); devtools::test()
+```
+
+Set `NCAA_BASEBALL_TESTS=1` only deliberately and sparingly (the NCAA
+site IP-bans scrapers). Purely computational tests (e.g. `metrics_*` on
+a supplied data frame) are **not** gated.
+
+### Test Pattern
+
+**Always use the subset direction for column assertions.** Because the
+upstream sites add columns, strict `expect_equal` will break on any new
+column. The rule is: the *expected* list must be a subset of the
+*actual* columns.
+
+``` r
+
+test_that("mlb_function returns expected columns", {
+  skip_mlb_test()          # source gate -- always the first line
+  skip_on_cran()
+
+  x <- mlb_function(game_pk = 632970)
+
+  # Skip-if-empty guard -- right after the API call, before any column asserts.
+  if (is.null(x) || !is.data.frame(x) || nrow(x) == 0) {
+    skip("No rows returned from endpoint at test time")
+  }
+
+  cols <- c("col1", "col2", "col3")
+  expect_in(sort(cols), sort(colnames(x)))   # expected ⊆ actual
+  expect_s3_class(x, "data.frame")
+})
+```
+
+**Anti-patterns to avoid**:
+
+``` r
+
+# WRONG - flags when upstream adds a column, even though it's non-breaking
+expect_equal(sort(colnames(x)), sort(cols))
+
+# WRONG - same direction problem, just phrased with expect_in
+expect_in(sort(colnames(x)), sort(cols))
+```
+
+For dynamic columns, `expect_true(all(core_cols %in% colnames(x)))` is
+equivalent to the subset-direction `expect_in()`.
+
+**Per-element null checks**: if a function returns a named list of
+frames and the source sometimes returns fewer than expected, use an
+inline helper so individual asserts skip gracefully rather than
+erroring:
+
+``` r
+
+check_cols <- function(component, cols) {
+  if (is.null(component) || !is.data.frame(component) || ncol(component) == 0) {
+    return(invisible(NULL))
+  }
+  expect_in(sort(cols), sort(colnames(component)))
+  expect_s3_class(component, "data.frame")
+}
+```
+
+## Baseball-Specific Details
+
+- A regulation game is 9 innings; extra innings resolve ties. Tests and
+  parsers must not assume a fixed inning count.
+- MLB game identifiers are `game_pk` values (e.g. `632970`), used
+  throughout the `mlb_*()` family.
+- The MLB Stats API base host is `https://statsapi.mlb.com/`.
+- Player identity is cross-source: the Chadwick Bureau register
+  ([`chadwick_player_lu()`](https://billpetti.github.io/baseballr/dev/reference/chadwick_player_lu.md),
+  [`playerid_lookup()`](https://billpetti.github.io/baseballr/dev/reference/chadwick_player_id_lu.md),
+  [`playername_lookup()`](https://billpetti.github.io/baseballr/dev/reference/chadwick_player_name_lu.md))
+  maps between MLBAM, FanGraphs, Baseball Reference, and Retrosheet IDs
+  – prefer it when joining data across families.
+- There is **no V2/V3 dichotomy** as in NBA/WNBA stats packages; each
+  source has its own native payload shape.
+
+## NAMESPACE
+
+Auto-generated by roxygen2. **Never edit manually.** Run
+`devtools::document()` to regenerate. The same applies to everything
+under `man/` – never hand-edit `.Rd` files.
+
+## Documentation Maintenance
+
+Regeneration steps are part of the commit workflow whenever the relevant
+sources change. All are mechanical – never edit the generated regions by
+hand.
+
+### Markdown TOCs (doctoc)
+
+`NEWS.md`, `CLAUDE.md`, `CONTRIBUTING.md`,
+`.github/copilot-instructions.md`, and
+`.github/pull_request_template.md` carry a doctoc-generated table of
+contents inside the standard marker comments. After editing any of those
+files, regenerate the TOC before committing:
+
+``` sh
+Rscript tools/run_doctoc.R --maxlevel 2 \
+  NEWS.md CLAUDE.md CONTRIBUTING.md \
+  .github/copilot-instructions.md .github/pull_request_template.md
+```
+
+Use `--maxlevel 2` so the TOC only lists `#` and `##` headings; level-3
+sub-entries crowd the nav. `cran-comments.md` is intentionally excluded.
+
+### README.md (rmarkdown)
+
+`README.md` is rendered from `README.Rmd`. After editing `README.Rmd`,
+re-render before committing:
+
+``` r
+
+devtools::build_readme()
+```
+
+Commit `README.Rmd` and the regenerated `README.md` together. Never
+hand-edit `README.md`.
+
+### DESCRIPTION (usethis)
+
+After editing `DESCRIPTION` (adding/removing packages, bumping versions,
+updating `Authors@R`, etc.), normalize formatting before committing:
+
+``` r
+
+usethis::use_tidy_description()
+```
+
+This re-orders fields, alphabetizes `Imports`/`Suggests`, and reflows
+long lines so subsequent diffs stay minimal.
+
+### Release notes triad: NEWS.md / cran-comments.md / \_pkgdown.yml
+
+Three files describe the same release at different audiences. Whenever
+you add a `NEWS.md` bullet, think through all three before committing:
+
+- **`NEWS.md`** – authoritative changelog for downstream users; rendered
+  into the pkgdown changelog. New bullets go under the most recent
+  development version heading; do not create a new version section ahead
+  of release.
+- **`cran-comments.md`** – what gets submitted to CRAN. Every behavioral
+  or user-visible change in `NEWS.md` should be reflected here before
+  submission. Purely internal changes (refactors, test infrastructure,
+  dev tooling) can be omitted.
+- **`_pkgdown.yml`** – the pkgdown reference index. New exported
+  functions need to land in the right `reference:` section. baseballr
+  uses `starts_with()` selectors (e.g. `starts_with("mlb_")`,
+  `starts_with("fg_")`, `starts_with("bref")`) so new functions matching
+  those prefixes are picked up automatically; explicitly-listed
+  functions need a manual entry. Preview with
+  [`pkgdown::build_site()`](https://pkgdown.r-lib.org/reference/build_site.html)
+  when in doubt.
+
+When the change touches the API surface (new export, deprecation,
+removal), include a one-line note in your commit message confirming
+you’ve checked all three.
+
+## Commit Convention
+
+Use [Conventional Commits](https://www.conventionalcommits.org/):
+
+    feat: add mlb_game_context_metrics() endpoint wrapper
+    fix: initialize return value before tryCatch in fg_team_pitcher()
+    docs: update NEWS.md for the next dev release
+    test: add fg_batter_leaders column validation
+    refactor: migrate ncaa_roster() from %>% to native pipe
+    chore: update .Rbuildignore patterns
+    ci: bump actions/checkout to v5
+
+Prefer scoped commit subjects when useful (e.g. `feat(mlb): ...`,
+`docs(instructions): ...`). Use `type!:` or a `BREAKING CHANGE:` footer
+for breaking changes. Split unrelated work into separate commits for
+reviewability.
+
+**Important**: Never include AI agents or assistants (e.g. Claude,
+Copilot) as co-authors on commits. Omit all `Co-Authored-By` trailers
+referencing AI tools.
+
+## Common Pitfalls
+
+- Always initialize the return variable (`out <- NULL`, etc.) **before**
+  the `tryCatch` block – see Return-Value Initialization above.
+- Never pass a raw condition object to a `cli_*` function; pass
+  `conditionMessage(cond)` through a value placeholder.
+- The NCAA stats site IP-bans scrapers – run `ncaa_*()` work sparingly
+  and cache results; keep those tests skipped on CI.
+- Use the native pipe `|>`; do not add new `%>%` usage outside the
+  legacy NCAA wrappers that still depend on `magrittr`.
+- Drop known-transient columns with `dplyr::select(-dplyr::any_of(...))`
+  so schema drift upstream is survivable.
+- Upstream sites add columns over time – use subset-direction assertions
+  in tests.
+- `data.frame(list_of_items)` can yield wrong column types when the
+  source returns mixed `NULL`/value fields – supply `%||%` defaults
+  first.
+- Never hand-edit `NAMESPACE` or files under `man/`; regenerate with
+  `devtools::document()`.
+- Local dev artifacts (e.g. `.vscode`, `.claude`) can surface as
+  `R CMD check` notes – keep `.Rbuildignore` current.
+
+## Cheat sheet
+
+There is a printable one-page reference for this package at
+<https://sportsdataverse.org/cheatsheets/baseballr.pdf>, one of [a set
+covering every SportsDataverse
+package](https://sportsdataverse.org/cheatsheets). Keep it in mind when
+adding or renaming an exported function: the sheet is a hand-built
+canvas, so a surface change means the sheet needs a revision too.
