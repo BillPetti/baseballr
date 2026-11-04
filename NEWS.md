@@ -1,7 +1,29 @@
 # baseballr 2.0.0.9000
 
+### New features
+
+- `load_mlb_groups()`, `load_mlb_group_seasons()`, `load_mlb_group_aliases()`,
+  `load_mlb_team_group_seasons()` and their `load_ncaa_baseball_*()` twins —
+  season-by-season league / division / conference reference tables from the
+  `mlb_groups` and `ncaa_baseball_groups` sportsdataverse-data releases:
+  each group's name and parent as of every season, every source's ids and
+  names for it, and each team's affiliation by season (MLB 1901+, NCAA
+  baseball 2010+).
+- `load_mlb_park_dimensions()` — every MLB venue's fence distances (feet, at
+  MLB's seven markers), capacity, turf, roof, azimuth, elevation and location
+  by season, 2001+, from the `mlb_parks` sportsdataverse-data release. Built
+  from the MLB Stats API with cited corrections for fence moves the API lags
+  or misses; `venue_id` stays character.
+
 ### Bug fixes
 
+- `mlb_standings()` accepts a vector `league_id`, as documented
+  (`league_id = c(103, 104)` for both leagues): `httr2::url_modify_query()`
+  refused it ("All vector elements of `...` must be length 1"), so the call
+  failed before reaching the API. The ids are now comma-joined, which the MLB
+  Stats API reads.
+- `httr2 (>= 1.1.0)`: `httr2::url_modify_query()`, which the MLB Stats API
+  wrappers build every request with, first appeared in httr2 1.1.0.
 - `tail()` works on the result of every loader, `chadwick_player_lu()`, and
   every function that returns a `baseballr_data` tibble. The class vector they
   set, in the `load_ncaa_baseball_*()` loaders, `chadwick_player_lu()` and
@@ -30,18 +52,6 @@
   the sportsdataverse-data releases (expected stats/HR, batter projections,
   Stuff+/Command+/xERA, OAA, catcher framing, RE24 matrix, WE table, WPA),
   mirroring sportsdataverse-py's loader surface.
-- `load_mlb_groups()`, `load_mlb_group_seasons()`, `load_mlb_group_aliases()`,
-  `load_mlb_team_group_seasons()` and their `load_ncaa_baseball_*()` twins —
-  season-by-season league / division / conference reference tables from the
-  `mlb_groups` and `ncaa_baseball_groups` sportsdataverse-data releases:
-  each group's name and parent as of every season, every source's ids and
-  names for it, and each team's affiliation by season (MLB 1901+, NCAA
-  baseball 2010+).
-- `load_mlb_park_dimensions()` — every MLB venue's fence distances (feet, at
-  MLB's seven markers), capacity, turf, roof, azimuth, elevation and location
-  by season, 2001+, from the `mlb_parks` sportsdataverse-data release. Built
-  from the MLB Stats API with cited corrections for fence moves the API lags
-  or misses; `venue_id` stays character.
 - `mlb_stats()` and `mlb_teams_stats()` gain `sit_codes` for situational
   splits via `stat_type = "statSplits"` (vs L/R, home/away, RISP, ...)
   (#278, #304, #383). Note the upstream leaders endpoints ignore `sitCodes`.
@@ -53,13 +63,6 @@
 
 ### Bug fixes
 
-- `mlb_standings()` accepts a vector `league_id`, as documented
-  (`league_id = c(103, 104)` for both leagues): `httr2::url_modify_query()`
-  refused it ("All vector elements of `...` must be length 1"), so the call
-  failed before reaching the API. The ids are now comma-joined, which the MLB
-  Stats API reads.
-- `httr2 (>= 1.1.0)`: `httr2::url_modify_query()`, which the MLB Stats API
-  wrappers build every request with, first appeared in httr2 1.1.0.
 - `mlb_pbp()` no longer back-fills the at-bat-level `matchup.postOn*` /
   `matchup.splits.menOnBase` columns across at-bat and half-inning
   boundaries — bases-empty plays previously inherited baserunner ids from
