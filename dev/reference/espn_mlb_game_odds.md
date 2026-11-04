@@ -167,11 +167,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_game_odds(event_id = "401283399")
-#> ✖ 2026-11-04 04:37:08.307945: Failed to retrieve ESPN mlb event odds for event_id=401283399
+#> ✖ 2026-11-04 05:31:16.54595: Failed to retrieve ESPN mlb event odds for event_id=401283399
 #> ✖ Args: league = "mlb", event_id = "401283399"
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN MLB Event Odds (event_id=401283399) from ESPN.com ──────────────
-#> ℹ Data updated: 2026-11-04 04:37:08 UTC
+#> ℹ Data updated: 2026-11-04 05:31:16 UTC
 #> # A tibble: 0 × 0
 # }
 ```

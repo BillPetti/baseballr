@@ -147,7 +147,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_team_record_detail(team_id = "59", season = 2025, record_id = 0))
 #> ── ESPN COLLEGE-BASEBALL Team Record Detail ──── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 04:36:54 UTC
+#> ℹ Data updated: 2026-11-04 05:31:03 UTC
 #> # A tibble: 29 × 15
 #>    league team_id season season_type record_id record_name record_abbrev
 #>    <chr>  <chr>    <int>       <int> <chr>     <chr>       <chr>        

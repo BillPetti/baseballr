@@ -68,7 +68,7 @@ columns:
 # \donttest{
   try(mlb_rosters(team_id = 109, season = 2018, roster_type = 'active'))
 #> ── MLB Roster data from MLB.com ──────────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 04:41:45 UTC
+#> ℹ Data updated: 2026-11-04 05:35:49 UTC
 #> # A tibble: 49 × 16
 #>    jersey_number person_id person_full_name person_link person_name_slug
 #>    <chr>             <int> <chr>            <chr>       <chr>           
@@ -89,7 +89,7 @@ columns:
 #> #   team_id <int>, roster_type <chr>, season <dbl>, date <chr>
   try(mlb_rosters(team_id = 109, season = 2018, roster_type = 'coach'))
 #> ── MLB Roster data from MLB.com ──────────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 04:41:45 UTC
+#> ℹ Data updated: 2026-11-04 05:35:49 UTC
 #> # A tibble: 13 × 13
 #>    jersey_number job             job_id title person_id person_full_name
 #>    <chr>         <chr>           <chr>  <chr>     <int> <chr>           

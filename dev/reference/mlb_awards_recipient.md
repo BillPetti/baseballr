@@ -63,7 +63,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_awards_recipient(award_id = 'MLBHOF', season = 2020))
 #> ── MLB Awards Recipient data from MLB.com ────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 04:41:14 UTC
+#> ℹ Data updated: 2026-11-04 05:35:21 UTC
 #> # A tibble: 4 × 16
 #>   award_id award_name   date    season votes notes player_id player_link
 #>   <chr>    <chr>        <chr>   <chr>  <int> <chr>     <int> <chr>      

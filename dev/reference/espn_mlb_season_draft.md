@@ -161,11 +161,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_season_draft(season = 2024)
-#> ✖ 2026-11-04 04:37:23.169986: Failed to retrieve ESPN mlb season draft top-level for season=2024
+#> ✖ 2026-11-04 05:31:30.723034: Failed to retrieve ESPN mlb season draft top-level for season=2024
 #> ✖ Args: league = "mlb", season = 2024
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN MLB Season Draft (top-level) ─────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 04:37:23 UTC
+#> ℹ Data updated: 2026-11-04 05:31:30 UTC
 #> # A tibble: 0 × 0
 # }
 ```

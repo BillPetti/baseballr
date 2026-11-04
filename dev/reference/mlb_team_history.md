@@ -64,7 +64,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_team_history(team_ids = 147))
 #> ── MLB Team History data from MLB.com ────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 04:41:55 UTC
+#> ℹ Data updated: 2026-11-04 05:36:00 UTC
 #> # A tibble: 5 × 26
 #>   all_star_status team_id team_full_name       link     season team_code
 #>   <chr>             <int> <chr>                <chr>     <int> <chr>    
