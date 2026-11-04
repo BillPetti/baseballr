@@ -82,8 +82,10 @@ test_that("a loader keeps the seasons that load and names the one that failed", 
   )
   expect_equal(nrow(out), 1L)
   expect_equal(out$season, 2023L)
+  expect_setequal(names(out), c("season", "game_id"))
   expect_equal(calls, 4L)
   expect_s3_class(out, "baseballr_data")
+  expect_s3_class(out, "data.frame")
   expect_false("data.table" %in% class(out))
   expect_equal(getOption("timeout"), 60)
 })
@@ -96,4 +98,24 @@ test_that("rds_from_url reads a local file", {
   url <- paste0("file://", if (!startsWith(path, "/")) "/", path)
   expect_equal(.read_rds_url(url), data.frame(x = 1:2))
   expect_equal(rds_from_url(url)$x, 1:2)
+})
+
+test_that("a group loader retries a failed csv read", {
+  calls <- 0L
+  local_mocked_bindings(csv_from_url = function(input, ...) {
+    calls <<- calls + 1L
+    if (calls == 1L) stop("Timeout of 150 seconds was reached")
+    data.table::fread(text = "league,group_id,level,first_season,last_season,notes
+mlb,mlb:al,league,1901,,x", ...)
+  })
+  expect_no_warning(x <- load_mlb_groups())
+  expect_equal(calls, 2L)
+  expect_equal(nrow(x), 1L)
+  expect_s3_class(x, "baseballr_data")
+})
+
+test_that("a group loader warns with the url when the csv keeps failing", {
+  local_mocked_bindings(csv_from_url = function(input, ...) stop("Timeout of 150 seconds was reached"))
+  expect_warning(x <- load_mlb_groups(), "mlb_groups.csv", fixed = TRUE)
+  expect_equal(nrow(x), 0L)
 })
