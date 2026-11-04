@@ -124,7 +124,7 @@ Saiem Gilani
 # \donttest{
 try(espn_college_baseball_teams())
 #> ── ESPN College Baseball Teams Information from ESPN.com ───────────────
-#> ℹ Data updated: 2026-11-04 00:53:02 UTC
+#> ℹ Data updated: 2026-11-04 04:36:57 UTC
 #> # A tibble: 437 × 22
 #>    abbreviation color  display_name        team_id team  logo  logo_dark
 #>    <chr>        <chr>  <chr>                 <int> <chr> <chr> <chr>    

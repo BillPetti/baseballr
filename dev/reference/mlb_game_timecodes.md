@@ -29,7 +29,7 @@ Returns a tibble that includes time codes from the game_pk requested
 # \donttest{
   try(mlb_game_timecodes(game_pk = 632970))
 #> ── MLB Game Timecodes data from MLB.com ──────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 00:55:53 UTC
+#> ℹ Data updated: 2026-11-04 04:41:31 UTC
 #> # A tibble: 473 × 1
 #>    timecodes      
 #>    <chr>          

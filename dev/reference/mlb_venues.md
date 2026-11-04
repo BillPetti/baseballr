@@ -42,7 +42,7 @@ Returns a tibble with the following columns:
 # \donttest{
   try(mlb_venues())
 #> ── MLB Venues data from MLB.com ──────────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 00:56:11 UTC
+#> ℹ Data updated: 2026-11-04 04:41:58 UTC
 #> # A tibble: 1,671 × 5
 #>    venue_id venue_name                venue_link          active season
 #>       <int> <chr>                     <chr>               <lgl>  <chr> 
@@ -59,14 +59,14 @@ Returns a tibble with the following columns:
 #> # ℹ 1,661 more rows
   try(mlb_venues(venue_ids = 4781))
 #> ── MLB Venues data from MLB.com ──────────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 00:56:11 UTC
+#> ℹ Data updated: 2026-11-04 04:41:58 UTC
 #> # A tibble: 1 × 5
 #>   venue_id venue_name venue_link          active season
 #>      <int> <chr>      <chr>               <lgl>  <chr> 
 #> 1     4781 Bush Field /api/v1/venues/4781 FALSE  1995  
   try(mlb_venues(sport_ids = 1))
 #> ── MLB Venues data from MLB.com ──────────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 00:56:11 UTC
+#> ℹ Data updated: 2026-11-04 04:41:58 UTC
 #> # A tibble: 59 × 5
 #>    venue_id venue_name                     venue_link      active season
 #>       <int> <chr>                          <chr>           <lgl>  <chr> 

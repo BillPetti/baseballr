@@ -162,7 +162,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_draft_rounds(season = 2024)
 #> ── ESPN MLB Draft Rounds ─────────────────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 00:53:07 UTC
+#> ℹ Data updated: 2026-11-04 04:37:05 UTC
 #> # A tibble: 0 × 7
 #> # ℹ 7 variables: league <chr>, season <int>, round <int>,
 #> #   display_name <chr>, short_display_name <chr>, n_picks <int>,

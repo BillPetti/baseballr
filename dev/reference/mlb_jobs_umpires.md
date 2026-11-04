@@ -39,7 +39,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_jobs_umpires(sport_id=1))
 #> ── MLB Jobs Umpires data from MLB.com ────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 00:55:56 UTC
+#> ℹ Data updated: 2026-11-04 04:41:36 UTC
 #> # A tibble: 98 × 8
 #>    jersey_number job    job_code title  person_id person_full_name
 #>    <chr>         <chr>  <chr>    <chr>      <int> <chr>           

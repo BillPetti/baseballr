@@ -175,7 +175,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_freeagents(season = 2025)
 #> ── ESPN MLB Free Agents from ESPN.com ────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 00:53:08 UTC
+#> ℹ Data updated: 2026-11-04 04:37:06 UTC
 #> # A tibble: 0 × 0
 # }
 ```

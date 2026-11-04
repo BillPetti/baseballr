@@ -225093,10 +225093,33 @@ Returns a tibble
 #> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
 #> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
 #> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
-#> Warning: URL 'https://release-assets.githubusercontent.com/github-production-release-asset/609614414/f74c52ec-ebf1-49fd-8b4e-8180dddd7a19?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-04T01%3A40%3A44Z&rscd=attachment%3B+filename%3Dncaa_baseball_pbp_2021.rds&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-04T00%3A40%3A16Z&ske=2026-11-04T01%3A40%3A44Z&sks=b&skv=2018-11-09&sig=fK9%2F69li8OOSUU4EXRilmB98WrFYbqw9PaD79TQbnc4%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5Mzc1NTQ0NywibmJmIjoxNzkzNzUzNjQ3LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.gao4Qpy3KdOpH8s7RDxiqiukGMtDnPrWNntXxtO0Wyw&response-content-disposition=attachment%3B%20filename%3Dncaa_baseball_pbp_2021.rds&response-content-type=application%2Foctet-stream': Timeout of 60 seconds was reached
-#> Warning: Failed to readRDS from
-#> <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_baseball_pbp/ncaa_baseball_pbp_2021.rds>
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: Column 1 ['contest_id'] of item 1 is length 0. This (and 17 others like it) has been filled with NA (NULL for list columns) to make each item uniform.
 #> ──────────────────────────────────────────────── baseballr 2.0.0.9000 ──
-#> # A tibble: 0 × 0
+#> # A tibble: 1,725,312 × 37
+#>    contest_id inning inning_top_bot batting fielding play_number
+#>    <chr>       <int> <chr>          <chr>   <chr>          <int>
+#>  1 NA              1 NA             NA      NA                 1
+#>  2 NA              1 NA             NA      NA                 2
+#>  3 NA              1 NA             NA      NA                 3
+#>  4 NA              1 NA             NA      NA                 4
+#>  5 NA              1 NA             NA      NA                 5
+#>  6 NA              1 NA             NA      NA                 6
+#>  7 NA              1 NA             NA      NA                 7
+#>  8 NA              1 NA             NA      NA                 8
+#>  9 NA              1 NA             NA      NA                 9
+#> 10 NA              1 NA             NA      NA                10
+#> # ℹ 1,725,302 more rows
+#> # ℹ 31 more variables: score_away <int>, score_home <int>,
+#> #   batter <chr>, play_type <chr>, hit_trajectory <chr>,
+#> #   fielded_position <chr>, is_hit <lgl>, is_out <lgl>,
+#> #   strikeout_type <chr>, is_sacrifice <lgl>, sac_type <chr>,
+#> #   is_double_play <lgl>, rbi <int>, count_balls <int>,
+#> #   count_strikes <int>, pitch_sequence <chr>, error_position <chr>, …
 # }
 ```

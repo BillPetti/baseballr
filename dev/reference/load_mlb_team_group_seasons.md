@@ -63,7 +63,7 @@ A `baseballr_data` tibble:
 # \donttest{
   try(load_mlb_team_group_seasons(seasons = 2013))
 #> ── MLB team group seasons from the SportsDataverse data repo ───────────
-#> ℹ Data updated: 2026-11-04 00:54:05 UTC
+#> ℹ Data updated: 2026-11-04 04:38:15 UTC
 #> # A tibble: 30 × 11
 #>    league season team_id team_id_source team_name         subdivision_id
 #>    <chr>   <int> <chr>   <chr>          <chr>             <chr>         

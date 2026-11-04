@@ -127,11 +127,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_tournament_season(tournament_id = 1, season = 2025))
-#> ✖ 2026-11-04 00:53:02.65101: Failed to retrieve ESPN college-baseball tournament season detail for tournament_id=1, season=2025
+#> ✖ 2026-11-04 04:36:58.555809: Failed to retrieve ESPN college-baseball tournament season detail for tournament_id=1, season=2025
 #> ✖ Args: league = "college-baseball", tournament_id = 1, season = 2025
 #> ✖ Error: The API returned an error, HTTP Response Code 400
 #> ── ESPN COLLEGE-BASEBALL Tournament Season Detail ──────────────────────
-#> ℹ Data updated: 2026-11-04 00:53:02 UTC
+#> ℹ Data updated: 2026-11-04 04:36:58 UTC
 #> # A tibble: 0 × 0
 # }
 ```

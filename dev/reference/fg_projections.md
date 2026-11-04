@@ -56,7 +56,7 @@ set varies by system and by `stats`).
 # \donttest{
   try(fg_projections(type = "steamer", stats = "bat"))
 #> ── FanGraphs steamer bat projections data from FanGraphs.com ───────────
-#> ℹ Data updated: 2026-11-04 00:53:42 UTC
+#> ℹ Data updated: 2026-11-04 04:37:54 UTC
 #> # A tibble: 4,166 × 82
 #>    team  short_name       g    ab    pa     h   x1b   x2b   x3b    hr
 #>    <chr> <chr>        <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>

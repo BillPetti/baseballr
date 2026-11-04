@@ -23,7 +23,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_stat_types())
 #> ── MLB Stat Types data from MLB.com ──────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 00:56:08 UTC
+#> ℹ Data updated: 2026-11-04 04:41:53 UTC
 #> # A tibble: 61 × 1
 #>    stat_type_name     
 #>    <chr>              

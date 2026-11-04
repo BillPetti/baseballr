@@ -173,7 +173,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_leaders(season = 2024, season_type = 2)
 #> ── ESPN MLB Leaders from ESPN.com ────────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 00:53:13 UTC
+#> ℹ Data updated: 2026-11-04 04:37:14 UTC
 #> # A tibble: 500 × 11
 #>    season season_type category abbreviation athlete_id athlete_name
 #>     <int>       <int> <chr>    <chr>        <chr>      <chr>       
