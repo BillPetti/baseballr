@@ -195,9 +195,6 @@
 #'  |rBTV                 |numeric   |Regressed base-state team value.                                   |
 #'  |EBV                  |integer   |Earned-base value (raw component).                                 |
 #'  |ESV                  |integer   |Earned-strike value (raw component).                               |
-#'  |rFTeamV              |numeric   |Regressed fielding team value.                                     |
-#'  |rBTeamV              |numeric   |Regressed base-running team value.                                 |
-#'  |rTV                  |numeric   |Regressed total team value.                                        |
 #'  |pfx_FA_pct           |numeric   |PITCHf/x four-seam fastballs usage percentage.                     |
 #'  |pfx_FC_pct           |numeric   |PITCHf/x cutters usage percentage.                                 |
 #'  |pfx_FS_pct           |numeric   |PITCHf/x splitters usage percentage.                               |
