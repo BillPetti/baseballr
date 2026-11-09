@@ -391,4 +391,4 @@ BibTeX Citation
 
 ## **License**
 
-[MIT](https://github.com/BillPetti/baseballr/blob/master/LICENSE.md) © baseballr authors. See [LICENSE.md](https://github.com/BillPetti/baseballr/blob/master/LICENSE.md).
+[MIT](https://github.com/BillPetti/baseballr/blob/master/LICENSE.md) © baseballr Authors. See [LICENSE.md](https://github.com/BillPetti/baseballr/blob/master/LICENSE.md).
