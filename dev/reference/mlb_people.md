@@ -73,7 +73,7 @@ Returns a tibble with the following columns:
 # \donttest{
   try(mlb_people(person_ids = 502671))
 #> ── MLB People data from MLB.com ──────────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 06:10:54 UTC
+#> ℹ Data updated: 2026-11-09 12:44:19 UTC
 #> # A tibble: 1 × 42
 #>       id full_name  link  first_name last_name primary_number birth_date
 #>    <int> <chr>      <chr> <chr>      <chr>     <chr>          <chr>     
@@ -87,7 +87,7 @@ Returns a tibble with the following columns:
 #> #   first_last_name <chr>, last_first_name <chr>, …
   try(mlb_people(person_ids = c(502671,605151)))
 #> ── MLB People data from MLB.com ──────────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 06:10:54 UTC
+#> ℹ Data updated: 2026-11-09 12:44:19 UTC
 #> # A tibble: 2 × 44
 #>       id full_name  link  first_name last_name primary_number birth_date
 #>    <int> <chr>      <chr> <chr>      <chr>     <chr>          <chr>     

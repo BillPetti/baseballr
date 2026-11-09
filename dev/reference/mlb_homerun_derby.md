@@ -89,7 +89,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_homerun_derby(game_pk = 511101))
 #> ── MLB Homerun Derby data from MLB.com ───────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 06:10:46 UTC
+#> ℹ Data updated: 2026-11-09 12:44:10 UTC
 #> # A tibble: 396 × 61
 #>    game_pk event_name         event_date event_type_code event_type_name
 #>      <int> <chr>              <chr>      <chr>           <chr>          

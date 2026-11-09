@@ -142,7 +142,7 @@ The following IDs can be passed to the level_ids argument:
 # \donttest{
   try(mlb_schedule(season = "2019"))
 #> ── MLB Schedule data from MLB.com ────────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 06:11:01 UTC
+#> ℹ Data updated: 2026-11-09 12:44:26 UTC
 #> # A tibble: 3,010 × 73
 #>    date      total_items total_events total_games total_games_in_progr…¹
 #>    <chr>           <int>        <int>       <int>                  <int>

@@ -24,7 +24,7 @@ six-pack odds columns: run line / to-win / total). Empty when no market.
 ``` r
  try(fox_mlb_odds("95687")) 
 #> ── Fox Sports MLB odds ───────────────────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 06:07:56 UTC
+#> ℹ Data updated: 2026-11-09 12:40:57 UTC
 #> # A tibble: 2 × 5
 #>   game_id team              run_line to_win total
 #>   <chr>   <chr>             <chr>    <chr>  <chr>

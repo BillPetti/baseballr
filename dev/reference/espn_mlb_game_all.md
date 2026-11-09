@@ -154,7 +154,7 @@ Saiem Gilani
 ``` r
 # \donttest{
 try(espn_mlb_game_all(game_id = 401283399))
-#> ✖ 2026-11-04 06:07:05.956962: Could not fetch game summary for game_id = 401283399
+#> ✖ 2026-11-09 12:40:03.75182: Could not fetch game summary for game_id = 401283399
 #> ✖ Args: game_id = 401283399
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> $Plays

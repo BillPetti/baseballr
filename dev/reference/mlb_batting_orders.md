@@ -42,7 +42,7 @@ plate umpire for the `game_pk` requested
 # \donttest{
   try(mlb_batting_orders(game_pk=566001))
 #> ── MLB Game Starting Batting Order data from MLB.com ───────────────────
-#> ℹ Data updated: 2026-11-04 06:10:34 UTC
+#> ℹ Data updated: 2026-11-09 12:43:53 UTC
 #> # A tibble: 18 × 9
 #>        id fullName         nameSlug           abbreviation batting_order
 #>     <int> <chr>            <chr>              <chr>        <chr>        

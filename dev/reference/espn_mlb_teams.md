@@ -165,7 +165,7 @@ Saiem Gilani
 # \donttest{
 try(espn_mlb_teams())
 #> ── ESPN MLB Teams Information from ESPN.com ──── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 06:07:33 UTC
+#> ℹ Data updated: 2026-11-09 12:40:33 UTC
 #> # A tibble: 30 × 25
 #>    abbreviation alternate_color color  display_name  team_id team  logo 
 #>    <chr>        <chr>           <chr>  <chr>           <int> <chr> <chr>

@@ -213,7 +213,7 @@ Saiem Gilani
   espn_mlb_team(team_id = "13", season = 2025)
 #> $Info
 #> ── ESPN MLB Team Info from ESPN.com ──────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 06:07:26 UTC
+#> ℹ Data updated: 2026-11-09 12:40:26 UTC
 #> # A tibble: 1 × 12
 #>   id    uid     slug  abbreviation display_name short_display_name name 
 #>   <chr> <chr>   <chr> <chr>        <chr>        <chr>              <chr>
@@ -223,7 +223,7 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN MLB Team Record from ESPN.com ────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-04 06:07:26 UTC
+#> ℹ Data updated: 2026-11-09 12:40:26 UTC
 #> # A tibble: 3 × 4
 #>   description    stats         summary type 
 #>   <chr>          <list>        <chr>   <chr>
@@ -236,7 +236,7 @@ Saiem Gilani
 #> 
 #> $StandingSummary
 #> ── ESPN MLB Team Standing Summary from ESPN.com ────────────────────────
-#> ℹ Data updated: 2026-11-04 06:07:26 UTC
+#> ℹ Data updated: 2026-11-09 12:40:26 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary
 #>   <chr>           

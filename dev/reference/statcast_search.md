@@ -240,7 +240,7 @@ reference.
                       playerid = 547180, 
                       player_type = 'batter'))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-11-04 06:11:19 UTC
+#> ℹ Data updated: 2026-11-09 12:44:45 UTC
 #> # A tibble: 82 × 119
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
@@ -251,9 +251,9 @@ reference.
 #>  5 FF         2022-10-15          95.8         -2.62          5.45
 #>  6 FC         2022-10-15          93.4         -1.05          6.88
 #>  7 FC         2022-10-15          93.1         -1.16          6.87
-#>  8 FF         2022-10-15          95.8         -1.47          5.64
-#>  9 FC         2022-10-15          92.3         -1.1           6.86
-#> 10 FF         2022-10-15          98.8          2.13          5.77
+#>  8 FC         2022-10-15          92.3         -1.1           6.86
+#>  9 FF         2022-10-15          95.8         -1.47          5.64
+#> 10 FC         2022-10-15          91           -2.09          5.64
 #> # ℹ 72 more rows
 #> # ℹ 114 more variables: player_name <chr>, batter <dbl>, pitcher <dbl>,
 #> #   events <chr>, description <chr>, spin_dir <lgl>,
@@ -267,7 +267,7 @@ reference.
                       playerid = 664285, 
                       player_type = 'pitcher'))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-11-04 06:11:20 UTC
+#> ℹ Data updated: 2026-11-09 12:44:45 UTC
 #> # A tibble: 92 × 119
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
@@ -292,7 +292,7 @@ reference.
   try(statcast_search(start_date = "2022-11-04", 
                       end_date = "2022-11-06"))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-11-04 06:11:20 UTC
+#> ℹ Data updated: 2026-11-09 12:44:45 UTC
 #> # A tibble: 250 × 119
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
@@ -333,8 +333,8 @@ reference.
 # \donttest{
   try(statcast_search_minors(start_date = "2024-06-01", end_date = "2024-06-01"))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-11-04 06:11:22 UTC
-#> # A tibble: 6,311 × 119
+#> ℹ Data updated: 2026-11-09 12:44:46 UTC
+#> # A tibble: 6,547 × 119
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
 #>  1 FF         2024-06-01          93.9         -2.01          5.64
@@ -347,7 +347,7 @@ reference.
 #>  8 CH         2024-06-01          84.8         -1.57          6.55
 #>  9 SI         2024-06-01          93.8         -1.83          5.65
 #> 10 SI         2024-06-01          93.5         -1.27          5.88
-#> # ℹ 6,301 more rows
+#> # ℹ 6,537 more rows
 #> # ℹ 114 more variables: player_name <chr>, batter <dbl>, pitcher <dbl>,
 #> #   events <chr>, description <chr>, spin_dir <lgl>,
 #> #   spin_rate_deprecated <lgl>, break_angle_deprecated <lgl>,
@@ -358,7 +358,7 @@ reference.
 # \donttest{
   try(statcast_search_wbc(start_date = "2023-03-21", end_date = "2023-03-21"))
 #> ── MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com 
-#> ℹ Data updated: 2026-11-04 06:11:22 UTC
+#> ℹ Data updated: 2026-11-09 12:44:46 UTC
 #> # A tibble: 2,673 × 119
 #>    pitch_type game_date  release_speed release_pos_x release_pos_z
 #>    <chr>      <date>             <dbl>         <dbl>         <dbl>
@@ -367,11 +367,11 @@ reference.
 #>  3 FF         2023-03-21          94.6         -2.54          5.31
 #>  4 CH         2023-03-21          89.3         -2.63          5.19
 #>  5 KC         2023-03-21          77.2         -2.46          5.5 
-#>  6 FC         2023-03-21          90           -1.58          5.09
-#>  7 SL         2023-03-21          84           -2.54          5.25
+#>  6 SL         2023-03-21          84           -2.54          5.25
+#>  7 FC         2023-03-21          90           -1.58          5.09
 #>  8 NA         2023-03-21          NA           NA            NA   
-#>  9 CU         2023-03-21          82.9         -1.84          5.19
-#> 10 CH         2023-03-21          87.2         -2.64          5.13
+#>  9 CH         2023-03-21          87.2         -2.64          5.13
+#> 10 CU         2023-03-21          82.9         -1.84          5.19
 #> # ℹ 2,663 more rows
 #> # ℹ 114 more variables: player_name <chr>, batter <dbl>, pitcher <dbl>,
 #> #   events <chr>, description <chr>, spin_dir <lgl>,

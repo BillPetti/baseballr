@@ -402,7 +402,7 @@ columns:
 # \donttest{
   try(fg_pitcher_game_logs(playerid = "19755", year = 2023))
 #> ── MLB Pitcher Game Log data from FanGraphs.com ────────────────────────
-#> ℹ Data updated: 2026-11-04 06:07:43 UTC
+#> ℹ Data updated: 2026-11-09 12:40:44 UTC
 #> # A tibble: 23 × 369
 #>    PlayerName    playerid Date      hometeamid Opp   teamid season Team 
 #>    <chr>            <int> <chr>          <int> <chr>  <int>  <int> <chr>

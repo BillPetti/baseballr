@@ -134,7 +134,7 @@ cell for the game-state references).
 # \donttest{
   try(load_mlb_expected_stats(2024))
 #> ── MLB expected stats data from the SportsDataverse data repo ──────────
-#> ℹ Data updated: 2026-11-04 06:10:51 UTC
+#> ℹ Data updated: 2026-11-09 12:44:15 UTC
 #> # A tibble: 1,777 × 9
 #>    batter season    pa    ab  xwoba    xba   xslg  woba    ba
 #>     <int>  <int> <int> <int>  <dbl>  <dbl>  <dbl> <dbl> <dbl>
