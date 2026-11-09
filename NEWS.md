@@ -42,6 +42,16 @@
   fails, the warning names its URL and says the result is incomplete; the
   seasons that loaded are still returned.
 
+### Tests
+
+- Offline tests for the ESPN MLB and college baseball wrappers: 107 calls
+  replay responses recorded from ESPN (`tests/testthat/fixtures/espn/`,
+  re-recorded with `data-raw/espn_fixtures/record_espn_fixtures.R`), so they
+  run on CI without network access. Offline tests for the Statcast-based
+  helpers (`run_expectancy_code()`, `run_expectancy_table()`,
+  `linear_weights_savant()`, `statline_from_statcast()`, `edge_code()`,
+  `ggspraychart()`) use one recorded game.
+
 # baseballr 2.0.0
 
 ### New features
