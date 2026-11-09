@@ -15,5 +15,5 @@ edge_code(df, height_var_name = "b_height")
 Returns a tibble with the additional edge columns necessary for calculations.
 }
 \description{
-This function allows you to classify individual pitches based on the various categories from the Edge\% metric. The dataframe passed to the function must include the batter's handedness, the px and pz coordinates from the PITCHf/x system, and the batter's height.
+This function allows you to classify individual pitches based on the various categories from the Edge\% metric. The dataframe passed to the function must include the batter's handedness, the px and pz coordinates from the PITCHf/x system (or Statcast's plate_x and plate_z, which are used when px / pz are absent), and the batter's height.
 }
