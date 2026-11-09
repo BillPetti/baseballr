@@ -219,7 +219,7 @@ Saiem Gilani
 # \donttest{
 try(espn_mlb_player_stats(athlete_id = 33192, year = 2022))
 #> ── ESPN MLB Player Season Stats from ESPN.com ── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-09 12:40:16 UTC
+#> ℹ Data updated: 2026-11-09 13:13:24 UTC
 #> # A tibble: 1 × 276
 #>   athlete_id athlete_uid     athlete_guid athlete_type    sdr first_name
 #>        <int> <chr>           <chr>        <chr>         <int> <chr>     

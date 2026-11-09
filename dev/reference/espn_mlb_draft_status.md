@@ -162,7 +162,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_draft_status(season = 2024)
 #> ── ESPN MLB Draft Status ─────────────────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-09 12:40:02 UTC
+#> ℹ Data updated: 2026-11-09 13:13:08 UTC
 #> # A tibble: 1 × 7
 #>   league season round type_id type_name type_state description
 #>   <chr>   <int> <int> <chr>   <chr>     <chr>      <chr>      

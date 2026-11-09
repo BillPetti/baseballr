@@ -130,11 +130,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_season_week(week = 5, season = 2025))
-#> ✖ 2026-11-09 12:39:46.993118: Failed to retrieve ESPN college-baseball week 5 for season=2025, season_type=2
+#> ✖ 2026-11-09 13:12:52.771878: Failed to retrieve ESPN college-baseball week 5 for season=2025, season_type=2
 #> ✖ Args: league = "college-baseball", season = 2025, season_type = 2L, week = 5
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> ── ESPN COLLEGE-BASEBALL Season Week Detail ──── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-09 12:39:46 UTC
+#> ℹ Data updated: 2026-11-09 13:12:52 UTC
 #> # A tibble: 0 × 0
 # }
 ```

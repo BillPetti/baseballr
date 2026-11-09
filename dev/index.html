@@ -224,11 +224,15 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"pak"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span></span>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"BillPetti/baseballr"</span><span class="op">)</span></span>
-<span><span class="co"># or: remotes::install_github("BillPetti/baseballr")</span></span></code></pre></div>
+<span><span class="co"># or, with remotes:</span></span>
+<span><span class="co"># if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")</span></span>
+<span><span class="co"># remotes::install_github("BillPetti/baseballr")</span></span></code></pre></div>
 <p>For experimental functions in development, you can install the <a href="https://github.com/BillPetti/baseballr/tree/development_branch" class="external-link">development branch</a>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"BillPetti/baseballr@development_branch"</span><span class="op">)</span></span>
-<span><span class="co"># or: remotes::install_github("BillPetti/baseballr", ref = "development_branch")</span></span></code></pre></div>
+<span><span class="co"># or, with remotes:</span></span>
+<span><span class="co"># if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")</span></span>
+<span><span class="co"># remotes::install_github("BillPetti/baseballr", ref = "development_branch")</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="quick-start">
@@ -616,12 +620,12 @@
 <li><a href="https://sportsdataverse.r-universe.dev/baseballr" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&amp;color=success&amp;label=r-universe&amp;prefix=v&amp;query=%24.Version&amp;url=https%3A%2F%2Fsportsdataverse.r-universe.dev%2Fapi%2Fpackages%2Fbaseballr" alt="R-universe"></a></li>
 <li><a href="https://github.com/BillPetti/baseballr/" class="external-link"><img src="https://img.shields.io/github/r-package/v/BillPetti/baseballr?label=baseballr&amp;logo=R&amp;style=for-the-badge" alt="Version-Number"></a></li>
 <li><a href="https://github.com/BillPetti/baseballr/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://img.shields.io/github/actions/workflow/status/BillPetti/baseballr/R-CMD-check.yaml?branch=master&amp;label=R-CMD-Check&amp;logo=R&amp;logoColor=white&amp;style=for-the-badge" alt="R-CMD-check"></a></li>
-<li><a href="https://app.codecov.io/gh/BillPetti/baseballr" class="external-link"><img src="https://img.shields.io/codecov/c/github/BillPetti/baseballr?logo=codecov&amp;style=for-the-badge" alt="Codecov"></a></li>
+<li><a href="https://github.com/BillPetti/baseballr/actions/workflows/test-coverage.yaml" class="external-link"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FBillPetti%2Fbaseballr%2Fbadges%2Fcoverage.json&amp;logo=codecov&amp;style=for-the-badge" alt="Coverage"></a></li>
 <li><a href="https://github.com/BillPetti/baseballr/actions/workflows/pkgdown.yaml" class="external-link"><img src="https://img.shields.io/github/actions/workflow/status/BillPetti/baseballr/pkgdown.yaml?branch=master&amp;label=pkgdown&amp;logo=github&amp;style=for-the-badge" alt="pkgdown"></a></li>
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg?style=for-the-badge&amp;logo=github" alt="Lifecycle: stable"></a></li>
 <li><a href="https://github.com/BillPetti/baseballr/blob/master/LICENSE.md" class="external-link"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="License: MIT"></a></li>
 <li><a href="https://github.com/BillPetti/baseballr/graphs/contributors" class="external-link"><img src="https://img.shields.io/github/contributors/BillPetti/baseballr?style=for-the-badge" alt="Contributors"></a></li>
-<li><a href="https://github.com/BillPetti/baseballr/stargazers" class="external-link"><img src="https://img.shields.io/github/stars/BillPetti/baseballr?style=for-the-badge&amp;logo=github" alt="GitHub stars"></a></li>
+<li><a href="https://github.com/BillPetti/baseballr" class="external-link"><img src="https://img.shields.io/github/stars/BillPetti/baseballr?style=for-the-badge&amp;logo=github" alt="GitHub stars"></a></li>
 <li><a href="https://x.com/SportsDataverse" class="external-link"><img src="https://img.shields.io/twitter/follow/SportsDataverse?color=blue&amp;label=%40SportsDataverse&amp;logo=x&amp;style=for-the-badge" alt="X Follow"></a></li>
 </ul>
 </div>

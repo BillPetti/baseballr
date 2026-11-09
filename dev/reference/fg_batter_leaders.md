@@ -595,7 +595,7 @@ A data frame of batter data.
 # \donttest{
   try(fg_batter_leaders(startseason = 2023, endseason = 2023))
 #> ── MLB Player Batting Leaders data from FanGraphs.com ──────────────────
-#> ℹ Data updated: 2026-11-09 12:40:41 UTC
+#> ℹ Data updated: 2026-11-09 13:13:50 UTC
 #> # A tibble: 1,457 × 447
 #>    Season team_name Bats  xMLBAMID PlayerNameRoute   PlayerName playerid
 #>     <int> <chr>     <chr>    <int> <chr>             <chr>         <int>

@@ -180,7 +180,7 @@ Saiem Gilani
 ``` r
 # \donttest{
 try(espn_mlb_player_box(game_id = 401071880))
-#> ✖ 2026-11-09 12:40:12.275351: Invalid arguments or no player box score data for 401071880 available!
+#> ✖ 2026-11-09 13:13:19.470577: Invalid arguments or no player box score data for 401071880 available!
 #> ✖ Args: game_id = 401071880
 #> ✖ Error: The API returned an error, HTTP Response Code 404
 #> NULL

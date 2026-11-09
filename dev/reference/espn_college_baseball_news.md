@@ -116,7 +116,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_news(limit = 5))
 #> ── ESPN COLLEGE-BASEBALL News from ESPN.com ──── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-09 12:39:36 UTC
+#> ℹ Data updated: 2026-11-09 13:12:40 UTC
 #> # A tibble: 5 × 9
 #>         id type   headline description published premium byline link_web
 #>      <int> <chr>  <chr>    <chr>       <chr>     <lgl>   <chr>  <chr>   

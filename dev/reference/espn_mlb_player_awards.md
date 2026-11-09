@@ -159,7 +159,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_player_awards(athlete_id = "1966")
 #> ── ESPN MLB Athlete Awards from ESPN.com ─────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-09 12:40:11 UTC
+#> ℹ Data updated: 2026-11-09 13:13:19 UTC
 #> # A tibble: 1 × 7
 #>   season award_id name  description date  type  ref_url                 
 #>   <chr>  <chr>    <chr> <chr>       <chr> <chr> <chr>                   

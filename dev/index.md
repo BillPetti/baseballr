@@ -58,7 +58,9 @@ with:
 
 if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
 pak::pak("BillPetti/baseballr")
-# or: remotes::install_github("BillPetti/baseballr")
+# or, with remotes:
+# if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
+# remotes::install_github("BillPetti/baseballr")
 ```
 
 For experimental functions in development, you can install the
@@ -68,7 +70,9 @@ branch](https://github.com/BillPetti/baseballr/tree/development_branch):
 ``` r
 
 pak::pak("BillPetti/baseballr@development_branch")
-# or: remotes::install_github("BillPetti/baseballr", ref = "development_branch")
+# or, with remotes:
+# if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
+# remotes::install_github("BillPetti/baseballr", ref = "development_branch")
 ```
 
 ## **Quick start**

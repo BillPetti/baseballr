@@ -85,7 +85,7 @@ Returns a tibble with the following columns:
 # \donttest{
   try(mlb_sports_players(sport_id = 1, season = 2021))
 #> ── MLB Sports - Players data from MLB.com ────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-09 12:44:30 UTC
+#> ℹ Data updated: 2026-11-09 13:17:56 UTC
 #> # A tibble: 1,508 × 53
 #>    player_id full_name        link   first_name last_name primary_number
 #>        <int> <chr>            <chr>  <chr>      <chr>     <chr>         

@@ -176,7 +176,7 @@ Saiem Gilani
   espn_college_baseball_team(team_id = "59", season = 2025)
 #> $Info
 #> ── ESPN COLLEGE-BASEBALL Team Info from ESPN.com ───────────────────────
-#> ℹ Data updated: 2026-11-09 12:39:49 UTC
+#> ℹ Data updated: 2026-11-09 13:12:55 UTC
 #> # A tibble: 1 × 12
 #>   id    uid     slug  abbreviation display_name short_display_name name 
 #>   <chr> <chr>   <chr> <chr>        <chr>        <chr>              <chr>
@@ -186,7 +186,7 @@ Saiem Gilani
 #> 
 #> $Record
 #> ── ESPN COLLEGE-BASEBALL Team Record from ESPN.com ─────────────────────
-#> ℹ Data updated: 2026-11-09 12:39:49 UTC
+#> ℹ Data updated: 2026-11-09 13:12:55 UTC
 #> # A tibble: 3 × 4
 #>   description    stats         summary type 
 #>   <chr>          <list>        <chr>   <chr>
@@ -199,7 +199,7 @@ Saiem Gilani
 #> 
 #> $StandingSummary
 #> ── ESPN COLLEGE-BASEBALL Team Standing Summary from ESPN.com ───────────
-#> ℹ Data updated: 2026-11-09 12:39:49 UTC
+#> ℹ Data updated: 2026-11-09 13:12:55 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary
 #>   <chr>           

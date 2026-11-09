@@ -106,7 +106,7 @@ for the year requested
 # \donttest{
   try(mlb_draft(year = 2020))
 #> ── MLB Draft data from MLB.com ───────────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-09 12:43:54 UTC
+#> ℹ Data updated: 2026-11-09 13:17:24 UTC
 #> # A tibble: 160 × 77
 #>    bis_player_id pick_round pick_number display_pick_number
 #>            <int> <chr>            <int>               <int>

@@ -183,7 +183,7 @@ Other ESPN MLB Functions:
 # \donttest{
 try(espn_mlb_standings(year = 2021))
 #> ── ESPN MLB Standings Information from ESPN.com ────────────────────────
-#> ℹ Data updated: 2026-11-09 12:40:25 UTC
+#> ℹ Data updated: 2026-11-09 13:13:34 UTC
 #> # A tibble: 30 × 41
 #>    team_id team   otlosses otwins avgpointsagainst avgpointsfor clincher
 #>      <int> <chr>  <chr>    <chr>             <dbl>        <dbl>    <dbl>
