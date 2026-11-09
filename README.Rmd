@@ -13,7 +13,7 @@ if (!requireNamespace('dplyr', quietly = TRUE)){
 library(dplyr)
 ```
 
-# **baseballr** <a href='https://billpetti.github.io/baseballr/'><img src='https://raw.githubusercontent.com/billpetti/baseballr/master/logo.png' align="right" width="30%" min-width="100px" /></a>
+# **baseballr** <a href='https://billpetti.github.io/baseballr/'><img alt="baseballr hex logo" src='https://raw.githubusercontent.com/billpetti/baseballr/master/logo.png' align="right" width="30%" min-width="100px" /></a>
 
 <!-- badges: start -->
 
@@ -27,7 +27,7 @@ library(dplyr)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg?style=for-the-badge&logo=github)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://github.com/BillPetti/baseballr/blob/master/LICENSE.md)
 [![Contributors](https://img.shields.io/github/contributors/BillPetti/baseballr?style=for-the-badge)](https://github.com/BillPetti/baseballr/graphs/contributors)
-[![GitHub stars](https://img.shields.io/github/stars/BillPetti/baseballr?style=for-the-badge&logo=github)](https://github.com/BillPetti/baseballr/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/BillPetti/baseballr?style=for-the-badge&logo=github)](https://github.com/BillPetti/baseballr)
 [![X Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/SportsDataverse)
 <!-- badges: end -->
 
@@ -75,14 +75,18 @@ You can install the development version of [**`baseballr`**](https://github.com/
 ```r
 if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
 pak::pak("BillPetti/baseballr")
-# or: remotes::install_github("BillPetti/baseballr")
+# or, with remotes:
+# if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
+# remotes::install_github("BillPetti/baseballr")
 ```
 
 For experimental functions in development, you can install the [development branch](https://github.com/BillPetti/baseballr/tree/development_branch):
 
 ```r
 pak::pak("BillPetti/baseballr@development_branch")
-# or: remotes::install_github("BillPetti/baseballr", ref = "development_branch")
+# or, with remotes:
+# if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
+# remotes::install_github("BillPetti/baseballr", ref = "development_branch")
 ```
 
 ## **Quick start**
