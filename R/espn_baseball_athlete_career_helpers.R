@@ -18,7 +18,7 @@
     league, "/athletes/", athlete_id,
     "/seasons?limit=200&lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -128,7 +128,7 @@
     rows
   }
 
-  tryCatch(
+  .try_catch(
     expr = {
       all_rows <- list()
       types_to_fetch <- if (length(stat_type) == 0L) list(NULL) else as.list(stat_type)
@@ -198,7 +198,7 @@
     league, "/seasons/", season, "/athletes/", athlete_id,
     "/eventlog?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%

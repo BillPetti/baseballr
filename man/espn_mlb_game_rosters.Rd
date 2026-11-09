@@ -193,7 +193,7 @@ A game rosters data frame\tabular{lll}{
 }
 \examples{
 \donttest{
-try(espn_mlb_game_rosters(game_id = 401283399))
+try(espn_mlb_game_rosters(game_id = 401569780))
 }
 }
 \seealso{

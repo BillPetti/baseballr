@@ -19,7 +19,7 @@
     "https://sports.core.api.espn.com/v2/sports/baseball/leagues/",
     league, "/seasons/", season, "/types?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -68,7 +68,7 @@
     league, "/seasons/", season, "/types/", season_type,
     "?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -174,7 +174,7 @@
   }
 
   result <- NULL
-  tryCatch(
+  .try_catch(
     expr = {
       all_rows <- list()
       for (st in season_type) {
@@ -233,7 +233,7 @@
     "https://sports.core.api.espn.com/v2/sports/baseball/leagues/",
     league, "/seasons/", season, "/rankings?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -287,7 +287,7 @@
     league, "/seasons/", season, "/rankings/", ranking_id,
     "?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%

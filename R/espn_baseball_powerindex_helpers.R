@@ -28,7 +28,7 @@
   page <- 1L
   page_count <- NA_integer_
 
-  tryCatch(
+  .try_catch(
     expr = {
       repeat {
         url <- paste0(

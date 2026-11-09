@@ -46,7 +46,7 @@ fg_projections <- function(type = "steamer", stats = "bat", team = 0,
   )
 
   df <- NULL
-  tryCatch(
+  .try_catch(
     expr = {
       payload <- fg_api_call(url)
       df <- payload |>

@@ -50,7 +50,7 @@ espn_mlb_game_probables <- function(game_id) {
     game_id
   )
   out <- .empty_baseballr_data("ESPN MLB Probable Pitchers from ESPN.com")
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)
@@ -153,7 +153,7 @@ espn_mlb_game_info <- function(game_id) {
     game_id
   )
   out <- .empty_baseballr_data("ESPN MLB Game Info from ESPN.com")
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)

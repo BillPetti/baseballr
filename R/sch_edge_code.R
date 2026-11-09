@@ -1,6 +1,6 @@
 #' @title **Edge Code**
 #'
-#' @description This function allows you to classify individual pitches based on the various categories from the Edge% metric. The dataframe passed to the function must include the batter's handedness, the px and pz coordinates from the PITCHf/x system, and the batter's height.
+#' @description This function allows you to classify individual pitches based on the various categories from the Edge% metric. The dataframe passed to the function must include the batter's handedness, the px and pz coordinates from the PITCHf/x system (or Statcast's plate_x and plate_z, which are used when px / pz are absent), and the batter's height.
 #' @param df A dataframe that, at a minimum, includes the following columns: batter height (b_height), the batter's handedness (stand), vertical location of the pitch (pz), and then horizontal location of the pitch (pz)
 #' @param height_var_name The name of the variable in the data set that includes the batter's height. Defaults to b_height which assumes an height + inch format. If the variable name is "Height" it assumes the variable is already converted to inches (as is the case in some databases)
 #' @return Returns a tibble with the additional edge columns necessary for calculations. 
@@ -8,7 +8,15 @@
 #' @export
 
 edge_code <- function(df, height_var_name = "b_height") {
-  
+
+  # Statcast (Baseball Savant) data names these plate_x / plate_z / description;
+  # map them onto the PITCHf/x names when the PITCHf/x columns are absent.
+  if (is.null(df[["px"]]) && !is.null(df[["plate_x"]])) df$px <- df$plate_x
+  if (is.null(df[["pz"]]) && !is.null(df[["plate_z"]])) df$pz <- df$plate_z
+  if (is.null(df[["des2"]]) && !is.null(df[["description"]])) {
+    df$des2 <- sub("hit into play", "in play", gsub("_", " ", df$description))
+  }
+
   if (height_var_name == "b_height") {
     if (is.factor(df$px)) {df$px <- as.numeric(levels(df$px))[df$px]}
     if (is.factor(df$pz)) {df$pz <- as.numeric(levels(df$pz))[df$pz]}
@@ -16,10 +24,10 @@ edge_code <- function(df, height_var_name = "b_height") {
     f <- as.numeric(lapply(strsplit(df$b_height, "-"), function(x) x[1])) * 12
     i <- as.numeric(lapply(strsplit(df$b_height, "-"), function(x) x[2]))
     df$b_height_inch <- f+i
-    df$called_pitch <- ifelse(grepl("Called|Ball", df$des2), 1, 0)
-    df$called_strike <- ifelse(grepl("Called", df$des2), 1, 0)
-    df$swing <- ifelse(grepl("Swinging|Foul|In play", df$des2), 1, 0)
-    df$whiff <- ifelse(grepl("Swinging", df$des2), 1, 0)
+    df$called_pitch <- ifelse(grepl("Called|Ball", df$des2, ignore.case = TRUE), 1, 0)
+    df$called_strike <- ifelse(grepl("Called", df$des2, ignore.case = TRUE), 1, 0)
+    df$swing <- ifelse(grepl("Swinging|Foul|In play", df$des2, ignore.case = TRUE), 1, 0)
+    df$whiff <- ifelse(grepl("Swinging", df$des2, ignore.case = TRUE), 1, 0)
     LHH <- df |> dplyr::filter(.data$stand == "L")
     RHH <- df |> dplyr::filter(.data$stand == "R")
     LHH$location <- with(LHH, ifelse(!is.na(px) & !is.na(pz) & px > .21 & px < .81 & pz > (.35 + b_height_inch/12 *.229) & pz < (2.0 + b_height_inch/12 *.229), "Inside Edge", ifelse(!is.na(px) & !is.na(pz) & px > -1.20 & px < -0.9 & pz > (.35 + b_height_inch/12 *.229) & pz < (2.0 + b_height_inch/12 *.229), "Outside Edge", ifelse(!is.na(px) & !is.na(pz) & px >= -0.9 & px <= .21 & pz > (1.7 + b_height_inch/12 *.229) & pz < (2.0 + b_height_inch/12 *.229), "Upper Edge", ifelse(!is.na(px) & !is.na(pz) & px >= -0.9 & px <= .21 & pz > (.35 + b_height_inch/12 *.229) & pz < (.65 + b_height_inch/12 *.229), "Lower Edge", ifelse(!is.na(px) & !is.na(pz) & px >= -0.9 & px <= .21 & pz >= (.65 + b_height_inch/12 *.229) & pz <= (1.7 + b_height_inch/12 *.229), "Heart", ifelse(is.na(px) | is.na(pz), NA, "Out of Zone")))))))

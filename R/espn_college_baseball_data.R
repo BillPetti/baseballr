@@ -31,7 +31,7 @@ espn_college_baseball_teams <- function() {
 
   teams <- .empty_baseballr_data("ESPN College Baseball Teams Information from ESPN.com")
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(teams_url)
 
@@ -159,7 +159,7 @@ espn_college_baseball_scoreboard <- function(season) {
     season_dates
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(schedule_api)
 
@@ -577,7 +577,7 @@ espn_college_baseball_standings <- function(year) {
 
   standings <- .empty_baseballr_data("ESPN College Baseball Standings Information from ESPN.com")
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(full_url)
 

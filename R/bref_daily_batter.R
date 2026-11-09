@@ -51,7 +51,7 @@
 bref_daily_batter <- function(t1, t2) {
 
   df <- NULL
-  tryCatch(
+  .try_catch(
     expr = {
       payload <- bref_read_html(paste0("https://www.baseball-reference.com/leagues/daily.cgi?user_team=&bust_cache=&type=b&lastndays=7&dates=fromandto&fromandto=", t1, ".", t2, "&level=mlb&franch=&stat=&stat_value=0"))
       df <- payload |>

@@ -44,7 +44,7 @@ espn_mlb_game_all <- function(game_id) {
   player_box_score <- NULL
 
   #---- Fetch the summary endpoint (single outer tryCatch) -------------------
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(full_url)
       check_status(res)
@@ -65,7 +65,7 @@ espn_mlb_game_all <- function(game_id) {
   }
 
   #---- Play-by-Play ------
-  tryCatch(
+  .try_catch(
     expr = {
       plays_df <- helper_espn_mlb_pbp(resp)
 
@@ -82,7 +82,7 @@ espn_mlb_game_all <- function(game_id) {
     finally = {}
   )
   #---- Team Box ------
-  tryCatch(
+  .try_catch(
     expr = {
       team_box_score <- helper_espn_mlb_team_box(resp)
 
@@ -99,7 +99,7 @@ espn_mlb_game_all <- function(game_id) {
     finally = {}
   )
   #---- Player Box ------
-  tryCatch(
+  .try_catch(
     expr = {
       player_box_score <- helper_espn_mlb_player_box(resp)
 
@@ -222,7 +222,7 @@ espn_mlb_game_all <- function(game_id) {
 #'
 #' @examples
 #' \donttest{
-#' try(espn_mlb_pbp(game_id = 401071880))
+#' try(espn_mlb_pbp(game_id = 401569780))
 #' }
 #'
 espn_mlb_pbp <- function(game_id) {
@@ -243,7 +243,7 @@ espn_mlb_pbp <- function(game_id) {
   plays_df <- NULL
 
   #---- Play-by-Play ------
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(full_url)
 
@@ -363,7 +363,7 @@ espn_mlb_pbp <- function(game_id) {
 #'
 #' @examples
 #' \donttest{
-#' try(espn_mlb_team_box(game_id = 401071880))
+#' try(espn_mlb_team_box(game_id = 401569780))
 #' }
 #'
 espn_mlb_team_box <- function(game_id) {
@@ -384,7 +384,7 @@ espn_mlb_team_box <- function(game_id) {
   #---- Team Box ------
   team_box_score <- NULL
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(full_url)
 
@@ -465,7 +465,7 @@ espn_mlb_team_box <- function(game_id) {
 #'
 #' @examples
 #' \donttest{
-#' try(espn_mlb_player_box(game_id = 401071880))
+#' try(espn_mlb_player_box(game_id = 401569780))
 #' }
 #'
 espn_mlb_player_box <- function(game_id) {
@@ -486,7 +486,7 @@ espn_mlb_player_box <- function(game_id) {
   #---- Player Box ------
   player_box_score <- NULL
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(full_url)
 
@@ -708,7 +708,7 @@ espn_mlb_player_box <- function(game_id) {
 #'
 #' @examples
 #' \donttest{
-#' try(espn_mlb_game_rosters(game_id = 401283399))
+#' try(espn_mlb_game_rosters(game_id = 401569780))
 #' }
 espn_mlb_game_rosters <- function(game_id) {
   .args <- mget(setdiff(names(formals()), "..."))
@@ -716,7 +716,7 @@ espn_mlb_game_rosters <- function(game_id) {
   on.exit(options(old))
   athlete_roster_df <- .empty_baseballr_data("ESPN MLB Game Roster Information from ESPN.com")
 
-  tryCatch(
+  .try_catch(
     expr = {
       play_base_url <- paste0(
         "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/",
@@ -1025,7 +1025,7 @@ espn_mlb_teams <- function() {
 
   teams <- .empty_baseballr_data("ESPN MLB Teams Information from ESPN.com")
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(teams_url)
 
@@ -1236,7 +1236,7 @@ espn_mlb_team_current_roster <- function(team_id) {
 
   team_roster_full <- .empty_baseballr_data("ESPN MLB Team Current Roster Information from ESPN.com")
 
-  tryCatch(
+  .try_catch(
     expr = {
       teams_base_url <- sprintf(
         "http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/teams/%s?enable=roster",
@@ -1460,7 +1460,7 @@ espn_mlb_scoreboard <- function(season) {
     season_dates
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(schedule_api)
 
@@ -1922,7 +1922,7 @@ espn_mlb_standings <- function(year) {
 
   standings <- .empty_baseballr_data("ESPN MLB Standings Information from ESPN.com")
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(full_url)
 
@@ -2118,7 +2118,7 @@ espn_mlb_betting <- function(game_id) {
 
   betting <- NULL
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(full_url)
 
@@ -2314,7 +2314,7 @@ espn_mlb_team_stats <- function(
   )
 
   df <- data.frame()
-  tryCatch(
+  .try_catch(
     expr = {
       # Create the GET request and set response as res
       res <- .retry_request(full_url)
@@ -2574,7 +2574,7 @@ espn_mlb_player_stats <- function(
     athlete_id
   )
   df <- data.frame()
-  tryCatch(
+  .try_catch(
     expr = {
       # Create the GET request and set response as res
       res <- .retry_request(full_url)

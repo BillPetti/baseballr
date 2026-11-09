@@ -28,7 +28,7 @@
     league, "/positions?limit=200&lang=en&region=us"
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)
@@ -94,7 +94,7 @@
     "?lang=en&region=us"
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)

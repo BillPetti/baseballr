@@ -31,7 +31,7 @@
     league, "/seasons/", season, "/futures?limit=200&lang=en&region=us"
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)

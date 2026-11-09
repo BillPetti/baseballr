@@ -90,7 +90,7 @@ A team boxscore data frame\tabular{lll}{
 }
 \examples{
 \donttest{
-try(espn_mlb_team_box(game_id = 401071880))
+try(espn_mlb_team_box(game_id = 401569780))
 }
 
 }

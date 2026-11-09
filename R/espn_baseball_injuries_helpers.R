@@ -33,7 +33,7 @@
 
   injuries_df <- .empty_baseballr_data(paste0("ESPN ", toupper(league), " Injury Information from ESPN.com"))
 
-  tryCatch(
+  .try_catch(
     expr = {
       url <- paste0(
         "https://site.api.espn.com/apis/site/v2/sports/baseball/",
@@ -135,7 +135,7 @@
 
   injuries_df <- .empty_baseballr_data(paste0("ESPN ", toupper(league), " Team Injury Information from ESPN.com"))
 
-  tryCatch(
+  .try_catch(
     expr = {
       url <- paste0(
         "https://site.api.espn.com/apis/site/v2/sports/baseball/",
