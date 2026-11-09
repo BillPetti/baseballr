@@ -22,7 +22,7 @@
     league, "/tournaments?limit=200&lang=en&region=us"
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)
@@ -79,7 +79,7 @@
     league, "/tournaments/", tournament_id, "?lang=en&region=us"
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)
@@ -139,7 +139,7 @@
     league, "/tournaments/", tournament_id, "/seasons?limit=200&lang=en&region=us"
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)
@@ -200,7 +200,7 @@
     league, "/tournaments/", tournament_id,
     "/seasons/", season, "?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%

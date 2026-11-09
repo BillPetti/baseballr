@@ -99,7 +99,7 @@ A play-by-play data frame.\tabular{lll}{
 }
 \examples{
 \donttest{
-try(espn_mlb_pbp(game_id = 401071880))
+try(espn_mlb_pbp(game_id = 401569780))
 }
 
 }

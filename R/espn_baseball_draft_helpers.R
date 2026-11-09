@@ -16,7 +16,7 @@
     league, "/seasons/", season, "/draft/rounds/", round,
     "/picks/", pick, "?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -84,7 +84,7 @@
     league, "/seasons/", season,
     "/draft/rounds?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -156,7 +156,7 @@
     league, "/seasons/", season,
     "/draft/athletes?limit=200&lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -205,7 +205,7 @@
     league, "/seasons/", season,
     "/draft/status?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -254,7 +254,7 @@
     league, "/seasons/", season,
     "/draft/athletes/", athlete_id, "?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -336,7 +336,7 @@
     "https://sports.core.api.espn.com/v2/sports/baseball/leagues/",
     league, "/seasons/", season, "/draft?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%

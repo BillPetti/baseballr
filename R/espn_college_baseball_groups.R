@@ -36,7 +36,7 @@ espn_college_baseball_conferences <- function() {
     )
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       play_base_url <- paste0(
         "https://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball",
@@ -50,7 +50,15 @@ espn_college_baseball_conferences <- function() {
       resp <- res %>%
         .resp_text()
 
-      conferences <- jsonlite::fromJSON(resp)[["conferences"]] %>%
+      raw <- jsonlite::fromJSON(resp)[["conferences"]]
+
+      # ESPN can return an empty `conferences` array (it does for MLB);
+      # keep the documented empty frame instead of failing in select().
+      if (!is.data.frame(raw) || nrow(raw) == 0) {
+        return(conferences)
+      }
+
+      conferences <- raw %>%
         dplyr::select(-dplyr::any_of("subGroups")) %>%
         janitor::clean_names() %>%
         dplyr::filter(!(.data$group_id %in% c(0, 50))) %>%

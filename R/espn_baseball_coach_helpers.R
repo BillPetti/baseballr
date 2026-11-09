@@ -22,7 +22,7 @@
     league, "/coaches/", coach_id, "?lang=en&region=us"
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)
@@ -98,7 +98,7 @@
     league, "/coaches/", coach_id,
     "/record/", as.integer(record_type), "?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%

@@ -19,7 +19,7 @@
     league, "/events/", event_id, "/competitions/", event_id,
     "/competitors/", team_id, "/linescores?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -85,7 +85,7 @@
     league, "/events/", event_id, "/competitions/", event_id,
     "/competitors/", team_id, "/leaders?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -167,25 +167,60 @@
     league, "/events/", event_id, "/competitions/", event_id,
     "/competitors/", team_id, "/roster?limit=100&lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
+      # ESPN now sends the lineup as `entries` (batters) and `pitchers`, each
+      # with the player inline; older payloads listed `items` as bare $refs.
+      entry_rows <- function(xs, role) {
+        if (length(xs) == 0L) return(NULL)
+        chr <- function(x) if (is.null(x)) NA_character_ else as.character(x)
+        int <- function(x) if (is.null(x)) NA_integer_ else as.integer(x)
+        lgl <- function(x) if (is.null(x)) NA else as.logical(x)
+        data.frame(
+          athlete_id    = vapply(xs, function(x) chr(x[["playerId"]]), ""),
+          ref           = vapply(xs, function(x) chr(x[["athlete"]][["$ref"]]), ""),
+          role          = role,
+          display_name  = vapply(xs, function(x) chr(x[["displayName"]]), ""),
+          bat_order     = vapply(xs, function(x) int(x[["batOrder"]]), 0L),
+          starter       = vapply(xs, function(x) lgl(x[["starter"]]), NA),
+          active        = vapply(xs, function(x) lgl(x[["active"]]), NA),
+          period        = vapply(xs, function(x) int(x[["period"]]), 0L),
+          for_player_id = vapply(xs, function(x) chr(x[["forPlayerId"]]), ""),
+          position_id   = vapply(xs, function(x) {
+            sub(".*/positions/([0-9]+).*", "\\1", chr(x[["position"]][["$ref"]]))
+          }, ""),
+          subbed_in     = vapply(xs, function(x) lgl(x[["subbedIn"]][["didSub"]]), NA),
+          subbed_out    = vapply(xs, function(x) lgl(x[["subbedOut"]][["didSub"]]), NA),
+          stringsAsFactors = FALSE
+        )
+      }
       items <- raw[["items"]] %||% list()
-      refs <- if (length(items) == 0L) character(0) else
-        vapply(items, function(x) x[["$ref"]] %||% NA_character_,
-               character(1))
-      aids <- if (length(refs) == 0L) character(0) else
-        sub(".*/roster/([0-9]+).*", "\\1", refs)
+      if (length(raw[["entries"]]) > 0L || length(raw[["pitchers"]]) > 0L) {
+        players <- dplyr::bind_rows(
+          entry_rows(raw[["entries"]], "batter"),
+          entry_rows(raw[["pitchers"]], "pitcher")
+        )
+      } else {
+        refs <- if (length(items) == 0L) character(0) else
+          vapply(items, function(x) x[["$ref"]] %||% NA_character_,
+                 character(1))
+        players <- data.frame(
+          athlete_id = sub(".*/roster/([0-9]+).*", "\\1", refs),
+          ref        = refs,
+          stringsAsFactors = FALSE
+        )
+      }
       result <- data.frame(
-        league     = rep(league, length(refs)),
-        event_id   = rep(as.character(event_id), length(refs)),
-        team_id    = rep(as.character(team_id), length(refs)),
-        athlete_id = aids,
-        ref        = refs,
+        league     = rep(league, nrow(players)),
+        event_id   = rep(as.character(event_id), nrow(players)),
+        team_id    = rep(as.character(team_id), nrow(players)),
         stringsAsFactors = FALSE
-      ) %>% dplyr::as_tibble() %>%
+      ) %>%
+        dplyr::bind_cols(players) %>%
+        dplyr::as_tibble() %>%
         make_baseballr_data(
           paste0("ESPN ", toupper(league), " Competitor Roster"),
           Sys.time()
@@ -218,7 +253,7 @@
     league, "/events/", event_id, "/competitions/", event_id,
     "/competitors/", team_id, "/statistics?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -295,7 +330,7 @@
     league, "/events/", event_id, "/competitions/", event_id,
     "/competitors/", team_id, "/records?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -376,7 +411,7 @@
     "/statistics/", as.integer(stat_type),
     "?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -464,7 +499,7 @@
     "/competitors/", team_id, "/roster/", athlete_id,
     "?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -532,7 +567,7 @@
     league, "/events/", event_id, "/competitions/", event_id,
     "/competitors/", team_id, "/score?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%

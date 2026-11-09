@@ -26,7 +26,7 @@
 
   calendar <- .empty_baseballr_data(paste0("ESPN ", toupper(league), " Calendar from ESPN.com"))
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)

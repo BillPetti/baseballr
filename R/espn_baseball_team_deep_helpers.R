@@ -29,7 +29,7 @@
     league, "/seasons/", season, "/types/", season_type,
     "/teams/", team_id, "/odds-records?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -116,7 +116,7 @@
     league, "/seasons/", season, "/teams/", team_id,
     "/depthcharts?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -208,7 +208,7 @@
     league, "/seasons/", season, "/teams/", team_id,
     "/athletes?limit=200&lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -263,7 +263,7 @@
     league, "/seasons/", season, "/coaches/", coach_id,
     "?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -332,7 +332,7 @@
     "/types/", as.integer(season_type),
     "/teams/", team_id, "/statistics?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%

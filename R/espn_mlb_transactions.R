@@ -70,7 +70,7 @@ espn_mlb_draft <- function(season = most_recent_mlb_season(), ...) {
     if (length(m) >= 2) m[[2]] else NA_character_
   }
 
-  tryCatch(
+  .try_catch(
     expr = {
       # /draft itself returns {rounds, athletes, ...} (no top-level items).
       # /draft/rounds returns a paged collection where each item is a round
@@ -201,7 +201,7 @@ espn_mlb_freeagents <- function(season = most_recent_mlb_season(), ...) {
 
   fa_df <- data.frame(stringsAsFactors = FALSE)
 
-  tryCatch(
+  .try_catch(
     expr = {
       url <- paste0(
         "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb",
@@ -377,7 +377,7 @@ espn_mlb_transactions <- function(
 
   tx_df <- data.frame(stringsAsFactors = FALSE)
 
-  tryCatch(
+  .try_catch(
     expr = {
       url <- paste0(
         "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb",

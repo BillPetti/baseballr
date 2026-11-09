@@ -38,7 +38,7 @@
     "/leaders"
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)
@@ -213,7 +213,7 @@
     "/venues?limit=100"
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       all_rows <- list()
       page_idx <- 1L
@@ -334,7 +334,7 @@
     "/coaches?limit=100"
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       all_rows <- list()
       page_idx <- 1L
@@ -446,7 +446,7 @@
     "/athletes?limit=100"
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       all_rows <- list()
       page_idx <- 1L
@@ -619,7 +619,7 @@
     "/seasons?limit=200"
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)
@@ -706,7 +706,7 @@
     season
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)

@@ -45,7 +45,7 @@
   }
 
   result <- NULL
-  tryCatch(
+  .try_catch(
     expr = {
       parts <- list()
       for (st in season_type) {
@@ -101,7 +101,7 @@
     league, "/seasons/", season, "/types/", season_type,
     "/weeks/", week, "?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -152,7 +152,7 @@
     league, "/seasons/", season, "/types/", season_type,
     "/weeks/", week, "/rankings?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -212,7 +212,7 @@
     "/weeks/", week, "/rankings/", ranking_id,
     "?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%

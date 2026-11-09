@@ -43,7 +43,7 @@ espn_college_baseball_game_all <- function(game_id) {
   player_box_score <- NULL
 
   #---- Fetch the summary endpoint (single outer tryCatch) -------------------
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(full_url)
       check_status(res)
@@ -64,7 +64,7 @@ espn_college_baseball_game_all <- function(game_id) {
   }
 
   #---- Play-by-Play ------
-  tryCatch(
+  .try_catch(
     expr = {
       plays_df <- helper_espn_mlb_pbp(resp)
 
@@ -81,7 +81,7 @@ espn_college_baseball_game_all <- function(game_id) {
     finally = {}
   )
   #---- Team Box ------
-  tryCatch(
+  .try_catch(
     expr = {
       team_box_score <- helper_espn_mlb_team_box(resp)
 
@@ -98,7 +98,7 @@ espn_college_baseball_game_all <- function(game_id) {
     finally = {}
   )
   #---- Player Box ------
-  tryCatch(
+  .try_catch(
     expr = {
       player_box_score <- helper_espn_mlb_player_box(resp)
 
@@ -156,7 +156,7 @@ espn_college_baseball_pbp <- function(game_id) {
   plays_df <- NULL
 
   #---- Play-by-Play ------
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(full_url)
 
@@ -220,7 +220,7 @@ espn_college_baseball_team_box <- function(game_id) {
   #---- Team Box ------
   team_box_score <- NULL
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(full_url)
 
@@ -283,7 +283,7 @@ espn_college_baseball_player_box <- function(game_id) {
   #---- Player Box ------
   player_box_score <- NULL
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(full_url)
 
@@ -333,7 +333,7 @@ espn_college_baseball_game_rosters <- function(game_id) {
   on.exit(options(old))
   athlete_roster_df <- .empty_baseballr_data("ESPN College Baseball Game Roster Information from ESPN.com")
 
-  tryCatch(
+  .try_catch(
     expr = {
       play_base_url <- paste0(
         "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/",

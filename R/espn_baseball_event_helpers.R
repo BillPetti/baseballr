@@ -37,7 +37,7 @@
     "/probabilities"
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       all_rows  <- list()
       total_rows <- 0L
@@ -218,7 +218,7 @@
     "/officials"
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)
@@ -349,7 +349,7 @@
     "/broadcasts"
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)
@@ -478,7 +478,7 @@
     league, "/events/", event_id, "/competitions/", event_id,
     "/situation?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -545,7 +545,7 @@
     league, "/events/", event_id, "/competitions/", event_id,
     "/predictor?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -630,7 +630,7 @@
     league, "/events/", event_id, "/competitions/", event_id,
     "/powerindex?limit=200&lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -680,7 +680,7 @@
     league, "/events/", event_id, "/competitions/", event_id,
     "/officials/", as.integer(order), "?lang=en&region=us"
   )
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%

@@ -35,7 +35,7 @@
     season
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       res  <- .retry_request(url)
       check_status(res)
@@ -184,7 +184,7 @@
   # below, but do not pass it on the URL.
   invisible(season)
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)
@@ -339,7 +339,7 @@
     season_type
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)
@@ -545,81 +545,63 @@
 
   result <- .empty_baseballr_data(paste0("ESPN ", toupper(league), " Team Leaders from ESPN.com"))
 
+  # The site-v2 /teams/{id}/leaders route now answers with an empty body; the
+  # core API serves the same leaders per season (regular season, type 2).
   url <- paste0(
-    "https://site.api.espn.com/apis/site/v2/sports/baseball/",
-    league,
-    "/teams/",
-    team_id,
-    "/leaders"
+    "https://sports.core.api.espn.com/v2/sports/baseball/leagues/",
+    league, "/seasons/", season, "/types/2/teams/", team_id,
+    "/leaders?lang=en&region=us"
   )
-  # ESPN's leaders endpoint does not honor `?season=YYYY`; it serves the
-  # current season's leaders. Kept as a parameter for API symmetry, attached
-  # as a column on the result below.
-  invisible(season)
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)
-      raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
+      raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyVector = FALSE)
 
-      leaders_raw <- raw[["leaders"]]
-      if (is.null(leaders_raw) || !is.data.frame(leaders_raw) || nrow(leaders_raw) == 0) {
-        result <- data.frame(stringsAsFactors = FALSE) %>% dplyr::as_tibble()
-      } else {
-        rows <- vector("list", nrow(leaders_raw))
-        for (i in seq_len(nrow(leaders_raw))) {
-          cat_row     <- leaders_raw[i, , drop = FALSE]
-          category    <- as.character(cat_row[["displayName"]] %||% cat_row[["name"]] %||% NA_character_)
-          leaders_lst <- cat_row[["leaders"]]
+      categories <- raw[["categories"]] %||% list()
+      rows <- lapply(categories, function(cat_obj) {
+        leaders <- cat_obj[["leaders"]] %||% list()
+        if (length(leaders) == 0L) return(NULL)
+        category <- as.character(cat_obj[["displayName"]] %||% cat_obj[["name"]] %||% NA_character_)
+        refs <- vapply(leaders, function(l) l[["athlete"]][["$ref"]] %||% NA_character_, "")
+        data.frame(
+          team_id       = as.character(team_id),
+          season        = as.integer(season),
+          category      = category,
+          display_name  = category,
+          category_abbr = as.character(cat_obj[["abbreviation"]] %||% cat_obj[["name"]] %||% NA_character_),
+          athlete_id    = sub(".*/athletes/([0-9]+).*", "\\1", refs),
+          athlete_ref   = refs,
+          value         = vapply(leaders, function(l) as.numeric(l[["value"]] %||% NA_real_), 0),
+          display_value = vapply(leaders, function(l) as.character(l[["displayValue"]] %||% NA_character_), ""),
+          rank          = seq_along(leaders),
+          stringsAsFactors = FALSE
+        )
+      })
+      rows <- Filter(Negate(is.null), rows)
 
-          if (is.null(leaders_lst) || length(leaders_lst) == 0) next
-
-          # leaders_lst may be a list or a data frame
-          ldf <- if (is.data.frame(leaders_lst)) leaders_lst
-                 else if (is.list(leaders_lst)) leaders_lst[[1]]
-                 else NULL
-
-          if (is.null(ldf) || !is.data.frame(ldf) || nrow(ldf) == 0) next
-
-          n_ldrs    <- nrow(ldf)
-          ath_id    <- rep(NA_character_, n_ldrs)
-          ath_name  <- rep(NA_character_, n_ldrs)
-          val       <- rep(NA_real_, n_ldrs)
-          rank_col  <- seq_len(n_ldrs)
-
-          if (!is.null(ldf[["value"]])) val <- as.numeric(ldf[["value"]])
-
-          if (!is.null(ldf[["athlete"]]) && is.data.frame(ldf[["athlete"]])) {
-            ath_df   <- ldf[["athlete"]]
-            ath_id   <- as.character(ath_df[["id"]] %||% NA_character_)
-            ath_name <- as.character(ath_df[["displayName"]] %||% ath_df[["fullName"]] %||% NA_character_)
-          }
-
-          rows[[i]] <- data.frame(
-            team_id      = as.character(team_id),
-            season       = as.integer(season),
-            category     = category,
-            display_name = category,
-            athlete_id   = ath_id,
-            athlete_name = ath_name,
-            value        = val,
-            rank         = rank_col,
-            stringsAsFactors = FALSE
+      if (length(rows) > 0L) {
+        leaders_df <- dplyr::bind_rows(rows)
+        # Leaders only link to their athletes; resolve each name once.
+        refs <- unique(stats::na.omit(leaders_df$athlete_ref))
+        names_by_ref <- vapply(refs, function(ref) {
+          ath <- tryCatch({
+            r <- .retry_request(ref)
+            if (httr2::resp_status(r) != 200) NULL else
+              jsonlite::fromJSON(.resp_text(r), simplifyVector = FALSE)
+          }, error = function(e) NULL)
+          as.character(ath[["displayName"]] %||% ath[["fullName"]] %||% NA_character_)
+        }, "")
+        leaders_df$athlete_name <- unname(names_by_ref[leaders_df$athlete_ref])
+        result <- leaders_df %>%
+          dplyr::relocate("athlete_name", .after = "athlete_id") %>%
+          dplyr::select(-"athlete_ref") %>%
+          dplyr::as_tibble() %>%
+          make_baseballr_data(
+            paste0("ESPN ", toupper(league), " Team Leaders from ESPN.com"),
+            Sys.time()
           )
-        }
-
-        rows <- Filter(Negate(is.null), rows)
-        if (length(rows) == 0) {
-          result <- data.frame(stringsAsFactors = FALSE) %>% dplyr::as_tibble()
-        } else {
-          result <- dplyr::bind_rows(rows) %>%
-            dplyr::as_tibble() %>%
-            make_baseballr_data(
-              paste0("ESPN ", toupper(league), " Team Leaders from ESPN.com"),
-              Sys.time()
-            )
-        }
       }
     },
     error   = function(e) .report_api_error(
@@ -675,7 +657,7 @@
     "athletes", "oddsRecords", "college"
   )
 
-  tryCatch(
+  .try_catch(
     expr = {
       res <- .retry_request(url)
       check_status(res)
