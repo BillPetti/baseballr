@@ -1,42 +1,42 @@
-# Offline replay of recorded ESPN responses for test-espn_offline.R.
+# Offline replay of recorded HTTP responses for the test-*_offline.R files.
 #
-# Fixtures are recorded by data-raw/espn_fixtures/record_espn_fixtures.R and listed
-# in fixtures/espn/index.json by URL. Inside a test, every httr2 request is answered
+# Fixtures are recorded by data-raw/http_fixtures/record_fixtures.R and listed in
+# fixtures/http/index.json by URL. Inside a test, every httr2 request is answered
 # from that index; a URL that was never recorded gets a 404, so the test fails
 # instead of reaching the network.
 
-espn_fixture_index <- local({
+http_fixture_index <- local({
   index <- NULL
   function() {
     if (is.null(index)) {
-      index <<- jsonlite::read_json(testthat::test_path("fixtures", "espn", "index.json"))
+      index <<- jsonlite::read_json(testthat::test_path("fixtures", "http", "index.json"))
     }
     index
   }
 })
 
-local_espn_fixtures <- function(env = parent.frame()) {
+local_http_fixtures <- function(env = parent.frame()) {
   testthat::skip_if_not(
     exists("local_mocked_responses", envir = asNamespace("httr2")),
-    "httr2 >= 1.1.0 is needed to replay ESPN fixtures"
+    "httr2 >= 1.1.0 is needed to replay recorded responses"
   )
-  index <- espn_fixture_index()
-  dir <- testthat::test_path("fixtures", "espn")
+  index <- http_fixture_index()
+  dir <- testthat::test_path("fixtures", "http")
   httr2::local_mocked_responses(function(req) {
     hit <- index[[req$url]]
     if (is.null(hit)) {
       return(httr2::response(status_code = 404L, url = req$url))
     }
     path <- file.path(dir, hit$file)
-    body <- memDecompress(readBin(path, "raw", file.size(path)), "gzip")
     httr2::response(
       status_code = hit$status, url = req$url,
-      headers = list(`Content-Type` = "application/json"), body = body
+      headers = list(`Content-Type` = hit$type),
+      body = memDecompress(readBin(path, "raw", file.size(path)), "gzip")
     )
   }, env = env)
 }
 
-expect_espn_data <- function(x) {
+expect_recorded_data <- function(x) {
   testthat::expect_false(is.null(x))
   if (is.data.frame(x)) {
     testthat::expect_gt(nrow(x), 0)

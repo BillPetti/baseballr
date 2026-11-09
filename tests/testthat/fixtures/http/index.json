@@ -1,594 +1,977 @@
 {
   "http://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball/scoreboard?limit=1000&dates=20250615": {
-    "file": "0027.json.gz",
-    "status": 200
+    "file": "0027.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "http://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball/summary?event=401778093": {
-    "file": "0002.json.gz",
-    "status": 200
+    "file": "0002.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "http://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball/teams?limit=1000": {
-    "file": "0040.json.gz",
-    "status": 200
+    "file": "0040.gz",
+    "status": 200,
+    "type": "application/json"
   },
   "http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard?limit=1000&dates=20230423": {
-    "file": "0057.json.gz",
-    "status": 200
+    "file": "0057.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/summary?event=401283399": {
-    "file": "0052.json.gz",
-    "status": 404
+    "file": "0052.gz",
+    "status": 404,
+    "type": "application/json;charset=UTF-8"
   },
   "http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/summary?event=401569780": {
-    "file": "0101.json.gz",
-    "status": 200
+    "file": "0101.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/summary?event=401570000": {
-    "file": "0053.json.gz",
-    "status": 200
+    "file": "0053.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/teams/10?enable=roster": {
+    "file": "0168.gz",
+    "status": 200,
+    "type": "application/json"
   },
   "http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/teams?limit=1000": {
-    "file": "0060.json.gz",
-    "status": 200
+    "file": "0060.gz",
+    "status": 200,
+    "type": "application/json"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/48515?lang=en&region=us": {
-    "file": "0015.json.gz",
-    "status": 200
+    "file": "0015.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/50750?lang=en&region=us": {
+    "file": "0185.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/58735?lang=en&region=us": {
+    "file": "0187.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/59059?lang=en&region=us": {
-    "file": "0012.json.gz",
-    "status": 200
+    "file": "0012.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/66461?lang=en&region=us": {
+    "file": "0181.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/66841?lang=en&region=us": {
-    "file": "0016.json.gz",
-    "status": 200
+    "file": "0016.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/66843?lang=en&region=us": {
-    "file": "0014.json.gz",
-    "status": 200
+    "file": "0014.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/67450?lang=en&region=us": {
+    "file": "0188.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/67460?lang=en&region=us": {
+    "file": "0184.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/67471?lang=en&region=us": {
+    "file": "0182.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/72331?lang=en&region=us": {
+    "file": "0186.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/72474?lang=en&region=us": {
-    "file": "0010.json.gz",
-    "status": 200
+    "file": "0010.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/72534?lang=en&region=us": {
-    "file": "0011.json.gz",
-    "status": 200
+    "file": "0011.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/79686?lang=en&region=us": {
-    "file": "0018.json.gz",
-    "status": 200
+    "file": "0018.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/81442?lang=en&region=us": {
-    "file": "0017.json.gz",
-    "status": 200
+    "file": "0017.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/83667?lang=en&region=us": {
-    "file": "0009.json.gz",
-    "status": 200
+    "file": "0009.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/86494?lang=en&region=us": {
+    "file": "0183.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/86497?lang=en&region=us": {
+    "file": "0179.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/86507?lang=en&region=us": {
+    "file": "0180.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/athletes/87679?lang=en&region=us": {
-    "file": "0013.json.gz",
-    "status": 200
+    "file": "0013.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/teams/113?lang=en&region=us": {
-    "file": "0005.json.gz",
-    "status": 200
+    "file": "0005.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/teams/146?lang=en&region=us": {
-    "file": "0006.json.gz",
-    "status": 200
+    "file": "0006.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2020/teams/13?lang=en&region=us": {
-    "file": "0059.json.gz",
-    "status": 200
+    "file": "0059.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2022/teams/10?lang=en&region=us": {
-    "file": "0056.json.gz",
-    "status": 200
+    "file": "0056.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes/30583?lang=en&region=us": {
+    "file": "0176.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes/32129?lang=en&region=us": {
-    "file": "0096.json.gz",
-    "status": 200
+    "file": "0096.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes/32159?lang=en&region=us": {
-    "file": "0097.json.gz",
-    "status": 200
+    "file": "0097.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes/32833?lang=en&region=us": {
-    "file": "0094.json.gz",
-    "status": 200
+    "file": "0094.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes/33192?lang=en&region=us": {
+    "file": "0171.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes/33259?lang=en&region=us": {
-    "file": "0093.json.gz",
-    "status": 200
+    "file": "0093.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes/33786?lang=en&region=us": {
+    "file": "0175.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes/33804?lang=en&region=us": {
+    "file": "0173.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes/34534?lang=en&region=us": {
-    "file": "0095.json.gz",
-    "status": 200
+    "file": "0095.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes/34942?lang=en&region=us": {
-    "file": "0100.json.gz",
-    "status": 200
+    "file": "0100.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes/36409?lang=en&region=us": {
-    "file": "0092.json.gz",
-    "status": 200
+    "file": "0092.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes/36969?lang=en&region=us": {
+    "file": "0172.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes/37498?lang=en&region=us": {
-    "file": "0099.json.gz",
-    "status": 200
+    "file": "0099.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes/41253?lang=en&region=us": {
-    "file": "0098.json.gz",
-    "status": 200
+    "file": "0098.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes/42402?lang=en&region=us": {
-    "file": "0091.json.gz",
-    "status": 200
+    "file": "0091.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes/42547?lang=en&region=us": {
+    "file": "0174.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/teams/20?lang=en&region=us": {
-    "file": "0087.json.gz",
-    "status": 200
+    "file": "0087.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/teams/21?lang=en&region=us": {
-    "file": "0088.json.gz",
-    "status": 200
+    "file": "0088.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "http://statsapi.mlb.com/api/v1/league/103/allStarBallot?season=2021": {
+    "file": "0149.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://statsapi.mlb.com/api/v1/league/103/allStarFinalVote?season=2021": {
+    "file": "0150.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://statsapi.mlb.com/api/v1/league/103/allStarWriteIns?season=2021": {
+    "file": "0151.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://statsapi.mlb.com/api/v1/people/?personIds=502671": {
+    "file": "0152.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://statsapi.mlb.com/api/v1/people/?personIds=502671%2C605151": {
+    "file": "0153.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://statsapi.mlb.com/api/v1/people/605151/stats/game/531368": {
+    "file": "0155.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://statsapi.mlb.com/api/v1/people/freeAgents?season=2018": {
+    "file": "0154.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=homeRuns&season=2021&sportId=1&limit=1000": {
+    "file": "0157.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://statsapi.mlb.com/api/v1/stats?stats=season&group=hitting&season=2021&sportIds=&limit=1000": {
+    "file": "0156.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://statsapi.mlb.com/api/v1/teams/137/alumni?group=hitting&season=2021": {
+    "file": "0159.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://statsapi.mlb.com/api/v1/teams/137/coaches?season=2021": {
+    "file": "0160.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://statsapi.mlb.com/api/v1/teams/137/leaders?leaderCategories=homeRuns&season=2021&limit=1000": {
+    "file": "0163.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://statsapi.mlb.com/api/v1/teams/137/personnel?date=08%2F28%2F2016": {
+    "file": "0164.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://statsapi.mlb.com/api/v1/teams/137/stats?stats=season&group=hitting&season=2021&sportIds=": {
+    "file": "0165.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://statsapi.mlb.com/api/v1/teams/147": {
+    "file": "0162.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://statsapi.mlb.com/api/v1/teams/affiliates?teamIds=147&sportIds=": {
+    "file": "0158.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://statsapi.mlb.com/api/v1/teams/history?teamIds=147": {
+    "file": "0161.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://statsapi.mlb.com/api/v1/teams/stats/leaders?leaderCategories=homeRuns&season=2021&sportId=1&limit=1000": {
+    "file": "0167.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "http://statsapi.mlb.com/api/v1/teams/stats?stats=season&group=hitting&season=2021&sportIds=": {
+    "file": "0166.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/mlb/event/95687/odds?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0194.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/mlb/league/stats-con/player/batting/0?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0193.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/mlb/team/1/gamelog?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0191.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/mlb/team/1/roster?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0189.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/mlb/team/1/standings?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0192.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
+  },
+  "https://api.foxsports.com/bifrost/v1/mlb/team/1/stats?apikey=jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq&api-version=1.1": {
+    "file": "0190.gz",
+    "status": 200,
+    "type": "application/json; charset=utf-8"
   },
   "https://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball/news?limit=5": {
-    "file": "0024.json.gz",
-    "status": 200
+    "file": "0024.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball/news?team=59&limit=5": {
-    "file": "0035.json.gz",
-    "status": 200
+    "file": "0035.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball/scoreboard?dates=2025": {
-    "file": "0001.json.gz",
-    "status": 200
+    "file": "0001.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball/teams/59/roster": {
-    "file": "0144.json.gz",
-    "status": 200
+    "file": "0144.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball/teams/59/schedule?season=2025&seasontype=2": {
-    "file": "0145.json.gz",
-    "status": 200
+    "file": "0145.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball/teams/59?enable=roster,projection,stats&season=2025": {
-    "file": "0143.json.gz",
-    "status": 200
+    "file": "0143.gz",
+    "status": 200,
+    "type": "application/json"
   },
   "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/injuries": {
-    "file": "0102.json.gz",
-    "status": 200
+    "file": "0102.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/news?limit=5": {
-    "file": "0104.json.gz",
-    "status": 200
+    "file": "0104.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/news?team=10&limit=5": {
-    "file": "0132.json.gz",
-    "status": 200
+    "file": "0132.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard?dates=2024": {
-    "file": "0066.json.gz",
-    "status": 200
+    "file": "0066.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/teams/10/roster": {
-    "file": "0135.json.gz",
-    "status": 200
+    "file": "0135.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/teams/10/schedule?season=2024&seasontype=2": {
-    "file": "0136.json.gz",
-    "status": 200
+    "file": "0136.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/teams/10?enable=roster,projection,stats&season=2024": {
-    "file": "0130.json.gz",
-    "status": 200
+    "file": "0130.gz",
+    "status": 200,
+    "type": "application/json"
   },
   "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/transactions?season=2024&limit=10": {
-    "file": "0140.json.gz",
-    "status": 200
+    "file": "0140.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://site.web.api.espn.com/apis/common/v3/sports/baseball/college-baseball/athletes/3730/overview?season=2025": {
-    "file": "0026.json.gz",
-    "status": 200
+    "file": "0026.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://site.web.api.espn.com/apis/common/v3/sports/baseball/mlb/athletes/33192/gamelog?season=2024": {
-    "file": "0110.json.gz",
-    "status": 200
+    "file": "0110.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://site.web.api.espn.com/apis/common/v3/sports/baseball/mlb/athletes/33192/overview?season=2024": {
-    "file": "0112.json.gz",
-    "status": 200
+    "file": "0112.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://site.web.api.espn.com/apis/common/v3/sports/baseball/mlb/athletes/33192/splits?season=2024": {
-    "file": "0113.json.gz",
-    "status": 200
+    "file": "0113.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://site.web.api.espn.com/apis/common/v3/sports/baseball/mlb/athletes/33192/stats?season=2024": {
-    "file": "0115.json.gz",
-    "status": 200
+    "file": "0115.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://site.web.api.espn.com/apis/v2/sports/baseball/college-baseball/standings?region=us&lang=en&contentorigin=espn&type=0&level=1&sort=winpercent%3Adesc%2Cwins%3Adesc%2Cgamesbehind%3Aasc&season=2025": {
-    "file": "0148.json.gz",
-    "status": 200
+    "file": "0148.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://site.web.api.espn.com/apis/v2/sports/baseball/mlb/standings?region=us&lang=en&contentorigin=espn&type=0&level=1&sort=winpercent%3Adesc%2Cwins%3Adesc%2Cgamesbehind%3Aasc&season=2024": {
-    "file": "0147.json.gz",
-    "status": 200
+    "file": "0147.gz",
+    "status": 200,
+    "type": "application/json;charset=UTF-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/athletes/3730": {
-    "file": "0025.json.gz",
-    "status": 200
+    "file": "0025.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/broadcasts": {
-    "file": "0003.json.gz",
-    "status": 200
+    "file": "0003.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/competitors/": {
-    "file": "0004.json.gz",
-    "status": 200
+    "file": "0004.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/competitors/113/linescores?lang=en&region=us": {
-    "file": "0020.json.gz",
-    "status": 200
+    "file": "0020.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/competitors/113/records?lang=en&region=us": {
-    "file": "0021.json.gz",
-    "status": 200
+    "file": "0021.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/competitors/113/roster": {
-    "file": "0007.json.gz",
-    "status": 200
+    "file": "0007.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/competitors/113/roster?limit=100&lang=en&region=us": {
+    "file": "0177.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/competitors/113/score?lang=en&region=us": {
-    "file": "0022.json.gz",
-    "status": 200
+    "file": "0022.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/competitors/113/statistics?lang=en&region=us": {
-    "file": "0023.json.gz",
-    "status": 200
+    "file": "0023.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/competitors/146/roster": {
-    "file": "0008.json.gz",
-    "status": 200
+    "file": "0008.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/situation?lang=en&region=us": {
-    "file": "0019.json.gz",
-    "status": 200
+    "file": "0019.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025": {
-    "file": "0030.json.gz",
-    "status": 200
+    "file": "0030.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/rankings?lang=en&region=us": {
-    "file": "0031.json.gz",
-    "status": 200
+    "file": "0031.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/teams/59/athletes?limit=200&lang=en&region=us": {
-    "file": "0039.json.gz",
-    "status": 200
+    "file": "0039.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/teams/59?lang=en&region=us": {
-    "file": "0146.json.gz",
-    "status": 200
+    "file": "0146.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/types/2/groups?limit=200&lang=en&region=us": {
-    "file": "0028.json.gz",
-    "status": 200
+    "file": "0028.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/types/2/teams/59/leaders?lang=en&region=us": {
+    "file": "0178.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/types/2/teams/59/record?lang=en&region=us": {
-    "file": "0036.json.gz",
-    "status": 200
+    "file": "0036.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/types/2/teams/59/records/0?lang=en&region=us": {
-    "file": "0038.json.gz",
-    "status": 200
+    "file": "0038.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/types/2/weeks/5/rankings?lang=en&region=us": {
-    "file": "0051.json.gz",
-    "status": 200
+    "file": "0051.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/types/2?lang=en&region=us": {
-    "file": "0032.json.gz",
-    "status": 200
+    "file": "0032.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/types/3/groups?limit=200&lang=en&region=us": {
-    "file": "0029.json.gz",
-    "status": 200
+    "file": "0029.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/types/3/teams/59/record?lang=en&region=us": {
-    "file": "0037.json.gz",
-    "status": 200
+    "file": "0037.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/types?lang=en&region=us": {
-    "file": "0033.json.gz",
-    "status": 200
+    "file": "0033.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons?limit=200": {
-    "file": "0034.json.gz",
-    "status": 200
+    "file": "0034.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/venues?limit=100&page=1": {
-    "file": "0041.json.gz",
-    "status": 200
+    "file": "0041.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/venues?limit=100&page=10": {
-    "file": "0050.json.gz",
-    "status": 200
+    "file": "0050.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/venues?limit=100&page=2": {
-    "file": "0042.json.gz",
-    "status": 200
+    "file": "0042.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/venues?limit=100&page=3": {
-    "file": "0043.json.gz",
-    "status": 200
+    "file": "0043.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/venues?limit=100&page=4": {
-    "file": "0044.json.gz",
-    "status": 200
+    "file": "0044.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/venues?limit=100&page=5": {
-    "file": "0045.json.gz",
-    "status": 200
+    "file": "0045.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/venues?limit=100&page=6": {
-    "file": "0046.json.gz",
-    "status": 200
+    "file": "0046.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/venues?limit=100&page=7": {
-    "file": "0047.json.gz",
-    "status": 200
+    "file": "0047.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/venues?limit=100&page=8": {
-    "file": "0048.json.gz",
-    "status": 200
+    "file": "0048.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/venues?limit=100&page=9": {
-    "file": "0049.json.gz",
-    "status": 200
+    "file": "0049.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/athletes/33192": {
-    "file": "0111.json.gz",
-    "status": 200
+    "file": "0111.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/athletes/33192/awards": {
-    "file": "0105.json.gz",
-    "status": 200
+    "file": "0105.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/athletes/33192/contracts?lang=en&region=us": {
-    "file": "0107.json.gz",
-    "status": 200
+    "file": "0107.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/athletes/33192/statistics/0?lang=en&region=us": {
-    "file": "0106.json.gz",
-    "status": 200
+    "file": "0106.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/athletes/33192/statisticslog": {
-    "file": "0114.json.gz",
-    "status": 200
+    "file": "0114.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401569780/competitions/401569780/competitors/": {
-    "file": "0086.json.gz",
-    "status": 200
+    "file": "0086.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401569780/competitions/401569780/competitors/20/roster": {
-    "file": "0089.json.gz",
-    "status": 200
+    "file": "0089.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401569780/competitions/401569780/competitors/21/leaders?lang=en&region=us": {
-    "file": "0081.json.gz",
-    "status": 200
+    "file": "0081.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401569780/competitions/401569780/competitors/21/linescores?lang=en&region=us": {
-    "file": "0082.json.gz",
-    "status": 200
+    "file": "0082.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401569780/competitions/401569780/competitors/21/records?lang=en&region=us": {
-    "file": "0083.json.gz",
-    "status": 200
+    "file": "0083.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401569780/competitions/401569780/competitors/21/roster": {
-    "file": "0090.json.gz",
-    "status": 200
+    "file": "0090.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401569780/competitions/401569780/competitors/21/roster?limit=100&lang=en&region=us": {
+    "file": "0169.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401569780/competitions/401569780/competitors/21/score?lang=en&region=us": {
-    "file": "0084.json.gz",
-    "status": 200
+    "file": "0084.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401569780/competitions/401569780/competitors/21/statistics?lang=en&region=us": {
-    "file": "0085.json.gz",
-    "status": 200
+    "file": "0085.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401569780/competitions/401569780/odds": {
-    "file": "0072.json.gz",
-    "status": 200
+    "file": "0072.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401569780/competitions/401569780/officials": {
-    "file": "0073.json.gz",
-    "status": 200
+    "file": "0073.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401569780/competitions/401569780/officials/1?lang=en&region=us": {
-    "file": "0074.json.gz",
-    "status": 200
+    "file": "0074.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401569780/competitions/401569780/powerindex?limit=200&lang=en&region=us": {
-    "file": "0075.json.gz",
-    "status": 200
+    "file": "0075.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401569780/competitions/401569780/predictor?lang=en&region=us": {
-    "file": "0076.json.gz",
-    "status": 200
+    "file": "0076.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401569780/competitions/401569780/probabilities?limit=25&page=1": {
-    "file": "0077.json.gz",
-    "status": 200
+    "file": "0077.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401569780/competitions/401569780/probabilities?limit=25&page=2": {
-    "file": "0078.json.gz",
-    "status": 200
+    "file": "0078.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401569780/competitions/401569780/probabilities?limit=25&page=3": {
-    "file": "0079.json.gz",
-    "status": 200
+    "file": "0079.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401569780/competitions/401569780/situation?lang=en&region=us": {
-    "file": "0080.json.gz",
-    "status": 200
+    "file": "0080.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/franchises/10?lang=en&region=us": {
-    "file": "0069.json.gz",
-    "status": 200
+    "file": "0069.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/franchises?limit=200&lang=en&region=us": {
-    "file": "0070.json.gz",
-    "status": 200
+    "file": "0070.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/positions/1?lang=en&region=us": {
-    "file": "0116.json.gz",
-    "status": 200
+    "file": "0116.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/positions?limit=200&lang=en&region=us": {
-    "file": "0117.json.gz",
-    "status": 200
+    "file": "0117.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2020/types/2/teams/13/statistics/": {
-    "file": "0058.json.gz",
-    "status": 200
+    "file": "0058.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2022/athletes/33192": {
-    "file": "0055.json.gz",
-    "status": 200
+    "file": "0055.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2022/types/2/athletes/33192/statistics/": {
-    "file": "0054.json.gz",
-    "status": 200
+    "file": "0054.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024": {
-    "file": "0123.json.gz",
-    "status": 200
+    "file": "0123.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes/33192/eventlog": {
-    "file": "0108.json.gz",
-    "status": 200
+    "file": "0108.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes/33192/eventlog?lang=en&region=us": {
-    "file": "0109.json.gz",
-    "status": 200
+    "file": "0109.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes?limit=100&page=1": {
-    "file": "0061.json.gz",
-    "status": 200
+    "file": "0061.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes?limit=100&page=2": {
-    "file": "0062.json.gz",
-    "status": 200
+    "file": "0062.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes?limit=100&page=3": {
-    "file": "0063.json.gz",
-    "status": 200
+    "file": "0063.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes?limit=100&page=4": {
-    "file": "0064.json.gz",
-    "status": 200
+    "file": "0064.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/athletes?limit=100&page=5": {
-    "file": "0065.json.gz",
-    "status": 200
+    "file": "0065.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/awards?lang=en&region=us": {
-    "file": "0118.json.gz",
-    "status": 200
+    "file": "0118.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/coaches?limit=100&page=1": {
-    "file": "0067.json.gz",
-    "status": 200
+    "file": "0067.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/draft/status?lang=en&region=us": {
-    "file": "0068.json.gz",
-    "status": 200
+    "file": "0068.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/futures?limit=200&lang=en&region=us": {
-    "file": "0071.json.gz",
-    "status": 200
+    "file": "0071.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/teams/10/athletes?limit=200&lang=en&region=us": {
-    "file": "0138.json.gz",
-    "status": 200
+    "file": "0138.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/teams/10/depthcharts?lang=en&region=us": {
-    "file": "0131.json.gz",
-    "status": 200
+    "file": "0131.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/teams/10?lang=en&region=us": {
-    "file": "0137.json.gz",
-    "status": 200
+    "file": "0137.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/types/2/groups/7/children?limit=200&lang=en&region=us": {
-    "file": "0120.json.gz",
-    "status": 200
+    "file": "0120.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/types/2/groups/7/teams?limit=200&lang=en&region=us": {
-    "file": "0121.json.gz",
-    "status": 200
+    "file": "0121.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/types/2/groups/7?lang=en&region=us": {
-    "file": "0119.json.gz",
-    "status": 200
+    "file": "0119.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/types/2/groups?limit=200&lang=en&region=us": {
-    "file": "0122.json.gz",
-    "status": 200
+    "file": "0122.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/types/2/leaders": {
-    "file": "0103.json.gz",
-    "status": 200
+    "file": "0103.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/types/2/leaders?lang=en&region=us": {
-    "file": "0124.json.gz",
-    "status": 200
+    "file": "0124.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/types/2/teams/10/leaders?lang=en&region=us": {
+    "file": "0170.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/types/2/teams/10/record?lang=en&region=us": {
-    "file": "0133.json.gz",
-    "status": 200
+    "file": "0133.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/types/2/teams/10/records/0?lang=en&region=us": {
-    "file": "0134.json.gz",
-    "status": 200
+    "file": "0134.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/types/2/teams/10/statistics?lang=en&region=us": {
-    "file": "0139.json.gz",
-    "status": 200
+    "file": "0139.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/types/2/weeks/1?lang=en&region=us": {
-    "file": "0127.json.gz",
-    "status": 200
+    "file": "0127.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/types/2/weeks?limit=200&lang=en&region=us": {
-    "file": "0128.json.gz",
-    "status": 200
+    "file": "0128.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/types/2?lang=en&region=us": {
-    "file": "0125.json.gz",
-    "status": 200
+    "file": "0125.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/types?lang=en&region=us": {
-    "file": "0126.json.gz",
-    "status": 200
+    "file": "0126.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons?limit=200": {
-    "file": "0129.json.gz",
-    "status": 200
+    "file": "0129.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/venues?limit=100&page=1": {
-    "file": "0141.json.gz",
-    "status": 200
+    "file": "0141.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
   },
   "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/venues?limit=100&page=2": {
-    "file": "0142.json.gz",
-    "status": 200
+    "file": "0142.gz",
+    "status": 200,
+    "type": "application/json;charset=utf-8"
+  },
+  "https://www.fangraphs.com/guts.aspx?type=cn": {
+    "file": "0195.gz",
+    "status": 200,
+    "type": "text/html; charset=utf-8"
   }
 }

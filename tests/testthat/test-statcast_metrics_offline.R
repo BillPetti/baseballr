@@ -36,6 +36,7 @@ test_that("linear_weights_savant() returns weights per event", {
 
 test_that("statline_from_statcast() summarises the game", {
   skip_on_cran()
+  local_http_fixtures()   # it fetches FanGraphs wOBA weights via fg_guts()
   st <- statline_from_statcast(statcast_game(), base = "pa")
   expect_s3_class(st, "data.frame")
   expect_equal(nrow(st), 1)
@@ -44,16 +45,16 @@ test_that("statline_from_statcast() summarises the game", {
 test_that("edge_code() labels pitch locations", {
   skip_on_cran()
   df <- statcast_game()
-  # edge_code() predates Statcast: it reads PITCHf/x-era px / pz / des2 and a
-  # feet-inches batter height, so map the Statcast columns onto those names.
-  df$px <- df$plate_x
-  df$pz <- df$plate_z
-  df$des2 <- tools::toTitleCase(gsub("_", " ", df$description))
-  df$b_height <- "6-2"
-  ec <- edge_code(df, height_var_name = "b_height")
+  df$b_height <- "6-2"   # Statcast has no batter height; edge_code() wants feet-inches
+  ec <- edge_code(df, height_var_name = "b_height")   # plate_x / plate_z / description mapped in
   expect_s3_class(ec, "data.frame")
   expect_equal(nrow(ec), nrow(df))
-  expect_in("location", colnames(ec))
+  expect_in(c("location", "Heart", "OutOfZone"), colnames(ec))
+  expect_true(any(!is.na(ec$location)))
+  expect_equal(sum(ec$called_strike), sum(df$description == "called_strike"))
+  expect_equal(sum(ec$swing > 0), sum(df$description %in% c(
+    "swinging_strike", "swinging_strike_blocked", "foul", "foul_tip", "foul_bunt", "hit_into_play"
+  )))
 })
 
 test_that("ggspraychart() builds a ggplot from batted balls", {
