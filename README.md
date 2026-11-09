@@ -8,7 +8,7 @@
 [![R-universe](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=success&label=r-universe&prefix=v&query=%24.Version&url=https%3A%2F%2Fsportsdataverse.r-universe.dev%2Fapi%2Fpackages%2Fbaseballr)](https://sportsdataverse.r-universe.dev/baseballr)
 [![Version-Number](https://img.shields.io/github/r-package/v/BillPetti/baseballr?label=baseballr&logo=R&style=for-the-badge)](https://github.com/BillPetti/baseballr/)
 [![R-CMD-check](https://img.shields.io/github/actions/workflow/status/BillPetti/baseballr/R-CMD-check.yaml?branch=master&label=R-CMD-Check&logo=R&logoColor=white&style=for-the-badge)](https://github.com/BillPetti/baseballr/actions/workflows/R-CMD-check.yaml)
-[![Codecov](https://img.shields.io/codecov/c/github/BillPetti/baseballr?logo=codecov&style=for-the-badge)](https://app.codecov.io/gh/BillPetti/baseballr)
+[![Coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FBillPetti%2Fbaseballr%2Fbadges%2Fcoverage.json&logo=codecov&style=for-the-badge)](https://github.com/BillPetti/baseballr/actions/workflows/test-coverage.yaml)
 [![pkgdown](https://img.shields.io/github/actions/workflow/status/BillPetti/baseballr/pkgdown.yaml?branch=master&label=pkgdown&logo=github&style=for-the-badge)](https://github.com/BillPetti/baseballr/actions/workflows/pkgdown.yaml)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg?style=for-the-badge&logo=github)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://github.com/BillPetti/baseballr/blob/master/LICENSE.md)

@@ -24,6 +24,8 @@ jobs:
   test-coverage:
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    outputs:
+      pct: ${{ steps.cov.outputs.pct }}
     env:
       FANGRAPHS_TESTS: "1"
       MLB_STATS_TESTS: "1"
@@ -52,6 +54,7 @@ jobs:
           needs: coverage
 
       - name: Test coverage
+        id: cov
         run: |
           cov <- covr::package_coverage(
             quiet = FALSE,
@@ -60,6 +63,7 @@ jobs:
           )
           print(cov)
           covr::to_cobertura(cov)
+          cat(sprintf("pct=%.1f\n", covr::percent_coverage(cov)), file = Sys.getenv("GITHUB_OUTPUT"), append = TRUE)
         shell: Rscript {0}
 
       - uses: codecov/codecov-action@v7
@@ -83,3 +87,36 @@ jobs:
         with:
           name: coverage-test-failures
           path: ${{ runner.temp }}/package
+
+  # Self-hosted coverage badge: Codecov can't be set up for this repo, so the total is
+  # written as a shields.io endpoint JSON to the `badges` branch and the README badge
+  # reads it from raw.githubusercontent.com. Runs only for master, never for PRs.
+  badge:
+    needs: test-coverage
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master' && needs.test-coverage.outputs.pct != ''
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: coverage-badge
+      cancel-in-progress: false
+    steps:
+      - name: Publish coverage.json to the badges branch
+        env:
+          PCT: ${{ needs.test-coverage.outputs.pct }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          color=$(awk -v p="$PCT" 'BEGIN { print (p>=80?"brightgreen":p>=60?"green":p>=40?"yellow":p>=20?"orange":"red") }')
+          url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git ls-remote --exit-code --heads "$url" badges >/dev/null; then
+            git clone --quiet --depth 1 --branch badges "$url" badges
+          else
+            git init --quiet -b badges badges && git -C badges remote add origin "$url"
+          fi
+          cd badges
+          printf '{"schemaVersion":1,"label":"coverage","message":"%s%%","color":"%s"}\n' "$PCT" "$color" > coverage.json
+          git add coverage.json
+          if git diff --cached --quiet; then echo "coverage unchanged ($PCT%)"; exit 0; fi
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit --quiet -m "coverage: ${PCT}% (${GITHUB_SHA::7})"
+          git push --quiet origin badges
