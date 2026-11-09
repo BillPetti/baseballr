@@ -66,7 +66,7 @@ Returns a tibble of park factors by handedness.
 # \donttest{
   try(fg_park(2013))
 #> ── Park Factors data from FanGraphs.com ──────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-09 13:13:52 UTC
+#> ℹ Data updated: 2026-11-09 14:05:00 UTC
 #> # A tibble: 30 × 16
 #>    season home_team basic_5yr `3yr` `1yr` single double triple    hr
 #>     <int> <chr>         <int> <int> <int>  <int>  <int>  <int> <int>
@@ -87,7 +87,7 @@ Returns a tibble of park factors by handedness.
 # \donttest{
   try(fg_park_hand(2013))
 #> ── Park Factors by Handedness data from FanGraphs.com ──────────────────
-#> ℹ Data updated: 2026-11-09 13:13:52 UTC
+#> ℹ Data updated: 2026-11-09 14:05:00 UTC
 #> # A tibble: 30 × 10
 #>    season home_team single_as_LHH single_as_RHH double_as_LHH
 #>     <int> <chr>             <int>         <int>         <int>

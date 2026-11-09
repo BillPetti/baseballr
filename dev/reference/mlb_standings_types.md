@@ -24,7 +24,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_standings_types())
 #> ── MLB Standings Types data from MLB.com ─────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-09 13:17:57 UTC
+#> ℹ Data updated: 2026-11-09 14:08:47 UTC
 #> # A tibble: 13 × 2
 #>    standings_type_name standings_type_description                       
 #>    <chr>               <chr>                                            

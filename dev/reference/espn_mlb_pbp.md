@@ -224,10 +224,30 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-try(espn_mlb_pbp(game_id = 401071880))
-#> ✖ 2026-11-09 13:13:18.816203: Invalid arguments or no play-by-play data for 401071880 available!
-#> ✖ Args: game_id = 401071880
-#> ✖ Error: The API returned an error, HTTP Response Code 404
-#> NULL
+try(espn_mlb_pbp(game_id = 401569780))
+#> New names:
+#> • `` -> `...53`
+#> ── ESPN MLB Play-by-Play Information from ESPN.com ─────────────────────
+#> ℹ Data updated: 2026-11-09 14:04:26 UTC
+#> # A tibble: 442 × 80
+#>    id           sequence_number text  away_score home_score scoring_play
+#>    <chr>        <chr>           <chr>      <int>      <int> <lgl>       
+#>  1 40156978000… 1               Top …          0          0 FALSE       
+#>  2 40156978000… 1               Jake…          0          0 FALSE       
+#>  3 40156978000… 2               Pitc…          0          0 FALSE       
+#>  4 40156978000… 3               Pitc…          0          0 FALSE       
+#>  5 40156978000… 4               Pitc…          0          0 FALSE       
+#>  6 40156978000… 5               Pitc…          0          0 FALSE       
+#>  7 40156978000… 6               Pitc…          0          0 FALSE       
+#>  8 40156978000… 7               Pitc…          0          0 FALSE       
+#>  9 40156978000… 8               Lind…          0          0 FALSE       
+#> 10 40156978000… 9               NA             0          0 FALSE       
+#> # ℹ 432 more rows
+#> # ℹ 74 more variables: score_value <int>, wallclock <chr>,
+#> #   at_bat_id <chr>, summary_type <chr>, outs <int>, type <list<chr>>,
+#> #   bat_order <int>, at_bat_pitch_number <int>, pitch_velocity <int>,
+#> #   trajectory <chr>, alternative_play <chr>, type_id <int>,
+#> #   type_text <chr>, type_type <chr>, type_alternative_text <chr>,
+#> #   type_abbreviation <chr>, period_type <chr>, period_number <int>, …
 # }
 ```

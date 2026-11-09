@@ -50,7 +50,7 @@ A `baseballr_data` tibble:
 # \donttest{
   try(load_ncaa_baseball_group_seasons())
 #> ── NCAA baseball group seasons from the SportsDataverse data repo ──────
-#> ℹ Data updated: 2026-11-09 13:14:20 UTC
+#> ℹ Data updated: 2026-11-09 14:05:27 UTC
 #> # A tibble: 1,709 × 9
 #>    league        group_id     season level name  short_name abbreviation
 #>    <chr>         <chr>         <int> <chr> <chr> <chr>      <chr>       

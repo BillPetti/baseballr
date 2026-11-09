@@ -74,7 +74,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_team_leaders(team_id = 137, leader_categories = "homeRuns", season = 2021))
 #> ── MLB Team Leaders data from MLB.com ────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-09 13:18:01 UTC
+#> ℹ Data updated: 2026-11-09 14:08:51 UTC
 #> # A tibble: 52 × 23
 #>    leader_category  rank value season team_id team_name        team_link
 #>    <chr>           <int> <chr> <chr>    <int> <chr>            <chr>    

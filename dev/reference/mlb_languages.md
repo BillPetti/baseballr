@@ -26,7 +26,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_languages())
 #> ── MLB Languages data from MLB.com ───────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-09 13:17:39 UTC
+#> ℹ Data updated: 2026-11-09 14:08:30 UTC
 #> # A tibble: 16 × 4
 #>    language_id language_code language_name locale
 #>          <int> <chr>         <chr>         <chr> 

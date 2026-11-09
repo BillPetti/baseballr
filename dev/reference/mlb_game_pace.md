@@ -121,7 +121,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_game_pace(season = 2021, start_date = "09/14/2021", end_date = "09/16/2021"))
 #> ── MLB Game Pace data from MLB.com ───────────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-09 13:17:33 UTC
+#> ℹ Data updated: 2026-11-09 14:08:23 UTC
 #> # A tibble: 7 × 49
 #>   hits_per9inn runs_per9inn pitches_per9inn plate_appearances_per9inn
 #>          <dbl>        <dbl>           <dbl>                     <dbl>

@@ -120,7 +120,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_venues())
 #> ── ESPN COLLEGE-BASEBALL Venues from ESPN.com ── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-09 13:13:01 UTC
+#> ℹ Data updated: 2026-11-09 14:04:09 UTC
 #> # A tibble: 956 × 9
 #>    venue_id name  full_name address_city address_state capacity indoor
 #>    <chr>    <chr> <chr>     <chr>        <chr>            <int> <lgl> 

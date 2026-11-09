@@ -23,6 +23,47 @@
 
 #### Bug fixes
 
+- A warning while parsing no longer throws away the result. The ESPN
+  wrappers,
+  [`bref_daily_batter()`](https://billpetti.github.io/baseballr/dev/reference/bref_daily_batter.md)
+  and
+  [`fg_projections()`](https://billpetti.github.io/baseballr/dev/reference/fg_projections.md)
+  caught warnings with `tryCatch(warning = )`, which unwinds the call,
+  so a harmless warning (e.g.
+  [`data.frame()`](https://rdrr.io/r/base/data.frame.html)’s “row names
+  were found from a short variable”) made them return an empty frame;
+  [`espn_mlb_team_current_roster()`](https://billpetti.github.io/baseballr/dev/reference/espn_mlb_team_current_roster.md)
+  returned 0 rows for every team. Those 124 calls now report the warning
+  and carry on (internal `.try_catch()`).
+- [`espn_mlb_game_team_roster()`](https://billpetti.github.io/baseballr/dev/reference/espn_mlb_game_team_roster.md)
+  /
+  [`espn_college_baseball_game_team_roster()`](https://billpetti.github.io/baseballr/dev/reference/espn_college_baseball_game_team_roster.md)
+  read the lineup again: ESPN moved it from `items` to `entries` +
+  `pitchers`. Rows now carry `role`, `display_name`, `bat_order`,
+  `starter`, `position_id` and substitution flags alongside the existing
+  columns.
+- [`espn_mlb_team_leaders()`](https://billpetti.github.io/baseballr/dev/reference/espn_mlb_team_leaders.md)
+  /
+  [`espn_college_baseball_team_leaders()`](https://billpetti.github.io/baseballr/dev/reference/espn_college_baseball_team_leaders.md)
+  return leaders again (ESPN’s site-v2 leaders route now answers with an
+  empty body): they read the core API, which also honours `season`, and
+  add `category_abbr` and `display_value`.
+- [`espn_mlb_conferences()`](https://billpetti.github.io/baseballr/dev/reference/espn_mlb_conferences.md)
+  /
+  [`espn_college_baseball_conferences()`](https://billpetti.github.io/baseballr/dev/reference/espn_college_baseball_conferences.md)
+  return the documented empty frame instead of erroring when ESPN sends
+  no conferences.
+- [`edge_code()`](https://billpetti.github.io/baseballr/dev/reference/edge_code.md)
+  accepts Statcast data: `plate_x` / `plate_z` / `description` are used
+  when the PITCHf/x `px` / `pz` / `des2` columns are absent, and pitch
+  descriptions are matched case-insensitively.
+- The
+  [`espn_mlb_pbp()`](https://billpetti.github.io/baseballr/dev/reference/espn_mlb_pbp.md),
+  [`espn_mlb_team_box()`](https://billpetti.github.io/baseballr/dev/reference/espn_mlb_team_box.md),
+  [`espn_mlb_player_box()`](https://billpetti.github.io/baseballr/dev/reference/espn_mlb_player_box.md)
+  and
+  [`espn_mlb_game_rosters()`](https://billpetti.github.io/baseballr/dev/reference/espn_mlb_game_rosters.md)
+  examples use a game ESPN still serves.
 - [`statcast_search_minors()`](https://billpetti.github.io/baseballr/dev/reference/statcast_search.md)
   returns minor-league games again
   ([\#432](https://github.com/billpetti/baseballr/issues/432)). Baseball
@@ -58,6 +99,21 @@
   afterwards) and retry a failed download twice. A 404 is not retried.
   If a file still fails, the warning names its URL and says the result
   is incomplete; the seasons that loaded are still returned.
+
+#### Tests
+
+- Offline tests for the ESPN MLB / college baseball, MLB Stats API and
+  Fox wrappers replay responses recorded from those sources
+  (`tests/testthat/fixtures/http/`, re-recorded with
+  `data-raw/http_fixtures/record_fixtures.R`), so they run on CI without
+  network access. Offline tests for the Statcast-based helpers
+  ([`run_expectancy_code()`](https://billpetti.github.io/baseballr/dev/reference/run_expectancy_code.md),
+  `run_expectancy_table()`,
+  [`linear_weights_savant()`](https://billpetti.github.io/baseballr/dev/reference/linear_weights_savant.md),
+  [`statline_from_statcast()`](https://billpetti.github.io/baseballr/dev/reference/statline_from_statcast.md),
+  [`edge_code()`](https://billpetti.github.io/baseballr/dev/reference/edge_code.md),
+  [`ggspraychart()`](https://billpetti.github.io/baseballr/dev/reference/ggspraychart.md))
+  use one recorded game.
 
 ## baseballr 2.0.0
 

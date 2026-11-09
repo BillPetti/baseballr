@@ -318,12 +318,28 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-try(espn_mlb_game_rosters(game_id = 401283399))
-#> ✖ 2026-11-09 13:13:14.733832: Invalid arguments or no game roster data for 401283399 available!
-#> ✖ Args: game_id = 401283399
-#> ✖ Error: The API returned an error, HTTP Response Code 404
+try(espn_mlb_game_rosters(game_id = 401569780))
 #> ── ESPN MLB Game Roster Information from ESPN.com ──────────────────────
-#> ℹ Data updated: 2026-11-09 13:13:14 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-09 14:04:22 UTC
+#> # A tibble: 65 × 174
+#>    athlete_id athlete_uid    athlete_guid athlete_type    sdr first_name
+#>         <int> <chr>          <chr>        <chr>         <int> <chr>     
+#>  1      42402 s:1~l:10~a:42… 1ebff8b7-22… baseball     4.61e6 CJ        
+#>  2      42402 s:1~l:10~a:42… 1ebff8b7-22… baseball     4.61e6 CJ        
+#>  3      42402 s:1~l:10~a:42… 1ebff8b7-22… baseball     4.61e6 CJ        
+#>  4      36409 s:1~l:10~a:36… 7c110c77-6b… baseball     4.11e6 Lane      
+#>  5      36409 s:1~l:10~a:36… 7c110c77-6b… baseball     4.11e6 Lane      
+#>  6      36409 s:1~l:10~a:36… 7c110c77-6b… baseball     4.11e6 Lane      
+#>  7      36409 s:1~l:10~a:36… 7c110c77-6b… baseball     4.11e6 Lane      
+#>  8      33259 s:1~l:10~a:33… 71e5c7a6-52… baseball     3.09e6 Harold    
+#>  9      33259 s:1~l:10~a:33… 71e5c7a6-52… baseball     3.09e6 Harold    
+#> 10      32833 s:1~l:10~a:32… 548501a2-f7… baseball     3.02e6 Jesse     
+#> # ℹ 55 more rows
+#> # ℹ 168 more variables: last_name <chr>, full_name <chr>,
+#> #   athlete_display_name <chr>, short_name <chr>, weight <int>,
+#> #   display_weight <chr>, height <int>, display_height <chr>,
+#> #   age <int>, date_of_birth <chr>, debut_year <int>,
+#> #   birth_place_city <chr>, birth_place_state <chr>,
+#> #   birth_place_country <chr>, slug <chr>, headshot_href <chr>, …
 # }
 ```

@@ -24,7 +24,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_hit_trajectories())
 #> ── MLB Hit Trajectories data from MLB.com ────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-09 13:17:35 UTC
+#> ℹ Data updated: 2026-11-09 14:08:26 UTC
 #> # A tibble: 7 × 2
 #>   hit_trajectory_code hit_trajectory_description
 #>   <chr>               <chr>                     

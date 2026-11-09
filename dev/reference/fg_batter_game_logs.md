@@ -377,7 +377,7 @@ columns:
 # \donttest{
   try(fg_batter_game_logs(playerid = 19755, year = 2023))
 #> ── MLB Batter Game Logs data from FanGraphs.com ────────────────────────
-#> ℹ Data updated: 2026-11-09 13:13:46 UTC
+#> ℹ Data updated: 2026-11-09 14:04:54 UTC
 #> # A tibble: 135 × 344
 #>    PlayerName    playerid Date       hometeamid Team  Opp   season   Age
 #>    <chr>            <int> <chr>           <int> <chr> <chr>  <int> <int>

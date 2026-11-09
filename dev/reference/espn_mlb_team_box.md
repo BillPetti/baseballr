@@ -215,10 +215,20 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-try(espn_mlb_team_box(game_id = 401071880))
-#> ✖ 2026-11-09 13:13:35.290889: Invalid arguments or no team box score data for 401071880 available!
-#> ✖ Args: game_id = 401071880
-#> ✖ Error: The API returned an error, HTTP Response Code 404
-#> NULL
+try(espn_mlb_team_box(game_id = 401569780))
+#> ── ESPN MLB Team Box Information from ESPN.com ─────────────────────────
+#> ℹ Data updated: 2026-11-09 14:04:42 UTC
+#> # A tibble: 2 × 199
+#>     game_id season season_type game_date  game_date_time      team_id
+#>       <int>  <int>       <int> <date>     <dttm>                <int>
+#> 1 401569780   2024           2 2024-07-04 2024-07-04 11:05:00      21
+#> 2 401569780   2024           2 2024-07-04 2024-07-04 11:05:00      20
+#> # ℹ 193 more variables: team_uid <chr>, team_slug <chr>,
+#> #   team_location <chr>, team_name <chr>, team_abbreviation <chr>,
+#> #   team_display_name <chr>, team_short_display_name <chr>,
+#> #   team_color <chr>, team_alternate_color <chr>, team_logo <chr>,
+#> #   batting_games_played <chr>, batting_team_games_played <chr>,
+#> #   batting_hit_by_pitch <chr>, batting_ground_balls <chr>,
+#> #   batting_strikeouts <chr>, batting_rb_is <chr>, …
 # }
 ```

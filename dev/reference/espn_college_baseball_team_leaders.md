@@ -127,6 +127,23 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_college_baseball_team_leaders(team_id = "59", season = 2025)
-#> # A tibble: 0 × 0
+#> ── ESPN COLLEGE-BASEBALL Team Leaders from ESPN.com ────────────────────
+#> ℹ Data updated: 2026-11-09 14:04:03 UTC
+#> # A tibble: 425 × 10
+#>    team_id season category        display_name  category_abbr athlete_id
+#>    <chr>    <int> <chr>           <chr>         <chr>         <chr>     
+#>  1 59        2025 Batting Average Batting Aver… AVG           86497     
+#>  2 59        2025 Batting Average Batting Aver… AVG           86507     
+#>  3 59        2025 Batting Average Batting Aver… AVG           66461     
+#>  4 59        2025 Batting Average Batting Aver… AVG           67471     
+#>  5 59        2025 Batting Average Batting Aver… AVG           86494     
+#>  6 59        2025 Batting Average Batting Aver… AVG           67460     
+#>  7 59        2025 Batting Average Batting Aver… AVG           67450     
+#>  8 59        2025 Batting Average Batting Aver… AVG           58735     
+#>  9 59        2025 Batting Average Batting Aver… AVG           80072     
+#> 10 59        2025 Batting Average Batting Aver… AVG           72331     
+#> # ℹ 415 more rows
+#> # ℹ 4 more variables: athlete_name <chr>, value <dbl>,
+#> #   display_value <chr>, rank <int>
 # }
 ```

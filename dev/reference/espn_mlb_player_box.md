@@ -179,10 +179,28 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-try(espn_mlb_player_box(game_id = 401071880))
-#> ✖ 2026-11-09 13:13:19.470577: Invalid arguments or no player box score data for 401071880 available!
-#> ✖ Args: game_id = 401071880
-#> ✖ Error: The API returned an error, HTTP Response Code 404
-#> NULL
+try(espn_mlb_player_box(game_id = 401569780))
+#> ── ESPN MLB Player Box Information from ESPN.com ───────────────────────
+#> ℹ Data updated: 2026-11-09 14:04:27 UTC
+#> # A tibble: 23 × 35
+#>     game_id season season_type game_date  game_date_time      stat_group
+#>       <int>  <int>       <int> <date>     <dttm>              <chr>     
+#>  1   4.02e8   2024           2 2024-07-04 2024-07-04 11:05:00 batting   
+#>  2   4.02e8   2024           2 2024-07-04 2024-07-04 11:05:00 batting   
+#>  3   4.02e8   2024           2 2024-07-04 2024-07-04 11:05:00 batting   
+#>  4   4.02e8   2024           2 2024-07-04 2024-07-04 11:05:00 batting   
+#>  5   4.02e8   2024           2 2024-07-04 2024-07-04 11:05:00 batting   
+#>  6   4.02e8   2024           2 2024-07-04 2024-07-04 11:05:00 batting   
+#>  7   4.02e8   2024           2 2024-07-04 2024-07-04 11:05:00 batting   
+#>  8   4.02e8   2024           2 2024-07-04 2024-07-04 11:05:00 batting   
+#>  9   4.02e8   2024           2 2024-07-04 2024-07-04 11:05:00 batting   
+#> 10   4.02e8   2024           2 2024-07-04 2024-07-04 11:05:00 pitching  
+#> # ℹ 13 more rows
+#> # ℹ 29 more variables: team_id <int>, team_name <chr>,
+#> #   team_abbreviation <chr>, team_display_name <chr>, athlete_id <int>,
+#> #   athlete_display_name <chr>, athlete_short_name <chr>,
+#> #   athlete_position_name <chr>, athlete_position_abbreviation <chr>,
+#> #   starter <lgl>, bat_order <int>, active <lgl>, h_ab <chr>, ab <chr>,
+#> #   r <chr>, h <chr>, rbi <chr>, hr <chr>, bb <chr>, k <chr>, …
 # }
 ```

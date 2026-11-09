@@ -39,7 +39,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_jobs_datacasters(sport_id=1))
 #> ── MLB Jobs Datacasters data from MLB.com ────── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-09 13:17:38 UTC
+#> ℹ Data updated: 2026-11-09 14:08:29 UTC
 #> # A tibble: 215 × 8
 #>    jersey_number job      job_code title    person_id person_full_name  
 #>    <chr>         <chr>    <chr>    <chr>        <int> <chr>             

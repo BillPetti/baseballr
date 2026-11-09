@@ -125,11 +125,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_game_team_leaders(event_id = "401778093", team_id = "113"))
-#> ✖ 2026-11-09 13:12:37.957079: Failed to retrieve ESPN college-baseball competitor leaders for event_id=401778093, team_id=113
+#> ✖ 2026-11-09 14:03:45.785479: Failed to retrieve ESPN college-baseball competitor leaders for event_id=401778093, team_id=113
 #> ✖ Args: league = "college-baseball", event_id = "401778093", team_id = "113"
 #> ✖ Error: The API returned an error, HTTP Response Code 500
 #> ── ESPN COLLEGE-BASEBALL Competitor Leaders ──── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-09 13:12:37 UTC
+#> ℹ Data updated: 2026-11-09 14:03:45 UTC
 #> # A tibble: 0 × 0
 # }
 ```

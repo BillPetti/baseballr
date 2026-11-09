@@ -119,7 +119,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_season_types(season = 2025))
 #> ── ESPN COLLEGE-BASEBALL Season Types Index ──── baseballr 2.0.0.9000 ──
-#> ℹ Data updated: 2026-11-09 13:12:52 UTC
+#> ℹ Data updated: 2026-11-09 14:03:59 UTC
 #> # A tibble: 6 × 4
 #>   league           season season_type ref                               
 #>   <chr>             <int>       <int> <chr>                             

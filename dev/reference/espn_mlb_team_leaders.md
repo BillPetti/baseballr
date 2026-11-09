@@ -163,6 +163,23 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_team_leaders(team_id = "13", season = 2025)
-#> # A tibble: 0 × 0
+#> ── ESPN MLB Team Leaders from ESPN.com ───────── baseballr 2.0.0.9000 ──
+#> ℹ Data updated: 2026-11-09 14:04:45 UTC
+#> # A tibble: 328 × 10
+#>    team_id season category        display_name  category_abbr athlete_id
+#>    <chr>    <int> <chr>           <chr>         <chr>         <chr>     
+#>  1 13        2025 Batting Average Batting Aver… AVG           42437     
+#>  2 13        2025 Batting Average Batting Aver… AVG           42884     
+#>  3 13        2025 Batting Average Batting Aver… AVG           4719324   
+#>  4 13        2025 Batting Average Batting Aver… AVG           32146     
+#>  5 13        2025 Batting Average Batting Aver… AVG           35537     
+#>  6 13        2025 Home Runs       Home Runs     HR            4719324   
+#>  7 13        2025 Home Runs       Home Runs     HR            32691     
+#>  8 13        2025 Home Runs       Home Runs     HR            35537     
+#>  9 13        2025 Home Runs       Home Runs     HR            39882     
+#> 10 13        2025 Home Runs       Home Runs     HR            32146     
+#> # ℹ 318 more rows
+#> # ℹ 4 more variables: athlete_name <chr>, value <dbl>,
+#> #   display_value <chr>, rank <int>
 # }
 ```
