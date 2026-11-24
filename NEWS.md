@@ -70,6 +70,10 @@
   retry a failed download twice. A 404 is not retried. If a file still
   fails, the warning names its URL and says the result is incomplete; the
   seasons that loaded are still returned.
+- `chadwick_player_lu()` (and `playerid_lookup()` / `playername_lookup()`,
+  which call it) retries the Chadwick register downloads the same way, so one
+  slow `people-*.csv` no longer fails the whole lookup. A file that still
+  fails is named in a warning and left out of the result.
 
 ## Dependencies
 

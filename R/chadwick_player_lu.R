@@ -54,8 +54,13 @@ chadwick_player_lu <- function() {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   
-  loader <- csv_from_url
-  
+  # Retry a failed register download (raised timeout, 404 not retried); a file
+  # that still fails is warned about by URL and left out of the result.
+  loader <- function(url) {
+    out <- .read_release_asset(url, csv_from_url)
+    if (inherits(out, "try-error")) NULL else out
+  }
+
   hex_seq <- c(0:9, letters[1:6])
   suppressWarnings(
     urls <- paste0("https://raw.githubusercontent.com/chadwickbureau/register/master/data/people-", hex_seq,".csv")
