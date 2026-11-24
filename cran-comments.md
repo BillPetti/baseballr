@@ -50,8 +50,8 @@ mocked reads and use no network.
   was unreachable on 2026-11-24 (16:00-16:38 UTC and again at 18:00 UTC); run
   `devtools::check_win_devel()` and `devtools::check_win_release()` and record
   the results here before submitting.
-* R-hub v2: linux, windows, macos (R-devel), dispatched 2026-11-24, results
-  pending
+* R-hub v2: linux, windows, macos (R-devel), 2026-11-24: all OK at 3670e625;
+  re-run after the final code change (d9f89dea) pending
 * GitHub Actions R-CMD-check: macos-latest (release), windows-latest
   (release), ubuntu-latest (devel, release, oldrel-1), on the release pull
   request
