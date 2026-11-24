@@ -1,92 +1,67 @@
 ## Release summary
 
-This release adds three new data-source families, modernizes the HTTP layer, and
-fixes a number of upstream-driven breakages.
+This is a minor release, 2.0.0 -> 2.1.0. No exported function is removed or
+renamed.
 
-* **New ESPN MLB data source.** Adds a full family of ESPN Major League Baseball
-  wrappers (`espn_mlb_*()`, 107 functions) mirroring the naming convention used
-  across the SportsDataverse packages. Coverage includes scoreboard / schedule,
-  play-by-play, team and player box scores, game rosters, standings, betting,
-  athletes, coaches, seasons, franchises, drafts, leaders, and league/event
-  reference data, plus baseball-specific extractors for probable starting
-  pitchers (`espn_mlb_game_probables()`) and venue / attendance / umpire crew
-  (`espn_mlb_game_info()`). Every data-returning function documents its output
-  with an `@return` column table.
+* **Fixes the R-devel NOTE** on the CRAN check page, "Base package in
+  Suggests/Enhances imported in NAMESPACE: 'stats'": `stats` moves from
+  `Suggests` to `Imports`.
 
-* **New ESPN College Baseball data source.** Adds a full family of ESPN NCAA
-  college-baseball wrappers (`espn_college_baseball_*()`, 70 functions) -- thin
-  league-parameterized twins of the ESPN MLB family -- covering scoreboard,
-  play-by-play, team and player box scores, rosters, teams, standings, rankings,
-  conferences, athletes, leaders, tournaments (the College World Series), and the
-  core reference graph.
+* **New loaders (9).** `load_mlb_groups()`, `load_mlb_group_seasons()`,
+  `load_mlb_group_aliases()`, `load_mlb_team_group_seasons()` and their four
+  `load_ncaa_baseball_*()` twins (season-by-season league, division and
+  conference memberships), and `load_mlb_park_dimensions()` (MLB park
+  dimensions by season). All read public GitHub release assets.
 
-* **New Fox Sports (Bifrost) MLB data source.** Adds read-only Fox Sports MLB
-  wrappers (`fox_mlb_*()`, 6 functions: team roster, team stats, team game log,
-  standings, league leaders, and odds) over `api.foxsports.com/bifrost/v1/mlb/*`.
+* **Bug fixes.**
+  - Wrappers that handled warnings with `tryCatch(warning = )` returned an
+    empty result whenever a harmless warning was raised while parsing. The 124
+    affected calls (ESPN wrappers, `bref_daily_batter()`, `fg_projections()`)
+    now report the warning and keep the result.
+  - `statcast_search_minors()` returned MLB pitches instead of minor-league
+    pitches; it now sends `minors=true`.
+  - `mlb_standings()` accepts a vector `league_id` as documented.
+  - ESPN game-team roster, team leaders and conferences parsers updated for
+    ESPN's current responses; `edge_code()` accepts Statcast columns.
+  - Release-dataset loaders and `chadwick_player_lu()` raise the download
+    timeout to at least 150 s and retry a failed download twice; a file that
+    still fails is named in a warning.
+  - `tail()` works on returned tibbles: their class vector no longer lists
+    `data.table`.
 
-* **HTTP layer migrated from `httr` to `httr2`.** `httr` is dropped and
-  `httr2 (>= 1.0.0)` is added. `Depends: R (>= 4.1.0)` (the package now uses the
-  native pipe `|>` throughout).
-
-* **Upstream fixes.** FanGraphs requests now pass Cloudflare's challenge (the
-  `fg_*()` leaders/team/game-log functions and the `.aspx` scrapers return data
-  again); the NCAA wrappers (`ncaa_*()`) can fetch `stats.ncaa.org` again after
-  the site simultaneously tightened its Akamai bot-protection (a hard 403 or a
-  soft HTTP-200 `bm-verify` interstitial) and redesigned its pages --
-  `request_with_proxy()` now falls back to a stealth headless-Chrome fetch via
-  the optional `chromote` package (added to `Suggests`; when absent the scrapers
-  emit a clear install message) and each NCAA parser was updated for the new
-  layout; `statcast_search()` assigns Baseball Savant columns length-tolerantly;
-  and the Spotrac payroll functions track the site's new URLs and schema.
+* **Dependencies.** `httr2 (>= 1.1.0)` (was `>= 1.0.0`; `url_modify_query()`
+  first appeared in 1.1.0). `Rcpp` and `RcppParallel` are dropped from
+  `Imports` (the package has no compiled code and used neither). The unused
+  `furrr`, `ggrepel`, `RSQLite`, `stringi` and `usethis` are dropped from
+  `Suggests`.
 
 Examples that contact remote services are wrapped in `\donttest{}` and fail
-gracefully; the NCAA examples that require the optional browser fallback are
-shown in each function's documentation `Details` rather than as executable
-examples, so routine checks never launch a browser. Vignettes are included for
-getting started, NCAA scraping, and Statcast usage.
-
-* **CRAN-prep pass (2026-08-26)**: `statcast_search()` now trusts Savant's
-  CSV header row instead of renaming columns positionally (fixes a recurring
-  silent column-shift class); new `statcast_search_minors()` /
-  `statcast_search_wbc()` / `statcast_pitch_colors()`; eleven `load_mlb_*()`
-  model-dataset loaders; `sit_codes` splits on `mlb_stats()` /
-  `mlb_teams_stats()`; `mlb_pbp()` base-state and pre-pitch count
-  corrections; pregame `mlb_game_info()` no longer errors; documentation
-  migrated to roxygen2 8.1.0; `cph` role added; LICENSE year refreshed. The
-  full test suite skips on CRAN (tests run in continuous integration on
-  every push).
-* Further additions in the same cycle: `fg_projections()` (FanGraphs
-  projection systems), `ggpitchzone()` (strike-zone pitch plot),
-  `mlb_pbp(add_base_state = TRUE)` (opt-in per-event base-occupancy
-  reconstruction, validated pitch-for-pitch against Statcast's published
-  base-state columns), pre-2010 `mlb_pbp()` support restored, era-aware
-  `bref_standings_on_date()` (pre-1969 and 1969-1993 layouts), and
-  Baseball Reference requests now retry HTTP 429 with exponential
-  backoff; eight `load_mlb_*()` / `load_ncaa_baseball_*()` group loaders
-  (season-by-season league, division and conference memberships) and
-  `load_mlb_park_dimensions()` (MLB park dimensions by season).
+gracefully. The NCAA examples need an optional headless-browser fallback, so
+they are shown in each function's `Details` rather than run. Tests that contact
+remote services, and the offline tests that replay recorded responses, skip on
+CRAN; the only tests that run on CRAN check the download-retry logic against
+mocked reads and use no network.
 
 ## Test environments
 
-* local Windows 10, R 4.6.1
-* win-builder (R-devel): three passes during the cycle, all
-  0 errors | 0 warnings | 0 notes
-* GitHub Actions: macos-latest (release), windows-latest (release),
-  ubuntu-latest (release, oldrel-1)
-* R-hub: linux, windows, macos (R-devel)
+* local: Windows 10 x64 (build 19045), x86_64-w64-mingw32, R 4.6.0
+  (2026-04-24 ucrt): `R CMD build` then `R CMD check --as-cran` on the tarball
+* win-builder: R-devel and R-release, submitted 2026-11-24, results pending
+* R-hub v2: linux, windows, macos (R-devel), dispatched 2026-11-24, results
+  pending
+* GitHub Actions R-CMD-check: macos-latest (release), windows-latest
+  (release), ubuntu-latest (devel, release, oldrel-1), on the release pull
+  request
 
 ## R CMD check results
 
-0 errors | 0 warnings | 0 notes
+Local `R CMD check --as-cran` (including `--run-donttest` examples and the
+PDF/HTML manuals):
 
-(The local Windows run shows one NOTE about a `''NULL''` file in the check
-directory; this is a known artifact of rcmdcheck on Windows in the local
-environment and does not appear on the CI platforms.)
+0 errors | 0 warnings | 0 notes
 
 ## revdepcheck results
 
-We checked 0 reverse dependencies, comparing R CMD check results across CRAN and
-dev versions of this package.
-
- * We saw 0 new problems
- * We failed to check 0 packages
+There are no reverse dependencies on CRAN
+(`tools::package_dependencies("baseballr", reverse = TRUE, which = "all")`,
+2026-11-24).
