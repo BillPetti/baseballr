@@ -46,7 +46,10 @@ mocked reads and use no network.
 
 * local: Windows 10 x64 (build 19045), x86_64-w64-mingw32, R 4.6.0
   (2026-04-24 ucrt): `R CMD build` then `R CMD check --as-cran` on the tarball
-* win-builder: R-devel and R-release, submitted 2026-11-24, results pending
+* win-builder: R-devel and R-release, NOT YET SUBMITTED. win-builder.r-project.org
+  was unreachable on 2026-11-24 (16:00-16:38 UTC); run
+  `devtools::check_win_devel()` and `devtools::check_win_release()` and record
+  the results here before submitting.
 * R-hub v2: linux, windows, macos (R-devel), dispatched 2026-11-24, results
   pending
 * GitHub Actions R-CMD-check: macos-latest (release), windows-latest
