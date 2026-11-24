@@ -43,51 +43,32 @@ Returns a tibble
 ``` r
 # \donttest{
   try(load_ncaa_baseball_schedule(seasons = 2022))
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_int_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_int_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_int_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_int_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_int_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_int_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_int_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_int_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_int_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_int_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_int_vector' from package 'arrow'; returning length zero vector
 #> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
 #> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
 #> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_int_vector' from package 'arrow'; returning length zero vector
-#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_int_vector' from package 'arrow'; returning length zero vector
-#> Warning: Column 1 ['year'] of item 1 is length 0. This (and 23 others like it) has been filled with NA (NULL for list columns) to make each item uniform.
-#> ───────────────────────────────────────────────────── baseballr 2.0.0 ──
-#> # A tibble: 23,153 × 25
-#>     year season_id date  home_team home_team_id home_team_score
-#>    <int>     <int> <chr> <chr>            <int>           <int>
-#>  1    NA        NA NA    NA                  NA              NA
-#>  2    NA        NA NA    NA                  NA              NA
-#>  3    NA        NA NA    NA                  NA              NA
-#>  4    NA        NA NA    NA                  NA              NA
-#>  5    NA        NA NA    NA                  NA              NA
-#>  6    NA        NA NA    NA                  NA              NA
-#>  7    NA        NA NA    NA                  NA              NA
-#>  8    NA        NA NA    NA                  NA              NA
-#>  9    NA        NA NA    NA                  NA              NA
-#> 10    NA        NA NA    NA                  NA              NA
-#> # ℹ 23,143 more rows
-#> # ℹ 19 more variables: home_team_conference <chr>,
-#> #   home_team_conference_id <int>, home_team_slug <chr>,
-#> #   home_team_division <int>, away_team <chr>, away_team_id <int>,
-#> #   away_team_score <int>, away_team_conference <chr>,
-#> #   away_team_conference_id <int>, away_team_slug <chr>,
-#> #   away_team_division <int>, neutral_site <chr>, innings <int>, …
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: Column 1 ['team_id'] of item 1 is length 0. This (and 7 others like it) has been filled with NA (NULL for list columns) to make each item uniform.
+#> ───────────────────────────────────────────────────── baseballr 2.1.0 ──
+#> # A tibble: 45,038 × 14
+#>    team_id team_name date  game_number opponent_id opponent result
+#>    <chr>   <chr>     <chr>       <int> <chr>       <chr>    <chr> 
+#>  1 NA      NA        NA             NA NA          NA       NA    
+#>  2 NA      NA        NA             NA NA          NA       NA    
+#>  3 NA      NA        NA             NA NA          NA       NA    
+#>  4 NA      NA        NA             NA NA          NA       NA    
+#>  5 NA      NA        NA              1 NA          NA       NA    
+#>  6 NA      NA        NA              2 NA          NA       NA    
+#>  7 NA      NA        NA             NA NA          NA       NA    
+#>  8 NA      NA        NA             NA NA          NA       NA    
+#>  9 NA      NA        NA             NA NA          NA       NA    
+#> 10 NA      NA        NA             NA NA          NA       NA    
+#> # ℹ 45,028 more rows
+#> # ℹ 7 more variables: outcome <chr>, team_score <int>,
+#> #   opponent_score <int>, contest_id <chr>, attendance <int>,
+#> #   division <int>, season <int>
 # }
 ```

@@ -160,9 +160,9 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_venues()
-#> ── ESPN MLB Venues from ESPN.com ──────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:41:14 UTC
-#> # A tibble: 172 × 9
+#> ── ESPN MLB Venues from ESPN.com ──────────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:24 UTC
+#> # A tibble: 173 × 9
 #>    venue_id name  full_name address_city address_state capacity indoor
 #>    <chr>    <chr> <chr>     <chr>        <chr>            <int> <lgl> 
 #>  1 NA       NA    NA        NA           NA                  NA NA    
@@ -175,7 +175,7 @@ Saiem Gilani
 #>  8 NA       NA    NA        NA           NA                  NA NA    
 #>  9 NA       NA    NA        NA           NA                  NA NA    
 #> 10 NA       NA    NA        NA           NA                  NA NA    
-#> # ℹ 162 more rows
+#> # ℹ 163 more rows
 #> # ℹ 2 more variables: grass <lgl>, images_url <chr>
 # }
 ```

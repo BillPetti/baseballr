@@ -112,8 +112,8 @@ for games scheduled or played
 ``` r
 # \donttest{
   try(mlb_schedule_games_tied(season = 2021))
-#> ── MLB Schedule - Games Tied data from MLB.com ────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:45:00 UTC
+#> ── MLB Schedule - Games Tied data from MLB.com ────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:40:20 UTC
 #> # A tibble: 46 × 62
 #>    date      total_items total_events total_games total_games_in_progr…¹
 #>    <chr>           <int>        <int>       <int>                  <int>

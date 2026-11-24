@@ -212,8 +212,8 @@ Saiem Gilani
 # \donttest{
   espn_mlb_team(team_id = "13", season = 2025)
 #> $Info
-#> ── ESPN MLB Team Info from ESPN.com ───────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:41:04 UTC
+#> ── ESPN MLB Team Info from ESPN.com ───────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:13 UTC
 #> # A tibble: 1 × 12
 #>   id    uid     slug  abbreviation display_name short_display_name name 
 #>   <chr> <chr>   <chr> <chr>        <chr>        <chr>              <chr>
@@ -222,8 +222,8 @@ Saiem Gilani
 #> #   alternate_color <chr>, logo <chr>, logo_dark <chr>
 #> 
 #> $Record
-#> ── ESPN MLB Team Record from ESPN.com ─────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:41:04 UTC
+#> ── ESPN MLB Team Record from ESPN.com ─────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:13 UTC
 #> # A tibble: 3 × 4
 #>   description    stats         summary type 
 #>   <chr>          <list>        <chr>   <chr>
@@ -235,8 +235,8 @@ Saiem Gilani
 #> data frame with 0 columns and 0 rows
 #> 
 #> $StandingSummary
-#> ── ESPN MLB Team Standing Summary from ESPN.com ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:41:04 UTC
+#> ── ESPN MLB Team Standing Summary from ESPN.com ───── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:13 UTC
 #> # A tibble: 1 × 1
 #>   standing_summary
 #>   <chr>           

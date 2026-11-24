@@ -52,8 +52,8 @@ Returns a tibble with the following columns:
 ``` r
 # \donttest{
  try(mlb_seasons(sport_id = 1))
-#> ── MLB Seasons data from MLB.com ──────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:45:01 UTC
+#> ── MLB Seasons data from MLB.com ──────────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:40:22 UTC
 #> # A tibble: 1 × 21
 #>   season_id has_wildcard pre_season_start_date pre_season_end_date
 #>   <chr>     <lgl>        <chr>                 <chr>              

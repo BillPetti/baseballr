@@ -42,13 +42,20 @@ them in different systems of record.
 | bbref_id         | character | Baseball-Reference player ID.         |
 | fangraphs_id     | integer   | FanGraphs player ID.                  |
 
+## Details
+
+The register comes from
+[`chadwick_player_lu()`](https://billpetti.github.io/baseballr/reference/chadwick_player_lu.md);
+if one of its files fails to download, players in that file are missing
+from the result (a warning names the file).
+
 ## Examples
 
 ``` r
 # \donttest{
   try(playerid_lookup("Garcia", "Karim"))
 #> ── Player ID Lookup from the Chadwick Bureau's public register of baseba
-#> ℹ Data updated: 2026-11-04 00:39:38 UTC
+#> ℹ Data updated: 2026-11-24 18:34:49 UTC
 #> # A tibble: 0 × 11
 #> # ℹ 11 variables: first_name <chr>, last_name <chr>, given_name <chr>,
 #> #   name_suffix <chr>, nick_name <chr>, birth_year <int>,

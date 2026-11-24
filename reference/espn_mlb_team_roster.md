@@ -170,8 +170,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_team_roster(team_id = "13", season = 2025)
-#> ── ESPN MLB Team Roster from ESPN.com ─────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:41:09 UTC
+#> ── ESPN MLB Team Roster from ESPN.com ─────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:19 UTC
 #> # A tibble: 1 × 15
 #>   athlete_id full_name jersey position_abbrev position_name height
 #>   <chr>      <chr>     <chr>  <chr>           <chr>         <chr> 

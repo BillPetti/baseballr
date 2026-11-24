@@ -125,8 +125,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_game_situation(event_id = "401778093"))
-#> ── ESPN COLLEGE-BASEBALL Event Situation ──────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:10 UTC
+#> ── ESPN COLLEGE-BASEBALL Event Situation ──────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:35:19 UTC
 #> # A tibble: 1 × 15
 #>   league           event_id home_timeouts_current home_timeouts_remain…¹
 #>   <chr>            <chr>                    <int>                  <int>

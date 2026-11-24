@@ -23,8 +23,8 @@ A `baseballr_data` tibble (long): `team_id`, `season_type`, `category`,
 
 ``` r
  try(fox_mlb_team_gamelog("1")) 
-#> ── Fox Sports MLB gamelog ─────────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:41:37 UTC
+#> ── Fox Sports MLB gamelog ─────────────────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:47 UTC
 #> # A tibble: 95 × 8
 #>    team_id season_type   category game_id game_date opponent stat  value
 #>    <chr>   <chr>         <chr>    <chr>   <chr>     <chr>    <chr> <chr>

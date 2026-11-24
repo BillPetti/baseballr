@@ -120,7 +120,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_team_news(team_id = "59", limit = 5))
 #> ── ESPN COLLEGE-BASEBALL Team News (team_id=59) from ESPN.com ──────────
-#> ℹ Data updated: 2026-11-04 00:40:28 UTC
+#> ℹ Data updated: 2026-11-24 18:35:35 UTC
 #> # A tibble: 5 × 8
 #>       id type  headline description published premium link_web league_id
 #>    <int> <chr> <chr>    <chr>       <chr>     <lgl>   <chr>    <chr>    

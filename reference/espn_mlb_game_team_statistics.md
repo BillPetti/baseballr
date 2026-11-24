@@ -165,11 +165,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_game_team_statistics(event_id = 401283399, team_id = 29)
-#> ✖ 2026-11-04 00:40:48.492279: Failed to retrieve ESPN mlb competitor statistics for event_id=401283399, team_id=29
+#> ✖ 2026-11-24 18:35:55.907759: Failed to retrieve ESPN mlb competitor statistics for event_id=401283399, team_id=29
 #> ✖ Args: league = "mlb", event_id = 401283399, team_id = 29
 #> ✖ Error: The API returned an error, HTTP Response Code 404
-#> ── ESPN MLB Competitor Statistics ─────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:48 UTC
+#> ── ESPN MLB Competitor Statistics ─────────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:35:55 UTC
 #> # A tibble: 0 × 0
 # }
 ```

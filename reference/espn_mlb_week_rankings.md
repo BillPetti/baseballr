@@ -175,8 +175,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_week_rankings(week = 5, season = 2025)
-#> ── ESPN MLB Week Rankings Index ───────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:41:15 UTC
+#> ── ESPN MLB Week Rankings Index ───────────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:25 UTC
 #> # A tibble: 0 × 6
 #> # ℹ 6 variables: league <chr>, season <int>, season_type <int>,
 #> #   week <int>, ranking_id <chr>, ref <chr>

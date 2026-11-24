@@ -22,8 +22,8 @@ Returns a tibble with the following columns
 ``` r
 # \donttest{
   try(mlb_stat_groups())
-#> ── MLB Stat Groups data from MLB.com ──────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:45:04 UTC
+#> ── MLB Stat Groups data from MLB.com ──────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:40:24 UTC
 #> # A tibble: 8 × 1
 #>   stat_group_name
 #>   <chr>          

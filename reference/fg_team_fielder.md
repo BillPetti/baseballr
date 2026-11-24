@@ -206,8 +206,8 @@ A data frame of fielder data.
 ``` r
 # \donttest{
   try(fg_team_fielder(startseason = 2023, endseason = 2023, qual = 150))
-#> ── MLB Team Fielding data from FanGraphs.com ──────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:41:28 UTC
+#> ── MLB Team Fielding data from FanGraphs.com ──────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:38 UTC
 #> # A tibble: 30 × 61
 #>    Season team_name SeasonMin SeasonMax Pos   Position     G    GS   Inn
 #>     <int> <chr>         <int>     <int> <chr> <chr>    <int> <int> <int>

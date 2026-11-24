@@ -174,8 +174,8 @@ Saiem Gilani
 # \donttest{
   espn_mlb_player_stats_v3(athlete_id = "1966", season = 2024)
 #> $`Career Batting`
-#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:55 UTC
+#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:04 UTC
 #> # A tibble: 14 × 6
 #>    team_id team_slug           season$year stats  position display_name
 #>    <chr>   <chr>                     <int> <list> <chr>    <chr>       
@@ -196,8 +196,8 @@ Saiem Gilani
 #> # ℹ 1 more variable: season$displayName <chr>
 #> 
 #> $`Postseason Batting`
-#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:55 UTC
+#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:04 UTC
 #> # A tibble: 2 × 5
 #>   team_id team_slug         season$year $displayName stats      position
 #>   <chr>   <chr>                   <int> <chr>        <list>     <chr>   
@@ -205,8 +205,8 @@ Saiem Gilani
 #> 2 1       baltimore-orioles        1996 1996         <chr [17]> CF      
 #> 
 #> $`Expanded Batting`
-#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:55 UTC
+#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:04 UTC
 #> # A tibble: 14 × 6
 #>    team_id team_slug           season$year stats  position display_name
 #>    <chr>   <chr>                     <int> <list> <chr>    <chr>       
@@ -227,8 +227,8 @@ Saiem Gilani
 #> # ℹ 1 more variable: season$displayName <chr>
 #> 
 #> $`Advanced Batting`
-#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:55 UTC
+#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:04 UTC
 #> # A tibble: 14 × 6
 #>    team_id team_slug           season$year stats  position display_name
 #>    <chr>   <chr>                     <int> <list> <chr>    <chr>       
@@ -249,33 +249,33 @@ Saiem Gilani
 #> # ℹ 1 more variable: season$displayName <chr>
 #> 
 #> $General
-#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:55 UTC
+#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:04 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Offensive
-#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:55 UTC
+#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:04 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Defensive
-#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:55 UTC
+#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:04 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Rebounding
-#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:55 UTC
+#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:04 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Shooting
-#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:55 UTC
+#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:04 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Misc
-#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:55 UTC
+#> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:04 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

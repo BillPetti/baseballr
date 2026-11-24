@@ -181,8 +181,8 @@ end_timecode
   try(mlb_pbp_diff(game_pk = 632970, 
                    start_timecode = "20210808_231704", 
                    end_timecode = "20210808_233711"))
-#> ── MLB Play-by-Play diff data from MLB.com ────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:44:53 UTC
+#> ── MLB Play-by-Play diff data from MLB.com ────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:40:13 UTC
 #> # A tibble: 50 × 144
 #>    game_pk game_date  index startTime       endTime isPitch type  playId
 #>      <dbl> <chr>      <int> <chr>           <chr>   <lgl>   <chr> <chr> 

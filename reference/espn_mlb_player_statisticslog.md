@@ -164,11 +164,22 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_player_statisticslog(athlete_id = "1966", season = 2024)
-#> ── ESPN MLB Athlete Statisticslog from ESPN.com ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:54 UTC
-#> # A tibble: 1 × 2
-#>   season$`$ref`                                               statistics
-#>   <chr>                                                       <list>    
-#> 1 http://sports.core.api.espn.com/v2/sports/baseball/leagues… <df>      
+#> ── ESPN MLB Athlete Statisticslog from ESPN.com ───── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:03 UTC
+#> # A tibble: 12 × 2
+#>    season$`$ref`                                              statistics
+#>    <chr>                                                      <list>    
+#>  1 http://sports.core.api.espn.com/v2/sports/baseball/league… <df>      
+#>  2 http://sports.core.api.espn.com/v2/sports/baseball/league… <df>      
+#>  3 http://sports.core.api.espn.com/v2/sports/baseball/league… <df>      
+#>  4 http://sports.core.api.espn.com/v2/sports/baseball/league… <df>      
+#>  5 http://sports.core.api.espn.com/v2/sports/baseball/league… <df>      
+#>  6 http://sports.core.api.espn.com/v2/sports/baseball/league… <df>      
+#>  7 http://sports.core.api.espn.com/v2/sports/baseball/league… <df>      
+#>  8 http://sports.core.api.espn.com/v2/sports/baseball/league… <df>      
+#>  9 http://sports.core.api.espn.com/v2/sports/baseball/league… <df>      
+#> 10 http://sports.core.api.espn.com/v2/sports/baseball/league… <df>      
+#> 11 http://sports.core.api.espn.com/v2/sports/baseball/league… <df>      
+#> 12 http://sports.core.api.espn.com/v2/sports/baseball/league… <df>      
 # }
 ```

@@ -225093,10 +225093,60 @@ Returns a tibble
 #> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
 #> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
 #> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
-#> Warning: URL 'https://release-assets.githubusercontent.com/github-production-release-asset/609614414/f74c52ec-ebf1-49fd-8b4e-8180dddd7a19?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-04T01%3A17%3A08Z&rscd=attachment%3B+filename%3Dncaa_baseball_pbp_2021.rds&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-04T00%3A16%3A40Z&ske=2026-11-04T01%3A17%3A08Z&sks=b&skv=2018-11-09&sig=zrr8w%2BtF6pJqz%2FViGpqBvXTP8fHZC%2Bskh9K2p8BlE5A%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5Mzc1NDcxMCwibmJmIjoxNzkzNzUyOTEwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.C1rNG6eBbtAFO6uhT2u7980aqHAh-Vx1kYgTRpCQtl8&response-content-disposition=attachment%3B%20filename%3Dncaa_baseball_pbp_2021.rds&response-content-type=application%2Foctet-stream': Timeout of 60 seconds was reached
-#> Warning: Failed to readRDS from
-#> <https://github.com/sportsdataverse/sportsdataverse-data/releases/download/ncaa_baseball_pbp/ncaa_baseball_pbp_2021.rds>
-#> ───────────────────────────────────────────────────── baseballr 2.0.0 ──
-#> # A tibble: 0 × 0
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: cannot unserialize ALTVEC object of class 'arrow::array_large_string_vector' from package 'arrow'; returning length zero vector
+#> Warning: Column 1 ['contest_id'] of item 1 is length 0. This (and 17 others like it) has been filled with NA (NULL for list columns) to make each item uniform.
+#> ───────────────────────────────────────────────────── baseballr 2.1.0 ──
+#> # A tibble: 1,684,731 × 37
+#>    contest_id inning inning_top_bot batting fielding play_number
+#>    <chr>       <int> <chr>          <chr>   <chr>          <int>
+#>  1 NA              1 NA             NA      NA                 1
+#>  2 NA              1 NA             NA      NA                 2
+#>  3 NA              1 NA             NA      NA                 3
+#>  4 NA              1 NA             NA      NA                 4
+#>  5 NA              1 NA             NA      NA                 5
+#>  6 NA              1 NA             NA      NA                 6
+#>  7 NA              1 NA             NA      NA                 7
+#>  8 NA              2 NA             NA      NA                 8
+#>  9 NA              2 NA             NA      NA                 9
+#> 10 NA              2 NA             NA      NA                10
+#> # ℹ 1,684,721 more rows
+#> # ℹ 31 more variables: score_away <int>, score_home <int>,
+#> #   batter <chr>, play_type <chr>, hit_trajectory <chr>,
+#> #   fielded_position <chr>, is_hit <lgl>, is_out <lgl>,
+#> #   strikeout_type <chr>, is_sacrifice <lgl>, sac_type <chr>,
+#> #   is_double_play <lgl>, rbi <int>, count_balls <int>,
+#> #   count_strikes <int>, pitch_sequence <chr>, error_position <chr>, …
 # }
 ```

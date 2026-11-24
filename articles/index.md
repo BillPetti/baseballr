@@ -12,8 +12,8 @@
 
   Pulling college baseball player and team statistics from the NCAA’s
   website with
-  [`ncaa_scrape()`](https://billpetti.github.io/baseballr/reference/ncaa_scrape.md),
-  including batting, pitching and fielding splits by season.
+  [`ncaa_team_player_stats()`](https://billpetti.github.io/baseballr/reference/ncaa_team_player_stats.md),
+  including batting, pitching and fielding statistics by season.
 
 - [Plotting Statcast
   data](https://billpetti.github.io/baseballr/articles/plotting_statcast.md):

@@ -38,8 +38,8 @@ Returns a tibble with the following columns
 ``` r
 # \donttest{
   try(mlb_team_personnel(team_id = 137, date = "08/28/2016"))
-#> ── MLB Team Personnel data from MLB.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:45:08 UTC
+#> ── MLB Team Personnel data from MLB.com ───────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:40:28 UTC
 #> # A tibble: 15 × 8
 #>    jersey_number job             job_id title person_id person_full_name
 #>    <chr>         <chr>           <chr>  <chr>     <int> <chr>           

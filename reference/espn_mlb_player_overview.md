@@ -194,12 +194,12 @@ Saiem Gilani
   espn_mlb_player_overview(athlete_id = "1966", season = 2024)
 #> $Statistics
 #> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-11-04 00:40:53 UTC
+#> ℹ Data updated: 2026-11-24 18:36:02 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-11-04 00:40:53 UTC
+#> ℹ Data updated: 2026-11-24 18:36:02 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -207,32 +207,32 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-11-04 00:40:53 UTC
+#> ℹ Data updated: 2026-11-24 18:36:02 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-11-04 00:40:53 UTC
+#> ℹ Data updated: 2026-11-24 18:36:02 UTC
 #> # A tibble: 13 × 5
 #>    headline                           description published byline type 
 #>    <chr>                              <chr>       <chr>     <chr>  <chr>
-#>  1 Brewers manager Pat Murphy says h… "Brewers m… 2026-11-… NA     Head…
-#>  2 Will there be a lockout? A salary… "The leagu… 2026-11-… ESPN   Story
-#>  3 MLB proposes delaying salary cap … "Major Lea… 2026-11-… Jeff … Head…
-#>  4 MLB labor battle: Latest updates,… "We tackle… 2026-11-… ESPN   Story
-#>  5 Mariners hire Jason Kanzler as ma… "The Marin… 2026-11-… Alden… Head…
-#>  6 2026 MLB offseason manager change… "The offse… 2026-11-… ESPN   Story
-#>  7 Rankings, contract projections: T… "How much … 2026-11-… Kiley… Story
-#>  8 Misiorowski, three other members … "Brewers a… 2026-11-… NA     Head…
-#>  9 Fantasy baseball reactions to MLB… "Track all… 2026-11-… Trist… Story
-#> 10 Bednar, Suzuki, Arozarena among e… "Eight pla… 2026-11-… NA     Head…
-#> 11 Rangers CF Evan Carter has hip su… "Texas Ran… 2026-11-… NA     Head…
-#> 12 Astros owner Jim Crane hails Rand… "Randy Flo… 2026-11-… NA     Head…
-#> 13 MLB free agency tracker: 2026-27 … "We've got… 2026-11-… ESPN   Story
+#>  1 2026-27 MLB free agency, trade gr… We've got … 2026-11-… David… Story
+#>  2 Sources: Freddy Peralta stays in … Freddy Per… 2026-11-… NA     Head…
+#>  3 Sources: Guardians, lefty Kris Bu… Left-hande… 2026-11-… NA     Head…
+#>  4 MLB free agency tracker: 2026-27 … We've got … 2026-11-… ESPN   Story
+#>  5 Fantasy baseball reactions to MLB… Track all … 2026-11-… Trist… Story
+#>  6 Sources: Cubs agree to 6-year, $1… The Cubs r… 2026-11-… Jesse… Head…
+#>  7 One trade ESPN experts would make… An MLB loc… 2026-11-… ESPN   Story
+#>  8 How Tarik Skubal boosts Mets' 202… Only one t… 2026-11-… Bradf… Story
+#>  9 Sources: Trevor Rogers, Cubs reac… The Cubs h… 2026-11-… Jesse… Head…
+#> 10 Sources: Royals sign LHP Caleb Th… The Royals… 2026-11-… Jorge… Head…
+#> 11 MLB offers higher minimum salarie… MLB sugges… 2026-11-… Alden… Head…
+#> 12 Sources: Yankees agree to 1-year,… The Yankee… 2026-11-… Jorge… Head…
+#> 13 MLB labor battle: Latest updates,… We tackle … 2026-11-… ESPN   Story
 #> 
 #> $FantasyOutlook
 #> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────
-#> ℹ Data updated: 2026-11-04 00:40:53 UTC
+#> ℹ Data updated: 2026-11-24 18:36:02 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

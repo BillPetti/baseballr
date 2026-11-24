@@ -23,8 +23,8 @@ Returns a tibble with the following columns
 ``` r
 # \donttest{
   try(mlb_schedule_event_types())
-#> ── MLB Schedule Event Types data from MLB.com ─────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:45:00 UTC
+#> ── MLB Schedule Event Types data from MLB.com ─────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:40:20 UTC
 #> # A tibble: 19 × 2
 #>    schedule_event_type_code schedule_event_type_name          
 #>    <chr>                    <chr>                             

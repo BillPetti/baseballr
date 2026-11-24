@@ -137,8 +137,8 @@ for games scheduled or played
 ``` r
 # \donttest{
   try(mlb_schedule_postseason(season = 2021))
-#> ── MLB Schedule - Post-season data from MLB.com ───── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:45:01 UTC
+#> ── MLB Schedule - Post-season data from MLB.com ───── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:40:21 UTC
 #> # A tibble: 38 × 70
 #>    date      total_items total_events total_games total_games_in_progr…¹
 #>    <chr>           <int>        <int>       <int>                  <int>

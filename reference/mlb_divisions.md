@@ -49,8 +49,8 @@ Returns a tibble with the following columns
 ``` r
 # \donttest{
   try(mlb_divisions(sport_id = 1))
-#> ── MLB Divisions data from MLB.com ────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:44:33 UTC
+#> ── MLB Divisions data from MLB.com ────────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:39:52 UTC
 #> # A tibble: 6 × 14
 #>   division_id division_name     season division_name_short division_link
 #>         <int> <chr>             <chr>  <chr>               <chr>        

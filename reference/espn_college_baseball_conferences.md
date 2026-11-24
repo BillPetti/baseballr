@@ -107,10 +107,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_conferences())
-#> ✖ 2026-11-04 00:40:03.592746: Invalid arguments or no conferences info available!
-#> ✖ Error: `select()` doesn't handle lists.
 #> ── ESPN College Baseball Conferences Information from ESPN.com ─────────
-#> ℹ Data updated: 2026-11-04 00:40:03 UTC
+#> ℹ Data updated: 2026-11-24 18:35:14 UTC
 #> # A tibble: 0 × 7
 #> # ℹ 7 variables: group_id <chr>, conference_short_name <chr>,
 #> #   conference_uid <chr>, conference_name <chr>, conference_logo <chr>,

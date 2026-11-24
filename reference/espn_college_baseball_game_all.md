@@ -118,8 +118,8 @@ try(espn_college_baseball_game_all(game_id = "401778093"))
 #> • `` -> `...45`
 #> • `` -> `...46`
 #> $Plays
-#> ── ESPN MLB Play-by-Play Information from ESPN.com ── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:05 UTC
+#> ── ESPN MLB Play-by-Play Information from ESPN.com ── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:35:16 UTC
 #> # A tibble: 581 × 72
 #>    id           sequence_number text  away_score home_score scoring_play
 #>    <chr>        <chr>           <chr>      <int>      <int> <lgl>       
@@ -142,8 +142,8 @@ try(espn_college_baseball_game_all(game_id = "401778093"))
 #> #   team_id <int>, pitch_count_balls <int>, …
 #> 
 #> $Team
-#> ── ESPN MLB Team Box Information from ESPN.com ────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:05 UTC
+#> ── ESPN MLB Team Box Information from ESPN.com ────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:35:16 UTC
 #> # A tibble: 2 × 96
 #>     game_id season season_type game_date  game_date_time      team_id
 #>       <int>  <int>       <int> <date>     <dttm>                <int>
@@ -158,8 +158,8 @@ try(espn_college_baseball_game_all(game_id = "401778093"))
 #> #   batting_stolen_bases <chr>, batting_walks <chr>, …
 #> 
 #> $Player
-#> ── ESPN MLB Player Box Information from ESPN.com ──── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:05 UTC
+#> ── ESPN MLB Player Box Information from ESPN.com ──── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:35:16 UTC
 #> # A tibble: 25 × 35
 #>     game_id season season_type game_date  game_date_time      stat_group
 #>       <int>  <int>       <int> <date>     <dttm>              <chr>     

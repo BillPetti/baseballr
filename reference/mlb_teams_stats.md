@@ -115,8 +115,8 @@ Returns a tibble with the following columns
 ``` r
 # \donttest{
   try(mlb_teams_stats(stat_type = 'season', stat_group = 'hitting', season = 2021))
-#> ── MLB Teams Stats data from MLB.com ──────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:45:08 UTC
+#> ── MLB Teams Stats data from MLB.com ──────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:40:30 UTC
 #> # A tibble: 50 × 43
 #>    total_splits season  rank games_played ground_outs air_outs  runs
 #>           <int> <chr>  <int>        <int>       <int>    <int> <int>

@@ -80,7 +80,7 @@ indicator appear at the start of the function name:
 
 - Functions that use the MLB Stats API start with `mlb_` by convention
   and should be assumed as `get` functions. As of `baseballr` version
-  2.0.0, the package exports ~88 functions covering the MLB Stats API.
+  2.1.0, the package exports ~88 functions covering the MLB Stats API.
 
 - Functions that use [ESPN](https://www.espn.com/mlb/)’s MLB endpoints
   start with `espn_mlb_` by convention and should be assumed as `get`
@@ -91,7 +91,7 @@ indicator appear at the start of the function name:
   ([`espn_mlb_game_probables()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_probables.md))
   and the umpire crew / venue
   ([`espn_mlb_game_info()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_info.md)).
-  As of `baseballr` version 2.0.0, the package exports ~107 functions
+  As of `baseballr` version 2.1.0, the package exports ~107 functions
   covering ESPN’s MLB endpoints. Each returns a clean, tidy
   `baseballr_data` tibble; box scores are returned wide (one row per
   team / per athlete-side). Live ESPN tests are gated behind
@@ -101,7 +101,7 @@ indicator appear at the start of the function name:
   Statcast](https://baseballsavant.mlb.com/) APIs start with `statcast_`
   by convention and should be assumed as `get` functions. These
   functions allow for live access to Statcast data for the MLB games
-  in-progress. As of `baseballr` version 2.0.0, the package exports ~5
+  in-progress. As of `baseballr` version 2.1.0, the package exports ~5
   Statcast-related functions.
 
 - Functions that use [Chadwick Bureau’s Public Register of Baseball
@@ -109,27 +109,27 @@ indicator appear at the start of the function name:
   `chadwick_`, `playerid_`, or `playername_` by convention and should be
   assumed as `get` functions. These functions allow for access to the
   Bureau’s public register of baseball players. As of `baseballr`
-  version 2.0.0, the package exports 3 functions sourced using the
+  version 2.1.0, the package exports 3 functions sourced using the
   Chadwick Bureau’s public register of baseball players.
 
 - Functions that use Baseball Reference’s website start with `bref_` by
   convention and should be assumed as `get` functions. As of `baseballr`
-  version 2.0.0, the package exports ~4 functions covering [Baseball
+  version 2.1.0, the package exports ~4 functions covering [Baseball
   Reference](https://www.baseball-reference.com/).
 
 - Functions that use FanGraphs’s baseball website start with `fg_` by
   convention and should be assumed as `get` functions. As of `baseballr`
-  version 2.0.0, the package exports ~11 functions covering
+  version 2.1.0, the package exports ~11 functions covering
   [FanGraphs.com](https://www.fangraphs.com/).
 
 - Functions that use Retrosheet’s baseball data start with `retrosheet_`
   by convention and should be assumed as `get` functions. As of
-  `baseballr` version 2.0.0, the package exports 1 function for
+  `baseballr` version 2.1.0, the package exports 1 function for
   [Retrosheet Data](https://www.retrosheet.org/).
 
 - Functions that use the NCAA website start with `ncaa_` by convention
   and should be assumed as `get` functions. As of `baseballr` version
-  2.0.0, the package exports ~8 function covering the [NCAA Stats
+  2.1.0, the package exports ~8 function covering the [NCAA Stats
   portal](https://stats.ncaa.org/).
 
 ## Follow the SportsDataverse (@SportsDataverse) on Twitter and star this repo

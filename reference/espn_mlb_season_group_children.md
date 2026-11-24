@@ -173,8 +173,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_season_group_children(group_id = 5, season = 2025)
-#> ── ESPN MLB Season Group Children Index ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:58 UTC
+#> ── ESPN MLB Season Group Children Index ───────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:07 UTC
 #> # A tibble: 0 × 6
 #> # ℹ 6 variables: league <chr>, season <int>, season_type <int>,
 #> #   parent_group_id <chr>, child_group_id <chr>, ref <chr>

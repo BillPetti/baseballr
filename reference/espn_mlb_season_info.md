@@ -176,39 +176,39 @@ Saiem Gilani
 # \donttest{
   espn_mlb_season_info(season = 2025)
 #> $Info
-#> ── ESPN MLB Season Info from ESPN.com ─────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:59 UTC
+#> ── ESPN MLB Season Info from ESPN.com ─────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:08 UTC
 #> # A tibble: 1 × 6
 #>    year start_date        end_date        display_name type_id type_name
 #>   <int> <chr>             <chr>           <chr>        <chr>   <chr>    
 #> 1  2025 2025-02-15T08:00Z 2025-12-11T07:… 2025         2       Regular …
 #> 
 #> $Types
-#> ── ESPN MLB Season Types from ESPN.com ────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:59 UTC
+#> ── ESPN MLB Season Types from ESPN.com ────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:08 UTC
 #> # A tibble: 1 × 2
 #>   count ref                                                             
 #>   <int> <chr>                                                           
 #> 1     4 http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/…
 #> 
 #> $Athletes
-#> ── ESPN MLB Season Athletes from ESPN.com ─────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:59 UTC
+#> ── ESPN MLB Season Athletes from ESPN.com ─────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:08 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Coaches
-#> ── ESPN MLB Season Coaches from ESPN.com ──────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:59 UTC
+#> ── ESPN MLB Season Coaches from ESPN.com ──────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:08 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Teams
-#> ── ESPN MLB Season Teams from ESPN.com ────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:59 UTC
+#> ── ESPN MLB Season Teams from ESPN.com ────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:08 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Awards
-#> ── ESPN MLB Season Awards from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:59 UTC
+#> ── ESPN MLB Season Awards from ESPN.com ───────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:08 UTC
 #> # A tibble: 1 × 2
 #>   count ref                                                             
 #>   <int> <chr>                                                           

@@ -44,8 +44,8 @@ Returns a tibble with the following columns:
 ``` r
 # \donttest{
   try(mlb_people_free_agents(season = 2018))
-#> ── MLB People - Free Agents data from MLB.com ─────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:44:54 UTC
+#> ── MLB People - Free Agents data from MLB.com ─────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:40:14 UTC
 #> # A tibble: 515 × 18
 #>    notes date_signed date_declared sort_order player_id player_full_name
 #>    <chr> <chr>       <chr>              <int>     <int> <chr>           

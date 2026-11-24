@@ -23,8 +23,8 @@ Returns a tibble with the following columns
 ``` r
 # \donttest{
   try(mlb_game_types())
-#> ── MLB Game Types data from MLB.com ───────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:44:43 UTC
+#> ── MLB Game Types data from MLB.com ───────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:40:02 UTC
 #> # A tibble: 11 × 2
 #>    game_type_id game_type_description     
 #>    <chr>        <chr>                     

@@ -163,8 +163,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_futures(season = 2025)
-#> ── ESPN MLB Season Futures ────────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:41 UTC
+#> ── ESPN MLB Season Futures ────────────────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:35:47 UTC
 #> # A tibble: 0 × 11
 #> # ℹ 11 variables: season <int>, league <chr>, market_id <chr>,
 #> #   market_name <chr>, market_type <chr>, market_display <chr>,

@@ -211,8 +211,8 @@ Saiem Gilani
 # \donttest{
   espn_mlb_player_info(athlete_id = "1966")
 #> $Bio
-#> ── ESPN MLB Athlete Bio from ESPN.com ─────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:52 UTC
+#> ── ESPN MLB Athlete Bio from ESPN.com ─────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:01 UTC
 #> # A tibble: 1 × 20
 #>   id    uid            guid  first_name last_name full_name display_name
 #>   <chr> <chr>          <chr> <chr>      <chr>     <chr>     <chr>       
@@ -224,40 +224,40 @@ Saiem Gilani
 #> #   birth_country <chr>
 #> 
 #> $Team
-#> ── ESPN MLB Athlete Team from ESPN.com ────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:52 UTC
+#> ── ESPN MLB Athlete Team from ESPN.com ────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:01 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                                 
 #>   <chr>                                                                 
 #> 1 http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/season…
 #> 
 #> $Position
-#> ── ESPN MLB Athlete Position from ESPN.com ────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:52 UTC
+#> ── ESPN MLB Athlete Position from ESPN.com ────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:01 UTC
 #> # A tibble: 1 × 5
 #>   id    name         display_name   abbreviation leaf 
 #>   <chr> <chr>        <chr>          <chr>        <lgl>
 #> 1 8     Center Field Center Fielder CF           TRUE 
 #> 
 #> $Status
-#> ── ESPN MLB Athlete Status from ESPN.com ──────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:53 UTC
+#> ── ESPN MLB Athlete Status from ESPN.com ──────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:01 UTC
 #> # A tibble: 1 × 4
 #>   id    name    type    abbreviation
 #>   <chr> <chr>   <chr>   <chr>       
 #> 1 27    Retired retired Retired     
 #> 
 #> $College
-#> ── ESPN MLB Athlete College from ESPN.com ─────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:53 UTC
+#> ── ESPN MLB Athlete College from ESPN.com ─────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:01 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                          
 #>   <chr>                                                          
 #> 1 http://sports.core.api.espn.com/v2/colleges/9?lang=en&region=us
 #> 
 #> $Draft
-#> ── ESPN MLB Athlete Draft from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:53 UTC
+#> ── ESPN MLB Athlete Draft from ESPN.com ───────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:01 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

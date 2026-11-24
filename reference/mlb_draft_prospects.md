@@ -130,9 +130,9 @@ requested:
 ``` r
 # \donttest{
   try(mlb_draft_prospects(year = 2020))
-#> ── MLB Draft Prospects data from MLB.com ──────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:44:35 UTC
-#> # A tibble: 2,500 × 102
+#> ── MLB Draft Prospects data from MLB.com ──────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:39:54 UTC
+#> # A tibble: 2,500 × 103
 #>    bis_player_id pick_round pick_number  rank scouting_report      blurb
 #>            <int> <chr>            <int> <int> <chr>                <chr>
 #>  1       5012013 3                   82    97 https://atmlb.com/2… Ther…
@@ -146,7 +146,7 @@ requested:
 #>  9        771881 1                    4     3 https://atmlb.com/3… Thou…
 #> 10        415542 1                    5     2 https://atmlb.com/2… Mart…
 #> # ℹ 2,490 more rows
-#> # ℹ 96 more variables: headshot_link <chr>, is_drafted <lgl>,
+#> # ℹ 97 more variables: headshot_link <chr>, is_drafted <lgl>,
 #> #   is_pass <lgl>, year <chr>, home_city <chr>, home_state <chr>,
 #> #   home_country <chr>, school_name <chr>, school_school_class <chr>,
 #> #   school_country <chr>, school_state <chr>, person_id <int>,

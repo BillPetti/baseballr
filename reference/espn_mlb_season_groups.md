@@ -164,8 +164,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_season_groups(season = 2025)
-#> ── ESPN MLB Season Groups Index ───────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:59 UTC
+#> ── ESPN MLB Season Groups Index ───────────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:08 UTC
 #> # A tibble: 4 × 5
 #>   league season season_type group_id ref                                
 #>   <chr>   <int>       <int> <chr>    <chr>                              

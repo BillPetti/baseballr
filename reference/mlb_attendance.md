@@ -123,8 +123,8 @@ Returns a tibble with the following columns
 ``` r
 # \donttest{
   try(mlb_attendance(team_id = 109, season = 2021))
-#> ── MLB Attendance data from MLB.com ───────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:44:30 UTC
+#> ── MLB Attendance data from MLB.com ───────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:39:49 UTC
 #> # A tibble: 1 × 32
 #>   openings_total openings_total_away openings_total_home
 #>            <int>               <int>               <int>

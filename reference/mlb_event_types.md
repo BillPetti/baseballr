@@ -26,8 +26,8 @@ Returns a tibble with the following columns
 ``` r
 # \donttest{
   try(mlb_event_types())
-#> ── MLB Event Types data from MLB.com ──────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:44:35 UTC
+#> ── MLB Event Types data from MLB.com ──────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:39:54 UTC
 #> # A tibble: 74 × 5
 #>    plate_appearance hit   event_code       base_running_event
 #>    <lgl>            <lgl> <chr>            <lgl>             

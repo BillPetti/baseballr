@@ -180,11 +180,11 @@ Saiem Gilani
   espn_mlb_game_team_roster_entry(event_id = 401283399,
                                             team_id = 13,
                                             athlete_id = 33192)
-#> ✖ 2026-11-04 00:40:47.921644: Failed to retrieve ESPN mlb event roster entry for event_id=401283399, team_id=13, athlete_id=33192
+#> ✖ 2026-11-24 18:35:55.355618: Failed to retrieve ESPN mlb event roster entry for event_id=401283399, team_id=13, athlete_id=33192
 #> ✖ Args: league = "mlb", event_id = 401283399, team_id = 13, athlete_id = 33192
 #> ✖ Error: The API returned an error, HTTP Response Code 404
-#> ── ESPN MLB Event Competitor Roster Entry ─────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:47 UTC
+#> ── ESPN MLB Event Competitor Roster Entry ─────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:35:55 UTC
 #> # A tibble: 0 × 0
 # }
 ```

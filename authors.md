@@ -23,7 +23,7 @@ Source:
 [`inst/CITATION`](https://github.com/billpetti/baseballr/blob/master/inst/CITATION)
 
 Bill Petti and Saiem Gilani (2026). baseballr: The SportsDataverse's R
-Package for Baseball Data. R package version 2.0.0. Retrieved from
+Package for Baseball Data. R package version 2.1.0. Retrieved from
 https://billpetti.github.io/baseballr/
 
     @Misc{petti_gilani_baseballr,
@@ -32,5 +32,5 @@ https://billpetti.github.io/baseballr/
       url = {https://billpetti.github.io/baseballr/},
       doi = {10.32614/CRAN.package.baseballr},
       year = {2026},
-      note = {R package version 2.0.0},
+      note = {R package version 2.1.0},
     }

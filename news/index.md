@@ -1,5 +1,163 @@
 # Changelog
 
+## baseballr 2.1.0
+
+### New features
+
+- [`load_mlb_groups()`](https://billpetti.github.io/baseballr/reference/load_mlb_groups.md),
+  [`load_mlb_group_seasons()`](https://billpetti.github.io/baseballr/reference/load_mlb_group_seasons.md),
+  [`load_mlb_group_aliases()`](https://billpetti.github.io/baseballr/reference/load_mlb_group_aliases.md),
+  [`load_mlb_team_group_seasons()`](https://billpetti.github.io/baseballr/reference/load_mlb_team_group_seasons.md)
+  and their `load_ncaa_baseball_*()` twins — season-by-season league /
+  division / conference reference tables from the `mlb_groups` and
+  `ncaa_baseball_groups` sportsdataverse-data releases: each group’s
+  name and parent as of every season, every source’s ids and names for
+  it, and each team’s affiliation by season (MLB 1901+, NCAA baseball
+  2010+).
+- [`load_mlb_park_dimensions()`](https://billpetti.github.io/baseballr/reference/load_mlb_park_dimensions.md)
+  — every MLB venue’s fence distances (feet, at MLB’s seven markers),
+  capacity, turf, roof, azimuth, elevation and location by season,
+  2001+, from the `mlb_parks` sportsdataverse-data release. Built from
+  the MLB Stats API with cited corrections for fence moves the API lags
+  or misses; `venue_id` stays character.
+
+### Bug fixes
+
+- `stats` moves from `Suggests` to `Imports`
+  ([\#424](https://github.com/billpetti/baseballr/issues/424),
+  [@MichaelChirico](https://github.com/billpetti/MichaelChirico)). The
+  package imports from it in `NAMESPACE`, which R-devel reports as “Base
+  package in Suggests/Enhances imported in NAMESPACE”; this clears that
+  NOTE on the CRAN r-devel check flavours.
+- A warning while parsing no longer throws away the result. The ESPN
+  wrappers,
+  [`bref_daily_batter()`](https://billpetti.github.io/baseballr/reference/bref_daily_batter.md)
+  and
+  [`fg_projections()`](https://billpetti.github.io/baseballr/reference/fg_projections.md)
+  caught warnings with `tryCatch(warning = )`, which unwinds the call,
+  so a harmless warning (e.g.
+  [`data.frame()`](https://rdrr.io/r/base/data.frame.html)’s “row names
+  were found from a short variable”) made them return an empty frame;
+  [`espn_mlb_team_current_roster()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_current_roster.md)
+  returned 0 rows for every team. Those 124 calls now report the warning
+  and carry on (internal `.try_catch()`).
+- [`espn_mlb_game_team_roster()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_roster.md)
+  /
+  [`espn_college_baseball_game_team_roster()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_team_roster.md)
+  read the lineup again: ESPN moved it from `items` to `entries` +
+  `pitchers`. Rows now carry `role`, `display_name`, `bat_order`,
+  `starter`, `position_id` and substitution flags alongside the existing
+  columns.
+- [`espn_mlb_team_leaders()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_leaders.md)
+  /
+  [`espn_college_baseball_team_leaders()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_team_leaders.md)
+  return leaders again (ESPN’s site-v2 leaders route now answers with an
+  empty body): they read the core API, which also honours `season`, and
+  add `category_abbr` and `display_value`.
+- [`espn_mlb_conferences()`](https://billpetti.github.io/baseballr/reference/espn_mlb_conferences.md)
+  /
+  [`espn_college_baseball_conferences()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_conferences.md)
+  return the documented empty frame instead of erroring when ESPN sends
+  no conferences.
+- [`edge_code()`](https://billpetti.github.io/baseballr/reference/edge_code.md)
+  accepts Statcast data: `plate_x` / `plate_z` / `description` are used
+  when the PITCHf/x `px` / `pz` / `des2` columns are absent, and pitch
+  descriptions are matched case-insensitively.
+- The
+  [`espn_mlb_pbp()`](https://billpetti.github.io/baseballr/reference/espn_mlb_pbp.md),
+  [`espn_mlb_team_box()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_box.md),
+  [`espn_mlb_player_box()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_box.md)
+  and
+  [`espn_mlb_game_rosters()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_rosters.md)
+  examples use a game ESPN still serves.
+- [`statcast_search_minors()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
+  returns minor-league games again
+  ([\#432](https://github.com/billpetti/baseballr/issues/432)). Baseball
+  Savant’s `statcast-search-minors` route serves the MLB search unless
+  the query also carries `minors=true`, so the function was returning
+  MLB pitches.
+- [`mlb_standings()`](https://billpetti.github.io/baseballr/reference/mlb_standings.md)
+  accepts a vector `league_id`, as documented (`league_id = c(103, 104)`
+  for both leagues):
+  [`httr2::url_modify_query()`](https://httr2.r-lib.org/reference/url_modify.html)
+  refused it (“All vector elements of `...` must be length 1”), so the
+  call failed before reaching the API. The ids are now comma-joined,
+  which the MLB Stats API reads.
+- `httr2 (>= 1.1.0)`:
+  [`httr2::url_modify_query()`](https://httr2.r-lib.org/reference/url_modify.html),
+  which the MLB Stats API wrappers build every request with, first
+  appeared in httr2 1.1.0.
+- [`tail()`](https://rdrr.io/r/utils/head.html) works on the result of
+  every loader,
+  [`chadwick_player_lu()`](https://billpetti.github.io/baseballr/reference/chadwick_player_lu.md),
+  and every function that returns a `baseballr_data` tibble. The class
+  vector they set, in the `load_ncaa_baseball_*()` loaders,
+  [`chadwick_player_lu()`](https://billpetti.github.io/baseballr/reference/chadwick_player_lu.md)
+  and `make_baseballr_data()`, still listed `data.table`, so
+  [`tail()`](https://rdrr.io/r/utils/head.html) failed with “Can’t
+  subset columns past the end” (the bug fixed in hoopR as
+  [hoopR#88](https://github.com/sportsdataverse/hoopR/issues/88)). The
+  class is now `baseballr_data` / `tbl_df` / `tbl` / `data.frame`, so
+  these results no longer inherit from `data.table` (they never carried
+  a valid `data.table` self-reference): code that tests
+  `inherits(x, "data.table")` on them now gets `FALSE`. Convert with
+  [`data.table::as.data.table()`](https://rdrr.io/pkg/data.table/man/as.data.table.html)
+  if you need one.
+- A slow release download no longer drops a season from a multi-season
+  load. The `.rds` and group `.csv` reads behind every release-backed
+  `load_*()` loader raise the download timeout to at least 150 seconds
+  (a larger `options(timeout)` is kept, and the option is restored
+  afterwards) and retry a failed download twice. A 404 is not retried.
+  If a file still fails, the warning names its URL and says the result
+  is incomplete; the seasons that loaded are still returned.
+- [`chadwick_player_lu()`](https://billpetti.github.io/baseballr/reference/chadwick_player_lu.md)
+  (and
+  [`playerid_lookup()`](https://billpetti.github.io/baseballr/reference/chadwick_player_id_lu.md)
+  /
+  [`playername_lookup()`](https://billpetti.github.io/baseballr/reference/chadwick_player_name_lu.md),
+  which call it) retries the Chadwick register downloads the same way,
+  so one slow `people-*.csv` no longer fails the whole lookup. A file
+  that still fails is named in a warning and left out of the result; if
+  no file downloads, it raises an error.
+
+### Dependencies
+
+- `Rcpp` and `RcppParallel` are no longer imported. baseballr has no
+  compiled code and used neither; `RcppParallel` pulled in TBB on source
+  installs.
+- `furrr`, `ggrepel`, `RSQLite`, `stringi` and `usethis` leave
+  `Suggests`: nothing in the package, its tests or its articles uses
+  them.
+
+### Documentation
+
+- The
+  [`fg_team_batter()`](https://billpetti.github.io/baseballr/reference/fg_team_batter.md)
+  and
+  [`fg_team_pitcher()`](https://billpetti.github.io/baseballr/reference/fg_team_pitcher.md)
+  return tables no longer list `rFTeamV`, `rBTeamV` and `rTV`
+  ([\#434](https://github.com/billpetti/baseballr/issues/434)):
+  FanGraphs’ team leaderboards stopped returning them. The player
+  leaderboards
+  ([`fg_batter_leaders()`](https://billpetti.github.io/baseballr/reference/fg_batter_leaders.md),
+  [`fg_pitcher_leaders()`](https://billpetti.github.io/baseballr/reference/fg_pitcher_leaders.md))
+  still return them and are unchanged.
+
+### Tests
+
+- Offline tests for the ESPN MLB / college baseball, MLB Stats API and
+  Fox wrappers replay responses recorded from those sources
+  (`tests/testthat/fixtures/http/`, re-recorded with
+  `data-raw/http_fixtures/record_fixtures.R`), so they run on CI without
+  network access. Offline tests for the Statcast-based helpers
+  ([`run_expectancy_code()`](https://billpetti.github.io/baseballr/reference/run_expectancy_code.md),
+  `run_expectancy_table()`,
+  [`linear_weights_savant()`](https://billpetti.github.io/baseballr/reference/linear_weights_savant.md),
+  [`statline_from_statcast()`](https://billpetti.github.io/baseballr/reference/statline_from_statcast.md),
+  [`edge_code()`](https://billpetti.github.io/baseballr/reference/edge_code.md),
+  [`ggspraychart()`](https://billpetti.github.io/baseballr/reference/ggspraychart.md))
+  use one recorded game.
+
 ## baseballr 2.0.0
 
 CRAN release: 2026-08-26
@@ -35,22 +193,6 @@ CRAN release: 2026-08-26
   on the sportsdataverse-data releases (expected stats/HR, batter
   projections, Stuff+/Command+/xERA, OAA, catcher framing, RE24 matrix,
   WE table, WPA), mirroring sportsdataverse-py’s loader surface.
-- [`load_mlb_groups()`](https://billpetti.github.io/baseballr/reference/load_mlb_groups.md),
-  [`load_mlb_group_seasons()`](https://billpetti.github.io/baseballr/reference/load_mlb_group_seasons.md),
-  [`load_mlb_group_aliases()`](https://billpetti.github.io/baseballr/reference/load_mlb_group_aliases.md),
-  [`load_mlb_team_group_seasons()`](https://billpetti.github.io/baseballr/reference/load_mlb_team_group_seasons.md)
-  and their `load_ncaa_baseball_*()` twins — season-by-season league /
-  division / conference reference tables from the `mlb_groups` and
-  `ncaa_baseball_groups` sportsdataverse-data releases: each group’s
-  name and parent as of every season, every source’s ids and names for
-  it, and each team’s affiliation by season (MLB 1901+, NCAA baseball
-  2010+).
-- [`load_mlb_park_dimensions()`](https://billpetti.github.io/baseballr/reference/load_mlb_park_dimensions.md)
-  — every MLB venue’s fence distances (feet, at MLB’s seven markers),
-  capacity, turf, roof, azimuth, elevation and location by season,
-  2001+, from the `mlb_parks` sportsdataverse-data release. Built from
-  the MLB Stats API with cited corrections for fence moves the API lags
-  or misses; `venue_id` stays character.
 - [`mlb_stats()`](https://billpetti.github.io/baseballr/reference/mlb_stats.md)
   and
   [`mlb_teams_stats()`](https://billpetti.github.io/baseballr/reference/mlb_teams_stats.md)
@@ -70,19 +212,6 @@ CRAN release: 2026-08-26
   ([\#260](https://github.com/billpetti/baseballr/issues/260)).
 
 #### Bug fixes
-
-- [`mlb_standings()`](https://billpetti.github.io/baseballr/reference/mlb_standings.md)
-  accepts a vector `league_id`, as documented (`league_id = c(103, 104)`
-  for both leagues):
-  [`httr2::url_modify_query()`](https://httr2.r-lib.org/reference/url_modify.html)
-  refused it (“All vector elements of `...` must be length 1”), so the
-  call failed before reaching the API. The ids are now comma-joined,
-  which the MLB Stats API reads.
-
-- `httr2 (>= 1.1.0)`:
-  [`httr2::url_modify_query()`](https://httr2.r-lib.org/reference/url_modify.html),
-  which the MLB Stats API wrappers build every request with, first
-  appeared in httr2 1.1.0.
 
 - [`mlb_pbp()`](https://billpetti.github.io/baseballr/reference/mlb_pbp.md)
   no longer back-fills the at-bat-level `matchup.postOn*` /

@@ -10,8 +10,8 @@ the current tests as authoritative.
 
 `baseballr` acquires and analyzes baseball data from several online
 sources. It is an R package (\>= 4.1.0, MIT licensed). The default and
-release branch is `master`; active development happens on feature
-branches and `development_branch`.
+release branch is `master`; work happens on feature branches that open
+pull requests against `master`.
 
 ## Function naming by data source
 
@@ -62,6 +62,17 @@ one prefix.
   }
   ```
 
+- **Warning handlers go through `.try_catch()`.** A `warning =` handler
+  given to [`tryCatch()`](https://rdrr.io/r/base/conditions.html)
+  unwinds the call, so a harmless warning
+  (e.g. [`data.frame()`](https://rdrr.io/r/base/data.frame.html)’s “row
+  names were found from a short variable”) throws the parsed result away
+  and the wrapper returns its empty default. Use the internal
+  `.try_catch()` (`R/utils_try_catch.R`): same arguments, but `warning`
+  runs as a calling handler and evaluation carries on. Keep plain
+  [`tryCatch()`](https://rdrr.io/r/base/conditions.html) only where
+  there is no `warning =` handler.
+
 - **Messaging via `cli`.** Use
   [`cli::cli_alert_danger()`](https://cli.r-lib.org/reference/cli_alert.html)
   in error handlers,
@@ -79,8 +90,8 @@ one prefix.
 - **Data pipeline.** Finish transforms with
   `... |> janitor::clean_names() |> make_baseballr_data("<description>", Sys.time())`.
   `make_baseballr_data()` sets class
-  `c("baseballr_data", "tbl_df", "tbl", "data.table", "data.frame")` and
-  attaches `baseballr_timestamp` / `baseballr_type` attributes.
+  `c("baseballr_data", "tbl_df", "tbl", "data.frame")` and attaches
+  `baseballr_timestamp` / `baseballr_type` attributes.
 
 - **Column-drift resilience.** Drop columns with
   `dplyr::select(-dplyr::any_of("col"))`, never bare `select(-"col")`,
@@ -178,8 +189,12 @@ one prefix.
   /
   [`statcast_search_wbc()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
   (pass `route=` through the core; don’t fork the body).
-- Every test leads with `skip_on_cran()`; the suite runs fully in CI
-  (`NOT_CRAN=true`).
+- Live tests lead with their source gate and `skip_on_cran()`. CI turns
+  on the FanGraphs, MLB Stats, Statcast, Spotrac, Chadwick and loader
+  gates; the ESPN, Fox, Baseball Reference and NCAA live tests stay off
+  there. Offline tests replay recorded responses via
+  `local_http_fixtures()` (`tests/testthat/helper-http_fixtures.R`);
+  they need no gate but still `skip_on_cran()`.
 
 ## Cheat sheet
 

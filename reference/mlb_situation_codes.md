@@ -29,8 +29,8 @@ Returns a tibble with the following columns
 ``` r
 # \donttest{
   try(mlb_situation_codes())
-#> ── MLB Situation Codes data from MLB.com ──────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:45:02 UTC
+#> ── MLB Situation Codes data from MLB.com ──────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:40:22 UTC
 #> # A tibble: 602 × 8
 #>    situation_code sort_order navigation_menu situation_code_description
 #>    <chr>               <int> <chr>           <chr>                     

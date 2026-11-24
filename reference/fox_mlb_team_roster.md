@@ -24,9 +24,9 @@ A `baseballr_data` tibble, one row per player: `team_id`,
 
 ``` r
  try(fox_mlb_team_roster("1")) 
-#> ── Fox Sports MLB roster ──────────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:41:37 UTC
-#> # A tibble: 48 × 9
+#> ── Fox Sports MLB roster ──────────────────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:47 UTC
+#> # A tibble: 46 × 9
 #>    team_id position_group player         pos   age   ht     wt    school
 #>    <chr>   <chr>          <chr>          <chr> <chr> <chr>  <chr> <chr> 
 #>  1 1       PITCHER        Keegan Akin    P     31    "6'0\… 235 … Weste…
@@ -37,8 +37,8 @@ A `baseballr_data` tibble, one row per player: `team_id`,
 #>  6 1       PITCHER        Yennier Cano   P     32    "6'4\… 245 … -     
 #>  7 1       PITCHER        Luis De León   P     23    "6'3\… 168 … -     
 #>  8 1       PITCHER        Zach Eflin     P     32    "6'6\… 230 … Paul …
-#>  9 1       PITCHER        Cameron Foster P     27    "6'5\… 240 … McNee…
-#> 10 1       PITCHER        Rico Garcia    P     32    "5'9\… 215 … Hawai…
-#> # ℹ 38 more rows
+#>  9 1       PITCHER        Rico Garcia    P     32    "5'9\… 215 … Hawai…
+#> 10 1       PITCHER        Trey Gibson    P     24    "6'5\… 240 … Liber…
+#> # ℹ 36 more rows
 #> # ℹ 1 more variable: athlete_id <chr>
 ```

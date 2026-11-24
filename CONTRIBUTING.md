@@ -56,9 +56,7 @@ unacceptable behavior to the maintainer at <saiem.gilani@gmail.com>.
     ```
 
 4.  **Branch from `master`.** `master` is the default and release
-    branch. Active development is currently staged on
-    `development_branch`; ask the maintainer which base to branch from
-    if you are unsure, but the safe default is the latest `master`.
+    branch, and every change lands on it through a pull request.
 
     ``` sh
     git checkout master
@@ -179,8 +177,8 @@ raw_data |>
 ```
 
 `make_baseballr_data()` sets the class to
-`c("baseballr_data", "tbl_df", "tbl", "data.table", "data.frame")` and
-attaches provenance attributes.
+`c("baseballr_data", "tbl_df", "tbl", "data.frame")` and attaches
+provenance attributes.
 
 ### Roxygen Documentation Checklist
 

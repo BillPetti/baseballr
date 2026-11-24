@@ -164,11 +164,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_coach(coach_id = 52120)
-#> ✖ 2026-11-04 00:40:37.628563: Failed to retrieve ESPN mlb coach 52120
+#> ✖ 2026-11-24 18:35:43.873841: Failed to retrieve ESPN mlb coach 52120
 #> ✖ Args: league = "mlb", coach_id = 52120
 #> ✖ Error: The API returned an error, HTTP Response Code 404
-#> ── ESPN MLB Coach Detail ──────────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:37 UTC
+#> ── ESPN MLB Coach Detail ──────────────────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:35:43 UTC
 #> # A tibble: 0 × 0
 # }
 ```

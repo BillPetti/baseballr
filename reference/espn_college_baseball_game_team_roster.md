@@ -126,10 +126,26 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_game_team_roster(event_id = "401778093", team_id = "113"))
-#> ── ESPN COLLEGE-BASEBALL Competitor Roster ────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:11 UTC
-#> # A tibble: 0 × 5
-#> # ℹ 5 variables: league <chr>, event_id <chr>, team_id <chr>,
-#> #   athlete_id <chr>, ref <chr>
+#> ── ESPN COLLEGE-BASEBALL Competitor Roster ────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:35:21 UTC
+#> # A tibble: 13 × 15
+#>    league event_id team_id athlete_id ref   role  display_name bat_order
+#>    <chr>  <chr>    <chr>   <chr>      <chr> <chr> <chr>            <int>
+#>  1 colle… 4017780… 113     83667      http… batt… NA                   1
+#>  2 colle… 4017780… 113     72474      http… batt… NA                   2
+#>  3 colle… 4017780… 113     72534      http… batt… NA                   3
+#>  4 colle… 4017780… 113     59059      http… batt… NA                   4
+#>  5 colle… 4017780… 113     87679      http… batt… NA                   5
+#>  6 colle… 4017780… 113     72552      http… batt… NA                   6
+#>  7 colle… 4017780… 113     72539      http… batt… NA                   7
+#>  8 colle… 4017780… 113     72540      http… batt… NA                   8
+#>  9 colle… 4017780… 113     72545      http… batt… NA                   9
+#> 10 colle… 4017780… 113     87674      http… pitc… NA                  NA
+#> 11 colle… 4017780… 113     91892      http… pitc… NA                  NA
+#> 12 colle… 4017780… 113     83662      http… pitc… NA                  NA
+#> 13 colle… 4017780… 113     91894      http… pitc… NA                  NA
+#> # ℹ 7 more variables: starter <lgl>, active <lgl>, period <int>,
+#> #   for_player_id <chr>, position_id <chr>, subbed_in <lgl>,
+#> #   subbed_out <lgl>
 # }
 ```

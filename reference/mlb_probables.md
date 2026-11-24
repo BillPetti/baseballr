@@ -37,8 +37,8 @@ columns:
 ``` r
 # \donttest{
   try(mlb_probables(566001))
-#> ── MLB Probables data from MLB.com ────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:44:56 UTC
+#> ── MLB Probables data from MLB.com ────────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:40:16 UTC
 #> # A tibble: 2 × 8
 #>   game_pk game_date  fullName      id team  team_id home_plate_full_name
 #>     <int> <chr>      <chr>      <int> <chr>   <int> <chr>               

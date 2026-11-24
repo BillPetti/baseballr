@@ -22,8 +22,8 @@ Returns a tibble with the following columns
 ``` r
 # \donttest{
   try(mlb_league_leader_types())
-#> ── MLB League Leader Types data from MLB.com ──────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:44:49 UTC
+#> ── MLB League Leader Types data from MLB.com ──────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:40:08 UTC
 #> # A tibble: 70 × 1
 #>    leader_type           
 #>    <chr>                 

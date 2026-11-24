@@ -23,8 +23,8 @@ Returns a tibble with the following columns
 ``` r
 # \donttest{
   try(mlb_pitch_types())
-#> ── MLB Pitch Types data from MLB.com ──────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:44:54 UTC
+#> ── MLB Pitch Types data from MLB.com ──────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:40:14 UTC
 #> # A tibble: 24 × 2
 #>    pitch_type_code pitch_type_description
 #>    <chr>           <chr>                 

@@ -43,8 +43,8 @@ Returns a tibble with the following columns
 ``` r
 # \donttest{
   try(mlb_jobs(job_type='UMPR'))
-#> ── MLB Jobs data from MLB.com ─────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:44:47 UTC
+#> ── MLB Jobs data from MLB.com ─────────────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:40:06 UTC
 #> # A tibble: 98 × 8
 #>    jersey_number job    job_code title  person_id person_full_name
 #>    <chr>         <chr>  <chr>    <chr>      <int> <chr>           

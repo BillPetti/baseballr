@@ -203,8 +203,8 @@ Other ESPN MLB Functions:
 # Get schedule from date 2022-11-17 (returns 1000 results, max allowable.)
 # \donttest{
 try(espn_mlb_scoreboard(season = 20230423))
-#> ── ESPN MLB Scoreboard Information from ESPN.com ──── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:56 UTC
+#> ── ESPN MLB Scoreboard Information from ESPN.com ──── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:05 UTC
 #> # A tibble: 15 × 60
 #>    matchup matchup_short season season_type season_slug game_id game_uid
 #>    <chr>   <chr>          <int>       <int> <chr>         <int> <chr>   

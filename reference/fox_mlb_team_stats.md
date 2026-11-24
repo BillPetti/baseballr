@@ -23,8 +23,8 @@ A `baseballr_data` tibble: `team_id`, `category`, `stat`,
 
 ``` r
  try(fox_mlb_team_stats("1")) 
-#> ── Fox Sports MLB team_stats ──────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:41:37 UTC
+#> ── Fox Sports MLB team_stats ──────────────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:47 UTC
 #> # A tibble: 28 × 6
 #>    team_id category     stat              stat_abbreviation player value
 #>    <chr>   <chr>        <chr>             <chr>             <chr>  <chr>
@@ -34,9 +34,9 @@ A `baseballr_data` tibble: `team_id`, `category`, `stat`,
 #>  4 1       PLAYER STATS Stolen Bases      SB                Leody… 11   
 #>  5 1       PLAYER STATS Runs Created      RC                Pete … 117.…
 #>  6 1       PLAYER STATS Isolated Power    ISO               Pete … .255 
-#>  7 1       PLAYER STATS Wins              W                 Trevo… 10   
-#>  8 1       PLAYER STATS Earned Run Avera… ERA               Trevo… 4.03 
-#>  9 1       PLAYER STATS Strikeouts        SO                Trevo… 157  
-#> 10 1       PLAYER STATS Pitches / Inning  PC/IP             Trevo… 15.8 
+#>  7 1       PLAYER STATS Wins              W                 Chris… 9    
+#>  8 1       PLAYER STATS Earned Run Avera… ERA               Shane… 4.11 
+#>  9 1       PLAYER STATS Strikeouts        SO                Shane… 154  
+#> 10 1       PLAYER STATS Pitches / Inning  PC/IP             Shane… 16.2 
 #> # ℹ 18 more rows
 ```

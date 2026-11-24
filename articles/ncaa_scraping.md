@@ -27,13 +27,14 @@ library(dplyr)
 ncaa_teams_df <- load_ncaa_baseball_teams()
 ```
 
-From the NCAA website:
+From the NCAA website (this and the
+[`ncaa_team_player_stats()`](https://billpetti.github.io/baseballr/reference/ncaa_team_player_stats.md)
+chunks below are not run when the site is built, because stats.ncaa.org
+blocks requests from cloud servers; run them from your own machine):
 
 ``` r
 
 try(ncaa_teams(year = most_recent_ncaa_baseball_season(), division = "1"))
-#> 2026-11-04 00:46:15.795927: Invalid arguments provided
-#> data frame with 0 columns and 0 rows
 ```
 
 The function,
@@ -59,8 +60,6 @@ team_id <- ncaa_teams_df %>%
 year <- most_recent_ncaa_baseball_season()
 
 ncaa_team_player_stats(team_id = team_id, year = year, "batting")
-#> ! 2026-11-04 00:46:51.09328: Could not resolve the stats.ncaa.org season-team id for team 234 (2026); the roster page was unavailable or challenged. Install {chromote} + Google Chrome to enable the browser fallback.
-#> data frame with 0 columns and 0 rows
 ```
 
 The same can be done for pitching, just by changing the `type`
@@ -69,8 +68,6 @@ parameter:
 ``` r
 
 ncaa_team_player_stats(team_id = team_id, year = year,  "pitching")
-#> ! 2026-11-04 00:47:26.389062: Could not resolve the stats.ncaa.org season-team id for team 234 (2026); the roster page was unavailable or challenged. Install {chromote} + Google Chrome to enable the browser fallback.
-#> data frame with 0 columns and 0 rows
 ```
 
 Now, the function is dependent on the user knowing the `team_id` used by

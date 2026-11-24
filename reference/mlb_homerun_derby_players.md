@@ -118,8 +118,8 @@ Returns a tibble with the following columns
 ``` r
 # \donttest{
   try(mlb_homerun_derby_players(game_pk = 511101))
-#> ── MLB Homerun Derby Players data from MLB.com ────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:44:46 UTC
+#> ── MLB Homerun Derby Players data from MLB.com ────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:40:06 UTC
 #> # A tibble: 8 × 91
 #>   game_pk event_name event_date event_type_code event_type_name venue_id
 #>     <int> <chr>      <chr>      <chr>           <chr>              <int>

@@ -32,8 +32,8 @@ Returns a tibble with the following columns
 ``` r
 # \donttest{
   try(mlb_positions())
-#> ── MLB Positions data from MLB.com ────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:44:55 UTC
+#> ── MLB Positions data from MLB.com ────────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:40:15 UTC
 #> # A tibble: 37 × 11
 #>    position_short_name position_full_name position_abbreviation
 #>    <chr>               <chr>              <chr>                

@@ -168,8 +168,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_team_depthchart(team_id = 13, season = 2025)
-#> ── ESPN MLB Team Depth Chart ──────────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:41:06 UTC
+#> ── ESPN MLB Team Depth Chart ──────────────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:15 UTC
 #> # A tibble: 96 × 10
 #>    league team_id season depthchart_id depthchart_name position  rank
 #>    <chr>  <chr>    <int> <chr>         <chr>           <chr>    <int>

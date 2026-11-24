@@ -134,8 +134,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_player_career_stats(athlete_id = "3730"))
-#> ── ESPN COLLEGE-BASEBALL Athlete Career Stats ─────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:16 UTC
+#> ── ESPN COLLEGE-BASEBALL Athlete Career Stats ─────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:35:24 UTC
 #> # A tibble: 0 × 17
 #> # ℹ 17 variables: league <chr>, athlete_id <chr>, stat_type_id <chr>,
 #> #   split_id <chr>, split_name <chr>, split_type <chr>,
@@ -144,8 +144,8 @@ Saiem Gilani
 #> #   stat_display <chr>, stat_short <chr>, description <chr>,
 #> #   value <dbl>, display_value <chr>
   try(espn_college_baseball_player_career_stats(athlete_id = "3730", stat_type = 2L))
-#> ── ESPN COLLEGE-BASEBALL Athlete Career Stats ─────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:40:16 UTC
+#> ── ESPN COLLEGE-BASEBALL Athlete Career Stats ─────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:35:24 UTC
 #> # A tibble: 0 × 17
 #> # ℹ 17 variables: league <chr>, athlete_id <chr>, stat_type_id <chr>,
 #> #   split_id <chr>, split_name <chr>, split_type <chr>,

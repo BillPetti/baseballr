@@ -70,8 +70,8 @@ Returns a tibble with the following columns
 ``` r
 # \donttest{
   try(mlb_team_affiliates(team_ids = 147))
-#> ── MLB Team Affiliates data from MLB.com ──────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:45:06 UTC
+#> ── MLB Team Affiliates data from MLB.com ──────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:40:26 UTC
 #> # A tibble: 11 × 35
 #>    all_star_status team_id team_full_name         link  season team_code
 #>    <chr>             <int> <chr>                  <chr>  <int> <chr>    

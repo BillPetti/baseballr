@@ -31,8 +31,8 @@ Returns a tibble with the following columns
 ``` r
 # \donttest{
   try(mlb_awards())
-#> ── MLB Awards data from MLB.com ───────────────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:44:30 UTC
+#> ── MLB Awards data from MLB.com ───────────────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:39:49 UTC
 #> # A tibble: 683 × 10
 #>    award_id       award_name   award_description sort_order active notes
 #>    <chr>          <chr>        <chr>                  <int> <lgl>  <chr>

@@ -62,13 +62,20 @@ them in different systems of record and the following columns:
 A data frame of baseball players and the various IDs associated with
 them in different systems of record.
 
+## Details
+
+The register is read from 16 files. A file that fails to download is
+retried twice; one that still fails is named in a warning and left out,
+so the result can be missing players. If no file downloads, the function
+raises an error.
+
 ## Examples
 
 ``` r
 # \donttest{
   try(chadwick_player_lu())
 #> ── Player Lookup from the Chadwick Bureau's public register of baseball 
-#> ℹ Data updated: 2026-11-04 00:39:44 UTC
+#> ℹ Data updated: 2026-11-24 18:34:56 UTC
 #> # A tibble: 527,990 × 40
 #>    key_person key_uuid    key_mlbam key_retro key_bbref key_bbref_minors
 #>    <chr>      <chr>           <int> <chr>     <chr>     <chr>           

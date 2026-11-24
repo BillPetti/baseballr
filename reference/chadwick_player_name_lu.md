@@ -38,13 +38,20 @@ them in different systems of record.
 | key_bbref        | character | Baseball-Reference player ID.         |
 | key_fangraphs    | integer   | FanGraphs player ID.                  |
 
+## Details
+
+The register comes from
+[`chadwick_player_lu()`](https://billpetti.github.io/baseballr/reference/chadwick_player_lu.md);
+if one of its files fails to download, players in that file are missing
+from the result (a warning names the file).
+
 ## Examples
 
 ``` r
 # \donttest{
   try(playername_lookup(4885))
 #> ── Player Name Lookup from the Chadwick Bureau's public register of base
-#> ℹ Data updated: 2026-11-04 00:39:50 UTC
+#> ℹ Data updated: 2026-11-24 18:35:02 UTC
 #> # A tibble: 1 × 11
 #>   name_first name_last name_given  name_suffix name_nick  birth_year
 #>   <chr>      <chr>     <chr>       <chr>       <chr>           <int>
@@ -53,7 +60,7 @@ them in different systems of record.
 #> #   key_retro <chr>, key_bbref <chr>, key_fangraphs <int>
   try(playername_lookup("kaaihki01"))
 #> ── Player Name Lookup from the Chadwick Bureau's public register of base
-#> ℹ Data updated: 2026-11-04 00:39:57 UTC
+#> ℹ Data updated: 2026-11-24 18:35:09 UTC
 #> # A tibble: 1 × 11
 #>   name_first name_last name_given name_suffix name_nick birth_year
 #>   <chr>      <chr>     <chr>      <chr>       <chr>          <int>

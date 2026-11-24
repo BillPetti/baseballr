@@ -186,8 +186,8 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_team_schedule(team_id = "13", season = 2025)
-#> ── ESPN MLB Team Schedule from ESPN.com ───────────── baseballr 2.0.0 ──
-#> ℹ Data updated: 2026-11-04 00:41:10 UTC
+#> ── ESPN MLB Team Schedule from ESPN.com ───────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-24 18:36:20 UTC
 #> # A tibble: 162 × 21
 #>    event_id  season season_type  week date  name  short_name opponent_id
 #>    <chr>      <int>       <int> <int> <chr> <chr> <chr>      <chr>      
