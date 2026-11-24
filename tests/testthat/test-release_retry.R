@@ -132,7 +132,6 @@ test_that("chadwick_player_lu retries a register file and keeps the rest", {
       data.table::data.table(key_person = basename(input))
     }
   )
-  local_mocked_bindings(Sys.sleep = function(time) invisible(NULL), .package = "base")
   expect_warning(x <- chadwick_player_lu(), "people-f.csv", fixed = TRUE)
   expect_equal(nrow(x), 15L)
   expect_true("people-a.csv" %in% x$key_person)
