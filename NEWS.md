@@ -71,6 +71,13 @@
   fails, the warning names its URL and says the result is incomplete; the
   seasons that loaded are still returned.
 
+## Dependencies
+
+- `Rcpp` and `RcppParallel` are no longer imported. baseballr has no compiled
+  code and used neither; `RcppParallel` pulled in TBB on source installs.
+- `furrr`, `ggrepel`, `RSQLite`, `stringi` and `usethis` leave `Suggests`:
+  nothing in the package, its tests or its articles uses them.
+
 ## Documentation
 
 - The `fg_team_batter()` and `fg_team_pitcher()` return tables no longer list
