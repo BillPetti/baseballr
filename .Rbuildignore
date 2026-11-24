@@ -23,6 +23,7 @@
 ^tools$
 ^\.positai$
 ^\.pytest_cache$
+^\.ruff_cache$
 ^\.lintr$
 ^\.ncaa_proxies\.csv$
 ^\.omc$
