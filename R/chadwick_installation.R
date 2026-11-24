@@ -1,7 +1,7 @@
 #' @title Check Chadwick installation
 #' @description
 #' Utility functions to help ensure that Chadwick is set up correctly. 
-#' @return If Chadwick is not installed `NULL`. If Chadwick is installed, the path to the `cwevent` binary.
+#' @return If Chadwick is not installed, `NULL` (invisibly). If Chadwick is installed, the directory that holds the `cwevent` binary.
 #' @export
 #' @examples
 #' chadwick_path()

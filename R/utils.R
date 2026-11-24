@@ -154,7 +154,7 @@ progressively <- function(f, p = NULL){
     warning = function(w) {
       if (inherits(w, "baseballr_warning")) return() # already named by an inner wrapper
       msg <- conditionMessage(w)
-      orig <- setdiff(class(w), c("simpleWarning", "warning", "condition"))
+      orig <- setdiff(class(w), c("simpleWarning", "rlang_warning", "warning", "condition"))
       cli::cli_warn(c("!" = "{fn}(): {msg}"), class = c("baseballr_warning", orig), call = NULL)
       invokeRestart("muffleWarning")
     }

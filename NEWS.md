@@ -84,7 +84,7 @@
   returns its data. 29 of the 124 wrappers above dropped the warning with no
   message, and the other 95 printed a generic "Warning retrieving ..." alert.
   Quiet them with `suppressWarnings(classes = "baseballr_warning")`; the
-  warning keeps its original class too, so an existing `classes =` filter
+  warning keeps any custom class it had, so an existing `classes =` filter
   still matches.
 - Error messages now carry the cause. 108 error handlers (in most of the
   `mlb_*()` and `fg_*()` wrappers, both `sptrc_*()` wrappers,

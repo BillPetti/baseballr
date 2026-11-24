@@ -1292,11 +1292,22 @@ espn_mlb_team_current_roster <- function(team_id) {
           parent_group_id = as.integer(.data$parent_group_id)
         )
 
-      team_roster_full <- team_roster %>%
+      team_fields <- team_roster %>%
         purrr::discard_at(c("groups", "athletes")) %>%
         jsonlite::toJSON() %>%
-        jsonlite::fromJSON(flatten = TRUE) %>%
-        data.frame() %>%
+        jsonlite::fromJSON(flatten = TRUE)
+      # The nested franchise venue makes data.frame() warn that it discarded
+      # row names, on every team. They were never kept, so only that warning
+      # is muffled; any other warning is passed on.
+      team_fields <- withCallingHandlers(
+        data.frame(team_fields),
+        warning = function(w) {
+          if (grepl("row names were found from a short variable", conditionMessage(w), fixed = TRUE)) {
+            invokeRestart("muffleWarning")
+          }
+        }
+      )
+      team_roster_full <- team_fields %>%
         dplyr::slice(1:2) %>%
         dplyr::mutate(
           logo = .data$logos.href[1],

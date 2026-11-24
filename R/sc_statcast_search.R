@@ -251,7 +251,6 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
       )
     }),
     error = function(cond) {
-      cli::cli_alert_danger("{conditionMessage(cond)}")
       stop("No payload acquired: ", conditionMessage(cond), call. = FALSE)
     }
   )
@@ -340,7 +339,7 @@ statcast_search.default <- function(start_date = Sys.Date() - 1, end_date = Sys.
   #   warning("Please wrap your dates in quotations in 'yyyy-mm-dd' format.")
   #   return(NULL)
   # }
-  cli::cli_alert_warning(paste0(start_date, " is not a date. Attempting to coerce..."))
+  cli::cli_alert_warning("{start_date} is not a date. Attempting to coerce...")
   start_Date <- as.Date(start_date)
   
   # as.Date() errors (it does not warn) on an unparseable string, and returns
@@ -350,7 +349,7 @@ statcast_search.default <- function(start_date = Sys.Date() - 1, end_date = Sys.
     as.Date(NA)
   })
   if (length(end_Date) != 1L || is.na(end_Date)) {
-    cli::cli_alert_warning(paste0(end_date, " was not coercible into a date. Using today."))
+    cli::cli_alert_warning("{end_date} was not coercible into a date. Using today.")
     end_Date <- Sys.Date()
   }
   

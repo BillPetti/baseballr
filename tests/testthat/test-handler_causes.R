@@ -74,8 +74,21 @@ test_that("error handlers report the cause of a failed request", {
   )
   local_mocked_bindings(fromJSON = .fail_urls(jsonlite::fromJSON), .package = "jsonlite")
   # rvest::read_html() keeps its own copy of the generic, so fail the URL inside xml2.
+  skip_if_not(exists("path_to_connection", envir = asNamespace("xml2"), inherits = FALSE))
   local_mocked_bindings(path_to_connection = .fail_urls(xml2:::path_to_connection), .package = "xml2")
-  local_mocked_bindings(csv_from_url = function(...) stop("mock outage"))
+  local_mocked_bindings(
+    csv_from_url = function(...) stop("mock outage"),
+    rds_from_url = function(...) stop("mock outage"),
+    # The NCAA scrapers look these up before their tryCatch(); answer offline so
+    # they reach the request that fails.
+    load_ncaa_baseball_season_ids = function(...) {
+      data.frame(season = 2024, id = 1, batting_id = 2, pitching_id = 3, fielding_id = 4)
+    },
+    load_ncaa_baseball_teams = function(...) {
+      data.frame(team_id = 10, team_name = "Team", team_url = "/teams/1", conference_id = 1,
+                 conference = "Conf", division = 1, year = 2024, season_id = 1, season_team_id = 1)
+    }
+  )
 
   silent <- character()
   escaped <- character()

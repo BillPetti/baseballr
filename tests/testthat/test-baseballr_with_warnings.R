@@ -85,3 +85,12 @@ test_that("statcast_search.default() falls back to today for an unparseable end_
   suppressMessages(statcast_search.default("2024-04-01", "2024-04-03"))
   expect_identical(seen$end, as.Date("2024-04-03"))
 })
+
+test_that("chadwick_path() returns NULL with a message when cwevent is not on the PATH", {
+  # It caught system2()'s "status 1" warning with tryCatch(warning =); it now
+  # asks Sys.which(), which returns "" instead of warning.
+  skip_if(nzchar(Sys.which("cwevent")), "cwevent is installed here")
+  expect_message(out <- chadwick_path(), "cwevent is not installed")
+  expect_null(out)
+  expect_false(suppressMessages(chadwick_is_installed()))
+})
