@@ -31,8 +31,8 @@ espn_college_baseball_teams <- function() {
 
   teams <- .empty_baseballr_data("ESPN College Baseball Teams Information from ESPN.com")
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("espn_college_baseball_teams", {
       res <- .retry_request(teams_url)
 
       # Check the result
@@ -107,13 +107,12 @@ espn_college_baseball_teams <- function() {
         janitor::clean_names() %>%
         dplyr::mutate(team_id = as.integer(.data$team_id)) %>%
         make_baseballr_data("ESPN College Baseball Teams Information from ESPN.com", Sys.time())
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no teams data available!",
       args = .args
     ),
-    warning = function(w) {},
     finally = {}
   )
   return(teams)
@@ -159,8 +158,8 @@ espn_college_baseball_scoreboard <- function(season) {
     season_dates
   )
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("espn_college_baseball_scoreboard", {
       res <- .retry_request(schedule_api)
 
       # Check the result
@@ -533,13 +532,12 @@ espn_college_baseball_scoreboard <- function(season) {
             )
         }
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no scoreboard data available!",
       args = .args
     ),
-    warning = function(w) {},
     finally = {}
   )
 }
@@ -577,8 +575,8 @@ espn_college_baseball_standings <- function(year) {
 
   standings <- .empty_baseballr_data("ESPN College Baseball Standings Information from ESPN.com")
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("espn_college_baseball_standings", {
       res <- .retry_request(full_url)
 
       # Check the result
@@ -662,13 +660,12 @@ espn_college_baseball_standings <- function(year) {
           "ESPN College Baseball Standings Information from ESPN.com",
           Sys.time()
         )
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no standings data available!",
       args = .args
     ),
-    warning = function(w) {},
     finally = {}
   )
   return(standings)

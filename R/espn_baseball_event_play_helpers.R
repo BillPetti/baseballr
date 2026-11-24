@@ -24,8 +24,8 @@
     "/plays/", play_id,
     "?lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_event_play", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -70,12 +70,9 @@
           paste0("ESPN ", toupper(league), " Event Play Detail"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} event play detail for event_id={event_id}, play_id={play_id}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} event play detail",
       args = .args),
     finally = {}
   )
@@ -103,8 +100,8 @@
     league, "/events/", event_id, "/competitions/", event_id,
     "/plays/", play_id, "/personnel?lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_event_play_personnel", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -154,12 +151,9 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} play personnel for event_id={event_id}, play_id={play_id}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} play personnel",
       args = .args),
     finally = {}
   )

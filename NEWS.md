@@ -26,8 +26,8 @@
   `tryCatch(warning = )`, which unwinds the call, so a harmless warning (e.g.
   `data.frame()`'s "row names were found from a short variable") made them
   return an empty frame; `espn_mlb_team_current_roster()` returned 0 rows for
-  every team. Those 124 calls now report the warning and carry on (internal
-  `.try_catch()`).
+  every team. Those 124 calls now raise the warning and carry on (see
+  "Warnings and errors now name their source" below).
 - `espn_mlb_game_team_roster()` / `espn_college_baseball_game_team_roster()`
   read the lineup again: ESPN moved it from `items` to `entries` + `pitchers`.
   Rows now carry `role`, `display_name`, `bat_order`, `starter`, `position_id`
@@ -75,6 +75,37 @@
   slow `people-*.csv` no longer fails the whole lookup. A file that still
   fails is named in a warning and left out of the result; if no file
   downloads, it raises an error.
+
+## Warnings and errors now name their source
+
+- Each warning raised while a wrapper parses is passed on as a
+  `baseballr_warning` that names the function, for example
+  `espn_mlb_teams(): NAs introduced by coercion`, and the function still
+  returns its data. 29 of the 124 wrappers above dropped the warning with no
+  message, and the other 95 printed a generic "Warning retrieving ..." alert.
+  Quiet them with `suppressWarnings(classes = "baseballr_warning")`; the
+  warning keeps any custom class it had, so an existing `classes =` filter
+  still matches.
+- Error messages now carry the cause. 108 error handlers (in most of the
+  `mlb_*()` and `fg_*()` wrappers, both `sptrc_*()` wrappers,
+  `load_game_info_sup()`, `load_umpire_ids()`, `ncaa_roster()`,
+  `ncaa_schedule_info()` and `ncaa_teams()`) printed only "Invalid arguments
+  provided" or "Invalid arguments or no ... data available!", so an HTTP 429,
+  a 403 and a parse failure all read like an empty result; they now add the
+  underlying error.
+  Seven ESPN requests whose failure was dropped silently (a season type, a
+  prop-bet page, a leader's name lookup) now say which URL failed and why.
+- `ncaa_pbp()`, `ncaa_roster()` and `ncaa_schedule_info()` return `NULL` with
+  that message when the request fails, instead of erroring with
+  "object 'mapped_table' not found" (or `roster` / `sched`).
+- `statcast_search()` passes on a warning from reading Savant's CSV (a
+  truncated or misaligned export) instead of suppressing it, and its error
+  says why no payload came back.
+- `statcast_search.default()` falls back to today when `end_date` cannot be
+  read as a date, as its message always said. `as.Date()` errors rather than
+  warns on such input, so the fallback never ran and the error escaped.
+- `chadwick_path()` finds `cwevent` with `Sys.which()` and no longer errors
+  when `where` (Windows) lists more than one match.
 
 ## Dependencies
 

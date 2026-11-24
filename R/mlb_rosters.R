@@ -63,6 +63,7 @@ mlb_rosters <- function(team_id = NULL, season = NULL, date = NULL, roster_type 
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no roster data for {team_id} available!")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }

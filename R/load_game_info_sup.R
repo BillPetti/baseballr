@@ -26,6 +26,7 @@ load_game_info_sup <- function() {
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no supplementary game info data available!")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }

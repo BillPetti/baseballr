@@ -70,8 +70,8 @@ espn_mlb_draft <- function(season = most_recent_mlb_season(), ...) {
     if (length(m) >= 2) m[[2]] else NA_character_
   }
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("espn_mlb_draft", {
       # /draft itself returns {rounds, athletes, ...} (no top-level items).
       # /draft/rounds returns a paged collection where each item is a round
       # carrying its picks inline as `picks: [...]`.
@@ -129,15 +129,10 @@ espn_mlb_draft <- function(season = most_recent_mlb_season(), ...) {
       picks_df <- do.call(rbind, pick_rows) %>%
         dplyr::as_tibble() %>%
         make_baseballr_data("ESPN MLB Draft Picks from ESPN.com", Sys.time())
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = paste0("Failed to retrieve ESPN MLB draft data for season ", season),
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = paste0("Warning retrieving ESPN MLB draft data for season ", season),
       args = .args
     ),
     finally = {}
@@ -201,8 +196,8 @@ espn_mlb_freeagents <- function(season = most_recent_mlb_season(), ...) {
 
   fa_df <- data.frame(stringsAsFactors = FALSE)
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("espn_mlb_freeagents", {
       url <- paste0(
         "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb",
         "/seasons/", as.integer(season), "/freeagents"
@@ -304,15 +299,10 @@ espn_mlb_freeagents <- function(season = most_recent_mlb_season(), ...) {
       ) %>%
         dplyr::as_tibble() %>%
         make_baseballr_data("ESPN MLB Free Agents from ESPN.com", Sys.time())
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Failed to retrieve ESPN MLB free agents for season {season}",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning retrieving ESPN MLB free agents for season {season}",
       args = .args
     ),
     finally = {}
@@ -377,8 +367,8 @@ espn_mlb_transactions <- function(
 
   tx_df <- data.frame(stringsAsFactors = FALSE)
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("espn_mlb_transactions", {
       url <- paste0(
         "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb",
         "/transactions?season=", as.integer(season),
@@ -479,15 +469,10 @@ espn_mlb_transactions <- function(
       ) %>%
         dplyr::as_tibble() %>%
         make_baseballr_data("ESPN MLB Transactions from ESPN.com", Sys.time())
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Failed to retrieve ESPN MLB transactions for season {season}",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning retrieving ESPN MLB transactions for season {season}",
       args = .args
     ),
     finally = {}

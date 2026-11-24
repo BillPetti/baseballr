@@ -101,6 +101,9 @@ Execution time after:  <!-- e.g. n/a -->
 - [ ] Function naming uses the correct data-source prefix.
 - [ ] Return value is initialized before `tryCatch`; error path returns an
       empty value with a `cli` message rather than erroring.
+- [ ] `tryCatch` bodies are wrapped in `.baseballr_with_warnings("<fn>", { ... })`
+      with no `warning =` handler, and every `error =` handler includes
+      `{conditionMessage(e)}`.
 - [ ] `man/` and `NAMESPACE` are regenerated and consistent with the source.
 - [ ] Tests are appropriately gated; no test hammers the NCAA stats site.
 - [ ] `NEWS.md` / `cran-comments.md` / `_pkgdown.yml` are consistent for any

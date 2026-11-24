@@ -30,8 +30,8 @@
     league, "/seasons/", season, "/awards?lang=en&region=us"
   )
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_season_awards", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>%
@@ -57,15 +57,10 @@
                  " Season Awards Index"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(
       e,
       hint = "Failed to retrieve ESPN {league} season awards for season={season}",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning retrieving ESPN {league} season awards for season={season}",
       args = .args
     ),
     finally = {}
@@ -102,8 +97,8 @@
     "?lang=en&region=us"
   )
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_award", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>%
@@ -153,15 +148,10 @@
                  " Season Award Detail from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(
       e,
       hint = "Failed to retrieve ESPN {league} award {award_id} for season={season}",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning retrieving ESPN {league} award {award_id} for season={season}",
       args = .args
     ),
     finally = {}

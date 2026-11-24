@@ -36,8 +36,8 @@ espn_college_baseball_conferences <- function() {
     )
   )
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("espn_college_baseball_conferences", {
       play_base_url <- paste0(
         "https://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball",
         "/scoreboard/conferences?seasontype=2"
@@ -77,13 +77,12 @@ espn_college_baseball_conferences <- function() {
           "ESPN College Baseball Conferences Information from ESPN.com",
           Sys.time()
         )
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no conferences info available!",
       args = .args
     ),
-    warning = function(w) .report_api_warning(w, args = .args),
     finally = {}
   )
   return(conferences)

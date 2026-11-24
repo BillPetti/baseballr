@@ -51,8 +51,8 @@
 bref_daily_batter <- function(t1, t2) {
 
   df <- NULL
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("bref_daily_batter", {
       payload <- bref_read_html(paste0("https://www.baseball-reference.com/leagues/daily.cgi?user_team=&bust_cache=&type=b&lastndays=7&dates=fromandto&fromandto=", t1, ".", t2, "&level=mlb&franch=&stat=&stat_value=0"))
       df <- payload |>
         rvest::html_elements(xpath = '//*[@id="daily"]') |>
@@ -86,12 +86,10 @@ bref_daily_batter <- function(t1, t2) {
         dplyr::select("bbref_id", tidyr::everything())
       df <- df |> dplyr::arrange(desc(.data$PA), desc(.data$OPS)) |>
         make_baseballr_data("MLB Daily Batter data from baseball-reference.com",Sys.time())
-    },
+    }),
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no daily batter data available!")
       cli::cli_alert_info("Original error: {conditionMessage(e)}")
-    },
-    warning = function(w) {
     },
     finally = {
     }

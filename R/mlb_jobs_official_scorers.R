@@ -42,6 +42,7 @@ mlb_jobs_official_scorers <- function(sport_id = NULL,
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }

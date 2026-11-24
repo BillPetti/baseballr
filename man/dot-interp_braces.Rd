@@ -16,7 +16,7 @@ character(1).
 }
 \description{
 Replaces \code{{expr}} tokens in \code{template} by evaluating \code{expr} in \code{envir}.
-Used in \code{.report_api_error()} / \code{.report_api_warning()} so callers can write
+Used in \code{.report_api_error()} so callers can write
 hints like \code{"No data for {game_id}"} and have \code{{game_id}} resolve against the
 function's frame at the call-site. Per-token failures leave the literal
 \code{{expr}} in place rather than erroring.

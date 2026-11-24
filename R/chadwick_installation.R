@@ -1,28 +1,20 @@
 #' @title Check Chadwick installation
 #' @description
 #' Utility functions to help ensure that Chadwick is set up correctly. 
-#' @return If Chadwick is not installed `NULL`. If Chadwick is installed, the path to the `cwevent` binary.
+#' @return If Chadwick is not installed, `NULL` (invisibly). If Chadwick is installed, the directory that holds the `cwevent` binary.
 #' @export
 #' @examples
 #' chadwick_path()
 #' 
 
 chadwick_path <- function() {
-  if (.Platform$OS.type == "windows") {
-    cmd <- "where"
-  } else {
-    cmd <- "which"
+  # Sys.which() returns "" when cwevent is not on the PATH; no warning to catch.
+  path <- Sys.which("cwevent")[[1]]
+  if (!nzchar(path)) {
+    cli::cli_alert_warning("cwevent is not installed. Please see https://github.com/chadwickbureau/chadwick/releases for installation instructions. ")
+    return(invisible(NULL))
   }
-  
-  path <- tryCatch(
-    system2(cmd, "cwevent", stdout = TRUE),
-    warning = function(w) {
-      cli::cli_alert_warning("cwevent is not installed. Please see https://github.com/chadwickbureau/chadwick/releases for installation instructions. ")
-    }
-  )
-  if (!is.null(path) && file.exists(path)) {
-    return(dirname(path))
-  }
+  dirname(path)
 }
 
 #' @rdname chadwick_path

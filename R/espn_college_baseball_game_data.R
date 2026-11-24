@@ -43,19 +43,18 @@ espn_college_baseball_game_all <- function(game_id) {
   player_box_score <- NULL
 
   #---- Fetch the summary endpoint (single outer tryCatch) -------------------
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("espn_college_baseball_game_all", {
       res <- .retry_request(full_url)
       check_status(res)
       resp <- res %>%
         .resp_text()
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Could not fetch game summary for game_id = {game_id}",
       args = .args
     ),
-    warning = function(w) {},
     finally = {}
   )
 
@@ -64,54 +63,51 @@ espn_college_baseball_game_all <- function(game_id) {
   }
 
   #---- Play-by-Play ------
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("espn_college_baseball_game_all", {
       plays_df <- helper_espn_mlb_pbp(resp)
 
       if (is.null(plays_df)) {
         message(sprintf("%s: No play-by-play data for %s available!", Sys.time(), game_id))
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no play-by-play data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {},
     finally = {}
   )
   #---- Team Box ------
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("espn_college_baseball_game_all", {
       team_box_score <- helper_espn_mlb_team_box(resp)
 
       if (is.null(team_box_score)) {
         message(sprintf("%s: No team box score data for %s available!", Sys.time(), game_id))
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no team box score data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {},
     finally = {}
   )
   #---- Player Box ------
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("espn_college_baseball_game_all", {
       player_box_score <- helper_espn_mlb_player_box(resp)
 
       if (is.null(player_box_score)) {
         message(sprintf("%s: No player box score data for %s available!", Sys.time(), game_id))
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no player box score data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {},
     finally = {}
   )
 
@@ -156,8 +152,8 @@ espn_college_baseball_pbp <- function(game_id) {
   plays_df <- NULL
 
   #---- Play-by-Play ------
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("espn_college_baseball_pbp", {
       res <- .retry_request(full_url)
 
       # Check the result
@@ -171,13 +167,12 @@ espn_college_baseball_pbp <- function(game_id) {
       if (is.null(plays_df)) {
         return(message(sprintf("%s: No play-by-play data for %s available!", Sys.time(), game_id)))
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no play-by-play data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {},
     finally = {}
   )
 
@@ -220,8 +215,8 @@ espn_college_baseball_team_box <- function(game_id) {
   #---- Team Box ------
   team_box_score <- NULL
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("espn_college_baseball_team_box", {
       res <- .retry_request(full_url)
 
       # Check the result
@@ -235,13 +230,12 @@ espn_college_baseball_team_box <- function(game_id) {
       if (is.null(team_box_score)) {
         return(message(sprintf("%s: No team box score data for %s available!", Sys.time(), game_id)))
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no team box score data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {},
     finally = {}
   )
   return(team_box_score)
@@ -283,8 +277,8 @@ espn_college_baseball_player_box <- function(game_id) {
   #---- Player Box ------
   player_box_score <- NULL
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("espn_college_baseball_player_box", {
       res <- .retry_request(full_url)
 
       # Check the result
@@ -298,13 +292,12 @@ espn_college_baseball_player_box <- function(game_id) {
       if (is.null(player_box_score)) {
         return(message(sprintf("%s: No player box score data for %s available!", Sys.time(), game_id)))
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no player box score data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {},
     finally = {}
   )
   return(player_box_score)
@@ -333,8 +326,8 @@ espn_college_baseball_game_rosters <- function(game_id) {
   on.exit(options(old))
   athlete_roster_df <- .empty_baseballr_data("ESPN College Baseball Game Roster Information from ESPN.com")
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("espn_college_baseball_game_rosters", {
       play_base_url <- paste0(
         "https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/",
         game_id,
@@ -578,13 +571,12 @@ espn_college_baseball_game_rosters <- function(game_id) {
           "ESPN College Baseball Game Roster Information from ESPN.com",
           Sys.time()
         )
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = "Invalid arguments or no game roster data for {game_id} available!",
       args = .args
     ),
-    warning = function(w) {},
     finally = {}
   )
   return(athlete_roster_df)

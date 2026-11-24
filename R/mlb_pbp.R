@@ -353,6 +353,7 @@ mlb_pbp <- function(game_pk, add_base_state = FALSE) {
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }

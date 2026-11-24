@@ -146,7 +146,7 @@ ncaa_teams <- function(year = most_recent_ncaa_baseball_season(), division = 1, 
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      message(glue::glue("{Sys.time()}: Invalid arguments provided: {conditionMessage(e)}"))
     },
     finally = {
     }

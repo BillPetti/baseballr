@@ -650,6 +650,7 @@ fg_team_pitcher <- function(
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team pitching data available!")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }

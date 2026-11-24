@@ -33,8 +33,8 @@
     "?lang=en&region=us"
   )
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_franchise", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>%
@@ -75,15 +75,10 @@
                  " Franchise from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(
       e,
       hint = "Failed to retrieve ESPN {league} franchise={franchise_id}",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning retrieving ESPN {league} franchise={franchise_id}",
       args = .args
     ),
     finally = {}
@@ -117,8 +112,8 @@
     league, "/franchises?limit=200&lang=en&region=us"
   )
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_franchises", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>%
@@ -142,15 +137,10 @@
           paste0("ESPN ", toupper(league), " Franchises Index"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(
       e,
       hint = "Failed to retrieve ESPN {league} franchises index",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning retrieving ESPN {league} franchises index",
       args = .args
     ),
     finally = {}

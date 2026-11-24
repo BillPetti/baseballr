@@ -54,8 +54,8 @@ ncaa_roster <- function(team_id = NULL, year, ...){
     dplyr::distinct()
   
   url <- paste0("https://stats.ncaa.org/team/", team_id, "/roster/", id)
-  
-  
+
+  roster <- NULL
   tryCatch(
     expr = {
       roster_resp <- request_with_proxy(url = url, ...)
@@ -126,7 +126,7 @@ ncaa_roster <- function(team_id = NULL, year, ...){
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided"))
+      message(glue::glue("{Sys.time()}: Invalid arguments provided: {conditionMessage(e)}"))
     },
     finally = {
     }

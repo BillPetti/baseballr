@@ -138,7 +138,7 @@ R/                            # All package source code
                               #   league-parameterized twins of the espn_mlb_* family
   espn_baseball_*_helpers.R / utils_espn.R
                               # shared ESPN httr2 layer (.retry_request, honours
-                              #   options(baseballr.proxy=); .report_api_error/_warning)
+                              #   options(baseballr.proxy=); .report_api_error)
   fox_*.R                     # Fox Sports Bifrost MLB wrappers (fox_mlb_*, 6 functions)
   fangraphs.R                 # FanGraphs doc-grouping topic
   fg_*.R                      # FanGraphs wrappers: fg_batter_leaders, fg_pitcher_leaders,
@@ -224,20 +224,17 @@ mlb_func <- function(...) {
 
   out <- NULL    # <-- MANDATORY. Not inside tryCatch.
 
-  .try_catch(    # not tryCatch(): see "Warning handlers" below
-    expr = {
+  tryCatch(      # no warning = handler: see "Warnings and error causes" below
+    expr = .baseballr_with_warnings("mlb_func", {
       resp <- request_with_proxy(url, ...)
       out  <- resp |>
         # ...parse... |>
         janitor::clean_names() |>
         make_baseballr_data("Data from MLB.com", Sys.time())
-    },
+    }),
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no data available!")
       cli::cli_alert_danger("Error: {conditionMessage(e)}")
-    },
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning: {conditionMessage(w)}")
     },
     finally = {}
   )
@@ -250,17 +247,27 @@ This rule applies to **every return variable name** -- `out`, `df`, `pbp`,
 appropriate empty value: `NULL` for a single-object return, `data.frame()` /
 `list()` where that is the documented shape.
 
-### Warning handlers: `.try_catch()`, never `tryCatch(warning = )`
+### Warnings and error causes: never `tryCatch(warning = )`
 
-A `warning =` handler given to `tryCatch()` unwinds the call, so a harmless
-warning raised while parsing (e.g. `data.frame()`'s "row names were found from a
-short variable and have been discarded") throws the parsed result away and the
-wrapper returns its empty default. That is how `espn_mlb_team_current_roster()`
-returned 0 rows for every team on CRAN 2.0.0. Any wrapper with a `warning =`
-handler uses the internal `.try_catch()` (`R/utils_try_catch.R`): same
-arguments as `tryCatch()`, but `warning` runs as a calling handler and
-evaluation carries on. Plain `tryCatch()` is fine where there is no `warning =`
-handler.
+A `warning =` handler given to `tryCatch()` unwinds the call, even one that only
+reports, so a harmless warning raised while parsing (e.g. `data.frame()`'s "row
+names were found from a short variable and have been discarded") throws the
+parsed result away and the wrapper returns its empty default. That is how
+`espn_mlb_team_current_roster()` returned 0 rows for every team on CRAN 2.0.0.
+Give the `tryCatch()` no `warning =` handler; wrap the body as
+`expr = .baseballr_with_warnings("<function name>", { ... })` (`R/utils.R`). It
+re-raises each warning as a classed `baseballr_warning` naming the function
+(keeping the original classes) and lets the body finish. A
+`withCallingHandlers()` that collects warnings and calls
+`invokeRestart("muffleWarning")` (as `.read_release_asset()` does) is fine.
+
+Every `error =` handler includes `{conditionMessage(e)}` (or calls
+`.report_api_error(e, ...)`), so a 429 or a 403 doesn't read like an empty
+result; that holds for an inner `tryCatch(<request>, error = ...)` fallback too.
+`tests/testthat/test-handler_causes.R` makes every request fail offline
+(`httr2::req_perform()`, URL reads through `jsonlite::fromJSON()` and `xml2`,
+`csv_from_url()`) and fails any function whose handler drops the cause or lets
+the error escape.
 
 ### Messaging Layer
 
@@ -317,8 +324,8 @@ helper appropriate to its source rather than calling `httr`/`httr2` directly.
 **ESPN MLB wrappers** (`espn_mlb_*()`) live in `R/espn_mlb_*.R` (public) over
 shared internals in `R/espn_baseball_*_helpers.R` and the box parsers in
 `R/espn_mlb_box_helpers.R`. They share an `httr2` layer in `R/utils_espn.R`
-(`.retry_request()`, `.resp_text()`, `.report_api_error()` /
-`.report_api_warning()`, `.empty_baseballr_data()`). `.retry_request()` honours a
+(`.retry_request()`, `.resp_text()`, `.report_api_error()`,
+`.empty_baseballr_data()`). `.retry_request()` honours a
 proxy from `options(baseballr.proxy = ...)` (ESPN wrappers do not thread `...`,
 so there is no per-call proxy override). Use `.report_api_error(e, hint, args)` in
 ESPN error handlers (with `.args <- mget(setdiff(names(formals()), "..."))`), not
@@ -586,7 +593,8 @@ co-authors on commits. Omit all `Co-Authored-By` trailers referencing AI tools.
 - Always initialize the return variable (`out <- NULL`, etc.) **before** the
   `tryCatch` block -- see Return-Value Initialization above.
 - Never write `tryCatch(warning = )`: it unwinds and empties the result. Use
-  `.try_catch()` -- see Warning handlers above.
+  `.baseballr_with_warnings("<fn>", { ... })` around the body, and give every
+  `error =` handler its `{conditionMessage(e)}` -- see Warnings and error causes above.
 - Never pass a raw condition object to a `cli_*` function; pass
   `conditionMessage(cond)` through a value placeholder.
 - The NCAA stats site IP-bans scrapers -- run `ncaa_*()` work sparingly and cache

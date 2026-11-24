@@ -19,7 +19,7 @@ chadwick_set_ld_library_path()
 chadwick_ld_library_path()
 }
 \value{
-If Chadwick is not installed \code{NULL}. If Chadwick is installed, the path to the \code{cwevent} binary.
+If Chadwick is not installed, \code{NULL} (invisibly). If Chadwick is installed, the directory that holds the \code{cwevent} binary.
 
 \code{TRUE} or \code{FALSE}
 

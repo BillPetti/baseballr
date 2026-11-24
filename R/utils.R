@@ -139,6 +139,28 @@ progressively <- function(f, p = NULL){
   
 }
 
+# Run a wrapper's tryCatch() body, re-raising each warning with the wrapper's name.
+#
+# A `warning =` handler on tryCatch() unwinds `expr` at the first warning, so a
+# harmless parse warning made the wrapper return its empty default. Wrap the
+# body instead -- `tryCatch(expr = .baseballr_with_warnings("<fn>", { ... }),
+# error = ...)` -- and each warning is re-raised as a classed `baseballr_warning`
+# naming `fn` while the body finishes. The original classes are kept, so a
+# `suppressWarnings(classes = <original>)` filter still matches; a warning an
+# inner wrapper already re-raised passes through unchanged.
+.baseballr_with_warnings <- function(fn, expr) {
+  withCallingHandlers(
+    expr,
+    warning = function(w) {
+      if (inherits(w, "baseballr_warning")) return() # already named by an inner wrapper
+      msg <- conditionMessage(w)
+      orig <- setdiff(class(w), c("simpleWarning", "rlang_warning", "warning", "condition"))
+      cli::cli_warn(c("!" = "{fn}(): {msg}"), class = c("baseballr_warning", orig), call = NULL)
+      invokeRestart("muffleWarning")
+    }
+  )
+}
+
 #' @title
 #' **Load .csv / .csv.gz file from a remote connection**
 #' @description

@@ -49,6 +49,7 @@ fg_park <- function(yr) {
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no park factors data available!")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }
@@ -102,6 +103,7 @@ fg_park_hand <- function(yr) {
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no park factors by handedness data available!")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }
