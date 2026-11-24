@@ -29,8 +29,8 @@
     league, "/seasons/", season, "/types/", season_type,
     "/teams/", team_id, "/odds-records?lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_team_odds_records", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -84,12 +84,9 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} team odds-records for team_id={team_id}, season={season}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} team odds-records",
       args = .args),
     finally = {}
   )
@@ -116,8 +113,8 @@
     league, "/seasons/", season, "/teams/", team_id,
     "/depthcharts?lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_team_depthchart", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -174,12 +171,9 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} team depth chart for team_id={team_id}, season={season}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} team depth chart",
       args = .args),
     finally = {}
   )
@@ -208,8 +202,8 @@
     league, "/seasons/", season, "/teams/", team_id,
     "/athletes?limit=200&lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_team_season_roster", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -231,12 +225,9 @@
           paste0("ESPN ", toupper(league), " Team Season Roster"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} team season roster for team_id={team_id}, season={season}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} team season roster",
       args = .args),
     finally = {}
   )
@@ -263,8 +254,8 @@
     league, "/seasons/", season, "/coaches/", coach_id,
     "?lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_coach_season", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -296,12 +287,9 @@
           paste0("ESPN ", toupper(league), " Coach-in-Season Detail"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} coach-in-season detail for coach_id={coach_id}, season={season}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} coach-in-season detail",
       args = .args),
     finally = {}
   )
@@ -332,8 +320,8 @@
     "/types/", as.integer(season_type),
     "/teams/", team_id, "/statistics?lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_team_season_statistics", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -386,12 +374,9 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} team season statistics for team_id={team_id}, season={season}, season_type={season_type}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} team season statistics",
       args = .args),
     finally = {}
   )

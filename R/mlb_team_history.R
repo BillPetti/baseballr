@@ -66,6 +66,7 @@ mlb_team_history <- function(team_ids = NULL,
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }

@@ -108,6 +108,7 @@ mlb_game_changes <- function(updated_since, sport_id) {
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }

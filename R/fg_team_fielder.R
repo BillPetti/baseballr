@@ -194,6 +194,7 @@ fg_team_fielder <- function(
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team fielding data available!")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }

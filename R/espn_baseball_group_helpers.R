@@ -22,7 +22,10 @@
       league, "/seasons/", season, "/types/", st,
       "/groups?limit=200&lang=en&region=us"
     )
-    res <- tryCatch(.retry_request(url), error = function(e) NULL)
+    res <- tryCatch(.retry_request(url), error = function(e) {
+      cli::cli_alert_danger("Request to {url} failed: {conditionMessage(e)}")
+      NULL
+    })
     if (is.null(res) || httr2::resp_status(res) != 200L) return(NULL)
     raw <- res %>% .resp_text() %>%
       jsonlite::fromJSON(simplifyVector = FALSE)
@@ -43,8 +46,8 @@
   }
 
   result <- NULL
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_season_groups", {
       parts <- list()
       for (st in season_type) {
         df <- fetch_one(as.integer(st))
@@ -69,12 +72,9 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} season groups for season={season}, season_type={season_type}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} season groups",
       args = .args),
     finally = {}
   )
@@ -99,8 +99,8 @@
     league, "/seasons/", season, "/types/", season_type,
     "/groups/", group_id, "?lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_season_group", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -131,12 +131,9 @@
           paste0("ESPN ", toupper(league), " Season Group Detail"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} group {group_id} for season={season}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} group {group_id}",
       args = .args),
     finally = {}
   )
@@ -161,8 +158,8 @@
     league, "/seasons/", season, "/types/", season_type,
     "/groups/", group_id, "/children?limit=200&lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_season_group_children", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -185,12 +182,9 @@
           paste0("ESPN ", toupper(league), " Season Group Children Index"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} group {group_id} children",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} group {group_id} children",
       args = .args),
     finally = {}
   )
@@ -215,8 +209,8 @@
     league, "/seasons/", season, "/types/", season_type,
     "/groups/", group_id, "/teams?limit=200&lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_season_group_teams", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -239,12 +233,9 @@
           paste0("ESPN ", toupper(league), " Season Group Teams Index"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} group {group_id} teams",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} group {group_id} teams",
       args = .args),
     finally = {}
   )

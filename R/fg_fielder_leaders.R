@@ -199,6 +199,7 @@ fg_fielder_leaders <- function(
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no player fielding leaders data available!")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }

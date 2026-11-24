@@ -181,6 +181,7 @@ mlb_schedule <- function(season = 2019, level_ids = '1'){
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }

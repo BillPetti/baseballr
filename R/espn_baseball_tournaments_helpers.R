@@ -22,8 +22,8 @@
     league, "/tournaments?limit=200&lang=en&region=us"
   )
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_tournaments", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -45,13 +45,9 @@
           paste0("ESPN ", toupper(league), " Tournaments Index"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(
       e, hint = "Failed to retrieve ESPN {league} tournaments",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w, hint = "Warning retrieving ESPN {league} tournaments",
       args = .args
     ),
     finally = {}
@@ -79,8 +75,8 @@
     league, "/tournaments/", tournament_id, "?lang=en&region=us"
   )
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_tournament", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -101,15 +97,10 @@
           paste0("ESPN ", toupper(league), " Tournament Detail"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(
       e,
       hint = "Failed to retrieve ESPN {league} tournament {tournament_id}",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning retrieving ESPN {league} tournament {tournament_id}",
       args = .args
     ),
     finally = {}
@@ -139,8 +130,8 @@
     league, "/tournaments/", tournament_id, "/seasons?limit=200&lang=en&region=us"
   )
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_tournament_seasons", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>% .resp_text() %>%
@@ -167,15 +158,10 @@
                  " Tournament Seasons"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(
       e,
       hint = "Failed to retrieve ESPN {league} tournament {tournament_id} seasons",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning retrieving ESPN {league} tournament {tournament_id} seasons",
       args = .args
     ),
     finally = {}
@@ -200,8 +186,8 @@
     league, "/tournaments/", tournament_id,
     "/seasons/", season, "?lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_tournament_season", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -225,12 +211,9 @@
           paste0("ESPN ", toupper(league), " Tournament Season Detail"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} tournament season detail for tournament_id={tournament_id}, season={season}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} tournament season detail",
       args = .args),
     finally = {}
   )

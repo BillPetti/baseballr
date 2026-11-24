@@ -43,6 +43,7 @@ mlb_venues <- function(venue_ids = NULL, sport_ids = NULL, season = NULL){
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }

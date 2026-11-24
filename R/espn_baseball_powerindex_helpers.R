@@ -28,8 +28,8 @@
   page <- 1L
   page_count <- NA_integer_
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_powerindex", {
       repeat {
         url <- paste0(
           "https://sports.core.api.espn.com/v2/sports/baseball/leagues/",
@@ -101,15 +101,10 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(
       e,
       hint = "Failed to retrieve ESPN {league} powerindex for season={season}",
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = "Warning retrieving ESPN {league} powerindex for season={season}",
       args = .args
     ),
     finally = {}

@@ -50,8 +50,8 @@ espn_mlb_game_probables <- function(game_id) {
     game_id
   )
   out <- .empty_baseballr_data("ESPN MLB Probable Pitchers from ESPN.com")
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("espn_mlb_game_probables", {
       res <- .retry_request(url)
       check_status(res)
       j <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyVector = FALSE)
@@ -97,12 +97,9 @@ espn_mlb_game_probables <- function(game_id) {
           janitor::clean_names() %>%
           make_baseballr_data("ESPN MLB Probable Pitchers from ESPN.com", Sys.time())
       }
-    },
+    }),
     error = function(e) .report_api_error(
       e, hint = "No probable-pitcher data for {game_id} available!", args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w, hint = "Warning retrieving probable pitchers for {game_id}", args = .args
     ),
     finally = {}
   )
@@ -153,8 +150,8 @@ espn_mlb_game_info <- function(game_id) {
     game_id
   )
   out <- .empty_baseballr_data("ESPN MLB Game Info from ESPN.com")
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("espn_mlb_game_info", {
       res <- .retry_request(url)
       check_status(res)
       j <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyVector = FALSE)
@@ -191,12 +188,9 @@ espn_mlb_game_info <- function(game_id) {
       out <- df %>%
         janitor::clean_names() %>%
         make_baseballr_data("ESPN MLB Game Info from ESPN.com", Sys.time())
-    },
+    }),
     error = function(e) .report_api_error(
       e, hint = "No game-info data for {game_id} available!", args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w, hint = "Warning retrieving game info for {game_id}", args = .args
     ),
     finally = {}
   )

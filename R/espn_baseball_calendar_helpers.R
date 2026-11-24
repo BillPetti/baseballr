@@ -26,8 +26,8 @@
 
   calendar <- .empty_baseballr_data(paste0("ESPN ", toupper(league), " Calendar from ESPN.com"))
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_calendar", {
       res <- .retry_request(url)
       check_status(res)
 
@@ -195,18 +195,11 @@
           paste0("ESPN ", toupper(league), " Calendar from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = paste0(
         "Failed to retrieve ESPN ", league, " calendar for season=", season
-      ),
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = paste0(
-        "Warning retrieving ESPN ", league, " calendar for season=", season
       ),
       args = .args
     ),

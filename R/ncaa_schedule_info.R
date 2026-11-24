@@ -61,7 +61,8 @@ ncaa_schedule_info <- function(team_id = NULL, year = NULL, pbp_links = FALSE, .
     dplyr::first()
   
   url <- paste0("https://stats.ncaa.org/team/", team_id, "/", id)
-  
+
+  sched <- NULL
   tryCatch(
     expr = {
       content <- request_with_proxy(url = url, ...)
@@ -328,7 +329,7 @@ ncaa_schedule_info <- function(team_id = NULL, year = NULL, pbp_links = FALSE, .
       
     },
     error = function(e) {
-      message(glue::glue("{Sys.time()}: Invalid arguments provided (team_id: {team_id}, year = {year})"))
+      message(glue::glue("{Sys.time()}: Invalid arguments provided (team_id: {team_id}, year = {year}): {conditionMessage(e)}"))
     },
     finally = {
     }

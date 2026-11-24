@@ -18,8 +18,8 @@
     league, "/athletes/", athlete_id,
     "/seasons?limit=200&lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_athlete_seasons", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -42,12 +42,9 @@
           paste0("ESPN ", toupper(league), " Athlete Seasons"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} athlete seasons for athlete_id={athlete_id}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} athlete seasons",
       args = .args),
     finally = {}
   )
@@ -85,7 +82,10 @@
       league, "/athletes/", athlete_id, "/statistics", type_segment,
       "?lang=en&region=us"
     )
-    res <- tryCatch(.retry_request(url), error = function(e) NULL)
+    res <- tryCatch(.retry_request(url), error = function(e) {
+      cli::cli_alert_danger("Request to {url} failed: {conditionMessage(e)}")
+      NULL
+    })
     if (is.null(res)) return(list())
     if (httr2::resp_status(res) != 200) return(list())
     raw <- res %>% .resp_text() %>%
@@ -128,8 +128,8 @@
     rows
   }
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_athlete_career_stats", {
       all_rows <- list()
       types_to_fetch <- if (length(stat_type) == 0L) list(NULL) else as.list(stat_type)
       for (t in types_to_fetch) {
@@ -163,12 +163,9 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} athlete career stats for athlete_id={athlete_id}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} athlete career stats",
       args = .args),
     finally = {}
   )
@@ -198,8 +195,8 @@
     league, "/seasons/", season, "/athletes/", athlete_id,
     "/eventlog?lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_athlete_eventlog_v2", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -245,12 +242,9 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} athlete event log for athlete_id={athlete_id}, season={season}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} athlete event log",
       args = .args),
     finally = {}
   )

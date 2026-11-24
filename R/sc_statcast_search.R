@@ -241,22 +241,18 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
   # message(url)
   
   # Do a try/catch to show errors that the user may encounter while downloading.
+  # A read warning (a truncated or misaligned CSV) is passed on with the
+  # function's name instead of being suppressed; an error stops the call.
   payload <- NULL
   tryCatch(
-    { 
+    expr = .baseballr_with_warnings("statcast_search", {
       suppressMessages(
-        suppressWarnings(
-          payload <- csv_from_url(url, encoding ="UTF-8")
-        )
+        payload <- csv_from_url(url, encoding ="UTF-8")
       )
-    },
+    }),
     error = function(cond) {
       cli::cli_alert_danger("{conditionMessage(cond)}")
-      stop("No payload acquired")
-    },
-    # this will never run??
-    warning = function(cond) {
-      cli::cli_alert_warning("{conditionMessage(cond)}")
+      stop("No payload acquired: ", conditionMessage(cond), call. = FALSE)
     }
   )
   # Baseball Savant's CSV export carries a header row whose names are already
@@ -347,17 +343,16 @@ statcast_search.default <- function(start_date = Sys.Date() - 1, end_date = Sys.
   cli::cli_alert_warning(paste0(start_date, " is not a date. Attempting to coerce..."))
   start_Date <- as.Date(start_date)
   
-  tryCatch(
-    {
-      end_Date <- as.Date(end_date)
-    },
-    warning = function(cond) {
-      cli::cli_alert_warning(paste0(end_date, " was not coercible into a date. Using today."))
-      end_Date <- Sys.Date()
-      cli::cli_alert_warning("Original warning message:")
-      cli::cli_alert_warning("{conditionMessage(cond)}")
-    }
-  )
+  # as.Date() errors (it does not warn) on an unparseable string, and returns
+  # NA for "" or NA; either way fall back to today in this frame.
+  end_Date <- tryCatch(as.Date(end_date), error = function(cond) {
+    cli::cli_alert_warning("Original error message: {conditionMessage(cond)}")
+    as.Date(NA)
+  })
+  if (length(end_Date) != 1L || is.na(end_Date)) {
+    cli::cli_alert_warning(paste0(end_date, " was not coercible into a date. Using today."))
+    end_Date <- Sys.Date()
+  }
   
   statcast_search(start_Date, end_Date,
                   playerid, player_type, ...)

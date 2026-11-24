@@ -46,8 +46,8 @@ fg_projections <- function(type = "steamer", stats = "bat", team = 0,
   )
 
   df <- NULL
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings("fg_projections", {
       payload <- fg_api_call(url)
       df <- payload |>
         dplyr::as_tibble() |>
@@ -56,12 +56,10 @@ fg_projections <- function(type = "steamer", stats = "bat", team = 0,
           paste0("FanGraphs ", type, " ", stats, " projections data from FanGraphs.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no projections data available!")
       cli::cli_alert_info("Original error: {conditionMessage(e)}")
-    },
-    warning = function(w) {
     },
     finally = {
     }

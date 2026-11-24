@@ -71,6 +71,7 @@ mlb_team_leaders <- function(team_id = NULL,
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }

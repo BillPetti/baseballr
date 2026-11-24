@@ -48,8 +48,8 @@ ncaa_pbp <- function(game_info_url = NA_character_,
                               read_from_file = FALSE,
                               file = NA_character_,
                               ...) {
-  
-  
+
+  mapped_table <- NULL
   tryCatch(
     expr = {
       if (is.na(game_info_url) && is.na(game_pbp_url) && is.na(file)) {

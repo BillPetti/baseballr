@@ -575,6 +575,7 @@ fg_team_batter <- function(
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no team batting data available!")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }

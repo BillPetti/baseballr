@@ -22,6 +22,7 @@ load_umpire_ids <- function() {
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no Umpire IDs data available!")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }

@@ -415,6 +415,7 @@ fg_pitcher_game_logs <- function(playerid, year) {
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no pitcher game log data available!")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }

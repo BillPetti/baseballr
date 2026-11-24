@@ -16,8 +16,8 @@
     league, "/seasons/", season, "/draft/rounds/", round,
     "/picks/", pick, "?lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_draft_pick", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -52,12 +52,9 @@
           paste0("ESPN ", toupper(league), " Draft Pick Detail"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} draft pick for season={season}, round={round}, pick={pick}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} draft pick",
       args = .args),
     finally = {}
   )
@@ -84,8 +81,8 @@
     league, "/seasons/", season,
     "/draft/rounds?lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_draft_rounds", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -129,12 +126,9 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} draft rounds for season={season}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} draft rounds",
       args = .args),
     finally = {}
   )
@@ -156,8 +150,8 @@
     league, "/seasons/", season,
     "/draft/athletes?limit=200&lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_draft_athletes", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -178,12 +172,9 @@
           paste0("ESPN ", toupper(league), " Draft Athletes"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} draft athletes for season={season}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} draft athletes",
       args = .args),
     finally = {}
   )
@@ -205,8 +196,8 @@
     league, "/seasons/", season,
     "/draft/status?lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_draft_status", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -226,12 +217,9 @@
           paste0("ESPN ", toupper(league), " Draft Status"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} draft status for season={season}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} draft status",
       args = .args),
     finally = {}
   )
@@ -254,8 +242,8 @@
     league, "/seasons/", season,
     "/draft/athletes/", athlete_id, "?lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_draft_athlete_detail", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -303,12 +291,9 @@
           paste0("ESPN ", toupper(league), " Draft Athlete Detail"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} draft athlete detail for season={season}, athlete_id={athlete_id}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} draft athlete detail",
       args = .args),
     finally = {}
   )
@@ -336,8 +321,8 @@
     "https://sports.core.api.espn.com/v2/sports/baseball/leagues/",
     league, "/seasons/", season, "/draft?lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_season_draft", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -364,12 +349,9 @@
           paste0("ESPN ", toupper(league), " Season Draft (top-level)"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} season draft top-level for season={season}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} season draft top-level",
       args = .args),
     finally = {}
   )

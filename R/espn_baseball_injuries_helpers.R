@@ -33,8 +33,8 @@
 
   injuries_df <- .empty_baseballr_data(paste0("ESPN ", toupper(league), " Injury Information from ESPN.com"))
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_league_injuries", {
       url <- paste0(
         "https://site.api.espn.com/apis/site/v2/sports/baseball/",
         league,
@@ -90,16 +90,13 @@
           paste0("ESPN ", toupper(league), " Injury Information from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(
         e,
         hint = "Invalid arguments or no injury data available for {league} season {season}!",
         args = .args
       )
-    },
-    warning = function(w) {
-      .report_api_warning(w, args = .args)
     },
     finally = {}
   )
@@ -135,8 +132,8 @@
 
   injuries_df <- .empty_baseballr_data(paste0("ESPN ", toupper(league), " Team Injury Information from ESPN.com"))
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_team_injuries", {
       url <- paste0(
         "https://site.api.espn.com/apis/site/v2/sports/baseball/",
         league,
@@ -192,16 +189,13 @@
           paste0("ESPN ", toupper(league), " Team Injury Information from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) {
       .report_api_error(
         e,
         hint = "Invalid arguments or no injury data available for team {team_id} in {league}!",
         args = .args
       )
-    },
-    warning = function(w) {
-      .report_api_warning(w, args = .args)
     },
     finally = {}
   )

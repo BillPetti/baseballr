@@ -53,6 +53,7 @@ mlb_awards_recipient <- function(award_id = NULL, sport_id = NULL, league_id = N
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments provided")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }

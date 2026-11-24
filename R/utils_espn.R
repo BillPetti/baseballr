@@ -95,7 +95,7 @@ NULL
 #' Minimal brace-template interpolator
 #'
 #' Replaces `{expr}` tokens in `template` by evaluating `expr` in `envir`.
-#' Used in `.report_api_error()` / `.report_api_warning()` so callers can write
+#' Used in `.report_api_error()` so callers can write
 #' hints like `"No data for {game_id}"` and have `{game_id}` resolve against the
 #' function's frame at the call-site. Per-token failures leave the literal
 #' `{expr}` in place rather than erroring.
@@ -161,39 +161,11 @@ NULL
   invisible(NULL)
 }
 
-#' Report an API-call warning with full context
-#'
-#' Mirrors `.report_api_error()` for `tryCatch(warning = ...)` handlers.
-#' @param w warning condition.
-#' @param hint character. Same semantics as `.report_api_error()`'s `hint`.
-#'   Defaults to "Request emitted a warning".
-#' @param args optional named list of caller arguments to dump.
-#' @keywords internal
-#' @return Invisibly `NULL`. Called for its side effects.
-.report_api_warning <- function(w, hint = NULL, args = list()) {
-  caller_env <- parent.frame()
-  hint_text <- if (!is.null(hint)) .interp_braces(hint, envir = caller_env) else "Request emitted a warning"
-  cli::cli_alert_warning("{Sys.time()}: {hint_text}")
-  if (length(args) > 0) {
-    args_str <- paste0(
-      names(args), " = ",
-      vapply(args, function(a) {
-        s <- tryCatch(deparse(a, width.cutoff = 60)[1], error = function(...) "<?>")
-        if (nchar(s) > 60) paste0(substr(s, 1, 60), "...") else s
-      }, character(1)),
-      collapse = ", "
-    )
-    cli::cli_alert_warning("Args: {args_str}")
-  }
-  cli::cli_alert_warning("Warning: {conditionMessage(w)}")
-  invisible(NULL)
-}
-
 #' Capture the calling function's formal arguments
 #'
 #' Returns a named list of the bound formal arguments (excluding `...`) of the
-#' calling function, suitable for passing to `.report_api_error()` /
-#' `.report_api_warning()`. Tolerates `...`-only / arg-less wrappers (where
+#' calling function, suitable for passing to `.report_api_error()`. Tolerates
+#' `...`-only / arg-less wrappers (where
 #' `names(formals())` is `NULL`).
 #' @keywords internal
 #' @return Named list. Empty list if the caller has no non-`...` formals.

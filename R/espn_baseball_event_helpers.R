@@ -37,8 +37,8 @@
     "/probabilities"
   )
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_event_probabilities", {
       all_rows  <- list()
       total_rows <- 0L
       page_idx   <- 1L
@@ -165,19 +165,11 @@
           ),
           Sys.time()
         )
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = paste0(
         "Failed to retrieve ESPN ", league,
-        " event probabilities for event_id=", event_id
-      ),
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = paste0(
-        "Warning retrieving ESPN ", league,
         " event probabilities for event_id=", event_id
       ),
       args = .args
@@ -218,8 +210,8 @@
     "/officials"
   )
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_event_officials", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
@@ -296,19 +288,11 @@
           paste0("ESPN ", toupper(league), " Event Officials (event_id=", event_id, ") from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = paste0(
         "Failed to retrieve ESPN ", league,
-        " event officials for event_id=", event_id
-      ),
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = paste0(
-        "Warning retrieving ESPN ", league,
         " event officials for event_id=", event_id
       ),
       args = .args
@@ -349,8 +333,8 @@
     "/broadcasts"
   )
 
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_event_broadcasts", {
       res <- .retry_request(url)
       check_status(res)
       raw <- res %>% .resp_text() %>% jsonlite::fromJSON(simplifyDataFrame = TRUE)
@@ -441,19 +425,11 @@
           paste0("ESPN ", toupper(league), " Event Broadcasts (event_id=", event_id, ") from ESPN.com"),
           Sys.time()
         )
-    },
+    }),
     error = function(e) .report_api_error(
       e,
       hint = paste0(
         "Failed to retrieve ESPN ", league,
-        " event broadcasts for event_id=", event_id
-      ),
-      args = .args
-    ),
-    warning = function(w) .report_api_warning(
-      w,
-      hint = paste0(
-        "Warning retrieving ESPN ", league,
         " event broadcasts for event_id=", event_id
       ),
       args = .args
@@ -478,8 +454,8 @@
     league, "/events/", event_id, "/competitions/", event_id,
     "/situation?lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_event_situation", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -518,12 +494,9 @@
           paste0("ESPN ", toupper(league), " Event Situation"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} event situation for event_id={event_id}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} event situation",
       args = .args),
     finally = {}
   )
@@ -545,8 +518,8 @@
     league, "/events/", event_id, "/competitions/", event_id,
     "/predictor?lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_event_predictor", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -603,12 +576,9 @@
             Sys.time()
           )
       }
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} event predictor for event_id={event_id}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} event predictor",
       args = .args),
     finally = {}
   )
@@ -630,8 +600,8 @@
     league, "/events/", event_id, "/competitions/", event_id,
     "/powerindex?limit=200&lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_event_powerindex", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -652,12 +622,9 @@
           paste0("ESPN ", toupper(league), " Event Power Index"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} event powerindex for event_id={event_id}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} event powerindex",
       args = .args),
     finally = {}
   )
@@ -680,8 +647,8 @@
     league, "/events/", event_id, "/competitions/", event_id,
     "/officials/", as.integer(order), "?lang=en&region=us"
   )
-  .try_catch(
-    expr = {
+  tryCatch(
+    expr = .baseballr_with_warnings(".espn_baseball_event_official_detail", {
       res <- .retry_request(url); check_status(res)
       raw <- res %>% .resp_text() %>%
         jsonlite::fromJSON(simplifyVector = FALSE)
@@ -707,12 +674,9 @@
           paste0("ESPN ", toupper(league), " Event Official Detail"),
           Sys.time()
         )
-    },
+    }),
     error   = function(e) .report_api_error(e,
       hint = "Failed to retrieve ESPN {league} event official detail for event_id={event_id}, order={order}",
-      args = .args),
-    warning = function(w) .report_api_warning(w,
-      hint = "Warning retrieving ESPN {league} event official detail",
       args = .args),
     finally = {}
   )

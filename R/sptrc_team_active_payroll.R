@@ -161,6 +161,7 @@ sptrc_team_active_payroll <- function(team_abbr, year = most_recent_mlb_season()
     },
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no contract data available!")
+      cli::cli_alert_danger("Error: {conditionMessage(e)}")
     },
     finally = {
     }

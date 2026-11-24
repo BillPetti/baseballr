@@ -11,8 +11,8 @@ Named list. Empty list if the caller has no non-\code{...} formals.
 }
 \description{
 Returns a named list of the bound formal arguments (excluding \code{...}) of the
-calling function, suitable for passing to \code{.report_api_error()} /
-\code{.report_api_warning()}. Tolerates \code{...}-only / arg-less wrappers (where
+calling function, suitable for passing to \code{.report_api_error()}. Tolerates
+\code{...}-only / arg-less wrappers (where
 \code{names(formals())} is \code{NULL}).
 }
 \keyword{internal}
