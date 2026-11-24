@@ -119,3 +119,33 @@ test_that("a group loader warns with the url when the csv keeps failing", {
   expect_warning(x <- load_mlb_groups(), "mlb_groups.csv", fixed = TRUE)
   expect_equal(nrow(x), 0L)
 })
+
+test_that("chadwick_player_lu retries a register file and keeps the rest", {
+  calls <- 0L
+  local_mocked_bindings(
+    csv_from_url = function(input, ...) {
+      calls <<- calls + 1L
+      if (endsWith(input, "people-a.csv") && calls <= 11L) {
+        stop("cannot open URL: Timeout of 150 seconds was reached")
+      }
+      if (endsWith(input, "people-f.csv")) stop("persistent failure")
+      data.table::data.table(key_person = basename(input))
+    }
+  )
+  expect_warning(x <- chadwick_player_lu(), "people-f.csv", fixed = TRUE)
+  expect_equal(nrow(x), 15L)
+  expect_true("people-a.csv" %in% x$key_person)
+  expect_false("people-f.csv" %in% x$key_person)
+  expect_s3_class(x, "baseballr_data")
+})
+
+test_that("chadwick_player_lu errors when no register file downloads", {
+  local_mocked_bindings(csv_from_url = function(input, ...) {
+    warning("cannot open URL: HTTP status was '404 Not Found'")
+    stop("cannot open the connection")
+  })
+  expect_error(
+    suppressWarnings(chadwick_player_lu()),
+    "Could not download any Chadwick register file"
+  )
+})

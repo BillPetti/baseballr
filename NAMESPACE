@@ -404,8 +404,6 @@ export(woba_plus)
 import(dplyr)
 import(rvest)
 import(utils)
-importFrom(Rcpp,getRcppVersion)
-importFrom(RcppParallel,defaultNumThreads)
 importFrom(cli,cli_abort)
 importFrom(data.table,
   data.table,

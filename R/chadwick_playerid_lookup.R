@@ -2,6 +2,7 @@
 #' @title **Look up Baseball Player IDs by Player Name**
 #'
 #' @description This function allows you to query the Chadwick Bureau's public register of baseball players and the various IDs associated with them in different systems of record.
+#' @details The register comes from [chadwick_player_lu()]; if one of its files fails to download, players in that file are missing from the result (a warning names the file).
 #' @param last_name A text string used to return results for players with that string in their last name.
 #' @param first_name A text string used to return results for players with that string in their first name.
 #' @return A data frame of baseball players and the various IDs associated with them in different systems of record.

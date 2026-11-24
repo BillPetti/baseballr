@@ -55,10 +55,8 @@ unacceptable behavior to the maintainer at <saiem.gilani@gmail.com>.
    devtools::install_dev_deps()
    ```
 
-4. **Branch from `master`.** `master` is the default and release branch.
-   Active development is currently staged on `development_branch`; ask the
-   maintainer which base to branch from if you are unsure, but the safe default
-   is the latest `master`.
+4. **Branch from `master`.** `master` is the default and release branch, and
+   every change lands on it through a pull request.
 
    ```sh
    git checkout master

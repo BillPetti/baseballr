@@ -1,5 +1,9 @@
 #' @rdname chadwick_player_lu
 #' @title **Download the Chadwick Bureau's public register of baseball players**
+#' @details The register is read from 16 files. A file that fails to download
+#'   is retried twice; one that still fails is named in a warning and left out,
+#'   so the result can be missing players. If no file downloads, the function
+#'   raises an error.
 #' @return A data frame of baseball players and the various IDs associated with them in different systems of record 
 #' and the following columns: 
 #' 
@@ -54,8 +58,13 @@ chadwick_player_lu <- function() {
   old <- options(list(stringsAsFactors = FALSE, scipen = 999))
   on.exit(options(old))
   
-  loader <- csv_from_url
-  
+  # Retry a failed register download (raised timeout, 404 not retried); a file
+  # that still fails is warned about by URL and left out of the result.
+  loader <- function(url) {
+    out <- .read_release_asset(url, csv_from_url)
+    if (inherits(out, "try-error")) NULL else out
+  }
+
   hex_seq <- c(0:9, letters[1:6])
   suppressWarnings(
     urls <- paste0("https://raw.githubusercontent.com/chadwickbureau/register/master/data/people-", hex_seq,".csv")
@@ -64,6 +73,9 @@ chadwick_player_lu <- function() {
   if (is_installed("progressr")) p <- progressr::progressor(along = hex_seq)
   
   df <- lapply(urls, progressively(loader, p))
+  if (all(vapply(df, is.null, logical(1)))) {
+    cli::cli_abort("Could not download any Chadwick register file; see the warnings above.")
+  }
   df <- rbindlist_with_attrs(df)
   class(df) <- c("baseballr_data","tbl_df","tbl","data.frame")
   

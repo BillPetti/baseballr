@@ -25,7 +25,7 @@ baseballr is an R package for acquiring and analyzing baseball data from online
 sources. It wraps the MLB Stats API, ESPN (MLB and NCAA college baseball), Fox
 Sports (Bifrost), FanGraphs, Baseball Reference, Baseball Savant / Statcast, the
 NCAA baseball stats site, Spotrac, the Chadwick Bureau register, and Retrosheet,
-exporting ~375 functions across multiple data-source families: `mlb_*()`,
+exporting 400 functions across multiple data-source families: `mlb_*()`,
 `espn_mlb_*()`, `espn_college_baseball_*()`, `fox_mlb_*()`, `fg_*()`, `bref_*()`,
 `statcast_*()` / `scrape_statcast_savant*()`, `ncaa_*()`, `sptrc_*()`,
 `chadwick_*()`, `retrosheet_*()`, plus `load_*()` data loaders,
@@ -46,18 +46,36 @@ never renamed against it. Minors and WBC use separate Savant routes via
 
 ## Release-dataset loaders
 
-`load_mlb_*` (11, `R/mlb_model_loaders.R`) share `.mlb_model_release_loader()`
-over the sportsdataverse-data tags mlb_hitting_models / mlb_pitching_models /
-mlb_fielding_models / mlb_game_state, mirroring sportsdataverse-py's
-`load_mlb_*` surface. NCAA loaders cover ncaa_baseball_pbp / _schedules
-(assets currently end at 2023 — backfill tracked in #367/#325). Every test in
-the suite leads with `skip_on_cran()`; new tests must too.
+There are 16 `load_mlb_*` loaders, all mirroring sportsdataverse-py's
+`load_mlb_*` surface:
+
+- 11 model-output loaders (`R/mlb_model_loaders.R`) share
+  `.mlb_model_release_loader()` over the sportsdataverse-data tags
+  mlb_hitting_models / mlb_pitching_models / mlb_fielding_models /
+  mlb_game_state.
+- 4 group loaders (`R/load_groups.R`: `load_mlb_groups()`,
+  `load_mlb_group_seasons()`, `load_mlb_group_aliases()`,
+  `load_mlb_team_group_seasons()`) read the `mlb_groups` release; their 4
+  `load_ncaa_baseball_*group*()` twins read `ncaa_baseball_groups`. Ids
+  (`team_id`, `group_id`) stay character, so cast before joining to the
+  integer ids from `mlb_teams()` and the Stats API.
+- `load_mlb_park_dimensions()` (`R/load_parks.R`) reads the `mlb_parks` release;
+  `venue_id` stays character.
+
+Other NCAA loaders cover ncaa_baseball_pbp (2015-2026) / _schedules
+(2012-2026). Every release read goes through `.read_release_asset()`
+(`R/utils.R`): timeout raised to at least 150 s, two retries, no retry on 404,
+and a warning naming the URL of a file that still fails.
+
+Every live test leads with its source gate and `skip_on_cran()`; new tests must
+too. Offline tests (`test-*_offline.R`) replay recorded responses -- see
+**Testing**.
 
 
 When this guide differs from current repository docs, treat `CONTRIBUTING.md` and
 current test implementations as authoritative.
 
-- **Version**: 2.0.0.9000
+- **Version**: 2.1.0
 - **R Requirement**: >= 4.1.0 (the package uses the native pipe `|>`)
 - **License**: MIT
 - **Author (aut)**: Bill Petti <billpetti@gmail.com>
@@ -69,8 +87,8 @@ current test implementations as authoritative.
 ## Branching & PR Workflow
 
 - `master` is the default branch and release branch (NOT `main`).
-- Active development happens on `development_branch`; create feature branches
-  from the latest stable base and target `master` in PRs.
+- Create feature branches from the latest `master` and target `master` in PRs.
+  (`development_branch` is retired.)
 - Keep code, tests, and roxygen/docs updates in the same PR when changing
   exported behavior.
 
@@ -96,10 +114,15 @@ devtools::install()
 pkgdown::build_site()
 ```
 
-CI under `.github/workflows/`: `R-CMD-check.yaml` (R CMD check matrix),
-`pkgdown.yaml` (builds + deploys the pkgdown site), and `rhub.yaml`
-(R-hub multi-platform checks). None set the live-test env vars, so the
-external-service tests skip on CI — see **Testing** below.
+CI under `.github/workflows/`: `R-CMD-check.yaml` (R CMD check matrix: macOS,
+Windows and Ubuntu on R release, Ubuntu on R devel and oldrel-1; also a weekly
+Friday cron), `test-coverage.yaml` (covr; publishes the self-hosted coverage
+badge to the `badges` branch), `pkgdown.yaml` (builds + deploys the pkgdown
+site), and `rhub.yaml` (R-hub v2, `workflow_dispatch` only). `R-CMD-check.yaml`
+and `test-coverage.yaml` set `FANGRAPHS_TESTS`, `MLB_STATS_TESTS`,
+`STATCAST_TESTS`, `SPOTRAC_TESTS`, `CHADWICK_TESTS` and `BASEBALLR_LOAD_TESTS`
+to `"1"` (and `BREF_TESTS` / `NCAA_BASEBALL_TESTS` to `"0"`), so those live
+tests DO hit the network on CI -- see **Testing** below.
 
 ## Project Structure
 
@@ -201,7 +224,7 @@ mlb_func <- function(...) {
 
   out <- NULL    # <-- MANDATORY. Not inside tryCatch.
 
-  tryCatch(
+  .try_catch(    # not tryCatch(): see "Warning handlers" below
     expr = {
       resp <- request_with_proxy(url, ...)
       out  <- resp |>
@@ -226,6 +249,18 @@ This rule applies to **every return variable name** -- `out`, `df`, `pbp`,
 `leaders`, `payrolls`, `roster`, `resp`, `data`, etc. Initialize to the
 appropriate empty value: `NULL` for a single-object return, `data.frame()` /
 `list()` where that is the documented shape.
+
+### Warning handlers: `.try_catch()`, never `tryCatch(warning = )`
+
+A `warning =` handler given to `tryCatch()` unwinds the call, so a harmless
+warning raised while parsing (e.g. `data.frame()`'s "row names were found from a
+short variable and have been discarded") throws the parsed result away and the
+wrapper returns its empty default. That is how `espn_mlb_team_current_roster()`
+returned 0 rows for every team on CRAN 2.0.0. Any wrapper with a `warning =`
+handler uses the internal `.try_catch()` (`R/utils_try_catch.R`): same
+arguments as `tryCatch()`, but `warning` runs as a calling handler and
+evaluation carries on. Plain `tryCatch()` is fine where there is no `warning =`
+handler.
 
 ### Messaging Layer
 
@@ -366,6 +401,8 @@ source gate.**
 | Chadwick (`chadwick_*`) | `CHADWICK_TESTS=1`       | `skip_chadwick_test()`  |
 | Data loaders (`load_*`) | `BASEBALLR_LOAD_TESTS=1` | `skip_load_test()`      |
 | ESPN MLB (`espn_mlb_*`) | `ESPN_MLB_TESTS=1`       | `skip_espn_test()`      |
+| ESPN college baseball   | `ESPN_CBASE_TESTS=1`     | `skip_espn_college_baseball_test()` |
+| Fox Sports (`fox_mlb_*`) | `FOX_TESTS=1`           | `skip_fox_test()`       |
 
 ```r
 # Run one source's live tests locally:
@@ -375,6 +412,16 @@ Sys.setenv(MLB_STATS_TESTS = "1"); devtools::test()
 Set `NCAA_BASEBALL_TESTS=1` only deliberately and sparingly (the NCAA site IP-bans
 scrapers). Purely computational tests (e.g. `metrics_*` on a supplied data
 frame) are **not** gated.
+
+### Offline tests (recorded HTTP fixtures)
+
+`test-espn_offline.R`, `test-mlb_offline.R`, `test-fox_offline.R`,
+`test-fg_offline.R` and `test-statcast_metrics_offline.R` need no source gate:
+`local_http_fixtures()` (`tests/testthat/helper-http_fixtures.R`) answers every
+`httr2` request from `tests/testthat/fixtures/http/index.json`, and a URL that
+was never recorded gets a 404, so the test fails instead of reaching the
+network. Re-record with `data-raw/http_fixtures/record_fixtures.R`. They still
+call `skip_on_cran()`.
 
 ### Test Pattern
 
@@ -538,6 +585,8 @@ co-authors on commits. Omit all `Co-Authored-By` trailers referencing AI tools.
 
 - Always initialize the return variable (`out <- NULL`, etc.) **before** the
   `tryCatch` block -- see Return-Value Initialization above.
+- Never write `tryCatch(warning = )`: it unwinds and empties the result. Use
+  `.try_catch()` -- see Warning handlers above.
 - Never pass a raw condition object to a `cli_*` function; pass
   `conditionMessage(cond)` through a value placeholder.
 - The NCAA stats site IP-bans scrapers -- run `ncaa_*()` work sparingly and cache
