@@ -9,7 +9,8 @@ write code that fits the `baseballr` package. They mirror the fuller
 
 `baseballr` acquires and analyzes baseball data from several online sources. It
 is an R package (>= 4.1.0, MIT licensed). The default and release branch is
-`master`; active development happens on feature branches and `development_branch`.
+`master`; work happens on feature branches that open pull requests against
+`master`.
 
 ## Function naming by data source
 
@@ -53,6 +54,13 @@ Use the prefix that matches the data source. Never mix sources behind one prefix
   }
   ```
 
+- **Warning handlers go through `.try_catch()`.** A `warning =` handler given to
+  `tryCatch()` unwinds the call, so a harmless warning (e.g. `data.frame()`'s
+  "row names were found from a short variable") throws the parsed result away
+  and the wrapper returns its empty default. Use the internal `.try_catch()`
+  (`R/utils_try_catch.R`): same arguments, but `warning` runs as a calling
+  handler and evaluation carries on. Keep plain `tryCatch()` only where there
+  is no `warning =` handler.
 - **Messaging via `cli`.** Use `cli::cli_alert_danger()` in error handlers,
   `cli::cli_alert_warning()` / `cli::cli_alert_info()` elsewhere, and
   `cli::cli_warn()` / `cli::cli_abort()` for raised conditions. Never pass a raw
@@ -129,7 +137,12 @@ Use the prefix that matches the data source. Never mix sources behind one prefix
 
 - `statcast_search()` trusts Savant's CSV header row as-is. NEVER rename columns positionally from a fixed vector — that caused the recurring shifted-columns bug class (#416 et al.). `statcast_columns` is a reference schema used only to surface drift.
 - Minors/WBC searches are separate Savant routes: `statcast_search_minors()` / `statcast_search_wbc()` (pass `route=` through the core; don't fork the body).
-- Every test leads with `skip_on_cran()`; the suite runs fully in CI (`NOT_CRAN=true`).
+- Live tests lead with their source gate and `skip_on_cran()`. CI turns on the
+  FanGraphs, MLB Stats, Statcast, Spotrac, Chadwick and loader gates; the ESPN,
+  Fox, Baseball Reference and NCAA live tests stay off there. Offline tests
+  replay recorded responses via `local_http_fixtures()`
+  (`tests/testthat/helper-http_fixtures.R`); they need no gate but still
+  `skip_on_cran()`.
 
 ## Cheat sheet
 
