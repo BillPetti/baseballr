@@ -73,15 +73,6 @@ pak::pak("BillPetti/baseballr")
 # remotes::install_github("BillPetti/baseballr")
 ```
 
-For experimental functions in development, you can install the [development branch](https://github.com/BillPetti/baseballr/tree/development_branch):
-
-```r
-pak::pak("BillPetti/baseballr@development_branch")
-# or, with remotes:
-# if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
-# remotes::install_github("BillPetti/baseballr", ref = "development_branch")
-```
-
 ## **Quick start**
 
 ```r
@@ -274,10 +265,9 @@ section](https://github.com/billpetti/baseballr/issues).
 ## **Pull Requests**
 
 Pull request are welcome, but I cannot guarantee that they will be
-accepted or accepted quickly. Please make all pull requests to the
-[development
-branch](https://github.com/billpetti/baseballr/tree/development_branch)
-for review.
+accepted or accepted quickly. Please branch from `master` and open pull
+requests against `master`; see
+[CONTRIBUTING.md](https://github.com/BillPetti/baseballr/blob/master/CONTRIBUTING.md).
 
 ## **Documentation**
 
