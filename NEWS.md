@@ -1,6 +1,6 @@
 # baseballr 2.1.0
 
-### New features
+## New features
 
 - `load_mlb_groups()`, `load_mlb_group_seasons()`, `load_mlb_group_aliases()`,
   `load_mlb_team_group_seasons()` and their `load_ncaa_baseball_*()` twins —
@@ -15,8 +15,12 @@
   from the MLB Stats API with cited corrections for fence moves the API lags
   or misses; `venue_id` stays character.
 
-### Bug fixes
+## Bug fixes
 
+- `stats` moves from `Suggests` to `Imports` (#424, @MichaelChirico). The
+  package imports from it in `NAMESPACE`, which R-devel reports as "Base
+  package in Suggests/Enhances imported in NAMESPACE"; this clears that NOTE
+  on the CRAN r-devel check flavours.
 - A warning while parsing no longer throws away the result. The ESPN wrappers,
   `bref_daily_batter()` and `fg_projections()` caught warnings with
   `tryCatch(warning = )`, which unwinds the call, so a harmless warning (e.g.
@@ -55,7 +59,10 @@
   `make_baseballr_data()`, still listed `data.table`, so `tail()` failed with
   "Can't subset columns past the end" (the bug fixed in hoopR as
   [hoopR#88](https://github.com/sportsdataverse/hoopR/issues/88)). The class is
-  now `baseballr_data` / `tbl_df` / `tbl` / `data.frame`.
+  now `baseballr_data` / `tbl_df` / `tbl` / `data.frame`, so these results no
+  longer inherit from `data.table` (they never carried a valid `data.table`
+  self-reference): code that tests `inherits(x, "data.table")` on them now
+  gets `FALSE`. Convert with `data.table::as.data.table()` if you need one.
 - A slow release download no longer drops a season from a multi-season load.
   The `.rds` and group `.csv` reads behind every release-backed `load_*()`
   loader raise the download timeout to at least 150 seconds (a larger
@@ -64,7 +71,14 @@
   fails, the warning names its URL and says the result is incomplete; the
   seasons that loaded are still returned.
 
-### Tests
+## Documentation
+
+- The `fg_team_batter()` and `fg_team_pitcher()` return tables no longer list
+  `rFTeamV`, `rBTeamV` and `rTV` (#434): FanGraphs' team leaderboards stopped
+  returning them. The player leaderboards (`fg_batter_leaders()`,
+  `fg_pitcher_leaders()`) still return them and are unchanged.
+
+## Tests
 
 - Offline tests for the ESPN MLB / college baseball, MLB Stats API and Fox
   wrappers replay responses recorded from those sources
