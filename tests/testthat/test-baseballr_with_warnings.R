@@ -21,6 +21,7 @@ test_that("nested .baseballr_with_warnings() raises one warning, named by the in
   )
   expect_length(w, 1L)
   expect_match(w, "inner\\(\\): boom")
+  expect_no_match(w, "outer", fixed = TRUE) # not re-named by the outer wrapper
 })
 
 test_that(".baseballr_with_warnings() keeps return(), error handling, finally and the original class", {
