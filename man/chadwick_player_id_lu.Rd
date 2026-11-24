@@ -30,6 +30,9 @@ A data frame of baseball players and the various IDs associated with them in dif
 \description{
 This function allows you to query the Chadwick Bureau's public register of baseball players and the various IDs associated with them in different systems of record.
 }
+\details{
+The register comes from \code{\link[=chadwick_player_lu]{chadwick_player_lu()}}; if one of its files fails to download, players in that file are missing from the result (a warning names the file).
+}
 \examples{
 \donttest{
   try(playerid_lookup("Garcia", "Karim"))

@@ -60,6 +60,12 @@ A data frame of baseball players and the various IDs associated with them in dif
 \description{
 \strong{Download the Chadwick Bureau's public register of baseball players}
 }
+\details{
+The register is read from 16 files. A file that fails to download
+is retried twice; one that still fails is named in a warning and left out,
+so the result can be missing players. If no file downloads, the function
+raises an error.
+}
 \examples{
 \donttest{
   try(chadwick_player_lu())

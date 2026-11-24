@@ -73,7 +73,8 @@
 - `chadwick_player_lu()` (and `playerid_lookup()` / `playername_lookup()`,
   which call it) retries the Chadwick register downloads the same way, so one
   slow `people-*.csv` no longer fails the whole lookup. A file that still
-  fails is named in a warning and left out of the result.
+  fails is named in a warning and left out of the result; if no file
+  downloads, it raises an error.
 
 ## Dependencies
 

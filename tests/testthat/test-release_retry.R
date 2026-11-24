@@ -138,3 +138,14 @@ test_that("chadwick_player_lu retries a register file and keeps the rest", {
   expect_false("people-f.csv" %in% x$key_person)
   expect_s3_class(x, "baseballr_data")
 })
+
+test_that("chadwick_player_lu errors when no register file downloads", {
+  local_mocked_bindings(csv_from_url = function(input, ...) {
+    warning("cannot open URL: HTTP status was '404 Not Found'")
+    stop("cannot open the connection")
+  })
+  expect_error(
+    suppressWarnings(chadwick_player_lu()),
+    "Could not download any Chadwick register file"
+  )
+})
