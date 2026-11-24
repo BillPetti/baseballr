@@ -3,7 +3,7 @@ title: "NCAA Scraping"
 author: "Bill Petti, Saiem Gilani <br><a href='https://x.com/BillPetti' target='blank'><img src='https://img.shields.io/twitter/follow/BillPetti?color=blue&amp;label=%40BillPetti&amp;logo=x&amp;style=for-the-badge' alt='@BillPetti'/></a> <a href='https://github.com/BillPetti' target='blank'><img src='https://img.shields.io/github/followers/BillPetti?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@BillPetti'/></a> <a href='https://x.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=x&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
 date: "2016-11-22"
 output: html_document
-description: "Pulling college baseball player and team statistics from the NCAA's website with <code>ncaa_scrape()</code>, including batting, pitching and fielding splits by season."
+description: "Pulling college baseball player and team statistics from the NCAA's website with <code>ncaa_team_player_stats()</code>, including batting, pitching and fielding statistics by season."
 opengraph:
   image:
     src: "https://raw.githubusercontent.com/sportsdataverse/baseballr-data/main/themes/baseballr_gh.png"
@@ -29,8 +29,8 @@ library(baseballr)
 library(dplyr)
 ncaa_teams_df <- load_ncaa_baseball_teams()
 ```
-From the NCAA website:
-```{r ncaa_teams_website}
+From the NCAA website (this and the `ncaa_team_player_stats()` chunks below are not run when the site is built, because stats.ncaa.org blocks requests from cloud servers; run them from your own machine):
+```{r ncaa_teams_website, eval = FALSE}
 try(ncaa_teams(year = most_recent_ncaa_baseball_season(), division = "1"))
 ```
 
@@ -42,7 +42,7 @@ The function, ```ncaa_team_player_stats()```, requires the user to pass values f
 
 If you want to pull batting statistics for Florida State for the `r baseballr::most_recent_ncaa_baseball_season()` season, you would use the following:
 
-```{r ncaa_scrape_batting}
+```{r ncaa_scrape_batting, eval = FALSE}
 
 team_id <- ncaa_teams_df %>% 
   dplyr::filter(.data$team_name == "Florida St.") %>% 
@@ -59,7 +59,7 @@ ncaa_team_player_stats(team_id = team_id, year = year, "batting")
 
 The same can be done for pitching, just by changing the `type` parameter:
 
-```{r ncaa_scrape_pitching}
+```{r ncaa_scrape_pitching, eval = FALSE}
 ncaa_team_player_stats(team_id = team_id, year = year,  "pitching")
 ```
 
