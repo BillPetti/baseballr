@@ -38,6 +38,9 @@
   `category_abbr` and `display_value`.
 - `espn_mlb_conferences()` / `espn_college_baseball_conferences()` return the
   documented empty frame instead of erroring when ESPN sends no conferences.
+- `espn_mlb_betting()` keeps the against-the-spread table for a completed
+  game. ESPN sends an empty `pickcenter` once a game is over, and parsing it
+  raised an error that emptied all three tables.
 - `edge_code()` accepts Statcast data: `plate_x` / `plate_z` / `description`
   are used when the PITCHf/x `px` / `pz` / `des2` columns are absent, and pitch
   descriptions are matched case-insensitively.

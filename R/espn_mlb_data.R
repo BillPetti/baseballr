@@ -2128,7 +2128,7 @@ espn_mlb_betting <- function(game_id) {
         .resp_text()
 
       raw_summary <- jsonlite::fromJSON(resp)
-      if ("pickcenter" %in% names(raw_summary)) {
+      if (length(raw_summary$pickcenter) > 0) {
         pickcenter <- jsonlite::fromJSON(
           jsonlite::toJSON(raw_summary$pickcenter),
           flatten = TRUE
