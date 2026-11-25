@@ -52,6 +52,13 @@ A tibble with one row per ranking source.
 
 **Get ESPN MLB Per-Week Rankings Index**
 
+## Endpoint status
+
+As of November 2026 ESPN publishes no MLB rankings: the season and week
+ranking lists are empty for every season tried and a single ranking
+answers HTTP 404, so this function returns an empty tibble. It is kept
+in case ESPN serves the route again.
+
 ## See also
 
 Other ESPN MLB Functions:
@@ -176,7 +183,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_week_rankings(week = 5, season = 2025)
 #> ── ESPN MLB Week Rankings Index ───────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:17:25 UTC
+#> ℹ Data updated: 2026-11-25 06:03:26 UTC
 #> # A tibble: 0 × 6
 #> # ℹ 6 variables: league <chr>, season <int>, season_type <int>,
 #> #   week <int>, ranking_id <chr>, ref <chr>

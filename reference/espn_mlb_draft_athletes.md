@@ -41,6 +41,16 @@ this typically returns an empty tibble. When populated, the columns are:
 
 **Get ESPN MLB Draft Athletes Index**
 
+## Endpoint status
+
+As of November 2026 ESPN serves no MLB draft data:
+`seasons/{season}/draft` answers HTTP 404 and `draft/rounds` and
+`draft/athletes` are empty for every season tried (2019 to 2026), so
+this function returns an empty tibble. It is kept in case ESPN serves
+the route again.
+[`espn_mlb_draft_status()`](https://billpetti.github.io/baseballr/reference/espn_mlb_draft_status.md)
+still answers.
+
 ## See also
 
 Other ESPN MLB Functions:
@@ -165,7 +175,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_draft_athletes(season = 2024)
 #> ── ESPN MLB Draft Athletes ────────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:44 UTC
+#> ℹ Data updated: 2026-11-25 06:02:45 UTC
 #> # A tibble: 0 × 4
 #> # ℹ 4 variables: league <chr>, season <int>, athlete_id <chr>,
 #> #   ref <chr>

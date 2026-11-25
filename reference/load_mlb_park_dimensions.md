@@ -70,7 +70,7 @@ A `baseballr_data` tibble:
 # \donttest{
   try(load_mlb_park_dimensions())
 #> ── MLB park dimensions from the SportsDataverse data repo ──────────────
-#> ℹ Data updated: 2026-11-25 04:17:52 UTC
+#> ℹ Data updated: 2026-11-25 06:03:58 UTC
 #> # A tibble: 1,503 × 20
 #>    league season venue_id venue_name  retro_park_id left_line_ft left_ft
 #>    <chr>   <int> <chr>    <chr>       <chr>                <int>   <int>

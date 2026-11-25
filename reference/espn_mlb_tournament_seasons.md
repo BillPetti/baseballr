@@ -30,6 +30,13 @@ A tibble with one row per season.
 | season        | integer   | Season year.                     |
 | ref           | character | Full `$ref` URL for that season. |
 
+## Endpoint status
+
+As of November 2026 ESPN answers the `tournaments` routes with HTTP 400
+("getTournaments() not supported for baseball/mlb") for every id, so
+this function returns an empty tibble. It is kept in case ESPN serves
+the route again.
+
 ## See also
 
 Other ESPN MLB Functions:
@@ -153,11 +160,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_tournament_seasons(tournament_id = 1)
-#> ✖ 2026-11-25 04:17:24.031012: espn_mlb_tournament_seasons(): Failed to retrieve ESPN mlb tournament 1 seasons
+#> ✖ 2026-11-25 06:03:25.284743: espn_mlb_tournament_seasons(): Failed to retrieve ESPN mlb tournament 1 seasons
 #> ✖ Args: league = "mlb", tournament_id = 1
 #> ✖ Error: HTTP 400 Bad Request from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/tournaments/1/seasons
 #> ── ESPN MLB Tournament Seasons ────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:17:24 UTC
+#> ℹ Data updated: 2026-11-25 06:03:25 UTC
 #> # A tibble: 0 × 0
 # }
 ```

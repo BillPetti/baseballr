@@ -289,15 +289,18 @@ athlete came in for another player. Pair with
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="fu">espn_mlb_game_team_roster_entry</span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401283399</span>,</span></span>
-<span class="r-in"><span>                                            team_id <span class="op">=</span> <span class="fl">13</span>,</span></span>
+<span class="r-in"><span>  <span class="fu">espn_mlb_game_team_roster_entry</span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401701044</span>,</span></span>
+<span class="r-in"><span>                                            team_id <span class="op">=</span> <span class="fl">10</span>,</span></span>
 <span class="r-in"><span>                                            athlete_id <span class="op">=</span> <span class="fl">33192</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 04:16:52.19332: espn_mlb_game_team_roster_entry(): Failed to retrieve ESPN mlb event roster entry for event_id=401283399, team_id=13, athlete_id=33192</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "mlb", event_id = 401283399, team_id = 13, athlete_id = 33192</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/competitors/13/roster/33192</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Event Competitor Roster Entry ─────────── <span style="font-style: italic;">baseballr 2.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:52 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:02:57 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 16</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   league event_id  team_id athlete_id player_id period active starter</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> mlb    401701044 10      33192      33192          1 TRUE   TRUE   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 8 more variables: did_not_play &lt;lgl&gt;, reason &lt;chr&gt;, ejected &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   for_player_id &lt;chr&gt;, jersey &lt;chr&gt;, display_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   athlete_ref &lt;chr&gt;, position_ref &lt;chr&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

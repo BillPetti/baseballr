@@ -150,6 +150,15 @@ ID and the <code>$ref</code> URL.</p>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A tibble with one row per tournament.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>tournament_id</td><td>character</td><td>ESPN tournament identifier.</td></tr><tr><td>ref</td><td>character</td><td>Full <code>$ref</code> URL for the detail.</td></tr><tr><td>league</td><td>character</td><td>League slug (<code>"mlb"</code>).</td></tr></table></div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN answers the <code>tournaments</code> routes with HTTP 400
+("getTournaments() not supported for baseball/mlb") for every id, so this
+function returns an empty tibble. It is kept in case ESPN serves the route
+again.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN MLB Functions:
 <code><a href="espn_mlb.html">espn_mlb</a></code>,
@@ -272,11 +281,11 @@ ID and the <code>$ref</code> URL.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_mlb_tournaments</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 04:17:24.30992: espn_mlb_tournaments(): Failed to retrieve ESPN mlb tournaments</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 06:03:25.546146: espn_mlb_tournaments(): Failed to retrieve ESPN mlb tournaments</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "mlb"</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: HTTP 400 Bad Request from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/tournaments</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Tournaments Index ─────────────────────── <span style="font-style: italic;">baseballr 2.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:17:24 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:03:25 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

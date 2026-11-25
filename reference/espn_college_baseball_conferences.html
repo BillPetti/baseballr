@@ -139,6 +139,15 @@ Get ESPN College Baseball Conferences"><meta property="og:image" content="https:
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A <code>baseballr_data</code> tibble with one row per conference:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>group_id</td><td>integer</td><td>Group identifier (e.g. conference group_id).</td></tr><tr><td>conference_short_name</td><td>character</td><td>Conference short name (e.g. 'ACC').</td></tr><tr><td>conference_uid</td><td>character</td><td>ESPN universal conference identifier.</td></tr><tr><td>conference_name</td><td>character</td><td>Full conference name.</td></tr><tr><td>conference_logo</td><td>character</td><td>Logo image URL for conference.</td></tr><tr><td>parent_group_id</td><td>integer</td><td>Unique identifier for parent group.</td></tr><tr><td>conference_id</td><td>integer</td><td>Conference identifier.</td></tr></table></div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN's <code>scoreboard/conferences</code> route returns no
+college baseball conferences, so this function returns an empty tibble. It
+is kept in case ESPN serves the route again.
+<code><a href="espn_college_baseball_season_groups.html">espn_college_baseball_season_groups()</a></code> lists the conferences.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN College Baseball Functions:
 <code><a href="espn_college_baseball_athletes_index.html">espn_college_baseball_athletes_index()</a></code>,
@@ -221,7 +230,7 @@ Get ESPN College Baseball Conferences"><meta property="og:image" content="https:
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_college_baseball_conferences</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN College Baseball Conferences Information from ESPN.com ─────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:17 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:02:14 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7 variables: group_id &lt;chr&gt;, conference_short_name &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   conference_uid &lt;chr&gt;, conference_name &lt;chr&gt;, conference_logo &lt;chr&gt;,</span></span>

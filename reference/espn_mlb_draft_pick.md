@@ -57,6 +57,16 @@ A single-row tibble.
 
 **Get ESPN MLB Draft Pick Detail**
 
+## Endpoint status
+
+As of November 2026 ESPN serves no MLB draft data:
+`seasons/{season}/draft` answers HTTP 404 and `draft/rounds` and
+`draft/athletes` are empty for every season tried (2019 to 2026), so
+this function returns an empty tibble. It is kept in case ESPN serves
+the route again.
+[`espn_mlb_draft_status()`](https://billpetti.github.io/baseballr/reference/espn_mlb_draft_status.md)
+still answers.
+
 ## See also
 
 Other ESPN MLB Functions:
@@ -180,11 +190,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_draft_pick(season = 2024, round = 1, pick = 1)
-#> ✖ 2026-11-25 04:16:44.218505: espn_mlb_draft_pick(): Failed to retrieve ESPN mlb draft pick for season=2024, round=1, pick=1
+#> ✖ 2026-11-25 06:02:45.728457: espn_mlb_draft_pick(): Failed to retrieve ESPN mlb draft pick for season=2024, round=1, pick=1
 #> ✖ Args: league = "mlb", season = 2024, round = 1, pick = 1
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/draft/rounds/1/picks/1
 #> ── ESPN MLB Draft Pick Detail ─────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:44 UTC
+#> ℹ Data updated: 2026-11-25 06:02:45 UTC
 #> # A tibble: 0 × 0
 # }
 ```

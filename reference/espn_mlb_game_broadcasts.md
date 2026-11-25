@@ -160,12 +160,15 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_game_broadcasts(event_id = "401283399")
-#> ✖ 2026-11-25 04:16:46.301126: espn_mlb_game_broadcasts(): Failed to retrieve ESPN mlb event broadcasts for event_id=401283399
-#> ✖ Args: league = "mlb", event_id = "401283399"
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/broadcasts
-#> ── ESPN MLB Event Broadcasts (event_id=401283399) from ESPN.com ────────
-#> ℹ Data updated: 2026-11-25 04:16:46 UTC
-#> # A tibble: 0 × 0
+  espn_mlb_game_broadcasts(event_id = "401701044")
+#> ── ESPN MLB Event Broadcasts (event_id=401701044) from ESPN.com ────────
+#> ℹ Data updated: 2026-11-25 06:02:50 UTC
+#> # A tibble: 2 × 10
+#>   event_id broadcast_id type_id type_short_name type_long_name market_id
+#>   <chr>    <chr>        <chr>   <chr>           <chr>          <chr>    
+#> 1 4017010… NA           5       Radio           Radio          1        
+#> 2 4017010… NA           1       TV              Television     1        
+#> # ℹ 4 more variables: market_type <chr>, names <chr>, lang <chr>,
+#> #   region <chr>
 # }
 ```

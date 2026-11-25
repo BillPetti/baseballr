@@ -45,6 +45,13 @@ frequently returns an empty tibble. When populated, the columns are:
 | value         | numeric   | Statistic value.                |
 | display_value | character | Human-readable statistic value. |
 
+## Endpoint status
+
+As of November 2026 ESPN lists no college baseball coaches
+(`seasons/{season}/coaches` is empty for 2024 to 2026) and answers HTTP
+404 for coach ids, so this function returns an empty tibble. It is kept
+in case ESPN serves the route again.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -127,11 +134,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_coach_record(coach_id = 52120, record_type = 2))
-#> ✖ 2026-11-25 04:16:17.011292: espn_college_baseball_coach_record(): Failed to retrieve ESPN college-baseball coach record for coach_id=52120, record_type=2
+#> ✖ 2026-11-25 06:02:13.306598: espn_college_baseball_coach_record(): Failed to retrieve ESPN college-baseball coach record for coach_id=52120, record_type=2
 #> ✖ Args: league = "college-baseball", coach_id = 52120, record_type = 2
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/coaches/52120/record/2
 #> ── ESPN COLLEGE-BASEBALL Coach Record ─────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:16 UTC
+#> ℹ Data updated: 2026-11-25 06:02:13 UTC
 #> # A tibble: 0 × 0
 # }
 ```

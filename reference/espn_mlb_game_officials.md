@@ -158,12 +158,18 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_game_officials(event_id = "401283399")
-#> ✖ 2026-11-25 04:16:47.465029: espn_mlb_game_officials(): Failed to retrieve ESPN mlb event officials for event_id=401283399
-#> ✖ Args: league = "mlb", event_id = "401283399"
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/officials
-#> ── ESPN MLB Event Officials (event_id=401283399) from ESPN.com ─────────
-#> ℹ Data updated: 2026-11-25 04:16:47 UTC
-#> # A tibble: 0 × 0
+  espn_mlb_game_officials(event_id = "401701044")
+#> ── ESPN MLB Event Officials (event_id=401701044) from ESPN.com ─────────
+#> ℹ Data updated: 2026-11-25 06:02:51 UTC
+#> # A tibble: 6 × 8
+#>   event_id  official_id full_name display_name position_id position_name
+#>   <chr>     <chr>       <chr>     <chr>        <chr>       <chr>        
+#> 1 401701044 NA          NA        Mark Ripper… 206         Home Plate U…
+#> 2 401701044 NA          NA        Todd Tichen… 207         First Base U…
+#> 3 401701044 NA          NA        Carlos Torr… 208         Second Base …
+#> 4 401701044 NA          NA        Andy Fletch… 209         Third Base U…
+#> 5 401701044 NA          NA        Mark Carlson 210         Left Field U…
+#> 6 401701044 NA          NA        Doug Eddings 211         Right Field …
+#> # ℹ 2 more variables: position_type <chr>, order <int>
 # }
 ```

@@ -170,12 +170,17 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_coach_record(coach_id = 52120, record_type = 2)
-#> ✖ 2026-11-25 04:16:42.698011: espn_mlb_coach_record(): Failed to retrieve ESPN mlb coach record for coach_id=52120, record_type=2
-#> ✖ Args: league = "mlb", coach_id = 52120, record_type = 2
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/coaches/52120/record/2
+  espn_mlb_coach_record(coach_id = 154, record_type = 2)
 #> ── ESPN MLB Coach Record ──────────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:42 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:02:43 UTC
+#> # A tibble: 3 × 12
+#>   league coach_id record_type_id record_name  record_type record_summary
+#>   <chr>  <chr>             <int> <chr>        <chr>       <chr>         
+#> 1 mlb    154                   2 Regular Sea… Regular Se… 1044-637      
+#> 2 mlb    154                   2 Regular Sea… Regular Se… 1044-637      
+#> 3 mlb    154                   2 Regular Sea… Regular Se… 1044-637      
+#> # ℹ 6 more variables: record_display <chr>, stat_name <chr>,
+#> #   stat_abbrev <chr>, stat_display <chr>, value <dbl>,
+#> #   stat_display_value <chr>
 # }
 ```

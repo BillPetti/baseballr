@@ -163,6 +163,15 @@ core-v2 API are returned as the character column <code>statistics_ref</code> and
 are NOT resolved. Similarly, <code>event_ref</code>, <code>competition_ref</code>, and
 <code>team_ref</code> are returned as character columns.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>event_ref</td><td>character</td><td>Reference link to the originating event.</td></tr><tr><td>competition_ref</td><td>character</td><td></td></tr><tr><td>team_ref</td><td>character</td><td></td></tr><tr><td>statistics_ref</td><td>character</td><td></td></tr></table></div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN holds no per-player college baseball statistics on
+this route: it answers HTTP 404 or 500 (or an empty list) for every college
+athlete tried, so this function returns an empty tibble. It is kept in case
+ESPN serves the route again.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN College Baseball Functions:
 <code><a href="espn_college_baseball_athletes_index.html">espn_college_baseball_athletes_index()</a></code>,
@@ -243,7 +252,7 @@ are NOT resolved. Similarly, <code>event_ref</code>, <code>competition_ref</code
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_college_baseball_player_eventlog</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="st">"3730"</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_college_baseball_player_eventlog</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="st">"83667"</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

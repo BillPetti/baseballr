@@ -164,6 +164,14 @@ rows; the wrapper returns a typed empty tibble in that case.</p>
 typically returns an empty tibble (it is meaningful for sports such as
 football). When populated:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>event_id</td><td>character</td><td>Unique ESPN event/game identifier.</td></tr><tr><td>play_id</td><td>character</td><td>Unique play identifier within the game.</td></tr><tr><td>athlete_id</td><td>character</td><td>Athlete involved in the play.</td></tr><tr><td>participant_type</td><td>character</td><td>Role of the athlete in the play.</td></tr></table></div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN returns no personnel entries for any MLB play
+tried (2024 and 2025 World Series games), so this function returns an empty
+tibble. It is kept in case ESPN serves the route again.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN MLB Functions:
 <code><a href="espn_mlb.html">espn_mlb</a></code>,
@@ -285,13 +293,13 @@ football). When populated:</p><table class="table table"><tr><td>col_name</td><t
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="fu">espn_mlb_game_play_personnel</span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401283399</span>, play_id <span class="op">=</span> <span class="fl">4012833994</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 04:16:47.881934: espn_mlb_game_play_personnel(): Failed to retrieve ESPN mlb play personnel for event_id=401283399, play_id=4012833994</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "mlb", event_id = 401283399, play_id = 4012833994</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/plays/4012833994/personnel</span>
+<span class="r-in"><span>  <span class="fu">espn_mlb_game_play_personnel</span><span class="op">(</span>event_id <span class="op">=</span> <span class="fl">401701044</span>, play_id <span class="op">=</span> <span class="st">"4017010440001010001"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Event Play Personnel ──────────────────── <span style="font-style: italic;">baseballr 2.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:47 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:02:51 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 7</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7 variables: league &lt;chr&gt;, event_id &lt;chr&gt;, play_id &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_id &lt;chr&gt;, athlete_id &lt;chr&gt;, athlete_ref &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   competitor_ref &lt;chr&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

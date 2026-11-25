@@ -35,6 +35,12 @@ data, in which case an empty tibble with canonical columns is returned.
 | date | character | Date in YYYY-MM-DD format. |
 | type | character | Record type / category. |
 
+## Endpoint status
+
+As of November 2026 ESPN returns no awards for the college baseball
+athletes tried, so this function returns an empty tibble. It is kept in
+case ESPN serves the route again.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -116,9 +122,9 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  try(espn_college_baseball_player_awards(athlete_id = "3730"))
+  try(espn_college_baseball_player_awards(athlete_id = "83667"))
 #> ── ESPN COLLEGE-BASEBALL Athlete Awards from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-11-25 04:16:25 UTC
+#> ℹ Data updated: 2026-11-25 06:02:23 UTC
 #> # A tibble: 0 × 6
 #> # ℹ 6 variables: season <chr>, award_id <chr>, name <chr>,
 #> #   description <chr>, date <chr>, type <chr>

@@ -163,12 +163,15 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_coach(coach_id = 52120)
-#> ✖ 2026-11-25 04:16:42.498956: espn_mlb_coach(): Failed to retrieve ESPN mlb coach 52120
-#> ✖ Args: league = "mlb", coach_id = 52120
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/coaches/52120
+  espn_mlb_coach(coach_id = 154)
 #> ── ESPN MLB Coach Detail ──────────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:42 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:02:43 UTC
+#> # A tibble: 1 × 12
+#>   coach_id uid             first_name last_name date_of_birth birth_city
+#>   <chr>    <chr>           <chr>      <chr>     <chr>         <chr>     
+#> 1 154      s:1~l:10~co:154 Dave       Roberts   1972-05-31T0… Nawa, Oki…
+#> # ℹ 6 more variables: birth_state <chr>, n_career_records <int>,
+#> #   n_coach_seasons <int>, college_ref <chr>, team_ref <chr>,
+#> #   league <chr>
 # }
 ```

@@ -209,23 +209,23 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_player_info(athlete_id = "1966")
+  espn_mlb_player_info(athlete_id = "33192")
 #> $Bio
 #> ── ESPN MLB Athlete Bio from ESPN.com ─────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:57 UTC
-#> # A tibble: 1 × 20
+#> ℹ Data updated: 2026-11-25 06:03:04 UTC
+#> # A tibble: 1 × 21
 #>   id    uid            guid  first_name last_name full_name display_name
 #>   <chr> <chr>          <chr> <chr>      <chr>     <chr>     <chr>       
-#> 1 1966  s:1~l:10~a:19… f6c9… Mike       Devereaux Mike Dev… Mike Devere…
-#> # ℹ 13 more variables: short_name <chr>, weight <dbl>,
+#> 1 33192 s:1~l:10~a:33… e3e3… Aaron      Judge     Aaron Ju… Aaron Judge 
+#> # ℹ 14 more variables: short_name <chr>, weight <dbl>,
 #> #   display_weight <chr>, height <dbl>, display_height <chr>,
 #> #   age <int>, date_of_birth <chr>, debut_year <int>, jersey <chr>,
-#> #   active <lgl>, birth_city <chr>, birth_state <chr>,
-#> #   birth_country <chr>
+#> #   active <lgl>, headshot_href <chr>, birth_city <chr>,
+#> #   birth_state <chr>, birth_country <chr>
 #> 
 #> $Team
 #> ── ESPN MLB Athlete Team from ESPN.com ────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:57 UTC
+#> ℹ Data updated: 2026-11-25 06:03:04 UTC
 #> # A tibble: 1 × 1
 #>   x_ref                                                                 
 #>   <chr>                                                                 
@@ -233,32 +233,35 @@ Saiem Gilani
 #> 
 #> $Position
 #> ── ESPN MLB Athlete Position from ESPN.com ────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:57 UTC
+#> ℹ Data updated: 2026-11-25 06:03:04 UTC
 #> # A tibble: 1 × 5
-#>   id    name         display_name   abbreviation leaf 
-#>   <chr> <chr>        <chr>          <chr>        <lgl>
-#> 1 8     Center Field Center Fielder CF           TRUE 
+#>   id    name        display_name  abbreviation leaf 
+#>   <chr> <chr>       <chr>         <chr>        <lgl>
+#> 1 9     Right Field Right Fielder RF           TRUE 
 #> 
 #> $Status
 #> ── ESPN MLB Athlete Status from ESPN.com ──────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:57 UTC
+#> ℹ Data updated: 2026-11-25 06:03:04 UTC
 #> # A tibble: 1 × 4
-#>   id    name    type    abbreviation
-#>   <chr> <chr>   <chr>   <chr>       
-#> 1 27    Retired retired Retired     
+#>   id    name   type   abbreviation
+#>   <chr> <chr>  <chr>  <chr>       
+#> 1 1     Active active Active      
 #> 
 #> $College
 #> ── ESPN MLB Athlete College from ESPN.com ─────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:57 UTC
+#> ℹ Data updated: 2026-11-25 06:03:04 UTC
 #> # A tibble: 1 × 1
-#>   x_ref                                                          
-#>   <chr>                                                          
-#> 1 http://sports.core.api.espn.com/v2/colleges/9?lang=en&region=us
+#>   x_ref                                                            
+#>   <chr>                                                            
+#> 1 http://sports.core.api.espn.com/v2/colleges/278?lang=en&region=us
 #> 
 #> $Draft
 #> ── ESPN MLB Athlete Draft from ESPN.com ───────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:57 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:03:04 UTC
+#> # A tibble: 1 × 4
+#>   year  round selection display_text                
+#>   <chr> <chr> <chr>     <chr>                       
+#> 1 2013  1     32        Year: 2013 Round: 1 Pick: 32
 #> 
 # }
 ```

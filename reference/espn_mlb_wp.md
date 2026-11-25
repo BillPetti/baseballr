@@ -193,10 +193,28 @@ Other ESPN MLB Functions:
 
 ``` r
 # \donttest{
-espn_mlb_wp(game_id = 401283399)
-#> ✖ 2026-11-25 04:17:25.479834: espn_mlb_wp(): game_id '401283399' invalid or no ESPN win probability data available!
-#> ✖ Args: game_id = 401283399
-#> ✖ Error: HTTP 404 Not Found from http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/summary: Error invoking GET: http://sports.core.api.espn.pvt/v2/sports/baseball/leagues/mlb/events/401283399, status=404, duration=2 ms, message=null, cache=CACHE_MISS
-#> data frame with 0 columns and 0 rows
+espn_mlb_wp(game_id = 401701044)
+#> ── ESPN MLB Win Probability Information from ESPN.com ──────────────────
+#> ℹ Data updated: 2026-11-25 06:03:27 UTC
+#> # A tibble: 89 × 52
+#>      game_id play_id             home_win_percentage away_win_percentage
+#>        <dbl> <chr>                             <dbl>               <dbl>
+#>  1 401701044 4017010440001990057               0.585               0.415
+#>  2 401701044 4017010440002990057               0.599               0.401
+#>  3 401701044 4017010440003990057               0.607               0.393
+#>  4 401701044 4017010440101990057               0.586               0.414
+#>  5 401701044 4017010440102990057               0.613               0.387
+#>  6 401701044 4017010440103990057               0.77                0.23 
+#>  7 401701044 4017010440104990057               0.836               0.164
+#>  8 401701044 4017010440105990057               0.828               0.172
+#>  9 401701044 4017010440106990057               0.828               0.172
+#> 10 401701044 4017010440201990057               0.841               0.159
+#> # ℹ 79 more rows
+#> # ℹ 48 more variables: tie_percentage <dbl>, sequence_number <chr>,
+#> #   text <chr>, away_score <int>, home_score <int>, scoring_play <lgl>,
+#> #   score_value <int>, wallclock <chr>, at_bat_id <chr>,
+#> #   summary_type <chr>, outs <int>, participants <list>, type_id <chr>,
+#> #   type_text <chr>, type_type <chr>, period_type <chr>,
+#> #   period_number <int>, period_display_value <chr>, team_id <chr>, …
 # }
 ```

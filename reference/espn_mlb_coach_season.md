@@ -171,12 +171,15 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_coach_season(coach_id = 52120, season = 2025)
-#> ✖ 2026-11-25 04:16:42.925706: espn_mlb_coach_season(): Failed to retrieve ESPN mlb coach-in-season detail for coach_id=52120, season=2025
-#> ✖ Args: league = "mlb", coach_id = 52120, season = 2025
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2025/coaches/52120
+  espn_mlb_coach_season(coach_id = 154, season = 2025)
 #> ── ESPN MLB Coach-in-Season Detail ────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:42 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:02:44 UTC
+#> # A tibble: 1 × 13
+#>   league season coach_id uid          first_name last_name date_of_birth
+#>   <chr>   <int> <chr>    <chr>        <chr>      <chr>     <chr>        
+#> 1 mlb      2025 154      s:1~l:10~co… Dave       Roberts   1972-05-31T0…
+#> # ℹ 6 more variables: birth_city <chr>, birth_state <chr>,
+#> #   n_records <int>, person_ref <chr>, college_ref <chr>,
+#> #   team_ref <chr>
 # }
 ```

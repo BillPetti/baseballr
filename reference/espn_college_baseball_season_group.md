@@ -138,12 +138,15 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  try(espn_college_baseball_season_group(group_id = 5, season = 2025))
-#> ✖ 2026-11-25 04:16:28.018093: espn_college_baseball_season_group(): Failed to retrieve ESPN college-baseball group 5 for season=2025
-#> ✖ Args: league = "college-baseball", season = 2025, season_type = 2L, group_id = 5
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/types/2/groups/5
+  try(espn_college_baseball_season_group(group_id = 26, season = 2025))
 #> ── ESPN COLLEGE-BASEBALL Season Group Detail ──────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:28 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:02:26 UTC
+#> # A tibble: 1 × 15
+#>   league season season_type group_id uid   name  abbreviation short_name
+#>   <chr>   <int>       <int> <chr>    <chr> <chr> <chr>        <chr>     
+#> 1 colle…   2025           2 26       s:1~… NCAA… NCAA         Division I
+#> # ℹ 7 more variables: midsize_name <chr>, is_conference <lgl>,
+#> #   slug <chr>, parent_ref <chr>, children_ref <chr>, teams_ref <chr>,
+#> #   standings_ref <chr>
 # }
 ```

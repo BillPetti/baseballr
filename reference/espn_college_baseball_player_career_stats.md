@@ -52,6 +52,13 @@ A long tibble (one row per stat_type × split × category × stat).
 | value            | numeric   | Stat value.                                     |
 | display_value    | character | Display-formatted value.                        |
 
+## Endpoint status
+
+As of November 2026 ESPN holds no per-player college baseball statistics
+on this route: it answers HTTP 404 or 500 (or an empty list) for every
+college athlete tried, so this function returns an empty tibble. It is
+kept in case ESPN serves the route again.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -133,9 +140,9 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  try(espn_college_baseball_player_career_stats(athlete_id = "3730"))
+  try(espn_college_baseball_player_career_stats(athlete_id = "83667"))
 #> ── ESPN COLLEGE-BASEBALL Athlete Career Stats ─────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:25 UTC
+#> ℹ Data updated: 2026-11-25 06:02:23 UTC
 #> # A tibble: 0 × 17
 #> # ℹ 17 variables: league <chr>, athlete_id <chr>, stat_type_id <chr>,
 #> #   split_id <chr>, split_name <chr>, split_type <chr>,
@@ -143,9 +150,9 @@ Saiem Gilani
 #> #   category_abbrev <chr>, stat_name <chr>, stat_abbrev <chr>,
 #> #   stat_display <chr>, stat_short <chr>, description <chr>,
 #> #   value <dbl>, display_value <chr>
-  try(espn_college_baseball_player_career_stats(athlete_id = "3730", stat_type = 2L))
+  try(espn_college_baseball_player_career_stats(athlete_id = "83667", stat_type = 2L))
 #> ── ESPN COLLEGE-BASEBALL Athlete Career Stats ─────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:25 UTC
+#> ℹ Data updated: 2026-11-25 06:02:23 UTC
 #> # A tibble: 0 × 17
 #> # ℹ 17 variables: league <chr>, athlete_id <chr>, stat_type_id <chr>,
 #> #   split_id <chr>, split_name <chr>, split_type <chr>,

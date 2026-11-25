@@ -44,6 +44,15 @@ an empty tibble (zero rows) when the team has no reported injuries.
 | short_comment | character |                                                   |
 | long_comment  | character | Long-form play / event comment.                   |
 
+## Endpoint status
+
+As of November 2026 ESPN answers the site `teams/{team_id}/injuries`
+route with an empty object or HTTP 500 for every team tried, so this
+function returns an empty tibble. It is kept in case ESPN serves the
+route again.
+[`espn_mlb_injuries()`](https://billpetti.github.io/baseballr/reference/espn_mlb_injuries.md)
+returns the league-wide list, which carries each team.
+
 ## See also
 
 Other ESPN MLB Functions:

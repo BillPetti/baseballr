@@ -51,6 +51,12 @@ returns an empty tibble and emits a CLI error message. It is retained so
 that downstream code does not break if ESPN restores the endpoint, but
 should not be relied on in the meantime.
 
+## Endpoint status
+
+As of November 2026 ESPN's `seasons/{season}/freeagents` list is empty
+for every season tried (2022 to 2026), so this function returns an empty
+tibble. It is kept in case ESPN serves the route again.
+
 ## See also
 
 Other ESPN MLB Functions:
@@ -175,7 +181,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_freeagents(season = 2025)
 #> ── ESPN MLB Free Agents from ESPN.com ─────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:45 UTC
+#> ℹ Data updated: 2026-11-25 06:02:47 UTC
 #> # A tibble: 0 × 0
 # }
 ```

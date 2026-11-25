@@ -161,6 +161,15 @@ ranking equivalents live in the hoopR / wehoop / cfbfastR packages.)</p>
     <p><strong>Get ESPN MLB Season Rankings Index</strong></p>
     </div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN publishes no MLB rankings: the season and week
+ranking lists are empty for every season tried and a single ranking answers
+HTTP 404, so this function returns an empty tibble. It is kept in case ESPN
+serves the route again.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN MLB Functions:
 <code><a href="espn_mlb.html">espn_mlb</a></code>,
@@ -284,7 +293,7 @@ ranking equivalents live in the hoopR / wehoop / cfbfastR packages.)</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_mlb_season_rankings</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Season Rankings Index ─────────────────── <span style="font-style: italic;">baseballr 2.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:17:05 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:03:13 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 4 variables: league &lt;chr&gt;, season &lt;int&gt;, ranking_id &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ref &lt;chr&gt;</span></span>

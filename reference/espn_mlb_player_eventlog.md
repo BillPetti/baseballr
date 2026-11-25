@@ -161,7 +161,22 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_player_eventlog(athlete_id = "1966", season = 2024)
-#> # A tibble: 0 × 0
+  espn_mlb_player_eventlog(athlete_id = "33192", season = 2024)
+#> ── ESPN MLB Athlete Eventlog from ESPN.com ────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-25 06:03:03 UTC
+#> # A tibble: 25 × 6
+#>    event_ref      competition_ref team_ref statistics_ref team_id played
+#>    <chr>          <chr>           <chr>    <chr>          <chr>   <lgl> 
+#>  1 http://sports… http://sports.… NA       http://sports… 10      TRUE  
+#>  2 http://sports… http://sports.… NA       http://sports… 10      TRUE  
+#>  3 http://sports… http://sports.… NA       http://sports… 10      TRUE  
+#>  4 http://sports… http://sports.… NA       http://sports… 10      TRUE  
+#>  5 http://sports… http://sports.… NA       http://sports… 10      TRUE  
+#>  6 http://sports… http://sports.… NA       http://sports… 10      TRUE  
+#>  7 http://sports… http://sports.… NA       http://sports… 10      TRUE  
+#>  8 http://sports… http://sports.… NA       http://sports… 10      TRUE  
+#>  9 http://sports… http://sports.… NA       http://sports… 10      TRUE  
+#> 10 http://sports… http://sports.… NA       http://sports… 10      TRUE  
+#> # ℹ 15 more rows
 # }
 ```

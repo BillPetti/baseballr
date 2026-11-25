@@ -151,6 +151,15 @@ Get ESPN College Baseball Single-Coach Detail"><meta property="og:image" content
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A single-row tibble.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>coach_id</td><td>character</td><td>ESPN coach identifier.</td></tr><tr><td>uid</td><td>character</td><td>ESPN UID string.</td></tr><tr><td>first_name</td><td>character</td><td>First name.</td></tr><tr><td>last_name</td><td>character</td><td>Last name.</td></tr><tr><td>date_of_birth</td><td>character</td><td>Date of birth (ISO 8601).</td></tr><tr><td>birth_city</td><td>character</td><td>Birth city.</td></tr><tr><td>birth_state</td><td>character</td><td>Birth state / region.</td></tr><tr><td>n_career_records</td><td>integer</td><td>Count of career-records entries.</td></tr><tr><td>n_coach_seasons</td><td>integer</td><td>Count of seasons coached.</td></tr><tr><td>college_ref</td><td>character</td><td><code>$ref</code> to the coach's college.</td></tr><tr><td>team_ref</td><td>character</td><td><code>$ref</code> to the coach's current team.</td></tr><tr><td>league</td><td>character</td><td>League slug (<code>"mlb"</code>).</td></tr></table></div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN lists no college baseball coaches
+(<code>seasons/{season}/coaches</code> is empty for 2024 to 2026) and answers HTTP 404
+for coach ids, so this function returns an empty tibble. It is kept in case
+ESPN serves the route again.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN College Baseball Functions:
 <code><a href="espn_college_baseball_athletes_index.html">espn_college_baseball_athletes_index()</a></code>,
@@ -232,11 +241,11 @@ Get ESPN College Baseball Single-Coach Detail"><meta property="og:image" content
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_college_baseball_coach</span><span class="op">(</span>coach_id <span class="op">=</span> <span class="fl">52120</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 04:16:16.823056: espn_college_baseball_coach(): Failed to retrieve ESPN college-baseball coach 52120</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 06:02:13.056444: espn_college_baseball_coach(): Failed to retrieve ESPN college-baseball coach 52120</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "college-baseball", coach_id = 52120</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/coaches/52120</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN COLLEGE-BASEBALL Coach Detail ─────────────── <span style="font-style: italic;">baseballr 2.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:16 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:02:13 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

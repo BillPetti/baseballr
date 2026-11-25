@@ -178,13 +178,20 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  # Aaron Judge 2025 contract
-  espn_mlb_player_contract(athlete_id = 33192, season = 2025)
-#> ✖ 2026-11-25 04:16:56.205321: espn_mlb_player_contract(): Failed to retrieve ESPN mlb athlete contract for athlete_id=33192, season=2025
-#> ✖ Args: league = "mlb", athlete_id = 33192, season = 2025
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/athletes/33192/contracts/2025
+  # Aaron Judge's 2017 contract, the season ESPN lists for him
+  espn_mlb_player_contract(athlete_id = 33192, season = 2017)
 #> ── ESPN MLB Athlete Contract from ESPN.com ────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:56 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:03:02 UTC
+#> # A tibble: 1 × 23
+#>   athlete_id season bird_status salary salary_remaining years_remaining
+#>   <chr>       <int>       <int>  <int>            <dbl>           <int>
+#> 1 33192        2017          NA 544500               NA              NA
+#> # ℹ 17 more variables: incoming_trade_value <dbl>,
+#> #   outgoing_trade_value <dbl>, option_type <int>,
+#> #   minimum_salary_exception <lgl>, trade_restriction <lgl>,
+#> #   unsigned_foreign_pick <lgl>, active <lgl>,
+#> #   base_year_compensation_active <lgl>,
+#> #   poison_pill_provision_active <lgl>, trade_kicker_active <lgl>,
+#> #   trade_kicker_percentage <dbl>, trade_kicker_value <dbl>, …
 # }
 ```

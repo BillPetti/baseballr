@@ -151,6 +151,15 @@ bounding follow-up calls to per-season endpoints.</p>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A tibble with one row per career season.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>league</td><td>character</td><td>League slug.</td></tr><tr><td>athlete_id</td><td>character</td><td>ESPN athlete id.</td></tr><tr><td>season</td><td>integer</td><td>Season year.</td></tr><tr><td>ref</td><td>character</td><td><code>$ref</code> URL to the season detail.</td></tr></table></div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN answers <code>athletes/{athlete_id}/seasons</code> with HTTP
+404 ("No relevant seasons found") for every MLB athlete tried, so this
+function returns an empty tibble. It is kept in case ESPN serves the route
+again.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN MLB Functions:
 <code><a href="espn_mlb.html">espn_mlb</a></code>,
@@ -274,11 +283,11 @@ bounding follow-up calls to per-season endpoints.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="co"># Aaron Judge (33192): 23 career seasons</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_mlb_player_seasons</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="fl">33192</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 04:16:58.607988: espn_mlb_player_seasons(): Failed to retrieve ESPN mlb athlete seasons for athlete_id=33192</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 06:03:05.464331: espn_mlb_player_seasons(): Failed to retrieve ESPN mlb athlete seasons for athlete_id=33192</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "mlb", athlete_id = 33192</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/athletes/33192/seasons</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Athlete Seasons ───────────────────────── <span style="font-style: italic;">baseballr 2.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:58 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:03:05 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

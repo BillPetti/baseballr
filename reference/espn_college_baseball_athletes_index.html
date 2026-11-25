@@ -168,6 +168,14 @@ forward compatibility. Proxy configuration should use
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A single <code>baseballr_data</code> tibble with one row per athlete.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>athlete_id</td><td>character</td><td>Unique athlete identifier (ESPN).</td></tr><tr><td>full_name</td><td>character</td><td>Player's full name.</td></tr><tr><td>jersey</td><td>character</td><td>Jersey number worn by the player.</td></tr><tr><td>position</td><td>character</td><td>Listed roster position (G, F, C, etc.).</td></tr><tr><td>team_id</td><td>character</td><td>Unique team identifier.</td></tr><tr><td>headshot</td><td>character</td><td>Headshot image URL.</td></tr><tr><td>status</td><td>character</td><td>Status label.</td></tr><tr><td>link</td><td>character</td><td></td></tr></table></div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN's <code>seasons/{season}/athletes</code> list is empty for
+college baseball in every season tried (2024 to 2026), so this function
+returns an empty tibble. It is kept in case ESPN serves the route again.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN College Baseball Functions:
 <code><a href="espn_college_baseball_calendar.html">espn_college_baseball_calendar()</a></code>,
@@ -251,7 +259,7 @@ forward compatibility. Proxy configuration should use
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_college_baseball_athletes_index</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span>, limit <span class="op">=</span> <span class="fl">50</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Fetching page 1 of 1 for college-baseball athletes (season=2025)...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN COLLEGE-BASEBALL Athletes Index from ESPN.com ──────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:15 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:02:11 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

@@ -43,6 +43,13 @@ A long tibble with one row per (category x rank).
 | value            | numeric   | Numeric value.                     |
 | athlete_ref      | character | Athlete ref.                       |
 
+## Endpoint status
+
+As of November 2026 ESPN answers this route with HTTP 500 for every
+college baseball game tried (including the 2025 College World Series),
+so this function returns an empty tibble. It is kept in case ESPN serves
+the route again.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -125,11 +132,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_game_team_leaders(event_id = "401778093", team_id = "113"))
-#> ✖ 2026-11-25 04:16:22.030072: espn_college_baseball_game_team_leaders(): Failed to retrieve ESPN college-baseball competitor leaders for event_id=401778093, team_id=113
+#> ✖ 2026-11-25 06:02:19.42932: espn_college_baseball_game_team_leaders(): Failed to retrieve ESPN college-baseball competitor leaders for event_id=401778093, team_id=113
 #> ✖ Args: league = "college-baseball", event_id = "401778093", team_id = "113"
 #> ✖ Error: HTTP 500 Internal Server Error from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/competitors/113/leaders
 #> ── ESPN COLLEGE-BASEBALL Competitor Leaders ───────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:22 UTC
+#> ℹ Data updated: 2026-11-25 06:02:19 UTC
 #> # A tibble: 0 × 0
 # }
 ```

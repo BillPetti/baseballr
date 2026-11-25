@@ -165,12 +165,24 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_game_probabilities(event_id = "401283399", limit = 50)
-#> ✖ 2026-11-25 04:16:48.689861: espn_mlb_game_probabilities(): Failed to retrieve ESPN mlb event probabilities for event_id=401283399
-#> ✖ Args: league = "mlb", event_id = "401283399", limit = 50
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/probabilities
-#> ── ESPN MLB Event Probabilities (event_id=401283399) from ESPN.com ─────
-#> ℹ Data updated: 2026-11-25 04:16:48 UTC
-#> # A tibble: 0 × 0
+  espn_mlb_game_probabilities(event_id = "401701044", limit = 50)
+#> ── ESPN MLB Event Probabilities (event_id=401701044) from ESPN.com ─────
+#> ℹ Data updated: 2026-11-25 06:02:52 UTC
+#> # A tibble: 50 × 10
+#>    event_id  sequence_number play_id period clock home_win_percentage
+#>    <chr>     <chr>           <chr>    <int> <chr>               <dbl>
+#>  1 401701044 138432406       NA          NA NA                  0.585
+#>  2 401701044 138432412       NA          NA NA                  0.599
+#>  3 401701044 138432414       NA          NA NA                  0.607
+#>  4 401701044 138432415       NA          NA NA                  0.586
+#>  5 401701044 138432418       NA          NA NA                  0.613
+#>  6 401701044 138432419       NA          NA NA                  0.77 
+#>  7 401701044 138432421       NA          NA NA                  0.836
+#>  8 401701044 138432422       NA          NA NA                  0.828
+#>  9 401701044 138432423       NA          NA NA                  0.828
+#> 10 401701044 138432424       NA          NA NA                  0.841
+#> # ℹ 40 more rows
+#> # ℹ 4 more variables: away_win_percentage <dbl>, tie_percentage <dbl>,
+#> #   secs_to_end_of_period <dbl>, secs_to_end_of_game <dbl>
 # }
 ```

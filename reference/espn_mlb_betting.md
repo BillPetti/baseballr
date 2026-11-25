@@ -202,15 +202,19 @@ Other ESPN MLB Functions:
 
 ``` r
 # \donttest{
-try(espn_mlb_betting(game_id = 401283399))
-#> ✖ 2026-11-25 04:16:41.245727: espn_mlb_betting(): Invalid arguments or no betting data available!
-#> ✖ Args: game_id = 401283399
-#> ✖ Error: HTTP 404 Not Found from http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/summary: Error invoking GET: http://sports.core.api.espn.pvt/v2/sports/baseball/leagues/mlb/events/401283399, status=404, duration=2 ms, message=null, cache=CACHE_MISS
+try(espn_mlb_betting(game_id = 401701044))
 #> $pickcenter
 #> data frame with 0 columns and 0 rows
 #> 
 #> $againstTheSpread
-#> data frame with 0 columns and 0 rows
+#> ── ESPN MLB Against the Spread Information from ESPN.com ───────────────
+#> ℹ Data updated: 2026-11-25 06:02:42 UTC
+#> # A tibble: 2 × 9
+#>      id uid        display_name abbreviation logo  logos records game_id
+#>   <int> <chr>      <chr>        <chr>        <chr> <lis> <list>    <int>
+#> 1    19 s:1~l:10~… Los Angeles… LAD          http… <df>  <list>   4.02e8
+#> 2    10 s:1~l:10~… New York Ya… NYY          http… <df>  <list>   4.02e8
+#> # ℹ 1 more variable: team_id <int>
 #> 
 #> $predictor
 #> data frame with 0 columns and 0 rows

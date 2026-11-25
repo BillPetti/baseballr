@@ -175,13 +175,25 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_game_propbets(event_id = 401283399, provider_id = 58)
+  espn_mlb_game_propbets(event_id = 401701044, provider_id = 58)
 #> ── ESPN MLB Event Prop Bets ───────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:49 UTC
-#> # A tibble: 0 × 13
-#> # ℹ 13 variables: league <chr>, event_id <chr>, provider_id <chr>,
-#> #   athlete_id <chr>, prop_type_id <chr>, prop_type_name <chr>,
-#> #   american <chr>, decimal <dbl>, fraction <chr>, total <dbl>,
-#> #   current_target <dbl>, last_updated <chr>, athlete_ref <chr>
+#> ℹ Data updated: 2026-11-25 06:02:55 UTC
+#> # A tibble: 652 × 13
+#>    league event_id  provider_id athlete_id prop_type_id prop_type_name  
+#>    <chr>  <chr>     <chr>       <chr>      <chr>        <chr>           
+#>  1 mlb    401701044 58          32081      46           Total Strikeouts
+#>  2 mlb    401701044 58          32081      46           Total Strikeouts
+#>  3 mlb    401701044 58          32081      46           Total Strikeouts
+#>  4 mlb    401701044 58          32081      46           Total Strikeouts
+#>  5 mlb    401701044 58          33837      46           Total Strikeouts
+#>  6 mlb    401701044 58          33837      46           Total Strikeouts
+#>  7 mlb    401701044 58          33837      46           Total Strikeouts
+#>  8 mlb    401701044 58          33837      46           Total Strikeouts
+#>  9 mlb    401701044 58          32081      47           To Record Win   
+#> 10 mlb    401701044 58          32081      47           To Record Win   
+#> # ℹ 642 more rows
+#> # ℹ 7 more variables: american <chr>, decimal <dbl>, fraction <chr>,
+#> #   total <dbl>, current_target <dbl>, last_updated <chr>,
+#> #   athlete_ref <chr>
 # }
 ```

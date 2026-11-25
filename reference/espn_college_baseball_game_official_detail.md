@@ -43,6 +43,13 @@ A single-row tibble.
 | position_name | character | Position name.                     |
 | order         | integer   | Order.                             |
 
+## Endpoint status
+
+As of November 2026 ESPN answers this route with HTTP 500 for every
+college baseball game tried (including the 2025 College World Series),
+so this function returns an empty tibble. It is kept in case ESPN serves
+the route again.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -125,11 +132,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_game_official_detail(event_id = "401778093", order = 1))
-#> ✖ 2026-11-25 04:16:19.397025: espn_college_baseball_game_official_detail(): Failed to retrieve ESPN college-baseball event official detail for event_id=401778093, order=1
+#> ✖ 2026-11-25 06:02:16.317747: espn_college_baseball_game_official_detail(): Failed to retrieve ESPN college-baseball event official detail for event_id=401778093, order=1
 #> ✖ Args: league = "college-baseball", event_id = "401778093", order = 1
 #> ✖ Error: HTTP 500 Internal Server Error from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/officials/1
 #> ── ESPN COLLEGE-BASEBALL Event Official Detail ────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:19 UTC
+#> ℹ Data updated: 2026-11-25 06:02:16 UTC
 #> # A tibble: 0 × 0
 # }
 ```

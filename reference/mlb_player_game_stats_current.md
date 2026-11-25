@@ -120,12 +120,22 @@ Returns a tibble with the following columns:
 | player_id | numeric | Player MLBAMID. |
 | game_pk | numeric | Game primary key (MLBAM game id). |
 
+## Endpoint status
+
+As of November 2026 the MLB Stats API answers
+`people/{person_id}/stats/game/current` with HTTP 400 ("Invalid Request
+with value: current") for every player tried, so this function returns
+`NULL`. The route may answer only while the player is in a live game;
+for a completed game use
+[`mlb_player_game_stats()`](https://billpetti.github.io/baseballr/reference/mlb_player_game_stats.md)
+with its `game_pk`.
+
 ## Examples
 
 ``` r
 # \donttest{
   try(mlb_player_game_stats_current(person_id = 660271))
-#> ✖ 2026-11-25 04:20:25.746054: Invalid arguments provided
+#> ✖ 2026-11-25 06:07:13.458568: Invalid arguments provided
 #> ✖ Error: HTTP 400 Bad Request from http://statsapi.mlb.com/api/v1/people/660271/stats/game/current: Invalid Request with value: current
 #> NULL
 # }

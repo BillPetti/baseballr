@@ -125,7 +125,7 @@ requested:
 # \donttest{
  try(mlb_draft_latest(year = 2020))
 #> ── MLB Draft (Latest) data from MLB.com ───────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:20:08 UTC
+#> ℹ Data updated: 2026-11-25 06:06:52 UTC
 #> # A tibble: 4 × 95
 #>   pick_round pick_number display_pick_number round_pick_number
 #>   <chr>            <int>               <int>             <int>

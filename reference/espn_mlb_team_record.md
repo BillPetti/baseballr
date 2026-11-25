@@ -180,7 +180,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_team_record(team_id = 13, season = 2025)
 #> ── ESPN MLB Team Record ───────────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:17:20 UTC
+#> ℹ Data updated: 2026-11-25 06:03:20 UTC
 #> # A tibble: 8 × 14
 #>   league team_id season season_type record_id name          abbreviation
 #>   <chr>  <chr>    <int>       <int> <chr>     <chr>         <chr>       

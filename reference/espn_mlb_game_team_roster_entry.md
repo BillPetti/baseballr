@@ -177,14 +177,17 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_game_team_roster_entry(event_id = 401283399,
-                                            team_id = 13,
+  espn_mlb_game_team_roster_entry(event_id = 401701044,
+                                            team_id = 10,
                                             athlete_id = 33192)
-#> ✖ 2026-11-25 04:16:52.19332: espn_mlb_game_team_roster_entry(): Failed to retrieve ESPN mlb event roster entry for event_id=401283399, team_id=13, athlete_id=33192
-#> ✖ Args: league = "mlb", event_id = 401283399, team_id = 13, athlete_id = 33192
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/competitors/13/roster/33192
 #> ── ESPN MLB Event Competitor Roster Entry ─────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:52 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:02:57 UTC
+#> # A tibble: 1 × 16
+#>   league event_id  team_id athlete_id player_id period active starter
+#>   <chr>  <chr>     <chr>   <chr>      <chr>      <int> <lgl>  <lgl>  
+#> 1 mlb    401701044 10      33192      33192          1 TRUE   TRUE   
+#> # ℹ 8 more variables: did_not_play <lgl>, reason <chr>, ejected <lgl>,
+#> #   for_player_id <chr>, jersey <chr>, display_name <chr>,
+#> #   athlete_ref <chr>, position_ref <chr>
 # }
 ```

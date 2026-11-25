@@ -159,6 +159,16 @@ number of rounds, display name, plus <code>$ref</code>s for the deeper sub-resou
 <p>Note: ESPN does not currently populate the MLB draft feed, so this
 typically returns an empty/metadata-only tibble. When populated:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>season</td><td>integer</td><td>Draft season (4-digit year).</td></tr><tr><td>display_name</td><td>character</td><td>Draft display name.</td></tr><tr><td>status</td><td>character</td><td>Draft status (e.g. 'pre', 'complete').</td></tr></table></div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN serves no MLB draft data: <code>seasons/{season}/draft</code>
+answers HTTP 404 and <code>draft/rounds</code> and <code>draft/athletes</code> are empty for
+every season tried (2019 to 2026), so this function returns an empty
+tibble. It is kept in case ESPN serves the route again.
+<code><a href="espn_mlb_draft_status.html">espn_mlb_draft_status()</a></code> still answers.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN MLB Functions:
 <code><a href="espn_mlb.html">espn_mlb</a></code>,
@@ -281,11 +291,11 @@ typically returns an empty/metadata-only tibble. When populated:</p><table class
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_mlb_season_draft</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 04:17:01.486644: espn_mlb_season_draft(): Failed to retrieve ESPN mlb season draft top-level for season=2024</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 06:03:08.890571: espn_mlb_season_draft(): Failed to retrieve ESPN mlb season draft top-level for season=2024</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "mlb", season = 2024</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/draft</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Season Draft (top-level) ──────────────── <span style="font-style: italic;">baseballr 2.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:17:01 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:03:08 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

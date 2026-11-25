@@ -169,6 +169,14 @@ baseball season.</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A long tibble with one row per (category x stat).</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>league</td><td>character</td><td>League.</td></tr><tr><td>season</td><td>integer</td><td>Season (4-digit year).</td></tr><tr><td>season_type</td><td>integer</td><td>ESPN season type (1=pre, 2=regular, 3=post).</td></tr><tr><td>team_id</td><td>character</td><td>Unique ESPN team identifier.</td></tr><tr><td>category_name</td><td>character</td><td>Statistic category name.</td></tr><tr><td>category_display</td><td>character</td><td>Category display.</td></tr><tr><td>stat_name</td><td>character</td><td>Statistic name.</td></tr><tr><td>stat_abbrev</td><td>character</td><td>Stat abbrev.</td></tr><tr><td>stat_display</td><td>character</td><td>Stat display.</td></tr><tr><td>value</td><td>numeric</td><td>Numeric value.</td></tr><tr><td>display_value</td><td>character</td><td>Human-readable value.</td></tr><tr><td>rank</td><td>integer</td><td>Rank within the result set.</td></tr><tr><td>rank_display_value</td><td>character</td><td>Rank display value.</td></tr></table></div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN answers this route with "No stats found" for every
+college baseball season and team tried, so this function returns an empty
+tibble. It is kept in case ESPN serves the route again.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN College Baseball Functions:
 <code><a href="espn_college_baseball_athletes_index.html">espn_college_baseball_athletes_index()</a></code>,
@@ -250,11 +258,11 @@ baseball season.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_college_baseball_team_season_statistics</span><span class="op">(</span>team_id <span class="op">=</span> <span class="fl">59</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 04:16:38.063154: espn_college_baseball_team_season_statistics(): Failed to retrieve ESPN college-baseball team season statistics for team_id=59, season=2025, season_type=2</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 06:02:37.977295: espn_college_baseball_team_season_statistics(): Failed to retrieve ESPN college-baseball team season statistics for team_id=59, season=2025, season_type=2</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "college-baseball", team_id = 59, season = 2025, season_type = 2L</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/types/2/teams/59/statistics</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN COLLEGE-BASEBALL Team Season Statistics ───── <span style="font-style: italic;">baseballr 2.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:38 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:02:37 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

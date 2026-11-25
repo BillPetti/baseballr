@@ -177,12 +177,16 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_game_play(event_id = 401283399, play_id = 4012833994)
-#> ✖ 2026-11-25 04:16:47.659771: espn_mlb_game_play(): Failed to retrieve ESPN mlb event play detail for event_id=401283399, play_id=4012833994
-#> ✖ Args: league = "mlb", event_id = 401283399, play_id = 4012833994
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/plays/4012833994
+  espn_mlb_game_play(event_id = 401701044, play_id = "4017010440001010001")
 #> ── ESPN MLB Event Play Detail ─────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:47 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:02:51 UTC
+#> # A tibble: 1 × 19
+#>   league event_id  play_id       sequence_number type_id type_text text 
+#>   <chr>  <chr>     <chr>         <chr>           <chr>   <chr>     <chr>
+#> 1 mlb    401701044 401701044000… 1               1       Start Ba… Gerr…
+#> # ℹ 12 more variables: short_text <chr>, period <int>, clock <chr>,
+#> #   scoring_play <lgl>, score_value <dbl>, away_score <int>,
+#> #   home_score <int>, shooting_play <lgl>, coordinate_x <dbl>,
+#> #   coordinate_y <dbl>, team_ref <chr>, wallclock <chr>
 # }
 ```

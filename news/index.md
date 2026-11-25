@@ -59,6 +59,10 @@
   [`espn_college_baseball_conferences()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_conferences.md)
   return the documented empty frame instead of erroring when ESPN sends
   no conferences.
+- [`espn_mlb_betting()`](https://billpetti.github.io/baseballr/reference/espn_mlb_betting.md)
+  keeps the against-the-spread table for a completed game. ESPN sends an
+  empty `pickcenter` once a game is over, and parsing it raised an error
+  that emptied all three tables.
 - [`edge_code()`](https://billpetti.github.io/baseballr/reference/edge_code.md)
   accepts Statcast data: `plate_x` / `plate_z` / `description` are used
   when the PITCHf/x `px` / `pz` / `des2` columns are absent, and pitch
@@ -221,6 +225,20 @@
   ([`fg_batter_leaders()`](https://billpetti.github.io/baseballr/reference/fg_batter_leaders.md),
   [`fg_pitcher_leaders()`](https://billpetti.github.io/baseballr/reference/fg_pitcher_leaders.md))
   still return them and are unchanged.
+- ESPN examples use ids ESPN still serves. The MLB game examples use the
+  2024 World Series Game 5 (`401701044`), the player examples Aaron
+  Judge (`33192`), the coach examples Dave Roberts (`154`), and the
+  college examples a current athlete, the Division I group (`26`) and
+  the D1Baseball ranking (`10543`); they had used a 2021 game, a player
+  retired since 1998 and ids ESPN dropped.
+- 48 ESPN functions, and
+  [`mlb_player_game_stats_current()`](https://billpetti.github.io/baseballr/reference/mlb_player_game_stats_current.md),
+  now carry an “Endpoint status” section: their route answers an error
+  or nothing for every id tried (for example MLB draft, power index,
+  tournaments and rankings, and the college coach, player statistics and
+  game officials routes). They still return the documented empty frame;
+  [`mlb_player_game_stats_current()`](https://billpetti.github.io/baseballr/reference/mlb_player_game_stats_current.md)
+  returns `NULL`.
 
 ### Tests
 

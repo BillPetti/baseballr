@@ -162,6 +162,15 @@ baseball season.</p></dd>
 at minimum <code>category</code> and <code>split_name</code>, plus per-stat columns driven by
 ESPN labels.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>name</td><td>character</td><td>Name.</td></tr><tr><td>display_name</td><td>character</td><td>Display name.</td></tr><tr><td>splits</td><td>list</td><td>Splits.</td></tr></table></div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN holds no per-player college baseball statistics on
+this route: it answers HTTP 404 or 500 (or an empty list) for every college
+athlete tried, so this function returns an empty tibble. It is kept in case
+ESPN serves the route again.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN College Baseball Functions:
 <code><a href="espn_college_baseball_athletes_index.html">espn_college_baseball_athletes_index()</a></code>,
@@ -242,12 +251,12 @@ ESPN labels.</p><table class="table table"><tr><td>col_name</td><td>types</td><t
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_college_baseball_player_splits</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="st">"3730"</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 04:16:27.323137: espn_college_baseball_player_splits(): Failed to retrieve ESPN college-baseball athlete splits for athlete_id=3730, season=2025</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "college-baseball", athlete_id = "3730", season = 2025</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: HTTP 404 Not Found from https://site.web.api.espn.com/apis/common/v3/sports/baseball/college-baseball/athletes/3730/splits: Statistics not found</span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_college_baseball_player_splits</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="st">"83667"</span>, season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 06:02:25.946403: espn_college_baseball_player_splits(): Failed to retrieve ESPN college-baseball athlete splits for athlete_id=83667, season=2025</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "college-baseball", athlete_id = "83667", season = 2025</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: HTTP 404 Not Found from https://site.web.api.espn.com/apis/common/v3/sports/baseball/college-baseball/athletes/83667/splits: Statistics not found</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN COLLEGE-BASEBALL Athlete Splits from ESPN.com ──────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:27 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:02:25 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

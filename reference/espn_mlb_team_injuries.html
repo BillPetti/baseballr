@@ -156,6 +156,16 @@ Returns an empty tibble (zero rows) when the team has no reported
 injuries.</p>
 <p><strong>Injuries</strong></p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>team_id</td><td>character</td><td>Unique team identifier.</td></tr><tr><td>athlete_id</td><td>character</td><td>Unique athlete identifier (ESPN).</td></tr><tr><td>athlete_name</td><td>character</td><td>Athlete display name (ESPN).</td></tr><tr><td>position</td><td>character</td><td>Listed roster position (G, F, C, etc.).</td></tr><tr><td>status</td><td>character</td><td>Status label.</td></tr><tr><td>date</td><td>character</td><td>Date in YYYY-MM-DD format.</td></tr><tr><td>type</td><td>character</td><td>Record type / category.</td></tr><tr><td>side</td><td>character</td><td>Side label (e.g. 'home', 'away', or 'overUnder').</td></tr><tr><td>returns_at</td><td>character</td><td></td></tr><tr><td>short_comment</td><td>character</td><td></td></tr><tr><td>long_comment</td><td>character</td><td>Long-form play / event comment.</td></tr></table></div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN answers the site <code>teams/{team_id}/injuries</code> route
+with an empty object or HTTP 500 for every team tried, so this function
+returns an empty tibble. It is kept in case ESPN serves the route again.
+<code><a href="espn_mlb_injuries.html">espn_mlb_injuries()</a></code> returns the league-wide list, which carries each
+team.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN MLB Functions:
 <code><a href="espn_mlb.html">espn_mlb</a></code>,

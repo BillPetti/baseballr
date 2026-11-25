@@ -48,6 +48,14 @@ A single-row tibble.
 | end_date     | character | ISO 8601 week end.                        |
 | rankings_ref | character | `$ref` to the per-week rankings endpoint. |
 
+## Endpoint status
+
+As of November 2026 ESPN lists no college baseball weeks (the list is
+empty and a single week answers HTTP 404), so this function returns an
+empty tibble. It is kept in case ESPN serves the route again.
+[`espn_college_baseball_week_rankings()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_week_rankings.md)
+still answers.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -130,11 +138,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_season_week(week = 5, season = 2025))
-#> ✖ 2026-11-25 04:16:31.387552: espn_college_baseball_season_week(): Failed to retrieve ESPN college-baseball week 5 for season=2025, season_type=2
+#> ✖ 2026-11-25 06:02:30.850572: espn_college_baseball_season_week(): Failed to retrieve ESPN college-baseball week 5 for season=2025, season_type=2
 #> ✖ Args: league = "college-baseball", season = 2025, season_type = 2L, week = 5
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/types/2/weeks/5
 #> ── ESPN COLLEGE-BASEBALL Season Week Detail ───────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:31 UTC
+#> ℹ Data updated: 2026-11-25 06:02:30 UTC
 #> # A tibble: 0 × 0
 # }
 ```

@@ -163,6 +163,14 @@ forward compatibility. Proxy configuration should use
     <p>A single <code>baseballr_data</code> tibble with one row per category-athlete
 pair.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>season</td><td>integer</td><td>Season identifier (4-digit year or 'YYYY-YY' string).</td></tr><tr><td>season_type</td><td>integer</td><td>Season type (1=pre-season, 2=regular season, 3=postseason, 4=off-season for ESPN).</td></tr><tr><td>category</td><td>character</td><td>Category label.</td></tr><tr><td>abbreviation</td><td>character</td><td>Short abbreviation.</td></tr><tr><td>athlete_id</td><td>character</td><td>Unique athlete identifier (ESPN).</td></tr><tr><td>athlete_name</td><td>character</td><td>Athlete display name (ESPN).</td></tr><tr><td>team_id</td><td>character</td><td>Unique team identifier.</td></tr><tr><td>team_abbrev</td><td>character</td><td></td></tr><tr><td>value</td><td>numeric</td><td>Numeric or string value field.</td></tr><tr><td>rank</td><td>integer</td><td>Rank.</td></tr><tr><td>display_value</td><td>character</td><td>Human-readable display value.</td></tr></table></div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN answers this route with "No stats found" for every
+college baseball season and team tried, so this function returns an empty
+tibble. It is kept in case ESPN serves the route again.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN College Baseball Functions:
 <code><a href="espn_college_baseball_athletes_index.html">espn_college_baseball_athletes_index()</a></code>,
@@ -244,11 +252,11 @@ pair.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>descr
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_college_baseball_leaders</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span>, season_type <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 04:16:23.563793: espn_college_baseball_leaders(): Failed to retrieve ESPN college-baseball leaders for season=2025</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 06:02:21.373031: espn_college_baseball_leaders(): Failed to retrieve ESPN college-baseball leaders for season=2025</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "college-baseball", season = 2025, season_type = 2</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/types/2/leaders</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN COLLEGE-BASEBALL Leaders from ESPN.com ────── <span style="font-style: italic;">baseballr 2.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:23 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:02:21 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

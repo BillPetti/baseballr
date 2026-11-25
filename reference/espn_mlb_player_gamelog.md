@@ -180,7 +180,28 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_player_gamelog(athlete_id = "1966", season = 2024)
-#> # A tibble: 0 × 0
+  espn_mlb_player_gamelog(athlete_id = "33192", season = 2024)
+#> ── ESPN MLB Athlete Gamelog from ESPN.com ─────────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-25 06:03:04 UTC
+#> # A tibble: 173 × 26
+#>    id    at_vs game_date score home_team_id away_team_id home_team_score
+#>    <chr> <chr> <chr>     <chr> <chr>        <chr>        <chr>          
+#>  1 4017… vs    2024-10-… 7-6   10           19           6              
+#>  2 4017… vs    2024-10-… 11-4  10           19           11             
+#>  3 4017… vs    2024-10-… 4-2   10           19           2              
+#>  4 4017… @     2024-10-… 4-2   19           10           4              
+#>  5 4017… @     2024-10-… 6-3 … 19           10           6              
+#>  6 4017… @     2024-10-… 5-2 … 5            10           2              
+#>  7 4017… @     2024-10-… 8-6   5            10           6              
+#>  8 4017… @     2024-10-… 7-5 … 5            10           7              
+#>  9 4017… vs    2024-10-… 6-3   10           5            6              
+#> 10 4017… vs    2024-10-… 5-2   10           5            5              
+#> # ℹ 163 more rows
+#> # ℹ 19 more variables: away_team_score <chr>, game_result <chr>,
+#> #   league_name <chr>, league_abbreviation <chr>,
+#> #   league_short_name <chr>, event_note <chr>, team_id <chr>,
+#> #   team_uid <chr>, team_abbreviation <chr>, team_logo <chr>,
+#> #   team_is_all_star <chr>, opponent_id <chr>, opponent_uid <chr>,
+#> #   opponent_display_name <chr>, opponent_abbreviation <chr>, …
 # }
 ```

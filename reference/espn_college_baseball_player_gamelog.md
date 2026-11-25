@@ -63,6 +63,13 @@ labels returned by ESPN and will vary by season and player.
 | event_id              | character | Unique ESPN event/game identifier.    |
 | week                  | character | Week.                                 |
 
+## Endpoint status
+
+As of November 2026 ESPN holds no per-player college baseball statistics
+on this route: it answers HTTP 404 or 500 (or an empty list) for every
+college athlete tried, so this function returns an empty tibble. It is
+kept in case ESPN serves the route again.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -144,12 +151,12 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  try(espn_college_baseball_player_gamelog(athlete_id = "3730", season = 2025))
-#> ✖ 2026-11-25 04:16:26.256739: espn_college_baseball_player_gamelog(): Failed to retrieve ESPN college-baseball athlete gamelog for athlete_id=3730, season=2025
-#> ✖ Args: league = "college-baseball", athlete_id = "3730", season = 2025
-#> ✖ Error: HTTP 500 Internal Server Error from https://site.web.api.espn.com/apis/common/v3/sports/baseball/college-baseball/athletes/3730/gamelog
+  try(espn_college_baseball_player_gamelog(athlete_id = "83667", season = 2025))
+#> ✖ 2026-11-25 06:02:24.706285: espn_college_baseball_player_gamelog(): Failed to retrieve ESPN college-baseball athlete gamelog for athlete_id=83667, season=2025
+#> ✖ Args: league = "college-baseball", athlete_id = "83667", season = 2025
+#> ✖ Error: HTTP 500 Internal Server Error from https://site.web.api.espn.com/apis/common/v3/sports/baseball/college-baseball/athletes/83667/gamelog
 #> ── ESPN COLLEGE-BASEBALL Athlete Gamelog from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-11-25 04:16:26 UTC
+#> ℹ Data updated: 2026-11-25 06:02:24 UTC
 #> # A tibble: 0 × 0
 # }
 ```

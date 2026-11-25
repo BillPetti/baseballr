@@ -178,13 +178,26 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_game_player_box(event_id = 401283399, team_id = 29,
+  espn_mlb_game_player_box(event_id = 401701044, team_id = 10,
                                athlete_id = 33192)
-#> ✖ 2026-11-25 04:16:48.076467: espn_mlb_game_player_box(): Failed to retrieve ESPN mlb event player box for event_id=401283399, team_id=29, athlete_id=33192
-#> ✖ Args: league = "mlb", event_id = 401283399, team_id = 29, athlete_id = 33192, stat_type = 0L
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/competitors/29/roster/33192/statistics/0
 #> ── ESPN MLB Event Player Box ──────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:48 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:02:52 UTC
+#> # A tibble: 94 × 12
+#>    league event_id  team_id athlete_id stat_type category_name
+#>    <chr>  <chr>     <chr>   <chr>          <int> <chr>        
+#>  1 mlb    401701044 10      33192              0 batting      
+#>  2 mlb    401701044 10      33192              0 batting      
+#>  3 mlb    401701044 10      33192              0 batting      
+#>  4 mlb    401701044 10      33192              0 batting      
+#>  5 mlb    401701044 10      33192              0 batting      
+#>  6 mlb    401701044 10      33192              0 batting      
+#>  7 mlb    401701044 10      33192              0 batting      
+#>  8 mlb    401701044 10      33192              0 batting      
+#>  9 mlb    401701044 10      33192              0 batting      
+#> 10 mlb    401701044 10      33192              0 batting      
+#> # ℹ 84 more rows
+#> # ℹ 6 more variables: category_display <chr>, stat_name <chr>,
+#> #   stat_abbrev <chr>, stat_display <chr>, value <dbl>,
+#> #   display_value <chr>
 # }
 ```

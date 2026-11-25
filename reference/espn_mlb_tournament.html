@@ -154,6 +154,15 @@ resolve the seasons.</p>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A single-row tibble.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>tournament_id</td><td>character</td><td>ESPN tournament identifier.</td></tr><tr><td>display_name</td><td>character</td><td>Human-readable tournament name.</td></tr><tr><td>seasons_ref</td><td>character</td><td><code>$ref</code> to the seasons-list endpoint.</td></tr><tr><td>league</td><td>character</td><td>League slug (<code>"mlb"</code>).</td></tr></table></div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN answers the <code>tournaments</code> routes with HTTP 400
+("getTournaments() not supported for baseball/mlb") for every id, so this
+function returns an empty tibble. It is kept in case ESPN serves the route
+again.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN MLB Functions:
 <code><a href="espn_mlb.html">espn_mlb</a></code>,
@@ -276,11 +285,11 @@ resolve the seasons.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_mlb_tournament</span><span class="op">(</span>tournament_id <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 04:17:23.618113: espn_mlb_tournament(): Failed to retrieve ESPN mlb tournament 1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 06:03:24.735217: espn_mlb_tournament(): Failed to retrieve ESPN mlb tournament 1</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "mlb", tournament_id = 1</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: HTTP 400 Bad Request from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/tournaments/1</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Tournament Detail ─────────────────────── <span style="font-style: italic;">baseballr 2.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:17:23 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:03:24 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

@@ -153,18 +153,73 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-try(espn_mlb_game_all(game_id = 401283399))
-#> ✖ 2026-11-25 04:16:46.10942: espn_mlb_game_all(): Could not fetch game summary for game_id = 401283399
-#> ✖ Args: game_id = 401283399
-#> ✖ Error: HTTP 404 Not Found from http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/summary: Error invoking GET: http://sports.core.api.espn.pvt/v2/sports/baseball/leagues/mlb/events/401283399, status=404, duration=2 ms, message=null, cache=CACHE_MISS
+try(espn_mlb_game_all(game_id = 401701044))
+#> New names:
+#> • `` -> `...54`
+#> • `` -> `...55`
 #> $Plays
-#> NULL
+#> ── ESPN MLB Play-by-Play Information from ESPN.com ── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-25 06:02:49 UTC
+#> # A tibble: 662 × 81
+#>    id           sequence_number text  away_score home_score scoring_play
+#>    <chr>        <chr>           <chr>      <int>      <int> <lgl>       
+#>  1 40170104400… 1               Top …          0          0 FALSE       
+#>  2 40170104400… 1               Gerr…          0          0 FALSE       
+#>  3 40170104400… 2               Pitc…          0          0 FALSE       
+#>  4 40170104400… 3               Ohta…          0          0 FALSE       
+#>  5 40170104400… 4               NA             0          0 FALSE       
+#>  6 40170104400… 1               Gerr…          0          0 FALSE       
+#>  7 40170104400… 2               Pitc…          0          0 FALSE       
+#>  8 40170104400… 3               Pitc…          0          0 FALSE       
+#>  9 40170104400… 4               Pitc…          0          0 FALSE       
+#> 10 40170104400… 5               Bett…          0          0 FALSE       
+#> # ℹ 652 more rows
+#> # ℹ 75 more variables: score_value <int>, wallclock <chr>,
+#> #   at_bat_id <chr>, summary_type <chr>, outs <int>, type <list<chr>>,
+#> #   bat_order <int>, at_bat_pitch_number <int>, pitch_velocity <int>,
+#> #   trajectory <chr>, alternative_play <chr>, type_id <int>,
+#> #   type_text <chr>, type_type <chr>, type_alternative_text <chr>,
+#> #   type_abbreviation <chr>, period_type <chr>, period_number <int>, …
 #> 
 #> $Team
-#> NULL
+#> ── ESPN MLB Team Box Information from ESPN.com ────── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-25 06:02:49 UTC
+#> # A tibble: 2 × 199
+#>     game_id season season_type game_date  game_date_time      team_id
+#>       <int>  <int>       <int> <date>     <dttm>                <int>
+#> 1 401701044   2024           3 2024-10-30 2024-10-30 20:08:00      19
+#> 2 401701044   2024           3 2024-10-30 2024-10-30 20:08:00      10
+#> # ℹ 193 more variables: team_uid <chr>, team_slug <chr>,
+#> #   team_location <chr>, team_name <chr>, team_abbreviation <chr>,
+#> #   team_display_name <chr>, team_short_display_name <chr>,
+#> #   team_color <chr>, team_alternate_color <chr>, team_logo <chr>,
+#> #   batting_games_played <chr>, batting_team_games_played <chr>,
+#> #   batting_hit_by_pitch <chr>, batting_ground_balls <chr>,
+#> #   batting_strikeouts <chr>, batting_rb_is <chr>, …
 #> 
 #> $Player
-#> NULL
+#> ── ESPN MLB Player Box Information from ESPN.com ──── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-25 06:02:49 UTC
+#> # A tibble: 32 × 35
+#>     game_id season season_type game_date  game_date_time      stat_group
+#>       <int>  <int>       <int> <date>     <dttm>              <chr>     
+#>  1   4.02e8   2024           3 2024-10-30 2024-10-30 20:08:00 batting   
+#>  2   4.02e8   2024           3 2024-10-30 2024-10-30 20:08:00 batting   
+#>  3   4.02e8   2024           3 2024-10-30 2024-10-30 20:08:00 batting   
+#>  4   4.02e8   2024           3 2024-10-30 2024-10-30 20:08:00 batting   
+#>  5   4.02e8   2024           3 2024-10-30 2024-10-30 20:08:00 batting   
+#>  6   4.02e8   2024           3 2024-10-30 2024-10-30 20:08:00 batting   
+#>  7   4.02e8   2024           3 2024-10-30 2024-10-30 20:08:00 batting   
+#>  8   4.02e8   2024           3 2024-10-30 2024-10-30 20:08:00 batting   
+#>  9   4.02e8   2024           3 2024-10-30 2024-10-30 20:08:00 batting   
+#> 10   4.02e8   2024           3 2024-10-30 2024-10-30 20:08:00 batting   
+#> # ℹ 22 more rows
+#> # ℹ 29 more variables: team_id <int>, team_name <chr>,
+#> #   team_abbreviation <chr>, team_display_name <chr>, athlete_id <int>,
+#> #   athlete_display_name <chr>, athlete_short_name <chr>,
+#> #   athlete_position_name <chr>, athlete_position_abbreviation <chr>,
+#> #   starter <lgl>, bat_order <int>, active <lgl>, h_ab <chr>, ab <chr>,
+#> #   r <chr>, h <chr>, rbi <chr>, hr <chr>, bb <chr>, k <chr>, …
 #> 
 # }
 ```

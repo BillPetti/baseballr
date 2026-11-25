@@ -179,7 +179,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_season_leaders(season = 2025)
 #> ── ESPN MLB Season-Type Leaders ───────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:17:04 UTC
+#> ℹ Data updated: 2026-11-25 06:03:12 UTC
 #> # A tibble: 1,000 × 15
 #>    league season season_type category_name category_display
 #>    <chr>   <int>       <int> <chr>         <chr>           

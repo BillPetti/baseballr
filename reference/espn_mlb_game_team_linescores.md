@@ -160,12 +160,22 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_game_team_linescores(event_id = 401283399, team_id = 29)
-#> ✖ 2026-11-25 04:16:51.584281: espn_mlb_game_team_linescores(): Failed to retrieve ESPN mlb competitor linescores for event_id=401283399, team_id=29
-#> ✖ Args: league = "mlb", event_id = 401283399, team_id = 29
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/competitors/29/linescores
+  espn_mlb_game_team_linescores(event_id = 401701044, team_id = 10)
 #> ── ESPN MLB Competitor Linescores ─────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:51 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:02:57 UTC
+#> # A tibble: 27 × 7
+#>    league event_id  team_id period value display_value source
+#>    <chr>  <chr>     <chr>    <int> <dbl> <chr>         <chr> 
+#>  1 mlb    401701044 10           1     3 3             2     
+#>  2 mlb    401701044 10           1     3 3             feed  
+#>  3 mlb    401701044 10           1     3 3             full  
+#>  4 mlb    401701044 10           2     1 1             2     
+#>  5 mlb    401701044 10           2     1 1             feed  
+#>  6 mlb    401701044 10           2     1 1             full  
+#>  7 mlb    401701044 10           3     1 1             2     
+#>  8 mlb    401701044 10           3     1 1             feed  
+#>  9 mlb    401701044 10           3     1 1             full  
+#> 10 mlb    401701044 10           4     0 0             2     
+#> # ℹ 17 more rows
 # }
 ```

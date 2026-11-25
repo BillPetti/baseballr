@@ -75,7 +75,7 @@ with the following columns:
 ``` r
 # \donttest{
   try(fg_milb_pitcher_game_logs(playerid = "sa3020682", year=2023))
-#> ✖ 2026-11-25 04:17:30.663086: Invalid arguments or no MiLB pitcher game logs data available!
+#> ✖ 2026-11-25 06:03:33.850957: Invalid arguments or no MiLB pitcher game logs data available!
 #> ✖ Error: Can't extract columns that don't exist. ✖ Column `masterid` doesn't exist.
 #>          Date Team Level  Opp W L       ERA G GS QS CG ShO SV  IP TBF H
 #> 2  2023-08-22  NYY  (AA)  COL 0 0  0.000000 1  1  0  0   0  0 5.0  19 4

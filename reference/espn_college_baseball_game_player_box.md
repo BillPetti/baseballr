@@ -141,12 +141,25 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_game_player_box(event_id = "401778093", team_id = "113",
-                                            athlete_id = "5102102"))
-#> ✖ 2026-11-25 04:16:20.183596: espn_college_baseball_game_player_box(): Failed to retrieve ESPN college-baseball event player box for event_id=401778093, team_id=113, athlete_id=5102102
-#> ✖ Args: league = "college-baseball", event_id = "401778093", team_id = "113", athlete_id = "5102102", stat_type = 0L
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/competitors/113/roster/5102102/statistics/0
+                                            athlete_id = "83667"))
 #> ── ESPN COLLEGE-BASEBALL Event Player Box ─────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:20 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:02:17 UTC
+#> # A tibble: 45 × 12
+#>    league           event_id  team_id athlete_id stat_type category_name
+#>    <chr>            <chr>     <chr>   <chr>          <int> <chr>        
+#>  1 college-baseball 401778093 113     83667              0 batting      
+#>  2 college-baseball 401778093 113     83667              0 batting      
+#>  3 college-baseball 401778093 113     83667              0 batting      
+#>  4 college-baseball 401778093 113     83667              0 batting      
+#>  5 college-baseball 401778093 113     83667              0 batting      
+#>  6 college-baseball 401778093 113     83667              0 batting      
+#>  7 college-baseball 401778093 113     83667              0 batting      
+#>  8 college-baseball 401778093 113     83667              0 batting      
+#>  9 college-baseball 401778093 113     83667              0 batting      
+#> 10 college-baseball 401778093 113     83667              0 batting      
+#> # ℹ 35 more rows
+#> # ℹ 6 more variables: category_display <chr>, stat_name <chr>,
+#> #   stat_abbrev <chr>, stat_display <chr>, value <dbl>,
+#> #   display_value <chr>
 # }
 ```

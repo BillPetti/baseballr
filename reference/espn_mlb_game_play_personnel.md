@@ -41,6 +41,12 @@ football). When populated:
 | athlete_id       | character | Athlete involved in the play.           |
 | participant_type | character | Role of the athlete in the play.        |
 
+## Endpoint status
+
+As of November 2026 ESPN returns no personnel entries for any MLB play
+tried (2024 and 2025 World Series games), so this function returns an
+empty tibble. It is kept in case ESPN serves the route again.
+
 ## See also
 
 Other ESPN MLB Functions:
@@ -163,12 +169,12 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_game_play_personnel(event_id = 401283399, play_id = 4012833994)
-#> ✖ 2026-11-25 04:16:47.881934: espn_mlb_game_play_personnel(): Failed to retrieve ESPN mlb play personnel for event_id=401283399, play_id=4012833994
-#> ✖ Args: league = "mlb", event_id = 401283399, play_id = 4012833994
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/plays/4012833994/personnel
+  espn_mlb_game_play_personnel(event_id = 401701044, play_id = "4017010440001010001")
 #> ── ESPN MLB Event Play Personnel ──────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:47 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:02:51 UTC
+#> # A tibble: 0 × 7
+#> # ℹ 7 variables: league <chr>, event_id <chr>, play_id <chr>,
+#> #   team_id <chr>, athlete_id <chr>, athlete_ref <chr>,
+#> #   competitor_ref <chr>
 # }
 ```

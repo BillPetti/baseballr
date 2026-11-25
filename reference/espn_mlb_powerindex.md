@@ -51,6 +51,15 @@ A long tibble with one row per (team x stat).
 | last_updated  | character | Last-updated timestamp.                |
 | team_ref      | character | `$ref` to the team-in-season resource. |
 
+## Endpoint status
+
+As of November 2026 ESPN answers `seasons/{season}/powerindex` with HTTP
+400 ("not supported for baseball/mlb") for every season, so this
+function returns an empty tibble. It is kept in case ESPN serves the
+route again.
+[`espn_mlb_game_powerindex()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_powerindex.md)
+still answers per game.
+
 ## See also
 
 Other ESPN MLB Functions:
@@ -174,11 +183,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_powerindex(season = 2025)
-#> ✖ 2026-11-25 04:17:00.659315: espn_mlb_powerindex(): Failed to retrieve ESPN mlb powerindex for season=2025
+#> ✖ 2026-11-25 06:03:07.839165: espn_mlb_powerindex(): Failed to retrieve ESPN mlb powerindex for season=2025
 #> ✖ Args: league = "mlb", season = 2025, season_type = 2:3
 #> ✖ Error: HTTP 400 Bad Request from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2025/powerindex
 #> ── ESPN MLB Season Power Index ────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:17:00 UTC
+#> ℹ Data updated: 2026-11-25 06:03:07 UTC
 #> # A tibble: 0 × 0
 # }
 ```

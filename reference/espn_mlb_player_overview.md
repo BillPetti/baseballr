@@ -191,15 +191,15 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_player_overview(athlete_id = "1966", season = 2024)
+  espn_mlb_player_overview(athlete_id = "33192", season = 2024)
 #> $Statistics
 #> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-11-25 04:16:58 UTC
+#> ℹ Data updated: 2026-11-25 06:03:05 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-11-25 04:16:58 UTC
+#> ℹ Data updated: 2026-11-25 06:03:05 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -207,32 +207,32 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-11-25 04:16:58 UTC
+#> ℹ Data updated: 2026-11-25 06:03:05 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-11-25 04:16:58 UTC
+#> ℹ Data updated: 2026-11-25 06:03:05 UTC
 #> # A tibble: 13 × 5
 #>    headline                           description published byline type 
 #>    <chr>                              <chr>       <chr>     <chr>  <chr>
-#>  1 Sources: Reds catcher Tyler Steph… "The Reds … 2026-11-… NA     Head…
-#>  2 2026-27 MLB free agency, trade gr… "We've got… 2026-11-… David… Story
-#>  3 MLB free agency tracker: 2026-27 … "We've got… 2026-11-… ESPN   Story
-#>  4 Sources: White Sox, OF Tyrone Tay… "Tyrone Ta… 2026-11-… Jesse… Head…
-#>  5 Scott Servais joins Rockies as se… "The Rocki… 2026-11-… NA     Head…
-#>  6 Fantasy baseball reactions to MLB… "Track all… 2026-11-… Trist… Story
-#>  7 Sources: Japanese righty Kaima Ta… "Right-han… 2026-11-… NA     Head…
-#>  8 MLB drops contract escrow provisi… "MLB dropp… 2026-11-… NA     Head…
-#>  9 Sources: Tigers, Ha-Seong Kim agr… "Infielder… 2026-11-… NA     Head…
-#> 10 Luis Ortiz's wife urged Guardians… "Guardians… 2026-11-… Willi… Head…
-#> 11 Sources: Freddy Peralta stays in … "Freddy Pe… 2026-11-… NA     Head…
-#> 12 Sources: Guardians, lefty Kris Bu… "Left-hand… 2026-11-… NA     Head…
-#> 13 Sources: Cubs agree to 6-year, $1… "The Cubs … 2026-11-… Jesse… Head…
+#>  1 Who has won the MLB MVP Award? Al… MLB's MVP … 2026-11-… Keith… Story
+#>  2 Who has won MLB Rookie of the Yea… MLB's Rook… 2026-11-… Keith… Story
+#>  3 Yankees, Brian Cashman reach cont… Yankees GM… 2026-10-… Jorge… Head…
+#>  4 As Yankees fall short again, Aaro… Aaron Judg… 2026-10-… Jorge… Head…
+#>  5 Aaron Judge not on Yankees' roste… Aaron Judg… 2026-10-… Jorge… Head…
+#>  6 Yankees waiting to decide on Aaro… The Yankee… 2026-10-… Jorge… Head…
+#>  7 MLB playoffs: Judge or no Judge, … With or wi… 2026-10-… Jeff … Story
+#>  8 Aaron Judge won't play ALWCS; Gia… Aaron Judg… 2026-09-… Jorge… Head…
+#>  9 Fantasy baseball: Which hitters a… Eric Karab… 2026-09-… Eric … Story
+#> 10 Aaron Judge takes BP as Yankees' … Aaron Judg… 2026-09-… Jorge… Head…
+#> 11 MLB playoffs 2026: 5 questions fo… From an in… 2026-09-… Jorge… Story
+#> 12 Dodgers' Ohtani 1st to top MLB je… The Dodger… 2026-09-… NA     Head…
+#> 13 Yankees' Boone says he spoke with… Aaron Boon… 2026-09-… Jorge… Head…
 #> 
 #> $FantasyOutlook
 #> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────
-#> ℹ Data updated: 2026-11-25 04:16:58 UTC
+#> ℹ Data updated: 2026-11-25 06:03:05 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

@@ -164,12 +164,24 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_game_team_statistics(event_id = 401283399, team_id = 29)
-#> ✖ 2026-11-25 04:16:52.602963: espn_mlb_game_team_statistics(): Failed to retrieve ESPN mlb competitor statistics for event_id=401283399, team_id=29
-#> ✖ Args: league = "mlb", event_id = 401283399, team_id = 29
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/competitors/29/statistics
+  espn_mlb_game_team_statistics(event_id = 401701044, team_id = 10)
 #> ── ESPN MLB Competitor Statistics ─────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:52 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:02:58 UTC
+#> # A tibble: 185 × 10
+#>    league event_id  team_id category_name category_display stat_name    
+#>    <chr>  <chr>     <chr>   <chr>         <chr>            <chr>        
+#>  1 mlb    401701044 10      batting       Batting          gamesPlayed  
+#>  2 mlb    401701044 10      batting       Batting          teamGamesPla…
+#>  3 mlb    401701044 10      batting       Batting          hitByPitch   
+#>  4 mlb    401701044 10      batting       Batting          groundBalls  
+#>  5 mlb    401701044 10      batting       Batting          strikeouts   
+#>  6 mlb    401701044 10      batting       Batting          RBIs         
+#>  7 mlb    401701044 10      batting       Batting          sacHits      
+#>  8 mlb    401701044 10      batting       Batting          hits         
+#>  9 mlb    401701044 10      batting       Batting          stolenBases  
+#> 10 mlb    401701044 10      batting       Batting          walks        
+#> # ℹ 175 more rows
+#> # ℹ 4 more variables: stat_abbrev <chr>, stat_display <chr>,
+#> #   value <dbl>, display_value <chr>
 # }
 ```

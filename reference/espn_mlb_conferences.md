@@ -25,6 +25,14 @@ A `baseballr_data` tibble with one row per conference:
 | parent_group_id | integer | Unique identifier for parent group. |
 | conference_id | integer | Conference identifier. |
 
+## Endpoint status
+
+As of November 2026 ESPN's `scoreboard/conferences` route returns no
+conferences for MLB, so this function returns an empty tibble. It is
+kept in case ESPN serves the route again.
+[`espn_mlb_season_groups()`](https://billpetti.github.io/baseballr/reference/espn_mlb_season_groups.md)
+lists the leagues and divisions.
+
 ## See also
 
 Other ESPN MLB Functions:
@@ -149,7 +157,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mlb_conferences())
 #> ── ESPN MLB Conferences Information from ESPN.com ─── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:43 UTC
+#> ℹ Data updated: 2026-11-25 06:02:44 UTC
 #> # A tibble: 0 × 7
 #> # ℹ 7 variables: group_id <chr>, conference_short_name <chr>,
 #> #   conference_uid <chr>, conference_name <chr>, conference_logo <chr>,

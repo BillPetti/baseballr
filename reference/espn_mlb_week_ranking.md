@@ -68,6 +68,13 @@ A tibble with one row per ranked team (typically 25).
 
 **Get ESPN MLB Per-Week Ranking Detail**
 
+## Endpoint status
+
+As of November 2026 ESPN publishes no MLB rankings: the season and week
+ranking lists are empty for every season tried and a single ranking
+answers HTTP 404, so this function returns an empty tibble. It is kept
+in case ESPN serves the route again.
+
 ## See also
 
 Other ESPN MLB Functions:
@@ -191,11 +198,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_week_ranking(ranking_id = 1, week = 5, season = 2025)
-#> ✖ 2026-11-25 04:17:25.017281: espn_mlb_week_ranking(): Failed to retrieve ESPN mlb week-5 ranking 1 for season=2025
+#> ✖ 2026-11-25 06:03:26.381871: espn_mlb_week_ranking(): Failed to retrieve ESPN mlb week-5 ranking 1 for season=2025
 #> ✖ Args: league = "mlb", season = 2025, season_type = 2L, week = 5, ranking_id = 1
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2025/types/2/weeks/5/rankings/1
 #> ── ESPN MLB Week Ranking Detail ───────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:17:24 UTC
+#> ℹ Data updated: 2026-11-25 06:03:26 UTC
 #> # A tibble: 0 × 0
 # }
 ```

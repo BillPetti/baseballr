@@ -42,6 +42,13 @@ football). When populated:
 | athlete_id       | character | Athlete involved in the play.           |
 | participant_type | character | Role of the athlete in the play.        |
 
+## Endpoint status
+
+As of November 2026 ESPN answers this route with HTTP 500 for every
+college baseball game tried (including the 2025 College World Series),
+so this function returns an empty tibble. It is kept in case ESPN serves
+the route again.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -123,12 +130,13 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  try(espn_college_baseball_game_play_personnel(event_id = "401778093", play_id = "4017780931"))
-#> ✖ 2026-11-25 04:16:19.996406: espn_college_baseball_game_play_personnel(): Failed to retrieve ESPN college-baseball play personnel for event_id=401778093, play_id=4017780931
-#> ✖ Args: league = "college-baseball", event_id = "401778093", play_id = "4017780931"
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/plays/4017780931/personnel
+  try(espn_college_baseball_game_play_personnel(event_id = "401778093",
+                                                play_id = "4017780930001010001"))
+#> ✖ 2026-11-25 06:02:17.11829: espn_college_baseball_game_play_personnel(): Failed to retrieve ESPN college-baseball play personnel for event_id=401778093, play_id=4017780930001010001
+#> ✖ Args: league = "college-baseball", event_id = "401778093", play_id = "4017780930001010001"
+#> ✖ Error: HTTP 500 Internal Server Error from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/plays/4017780930001010001/personnel
 #> ── ESPN COLLEGE-BASEBALL Event Play Personnel ─────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:19 UTC
+#> ℹ Data updated: 2026-11-25 06:02:17 UTC
 #> # A tibble: 0 × 0
 # }
 ```

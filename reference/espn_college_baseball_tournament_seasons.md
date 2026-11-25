@@ -32,6 +32,13 @@ A tibble with one row per season.
 | season        | integer   | Season year.                     |
 | ref           | character | Full `$ref` URL for that season. |
 
+## Endpoint status
+
+As of November 2026 ESPN answers the `tournaments` routes with HTTP 400
+("getTournaments() not supported for baseball/college-baseball") for
+every id, so this function returns an empty tibble. It is kept in case
+ESPN serves the route again.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -114,11 +121,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_tournament_seasons(tournament_id = 1))
-#> ✖ 2026-11-25 04:16:39.338282: espn_college_baseball_tournament_seasons(): Failed to retrieve ESPN college-baseball tournament 1 seasons
+#> ✖ 2026-11-25 06:02:39.540182: espn_college_baseball_tournament_seasons(): Failed to retrieve ESPN college-baseball tournament 1 seasons
 #> ✖ Args: league = "college-baseball", tournament_id = 1
 #> ✖ Error: HTTP 400 Bad Request from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/tournaments/1/seasons
 #> ── ESPN COLLEGE-BASEBALL Tournament Seasons ───────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:39 UTC
+#> ℹ Data updated: 2026-11-25 06:02:39 UTC
 #> # A tibble: 0 × 0
 # }
 ```

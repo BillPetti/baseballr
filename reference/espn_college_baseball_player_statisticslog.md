@@ -42,6 +42,13 @@ endpoints.
 | event_ref      | character | Reference link to the originating event. |
 | statistics_ref | character |                                          |
 
+## Endpoint status
+
+As of November 2026 ESPN holds no per-player college baseball statistics
+on this route: it answers HTTP 404 or 500 (or an empty list) for every
+college athlete tried, so this function returns an empty tibble. It is
+kept in case ESPN serves the route again.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -123,12 +130,12 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  try(espn_college_baseball_player_statisticslog(athlete_id = "3730", season = 2025))
-#> ✖ 2026-11-25 04:16:27.512752: espn_college_baseball_player_statisticslog(): Failed to retrieve ESPN college-baseball athlete statisticslog for athlete_id=3730, season=2025
-#> ✖ Args: league = "college-baseball", athlete_id = "3730", season = 2025
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/athletes/3730/statisticslog
+  try(espn_college_baseball_player_statisticslog(athlete_id = "83667", season = 2025))
+#> ✖ 2026-11-25 06:02:26.194867: espn_college_baseball_player_statisticslog(): Failed to retrieve ESPN college-baseball athlete statisticslog for athlete_id=83667, season=2025
+#> ✖ Args: league = "college-baseball", athlete_id = "83667", season = 2025
+#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/athletes/83667/statisticslog
 #> ── ESPN COLLEGE-BASEBALL Athlete Statisticslog from ESPN.com ───────────
-#> ℹ Data updated: 2026-11-25 04:16:27 UTC
+#> ℹ Data updated: 2026-11-25 06:02:26 UTC
 #> # A tibble: 0 × 0
 # }
 ```

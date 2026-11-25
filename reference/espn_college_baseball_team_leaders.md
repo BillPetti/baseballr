@@ -128,7 +128,7 @@ Saiem Gilani
 # \donttest{
   espn_college_baseball_team_leaders(team_id = "59", season = 2025)
 #> ── ESPN COLLEGE-BASEBALL Team Leaders from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-11-25 04:16:35 UTC
+#> ℹ Data updated: 2026-11-25 06:02:34 UTC
 #> # A tibble: 425 × 10
 #>    team_id season category        display_name  category_abbr athlete_id
 #>    <chr>    <int> <chr>           <chr>         <chr>         <chr>     

@@ -139,6 +139,15 @@ Get ESPN MLB Conferences"><meta property="og:image" content="https://raw.githubu
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A <code>baseballr_data</code> tibble with one row per conference:</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>group_id</td><td>integer</td><td>Group identifier (e.g. conference group_id).</td></tr><tr><td>conference_short_name</td><td>character</td><td>Conference short name (e.g. 'ACC').</td></tr><tr><td>conference_uid</td><td>character</td><td>ESPN universal conference identifier.</td></tr><tr><td>conference_name</td><td>character</td><td>Full conference name.</td></tr><tr><td>conference_logo</td><td>character</td><td>Logo image URL for conference.</td></tr><tr><td>parent_group_id</td><td>integer</td><td>Unique identifier for parent group.</td></tr><tr><td>conference_id</td><td>integer</td><td>Conference identifier.</td></tr></table></div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN's <code>scoreboard/conferences</code> route returns no
+conferences for MLB, so this function returns an empty tibble. It is kept
+in case ESPN serves the route again. <code><a href="espn_mlb_season_groups.html">espn_mlb_season_groups()</a></code> lists the
+leagues and divisions.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN MLB Functions:
 <code><a href="espn_mlb.html">espn_mlb</a></code>,
@@ -262,7 +271,7 @@ Get ESPN MLB Conferences"><meta property="og:image" content="https://raw.githubu
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_mlb_conferences</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Conferences Information from ESPN.com ─── <span style="font-style: italic;">baseballr 2.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:43 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:02:44 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 7 variables: group_id &lt;chr&gt;, conference_short_name &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   conference_uid &lt;chr&gt;, conference_name &lt;chr&gt;, conference_logo &lt;chr&gt;,</span></span>

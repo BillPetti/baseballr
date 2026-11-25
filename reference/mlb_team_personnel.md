@@ -39,7 +39,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_team_personnel(team_id = 137, date = "08/28/2016"))
 #> ── MLB Team Personnel data from MLB.com ───────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:20:36 UTC
+#> ℹ Data updated: 2026-11-25 06:07:26 UTC
 #> # A tibble: 15 × 8
 #>    jersey_number job             job_id title person_id person_full_name
 #>    <chr>         <chr>           <chr>  <chr>     <int> <chr>           

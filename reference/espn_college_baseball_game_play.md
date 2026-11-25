@@ -134,12 +134,16 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  try(espn_college_baseball_game_play(event_id = "401778093", play_id = "4017780931"))
-#> ✖ 2026-11-25 04:16:19.801709: espn_college_baseball_game_play(): Failed to retrieve ESPN college-baseball event play detail for event_id=401778093, play_id=4017780931
-#> ✖ Args: league = "college-baseball", event_id = "401778093", play_id = "4017780931"
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/plays/4017780931
+  try(espn_college_baseball_game_play(event_id = "401778093", play_id = "4017780930001010001"))
 #> ── ESPN COLLEGE-BASEBALL Event Play Detail ────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:19 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:02:16 UTC
+#> # A tibble: 1 × 19
+#>   league        event_id play_id sequence_number type_id type_text text 
+#>   <chr>         <chr>    <chr>   <chr>           <chr>   <chr>     <chr>
+#> 1 college-base… 4017780… 401778… 1               1       Start Ba… E. K…
+#> # ℹ 12 more variables: short_text <chr>, period <int>, clock <chr>,
+#> #   scoring_play <lgl>, score_value <dbl>, away_score <int>,
+#> #   home_score <int>, shooting_play <lgl>, coordinate_x <dbl>,
+#> #   coordinate_y <dbl>, team_ref <chr>, wallclock <chr>
 # }
 ```

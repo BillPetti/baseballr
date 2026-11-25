@@ -56,6 +56,12 @@ A long tibble with one row per (category x stat).
 | rank               | integer   | Rank within the result set.                  |
 | rank_display_value | character | Rank display value.                          |
 
+## Endpoint status
+
+As of November 2026 ESPN answers this route with "No stats found" for
+every college baseball season and team tried, so this function returns
+an empty tibble. It is kept in case ESPN serves the route again.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -138,11 +144,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_college_baseball_team_season_statistics(team_id = 59, season = 2025)
-#> ✖ 2026-11-25 04:16:38.063154: espn_college_baseball_team_season_statistics(): Failed to retrieve ESPN college-baseball team season statistics for team_id=59, season=2025, season_type=2
+#> ✖ 2026-11-25 06:02:37.977295: espn_college_baseball_team_season_statistics(): Failed to retrieve ESPN college-baseball team season statistics for team_id=59, season=2025, season_type=2
 #> ✖ Args: league = "college-baseball", team_id = 59, season = 2025, season_type = 2L
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/types/2/teams/59/statistics
 #> ── ESPN COLLEGE-BASEBALL Team Season Statistics ───── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:38 UTC
+#> ℹ Data updated: 2026-11-25 06:02:37 UTC
 #> # A tibble: 0 × 0
 # }
 ```

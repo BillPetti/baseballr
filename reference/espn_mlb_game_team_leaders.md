@@ -165,12 +165,25 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_game_team_leaders(event_id = 401283399, team_id = 29)
-#> ✖ 2026-11-25 04:16:51.365353: espn_mlb_game_team_leaders(): Failed to retrieve ESPN mlb competitor leaders for event_id=401283399, team_id=29
-#> ✖ Args: league = "mlb", event_id = 401283399, team_id = 29
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/competitors/29/leaders
+  espn_mlb_game_team_leaders(event_id = 401701044, team_id = 10)
 #> ── ESPN MLB Competitor Leaders ────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:51 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:02:56 UTC
+#> # A tibble: 109 × 11
+#>    league event_id  team_id category_name category_display
+#>    <chr>  <chr>     <chr>   <chr>         <chr>           
+#>  1 mlb    401701044 10      MLBRating     MLB Rating      
+#>  2 mlb    401701044 10      MLBRating     MLB Rating      
+#>  3 mlb    401701044 10      MLBRating     MLB Rating      
+#>  4 mlb    401701044 10      MLBRating     MLB Rating      
+#>  5 mlb    401701044 10      MLBRating     MLB Rating      
+#>  6 mlb    401701044 10      MLBRating     MLB Rating      
+#>  7 mlb    401701044 10      MLBRating     MLB Rating      
+#>  8 mlb    401701044 10      MLBRating     MLB Rating      
+#>  9 mlb    401701044 10      MLBRating     MLB Rating      
+#> 10 mlb    401701044 10      MLBRating     MLB Rating      
+#> # ℹ 99 more rows
+#> # ℹ 6 more variables: category_abbrev <chr>, rank <int>,
+#> #   athlete_id <chr>, display_value <chr>, value <dbl>,
+#> #   athlete_ref <chr>
 # }
 ```

@@ -42,6 +42,14 @@ A tibble with one row per week.
 | week        | integer   | Week number (1-based).          |
 | ref         | character | `$ref` URL for the week detail. |
 
+## Endpoint status
+
+As of November 2026 ESPN lists no college baseball weeks (the list is
+empty and a single week answers HTTP 404), so this function returns an
+empty tibble. It is kept in case ESPN serves the route again.
+[`espn_college_baseball_week_rankings()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_week_rankings.md)
+still answers.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -125,7 +133,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_season_weeks(season = 2025))
 #> ── ESPN COLLEGE-BASEBALL Season Weeks Index ───────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:32 UTC
+#> ℹ Data updated: 2026-11-25 06:02:31 UTC
 #> # A tibble: 0 × 5
 #> # ℹ 5 variables: league <chr>, season <int>, season_type <int>,
 #> #   week <int>, ref <chr>

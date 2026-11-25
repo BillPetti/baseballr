@@ -168,25 +168,26 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  try(espn_college_baseball_player_info(athlete_id = "3730"))
+  try(espn_college_baseball_player_info(athlete_id = "83667"))
 #> $Bio
 #> ── ESPN COLLEGE-BASEBALL Athlete Bio from ESPN.com ── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:26 UTC
-#> # A tibble: 1 × 12
+#> ℹ Data updated: 2026-11-25 06:02:24 UTC
+#> # A tibble: 1 × 16
 #>   id    uid       first_name last_name full_name display_name short_name
 #>   <chr> <chr>     <chr>      <chr>     <chr>     <chr>        <chr>     
-#> 1 3730  s:1~l:14… J          Aboites   J Aboites J Aboites    J. Aboites
-#> # ℹ 5 more variables: jersey <chr>, active <lgl>, birth_city <chr>,
+#> 1 83667 s:1~l:14… Trent      Caraway   Trent Ca… Trent Caraw… T. Caraway
+#> # ℹ 9 more variables: weight <dbl>, display_weight <chr>, height <dbl>,
+#> #   display_height <chr>, jersey <chr>, active <lgl>, birth_city <chr>,
 #> #   birth_state <chr>, birth_country <chr>
 #> 
 #> $Team
 #> ── ESPN COLLEGE-BASEBALL Athlete Team from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-11-25 04:16:26 UTC
+#> ℹ Data updated: 2026-11-25 06:02:24 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Position
 #> ── ESPN COLLEGE-BASEBALL Athlete Position from ESPN.com ────────────────
-#> ℹ Data updated: 2026-11-25 04:16:26 UTC
+#> ℹ Data updated: 2026-11-25 06:02:25 UTC
 #> # A tibble: 1 × 5
 #>   id    name                 display_name         abbreviation leaf 
 #>   <chr> <chr>                <chr>                <chr>        <lgl>
@@ -194,17 +195,17 @@ Saiem Gilani
 #> 
 #> $Status
 #> ── ESPN COLLEGE-BASEBALL Athlete Status from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-11-25 04:16:26 UTC
+#> ℹ Data updated: 2026-11-25 06:02:25 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $College
 #> ── ESPN COLLEGE-BASEBALL Athlete College from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-11-25 04:16:26 UTC
+#> ℹ Data updated: 2026-11-25 06:02:25 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Draft
 #> ── ESPN COLLEGE-BASEBALL Athlete Draft from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-11-25 04:16:26 UTC
+#> ℹ Data updated: 2026-11-25 06:02:25 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

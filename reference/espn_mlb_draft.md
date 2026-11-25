@@ -57,6 +57,16 @@ which returns each round of the draft with its picks inlined as
 `picks: [...]`. For historical seasons with no ESPN draft data the
 function returns an empty tibble rather than erroring.
 
+## Endpoint status
+
+As of November 2026 ESPN serves no MLB draft data:
+`seasons/{season}/draft` answers HTTP 404 and `draft/rounds` and
+`draft/athletes` are empty for every season tried (2019 to 2026), so
+this function returns an empty tibble. It is kept in case ESPN serves
+the route again.
+[`espn_mlb_draft_status()`](https://billpetti.github.io/baseballr/reference/espn_mlb_draft_status.md)
+still answers.
+
 ## See also
 
 Other ESPN MLB Functions:
@@ -181,7 +191,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_draft(season = 2024)
 #> ── ESPN MLB Draft Picks from ESPN.com ─────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:43 UTC
+#> ℹ Data updated: 2026-11-25 06:02:44 UTC
 #> # A tibble: 0 × 0
 # }
 ```

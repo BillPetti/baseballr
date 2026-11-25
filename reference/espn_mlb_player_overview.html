@@ -278,15 +278,15 @@ Get ESPN MLB Athlete Overview"><meta property="og:image" content="https://raw.gi
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="fu">espn_mlb_player_overview</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="st">"1966"</span>, season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">espn_mlb_player_overview</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="st">"33192"</span>, season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Statistics</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:58 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:03:05 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $NextGame</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:58 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:03:05 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   id    date  name  short_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
@@ -294,32 +294,32 @@ Get ESPN MLB Athlete Overview"><meta property="og:image" content="https://raw.gi
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Last5Games</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:58 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:03:05 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Headlines</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:58 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:03:05 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 13 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    headline                           description published byline type </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Sources: Reds catcher Tyler Steph… <span style="color: #949494;">"</span>The Reds … 2026-11-… <span style="color: #BB0000;">NA</span>     Head…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2026-27 MLB free agency, trade gr… <span style="color: #949494;">"</span>We've got… 2026-11-… David… Story</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> MLB free agency tracker: 2026-27 … <span style="color: #949494;">"</span>We've got… 2026-11-… ESPN   Story</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Sources: White Sox, OF Tyrone Tay… <span style="color: #949494;">"</span>Tyrone Ta… 2026-11-… Jesse… Head…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Scott Servais joins Rockies as se… <span style="color: #949494;">"</span>The Rocki… 2026-11-… <span style="color: #BB0000;">NA</span>     Head…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Fantasy baseball reactions to MLB… <span style="color: #949494;">"</span>Track all… 2026-11-… Trist… Story</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Sources: Japanese righty Kaima Ta… <span style="color: #949494;">"</span>Right-han… 2026-11-… <span style="color: #BB0000;">NA</span>     Head…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> MLB drops contract escrow provisi… <span style="color: #949494;">"</span>MLB dropp… 2026-11-… <span style="color: #BB0000;">NA</span>     Head…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Sources: Tigers, Ha-Seong Kim agr… <span style="color: #949494;">"</span>Infielder… 2026-11-… <span style="color: #BB0000;">NA</span>     Head…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Luis Ortiz's wife urged Guardians… <span style="color: #949494;">"</span>Guardians… 2026-11-… Willi… Head…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> Sources: Freddy Peralta stays in … <span style="color: #949494;">"</span>Freddy Pe… 2026-11-… <span style="color: #BB0000;">NA</span>     Head…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> Sources: Guardians, lefty Kris Bu… <span style="color: #949494;">"</span>Left-hand… 2026-11-… <span style="color: #BB0000;">NA</span>     Head…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> Sources: Cubs agree to 6-year, $1… <span style="color: #949494;">"</span>The Cubs … 2026-11-… Jesse… Head…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Who has won the MLB MVP Award? Al… MLB's MVP … 2026-11-… Keith… Story</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Who has won MLB Rookie of the Yea… MLB's Rook… 2026-11-… Keith… Story</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Yankees, Brian Cashman reach cont… Yankees GM… 2026-10-… Jorge… Head…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> As Yankees fall short again, Aaro… Aaron Judg… 2026-10-… Jorge… Head…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Aaron Judge not on Yankees' roste… Aaron Judg… 2026-10-… Jorge… Head…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Yankees waiting to decide on Aaro… The Yankee… 2026-10-… Jorge… Head…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> MLB playoffs: Judge or no Judge, … With or wi… 2026-10-… Jeff … Story</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Aaron Judge won't play ALWCS; Gia… Aaron Judg… 2026-09-… Jorge… Head…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Fantasy baseball: Which hitters a… Eric Karab… 2026-09-… Eric … Story</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Aaron Judge takes BP as Yankees' … Aaron Judg… 2026-09-… Jorge… Head…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> MLB playoffs 2026: 5 questions fo… From an in… 2026-09-… Jorge… Story</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> Dodgers' Ohtani 1st to top MLB je… The Dodger… 2026-09-… <span style="color: #BB0000;">NA</span>     Head…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> Yankees' Boone says he spoke with… Aaron Boon… 2026-09-… Jorge… Head…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $FantasyOutlook</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:58 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:03:05 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>

@@ -169,12 +169,27 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_game_predictor(event_id = 401283399)
-#> ✖ 2026-11-25 04:16:48.491068: espn_mlb_game_predictor(): Failed to retrieve ESPN mlb event predictor for event_id=401283399
-#> ✖ Args: league = "mlb", event_id = 401283399
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/predictor
+  espn_mlb_game_predictor(event_id = 401701044)
 #> ── ESPN MLB Event Predictor ───────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:48 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:02:52 UTC
+#> # A tibble: 14 × 13
+#>    league event_id  name          short_name last_modified side  team_id
+#>    <chr>  <chr>     <chr>         <chr>      <chr>         <chr> <chr>  
+#>  1 mlb    401701044 Los Angeles … LAD @ NYY  2024-10-30T1… home  10     
+#>  2 mlb    401701044 Los Angeles … LAD @ NYY  2024-10-30T1… home  10     
+#>  3 mlb    401701044 Los Angeles … LAD @ NYY  2024-10-30T1… home  10     
+#>  4 mlb    401701044 Los Angeles … LAD @ NYY  2024-10-30T1… home  10     
+#>  5 mlb    401701044 Los Angeles … LAD @ NYY  2024-10-30T1… home  10     
+#>  6 mlb    401701044 Los Angeles … LAD @ NYY  2024-10-30T1… home  10     
+#>  7 mlb    401701044 Los Angeles … LAD @ NYY  2024-10-30T1… home  10     
+#>  8 mlb    401701044 Los Angeles … LAD @ NYY  2024-10-30T1… away  19     
+#>  9 mlb    401701044 Los Angeles … LAD @ NYY  2024-10-30T1… away  19     
+#> 10 mlb    401701044 Los Angeles … LAD @ NYY  2024-10-30T1… away  19     
+#> 11 mlb    401701044 Los Angeles … LAD @ NYY  2024-10-30T1… away  19     
+#> 12 mlb    401701044 Los Angeles … LAD @ NYY  2024-10-30T1… away  19     
+#> 13 mlb    401701044 Los Angeles … LAD @ NYY  2024-10-30T1… away  19     
+#> 14 mlb    401701044 Los Angeles … LAD @ NYY  2024-10-30T1… away  19     
+#> # ℹ 6 more variables: stat_name <chr>, stat_display <chr>,
+#> #   description <chr>, value <dbl>, display_value <chr>, team_ref <chr>
 # }
 ```

@@ -164,12 +164,13 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_game_team_score(event_id = 401283399, team_id = 29)
-#> ✖ 2026-11-25 04:16:52.390664: espn_mlb_game_team_score(): Failed to retrieve ESPN mlb competitor score for event_id=401283399, team_id=29
-#> ✖ Args: league = "mlb", event_id = 401283399, team_id = 29
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/competitors/29/score
+  espn_mlb_game_team_score(event_id = 401701044, team_id = 10)
 #> ── ESPN MLB Event Competitor Score ────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:52 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:02:58 UTC
+#> # A tibble: 1 × 8
+#>   league event_id  team_id value display_value winner source_id
+#>   <chr>  <chr>     <chr>   <dbl> <chr>         <lgl>  <chr>    
+#> 1 mlb    401701044 10          6 6             FALSE  2        
+#> # ℹ 1 more variable: source_description <chr>
 # }
 ```

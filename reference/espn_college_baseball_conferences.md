@@ -25,6 +25,14 @@ A `baseballr_data` tibble with one row per conference:
 | parent_group_id | integer | Unique identifier for parent group. |
 | conference_id | integer | Conference identifier. |
 
+## Endpoint status
+
+As of November 2026 ESPN's `scoreboard/conferences` route returns no
+college baseball conferences, so this function returns an empty tibble.
+It is kept in case ESPN serves the route again.
+[`espn_college_baseball_season_groups()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_season_groups.md)
+lists the conferences.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -108,7 +116,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_conferences())
 #> ── ESPN College Baseball Conferences Information from ESPN.com ─────────
-#> ℹ Data updated: 2026-11-25 04:16:17 UTC
+#> ℹ Data updated: 2026-11-25 06:02:14 UTC
 #> # A tibble: 0 × 7
 #> # ℹ 7 variables: group_id <chr>, conference_short_name <chr>,
 #> #   conference_uid <chr>, conference_name <chr>, conference_logo <chr>,

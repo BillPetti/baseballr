@@ -53,6 +53,12 @@ A single `baseballr_data` tibble with one row per category-athlete pair.
 | rank | integer | Rank. |
 | display_value | character | Human-readable display value. |
 
+## Endpoint status
+
+As of November 2026 ESPN answers this route with "No stats found" for
+every college baseball season and team tried, so this function returns
+an empty tibble. It is kept in case ESPN serves the route again.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -135,11 +141,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_leaders(season = 2025, season_type = 2))
-#> ✖ 2026-11-25 04:16:23.563793: espn_college_baseball_leaders(): Failed to retrieve ESPN college-baseball leaders for season=2025
+#> ✖ 2026-11-25 06:02:21.373031: espn_college_baseball_leaders(): Failed to retrieve ESPN college-baseball leaders for season=2025
 #> ✖ Args: league = "college-baseball", season = 2025, season_type = 2
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/types/2/leaders
 #> ── ESPN COLLEGE-BASEBALL Leaders from ESPN.com ────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:23 UTC
+#> ℹ Data updated: 2026-11-25 06:02:21 UTC
 #> # A tibble: 0 × 0
 # }
 ```

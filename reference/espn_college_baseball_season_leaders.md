@@ -52,6 +52,12 @@ A long tibble with one row per (category x leader).
 | athlete_ref      | character | `$ref` URL to the leader's athlete.           |
 | team_ref         | character | `$ref` URL to the leader's team.              |
 
+## Endpoint status
+
+As of November 2026 ESPN answers this route with "No stats found" for
+every college baseball season and team tried, so this function returns
+an empty tibble. It is kept in case ESPN serves the route again.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -135,7 +141,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_season_leaders(season = 2025))
 #> ── ESPN COLLEGE-BASEBALL Season-Type Leaders ──────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:30 UTC
+#> ℹ Data updated: 2026-11-25 06:02:29 UTC
 #> # A tibble: 0 × 15
 #> # ℹ 15 variables: league <chr>, season <int>, season_type <int>,
 #> #   category_name <chr>, category_display <chr>, category_short <chr>,

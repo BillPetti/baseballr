@@ -171,6 +171,15 @@ returns zero items.</p>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A long tibble with one row per (team x stat).</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>league</td><td>character</td><td>League slug (<code>"mlb"</code>).</td></tr><tr><td>season</td><td>integer</td><td>Season year.</td></tr><tr><td>season_type</td><td>integer</td><td>1=preseason, 2=regular, 3=postseason.</td></tr><tr><td>team_id</td><td>character</td><td>ESPN team id (parsed from <code>team_ref</code>).</td></tr><tr><td>stat_name</td><td>character</td><td>Internal ESPN stat key.</td></tr><tr><td>abbreviation</td><td>character</td><td>Short stat abbreviation.</td></tr><tr><td>display_name</td><td>character</td><td>Human-readable stat name.</td></tr><tr><td>description</td><td>character</td><td>Stat description.</td></tr><tr><td>value</td><td>numeric</td><td>Stat value.</td></tr><tr><td>display_value</td><td>character</td><td>Display-formatted value.</td></tr><tr><td>last_updated</td><td>character</td><td>Last-updated timestamp.</td></tr><tr><td>team_ref</td><td>character</td><td><code>$ref</code> to the team-in-season resource.</td></tr></table></div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN answers <code>seasons/{season}/powerindex</code> with HTTP
+400 ("not supported for baseball/mlb") for every season, so this function
+returns an empty tibble. It is kept in case ESPN serves the route again.
+<code><a href="espn_mlb_game_powerindex.html">espn_mlb_game_powerindex()</a></code> still answers per game.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN MLB Functions:
 <code><a href="espn_mlb.html">espn_mlb</a></code>,
@@ -293,11 +302,11 @@ returns zero items.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_mlb_powerindex</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2025</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 04:17:00.659315: espn_mlb_powerindex(): Failed to retrieve ESPN mlb powerindex for season=2025</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 06:03:07.839165: espn_mlb_powerindex(): Failed to retrieve ESPN mlb powerindex for season=2025</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "mlb", season = 2025, season_type = 2:3</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: HTTP 400 Bad Request from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2025/powerindex</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Season Power Index ────────────────────── <span style="font-style: italic;">baseballr 2.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:17:00 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:03:07 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

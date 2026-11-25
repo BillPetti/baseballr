@@ -40,6 +40,13 @@ A single-row tibble.
 | team_ref         | character | `$ref` to the coach's current team. |
 | league           | character | League slug (`"mlb"`).              |
 
+## Endpoint status
+
+As of November 2026 ESPN lists no college baseball coaches
+(`seasons/{season}/coaches` is empty for 2024 to 2026) and answers HTTP
+404 for coach ids, so this function returns an empty tibble. It is kept
+in case ESPN serves the route again.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -122,11 +129,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_coach(coach_id = 52120))
-#> ✖ 2026-11-25 04:16:16.823056: espn_college_baseball_coach(): Failed to retrieve ESPN college-baseball coach 52120
+#> ✖ 2026-11-25 06:02:13.056444: espn_college_baseball_coach(): Failed to retrieve ESPN college-baseball coach 52120
 #> ✖ Args: league = "college-baseball", coach_id = 52120
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/coaches/52120
 #> ── ESPN COLLEGE-BASEBALL Coach Detail ─────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:16 UTC
+#> ℹ Data updated: 2026-11-25 06:02:13 UTC
 #> # A tibble: 0 × 0
 # }
 ```

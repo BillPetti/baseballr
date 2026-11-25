@@ -38,6 +38,13 @@ A tibble with one row per ranking source.
 
 **Get ESPN MLB Season Rankings Index**
 
+## Endpoint status
+
+As of November 2026 ESPN publishes no MLB rankings: the season and week
+ranking lists are empty for every season tried and a single ranking
+answers HTTP 404, so this function returns an empty tibble. It is kept
+in case ESPN serves the route again.
+
 ## See also
 
 Other ESPN MLB Functions:
@@ -162,7 +169,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_season_rankings(season = 2025)
 #> ── ESPN MLB Season Rankings Index ─────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:17:05 UTC
+#> ℹ Data updated: 2026-11-25 06:03:13 UTC
 #> # A tibble: 0 × 4
 #> # ℹ 4 variables: league <chr>, season <int>, ranking_id <chr>,
 #> #   ref <chr>

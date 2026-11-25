@@ -56,6 +56,12 @@ A single `baseballr_data` tibble with one row per athlete.
 | status     | character | Status label.                           |
 | link       | character |                                         |
 
+## Endpoint status
+
+As of November 2026 ESPN's `seasons/{season}/athletes` list is empty for
+college baseball in every season tried (2024 to 2026), so this function
+returns an empty tibble. It is kept in case ESPN serves the route again.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -140,7 +146,7 @@ Saiem Gilani
   try(espn_college_baseball_athletes_index(season = 2025, limit = 50))
 #> Fetching page 1 of 1 for college-baseball athletes (season=2025)...
 #> ── ESPN COLLEGE-BASEBALL Athletes Index from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-11-25 04:16:15 UTC
+#> ℹ Data updated: 2026-11-25 06:02:11 UTC
 #> # A tibble: 0 × 0
 # }
 ```

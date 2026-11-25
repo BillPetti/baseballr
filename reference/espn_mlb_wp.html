@@ -261,11 +261,29 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span><span class="fu">espn_mlb_wp</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">401283399</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 04:17:25.479834: espn_mlb_wp(): game_id '401283399' invalid or no ESPN win probability data available!</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: game_id = 401283399</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: HTTP 404 Not Found from http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/summary: Error invoking GET: http://sports.core.api.espn.pvt/v2/sports/baseball/leagues/mlb/events/401283399, status=404, duration=2 ms, message=null, cache=CACHE_MISS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> data frame with 0 columns and 0 rows</span>
+<span class="r-in"><span><span class="fu">espn_mlb_wp</span><span class="op">(</span>game_id <span class="op">=</span> <span class="fl">401701044</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Win Probability Information from ESPN.com ──────────────────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:03:27 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 89 × 52</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      game_id play_id             home_win_percentage away_win_percentage</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 401<span style="text-decoration: underline;">701</span>044 4017010440001990057               0.585               0.415</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 401<span style="text-decoration: underline;">701</span>044 4017010440002990057               0.599               0.401</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 401<span style="text-decoration: underline;">701</span>044 4017010440003990057               0.607               0.393</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 401<span style="text-decoration: underline;">701</span>044 4017010440101990057               0.586               0.414</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 401<span style="text-decoration: underline;">701</span>044 4017010440102990057               0.613               0.387</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 401<span style="text-decoration: underline;">701</span>044 4017010440103990057               0.77                0.23 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 401<span style="text-decoration: underline;">701</span>044 4017010440104990057               0.836               0.164</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 401<span style="text-decoration: underline;">701</span>044 4017010440105990057               0.828               0.172</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 401<span style="text-decoration: underline;">701</span>044 4017010440106990057               0.828               0.172</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 401<span style="text-decoration: underline;">701</span>044 4017010440201990057               0.841               0.159</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 79 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 48 more variables: tie_percentage &lt;dbl&gt;, sequence_number &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   text &lt;chr&gt;, away_score &lt;int&gt;, home_score &lt;int&gt;, scoring_play &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   score_value &lt;int&gt;, wallclock &lt;chr&gt;, at_bat_id &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   summary_type &lt;chr&gt;, outs &lt;int&gt;, participants &lt;list&gt;, type_id &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   type_text &lt;chr&gt;, type_type &lt;chr&gt;, period_type &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   period_number &lt;int&gt;, period_display_value &lt;chr&gt;, team_id &lt;chr&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

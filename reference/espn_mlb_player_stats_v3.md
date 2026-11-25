@@ -172,110 +172,104 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_player_stats_v3(athlete_id = "1966", season = 2024)
+  espn_mlb_player_stats_v3(athlete_id = "33192", season = 2024)
 #> $`Career Batting`
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:59 UTC
-#> # A tibble: 14 × 6
-#>    team_id team_slug           season$year stats  position display_name
-#>    <chr>   <chr>                     <int> <list> <chr>    <chr>       
-#>  1 19      los-angeles-dodgers        1987 <chr>  CF       NA          
-#>  2 19      los-angeles-dodgers        1988 <chr>  CF       NA          
-#>  3 1       baltimore-orioles          1989 <chr>  CF       NA          
-#>  4 1       baltimore-orioles          1990 <chr>  CF       NA          
-#>  5 1       baltimore-orioles          1991 <chr>  CF       NA          
-#>  6 1       baltimore-orioles          1992 <chr>  CF       NA          
-#>  7 1       baltimore-orioles          1993 <chr>  CF       NA          
-#>  8 1       baltimore-orioles          1994 <chr>  CF       NA          
-#>  9 4       chicago-white-sox          1995 <chr>  CF       NA          
-#> 10 15      atlanta-braves             1995 <chr>  CF       NA          
-#> 11 NA      1995 Totals                1995 <chr>  CF       1995  Totals
-#> 12 1       baltimore-orioles          1996 <chr>  CF       NA          
-#> 13 13      texas-rangers              1997 <chr>  CF       NA          
-#> 14 19      los-angeles-dodgers        1998 <chr>  CF       NA          
-#> # ℹ 1 more variable: season$displayName <chr>
+#> ℹ Data updated: 2026-11-25 06:03:06 UTC
+#> # A tibble: 11 × 5
+#>    team_id team_slug        season$year $displayName stats      position
+#>    <chr>   <chr>                  <int> <chr>        <list>     <chr>   
+#>  1 10      new-york-yankees        2016 2016         <chr [18]> RF      
+#>  2 10      new-york-yankees        2017 2017         <chr [18]> RF      
+#>  3 10      new-york-yankees        2018 2018         <chr [18]> RF      
+#>  4 10      new-york-yankees        2019 2019         <chr [18]> RF      
+#>  5 10      new-york-yankees        2020 2020         <chr [18]> RF      
+#>  6 10      new-york-yankees        2021 2021         <chr [18]> RF      
+#>  7 10      new-york-yankees        2022 2022         <chr [18]> RF      
+#>  8 10      new-york-yankees        2023 2023         <chr [18]> RF      
+#>  9 10      new-york-yankees        2024 2024         <chr [18]> RF      
+#> 10 10      new-york-yankees        2025 2025         <chr [18]> RF      
+#> 11 10      new-york-yankees        2026 2026         <chr [18]> RF      
 #> 
 #> $`Postseason Batting`
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:59 UTC
-#> # A tibble: 2 × 5
-#>   team_id team_slug         season$year $displayName stats      position
-#>   <chr>   <chr>                   <int> <chr>        <list>     <chr>   
-#> 1 15      atlanta-braves           1995 1995         <chr [17]> CF      
-#> 2 1       baltimore-orioles        1996 1996         <chr [17]> CF      
+#> ℹ Data updated: 2026-11-25 06:03:06 UTC
+#> # A tibble: 8 × 5
+#>   team_id team_slug        season$year $displayName stats      position
+#>   <chr>   <chr>                  <int> <chr>        <list>     <chr>   
+#> 1 10      new-york-yankees        2017 2017         <chr [17]> RF      
+#> 2 10      new-york-yankees        2018 2018         <chr [17]> RF      
+#> 3 10      new-york-yankees        2019 2019         <chr [17]> RF      
+#> 4 10      new-york-yankees        2020 2020         <chr [17]> RF      
+#> 5 10      new-york-yankees        2021 2021         <chr [17]> RF      
+#> 6 10      new-york-yankees        2022 2022         <chr [17]> RF      
+#> 7 10      new-york-yankees        2024 2024         <chr [17]> RF      
+#> 8 10      new-york-yankees        2025 2025         <chr [17]> RF      
 #> 
 #> $`Expanded Batting`
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:59 UTC
-#> # A tibble: 14 × 6
-#>    team_id team_slug           season$year stats  position display_name
-#>    <chr>   <chr>                     <int> <list> <chr>    <chr>       
-#>  1 19      los-angeles-dodgers        1987 <chr>  CF       NA          
-#>  2 19      los-angeles-dodgers        1988 <chr>  CF       NA          
-#>  3 1       baltimore-orioles          1989 <chr>  CF       NA          
-#>  4 1       baltimore-orioles          1990 <chr>  CF       NA          
-#>  5 1       baltimore-orioles          1991 <chr>  CF       NA          
-#>  6 1       baltimore-orioles          1992 <chr>  CF       NA          
-#>  7 1       baltimore-orioles          1993 <chr>  CF       NA          
-#>  8 1       baltimore-orioles          1994 <chr>  CF       NA          
-#>  9 4       chicago-white-sox          1995 <chr>  CF       NA          
-#> 10 15      atlanta-braves             1995 <chr>  CF       NA          
-#> 11 NA      1995 Totals                1995 <chr>  CF       1995  Totals
-#> 12 1       baltimore-orioles          1996 <chr>  CF       NA          
-#> 13 13      texas-rangers              1997 <chr>  CF       NA          
-#> 14 19      los-angeles-dodgers        1998 <chr>  CF       NA          
-#> # ℹ 1 more variable: season$displayName <chr>
+#> ℹ Data updated: 2026-11-25 06:03:06 UTC
+#> # A tibble: 11 × 5
+#>    team_id team_slug        season$year $displayName stats      position
+#>    <chr>   <chr>                  <int> <chr>        <list>     <chr>   
+#>  1 10      new-york-yankees        2016 2016         <chr [13]> RF      
+#>  2 10      new-york-yankees        2017 2017         <chr [13]> RF      
+#>  3 10      new-york-yankees        2018 2018         <chr [13]> RF      
+#>  4 10      new-york-yankees        2019 2019         <chr [13]> RF      
+#>  5 10      new-york-yankees        2020 2020         <chr [13]> RF      
+#>  6 10      new-york-yankees        2021 2021         <chr [13]> RF      
+#>  7 10      new-york-yankees        2022 2022         <chr [13]> RF      
+#>  8 10      new-york-yankees        2023 2023         <chr [13]> RF      
+#>  9 10      new-york-yankees        2024 2024         <chr [13]> RF      
+#> 10 10      new-york-yankees        2025 2025         <chr [13]> RF      
+#> 11 10      new-york-yankees        2026 2026         <chr [13]> RF      
 #> 
 #> $`Advanced Batting`
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:59 UTC
-#> # A tibble: 14 × 6
-#>    team_id team_slug           season$year stats  position display_name
-#>    <chr>   <chr>                     <int> <list> <chr>    <chr>       
-#>  1 19      los-angeles-dodgers        1987 <chr>  CF       NA          
-#>  2 19      los-angeles-dodgers        1988 <chr>  CF       NA          
-#>  3 1       baltimore-orioles          1989 <chr>  CF       NA          
-#>  4 1       baltimore-orioles          1990 <chr>  CF       NA          
-#>  5 1       baltimore-orioles          1991 <chr>  CF       NA          
-#>  6 1       baltimore-orioles          1992 <chr>  CF       NA          
-#>  7 1       baltimore-orioles          1993 <chr>  CF       NA          
-#>  8 1       baltimore-orioles          1994 <chr>  CF       NA          
-#>  9 4       chicago-white-sox          1995 <chr>  CF       NA          
-#> 10 15      atlanta-braves             1995 <chr>  CF       NA          
-#> 11 NA      1995 Totals                1995 <chr>  CF       1995  Totals
-#> 12 1       baltimore-orioles          1996 <chr>  CF       NA          
-#> 13 13      texas-rangers              1997 <chr>  CF       NA          
-#> 14 19      los-angeles-dodgers        1998 <chr>  CF       NA          
-#> # ℹ 1 more variable: season$displayName <chr>
+#> ℹ Data updated: 2026-11-25 06:03:06 UTC
+#> # A tibble: 11 × 5
+#>    team_id team_slug        season$year $displayName stats      position
+#>    <chr>   <chr>                  <int> <chr>        <list>     <chr>   
+#>  1 10      new-york-yankees        2016 2016         <chr [12]> RF      
+#>  2 10      new-york-yankees        2017 2017         <chr [12]> RF      
+#>  3 10      new-york-yankees        2018 2018         <chr [12]> RF      
+#>  4 10      new-york-yankees        2019 2019         <chr [12]> RF      
+#>  5 10      new-york-yankees        2020 2020         <chr [12]> RF      
+#>  6 10      new-york-yankees        2021 2021         <chr [12]> RF      
+#>  7 10      new-york-yankees        2022 2022         <chr [12]> RF      
+#>  8 10      new-york-yankees        2023 2023         <chr [12]> RF      
+#>  9 10      new-york-yankees        2024 2024         <chr [12]> RF      
+#> 10 10      new-york-yankees        2025 2025         <chr [12]> RF      
+#> 11 10      new-york-yankees        2026 2026         <chr [12]> RF      
 #> 
 #> $General
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:59 UTC
+#> ℹ Data updated: 2026-11-25 06:03:06 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Offensive
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:59 UTC
+#> ℹ Data updated: 2026-11-25 06:03:06 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Defensive
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:59 UTC
+#> ℹ Data updated: 2026-11-25 06:03:06 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Rebounding
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:59 UTC
+#> ℹ Data updated: 2026-11-25 06:03:06 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Shooting
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:59 UTC
+#> ℹ Data updated: 2026-11-25 06:03:06 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Misc
 #> ── ESPN MLB Athlete Stats from ESPN.com ───────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:59 UTC
+#> ℹ Data updated: 2026-11-25 06:03:06 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

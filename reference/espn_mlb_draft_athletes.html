@@ -154,6 +154,16 @@ this typically returns an empty tibble. When populated, the columns are:</p><tab
     <p><strong>Get ESPN MLB Draft Athletes Index</strong></p>
     </div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN serves no MLB draft data: <code>seasons/{season}/draft</code>
+answers HTTP 404 and <code>draft/rounds</code> and <code>draft/athletes</code> are empty for
+every season tried (2019 to 2026), so this function returns an empty
+tibble. It is kept in case ESPN serves the route again.
+<code><a href="espn_mlb_draft_status.html">espn_mlb_draft_status()</a></code> still answers.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN MLB Functions:
 <code><a href="espn_mlb.html">espn_mlb</a></code>,
@@ -277,7 +287,7 @@ this typically returns an empty tibble. When populated, the columns are:</p><tab
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="fu">espn_mlb_draft_athletes</span><span class="op">(</span>season <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN MLB Draft Athletes ────────────────────────── <span style="font-style: italic;">baseballr 2.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:44 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:02:45 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 4 variables: league &lt;chr&gt;, season &lt;int&gt;, athlete_id &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ref &lt;chr&gt;</span></span>

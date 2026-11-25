@@ -164,7 +164,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_team_leaders(team_id = "13", season = 2025)
 #> ── ESPN MLB Team Leaders from ESPN.com ────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:17:18 UTC
+#> ℹ Data updated: 2026-11-25 06:03:18 UTC
 #> # A tibble: 328 × 10
 #>    team_id season category        display_name  category_abbr athlete_id
 #>    <chr>    <int> <chr>           <chr>         <chr>         <chr>     

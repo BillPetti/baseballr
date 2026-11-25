@@ -59,6 +59,13 @@ A single-row tibble.
 | athlete_ref   | character | Athlete ref.                       |
 | position_ref  | character | Position ref.                      |
 
+## Endpoint status
+
+As of November 2026 ESPN answers this route with HTTP 500 for every
+college baseball game tried (including the 2025 College World Series),
+so this function returns an empty tibble. It is kept in case ESPN serves
+the route again.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -142,12 +149,12 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_game_team_roster_entry(event_id = "401778093",
                                                    team_id = "113",
-                                                   athlete_id = "5102102"))
-#> ✖ 2026-11-25 04:16:22.910212: espn_college_baseball_game_team_roster_entry(): Failed to retrieve ESPN college-baseball event roster entry for event_id=401778093, team_id=113, athlete_id=5102102
-#> ✖ Args: league = "college-baseball", event_id = "401778093", team_id = "113", athlete_id = "5102102"
-#> ✖ Error: HTTP 500 Internal Server Error from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/competitors/113/roster/5102102
+                                                   athlete_id = "83667"))
+#> ✖ 2026-11-25 06:02:20.519802: espn_college_baseball_game_team_roster_entry(): Failed to retrieve ESPN college-baseball event roster entry for event_id=401778093, team_id=113, athlete_id=83667
+#> ✖ Args: league = "college-baseball", event_id = "401778093", team_id = "113", athlete_id = "83667"
+#> ✖ Error: HTTP 500 Internal Server Error from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/competitors/113/roster/83667
 #> ── ESPN COLLEGE-BASEBALL Event Competitor Roster Entry ─────────────────
-#> ℹ Data updated: 2026-11-25 04:16:22 UTC
+#> ℹ Data updated: 2026-11-25 06:02:20 UTC
 #> # A tibble: 0 × 0
 # }
 ```

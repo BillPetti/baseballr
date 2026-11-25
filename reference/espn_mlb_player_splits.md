@@ -159,20 +159,20 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_player_splits(athlete_id = "1966", season = 2024)
+  espn_mlb_player_splits(athlete_id = "33192", season = 2024)
 #> ── ESPN MLB Athlete Splits from ESPN.com ──────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:58 UTC
-#> # A tibble: 9 × 2
-#>   name           display_name 
-#>   <chr>          <chr>        
-#> 1 split          Overall      
-#> 2 byBreakdown    Breakdown    
-#> 3 byDayMonth     Day / Month  
-#> 4 byOpponent     Opponent     
-#> 5 byArena        Stadium      
-#> 6 byPosition     Position     
-#> 7 byCount        Count        
-#> 8 byBattingOrder Batting Order
-#> 9 bySituation    Situation    
+#> ℹ Data updated: 2026-11-25 06:03:05 UTC
+#> # A tibble: 9 × 3
+#>   name           display_name  splits       
+#>   <chr>          <chr>         <list>       
+#> 1 split          Overall       <df [1 × 3]> 
+#> 2 byBreakdown    Breakdown     <df [6 × 3]> 
+#> 3 byDayMonth     Day / Month   <df [10 × 3]>
+#> 4 byOpponent     Opponent      <df [29 × 3]>
+#> 5 byArena        Stadium       <df [22 × 3]>
+#> 6 byPosition     Position      <df [4 × 3]> 
+#> 7 byCount        Count         <df [12 × 3]>
+#> 8 byBattingOrder Batting Order <df [1 × 3]> 
+#> 9 bySituation    Situation     <df [6 × 3]> 
 # }
 ```

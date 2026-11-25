@@ -166,12 +166,16 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_game_odds(event_id = "401283399")
-#> ✖ 2026-11-25 04:16:47.054941: espn_mlb_game_odds(): Failed to retrieve ESPN mlb event odds for event_id=401283399
-#> ✖ Args: league = "mlb", event_id = "401283399"
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/odds
-#> ── ESPN MLB Event Odds (event_id=401283399) from ESPN.com ──────────────
-#> ℹ Data updated: 2026-11-25 04:16:47 UTC
-#> # A tibble: 0 × 0
+  espn_mlb_game_odds(event_id = "401701044")
+#> ── ESPN MLB Event Odds (event_id=401701044) from ESPN.com ──────────────
+#> ℹ Data updated: 2026-11-25 06:02:50 UTC
+#> # A tibble: 2 × 12
+#>   event_id  provider_id provider_name        details   over_under spread
+#>   <chr>     <chr>       <chr>                <chr>          <dbl>  <dbl>
+#> 1 401701044 58          ESPN BET             NYY -145         8.5   -1.5
+#> 2 401701044 59          ESPN BET - Live Odds LAD -7500       13.5    1.5
+#> # ℹ 6 more variables: home_money_line <int>, away_money_line <int>,
+#> #   home_team_odds_open <dbl>, home_team_odds_close <dbl>,
+#> #   away_team_odds_open <dbl>, away_team_odds_close <dbl>
 # }
 ```

@@ -51,7 +51,7 @@ from the result (a warning names the file).
 # \donttest{
   try(playername_lookup(4885))
 #> ── Player Name Lookup from the Chadwick Bureau's public register of base
-#> ℹ Data updated: 2026-11-25 04:16:06 UTC
+#> ℹ Data updated: 2026-11-25 06:02:01 UTC
 #> # A tibble: 1 × 11
 #>   name_first name_last name_given  name_suffix name_nick  birth_year
 #>   <chr>      <chr>     <chr>       <chr>       <chr>           <int>
@@ -60,7 +60,7 @@ from the result (a warning names the file).
 #> #   key_retro <chr>, key_bbref <chr>, key_fangraphs <int>
   try(playername_lookup("kaaihki01"))
 #> ── Player Name Lookup from the Chadwick Bureau's public register of base
-#> ℹ Data updated: 2026-11-25 04:16:13 UTC
+#> ℹ Data updated: 2026-11-25 06:02:08 UTC
 #> # A tibble: 1 × 11
 #>   name_first name_last name_given name_suffix name_nick birth_year
 #>   <chr>      <chr>     <chr>      <chr>       <chr>          <int>

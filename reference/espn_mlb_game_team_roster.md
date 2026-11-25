@@ -166,12 +166,28 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_game_team_roster(event_id = 401283399, team_id = 29)
-#> ✖ 2026-11-25 04:16:51.975638: espn_mlb_game_team_roster(): Failed to retrieve ESPN mlb competitor roster for event_id=401283399, team_id=29
-#> ✖ Args: league = "mlb", event_id = 401283399, team_id = 29
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/competitors/29/roster
+  espn_mlb_game_team_roster(event_id = 401701044, team_id = 10)
 #> ── ESPN MLB Competitor Roster ─────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:51 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:02:57 UTC
+#> # A tibble: 14 × 15
+#>    league event_id team_id athlete_id ref   role  display_name bat_order
+#>    <chr>  <chr>    <chr>   <chr>      <chr> <chr> <chr>            <int>
+#>  1 mlb    4017010… 10      33804      http… batt… Torres               1
+#>  2 mlb    4017010… 10      36969      http… batt… Soto                 2
+#>  3 mlb    4017010… 10      33192      http… batt… Judge                3
+#>  4 mlb    4017010… 10      41433      http… batt… Chisholm Jr.         4
+#>  5 mlb    4017010… 10      30583      http… batt… Stanton              5
+#>  6 mlb    4017010… 10      30782      http… batt… Rizzo                6
+#>  7 mlb    4017010… 10      42547      http… batt… Volpe                7
+#>  8 mlb    4017010… 10      4683349    http… batt… Wells                8
+#>  9 mlb    4017010… 10      33786      http… batt… A. Verdugo           9
+#> 10 mlb    4017010… 10      32081      http… pitc… Cole                 0
+#> 11 mlb    4017010… 10      32827      http… pitc… Holmes               0
+#> 12 mlb    4017010… 10      31867      http… pitc… Kahnle               0
+#> 13 mlb    4017010… 10      33770      http… pitc… Weaver               0
+#> 14 mlb    4017010… 10      36202      http… pitc… Leiter Jr.           0
+#> # ℹ 7 more variables: starter <lgl>, active <lgl>, period <int>,
+#> #   for_player_id <chr>, position_id <chr>, subbed_in <lgl>,
+#> #   subbed_out <lgl>
 # }
 ```

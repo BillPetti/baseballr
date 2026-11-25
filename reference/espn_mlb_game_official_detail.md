@@ -167,12 +167,14 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  espn_mlb_game_official_detail(event_id = 401283399, order = 1)
-#> ✖ 2026-11-25 04:16:47.267405: espn_mlb_game_official_detail(): Failed to retrieve ESPN mlb event official detail for event_id=401283399, order=1
-#> ✖ Args: league = "mlb", event_id = 401283399, order = 1
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/officials/1
+  espn_mlb_game_official_detail(event_id = 401701044, order = 1)
 #> ── ESPN MLB Event Official Detail ─────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:47 UTC
-#> # A tibble: 0 × 0
+#> ℹ Data updated: 2026-11-25 06:02:51 UTC
+#> # A tibble: 1 × 10
+#>   league event_id  official_id first_name last_name    full_name
+#>   <chr>  <chr>     <chr>       <chr>      <chr>        <chr>    
+#> 1 mlb    401701044 NA          Mark       "Ripperger " NA       
+#> # ℹ 4 more variables: display_name <chr>, position_id <chr>,
+#> #   position_name <chr>, order <int>
 # }
 ```

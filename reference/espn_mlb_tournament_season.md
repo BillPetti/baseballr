@@ -42,6 +42,13 @@ tibble (the wrapper exists for cross-sport API symmetry). When populated
 | name          | character | Tournament name.                   |
 | display_name  | character | Tournament display name.           |
 
+## Endpoint status
+
+As of November 2026 ESPN answers the `tournaments` routes with HTTP 400
+("getTournaments() not supported for baseball/mlb") for every id, so
+this function returns an empty tibble. It is kept in case ESPN serves
+the route again.
+
 ## See also
 
 Other ESPN MLB Functions:
@@ -165,11 +172,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_tournament_season(tournament_id = 1, season = 2024)
-#> ✖ 2026-11-25 04:17:23.828114: espn_mlb_tournament_season(): Failed to retrieve ESPN mlb tournament season detail for tournament_id=1, season=2024
+#> ✖ 2026-11-25 06:03:24.998059: espn_mlb_tournament_season(): Failed to retrieve ESPN mlb tournament season detail for tournament_id=1, season=2024
 #> ✖ Args: league = "mlb", tournament_id = 1, season = 2024
 #> ✖ Error: HTTP 400 Bad Request from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/tournaments/1/seasons/2024
 #> ── ESPN MLB Tournament Season Detail ──────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:17:23 UTC
+#> ℹ Data updated: 2026-11-25 06:03:24 UTC
 #> # A tibble: 0 × 0
 # }
 ```

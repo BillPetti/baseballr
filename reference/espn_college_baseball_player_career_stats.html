@@ -158,6 +158,15 @@ Pass a vector like <code>c(0L, 1L, 2L)</code> to bind multiple types via a
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A long tibble (one row per stat_type × split × category × stat).</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>league</td><td>character</td><td>League slug.</td></tr><tr><td>athlete_id</td><td>character</td><td>ESPN athlete id.</td></tr><tr><td>stat_type_id</td><td>character</td><td>Stat-type code (0 = reg, 1 = post, 2 = career).</td></tr><tr><td>split_id</td><td>character</td><td>Split id.</td></tr><tr><td>split_name</td><td>character</td><td>Split name (typically "All Splits").</td></tr><tr><td>split_type</td><td>character</td><td>Split type code.</td></tr><tr><td>category_name</td><td>character</td><td>Category key (e.g. "defensive").</td></tr><tr><td>category_display</td><td>character</td><td>Category display name.</td></tr><tr><td>category_short</td><td>character</td><td>Category short display.</td></tr><tr><td>category_abbrev</td><td>character</td><td>Category abbreviation.</td></tr><tr><td>stat_name</td><td>character</td><td>Stat key.</td></tr><tr><td>stat_abbrev</td><td>character</td><td>Stat abbreviation.</td></tr><tr><td>stat_display</td><td>character</td><td>Stat display name.</td></tr><tr><td>stat_short</td><td>character</td><td>Stat short display.</td></tr><tr><td>description</td><td>character</td><td>Stat description.</td></tr><tr><td>value</td><td>numeric</td><td>Stat value.</td></tr><tr><td>display_value</td><td>character</td><td>Display-formatted value.</td></tr></table></div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN holds no per-player college baseball statistics on
+this route: it answers HTTP 404 or 500 (or an empty list) for every college
+athlete tried, so this function returns an empty tibble. It is kept in case
+ESPN serves the route again.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN College Baseball Functions:
 <code><a href="espn_college_baseball_athletes_index.html">espn_college_baseball_athletes_index()</a></code>,
@@ -238,9 +247,9 @@ Pass a vector like <code>c(0L, 1L, 2L)</code> to bind multiple types via a
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_college_baseball_player_career_stats</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="st">"3730"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_college_baseball_player_career_stats</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="st">"83667"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN COLLEGE-BASEBALL Athlete Career Stats ─────── <span style="font-style: italic;">baseballr 2.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:25 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:02:23 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 17</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 17 variables: league &lt;chr&gt;, athlete_id &lt;chr&gt;, stat_type_id &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   split_id &lt;chr&gt;, split_name &lt;chr&gt;, split_type &lt;chr&gt;,</span></span>
@@ -248,9 +257,9 @@ Pass a vector like <code>c(0L, 1L, 2L)</code> to bind multiple types via a
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   category_abbrev &lt;chr&gt;, stat_name &lt;chr&gt;, stat_abbrev &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   stat_display &lt;chr&gt;, stat_short &lt;chr&gt;, description &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   value &lt;dbl&gt;, display_value &lt;chr&gt;</span></span>
-<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_college_baseball_player_career_stats</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="st">"3730"</span>, stat_type <span class="op">=</span> <span class="fl">2L</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_college_baseball_player_career_stats</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="st">"83667"</span>, stat_type <span class="op">=</span> <span class="fl">2L</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN COLLEGE-BASEBALL Athlete Career Stats ─────── <span style="font-style: italic;">baseballr 2.1.0</span> ──</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:25 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:02:23 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 17</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 17 variables: league &lt;chr&gt;, athlete_id &lt;chr&gt;, stat_type_id &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   split_id &lt;chr&gt;, split_name &lt;chr&gt;, split_type &lt;chr&gt;,</span></span>

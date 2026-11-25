@@ -38,6 +38,16 @@ typically returns an empty/metadata-only tibble. When populated:
 | display_name | character | Draft display name.                    |
 | status       | character | Draft status (e.g. 'pre', 'complete'). |
 
+## Endpoint status
+
+As of November 2026 ESPN serves no MLB draft data:
+`seasons/{season}/draft` answers HTTP 404 and `draft/rounds` and
+`draft/athletes` are empty for every season tried (2019 to 2026), so
+this function returns an empty tibble. It is kept in case ESPN serves
+the route again.
+[`espn_mlb_draft_status()`](https://billpetti.github.io/baseballr/reference/espn_mlb_draft_status.md)
+still answers.
+
 ## See also
 
 Other ESPN MLB Functions:
@@ -161,11 +171,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_season_draft(season = 2024)
-#> ✖ 2026-11-25 04:17:01.486644: espn_mlb_season_draft(): Failed to retrieve ESPN mlb season draft top-level for season=2024
+#> ✖ 2026-11-25 06:03:08.890571: espn_mlb_season_draft(): Failed to retrieve ESPN mlb season draft top-level for season=2024
 #> ✖ Args: league = "mlb", season = 2024
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/draft
 #> ── ESPN MLB Season Draft (top-level) ──────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:17:01 UTC
+#> ℹ Data updated: 2026-11-25 06:03:08 UTC
 #> # A tibble: 0 × 0
 # }
 ```

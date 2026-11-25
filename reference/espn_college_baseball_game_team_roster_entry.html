@@ -164,6 +164,15 @@ Get ESPN College Baseball Event Competitor Roster Entry (Per-Athlete Game-Day Ro
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A single-row tibble.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>league</td><td>character</td><td>League.</td></tr><tr><td>event_id</td><td>character</td><td>Unique ESPN event/game identifier.</td></tr><tr><td>team_id</td><td>character</td><td>Unique ESPN team identifier.</td></tr><tr><td>athlete_id</td><td>character</td><td>Unique ESPN athlete identifier.</td></tr><tr><td>player_id</td><td>character</td><td>Player id.</td></tr><tr><td>period</td><td>integer</td><td>Inning number.</td></tr><tr><td>active</td><td>logical</td><td>Active.</td></tr><tr><td>starter</td><td>logical</td><td>TRUE if a starter.</td></tr><tr><td>did_not_play</td><td>logical</td><td>Did not play.</td></tr><tr><td>reason</td><td>character</td><td>Reason.</td></tr><tr><td>ejected</td><td>logical</td><td>Ejected.</td></tr><tr><td>for_player_id</td><td>character</td><td>For player id.</td></tr><tr><td>jersey</td><td>character</td><td>Jersey number.</td></tr><tr><td>display_name</td><td>character</td><td>Display name.</td></tr><tr><td>athlete_ref</td><td>character</td><td>Athlete ref.</td></tr><tr><td>position_ref</td><td>character</td><td>Position ref.</td></tr></table></div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN answers this route with HTTP 500 for every college
+baseball game tried (including the 2025 College World Series), so this
+function returns an empty tibble. It is kept in case ESPN serves the route
+again.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN College Baseball Functions:
 <code><a href="espn_college_baseball_athletes_index.html">espn_college_baseball_athletes_index()</a></code>,
@@ -246,12 +255,12 @@ Get ESPN College Baseball Event Competitor Roster Entry (Per-Athlete Game-Day Ro
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_college_baseball_game_team_roster_entry</span><span class="op">(</span>event_id <span class="op">=</span> <span class="st">"401778093"</span>,</span></span>
 <span class="r-in"><span>                                                   team_id <span class="op">=</span> <span class="st">"113"</span>,</span></span>
-<span class="r-in"><span>                                                   athlete_id <span class="op">=</span> <span class="st">"5102102"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 04:16:22.910212: espn_college_baseball_game_team_roster_entry(): Failed to retrieve ESPN college-baseball event roster entry for event_id=401778093, team_id=113, athlete_id=5102102</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "college-baseball", event_id = "401778093", team_id = "113", athlete_id = "5102102"</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: HTTP 500 Internal Server Error from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/competitors/113/roster/5102102</span>
+<span class="r-in"><span>                                                   athlete_id <span class="op">=</span> <span class="st">"83667"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> 2026-11-25 06:02:20.519802: espn_college_baseball_game_team_roster_entry(): Failed to retrieve ESPN college-baseball event roster entry for event_id=401778093, team_id=113, athlete_id=83667</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Args: league = "college-baseball", event_id = "401778093", team_id = "113", athlete_id = "83667"</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Error: HTTP 500 Internal Server Error from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/competitors/113/roster/83667</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN COLLEGE-BASEBALL Event Competitor Roster Entry ─────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:22 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:02:20 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

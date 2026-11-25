@@ -153,6 +153,14 @@ Get ESPN College Baseball Athlete Awards"><meta property="og:image" content="htt
 award data, in which case an empty tibble with canonical columns is
 returned.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>description</td></tr><tr><td>season</td><td>character</td><td>Season identifier (4-digit year or 'YYYY-YY' string).</td></tr><tr><td>award_id</td><td>character</td><td></td></tr><tr><td>name</td><td>character</td><td>Display name.</td></tr><tr><td>description</td><td>character</td><td>Long-form description text.</td></tr><tr><td>date</td><td>character</td><td>Date in YYYY-MM-DD format.</td></tr><tr><td>type</td><td>character</td><td>Record type / category.</td></tr></table></div>
     <div class="section level2">
+    <h2 id="endpoint-status">Endpoint status<a class="anchor" aria-label="anchor" href="#endpoint-status"></a></h2>
+
+
+<p>As of November 2026 ESPN returns no awards for the college baseball
+athletes tried, so this function returns an empty tibble. It is kept in
+case ESPN serves the route again.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other ESPN College Baseball Functions:
 <code><a href="espn_college_baseball_athletes_index.html">espn_college_baseball_athletes_index()</a></code>,
@@ -233,9 +241,9 @@ returned.</p><table class="table table"><tr><td>col_name</td><td>types</td><td>d
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_college_baseball_player_awards</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="st">"3730"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">espn_college_baseball_player_awards</span><span class="op">(</span>athlete_id <span class="op">=</span> <span class="st">"83667"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── ESPN COLLEGE-BASEBALL Athlete Awards from ESPN.com ──────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 04:16:25 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2026-11-25 06:02:23 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 6 variables: season &lt;chr&gt;, award_id &lt;chr&gt;, name &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   description &lt;chr&gt;, date &lt;chr&gt;, type &lt;chr&gt;</span></span>

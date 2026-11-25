@@ -320,7 +320,7 @@ Saiem Gilani
 # \donttest{
 try(espn_mlb_game_rosters(game_id = 401569780))
 #> ── ESPN MLB Game Roster Information from ESPN.com ─── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:50 UTC
+#> ℹ Data updated: 2026-11-25 06:02:56 UTC
 #> # A tibble: 65 × 174
 #>    athlete_id athlete_uid    athlete_guid athlete_type    sdr first_name
 #>         <int> <chr>          <chr>        <chr>         <int> <chr>     

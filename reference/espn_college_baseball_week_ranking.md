@@ -64,6 +64,17 @@ A tibble with one row per ranked team (typically 25).
 | team_ref          | character | `$ref` to the team-in-season resource.       |
 | last_updated      | character | Last-updated timestamp.                      |
 
+## Endpoint status
+
+As of November 2026 ESPN answers the ranking links it lists under
+`weeks/{week}/rankings` with HTTP 500 ("application error"), so this
+function returns an empty tibble. It is kept in case ESPN serves the
+route again.
+[`espn_college_baseball_week_rankings()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_week_rankings.md)
+and
+[`espn_college_baseball_season_ranking()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_season_ranking.md)
+still answer.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -145,12 +156,12 @@ Saiem Gilani
 
 ``` r
 # \donttest{
-  try(espn_college_baseball_week_ranking(ranking_id = 1, week = 5, season = 2025))
-#> ✖ 2026-11-25 04:16:40.173434: espn_college_baseball_week_ranking(): Failed to retrieve ESPN college-baseball week-5 ranking 1 for season=2025
-#> ✖ Args: league = "college-baseball", season = 2025, season_type = 2L, week = 5, ranking_id = 1
-#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/types/2/weeks/5/rankings/1
+  try(espn_college_baseball_week_ranking(ranking_id = 10543, week = 5, season = 2025))
+#> ✖ 2026-11-25 06:02:40.460797: espn_college_baseball_week_ranking(): Failed to retrieve ESPN college-baseball week-5 ranking 10543 for season=2025
+#> ✖ Args: league = "college-baseball", season = 2025, season_type = 2L, week = 5, ranking_id = 10543
+#> ✖ Error: HTTP 500 Internal Server Error from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/types/2/weeks/5/rankings/10543
 #> ── ESPN COLLEGE-BASEBALL Week Ranking Detail ──────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:40 UTC
+#> ℹ Data updated: 2026-11-25 06:02:40 UTC
 #> # A tibble: 0 × 0
 # }
 ```

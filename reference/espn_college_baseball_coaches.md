@@ -42,6 +42,13 @@ A single `baseballr_data` tibble with one row per coach.
 | experience | integer   | Years of professional experience. |
 | team_id    | character | Unique team identifier.           |
 
+## Endpoint status
+
+As of November 2026 ESPN lists no college baseball coaches
+(`seasons/{season}/coaches` is empty for 2024 to 2026) and answers HTTP
+404 for coach ids, so this function returns an empty tibble. It is kept
+in case ESPN serves the route again.
+
 ## See also
 
 Other ESPN College Baseball Functions:
@@ -125,7 +132,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_coaches(season = 2025))
 #> ── ESPN COLLEGE-BASEBALL Coaches from ESPN.com ────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 04:16:17 UTC
+#> ℹ Data updated: 2026-11-25 06:02:13 UTC
 #> # A tibble: 0 × 0
 # }
 ```
