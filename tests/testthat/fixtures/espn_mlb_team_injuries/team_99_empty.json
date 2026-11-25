@@ -1,0 +1,8 @@
+{
+  "count": 0,
+  "pageIndex": 1,
+  "pageSize": 200,
+  "pageCount": 0,
+  "items": [],
+  "$ref": "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/teams/99/injuries?limit=200&lang=en&region=us"
+}

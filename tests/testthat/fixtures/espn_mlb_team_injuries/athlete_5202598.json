@@ -1,0 +1,22 @@
+{
+  "$ref": "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2026/athletes/5202598?lang=en&region=us",
+  "id": "5202598",
+  "uid": "s:1~l:10~a:5202598",
+  "guid": "b5b6e13c-e59c-350c-8b41-afae179f8eba",
+  "firstName": "Paul",
+  "lastName": "Bonzagni",
+  "fullName": "Paul Bonzagni",
+  "displayName": "Paul Bonzagni",
+  "shortName": "P. Bonzagni",
+  "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/positions/0?lang=en&region=us",
+    "id": "0",
+    "name": "Relief Pitcher",
+    "displayName": "Relief Pitcher",
+    "abbreviation": "RP",
+    "leaf": true,
+    "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/positions/1?lang=en&region=us"
+    }
+  }
+}

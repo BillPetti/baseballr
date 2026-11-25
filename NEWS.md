@@ -36,6 +36,14 @@
   leaders again (ESPN's site-v2 leaders route now answers with an empty body):
   they read the core API, which also honours `season`, and add
   `category_abbr` and `display_value`.
+- `espn_mlb_team_injuries()` returns injuries again. ESPN's site route
+  answers an empty object or HTTP 500 for every team, so it reads the core
+  API (`sports.core.api.espn.com/.../teams/{team_id}/injuries`) and follows
+  each injury's and athlete's `$ref`. Column changes: `type`, `side` and
+  `returns_at` are now filled (body part, side, expected return date; they
+  were always `NA`), `date` is the report's ISO 8601 timestamp, and
+  `injury_id` and `detail` (e.g. "Surgery", "Strain") are new. A team with
+  no injuries gives a zero-row frame with the same columns.
 - `espn_mlb_conferences()` / `espn_college_baseball_conferences()` return the
   documented empty frame instead of erroring when ESPN sends no conferences.
 - `espn_mlb_betting()` keeps the against-the-spread table for a completed
@@ -150,7 +158,7 @@
   a current athlete, the Division I group (`26`) and the D1Baseball ranking
   (`10543`); they had used a 2021 game, a player retired since 1998 and ids
   ESPN dropped.
-- 48 ESPN functions, and `mlb_player_game_stats_current()`, now carry an
+- 47 ESPN functions, and `mlb_player_game_stats_current()`, now carry an
   "Endpoint status" section: their route answers an error or nothing for
   every id tried (for example MLB draft, power index, tournaments and
   rankings, and the college coach, player statistics and game officials
