@@ -114,9 +114,9 @@ devtools::install()
 pkgdown::build_site()
 ```
 
-CI under `.github/workflows/`: `R-CMD-check.yaml` (R CMD check matrix: macOS,
-Windows and Ubuntu on R release, Ubuntu on R devel and oldrel-1; also a weekly
-Friday cron), `test-coverage.yaml` (covr; publishes the self-hosted coverage
+CI under `.github/workflows/`: `R-CMD-check.yaml` (R CMD check: macOS and
+Ubuntu on R release on push/PR; the weekly Friday cron and manual dispatch add
+Windows release and Ubuntu R-devel), `test-coverage.yaml` (covr; publishes the self-hosted coverage
 badge to the `badges` branch), `pkgdown.yaml` (builds + deploys the pkgdown
 site), and `rhub.yaml` (R-hub v2, `workflow_dispatch` only). `R-CMD-check.yaml`
 and `test-coverage.yaml` set `FANGRAPHS_TESTS`, `MLB_STATS_TESTS`,
