@@ -88,8 +88,9 @@ espn_mlb_wp <- function(game_id) {
 
   tryCatch(
     expr = .baseballr_with_warnings("espn_mlb_wp", {
-      espn_wp <-
-        .retry_request(sprintf("http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/summary?event=%s", espn_game_id)) %>%
+      res <- .retry_request(sprintf("http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/summary?event=%s", espn_game_id))
+      check_status(res)
+      espn_wp <- res %>%
         .resp_text() %>%
         jsonlite::fromJSON(flatten = TRUE)
 

@@ -51,6 +51,7 @@ ncaa_teams <- function(year = most_recent_ncaa_baseball_season(), division = 1, 
                     "&sport_code=MBA")
       
       resp <- request_with_proxy(url = url, ...)
+      check_status(resp)
       
       data_read <- resp %>% 
         httr2::resp_body_string() %>% 
@@ -88,6 +89,7 @@ ncaa_teams <- function(year = most_recent_ncaa_baseball_season(), division = 1, 
                                  "&division=", division,
                                  "&sport_code=MBA")
         resp <- request_with_proxy(url = conf_team_urls, ...)
+        check_status(resp)
         
         team_urls <- resp %>% 
           httr2::resp_body_string() %>% 

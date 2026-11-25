@@ -314,8 +314,43 @@ rule_footer <- function(x) {
 
 #' @import rvest
 check_status <- function(res) {
-  x = httr2::resp_status(res)
-  if (x != 200) stop(glue::glue("The API returned an error, HTTP Response Code {x}"), call. = FALSE)
+  .baseballr_stop_for_http_status(res)
+}
+
+#' Raise a classed error for a non-2xx response
+#'
+#' The shared request helpers turn off httr2's status errors
+#' (`req_error(is_error = function(resp) FALSE)`), so a helper that parses the
+#' body straight away reads a 401, 404 or 500 error body as data.
+#' `mlb_api_call()`, `fg_api_call()` and `check_status()` call this between the
+#' request and the parse: a 2xx response is returned unchanged; anything else
+#' raises a `baseballr_http_error` (also `baseballr_error`) whose message names
+#' the status, the host and path, and the `message` (or `error`) field of a
+#' JSON error body, and which carries `status` and `url` (without its query)
+#' fields. A wrapper's `error =` handler then reports it with its cause.
+#' @param resp An httr2 response.
+#' @param call The call to show in the error.
+#' @return `resp`, invisibly, when its status is 2xx.
+#' @keywords internal
+#' @noRd
+.baseballr_stop_for_http_status <- function(resp, call = rlang::caller_env()) {
+  status <- httr2::resp_status(resp)
+  if (status >= 200L && status < 300L) return(invisible(resp))
+  detail <- tryCatch({
+    body <- jsonlite::fromJSON(httr2::resp_body_string(resp), simplifyVector = TRUE)
+    if (is.list(body)) body$message %||% body$error else NULL
+  }, error = function(e) NULL)
+  detail <- if (is.character(detail) && length(detail) == 1L && nzchar(detail)) detail else NULL
+  desc <- httr2::resp_status_desc(resp)
+  url <- sub("\\?.*$", "", resp$url) # the query is not part of the cause
+  rlang::abort(
+    paste0(
+      "HTTP ", status, if (!is.na(desc)) paste0(" ", desc), " from ", url,
+      if (!is.null(detail)) paste0(": ", detail)
+    ),
+    class = c("baseballr_http_error", "baseballr_error"),
+    status = status, url = url, call = call
+  )
 }
 
 #' @title **Detect a stats.ncaa.org Akamai interstitial challenge**
@@ -355,6 +390,7 @@ check_status <- function(res) {
 .ncaa_resolve_season_team_id <- function(team_id, season_id, ...) {
   roster_url <- paste0("https://stats.ncaa.org/team/", team_id, "/roster/", season_id)
   resp <- request_with_proxy(url = roster_url, ...)
+  if (httr2::resp_is_error(resp)) return(NA_character_)
   body <- httr2::resp_body_string(resp)
   if (.ncaa_is_interstitial(body)) return(NA_character_)
 
