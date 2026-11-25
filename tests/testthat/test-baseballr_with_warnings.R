@@ -95,3 +95,54 @@ test_that("chadwick_path() returns NULL with a message when cwevent is not on th
   expect_null(out)
   expect_false(suppressMessages(chadwick_is_installed()))
 })
+
+# espn_mlb_player_seasons() and espn_college_baseball_player_seasons() both run
+# .espn_baseball_athlete_seasons(). Its warnings named that helper and its
+# errors named no function; both now name the export the user called.
+.seasons_resp <- function() {
+  httr2::response(
+    status_code = 200L,
+    url = "https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/athletes/1/seasons",
+    headers = list("Content-Type" = "application/json"),
+    body = charToRaw('{"items":[{"$ref":"http://x/athletes/1/seasons/2024?lang=en"}]}')
+  )
+}
+
+test_that("a warning in a shared ESPN helper names the export that was called", {
+  skip_on_cran()
+  local_mocked_bindings(
+    .retry_request = function(...) .seasons_resp(),
+    check_status = function(res) warning("synthetic parse warning")
+  )
+  for (fn in c("espn_mlb_player_seasons", "espn_college_baseball_player_seasons")) {
+    w <- testthat::capture_warnings(out <- get(fn)(athlete_id = 1L))
+    expect_length(w, 1L)
+    expect_match(w, paste0(fn, "\\(\\): synthetic parse warning"))
+    expect_no_match(w, ".espn_baseball", fixed = TRUE)
+    expect_identical(out$season, 2024L)
+  }
+  # Reached through lapply(), the export is called as FUN and found by identity.
+  w <- testthat::capture_warnings(lapply(1L, espn_mlb_player_seasons))
+  expect_match(w, "espn_mlb_player_seasons\\(\\): synthetic parse warning")
+})
+
+test_that("an error in a shared ESPN helper is reported under the export that was called", {
+  skip_on_cran()
+  local_mocked_bindings(.retry_request = function(...) stop("mock outage"))
+  for (fn in c("espn_mlb_player_seasons", "espn_college_baseball_player_seasons")) {
+    msgs <- testthat::capture_messages(out <- get(fn)(athlete_id = 1L))
+    expect_match(msgs[[1]], paste0(fn, "\\(\\): Failed to retrieve ESPN"))
+    expect_true(any(grepl("mock outage", msgs, fixed = TRUE)))
+    expect_equal(nrow(out), 0L)
+  }
+})
+
+test_that("an inner request fallback in a shared ESPN helper names the export", {
+  skip_on_cran()
+  # .espn_baseball_athlete_career_stats() catches each request failure itself.
+  local_mocked_bindings(.retry_request = function(...) stop("mock outage"))
+  msgs <- testthat::capture_messages(espn_college_baseball_player_career_stats(athlete_id = 1L))
+  expect_true(any(grepl(
+    "espn_college_baseball_player_career_stats(): Request to", msgs, fixed = TRUE
+  )))
+})

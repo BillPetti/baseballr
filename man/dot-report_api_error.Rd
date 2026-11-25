@@ -23,6 +23,8 @@ Standardizes the message every ESPN MLB wrapper emits inside its
 (brace-interpolated against the caller env), a dump of the call's arguments,
 and the actual error message. Wrappers capture their formals once near the
 top with \code{.args <- mget(setdiff(names(formals()), "..."))} (or
-\code{.args <- .capture_args()} for arg-less wrappers).
+\code{.args <- .capture_args()} for arg-less wrappers). The hint is prefixed with
+the exported function the user called (\code{espn_mlb_player_seasons(): ...}),
+also when the handler belongs to a shared \verb{.espn_baseball_*()} helper.
 }
 \keyword{internal}

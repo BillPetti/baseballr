@@ -83,7 +83,7 @@
       "?lang=en&region=us"
     )
     res <- tryCatch(.retry_request(url), error = function(e) {
-      cli::cli_alert_danger("Request to {url} failed: {conditionMessage(e)}")
+      cli::cli_alert_danger("{(.baseballr_user_fn())}(): Request to {url} failed: {conditionMessage(e)}")
       NULL
     })
     if (is.null(res)) return(list())

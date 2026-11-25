@@ -317,8 +317,9 @@ statcast_search <- function(start_date = Sys.Date() - 1, end_date = Sys.Date(),
     ))
   }
 
-  # returns 0 rows on failure but > 1 columns
-  if (nrow(payload) > 1) {
+  # An empty search comes back as the header row alone (0 rows) or an empty
+  # body (0 x 0). One row is real data: a single-pitch query returns exactly one.
+  if (nrow(payload) > 0) {
     payload <- process_statcast_payload(payload) |>
       make_baseballr_data("MLB Baseball Savant Statcast Search data from baseballsavant.mlb.com", Sys.time())
   } else {

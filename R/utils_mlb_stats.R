@@ -7,6 +7,9 @@ mlb_api_call <- function(url){
     httr2::req_retry(max_tries = 3) |>
     httr2::req_error(is_error = function(resp) FALSE) |>
     httr2::req_perform()
+  # A 404 / 500 carries a JSON error body ({"messageNumber", "message"}) that
+  # would otherwise be parsed and returned as data.
+  .baseballr_stop_for_http_status(resp)
 
   json <- resp |>
     httr2::resp_body_string() |>
@@ -34,6 +37,7 @@ fg_api_call <- function(url){
     cli::cli_alert_info(paste0(
       "The okhttp User-Agent exemption may have changed; see issue #404 / PR #405."))
   }
+  .baseballr_stop_for_http_status(resp)
 
   resp |>
     httr2::resp_body_string() |>
