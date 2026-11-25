@@ -75,6 +75,20 @@
   slow `people-*.csv` no longer fails the whole lookup. A file that still
   fails is named in a warning and left out of the result; if no file
   downloads, it raises an error.
+- `statcast_search()` (and `statcast_search_batters()`,
+  `statcast_search_pitchers()`, `statcast_search_minors()`,
+  `statcast_search_wbc()`, `scrape_statcast_savant()`) returns a one-row
+  result, such as a single-pitch query, instead of warning "No valid data
+  found" and returning it unprocessed. An empty export still gives that
+  warning.
+- An HTTP error is reported as one instead of being read as data. The MLB
+  Stats API and FanGraphs request helpers parsed the body of a 401, 404 or 500
+  answer as if it were the result, so a wrapper returned the error body's
+  fields or failed on a missing column with no mention of the status. They,
+  and the status check the ESPN and NCAA wrappers use, now raise a
+  `baseballr_http_error` naming the status, the host and path and the error
+  body's message, which the wrapper reports as its cause. `espn_mlb_wp()` and
+  `ncaa_teams()` now check the status too.
 
 ## Warnings and errors now name their source
 
@@ -86,6 +100,13 @@
   Quiet them with `suppressWarnings(classes = "baseballr_warning")`; the
   warning keeps any custom class it had, so an existing `classes =` filter
   still matches.
+- Warnings and errors from the shared ESPN helpers name the function you
+  called. `espn_mlb_player_seasons()` and
+  `espn_college_baseball_player_seasons()` both run one internal helper, whose
+  warnings read `.espn_baseball_athlete_seasons(): ...` and whose error
+  messages named no function; they now read `espn_mlb_player_seasons(): ...`
+  (or the college twin), also when the function is called through `lapply()`
+  or `purrr::map()`.
 - Error messages now carry the cause. 108 error handlers (in most of the
   `mlb_*()` and `fg_*()` wrappers, both `sptrc_*()` wrappers,
   `load_game_info_sup()`, `load_umpire_ids()`, `ncaa_roster()`,
