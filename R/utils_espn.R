@@ -135,7 +135,9 @@ NULL
 #' (brace-interpolated against the caller env), a dump of the call's arguments,
 #' and the actual error message. Wrappers capture their formals once near the
 #' top with `.args <- mget(setdiff(names(formals()), "..."))` (or
-#' `.args <- .capture_args()` for arg-less wrappers).
+#' `.args <- .capture_args()` for arg-less wrappers). The hint is prefixed with
+#' the exported function the user called (`espn_mlb_player_seasons(): ...`),
+#' also when the handler belongs to a shared `.espn_baseball_*()` helper.
 #' @param e error condition.
 #' @param hint character. Friendly message with optional `{name}` tokens that
 #'   resolve against the caller's environment. Defaults to "Request failed".
@@ -145,6 +147,7 @@ NULL
 .report_api_error <- function(e, hint = NULL, args = list()) {
   caller_env <- parent.frame()
   hint_text <- if (!is.null(hint)) .interp_braces(hint, envir = caller_env) else "Request failed"
+  hint_text <- paste0(.baseballr_user_fn(), "(): ", hint_text)
   cli::cli_alert_danger("{Sys.time()}: {hint_text}")
   if (length(args) > 0) {
     args_str <- paste0(

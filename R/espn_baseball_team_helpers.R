@@ -187,7 +187,7 @@
 
       athletes_raw <- raw[["athletes"]]
       if (is.null(athletes_raw)) {
-        cli::cli_alert_warning("No athletes in roster response for team_id={team_id}.")
+        cli::cli_alert_warning("{(.baseballr_user_fn())}(): No athletes in roster response for team_id={team_id}.")
         result <- data.frame(stringsAsFactors = FALSE) %>% dplyr::as_tibble()
       } else {
         # athletes can come back as a list of data frames (one per position group)
@@ -576,7 +576,7 @@
             if (httr2::resp_status(r) != 200) NULL else
               jsonlite::fromJSON(.resp_text(r), simplifyVector = FALSE)
           }, error = function(e) {
-            cli::cli_alert_danger("Leader name lookup {ref} failed, so its name is NA: {conditionMessage(e)}")
+            cli::cli_alert_danger("{(.baseballr_user_fn())}(): Leader name lookup {ref} failed, so its name is NA: {conditionMessage(e)}")
             NULL
           })
           as.character(ath[["displayName"]] %||% ath[["fullName"]] %||% NA_character_)

@@ -147,18 +147,44 @@ progressively <- function(f, p = NULL){
 # error = ...)` -- and each warning is re-raised as a classed `baseballr_warning`
 # naming `fn` while the body finishes. The original classes are kept, so a
 # `suppressWarnings(classes = <original>)` filter still matches; a warning an
-# inner wrapper already re-raised passes through unchanged.
+# inner wrapper already re-raised passes through unchanged. When `fn` is an
+# internal helper (a name starting with `.`, such as the shared ESPN
+# `.espn_baseball_*()` helpers), the warning names the exported function the
+# user called instead.
 .baseballr_with_warnings <- function(fn, expr) {
   withCallingHandlers(
     expr,
     warning = function(w) {
       if (inherits(w, "baseballr_warning")) return() # already named by an inner wrapper
+      fn <- .baseballr_user_fn(fn)
       msg <- conditionMessage(w)
       orig <- setdiff(class(w), c("simpleWarning", "rlang_warning", "warning", "condition"))
       cli::cli_warn(c("!" = "{fn}(): {msg}"), class = c("baseballr_warning", orig), call = NULL)
       invokeRestart("muffleWarning")
     }
   )
+}
+
+# The outermost exported baseballr function on the call stack, for a condition
+# raised in an internal helper; `fn` itself when it is not internal, or when no
+# export is on the stack (`"baseballr"` when `fn` is not given either). An
+# export called without its name, as `lapply(ids, espn_mlb_player_seasons)`
+# calls it (`FUN`), is found by identity.
+.baseballr_user_fn <- function(fn = NULL) {
+  if (!is.null(fn) && !startsWith(fn, ".")) return(fn)
+  ns <- asNamespace("baseballr")
+  exports <- getNamespaceExports("baseballr")
+  calls <- sys.calls()
+  for (i in seq_along(calls)) {
+    f <- calls[[i]][[1]]
+    if (is.call(f) && (identical(f[[1]], quote(`::`)) || identical(f[[1]], quote(`:::`)))) f <- f[[3]]
+    if (is.name(f) && as.character(f) %in% exports) return(as.character(f))
+    fun <- sys.function(i)
+    if (is.function(fun) && identical(environment(fun), ns)) {
+      for (nm in exports) if (identical(ns[[nm]], fun)) return(nm)
+    }
+  }
+  fn %||% "baseballr"
 }
 
 #' @title
