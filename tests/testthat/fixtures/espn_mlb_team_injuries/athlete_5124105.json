@@ -1,0 +1,22 @@
+{
+  "$ref": "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2026/athletes/5124105?lang=en&region=us",
+  "id": "5124105",
+  "uid": "s:1~l:10~a:5124105",
+  "guid": "22b6cad3-4f08-32bb-88bc-34a58007fb3c",
+  "firstName": "Anthony",
+  "lastName": "Gutierrez",
+  "fullName": "Anthony Gutierrez",
+  "displayName": "Anthony Gutierrez",
+  "shortName": "A. Gutierrez",
+  "position": {
+    "$ref": "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/positions/8?lang=en&region=us",
+    "id": "8",
+    "name": "Center Field",
+    "displayName": "Center Fielder",
+    "abbreviation": "CF",
+    "leaf": true,
+    "parent": {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/positions/14?lang=en&region=us"
+    }
+  }
+}

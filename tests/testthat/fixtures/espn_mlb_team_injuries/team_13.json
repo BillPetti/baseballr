@@ -1,0 +1,15 @@
+{
+  "count": 2,
+  "pageIndex": 1,
+  "pageSize": 200,
+  "pageCount": 1,
+  "items": [
+    {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2026/athletes/5202598/injuries/-228767?lang=en&region=us"
+    },
+    {
+      "$ref": "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2026/athletes/5124105/injuries/-228766?lang=en&region=us"
+    }
+  ],
+  "$ref": "http://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/teams/13/injuries?limit=200&lang=en&region=us"
+}
