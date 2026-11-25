@@ -203,9 +203,9 @@ Other ESPN MLB Functions:
 ``` r
 # \donttest{
 try(espn_mlb_betting(game_id = 401283399))
-#> ✖ 2026-11-24 18:35:42.362106: Invalid arguments or no betting data available!
+#> ✖ 2026-11-25 04:16:41.245727: espn_mlb_betting(): Invalid arguments or no betting data available!
 #> ✖ Args: game_id = 401283399
-#> ✖ Error: The API returned an error, HTTP Response Code 404
+#> ✖ Error: HTTP 404 Not Found from http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/summary: Error invoking GET: http://sports.core.api.espn.pvt/v2/sports/baseball/leagues/mlb/events/401283399, status=404, duration=2 ms, message=null, cache=CACHE_MISS
 #> $pickcenter
 #> data frame with 0 columns and 0 rows
 #> 

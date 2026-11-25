@@ -19,7 +19,7 @@ A tibble with columns `pitch_type`, `pitch_name`, `color`.
 ``` r
 statcast_pitch_colors()
 #> ── MLB Baseball Savant pitch-type colors ──────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-24 18:40:38 UTC
+#> ℹ Data updated: 2026-11-25 04:20:43 UTC
 #> # A tibble: 18 × 3
 #>    pitch_type pitch_name       color  
 #>    <chr>      <chr>            <chr>  

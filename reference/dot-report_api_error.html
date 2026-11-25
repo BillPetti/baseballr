@@ -4,12 +4,16 @@ tryCatch(error = ...) block: a timestamped friendly hint
 (brace-interpolated against the caller env), a dump of the call's arguments,
 and the actual error message. Wrappers capture their formals once near the
 top with .args &amp;lt;- mget(setdiff(names(formals()), &quot;...&quot;)) (or
-.args &amp;lt;- .capture_args() for arg-less wrappers)."><meta property="og:description" content="Standardizes the message every ESPN MLB wrapper emits inside its
+.args &amp;lt;- .capture_args() for arg-less wrappers). The hint is prefixed with
+the exported function the user called (espn_mlb_player_seasons(): ...),
+also when the handler belongs to a shared .espn_baseball_*() helper."><meta property="og:description" content="Standardizes the message every ESPN MLB wrapper emits inside its
 tryCatch(error = ...) block: a timestamped friendly hint
 (brace-interpolated against the caller env), a dump of the call's arguments,
 and the actual error message. Wrappers capture their formals once near the
 top with .args &amp;lt;- mget(setdiff(names(formals()), &quot;...&quot;)) (or
-.args &amp;lt;- .capture_args() for arg-less wrappers)."><meta property="og:image" content="https://raw.githubusercontent.com/BillPetti/baseballR/master/logo.png"><meta name="twitter:card" content="summary"><meta name="twitter:creator" content="@BillPetti"><meta name="twitter:site" content="@BillPetti"><!-- Privacy-friendly analytics by Plausible --><script async src="https://plausible.io/js/pa-Ew15aGRkVafJaVnVdAL7i.js"></script><script>
+.args &amp;lt;- .capture_args() for arg-less wrappers). The hint is prefixed with
+the exported function the user called (espn_mlb_player_seasons(): ...),
+also when the handler belongs to a shared .espn_baseball_*() helper."><meta property="og:image" content="https://raw.githubusercontent.com/BillPetti/baseballR/master/logo.png"><meta name="twitter:card" content="summary"><meta name="twitter:creator" content="@BillPetti"><meta name="twitter:site" content="@BillPetti"><!-- Privacy-friendly analytics by Plausible --><script async src="https://plausible.io/js/pa-Ew15aGRkVafJaVnVdAL7i.js"></script><script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
   plausible.init()
 </script></head><body>
@@ -139,7 +143,9 @@ top with .args &amp;lt;- mget(setdiff(names(formals()), &quot;...&quot;)) (or
 (brace-interpolated against the caller env), a dump of the call's arguments,
 and the actual error message. Wrappers capture their formals once near the
 top with <code>.args &lt;- mget(setdiff(names(formals()), "..."))</code> (or
-<code>.args &lt;- .capture_args()</code> for arg-less wrappers).</p>
+<code>.args &lt;- .capture_args()</code> for arg-less wrappers). The hint is prefixed with
+the exported function the user called (<code>espn_mlb_player_seasons(): ...</code>),
+also when the handler belongs to a shared <code>.espn_baseball_*()</code> helper.</p>
     </div>
 
     <div class="section level2">

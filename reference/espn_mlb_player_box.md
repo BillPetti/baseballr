@@ -181,7 +181,7 @@ Saiem Gilani
 # \donttest{
 try(espn_mlb_player_box(game_id = 401569780))
 #> ── ESPN MLB Player Box Information from ESPN.com ──── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-24 18:35:59 UTC
+#> ℹ Data updated: 2026-11-25 04:16:55 UTC
 #> # A tibble: 23 × 35
 #>     game_id season season_type game_date  game_date_time      stat_group
 #>       <int>  <int>       <int> <date>     <dttm>              <chr>     

@@ -127,11 +127,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_coach_record(coach_id = 52120, record_type = 2))
-#> ✖ 2026-11-24 18:35:14.215548: Failed to retrieve ESPN college-baseball coach record for coach_id=52120, record_type=2
+#> ✖ 2026-11-25 04:16:17.011292: espn_college_baseball_coach_record(): Failed to retrieve ESPN college-baseball coach record for coach_id=52120, record_type=2
 #> ✖ Args: league = "college-baseball", coach_id = 52120, record_type = 2
-#> ✖ Error: The API returned an error, HTTP Response Code 404
+#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/coaches/52120/record/2
 #> ── ESPN COLLEGE-BASEBALL Coach Record ─────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-24 18:35:14 UTC
+#> ℹ Data updated: 2026-11-25 04:16:16 UTC
 #> # A tibble: 0 × 0
 # }
 ```

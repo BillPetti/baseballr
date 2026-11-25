@@ -55,23 +55,34 @@ one prefix.
   my_fn <- function(...) {
     df <- NULL                      # initialize BEFORE tryCatch
     tryCatch(
-      expr = { df <- ... |> make_baseballr_data("desc", Sys.time()) },
-      error = function(e) cli::cli_alert_danger("{conditionMessage(e)}")
+      expr = .baseballr_with_warnings("my_fn", {
+        df <- ... |> make_baseballr_data("desc", Sys.time())
+      }),
+      error = function(e) {
+        cli::cli_alert_danger("{Sys.time()}: No data available!")
+        cli::cli_alert_danger("Error: {conditionMessage(e)}")
+      }
     )
     return(df)
   }
   ```
 
-- **Warning handlers go through `.try_catch()`.** A `warning =` handler
-  given to [`tryCatch()`](https://rdrr.io/r/base/conditions.html)
-  unwinds the call, so a harmless warning
-  (e.g. [`data.frame()`](https://rdrr.io/r/base/data.frame.html)’s “row
-  names were found from a short variable”) throws the parsed result away
-  and the wrapper returns its empty default. Use the internal
-  `.try_catch()` (`R/utils_try_catch.R`): same arguments, but `warning`
-  runs as a calling handler and evaluation carries on. Keep plain
-  [`tryCatch()`](https://rdrr.io/r/base/conditions.html) only where
-  there is no `warning =` handler.
+- **No `warning =` handler on a wrapper’s
+  [`tryCatch()`](https://rdrr.io/r/base/conditions.html).** Any handler
+  there, even one that only reports, unwinds the call at the first
+  warning (e.g.
+  [`data.frame()`](https://rdrr.io/r/base/data.frame.html)’s “row names
+  were found from a short variable”), so the wrapper returns its empty
+  default. Wrap the body in
+  `.baseballr_with_warnings("<function name>", { ... })` (`R/utils.R`)
+  instead: each warning is re-raised as a classed `baseballr_warning`
+  naming the function, and the body finishes.
+
+- **Every `error =` handler names its cause** with
+  `{conditionMessage(e)}` (or `.report_api_error(e, ...)`), including an
+  inner `tryCatch(<request>, error =)` fallback.
+  `tests/testthat/test-handler_causes.R` fails any handler that drops
+  it.
 
 - **Messaging via `cli`.** Use
   [`cli::cli_alert_danger()`](https://cli.r-lib.org/reference/cli_alert.html)
@@ -123,9 +134,7 @@ one prefix.
   layer in `R/utils_espn.R`
   ([`.retry_request()`](https://billpetti.github.io/baseballr/reference/dot-retry_request.md),
   honouring `options(baseballr.proxy = ...)`) and report via
-  [`.report_api_error()`](https://billpetti.github.io/baseballr/reference/dot-report_api_error.md)
-  /
-  [`.report_api_warning()`](https://billpetti.github.io/baseballr/reference/dot-report_api_warning.md),
+  [`.report_api_error()`](https://billpetti.github.io/baseballr/reference/dot-report_api_error.md),
   not raw `cli::cli_alert_*()`.
 
 - **ESPN College Baseball (`espn_college_baseball_*`).** Thin

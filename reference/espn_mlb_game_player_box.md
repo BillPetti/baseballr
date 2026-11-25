@@ -180,11 +180,11 @@ Saiem Gilani
 # \donttest{
   espn_mlb_game_player_box(event_id = 401283399, team_id = 29,
                                athlete_id = 33192)
-#> ✖ 2026-11-24 18:35:50.751583: Failed to retrieve ESPN mlb event player box for event_id=401283399, team_id=29, athlete_id=33192
+#> ✖ 2026-11-25 04:16:48.076467: espn_mlb_game_player_box(): Failed to retrieve ESPN mlb event player box for event_id=401283399, team_id=29, athlete_id=33192
 #> ✖ Args: league = "mlb", event_id = 401283399, team_id = 29, athlete_id = 33192, stat_type = 0L
-#> ✖ Error: The API returned an error, HTTP Response Code 404
+#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/events/401283399/competitions/401283399/competitors/29/roster/33192/statistics/0
 #> ── ESPN MLB Event Player Box ──────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-24 18:35:50 UTC
+#> ℹ Data updated: 2026-11-25 04:16:48 UTC
 #> # A tibble: 0 × 0
 # }
 ```

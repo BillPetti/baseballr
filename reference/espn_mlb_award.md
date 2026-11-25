@@ -165,11 +165,11 @@ Saiem Gilani
 # \donttest{
   # MVP award id = 33
   espn_mlb_award(award_id = 33, season = 2024)
-#> ✖ 2026-11-24 18:35:42.09424: Failed to retrieve ESPN mlb award 33 for season=2024
+#> ✖ 2026-11-25 04:16:41.003958: espn_mlb_award(): Failed to retrieve ESPN mlb award 33 for season=2024
 #> ✖ Args: league = "mlb", season = 2024, award_id = 33
-#> ✖ Error: The API returned an error, HTTP Response Code 404
+#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/awards/33
 #> ── ESPN MLB Season Award Detail from ESPN.com ─────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-24 18:35:42 UTC
+#> ℹ Data updated: 2026-11-25 04:16:40 UTC
 #> # A tibble: 0 × 0
 # }
 ```

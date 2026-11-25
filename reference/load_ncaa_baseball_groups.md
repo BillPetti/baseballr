@@ -50,7 +50,7 @@ A `baseballr_data` tibble:
 # \donttest{
   try(load_ncaa_baseball_groups())
 #> ── NCAA baseball groups from the SportsDataverse data repo ─────────────
-#> ℹ Data updated: 2026-11-24 18:36:59 UTC
+#> ℹ Data updated: 2026-11-25 04:17:54 UTC
 #> # A tibble: 107 × 6
 #>    league        group_id           level first_season last_season notes
 #>    <chr>         <chr>              <chr>        <int>       <int> <chr>

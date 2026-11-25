@@ -154,9 +154,9 @@ Saiem Gilani
 ``` r
 # \donttest{
 try(espn_mlb_game_all(game_id = 401283399))
-#> ✖ 2026-11-24 18:35:48.233123: Could not fetch game summary for game_id = 401283399
+#> ✖ 2026-11-25 04:16:46.10942: espn_mlb_game_all(): Could not fetch game summary for game_id = 401283399
 #> ✖ Args: game_id = 401283399
-#> ✖ Error: The API returned an error, HTTP Response Code 404
+#> ✖ Error: HTTP 404 Not Found from http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/summary: Error invoking GET: http://sports.core.api.espn.pvt/v2/sports/baseball/leagues/mlb/events/401283399, status=404, duration=2 ms, message=null, cache=CACHE_MISS
 #> $Plays
 #> NULL
 #> 

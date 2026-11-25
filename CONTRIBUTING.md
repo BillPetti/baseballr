@@ -121,7 +121,20 @@ pkgdown::build_site()
     run it through the
     [`janitor::clean_names()`](https://sfirke.github.io/janitor/reference/clean_names.html) +
     `make_baseballr_data()` pipeline, and emit `cli` messages from the
-    error/warning handlers.
+    error handler.
+    - Wrap the `tryCatch` body as
+      `expr = .baseballr_with_warnings("<function name>", { ... })` and
+      give the `tryCatch` **no** `warning =` handler. A `warning =`
+      handler stops the body at the first warning and returns the empty
+      fallback. `.baseballr_with_warnings()` re-raises each warning as a
+      `baseballr_warning` that names the function and lets the body
+      finish.
+    - Every `error =` handler must include `{conditionMessage(e)}` (or
+      call
+      [`.report_api_error()`](https://billpetti.github.io/baseballr/reference/dot-report_api_error.md)),
+      so a 429 or 403 doesn’t read like an empty result.
+      `tests/testthat/test-handler_causes.R` fails any handler that
+      drops it.
 3.  Add a roxygen block with `@title`, `@param`, `@return` (with a
     column table), `@export`, `@family`, and a runnable `@examples`
     block.

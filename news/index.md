@@ -39,8 +39,8 @@
   [`data.frame()`](https://rdrr.io/r/base/data.frame.html)’s “row names
   were found from a short variable”) made them return an empty frame;
   [`espn_mlb_team_current_roster()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_current_roster.md)
-  returned 0 rows for every team. Those 124 calls now report the warning
-  and carry on (internal `.try_catch()`).
+  returned 0 rows for every team. Those 124 calls now raise the warning
+  and carry on (see “Warnings and errors now name their source” below).
 - [`espn_mlb_game_team_roster()`](https://billpetti.github.io/baseballr/reference/espn_mlb_game_team_roster.md)
   /
   [`espn_college_baseball_game_team_roster()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_game_team_roster.md)
@@ -119,6 +119,85 @@
   so one slow `people-*.csv` no longer fails the whole lookup. A file
   that still fails is named in a warning and left out of the result; if
   no file downloads, it raises an error.
+- [`statcast_search()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
+  (and
+  [`statcast_search_batters()`](https://billpetti.github.io/baseballr/reference/statcast_search.md),
+  [`statcast_search_pitchers()`](https://billpetti.github.io/baseballr/reference/statcast_search.md),
+  [`statcast_search_minors()`](https://billpetti.github.io/baseballr/reference/statcast_search.md),
+  [`statcast_search_wbc()`](https://billpetti.github.io/baseballr/reference/statcast_search.md),
+  [`scrape_statcast_savant()`](https://billpetti.github.io/baseballr/reference/scrape_statcast_savant.md))
+  returns a one-row result, such as a single-pitch query, instead of
+  warning “No valid data found” and returning it unprocessed. An empty
+  export still gives that warning.
+- An HTTP error is reported as one instead of being read as data. The
+  MLB Stats API and FanGraphs request helpers parsed the body of a 401,
+  404 or 500 answer as if it were the result, so a wrapper returned the
+  error body’s fields or failed on a missing column with no mention of
+  the status. They, and the status check the ESPN and NCAA wrappers use,
+  now raise a `baseballr_http_error` naming the status, the host and
+  path and the error body’s message, which the wrapper reports as its
+  cause.
+  [`espn_mlb_wp()`](https://billpetti.github.io/baseballr/reference/espn_mlb_wp.md)
+  and
+  [`ncaa_teams()`](https://billpetti.github.io/baseballr/reference/ncaa_teams.md)
+  now check the status too.
+
+### Warnings and errors now name their source
+
+- Each warning raised while a wrapper parses is passed on as a
+  `baseballr_warning` that names the function, for example
+  `espn_mlb_teams(): NAs introduced by coercion`, and the function still
+  returns its data. 29 of the 124 wrappers above dropped the warning
+  with no message, and the other 95 printed a generic “Warning
+  retrieving …” alert. Quiet them with
+  `suppressWarnings(classes = "baseballr_warning")`; the warning keeps
+  any custom class it had, so an existing `classes =` filter still
+  matches.
+- Warnings and errors from the shared ESPN helpers name the function you
+  called.
+  [`espn_mlb_player_seasons()`](https://billpetti.github.io/baseballr/reference/espn_mlb_player_seasons.md)
+  and
+  [`espn_college_baseball_player_seasons()`](https://billpetti.github.io/baseballr/reference/espn_college_baseball_player_seasons.md)
+  both run one internal helper, whose warnings read
+  `.espn_baseball_athlete_seasons(): ...` and whose error messages named
+  no function; they now read `espn_mlb_player_seasons(): ...` (or the
+  college twin), also when the function is called through
+  [`lapply()`](https://rdrr.io/r/base/lapply.html) or
+  [`purrr::map()`](https://purrr.tidyverse.org/reference/map.html).
+- Error messages now carry the cause. 108 error handlers (in most of the
+  `mlb_*()` and `fg_*()` wrappers, both `sptrc_*()` wrappers,
+  [`load_game_info_sup()`](https://billpetti.github.io/baseballr/reference/load_game_info_sup.md),
+  [`load_umpire_ids()`](https://billpetti.github.io/baseballr/reference/load_umpire_ids.md),
+  [`ncaa_roster()`](https://billpetti.github.io/baseballr/reference/ncaa_roster.md),
+  [`ncaa_schedule_info()`](https://billpetti.github.io/baseballr/reference/ncaa_schedule_info.md)
+  and
+  [`ncaa_teams()`](https://billpetti.github.io/baseballr/reference/ncaa_teams.md))
+  printed only “Invalid arguments provided” or “Invalid arguments or no
+  … data available!”, so an HTTP 429, a 403 and a parse failure all read
+  like an empty result; they now add the underlying error. Seven ESPN
+  requests whose failure was dropped silently (a season type, a prop-bet
+  page, a leader’s name lookup) now say which URL failed and why.
+- [`ncaa_pbp()`](https://billpetti.github.io/baseballr/reference/ncaa_pbp.md),
+  [`ncaa_roster()`](https://billpetti.github.io/baseballr/reference/ncaa_roster.md)
+  and
+  [`ncaa_schedule_info()`](https://billpetti.github.io/baseballr/reference/ncaa_schedule_info.md)
+  return `NULL` with that message when the request fails, instead of
+  erroring with “object ‘mapped_table’ not found” (or `roster` /
+  `sched`).
+- [`statcast_search()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
+  passes on a warning from reading Savant’s CSV (a truncated or
+  misaligned export) instead of suppressing it, and its error says why
+  no payload came back.
+- [`statcast_search.default()`](https://billpetti.github.io/baseballr/reference/statcast_search.md)
+  falls back to today when `end_date` cannot be read as a date, as its
+  message always said.
+  [`as.Date()`](https://rdrr.io/pkg/zoo/man/as.Date.html) errors rather
+  than warns on such input, so the fallback never ran and the error
+  escaped.
+- [`chadwick_path()`](https://billpetti.github.io/baseballr/reference/chadwick_path.md)
+  finds `cwevent` with
+  [`Sys.which()`](https://rdrr.io/r/base/Sys.which.html) and no longer
+  errors when `where` (Windows) lists more than one match.
 
 ### Dependencies
 

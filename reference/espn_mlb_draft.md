@@ -181,7 +181,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_draft(season = 2024)
 #> ── ESPN MLB Draft Picks from ESPN.com ─────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-24 18:35:45 UTC
+#> ℹ Data updated: 2026-11-25 04:16:43 UTC
 #> # A tibble: 0 × 0
 # }
 ```

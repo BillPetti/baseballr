@@ -159,7 +159,7 @@ Saiem Gilani
   # Aaron Judge — athlete id 1966
   espn_mlb_player_contracts(athlete_id = 33192)
 #> ── ESPN MLB Athlete Contracts Index ───────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-24 18:36:00 UTC
+#> ℹ Data updated: 2026-11-25 04:16:56 UTC
 #> # A tibble: 1 × 4
 #>   athlete_id season ref                                           league
 #>   <chr>       <int> <chr>                                         <chr> 

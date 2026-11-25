@@ -33,8 +33,8 @@ chadwick_ld_library_path()
 
 ## Value
 
-If Chadwick is not installed `NULL`. If Chadwick is installed, the path
-to the `cwevent` binary.
+If Chadwick is not installed, `NULL` (invisibly). If Chadwick is
+installed, the directory that holds the `cwevent` binary.
 
 `TRUE` or `FALSE`
 

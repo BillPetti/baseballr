@@ -124,16 +124,17 @@ devtools::install()
 pkgdown::build_site()
 ```
 
-CI under `.github/workflows/`: `R-CMD-check.yaml` (R CMD check matrix:
-macOS, Windows and Ubuntu on R release, Ubuntu on R devel and oldrel-1;
-also a weekly Friday cron), `test-coverage.yaml` (covr; publishes the
-self-hosted coverage badge to the `badges` branch), `pkgdown.yaml`
-(builds + deploys the pkgdown site), and `rhub.yaml` (R-hub v2,
-`workflow_dispatch` only). `R-CMD-check.yaml` and `test-coverage.yaml`
-set `FANGRAPHS_TESTS`, `MLB_STATS_TESTS`, `STATCAST_TESTS`,
-`SPOTRAC_TESTS`, `CHADWICK_TESTS` and `BASEBALLR_LOAD_TESTS` to `"1"`
-(and `BREF_TESTS` / `NCAA_BASEBALL_TESTS` to `"0"`), so those live tests
-DO hit the network on CI – see **Testing** below.
+CI under `.github/workflows/`: `R-CMD-check.yaml` (R CMD check: macOS
+and Ubuntu on R release on push/PR; the weekly Friday cron and manual
+dispatch add Windows release and Ubuntu R-devel), `test-coverage.yaml`
+(covr; publishes the self-hosted coverage badge to the `badges` branch),
+`pkgdown.yaml` (builds + deploys the pkgdown site), and `rhub.yaml`
+(R-hub v2, `workflow_dispatch` only). `R-CMD-check.yaml` and
+`test-coverage.yaml` set `FANGRAPHS_TESTS`, `MLB_STATS_TESTS`,
+`STATCAST_TESTS`, `SPOTRAC_TESTS`, `CHADWICK_TESTS` and
+`BASEBALLR_LOAD_TESTS` to `"1"` (and `BREF_TESTS` /
+`NCAA_BASEBALL_TESTS` to `"0"`), so those live tests DO hit the network
+on CI – see **Testing** below.
 
 ## Project Structure
 
@@ -148,7 +149,7 @@ DO hit the network on CI – see **Testing** below.
                                   #   league-parameterized twins of the espn_mlb_* family
       espn_baseball_*_helpers.R / utils_espn.R
                                   # shared ESPN httr2 layer (.retry_request, honours
-                                  #   options(baseballr.proxy=); .report_api_error/_warning)
+                                  #   options(baseballr.proxy=); .report_api_error)
       fox_*.R                     # Fox Sports Bifrost MLB wrappers (fox_mlb_*, 6 functions)
       fangraphs.R                 # FanGraphs doc-grouping topic
       fg_*.R                      # FanGraphs wrappers: fg_batter_leaders, fg_pitcher_leaders,
@@ -238,20 +239,17 @@ mlb_func <- function(...) {
 
   out <- NULL    # <-- MANDATORY. Not inside tryCatch.
 
-  .try_catch(    # not tryCatch(): see "Warning handlers" below
-    expr = {
+  tryCatch(      # no warning = handler: see "Warnings and error causes" below
+    expr = .baseballr_with_warnings("mlb_func", {
       resp <- request_with_proxy(url, ...)
       out  <- resp |>
         # ...parse... |>
         janitor::clean_names() |>
         make_baseballr_data("Data from MLB.com", Sys.time())
-    },
+    }),
     error = function(e) {
       cli::cli_alert_danger("{Sys.time()}: Invalid arguments or no data available!")
       cli::cli_alert_danger("Error: {conditionMessage(e)}")
-    },
-    warning = function(w) {
-      cli::cli_alert_warning("{Sys.time()}: Warning: {conditionMessage(w)}")
     },
     finally = {}
   )
@@ -266,23 +264,39 @@ to the appropriate empty value: `NULL` for a single-object return,
 [`list()`](https://rdrr.io/r/base/list.html) where that is the
 documented shape.
 
-### Warning handlers: `.try_catch()`, never `tryCatch(warning = )`
+### Warnings and error causes: never `tryCatch(warning = )`
 
 A `warning =` handler given to
 [`tryCatch()`](https://rdrr.io/r/base/conditions.html) unwinds the call,
-so a harmless warning raised while parsing
+even one that only reports, so a harmless warning raised while parsing
 (e.g. [`data.frame()`](https://rdrr.io/r/base/data.frame.html)’s “row
 names were found from a short variable and have been discarded”) throws
 the parsed result away and the wrapper returns its empty default. That
 is how
 [`espn_mlb_team_current_roster()`](https://billpetti.github.io/baseballr/reference/espn_mlb_team_current_roster.md)
-returned 0 rows for every team on CRAN 2.0.0. Any wrapper with a
-`warning =` handler uses the internal `.try_catch()`
-(`R/utils_try_catch.R`): same arguments as
-[`tryCatch()`](https://rdrr.io/r/base/conditions.html), but `warning`
-runs as a calling handler and evaluation carries on. Plain
-[`tryCatch()`](https://rdrr.io/r/base/conditions.html) is fine where
-there is no `warning =` handler.
+returned 0 rows for every team on CRAN 2.0.0. Give the
+[`tryCatch()`](https://rdrr.io/r/base/conditions.html) no `warning =`
+handler; wrap the body as
+`expr = .baseballr_with_warnings("<function name>", { ... })`
+(`R/utils.R`). It re-raises each warning as a classed
+`baseballr_warning` naming the function (keeping the original classes)
+and lets the body finish. A
+[`withCallingHandlers()`](https://rdrr.io/r/base/conditions.html) that
+collects warnings and calls `invokeRestart("muffleWarning")` (as
+`.read_release_asset()` does) is fine.
+
+Every `error =` handler includes `{conditionMessage(e)}` (or calls
+`.report_api_error(e, ...)`), so a 429 or a 403 doesn’t read like an
+empty result; that holds for an inner `tryCatch(<request>, error = ...)`
+fallback too. `tests/testthat/test-handler_causes.R` makes every request
+fail offline
+([`httr2::req_perform()`](https://httr2.r-lib.org/reference/req_perform.html),
+URL reads through
+[`jsonlite::fromJSON()`](https://rdrr.io/pkg/jsonlite/man/fromJSON.html)
+and `xml2`,
+[`csv_from_url()`](https://billpetti.github.io/baseballr/reference/csv_from_url.md))
+and fails any function whose handler drops the cause or lets the error
+escape.
 
 ### Messaging Layer
 
@@ -356,9 +370,7 @@ parsers in `R/espn_mlb_box_helpers.R`. They share an `httr2` layer in
 `R/utils_espn.R`
 ([`.retry_request()`](https://billpetti.github.io/baseballr/reference/dot-retry_request.md),
 [`.resp_text()`](https://billpetti.github.io/baseballr/reference/dot-resp_text.md),
-[`.report_api_error()`](https://billpetti.github.io/baseballr/reference/dot-report_api_error.md)
-/
-[`.report_api_warning()`](https://billpetti.github.io/baseballr/reference/dot-report_api_warning.md),
+[`.report_api_error()`](https://billpetti.github.io/baseballr/reference/dot-report_api_error.md),
 `.empty_baseballr_data()`).
 [`.retry_request()`](https://billpetti.github.io/baseballr/reference/dot-retry_request.md)
 honours a proxy from `options(baseballr.proxy = ...)` (ESPN wrappers do
@@ -666,7 +678,9 @@ referencing AI tools.
 - Always initialize the return variable (`out <- NULL`, etc.) **before**
   the `tryCatch` block – see Return-Value Initialization above.
 - Never write `tryCatch(warning = )`: it unwinds and empties the result.
-  Use `.try_catch()` – see Warning handlers above.
+  Use `.baseballr_with_warnings("<fn>", { ... })` around the body, and
+  give every `error =` handler its `{conditionMessage(e)}` – see
+  Warnings and error causes above.
 - Never pass a raw condition object to a `cli_*` function; pass
   `conditionMessage(cond)` through a value placeholder.
 - The NCAA stats site IP-bans scrapers – run `ncaa_*()` work sparingly

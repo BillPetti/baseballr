@@ -143,11 +143,11 @@ Saiem Gilani
   try(espn_college_baseball_game_team_roster_entry(event_id = "401778093",
                                                    team_id = "113",
                                                    athlete_id = "5102102"))
-#> ✖ 2026-11-24 18:35:21.370864: Failed to retrieve ESPN college-baseball event roster entry for event_id=401778093, team_id=113, athlete_id=5102102
+#> ✖ 2026-11-25 04:16:22.910212: espn_college_baseball_game_team_roster_entry(): Failed to retrieve ESPN college-baseball event roster entry for event_id=401778093, team_id=113, athlete_id=5102102
 #> ✖ Args: league = "college-baseball", event_id = "401778093", team_id = "113", athlete_id = "5102102"
-#> ✖ Error: The API returned an error, HTTP Response Code 500
+#> ✖ Error: HTTP 500 Internal Server Error from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/competitors/113/roster/5102102
 #> ── ESPN COLLEGE-BASEBALL Event Competitor Roster Entry ─────────────────
-#> ℹ Data updated: 2026-11-24 18:35:21 UTC
+#> ℹ Data updated: 2026-11-25 04:16:22 UTC
 #> # A tibble: 0 × 0
 # }
 ```

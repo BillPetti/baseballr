@@ -142,11 +142,11 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_game_player_box(event_id = "401778093", team_id = "113",
                                             athlete_id = "5102102"))
-#> ✖ 2026-11-24 18:35:18.345798: Failed to retrieve ESPN college-baseball event player box for event_id=401778093, team_id=113, athlete_id=5102102
+#> ✖ 2026-11-25 04:16:20.183596: espn_college_baseball_game_player_box(): Failed to retrieve ESPN college-baseball event player box for event_id=401778093, team_id=113, athlete_id=5102102
 #> ✖ Args: league = "college-baseball", event_id = "401778093", team_id = "113", athlete_id = "5102102", stat_type = 0L
-#> ✖ Error: The API returned an error, HTTP Response Code 404
+#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/competitors/113/roster/5102102/statistics/0
 #> ── ESPN COLLEGE-BASEBALL Event Player Box ─────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-24 18:35:18 UTC
+#> ℹ Data updated: 2026-11-25 04:16:20 UTC
 #> # A tibble: 0 × 0
 # }
 ```

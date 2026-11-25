@@ -228,7 +228,7 @@ try(espn_mlb_pbp(game_id = 401569780))
 #> New names:
 #> • `` -> `...53`
 #> ── ESPN MLB Play-by-Play Information from ESPN.com ── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-24 18:35:58 UTC
+#> ℹ Data updated: 2026-11-25 04:16:54 UTC
 #> # A tibble: 442 × 80
 #>    id           sequence_number text  away_score home_score scoring_play
 #>    <chr>        <chr>           <chr>      <int>      <int> <lgl>       

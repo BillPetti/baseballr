@@ -194,12 +194,12 @@ Saiem Gilani
   espn_mlb_player_overview(athlete_id = "1966", season = 2024)
 #> $Statistics
 #> ── ESPN MLB Athlete Overview Statistics from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-11-24 18:36:02 UTC
+#> ℹ Data updated: 2026-11-25 04:16:58 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $NextGame
 #> ── ESPN MLB Athlete Overview NextGame from ESPN.com ────────────────────
-#> ℹ Data updated: 2026-11-24 18:36:02 UTC
+#> ℹ Data updated: 2026-11-25 04:16:58 UTC
 #> # A tibble: 1 × 4
 #>   id    date  name  short_name
 #>   <chr> <chr> <chr> <chr>     
@@ -207,32 +207,32 @@ Saiem Gilani
 #> 
 #> $Last5Games
 #> ── ESPN MLB Athlete Overview Last5Games from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-11-24 18:36:02 UTC
+#> ℹ Data updated: 2026-11-25 04:16:58 UTC
 #> # A tibble: 0 × 0
 #> 
 #> $Headlines
 #> ── ESPN MLB Athlete Overview Headlines from ESPN.com ───────────────────
-#> ℹ Data updated: 2026-11-24 18:36:02 UTC
+#> ℹ Data updated: 2026-11-25 04:16:58 UTC
 #> # A tibble: 13 × 5
 #>    headline                           description published byline type 
 #>    <chr>                              <chr>       <chr>     <chr>  <chr>
-#>  1 2026-27 MLB free agency, trade gr… We've got … 2026-11-… David… Story
-#>  2 Sources: Freddy Peralta stays in … Freddy Per… 2026-11-… NA     Head…
-#>  3 Sources: Guardians, lefty Kris Bu… Left-hande… 2026-11-… NA     Head…
-#>  4 MLB free agency tracker: 2026-27 … We've got … 2026-11-… ESPN   Story
-#>  5 Fantasy baseball reactions to MLB… Track all … 2026-11-… Trist… Story
-#>  6 Sources: Cubs agree to 6-year, $1… The Cubs r… 2026-11-… Jesse… Head…
-#>  7 One trade ESPN experts would make… An MLB loc… 2026-11-… ESPN   Story
-#>  8 How Tarik Skubal boosts Mets' 202… Only one t… 2026-11-… Bradf… Story
-#>  9 Sources: Trevor Rogers, Cubs reac… The Cubs h… 2026-11-… Jesse… Head…
-#> 10 Sources: Royals sign LHP Caleb Th… The Royals… 2026-11-… Jorge… Head…
-#> 11 MLB offers higher minimum salarie… MLB sugges… 2026-11-… Alden… Head…
-#> 12 Sources: Yankees agree to 1-year,… The Yankee… 2026-11-… Jorge… Head…
-#> 13 MLB labor battle: Latest updates,… We tackle … 2026-11-… ESPN   Story
+#>  1 Sources: Reds catcher Tyler Steph… "The Reds … 2026-11-… NA     Head…
+#>  2 2026-27 MLB free agency, trade gr… "We've got… 2026-11-… David… Story
+#>  3 MLB free agency tracker: 2026-27 … "We've got… 2026-11-… ESPN   Story
+#>  4 Sources: White Sox, OF Tyrone Tay… "Tyrone Ta… 2026-11-… Jesse… Head…
+#>  5 Scott Servais joins Rockies as se… "The Rocki… 2026-11-… NA     Head…
+#>  6 Fantasy baseball reactions to MLB… "Track all… 2026-11-… Trist… Story
+#>  7 Sources: Japanese righty Kaima Ta… "Right-han… 2026-11-… NA     Head…
+#>  8 MLB drops contract escrow provisi… "MLB dropp… 2026-11-… NA     Head…
+#>  9 Sources: Tigers, Ha-Seong Kim agr… "Infielder… 2026-11-… NA     Head…
+#> 10 Luis Ortiz's wife urged Guardians… "Guardians… 2026-11-… Willi… Head…
+#> 11 Sources: Freddy Peralta stays in … "Freddy Pe… 2026-11-… NA     Head…
+#> 12 Sources: Guardians, lefty Kris Bu… "Left-hand… 2026-11-… NA     Head…
+#> 13 Sources: Cubs agree to 6-year, $1… "The Cubs … 2026-11-… Jesse… Head…
 #> 
 #> $FantasyOutlook
 #> ── ESPN MLB Athlete Overview FantasyOutlook from ESPN.com ──────────────
-#> ℹ Data updated: 2026-11-24 18:36:02 UTC
+#> ℹ Data updated: 2026-11-25 04:16:58 UTC
 #> # A tibble: 0 × 0
 #> 
 # }

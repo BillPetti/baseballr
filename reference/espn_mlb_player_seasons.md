@@ -155,11 +155,11 @@ Saiem Gilani
 # \donttest{
   # Aaron Judge (33192): 23 career seasons
   espn_mlb_player_seasons(athlete_id = 33192)
-#> ✖ 2026-11-24 18:36:02.756057: Failed to retrieve ESPN mlb athlete seasons for athlete_id=33192
+#> ✖ 2026-11-25 04:16:58.607988: espn_mlb_player_seasons(): Failed to retrieve ESPN mlb athlete seasons for athlete_id=33192
 #> ✖ Args: league = "mlb", athlete_id = 33192
-#> ✖ Error: The API returned an error, HTTP Response Code 404
+#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/athletes/33192/seasons
 #> ── ESPN MLB Athlete Seasons ───────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-24 18:36:02 UTC
+#> ℹ Data updated: 2026-11-25 04:16:58 UTC
 #> # A tibble: 0 × 0
 # }
 ```

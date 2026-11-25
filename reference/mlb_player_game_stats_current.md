@@ -125,8 +125,8 @@ Returns a tibble with the following columns:
 ``` r
 # \donttest{
   try(mlb_player_game_stats_current(person_id = 660271))
-#> ── MLB Player Game Stats - Current Game data from MLB.com ──────────────
-#> ℹ Data updated: 2026-11-24 18:40:15 UTC
-#> # A tibble: 0 × 0
+#> ✖ 2026-11-25 04:20:25.746054: Invalid arguments provided
+#> ✖ Error: HTTP 400 Bad Request from http://statsapi.mlb.com/api/v1/people/660271/stats/game/current: Invalid Request with value: current
+#> NULL
 # }
 ```

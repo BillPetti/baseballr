@@ -128,11 +128,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_season_ranking(ranking_id = 1, season = 2025))
-#> ✖ 2026-11-24 18:35:30.475933: Failed to retrieve ESPN college-baseball ranking 1 for season=2025
+#> ✖ 2026-11-25 04:16:30.504599: espn_college_baseball_season_ranking(): Failed to retrieve ESPN college-baseball ranking 1 for season=2025
 #> ✖ Args: league = "college-baseball", season = 2025, ranking_id = 1
-#> ✖ Error: The API returned an error, HTTP Response Code 404
+#> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/rankings/1
 #> ── ESPN COLLEGE-BASEBALL Season Ranking Snapshots Index ────────────────
-#> ℹ Data updated: 2026-11-24 18:35:30 UTC
+#> ℹ Data updated: 2026-11-25 04:16:30 UTC
 #> # A tibble: 0 × 0
 # }
 ```
