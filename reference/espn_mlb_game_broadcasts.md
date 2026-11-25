@@ -162,7 +162,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_game_broadcasts(event_id = "401701044")
 #> ── ESPN MLB Event Broadcasts (event_id=401701044) from ESPN.com ────────
-#> ℹ Data updated: 2026-11-25 06:02:50 UTC
+#> ℹ Data updated: 2026-11-25 07:30:00 UTC
 #> # A tibble: 2 × 10
 #>   event_id broadcast_id type_id type_short_name type_long_name market_id
 #>   <chr>    <chr>        <chr>   <chr>           <chr>          <chr>    

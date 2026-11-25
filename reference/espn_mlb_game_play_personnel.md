@@ -171,7 +171,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_game_play_personnel(event_id = 401701044, play_id = "4017010440001010001")
 #> ── ESPN MLB Event Play Personnel ──────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:02:51 UTC
+#> ℹ Data updated: 2026-11-25 07:30:02 UTC
 #> # A tibble: 0 × 7
 #> # ℹ 7 variables: league <chr>, event_id <chr>, play_id <chr>,
 #> #   team_id <chr>, athlete_id <chr>, athlete_ref <chr>,

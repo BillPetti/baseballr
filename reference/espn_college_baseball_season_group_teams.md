@@ -131,7 +131,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_season_group_teams(group_id = 26, season = 2025))
 #> ── ESPN COLLEGE-BASEBALL Season Group Teams Index ─── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:02:27 UTC
+#> ℹ Data updated: 2026-11-25 07:29:34 UTC
 #> # A tibble: 200 × 6
 #>    league           season season_type group_id team_id ref             
 #>    <chr>             <int>       <int> <chr>    <chr>   <chr>           

@@ -171,7 +171,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_game_predictor(event_id = 401701044)
 #> ── ESPN MLB Event Predictor ───────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:02:52 UTC
+#> ℹ Data updated: 2026-11-25 07:30:03 UTC
 #> # A tibble: 14 × 13
 #>    league event_id  name          short_name last_modified side  team_id
 #>    <chr>  <chr>     <chr>         <chr>      <chr>         <chr> <chr>  

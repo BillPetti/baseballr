@@ -132,11 +132,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_game_team_leaders(event_id = "401778093", team_id = "113"))
-#> ✖ 2026-11-25 06:02:19.42932: espn_college_baseball_game_team_leaders(): Failed to retrieve ESPN college-baseball competitor leaders for event_id=401778093, team_id=113
+#> ✖ 2026-11-25 07:29:25.740452: espn_college_baseball_game_team_leaders(): Failed to retrieve ESPN college-baseball competitor leaders for event_id=401778093, team_id=113
 #> ✖ Args: league = "college-baseball", event_id = "401778093", team_id = "113"
 #> ✖ Error: HTTP 500 Internal Server Error from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/competitors/113/leaders
 #> ── ESPN COLLEGE-BASEBALL Competitor Leaders ───────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:02:19 UTC
+#> ℹ Data updated: 2026-11-25 07:29:25 UTC
 #> # A tibble: 0 × 0
 # }
 ```

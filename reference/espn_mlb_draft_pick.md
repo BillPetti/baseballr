@@ -190,11 +190,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_draft_pick(season = 2024, round = 1, pick = 1)
-#> ✖ 2026-11-25 06:02:45.728457: espn_mlb_draft_pick(): Failed to retrieve ESPN mlb draft pick for season=2024, round=1, pick=1
+#> ✖ 2026-11-25 07:29:55.870208: espn_mlb_draft_pick(): Failed to retrieve ESPN mlb draft pick for season=2024, round=1, pick=1
 #> ✖ Args: league = "mlb", season = 2024, round = 1, pick = 1
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/seasons/2024/draft/rounds/1/picks/1
 #> ── ESPN MLB Draft Pick Detail ─────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:02:45 UTC
+#> ℹ Data updated: 2026-11-25 07:29:55 UTC
 #> # A tibble: 0 × 0
 # }
 ```

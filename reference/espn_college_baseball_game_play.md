@@ -136,7 +136,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_game_play(event_id = "401778093", play_id = "4017780930001010001"))
 #> ── ESPN COLLEGE-BASEBALL Event Play Detail ────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:02:16 UTC
+#> ℹ Data updated: 2026-11-25 07:29:22 UTC
 #> # A tibble: 1 × 19
 #>   league        event_id play_id sequence_number type_id type_text text 
 #>   <chr>         <chr>    <chr>   <chr>           <chr>   <chr>     <chr>

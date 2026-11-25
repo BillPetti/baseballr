@@ -129,7 +129,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_week_rankings(week = 5, season = 2025))
 #> ── ESPN COLLEGE-BASEBALL Week Rankings Index ──────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:02:40 UTC
+#> ℹ Data updated: 2026-11-25 07:29:50 UTC
 #> # A tibble: 1 × 6
 #>   league           season season_type  week ranking_id ref              
 #>   <chr>             <int>       <int> <int> <chr>      <chr>            

@@ -169,7 +169,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_season_rankings(season = 2025)
 #> ── ESPN MLB Season Rankings Index ─────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:03:13 UTC
+#> ℹ Data updated: 2026-11-25 07:30:26 UTC
 #> # A tibble: 0 × 4
 #> # ℹ 4 variables: league <chr>, season <int>, ranking_id <chr>,
 #> #   ref <chr>

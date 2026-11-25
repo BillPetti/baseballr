@@ -199,7 +199,7 @@ function.
 # \donttest{
   try(mlb_pbp(game_pk = 632970))
 #> ── MLB Play-by-Play data from MLB.com ─────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:07:09 UTC
+#> ℹ Data updated: 2026-11-25 07:34:30 UTC
 #> # A tibble: 336 × 156
 #>    game_pk game_date  index startTime       endTime isPitch type  playId
 #>      <dbl> <chr>      <int> <chr>           <chr>   <lgl>   <chr> <chr> 

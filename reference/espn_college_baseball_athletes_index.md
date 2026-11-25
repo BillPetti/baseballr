@@ -146,7 +146,7 @@ Saiem Gilani
   try(espn_college_baseball_athletes_index(season = 2025, limit = 50))
 #> Fetching page 1 of 1 for college-baseball athletes (season=2025)...
 #> ── ESPN COLLEGE-BASEBALL Athletes Index from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-11-25 06:02:11 UTC
+#> ℹ Data updated: 2026-11-25 07:29:17 UTC
 #> # A tibble: 0 × 0
 # }
 ```

@@ -1,8 +1,11 @@
 # **Get ESPN MLB Team Injuries**
 
-**Get ESPN MLB Team Injuries**
-
-**Get ESPN MLB Team Injuries**
+Injury reports for one MLB team from ESPN's core API
+(`sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/teams/{team_id}/injuries`).
+The list links to each injury, and each injury to its athlete, so the
+function makes one request per injury and one per injured player, which
+takes a few seconds for a team with many injuries. A lookup that fails
+leaves that row's fields `NA` and prints the cause.
 
 ## Usage
 
@@ -16,7 +19,7 @@ espn_mlb_team_injuries(team_id, ...)
 
   ESPN team identifier (character or numeric; passed as-is). Use
   [`espn_mlb_teams()`](https://billpetti.github.io/baseballr/reference/espn_mlb_teams.md)
-  to look up team IDs. Example: `"17"` (Las Vegas Aces).
+  to look up team IDs. Example: `"13"` (Texas Rangers).
 
 - ...:
 
@@ -24,34 +27,29 @@ espn_mlb_team_injuries(team_id, ...)
 
 ## Value
 
-Returns a tibble of injury records for the specified MLB team. Returns
-an empty tibble (zero rows) when the team has no reported injuries.
+Returns a tibble of injury records for the specified MLB team, one row
+per injury ESPN lists for it (current and recent reports). Returns an
+empty tibble with the same columns when the team has no reported
+injuries. All columns are character.
 
 **Injuries**
 
-|               |           |                                                   |
-|---------------|-----------|---------------------------------------------------|
-| col_name      | types     | description                                       |
-| team_id       | character | Unique team identifier.                           |
-| athlete_id    | character | Unique athlete identifier (ESPN).                 |
-| athlete_name  | character | Athlete display name (ESPN).                      |
-| position      | character | Listed roster position (G, F, C, etc.).           |
-| status        | character | Status label.                                     |
-| date          | character | Date in YYYY-MM-DD format.                        |
-| type          | character | Record type / category.                           |
-| side          | character | Side label (e.g. 'home', 'away', or 'overUnder'). |
-| returns_at    | character |                                                   |
-| short_comment | character |                                                   |
-| long_comment  | character | Long-form play / event comment.                   |
-
-## Endpoint status
-
-As of November 2026 ESPN answers the site `teams/{team_id}/injuries`
-route with an empty object or HTTP 500 for every team tried, so this
-function returns an empty tibble. It is kept in case ESPN serves the
-route again.
-[`espn_mlb_injuries()`](https://billpetti.github.io/baseballr/reference/espn_mlb_injuries.md)
-returns the league-wide list, which carries each team.
+|  |  |  |
+|----|----|----|
+| col_name | types | description |
+| team_id | character | Unique team identifier (ESPN). |
+| athlete_id | character | Unique athlete identifier (ESPN). |
+| athlete_name | character | Athlete display name (ESPN). |
+| position | character | Position abbreviation (e.g. 'SP', 'RP', 'CF'). |
+| status | character | Injury status (e.g. 'Out', 'Day-To-Day'). |
+| date | character | Report timestamp, ISO 8601 UTC (e.g. '2026-11-03T23:00Z'). |
+| type | character | Injured body part or injury type (e.g. 'Elbow'). |
+| side | character | Side of the body ('Left', 'Right', 'Not Specified'), or NA. |
+| returns_at | character | Expected return date, YYYY-MM-DD, or NA. |
+| short_comment | character | Short injury note. |
+| long_comment | character | Long-form injury note. |
+| injury_id | character | Unique injury report identifier (ESPN). |
+| detail | character | Injury detail (e.g. 'Surgery', 'Inflammation', 'Strain'), or NA. |
 
 ## See also
 
@@ -176,5 +174,23 @@ Saiem Gilani
 ``` r
 # \donttest{
   espn_mlb_team_injuries(team_id = "13")
+#> ── ESPN MLB Team Injury Information from ESPN.com ─── baseballr 2.1.0 ──
+#> ℹ Data updated: 2026-11-25 07:30:33 UTC
+#> # A tibble: 11 × 13
+#>    team_id athlete_id athlete_name     position status date  type  side 
+#>    <chr>   <chr>      <chr>            <chr>    <chr>  <chr> <chr> <chr>
+#>  1 13      5202598    Paul Bonzagni    RP       Out    2026… Elbow Right
+#>  2 13      5124105    Anthony Gutierr… CF       Out    2026… Knee  Not …
+#>  3 13      4654175    Luis Ramirez     SP       Out    2026… Undi… Not …
+#>  4 13      41177      Cole Winn        RP       Out    2026… Shou… Right
+#>  5 13      4710478    Jose Corniell    RP       Out    2026… Elbow Right
+#>  6 13      4917921    Evan Carter      CF       Out    2026… Hip   Right
+#>  7 13      32691      Corey Seager     SS       Out    2026… Elbow Right
+#>  8 13      5333243    Caden Scarborou… SP       Out    2026… Elbow Right
+#>  9 13      5363993    Brody Bumila     P        Out    2026… Elbow Left 
+#> 10 13      5125258    Declan Cronin    RP       Out    2026… Elbow Right
+#> 11 13      41421      Nabil Crismatt   SP       Out    2026… Elbow Right
+#> # ℹ 5 more variables: returns_at <chr>, short_comment <chr>,
+#> #   long_comment <chr>, injury_id <chr>, detail <chr>
 # }
 ```

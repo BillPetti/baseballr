@@ -157,11 +157,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_week_ranking(ranking_id = 10543, week = 5, season = 2025))
-#> ✖ 2026-11-25 06:02:40.460797: espn_college_baseball_week_ranking(): Failed to retrieve ESPN college-baseball week-5 ranking 10543 for season=2025
+#> ✖ 2026-11-25 07:29:49.942053: espn_college_baseball_week_ranking(): Failed to retrieve ESPN college-baseball week-5 ranking 10543 for season=2025
 #> ✖ Args: league = "college-baseball", season = 2025, season_type = 2L, week = 5, ranking_id = 10543
 #> ✖ Error: HTTP 500 Internal Server Error from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/types/2/weeks/5/rankings/10543
 #> ── ESPN COLLEGE-BASEBALL Week Ranking Detail ──────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:02:40 UTC
+#> ℹ Data updated: 2026-11-25 07:29:49 UTC
 #> # A tibble: 0 × 0
 # }
 ```

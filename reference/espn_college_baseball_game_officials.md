@@ -125,11 +125,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_game_officials(event_id = "401778093"))
-#> ✖ 2026-11-25 06:02:16.570741: espn_college_baseball_game_officials(): Failed to retrieve ESPN college-baseball event officials for event_id=401778093
+#> ✖ 2026-11-25 07:29:22.36182: espn_college_baseball_game_officials(): Failed to retrieve ESPN college-baseball event officials for event_id=401778093
 #> ✖ Args: league = "college-baseball", event_id = "401778093"
 #> ✖ Error: HTTP 500 Internal Server Error from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/events/401778093/competitions/401778093/officials
 #> ── ESPN COLLEGE-BASEBALL Event Officials (event_id=401778093) from ESPN.
-#> ℹ Data updated: 2026-11-25 06:02:16 UTC
+#> ℹ Data updated: 2026-11-25 07:29:22 UTC
 #> # A tibble: 0 × 0
 # }
 ```

@@ -131,11 +131,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_player_splits(athlete_id = "83667", season = 2025))
-#> ✖ 2026-11-25 06:02:25.946403: espn_college_baseball_player_splits(): Failed to retrieve ESPN college-baseball athlete splits for athlete_id=83667, season=2025
+#> ✖ 2026-11-25 07:29:32.832425: espn_college_baseball_player_splits(): Failed to retrieve ESPN college-baseball athlete splits for athlete_id=83667, season=2025
 #> ✖ Args: league = "college-baseball", athlete_id = "83667", season = 2025
 #> ✖ Error: HTTP 404 Not Found from https://site.web.api.espn.com/apis/common/v3/sports/baseball/college-baseball/athletes/83667/splits: Statistics not found
 #> ── ESPN COLLEGE-BASEBALL Athlete Splits from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-11-25 06:02:25 UTC
+#> ℹ Data updated: 2026-11-25 07:29:32 UTC
 #> # A tibble: 0 × 0
 # }
 ```

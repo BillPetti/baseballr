@@ -177,7 +177,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_season_type(season_type = 2, season = 2025)
 #> ── ESPN MLB Season Type Detail ────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:03:13 UTC
+#> ℹ Data updated: 2026-11-25 07:30:27 UTC
 #> # A tibble: 1 × 16
 #>   league season season_type  type name     abbreviation  year start_date
 #>   <chr>   <int>       <int> <int> <chr>    <chr>        <int> <chr>     

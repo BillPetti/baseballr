@@ -179,7 +179,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_game_play(event_id = 401701044, play_id = "4017010440001010001")
 #> ── ESPN MLB Event Play Detail ─────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:02:51 UTC
+#> ℹ Data updated: 2026-11-25 07:30:02 UTC
 #> # A tibble: 1 × 19
 #>   league event_id  play_id       sequence_number type_id type_text text 
 #>   <chr>  <chr>     <chr>         <chr>           <chr>   <chr>     <chr>

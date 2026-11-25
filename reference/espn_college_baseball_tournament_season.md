@@ -134,11 +134,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_tournament_season(tournament_id = 1, season = 2025))
-#> ✖ 2026-11-25 06:02:39.265904: espn_college_baseball_tournament_season(): Failed to retrieve ESPN college-baseball tournament season detail for tournament_id=1, season=2025
+#> ✖ 2026-11-25 07:29:48.340008: espn_college_baseball_tournament_season(): Failed to retrieve ESPN college-baseball tournament season detail for tournament_id=1, season=2025
 #> ✖ Args: league = "college-baseball", tournament_id = 1, season = 2025
 #> ✖ Error: HTTP 400 Bad Request from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/tournaments/1/seasons/2025
 #> ── ESPN COLLEGE-BASEBALL Tournament Season Detail ─── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:02:39 UTC
+#> ℹ Data updated: 2026-11-25 07:29:48 UTC
 #> # A tibble: 0 × 0
 # }
 ```

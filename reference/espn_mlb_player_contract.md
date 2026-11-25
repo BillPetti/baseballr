@@ -181,7 +181,7 @@ Saiem Gilani
   # Aaron Judge's 2017 contract, the season ESPN lists for him
   espn_mlb_player_contract(athlete_id = 33192, season = 2017)
 #> ── ESPN MLB Athlete Contract from ESPN.com ────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 06:03:02 UTC
+#> ℹ Data updated: 2026-11-25 07:30:15 UTC
 #> # A tibble: 1 × 23
 #>   athlete_id season bird_status salary salary_remaining years_remaining
 #>   <chr>       <int>       <int>  <int>            <dbl>           <int>

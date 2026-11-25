@@ -55,7 +55,7 @@ from the result (a warning names the file).
 # \donttest{
   try(playerid_lookup("Garcia", "Karim"))
 #> ── Player ID Lookup from the Chadwick Bureau's public register of baseba
-#> ℹ Data updated: 2026-11-25 06:01:50 UTC
+#> ℹ Data updated: 2026-11-25 07:28:51 UTC
 #> # A tibble: 0 × 11
 #> # ℹ 11 variables: first_name <chr>, last_name <chr>, given_name <chr>,
 #> #   name_suffix <chr>, nick_name <chr>, birth_year <int>,

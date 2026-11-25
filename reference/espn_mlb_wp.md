@@ -195,7 +195,7 @@ Other ESPN MLB Functions:
 # \donttest{
 espn_mlb_wp(game_id = 401701044)
 #> ── ESPN MLB Win Probability Information from ESPN.com ──────────────────
-#> ℹ Data updated: 2026-11-25 06:03:27 UTC
+#> ℹ Data updated: 2026-11-25 07:30:45 UTC
 #> # A tibble: 89 × 52
 #>      game_id play_id             home_win_percentage away_win_percentage
 #>        <dbl> <chr>                             <dbl>               <dbl>

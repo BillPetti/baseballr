@@ -167,7 +167,7 @@ Saiem Gilani
 # \donttest{
 try(espn_college_baseball_scoreboard(season = "20250615"))
 #> ── ESPN College Baseball Scoreboard Information from ESPN.com ──────────
-#> ℹ Data updated: 2026-11-25 06:02:26 UTC
+#> ℹ Data updated: 2026-11-25 07:29:33 UTC
 #> # A tibble: 2 × 37
 #>   matchup  matchup_short season season_type season_slug game_id game_uid
 #>   <chr>    <chr>          <int>       <int> <chr>         <int> <chr>   
