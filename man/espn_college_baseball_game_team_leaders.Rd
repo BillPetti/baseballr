@@ -34,6 +34,14 @@ A long tibble with one row per (category x rank).\tabular{lll}{
 
 \strong{Get ESPN College Baseball Event Competitor Leaders (Top Performers)}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN answers this route with HTTP 500 for every college
+baseball game tried (including the 2025 College World Series), so this
+function returns an empty tibble. It is kept in case ESPN serves the route
+again.
+}
+
 \examples{
 \donttest{
   try(espn_college_baseball_game_team_leaders(event_id = "401778093", team_id = "113"))

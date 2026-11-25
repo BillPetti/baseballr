@@ -35,7 +35,7 @@ winner, conference winner, division winner, MVP odds, etc. Backed by
 }
 \examples{
 \donttest{
-  espn_mlb_futures(season = 2025)
+  espn_mlb_futures()
 }
 }
 \seealso{

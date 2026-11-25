@@ -126,6 +126,11 @@ espn_mlb_season_week <- function(week,
 #' @importFrom dplyr as_tibble
 #' @export
 #' @family ESPN MLB Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN publishes no MLB rankings: the season and week
+#' ranking lists are empty for every season tried and a single ranking answers
+#' HTTP 404, so this function returns an empty tibble. It is kept in case ESPN
+#' serves the route again.
 #' @examples
 #' \donttest{
 #'   espn_mlb_week_rankings(week = 5, season = 2025)
@@ -185,6 +190,11 @@ espn_mlb_week_rankings <- function(week,
 #' @importFrom dplyr as_tibble
 #' @export
 #' @family ESPN MLB Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN publishes no MLB rankings: the season and week
+#' ranking lists are empty for every season tried and a single ranking answers
+#' HTTP 404, so this function returns an empty tibble. It is kept in case ESPN
+#' serves the route again.
 #' @examples
 #' \donttest{
 #'   espn_mlb_week_ranking(ranking_id = 1, week = 5, season = 2025)

@@ -41,7 +41,7 @@ person). ESPN's coverage of this endpoint is sparse; many
 }
 \examples{
 \donttest{
-  espn_mlb_coach_season(coach_id = 52120, season = 2025)
+  espn_mlb_coach_season(coach_id = 154, season = 2025)
 }
 }
 \seealso{

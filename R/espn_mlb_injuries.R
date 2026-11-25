@@ -84,6 +84,12 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN MLB Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN answers the site `teams/{team_id}/injuries` route
+#' with an empty object or HTTP 500 for every team tried, so this function
+#' returns an empty tibble. It is kept in case ESPN serves the route again.
+#' `espn_mlb_injuries()` returns the league-wide list, which carries each
+#' team.
 #' @examples
 #' \donttest{
 #'   espn_mlb_team_injuries(team_id = "13")

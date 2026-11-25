@@ -31,6 +31,11 @@ NULL
 #' @importFrom dplyr as_tibble
 #' @export
 #' @family ESPN MLB Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN answers the `tournaments` routes with HTTP 400
+#' ("getTournaments() not supported for baseball/mlb") for every id, so this
+#' function returns an empty tibble. It is kept in case ESPN serves the route
+#' again.
 #' @examples
 #' \donttest{
 #'   espn_mlb_tournaments()
@@ -70,6 +75,11 @@ NULL
 #' @importFrom dplyr as_tibble
 #' @export
 #' @family ESPN MLB Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN answers the `tournaments` routes with HTTP 400
+#' ("getTournaments() not supported for baseball/mlb") for every id, so this
+#' function returns an empty tibble. It is kept in case ESPN serves the route
+#' again.
 #' @examples
 #' \donttest{
 #'   espn_mlb_tournament(tournament_id = 1)
@@ -108,6 +118,11 @@ NULL
 #' @importFrom dplyr as_tibble
 #' @export
 #' @family ESPN MLB Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN answers the `tournaments` routes with HTTP 400
+#' ("getTournaments() not supported for baseball/mlb") for every id, so this
+#' function returns an empty tibble. It is kept in case ESPN serves the route
+#' again.
 #' @examples
 #' \donttest{
 #'   espn_mlb_tournament_seasons(tournament_id = 1)
@@ -152,6 +167,11 @@ NULL
 #'
 #' @export
 #' @family ESPN MLB Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN answers the `tournaments` routes with HTTP 400
+#' ("getTournaments() not supported for baseball/mlb") for every id, so this
+#' function returns an empty tibble. It is kept in case ESPN serves the route
+#' again.
 #' @examples
 #' \donttest{
 #'   espn_mlb_tournament_season(tournament_id = 1, season = 2024)

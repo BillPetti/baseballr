@@ -24,6 +24,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN College Baseball Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN answers this route with "No stats found" for every
+#' college baseball season and team tried, so this function returns an empty
+#' tibble. It is kept in case ESPN serves the route again.
 #' @examples
 #' \donttest{
 #'   try(espn_college_baseball_leaders(season = 2025, season_type = 2))
@@ -87,6 +91,11 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN College Baseball Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN lists no college baseball coaches
+#' (`seasons/{season}/coaches` is empty for 2024 to 2026) and answers HTTP 404
+#' for coach ids, so this function returns an empty tibble. It is kept in case
+#' ESPN serves the route again.
 #' @examples
 #' \donttest{
 #'   try(espn_college_baseball_coaches(season = 2025))
@@ -119,6 +128,10 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN College Baseball Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN's `seasons/{season}/athletes` list is empty for
+#' college baseball in every season tried (2024 to 2026), so this function
+#' returns an empty tibble. It is kept in case ESPN serves the route again.
 #' @examples
 #' \donttest{
 #'   try(espn_college_baseball_athletes_index(season = 2025, limit = 50))

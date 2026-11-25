@@ -31,7 +31,7 @@ A tibble with one row per official assigned to the game.\tabular{lll}{
 }
 \examples{
 \donttest{
-  espn_mlb_game_officials(event_id = "401283399")
+  espn_mlb_game_officials(event_id = "401701044")
 }
 }
 \seealso{

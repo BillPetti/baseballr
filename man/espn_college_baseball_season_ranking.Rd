@@ -38,7 +38,7 @@ A tibble with one row per weekly snapshot.\tabular{lll}{
 }
 \examples{
 \donttest{
-  try(espn_college_baseball_season_ranking(ranking_id = 1, season = 2025))
+  try(espn_college_baseball_season_ranking(ranking_id = 10543, season = 2025))
 }
 }
 \seealso{

@@ -41,7 +41,7 @@ strength metrics. Returns empty for events without predictor data
 }
 \examples{
 \donttest{
-  espn_mlb_game_predictor(event_id = 401283399)
+  espn_mlb_game_predictor(event_id = 401701044)
 }
 }
 \seealso{

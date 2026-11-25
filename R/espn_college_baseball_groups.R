@@ -18,6 +18,11 @@ NULL
 #' @export
 #' @keywords College Baseball Conferences
 #' @family ESPN College Baseball Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN's `scoreboard/conferences` route returns no
+#' college baseball conferences, so this function returns an empty tibble. It
+#' is kept in case ESPN serves the route again.
+#' `espn_college_baseball_season_groups()` lists the conferences.
 #' @examples
 #' \donttest{
 #'   try(espn_college_baseball_conferences())

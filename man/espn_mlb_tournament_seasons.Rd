@@ -23,6 +23,14 @@ A tibble with one row per season.\tabular{lll}{
 \description{
 Returns the seasons in which a given MLB tournament was held.
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN answers the \code{tournaments} routes with HTTP 400
+("getTournaments() not supported for baseball/mlb") for every id, so this
+function returns an empty tibble. It is kept in case ESPN serves the route
+again.
+}
+
 \examples{
 \donttest{
   espn_mlb_tournament_seasons(tournament_id = 1)

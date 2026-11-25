@@ -31,7 +31,7 @@ returned.\tabular{lll}{
 }
 \examples{
 \donttest{
-  espn_mlb_player_awards(athlete_id = "1966")
+  espn_mlb_player_awards(athlete_id = "33192")
 }
 }
 \seealso{

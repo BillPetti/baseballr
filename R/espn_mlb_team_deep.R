@@ -193,7 +193,7 @@ espn_mlb_team_season_roster <- function(team_id,
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_coach_season(coach_id = 52120, season = 2025)
+#'   espn_mlb_coach_season(coach_id = 154, season = 2025)
 #' }
 espn_mlb_coach_season <- function(coach_id,
                                    season = most_recent_mlb_season(),

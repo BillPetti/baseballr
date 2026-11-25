@@ -24,6 +24,11 @@ NULL
 #' @importFrom janitor clean_names
 #' @export
 #' @family ESPN College Baseball Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN answers this route with HTTP 500 for every college
+#' baseball game tried (including the 2025 College World Series), so this
+#' function returns an empty tibble. It is kept in case ESPN serves the route
+#' again.
 #' @examples
 #' \donttest{
 #'   try(espn_college_baseball_game_officials(event_id = "401778093"))
@@ -129,6 +134,11 @@ NULL
 #' @inherit espn_mlb_game_team_leaders return
 #' @export
 #' @family ESPN College Baseball Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN answers this route with HTTP 500 for every college
+#' baseball game tried (including the 2025 College World Series), so this
+#' function returns an empty tibble. It is kept in case ESPN serves the route
+#' again.
 #' @examples
 #' \donttest{
 #'   try(espn_college_baseball_game_team_leaders(event_id = "401778093", team_id = "113"))
@@ -232,7 +242,7 @@ NULL
 #' @examples
 #' \donttest{
 #'   try(espn_college_baseball_game_player_box(event_id = "401778093", team_id = "113",
-#'                                             athlete_id = "5102102"))
+#'                                             athlete_id = "83667"))
 #' }
 espn_college_baseball_game_player_box <- function(event_id, team_id, athlete_id,
                                         stat_type = 0L, ...) {
@@ -258,11 +268,16 @@ NULL
 #' @inherit espn_mlb_game_team_roster_entry return
 #' @export
 #' @family ESPN College Baseball Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN answers this route with HTTP 500 for every college
+#' baseball game tried (including the 2025 College World Series), so this
+#' function returns an empty tibble. It is kept in case ESPN serves the route
+#' again.
 #' @examples
 #' \donttest{
 #'   try(espn_college_baseball_game_team_roster_entry(event_id = "401778093",
 #'                                                    team_id = "113",
-#'                                                    athlete_id = "5102102"))
+#'                                                    athlete_id = "83667"))
 #' }
 espn_college_baseball_game_team_roster_entry <- function(event_id, team_id,
                                                      athlete_id, ...) {
@@ -289,7 +304,7 @@ NULL
 #' @family ESPN College Baseball Functions
 #' @examples
 #' \donttest{
-#'   try(espn_college_baseball_game_play(event_id = "401778093", play_id = "4017780931"))
+#'   try(espn_college_baseball_game_play(event_id = "401778093", play_id = "4017780930001010001"))
 #' }
 espn_college_baseball_game_play <- function(event_id, play_id, ...) {
   .espn_baseball_event_play(league = "college-baseball",
@@ -312,9 +327,15 @@ NULL
 #' @inherit espn_mlb_game_play_personnel return
 #' @export
 #' @family ESPN College Baseball Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN answers this route with HTTP 500 for every college
+#' baseball game tried (including the 2025 College World Series), so this
+#' function returns an empty tibble. It is kept in case ESPN serves the route
+#' again.
 #' @examples
 #' \donttest{
-#'   try(espn_college_baseball_game_play_personnel(event_id = "401778093", play_id = "4017780931"))
+#'   try(espn_college_baseball_game_play_personnel(event_id = "401778093",
+#'                                                 play_id = "4017780930001010001"))
 #' }
 espn_college_baseball_game_play_personnel <- function(event_id, play_id, ...) {
   .espn_baseball_event_play_personnel(league = "college-baseball",
@@ -362,6 +383,11 @@ NULL
 #' @inherit espn_mlb_game_official_detail return
 #' @export
 #' @family ESPN College Baseball Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN answers this route with HTTP 500 for every college
+#' baseball game tried (including the 2025 College World Series), so this
+#' function returns an empty tibble. It is kept in case ESPN serves the route
+#' again.
 #' @examples
 #' \donttest{
 #'   try(espn_college_baseball_game_official_detail(event_id = "401778093", order = 1))

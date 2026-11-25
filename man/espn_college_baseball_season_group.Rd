@@ -48,7 +48,7 @@ A single-row tibble.\tabular{lll}{
 }
 \examples{
 \donttest{
-  try(espn_college_baseball_season_group(group_id = 5, season = 2025))
+  try(espn_college_baseball_season_group(group_id = 26, season = 2025))
 }
 }
 \seealso{

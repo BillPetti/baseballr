@@ -42,6 +42,13 @@ A single \code{baseballr_data} tibble with one row per athlete.\tabular{lll}{
 
 \strong{Get ESPN College Baseball Athletes Index}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN's \code{seasons/{season}/athletes} list is empty for
+college baseball in every season tried (2024 to 2026), so this function
+returns an empty tibble. It is kept in case ESPN serves the route again.
+}
+
 \examples{
 \donttest{
   try(espn_college_baseball_athletes_index(season = 2025, limit = 50))

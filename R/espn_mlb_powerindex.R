@@ -39,6 +39,11 @@ NULL
 #' @importFrom dplyr as_tibble
 #' @export
 #' @family ESPN MLB Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN answers `seasons/{season}/powerindex` with HTTP
+#' 400 ("not supported for baseball/mlb") for every season, so this function
+#' returns an empty tibble. It is kept in case ESPN serves the route again.
+#' `espn_mlb_game_powerindex()` still answers per game.
 #' @examples
 #' \donttest{
 #'   espn_mlb_powerindex(season = 2025)

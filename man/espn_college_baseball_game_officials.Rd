@@ -29,6 +29,14 @@ A tibble with one row per official assigned to the game.\tabular{lll}{
 
 \strong{Get ESPN College Baseball Event Officials}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN answers this route with HTTP 500 for every college
+baseball game tried (including the 2025 College World Series), so this
+function returns an empty tibble. It is kept in case ESPN serves the route
+again.
+}
+
 \examples{
 \donttest{
   try(espn_college_baseball_game_officials(event_id = "401778093"))

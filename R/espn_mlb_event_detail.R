@@ -42,7 +42,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_odds(event_id = "401283399")
+#'   espn_mlb_game_odds(event_id = "401701044")
 #' }
 espn_mlb_game_odds <- function(event_id, ...) {
   .espn_baseball_event_odds(
@@ -89,7 +89,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_probabilities(event_id = "401283399", limit = 50)
+#'   espn_mlb_game_probabilities(event_id = "401701044", limit = 50)
 #' }
 espn_mlb_game_probabilities <- function(event_id, limit = 200, ...) {
   .espn_baseball_event_probabilities(
@@ -133,7 +133,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_officials(event_id = "401283399")
+#'   espn_mlb_game_officials(event_id = "401701044")
 #' }
 espn_mlb_game_officials <- function(event_id, ...) {
   .espn_baseball_event_officials(
@@ -178,7 +178,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_broadcasts(event_id = "401283399")
+#'   espn_mlb_game_broadcasts(event_id = "401701044")
 #' }
 espn_mlb_game_broadcasts <- function(event_id, ...) {
   .espn_baseball_event_broadcasts(
@@ -231,7 +231,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_situation(event_id = 401283399)
+#'   espn_mlb_game_situation(event_id = 401701044)
 #' }
 espn_mlb_game_situation <- function(event_id, ...) {
   .espn_baseball_event_situation(league = "mlb", event_id = event_id, ...)
@@ -278,7 +278,7 @@ espn_mlb_game_situation <- function(event_id, ...) {
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_predictor(event_id = 401283399)
+#'   espn_mlb_game_predictor(event_id = 401701044)
 #' }
 espn_mlb_game_predictor <- function(event_id, ...) {
   .espn_baseball_event_predictor(league = "mlb", event_id = event_id, ...)
@@ -313,7 +313,7 @@ espn_mlb_game_predictor <- function(event_id, ...) {
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_powerindex(event_id = 401283399)
+#'   espn_mlb_game_powerindex(event_id = 401701044)
 #' }
 espn_mlb_game_powerindex <- function(event_id, ...) {
   .espn_baseball_event_powerindex(league = "mlb", event_id = event_id, ...)
@@ -362,7 +362,7 @@ espn_mlb_game_powerindex <- function(event_id, ...) {
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_propbets(event_id = 401283399, provider_id = 58)
+#'   espn_mlb_game_propbets(event_id = 401701044, provider_id = 58)
 #' }
 espn_mlb_game_propbets <- function(event_id, provider_id, ...) {
   .espn_baseball_event_propbets(league = "mlb", event_id = event_id,
@@ -404,7 +404,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_team_linescores(event_id = 401283399, team_id = 29)
+#'   espn_mlb_game_team_linescores(event_id = 401701044, team_id = 10)
 #' }
 espn_mlb_game_team_linescores <- function(event_id, team_id, ...) {
   .espn_baseball_event_competitor_linescores(league = "mlb",
@@ -451,7 +451,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_team_leaders(event_id = 401283399, team_id = 29)
+#'   espn_mlb_game_team_leaders(event_id = 401701044, team_id = 10)
 #' }
 espn_mlb_game_team_leaders <- function(event_id, team_id, ...) {
   .espn_baseball_event_competitor_leaders(league = "mlb",
@@ -498,7 +498,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_team_roster(event_id = 401283399, team_id = 29)
+#'   espn_mlb_game_team_roster(event_id = 401701044, team_id = 10)
 #' }
 espn_mlb_game_team_roster <- function(event_id, team_id, ...) {
   .espn_baseball_event_competitor_roster(league = "mlb",
@@ -545,7 +545,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_team_statistics(event_id = 401283399, team_id = 29)
+#'   espn_mlb_game_team_statistics(event_id = 401701044, team_id = 10)
 #' }
 espn_mlb_game_team_statistics <- function(event_id, team_id, ...) {
   .espn_baseball_event_competitor_statistics(league = "mlb",
@@ -592,7 +592,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_team_records(event_id = 401283399, team_id = 29)
+#'   espn_mlb_game_team_records(event_id = 401701044, team_id = 10)
 #' }
 espn_mlb_game_team_records <- function(event_id, team_id, ...) {
   .espn_baseball_event_competitor_records(league = "mlb",
@@ -645,7 +645,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_player_box(event_id = 401283399, team_id = 29,
+#'   espn_mlb_game_player_box(event_id = 401701044, team_id = 10,
 #'                                athlete_id = 33192)
 #' }
 espn_mlb_game_player_box <- function(event_id, team_id, athlete_id,
@@ -704,8 +704,8 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_team_roster_entry(event_id = 401283399,
-#'                                             team_id = 13,
+#'   espn_mlb_game_team_roster_entry(event_id = 401701044,
+#'                                             team_id = 10,
 #'                                             athlete_id = 33192)
 #' }
 espn_mlb_game_team_roster_entry <- function(event_id, team_id,
@@ -765,7 +765,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_play(event_id = 401283399, play_id = 4012833994)
+#'   espn_mlb_game_play(event_id = 401701044, play_id = "4017010440001010001")
 #' }
 espn_mlb_game_play <- function(event_id, play_id, ...) {
   .espn_baseball_event_play(league = "mlb",
@@ -808,9 +808,13 @@ NULL
 #'
 #' @export
 #' @family ESPN MLB Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN returns no personnel entries for any MLB play
+#' tried (2024 and 2025 World Series games), so this function returns an empty
+#' tibble. It is kept in case ESPN serves the route again.
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_play_personnel(event_id = 401283399, play_id = 4012833994)
+#'   espn_mlb_game_play_personnel(event_id = 401701044, play_id = "4017010440001010001")
 #' }
 espn_mlb_game_play_personnel <- function(event_id, play_id, ...) {
   .espn_baseball_event_play_personnel(league = "mlb",
@@ -855,7 +859,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_team_score(event_id = 401283399, team_id = 29)
+#'   espn_mlb_game_team_score(event_id = 401701044, team_id = 10)
 #' }
 espn_mlb_game_team_score <- function(event_id, team_id, ...) {
   .espn_baseball_event_competitor_score(league = "mlb",
@@ -901,7 +905,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_game_official_detail(event_id = 401283399, order = 1)
+#'   espn_mlb_game_official_detail(event_id = 401701044, order = 1)
 #' }
 espn_mlb_game_official_detail <- function(event_id, order, ...) {
   .espn_baseball_event_official_detail(league = "mlb",

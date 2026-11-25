@@ -141,6 +141,18 @@
   `rFTeamV`, `rBTeamV` and `rTV` (#434): FanGraphs' team leaderboards stopped
   returning them. The player leaderboards (`fg_batter_leaders()`,
   `fg_pitcher_leaders()`) still return them and are unchanged.
+- ESPN examples use ids ESPN still serves. The MLB game examples use the 2024
+  World Series Game 5 (`401701044`), the player examples Aaron Judge
+  (`33192`), the coach examples Dave Roberts (`154`), and the college examples
+  a current athlete, the Division I group (`26`) and the D1Baseball ranking
+  (`10543`); they had used a 2021 game, a player retired since 1998 and ids
+  ESPN dropped.
+- 48 ESPN functions, and `mlb_player_game_stats_current()`, now carry an
+  "Endpoint status" section: their route answers an error or nothing for
+  every id tried (for example MLB draft, power index, tournaments and
+  rankings, and the college coach, player statistics and game officials
+  routes). They still return the documented empty frame;
+  `mlb_player_game_stats_current()` returns `NULL`.
 
 ## Tests
 

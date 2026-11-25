@@ -46,11 +46,19 @@ A single-row tibble.\tabular{lll}{
 
 \strong{Get ESPN College Baseball Event Competitor Roster Entry (Per-Athlete Game-Day Row)}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN answers this route with HTTP 500 for every college
+baseball game tried (including the 2025 College World Series), so this
+function returns an empty tibble. It is kept in case ESPN serves the route
+again.
+}
+
 \examples{
 \donttest{
   try(espn_college_baseball_game_team_roster_entry(event_id = "401778093",
                                                    team_id = "113",
-                                                   athlete_id = "5102102"))
+                                                   athlete_id = "83667"))
 }
 }
 \seealso{

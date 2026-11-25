@@ -34,6 +34,14 @@ frequently returns an empty tibble. When populated, the columns are:\tabular{lll
 
 \strong{Get ESPN College Baseball Coach Career Record (Long Format)}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN lists no college baseball coaches
+(\code{seasons/{season}/coaches} is empty for 2024 to 2026) and answers HTTP 404
+for coach ids, so this function returns an empty tibble. It is kept in case
+ESPN serves the route again.
+}
+
 \examples{
 \donttest{
   try(espn_college_baseball_coach_record(coach_id = 52120, record_type = 2))

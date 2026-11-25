@@ -35,9 +35,17 @@ are NOT resolved. Similarly, \code{event_ref}, \code{competition_ref}, and
 
 \strong{Get ESPN College Baseball Athlete Eventlog}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN holds no per-player college baseball statistics on
+this route: it answers HTTP 404 or 500 (or an empty list) for every college
+athlete tried, so this function returns an empty tibble. It is kept in case
+ESPN serves the route again.
+}
+
 \examples{
 \donttest{
-  try(espn_college_baseball_player_eventlog(athlete_id = "3730", season = 2025))
+  try(espn_college_baseball_player_eventlog(athlete_id = "83667", season = 2025))
 }
 }
 \seealso{

@@ -22,6 +22,14 @@ Returns the index of MLB-branded tournaments tracked by ESPN
 (e.g. the in-season tournament). Each row is one tournament with its
 ID and the \verb{$ref} URL.
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN answers the \code{tournaments} routes with HTTP 400
+("getTournaments() not supported for baseball/mlb") for every id, so this
+function returns an empty tibble. It is kept in case ESPN serves the route
+again.
+}
+
 \examples{
 \donttest{
   espn_mlb_tournaments()

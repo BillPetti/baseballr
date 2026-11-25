@@ -22,6 +22,14 @@ A tibble with one row per tournament.\tabular{lll}{
 
 \strong{Get ESPN College Baseball Tournaments Index}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN answers the \code{tournaments} routes with HTTP 400
+("getTournaments() not supported for baseball/college-baseball") for every
+id, so this function returns an empty tibble. It is kept in case ESPN
+serves the route again.
+}
+
 \examples{
 \donttest{
   try(espn_college_baseball_tournaments())

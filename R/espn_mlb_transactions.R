@@ -53,6 +53,12 @@ NULL
 #' which returns each round of the draft with its picks inlined as `picks: [...]`.
 #' For historical seasons with no ESPN draft data the function returns an empty
 #' tibble rather than erroring.
+#' @section Endpoint status:
+#' As of November 2026 ESPN serves no MLB draft data: `seasons/{season}/draft`
+#' answers HTTP 404 and `draft/rounds` and `draft/athletes` are empty for
+#' every season tried (2019 to 2026), so this function returns an empty
+#' tibble. It is kept in case ESPN serves the route again.
+#' `espn_mlb_draft_status()` still answers.
 #' @examples
 #' \donttest{
 #'   espn_mlb_draft(season = 2024)
@@ -187,6 +193,10 @@ NULL
 #' empty tibble and emits a CLI error message. It is retained so that downstream
 #' code does not break if ESPN restores the endpoint, but should not be relied
 #' on in the meantime.
+#' @section Endpoint status:
+#' As of November 2026 ESPN's `seasons/{season}/freeagents` list is empty for
+#' every season tried (2022 to 2026), so this function returns an empty
+#' tibble. It is kept in case ESPN serves the route again.
 #' @examples
 #' \donttest{
 #'   espn_mlb_freeagents(season = 2025)

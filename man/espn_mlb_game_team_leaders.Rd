@@ -36,7 +36,7 @@ include batting average, home runs, RBIs, and MLB rating.
 }
 \examples{
 \donttest{
-  espn_mlb_game_team_leaders(event_id = 401283399, team_id = 29)
+  espn_mlb_game_team_leaders(event_id = 401701044, team_id = 10)
 }
 }
 \seealso{

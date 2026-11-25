@@ -40,7 +40,7 @@ or \code{\link[=espn_mlb_player_splits]{espn_mlb_player_splits()}} for season st
 }
 \examples{
 \donttest{
-  espn_mlb_player_stats_v3(athlete_id = "1966", season = 2024)
+  espn_mlb_player_stats_v3(athlete_id = "33192", season = 2024)
 }
 }
 \seealso{

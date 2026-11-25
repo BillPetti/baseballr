@@ -25,6 +25,14 @@ Returns metadata for a single tournament plus the \verb{$ref} URL for the
 tournament's seasons list. Use \code{\link[=espn_mlb_tournament_seasons]{espn_mlb_tournament_seasons()}} to
 resolve the seasons.
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN answers the \code{tournaments} routes with HTTP 400
+("getTournaments() not supported for baseball/mlb") for every id, so this
+function returns an empty tibble. It is kept in case ESPN serves the route
+again.
+}
+
 \examples{
 \donttest{
   espn_mlb_tournament(tournament_id = 1)

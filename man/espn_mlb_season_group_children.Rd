@@ -40,7 +40,7 @@ for one (MLB season x season-type x parent-group).
 }
 \examples{
 \donttest{
-  espn_mlb_season_group_children(group_id = 5, season = 2025)
+  espn_mlb_season_group_children(group_id = 7, season = 2025)
 }
 }
 \seealso{

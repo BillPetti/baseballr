@@ -22,6 +22,11 @@ NULL
 #' @importFrom dplyr as_tibble
 #' @export
 #' @family ESPN College Baseball Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN lists no college baseball coaches
+#' (`seasons/{season}/coaches` is empty for 2024 to 2026) and answers HTTP 404
+#' for coach ids, so this function returns an empty tibble. It is kept in case
+#' ESPN serves the route again.
 #' @examples
 #' \donttest{
 #'   try(espn_college_baseball_coach(coach_id = 52120))
@@ -45,6 +50,11 @@ NULL
 #' @inherit espn_mlb_coach_record return
 #' @export
 #' @family ESPN College Baseball Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN lists no college baseball coaches
+#' (`seasons/{season}/coaches` is empty for 2024 to 2026) and answers HTTP 404
+#' for coach ids, so this function returns an empty tibble. It is kept in case
+#' ESPN serves the route again.
 #' @examples
 #' \donttest{
 #'   try(espn_college_baseball_coach_record(coach_id = 52120, record_type = 2))

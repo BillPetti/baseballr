@@ -23,6 +23,14 @@ A \code{baseballr_data} tibble with one row per conference:\tabular{lll}{
 
 \strong{Get ESPN MLB Conferences}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN's \code{scoreboard/conferences} route returns no
+conferences for MLB, so this function returns an empty tibble. It is kept
+in case ESPN serves the route again. \code{espn_mlb_season_groups()} lists the
+leagues and divisions.
+}
+
 \examples{
 \donttest{
   try(espn_mlb_conferences())

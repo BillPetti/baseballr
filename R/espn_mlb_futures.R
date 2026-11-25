@@ -42,7 +42,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_futures(season = 2025)
+#'   espn_mlb_futures()
 #' }
 espn_mlb_futures <- function(season = most_recent_mlb_season(), ...) {
   .espn_baseball_futures(league = "mlb", season = season, ...)

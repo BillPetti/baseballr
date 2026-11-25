@@ -42,6 +42,13 @@ pair.\tabular{lll}{
 
 \strong{Get ESPN College Baseball League Leaders}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN answers this route with "No stats found" for every
+college baseball season and team tried, so this function returns an empty
+tibble. It is kept in case ESPN serves the route again.
+}
+
 \examples{
 \donttest{
   try(espn_college_baseball_leaders(season = 2025, season_type = 2))

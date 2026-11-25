@@ -32,7 +32,7 @@ are NOT resolved. Similarly, \code{event_ref}, \code{competition_ref}, and
 }
 \examples{
 \donttest{
-  espn_mlb_player_eventlog(athlete_id = "1966", season = 2024)
+  espn_mlb_player_eventlog(athlete_id = "33192", season = 2024)
 }
 }
 \seealso{

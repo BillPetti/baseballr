@@ -39,7 +39,7 @@ A tibble with one row per child group.\tabular{lll}{
 }
 \examples{
 \donttest{
-  try(espn_college_baseball_season_group_children(group_id = 5, season = 2025))
+  try(espn_college_baseball_season_group_children(group_id = 26, season = 2025))
 }
 }
 \seealso{
