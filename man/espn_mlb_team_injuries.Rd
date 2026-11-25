@@ -8,45 +8,42 @@ espn_mlb_team_injuries(team_id, ...)
 }
 \arguments{
 \item{team_id}{ESPN team identifier (character or numeric; passed as-is).
-Use \code{espn_mlb_teams()} to look up team IDs. Example: \code{"17"} (Las Vegas
-Aces).}
+Use \code{espn_mlb_teams()} to look up team IDs. Example: \code{"13"} (Texas
+Rangers).}
 
 \item{...}{Currently unused; reserved for future argument threading.}
 }
 \value{
-Returns a tibble of injury records for the specified MLB team.
-Returns an empty tibble (zero rows) when the team has no reported
-injuries.
+Returns a tibble of injury records for the specified MLB team, one
+row per injury ESPN lists for it (current and recent reports). Returns an
+empty tibble with the same columns when the team has no reported
+injuries. All columns are character.
 
 \strong{Injuries}\tabular{lll}{
    col_name \tab types \tab description \cr
-   team_id \tab character \tab Unique team identifier. \cr
+   team_id \tab character \tab Unique team identifier (ESPN). \cr
    athlete_id \tab character \tab Unique athlete identifier (ESPN). \cr
    athlete_name \tab character \tab Athlete display name (ESPN). \cr
-   position \tab character \tab Listed roster position (G, F, C, etc.). \cr
-   status \tab character \tab Status label. \cr
-   date \tab character \tab Date in YYYY-MM-DD format. \cr
-   type \tab character \tab Record type / category. \cr
-   side \tab character \tab Side label (e.g. 'home', 'away', or 'overUnder'). \cr
-   returns_at \tab character \tab  \cr
-   short_comment \tab character \tab  \cr
-   long_comment \tab character \tab Long-form play / event comment. \cr
+   position \tab character \tab Position abbreviation (e.g. 'SP', 'RP', 'CF'). \cr
+   status \tab character \tab Injury status (e.g. 'Out', 'Day-To-Day'). \cr
+   date \tab character \tab Report timestamp, ISO 8601 UTC (e.g. '2026-11-03T23:00Z'). \cr
+   type \tab character \tab Injured body part or injury type (e.g. 'Elbow'). \cr
+   side \tab character \tab Side of the body ('Left', 'Right', 'Not Specified'), or NA. \cr
+   returns_at \tab character \tab Expected return date, YYYY-MM-DD, or NA. \cr
+   short_comment \tab character \tab Short injury note. \cr
+   long_comment \tab character \tab Long-form injury note. \cr
+   injury_id \tab character \tab Unique injury report identifier (ESPN). \cr
+   detail \tab character \tab Injury detail (e.g. 'Surgery', 'Inflammation', 'Strain'), or NA. \cr
 }
 }
 \description{
-\strong{Get ESPN MLB Team Injuries}
-
-\strong{Get ESPN MLB Team Injuries}
+Injury reports for one MLB team from ESPN's core API
+(\code{sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/teams/{team_id}/injuries}).
+The list links to each injury, and each injury to its athlete, so the
+function makes one request per injury and one per injured player, which
+takes a few seconds for a team with many injuries. A lookup that fails
+leaves that row's fields \code{NA} and prints the cause.
 }
-\section{Endpoint status}{
-
-As of November 2026 ESPN answers the site \code{teams/{team_id}/injuries} route
-with an empty object or HTTP 500 for every team tried, so this function
-returns an empty tibble. It is kept in case ESPN serves the route again.
-\code{espn_mlb_injuries()} returns the league-wide list, which carries each
-team.
-}
-
 \examples{
 \donttest{
   espn_mlb_team_injuries(team_id = "13")
