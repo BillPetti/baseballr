@@ -58,7 +58,7 @@ A named list of data frames: \code{Statistics}, \code{NextGame},
 }
 \examples{
 \donttest{
-  espn_mlb_player_overview(athlete_id = "1966", season = 2024)
+  espn_mlb_player_overview(athlete_id = "33192", season = 2024)
 }
 }
 \seealso{

@@ -72,7 +72,7 @@
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#' espn_mlb_wp(game_id = 401283399)
+#' espn_mlb_wp(game_id = 401701044)
 #' }
 #'
 espn_mlb_wp <- function(game_id) {

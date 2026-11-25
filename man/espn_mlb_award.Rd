@@ -35,7 +35,7 @@ First Team) return one row per winner.
 \examples{
 \donttest{
   # MVP award id = 33
-  espn_mlb_award(award_id = 33, season = 2024)
+  espn_mlb_award(award_id = 59, season = 2024)
 }
 }
 \seealso{

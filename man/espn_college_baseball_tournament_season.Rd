@@ -36,6 +36,14 @@ tibble (the wrapper exists for cross-sport API symmetry). When populated
 
 \strong{Get ESPN College Baseball Tournament Season Detail}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN answers the \code{tournaments} routes with HTTP 400
+("getTournaments() not supported for baseball/college-baseball") for every
+id, so this function returns an empty tibble. It is kept in case ESPN
+serves the route again.
+}
+
 \examples{
 \donttest{
   try(espn_college_baseball_tournament_season(tournament_id = 1, season = 2025))

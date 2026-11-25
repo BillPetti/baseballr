@@ -51,9 +51,18 @@ A tibble with one row per ranked team (typically 25).\tabular{lll}{
 \description{
 \strong{Get ESPN College Baseball Per-Week Ranking Detail}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN answers the ranking links it lists under
+\code{weeks/{week}/rankings} with HTTP 500 ("application error"), so this
+function returns an empty tibble. It is kept in case ESPN serves the route
+again. \code{espn_college_baseball_week_rankings()} and
+\code{espn_college_baseball_season_ranking()} still answer.
+}
+
 \examples{
 \donttest{
-  try(espn_college_baseball_week_ranking(ranking_id = 1, week = 5, season = 2025))
+  try(espn_college_baseball_week_ranking(ranking_id = 10543, week = 5, season = 2025))
 }
 }
 \seealso{

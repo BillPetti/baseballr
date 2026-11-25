@@ -31,9 +31,18 @@ football). When populated:\tabular{lll}{
 
 \strong{Get ESPN College Baseball Event Play Personnel (On-Court Lineup at Play)}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN answers this route with HTTP 500 for every college
+baseball game tried (including the 2025 College World Series), so this
+function returns an empty tibble. It is kept in case ESPN serves the route
+again.
+}
+
 \examples{
 \donttest{
-  try(espn_college_baseball_game_play_personnel(event_id = "401778093", play_id = "4017780931"))
+  try(espn_college_baseball_game_play_personnel(event_id = "401778093",
+                                                play_id = "4017780930001010001"))
 }
 }
 \seealso{

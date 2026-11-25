@@ -28,7 +28,7 @@ Each row is one contract year — pass the season to
 }
 \examples{
 \donttest{
-  # Aaron Judge — athlete id 1966
+  # Aaron Judge -- athlete id 33192
   espn_mlb_player_contracts(athlete_id = 33192)
 }
 }

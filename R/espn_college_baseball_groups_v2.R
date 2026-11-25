@@ -55,7 +55,7 @@ NULL
 #' @family ESPN College Baseball Functions
 #' @examples
 #' \donttest{
-#'   try(espn_college_baseball_season_group(group_id = 5, season = 2025))
+#'   try(espn_college_baseball_season_group(group_id = 26, season = 2025))
 #' }
 espn_college_baseball_season_group <- function(group_id,
                                                season = most_recent_college_baseball_season(),
@@ -86,7 +86,7 @@ NULL
 #' @family ESPN College Baseball Functions
 #' @examples
 #' \donttest{
-#'   try(espn_college_baseball_season_group_children(group_id = 5, season = 2025))
+#'   try(espn_college_baseball_season_group_children(group_id = 26, season = 2025))
 #' }
 espn_college_baseball_season_group_children <- function(group_id,
                                                         season = most_recent_college_baseball_season(),
@@ -117,7 +117,7 @@ NULL
 #' @family ESPN College Baseball Functions
 #' @examples
 #' \donttest{
-#'   try(espn_college_baseball_season_group_teams(group_id = 5, season = 2025))
+#'   try(espn_college_baseball_season_group_teams(group_id = 26, season = 2025))
 #' }
 espn_college_baseball_season_group_teams <- function(group_id,
                                                      season = most_recent_college_baseball_season(),

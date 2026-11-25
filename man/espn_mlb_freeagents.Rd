@@ -43,6 +43,13 @@ empty tibble and emits a CLI error message. It is retained so that downstream
 code does not break if ESPN restores the endpoint, but should not be relied
 on in the meantime.
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN's \code{seasons/{season}/freeagents} list is empty for
+every season tried (2022 to 2026), so this function returns an empty
+tibble. It is kept in case ESPN serves the route again.
+}
+
 \examples{
 \donttest{
   espn_mlb_freeagents(season = 2025)

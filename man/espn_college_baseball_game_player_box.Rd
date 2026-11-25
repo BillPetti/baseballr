@@ -49,7 +49,7 @@ A long tibble with one row per (category x stat).\tabular{lll}{
 \examples{
 \donttest{
   try(espn_college_baseball_game_player_box(event_id = "401778093", team_id = "113",
-                                            athlete_id = "5102102"))
+                                            athlete_id = "83667"))
 }
 }
 \seealso{

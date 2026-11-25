@@ -37,7 +37,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_coach(coach_id = 52120)
+#'   espn_mlb_coach(coach_id = 154)
 #' }
 espn_mlb_coach <- function(coach_id, ...) {
   .espn_baseball_coach(league = "mlb", coach_id = coach_id, ...)
@@ -83,7 +83,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_coach_record(coach_id = 52120, record_type = 2)
+#'   espn_mlb_coach_record(coach_id = 154, record_type = 2)
 #' }
 espn_mlb_coach_record <- function(coach_id, record_type = 0L, ...) {
   .espn_baseball_coach_record(league = "mlb",

@@ -33,7 +33,7 @@ statistical entry in the core-v2 statistics log, with \code{event_ref} and
 }
 \examples{
 \donttest{
-  espn_mlb_player_statisticslog(athlete_id = "1966", season = 2024)
+  espn_mlb_player_statisticslog(athlete_id = "33192", season = 2024)
 }
 }
 \seealso{

@@ -37,7 +37,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   # Aaron Judge — athlete id 1966
+#'   # Aaron Judge -- athlete id 33192
 #'   espn_mlb_player_contracts(athlete_id = 33192)
 #' }
 espn_mlb_player_contracts <- function(athlete_id, ...) {
@@ -102,8 +102,8 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   # Aaron Judge 2025 contract
-#'   espn_mlb_player_contract(athlete_id = 33192, season = 2025)
+#'   # Aaron Judge's 2017 contract, the season ESPN lists for him
+#'   espn_mlb_player_contract(athlete_id = 33192, season = 2017)
 #' }
 espn_mlb_player_contract <- function(athlete_id,
                                        season = most_recent_mlb_season(),

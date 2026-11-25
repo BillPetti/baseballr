@@ -44,7 +44,7 @@ athlete-in-event instead of the full team. \code{stat_type} defaults to 0
 }
 \examples{
 \donttest{
-  espn_mlb_game_player_box(event_id = 401283399, team_id = 29,
+  espn_mlb_game_player_box(event_id = 401701044, team_id = 10,
                                athlete_id = 33192)
 }
 }

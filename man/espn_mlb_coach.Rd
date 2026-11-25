@@ -35,7 +35,7 @@ by \code{sports.core.api.espn.com/v2/sports/baseball/leagues/mlb/coaches/{coach_
 }
 \examples{
 \donttest{
-  espn_mlb_coach(coach_id = 52120)
+  espn_mlb_coach(coach_id = 154)
 }
 }
 \seealso{

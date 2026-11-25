@@ -31,6 +31,11 @@ NULL
 #' @importFrom dplyr as_tibble
 #' @export
 #' @family ESPN MLB Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN answers `athletes/{athlete_id}/seasons` with HTTP
+#' 404 ("No relevant seasons found") for every MLB athlete tried, so this
+#' function returns an empty tibble. It is kept in case ESPN serves the route
+#' again.
 #' @examples
 #' \donttest{
 #'   # Aaron Judge (33192): 23 career seasons
@@ -146,6 +151,12 @@ espn_mlb_player_career_stats <- function(athlete_id,
 #' @importFrom dplyr as_tibble
 #' @export
 #' @family ESPN MLB Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN serves no MLB draft data: `seasons/{season}/draft`
+#' answers HTTP 404 and `draft/rounds` and `draft/athletes` are empty for
+#' every season tried (2019 to 2026), so this function returns an empty
+#' tibble. It is kept in case ESPN serves the route again.
+#' `espn_mlb_draft_status()` still answers.
 #' @examples
 #' \donttest{
 #'   espn_mlb_draft_pick(season = 2024, round = 1, pick = 1)
@@ -234,6 +245,12 @@ espn_mlb_player_eventlog_v2 <- function(athlete_id,
 #'
 #' @export
 #' @family ESPN MLB Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN serves no MLB draft data: `seasons/{season}/draft`
+#' answers HTTP 404 and `draft/rounds` and `draft/athletes` are empty for
+#' every season tried (2019 to 2026), so this function returns an empty
+#' tibble. It is kept in case ESPN serves the route again.
+#' `espn_mlb_draft_status()` still answers.
 #' @examples
 #' \donttest{
 #'   espn_mlb_draft_rounds(season = 2024)
@@ -275,6 +292,12 @@ espn_mlb_draft_rounds <- function(season = most_recent_mlb_season(), ...) {
 #'
 #' @export
 #' @family ESPN MLB Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN serves no MLB draft data: `seasons/{season}/draft`
+#' answers HTTP 404 and `draft/rounds` and `draft/athletes` are empty for
+#' every season tried (2019 to 2026), so this function returns an empty
+#' tibble. It is kept in case ESPN serves the route again.
+#' `espn_mlb_draft_status()` still answers.
 #' @examples
 #' \donttest{
 #'   espn_mlb_draft_athletes(season = 2024)
@@ -353,6 +376,12 @@ NULL
 #'
 #' @export
 #' @family ESPN MLB Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN serves no MLB draft data: `seasons/{season}/draft`
+#' answers HTTP 404 and `draft/rounds` and `draft/athletes` are empty for
+#' every season tried (2019 to 2026), so this function returns an empty
+#' tibble. It is kept in case ESPN serves the route again.
+#' `espn_mlb_draft_status()` still answers.
 #' @examples
 #' \donttest{
 #'   espn_mlb_season_draft(season = 2024)
@@ -399,6 +428,12 @@ NULL
 #'
 #' @export
 #' @family ESPN MLB Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN serves no MLB draft data: `seasons/{season}/draft`
+#' answers HTTP 404 and `draft/rounds` and `draft/athletes` are empty for
+#' every season tried (2019 to 2026), so this function returns an empty
+#' tibble. It is kept in case ESPN serves the route again.
+#' `espn_mlb_draft_status()` still answers.
 #' @examples
 #' \donttest{
 #'   espn_mlb_draft_athlete_detail(season = 2024, athlete_id = 33192)

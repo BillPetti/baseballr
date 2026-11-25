@@ -26,7 +26,7 @@ for the full column documentation:
 }
 \examples{
 \donttest{
-try(espn_mlb_game_all(game_id = 401283399))
+try(espn_mlb_game_all(game_id = 401701044))
 }
 
 }

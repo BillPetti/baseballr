@@ -51,7 +51,7 @@ stat labels returned by ESPN and will vary by season and player.\tabular{lll}{
 }
 \examples{
 \donttest{
-  espn_mlb_player_gamelog(athlete_id = "1966", season = 2024)
+  espn_mlb_player_gamelog(athlete_id = "33192", season = 2024)
 }
 }
 \seealso{

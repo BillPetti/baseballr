@@ -23,9 +23,14 @@ NULL
 #' @importFrom dplyr as_tibble
 #' @export
 #' @family ESPN College Baseball Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN holds no per-player college baseball statistics on
+#' this route: it answers HTTP 404 or 500 (or an empty list) for every college
+#' athlete tried, so this function returns an empty tibble. It is kept in case
+#' ESPN serves the route again.
 #' @examples
 #' \donttest{
-#'   try(espn_college_baseball_player_seasons(athlete_id = "3730"))
+#'   try(espn_college_baseball_player_seasons(athlete_id = "83667"))
 #' }
 espn_college_baseball_player_seasons <- function(athlete_id, ...) {
   .espn_baseball_athlete_seasons(league = "college-baseball",
@@ -49,10 +54,15 @@ NULL
 #' @importFrom dplyr as_tibble
 #' @export
 #' @family ESPN College Baseball Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN holds no per-player college baseball statistics on
+#' this route: it answers HTTP 404 or 500 (or an empty list) for every college
+#' athlete tried, so this function returns an empty tibble. It is kept in case
+#' ESPN serves the route again.
 #' @examples
 #' \donttest{
-#'   try(espn_college_baseball_player_career_stats(athlete_id = "3730"))
-#'   try(espn_college_baseball_player_career_stats(athlete_id = "3730", stat_type = 2L))
+#'   try(espn_college_baseball_player_career_stats(athlete_id = "83667"))
+#'   try(espn_college_baseball_player_career_stats(athlete_id = "83667", stat_type = 2L))
 #' }
 espn_college_baseball_player_career_stats <- function(athlete_id,
                                                       stat_type = 0L,

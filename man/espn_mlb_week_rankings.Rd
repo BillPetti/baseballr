@@ -40,6 +40,14 @@ completeness with the ESPN schema.
 \details{
 \strong{Get ESPN MLB Per-Week Rankings Index}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN publishes no MLB rankings: the season and week
+ranking lists are empty for every season tried and a single ranking answers
+HTTP 404, so this function returns an empty tibble. It is kept in case ESPN
+serves the route again.
+}
+
 \examples{
 \donttest{
   espn_mlb_week_rankings(week = 5, season = 2025)

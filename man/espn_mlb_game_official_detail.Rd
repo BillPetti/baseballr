@@ -35,7 +35,7 @@ order. Pair with \code{\link[=espn_mlb_game_officials]{espn_mlb_game_officials()
 }
 \examples{
 \donttest{
-  espn_mlb_game_official_detail(event_id = 401283399, order = 1)
+  espn_mlb_game_official_detail(event_id = 401701044, order = 1)
 }
 }
 \seealso{

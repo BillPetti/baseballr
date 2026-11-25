@@ -32,9 +32,16 @@ Returns the players on court at a specific MLB play in long format
 lineup analysis. ESPN coverage is sparse — many plays return zero
 rows; the wrapper returns a typed empty tibble in that case.
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN returns no personnel entries for any MLB play
+tried (2024 and 2025 World Series games), so this function returns an empty
+tibble. It is kept in case ESPN serves the route again.
+}
+
 \examples{
 \donttest{
-  espn_mlb_game_play_personnel(event_id = 401283399, play_id = 4012833994)
+  espn_mlb_game_play_personnel(event_id = 401701044, play_id = "4017010440001010001")
 }
 }
 \seealso{

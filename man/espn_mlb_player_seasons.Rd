@@ -24,6 +24,14 @@ A tibble with one row per career season.\tabular{lll}{
 Returns the list of seasons an MLB athlete appeared in. Useful for
 bounding follow-up calls to per-season endpoints.
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN answers \code{athletes/{athlete_id}/seasons} with HTTP
+404 ("No relevant seasons found") for every MLB athlete tried, so this
+function returns an empty tibble. It is kept in case ESPN serves the route
+again.
+}
+
 \examples{
 \donttest{
   # Aaron Judge (33192): 23 career seasons

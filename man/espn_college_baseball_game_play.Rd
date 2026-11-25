@@ -45,7 +45,7 @@ A single-row tibble.\tabular{lll}{
 }
 \examples{
 \donttest{
-  try(espn_college_baseball_game_play(event_id = "401778093", play_id = "4017780931"))
+  try(espn_college_baseball_game_play(event_id = "401778093", play_id = "4017780930001010001"))
 }
 }
 \seealso{

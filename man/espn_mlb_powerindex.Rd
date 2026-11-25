@@ -42,6 +42,14 @@ all teams. Backed by
 Note: ESPN's power-index feed is sparsely populated for MLB and frequently
 returns zero items.
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN answers \code{seasons/{season}/powerindex} with HTTP
+400 ("not supported for baseball/mlb") for every season, so this function
+returns an empty tibble. It is kept in case ESPN serves the route again.
+\code{espn_mlb_game_powerindex()} still answers per game.
+}
+
 \examples{
 \donttest{
   espn_mlb_powerindex(season = 2025)

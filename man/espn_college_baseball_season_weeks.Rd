@@ -33,6 +33,14 @@ A tibble with one row per week.\tabular{lll}{
 
 \strong{Get ESPN College Baseball Season Weeks Index}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN lists no college baseball weeks (the list is empty
+and a single week answers HTTP 404), so this function returns an empty
+tibble. It is kept in case ESPN serves the route again.
+\code{espn_college_baseball_week_rankings()} still answers.
+}
+
 \examples{
 \donttest{
   try(espn_college_baseball_season_weeks(season = 2025))

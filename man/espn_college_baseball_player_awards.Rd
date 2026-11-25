@@ -29,9 +29,16 @@ returned.\tabular{lll}{
 
 \strong{Get ESPN College Baseball Athlete Awards}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN returns no awards for the college baseball
+athletes tried, so this function returns an empty tibble. It is kept in
+case ESPN serves the route again.
+}
+
 \examples{
 \donttest{
-  try(espn_college_baseball_player_awards(athlete_id = "3730"))
+  try(espn_college_baseball_player_awards(athlete_id = "83667"))
 }
 }
 \seealso{

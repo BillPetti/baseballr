@@ -38,6 +38,15 @@ injuries.
 
 \strong{Get ESPN MLB Team Injuries}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN answers the site \code{teams/{team_id}/injuries} route
+with an empty object or HTTP 500 for every team tried, so this function
+returns an empty tibble. It is kept in case ESPN serves the route again.
+\code{espn_mlb_injuries()} returns the league-wide list, which carries each
+team.
+}
+
 \examples{
 \donttest{
   espn_mlb_team_injuries(team_id = "13")

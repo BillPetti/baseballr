@@ -20,7 +20,7 @@
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#' try(espn_mlb_game_all(game_id = 401283399))
+#' try(espn_mlb_game_all(game_id = 401701044))
 #' }
 #'
 espn_mlb_game_all <- function(game_id) {
@@ -2094,7 +2094,7 @@ espn_mlb_standings <- function(year) {
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#' try(espn_mlb_betting(game_id = 401283399))
+#' try(espn_mlb_betting(game_id = 401701044))
 #' }
 espn_mlb_betting <- function(game_id) {
   .args <- mget(setdiff(names(formals()), "..."))
@@ -2128,7 +2128,7 @@ espn_mlb_betting <- function(game_id) {
         .resp_text()
 
       raw_summary <- jsonlite::fromJSON(resp)
-      if ("pickcenter" %in% names(raw_summary)) {
+      if (length(raw_summary$pickcenter) > 0) {
         pickcenter <- jsonlite::fromJSON(
           jsonlite::toJSON(raw_summary$pickcenter),
           flatten = TRUE

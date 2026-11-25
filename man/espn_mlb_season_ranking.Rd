@@ -36,6 +36,14 @@ wrapped by a forthcoming \code{espn_mlb_week_ranking()}.
 \details{
 \strong{Get ESPN MLB Season Ranking Detail}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN publishes no MLB rankings: the season and week
+ranking lists are empty for every season tried and a single ranking answers
+HTTP 404, so this function returns an empty tibble. It is kept in case ESPN
+serves the route again.
+}
+
 \examples{
 \donttest{
   espn_mlb_season_ranking(ranking_id = 1, season = 2025)

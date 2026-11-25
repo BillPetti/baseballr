@@ -32,7 +32,7 @@ One row per inning (regulation innings plus any extra innings).
 }
 \examples{
 \donttest{
-  espn_mlb_game_team_linescores(event_id = 401283399, team_id = 29)
+  espn_mlb_game_team_linescores(event_id = 401701044, team_id = 10)
 }
 }
 \seealso{

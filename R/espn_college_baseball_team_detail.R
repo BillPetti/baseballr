@@ -208,6 +208,10 @@ NULL
 #' @inherit espn_mlb_team_season_statistics return
 #' @export
 #' @family ESPN College Baseball Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN answers this route with "No stats found" for every
+#' college baseball season and team tried, so this function returns an empty
+#' tibble. It is kept in case ESPN serves the route again.
 #' @examples
 #' \donttest{
 #'   espn_college_baseball_team_season_statistics(team_id = 59, season = 2025)

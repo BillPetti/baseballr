@@ -30,7 +30,7 @@ ESPN labels.\tabular{lll}{
 }
 \examples{
 \donttest{
-  espn_mlb_player_splits(athlete_id = "1966", season = 2024)
+  espn_mlb_player_splits(athlete_id = "33192", season = 2024)
 }
 }
 \seealso{

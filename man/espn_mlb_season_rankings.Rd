@@ -29,6 +29,14 @@ ranking equivalents live in the hoopR / wehoop / cfbfastR packages.)
 \details{
 \strong{Get ESPN MLB Season Rankings Index}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN publishes no MLB rankings: the season and week
+ranking lists are empty for every season tried and a single ranking answers
+HTTP 404, so this function returns an empty tibble. It is kept in case ESPN
+serves the route again.
+}
+
 \examples{
 \donttest{
   espn_mlb_season_rankings(season = 2025)

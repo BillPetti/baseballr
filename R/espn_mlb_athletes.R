@@ -80,7 +80,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_player_info(athlete_id = "1966")
+#'   espn_mlb_player_info(athlete_id = "33192")
 #' }
 espn_mlb_player_info <- function(athlete_id, ...) {
   .espn_baseball_athlete_info(
@@ -149,7 +149,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_player_overview(athlete_id = "1966", season = 2024)
+#'   espn_mlb_player_overview(athlete_id = "33192", season = 2024)
 #' }
 espn_mlb_player_overview <- function(athlete_id,
                                        season = most_recent_mlb_season(),
@@ -204,7 +204,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_player_stats_v3(athlete_id = "1966", season = 2024)
+#'   espn_mlb_player_stats_v3(athlete_id = "33192", season = 2024)
 #' }
 espn_mlb_player_stats_v3 <- function(athlete_id,
                                     season = most_recent_mlb_season(),
@@ -270,7 +270,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_player_gamelog(athlete_id = "1966", season = 2024)
+#'   espn_mlb_player_gamelog(athlete_id = "33192", season = 2024)
 #' }
 espn_mlb_player_gamelog <- function(athlete_id,
                                       season = most_recent_mlb_season(),
@@ -315,7 +315,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_player_splits(athlete_id = "1966", season = 2024)
+#'   espn_mlb_player_splits(athlete_id = "33192", season = 2024)
 #' }
 espn_mlb_player_splits <- function(athlete_id,
                                      season = most_recent_mlb_season(),
@@ -361,7 +361,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_player_eventlog(athlete_id = "1966", season = 2024)
+#'   espn_mlb_player_eventlog(athlete_id = "33192", season = 2024)
 #' }
 espn_mlb_player_eventlog <- function(athlete_id,
                                        season = most_recent_mlb_season(),
@@ -407,7 +407,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_player_awards(athlete_id = "1966")
+#'   espn_mlb_player_awards(athlete_id = "33192")
 #' }
 espn_mlb_player_awards <- function(athlete_id, ...) {
   .espn_baseball_athlete_awards(
@@ -447,7 +447,7 @@ NULL
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_player_statisticslog(athlete_id = "1966", season = 2024)
+#'   espn_mlb_player_statisticslog(athlete_id = "33192", season = 2024)
 #' }
 espn_mlb_player_statisticslog <- function(athlete_id,
                                             season = most_recent_mlb_season(),

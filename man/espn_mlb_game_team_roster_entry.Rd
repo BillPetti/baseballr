@@ -45,8 +45,8 @@ athlete came in for another player. Pair with
 }
 \examples{
 \donttest{
-  espn_mlb_game_team_roster_entry(event_id = 401283399,
-                                            team_id = 13,
+  espn_mlb_game_team_roster_entry(event_id = 401701044,
+                                            team_id = 10,
                                             athlete_id = 33192)
 }
 }

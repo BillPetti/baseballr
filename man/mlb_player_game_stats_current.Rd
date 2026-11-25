@@ -115,6 +115,15 @@ Returns a tibble with the following columns:\tabular{lll}{
 \description{
 \strong{Find MLB Player Game Stats - Current Game}
 }
+\section{Endpoint status}{
+
+As of November 2026 the MLB Stats API answers
+\code{people/{person_id}/stats/game/current} with HTTP 400 ("Invalid Request
+with value: current") for every player tried, so this function returns
+\code{NULL}. The route may answer only while the player is in a live game; for a
+completed game use \code{mlb_player_game_stats()} with its \code{game_pk}.
+}
+
 \examples{
 \donttest{
   try(mlb_player_game_stats_current(person_id = 660271))

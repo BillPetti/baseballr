@@ -24,6 +24,11 @@ NULL
 #' @importFrom dplyr as_tibble
 #' @export
 #' @family ESPN College Baseball Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN lists no college baseball weeks (the list is empty
+#' and a single week answers HTTP 404), so this function returns an empty
+#' tibble. It is kept in case ESPN serves the route again.
+#' `espn_college_baseball_week_rankings()` still answers.
 #' @examples
 #' \donttest{
 #'   try(espn_college_baseball_season_weeks(season = 2025))
@@ -52,6 +57,11 @@ espn_college_baseball_season_weeks <- function(season = most_recent_college_base
 #' @importFrom dplyr as_tibble
 #' @export
 #' @family ESPN College Baseball Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN lists no college baseball weeks (the list is empty
+#' and a single week answers HTTP 404), so this function returns an empty
+#' tibble. It is kept in case ESPN serves the route again.
+#' `espn_college_baseball_week_rankings()` still answers.
 #' @examples
 #' \donttest{
 #'   try(espn_college_baseball_season_week(week = 5, season = 2025))
@@ -112,9 +122,15 @@ espn_college_baseball_week_rankings <- function(week,
 #' @importFrom dplyr as_tibble
 #' @export
 #' @family ESPN College Baseball Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN answers the ranking links it lists under
+#' `weeks/{week}/rankings` with HTTP 500 ("application error"), so this
+#' function returns an empty tibble. It is kept in case ESPN serves the route
+#' again. `espn_college_baseball_week_rankings()` and
+#' `espn_college_baseball_season_ranking()` still answer.
 #' @examples
 #' \donttest{
-#'   try(espn_college_baseball_week_ranking(ranking_id = 1, week = 5, season = 2025))
+#'   try(espn_college_baseball_week_ranking(ranking_id = 10543, week = 5, season = 2025))
 #' }
 espn_college_baseball_week_ranking <- function(ranking_id, week,
                                                season = most_recent_college_baseball_season(),

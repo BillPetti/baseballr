@@ -36,7 +36,7 @@ A tibble with one row per play-level win-probability entry.\tabular{lll}{
 }
 \examples{
 \donttest{
-  espn_mlb_game_probabilities(event_id = "401283399", limit = 50)
+  espn_mlb_game_probabilities(event_id = "401701044", limit = 50)
 }
 }
 \seealso{

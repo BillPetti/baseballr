@@ -136,7 +136,7 @@ espn_mlb_season_group <- function(group_id,
 #' @family ESPN MLB Functions
 #' @examples
 #' \donttest{
-#'   espn_mlb_season_group_children(group_id = 5, season = 2025)
+#'   espn_mlb_season_group_children(group_id = 7, season = 2025)
 #' }
 espn_mlb_season_group_children <- function(group_id,
                                             season = most_recent_mlb_season(),

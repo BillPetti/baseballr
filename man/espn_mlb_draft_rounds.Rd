@@ -30,6 +30,15 @@ Returns one row per round of the MLB draft (typically 2 rounds:
 \details{
 \strong{Get ESPN MLB Draft Rounds Summary}
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN serves no MLB draft data: \code{seasons/{season}/draft}
+answers HTTP 404 and \code{draft/rounds} and \code{draft/athletes} are empty for
+every season tried (2019 to 2026), so this function returns an empty
+tibble. It is kept in case ESPN serves the route again.
+\code{espn_mlb_draft_status()} still answers.
+}
+
 \examples{
 \donttest{
   espn_mlb_draft_rounds(season = 2024)

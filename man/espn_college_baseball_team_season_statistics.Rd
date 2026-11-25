@@ -45,6 +45,13 @@ Returns the full team-season-type statistics sheet for one college baseball
 team in long format: one row per (category x stat), each carrying the team's
 league rank for that stat where ESPN provides it.
 }
+\section{Endpoint status}{
+
+As of November 2026 ESPN answers this route with "No stats found" for every
+college baseball season and team tried, so this function returns an empty
+tibble. It is kept in case ESPN serves the route again.
+}
+
 \examples{
 \donttest{
   espn_college_baseball_team_season_statistics(team_id = 59, season = 2025)

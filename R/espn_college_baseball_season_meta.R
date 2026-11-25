@@ -78,6 +78,10 @@ NULL
 #' @importFrom dplyr as_tibble
 #' @export
 #' @family ESPN College Baseball Functions
+#' @section Endpoint status:
+#' As of November 2026 ESPN answers this route with "No stats found" for every
+#' college baseball season and team tried, so this function returns an empty
+#' tibble. It is kept in case ESPN serves the route again.
 #' @examples
 #' \donttest{
 #'   try(espn_college_baseball_season_leaders(season = 2025))
@@ -134,7 +138,7 @@ NULL
 #' @family ESPN College Baseball Functions
 #' @examples
 #' \donttest{
-#'   try(espn_college_baseball_season_ranking(ranking_id = 1, season = 2025))
+#'   try(espn_college_baseball_season_ranking(ranking_id = 10543, season = 2025))
 #' }
 espn_college_baseball_season_ranking <- function(ranking_id,
                                                  season = most_recent_college_baseball_season(),
