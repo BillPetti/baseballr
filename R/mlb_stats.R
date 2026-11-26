@@ -7,7 +7,6 @@
 #'
 #' * `mlb_stats()`: MLB Stats.
 #' * `mlb_stats_leaders()`: MLB Stats Leaders.
-#' * `mlb_stats_streaks()`: MLB Stats Streaks.
 #' * `mlb_stat_groups()`: MLB Stat Groups.
 #' * `mlb_stat_types()`: MLB Stat Types.
 #' * `mlb_baseball_stats()`: MLB Baseball Stats.
@@ -15,7 +14,7 @@
 #' @details
 #' ## **MLB Stats**
 #'
-#' These functions retrieve MLB statistics, leaders, streaks, stat groups, stat types, and baseball stat metadata from the MLB Stats API.
+#' These functions retrieve MLB statistics, leaders, stat groups, stat types, and baseball stat metadata from the MLB Stats API.
 #'
 #' @family MLB Stats
 NULL

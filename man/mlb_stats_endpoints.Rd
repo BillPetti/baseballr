@@ -8,7 +8,6 @@
 \itemize{
 \item \code{mlb_stats()}: MLB Stats.
 \item \code{mlb_stats_leaders()}: MLB Stats Leaders.
-\item \code{mlb_stats_streaks()}: MLB Stats Streaks.
 \item \code{mlb_stat_groups()}: MLB Stat Groups.
 \item \code{mlb_stat_types()}: MLB Stat Types.
 \item \code{mlb_baseball_stats()}: MLB Baseball Stats.
@@ -17,7 +16,7 @@
 \details{
 \subsection{\strong{MLB Stats}}{
 
-These functions retrieve MLB statistics, leaders, streaks, stat groups, stat types, and baseball stat metadata from the MLB Stats API.
+These functions retrieve MLB statistics, leaders, stat groups, stat types, and baseball stat metadata from the MLB Stats API.
 }
 }
 \concept{MLB Stats}

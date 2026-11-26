@@ -298,6 +298,9 @@ NULL
 #' **Get ESPN College Baseball Event Play Detail (Single Play)**
 #' @rdname espn_college_baseball_game_play
 #' @author Saiem Gilani
+#' @param play_id ESPN play identifier (visible in
+#'   [espn_college_baseball_pbp()] output as `play_id` or extractable from
+#'   `plays[].$ref`).
 #' @inheritParams espn_mlb_game_play
 #' @inherit espn_mlb_game_play return
 #' @export
