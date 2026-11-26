@@ -140,7 +140,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_season_group(group_id = 26, season = 2025))
 #> ── ESPN COLLEGE-BASEBALL Season Group Detail ──────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:29:33 UTC
+#> ℹ Data updated: 2026-11-26 14:56:27 UTC
 #> # A tibble: 1 × 15
 #>   league season season_type group_id uid   name  abbreviation short_name
 #>   <chr>   <int>       <int> <chr>    <chr> <chr> <chr>        <chr>     

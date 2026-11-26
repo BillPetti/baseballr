@@ -152,11 +152,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_player_gamelog(athlete_id = "83667", season = 2025))
-#> ✖ 2026-11-25 07:29:31.480271: espn_college_baseball_player_gamelog(): Failed to retrieve ESPN college-baseball athlete gamelog for athlete_id=83667, season=2025
+#> ✖ 2026-11-26 14:56:25.833724: espn_college_baseball_player_gamelog(): Failed to retrieve ESPN college-baseball athlete gamelog for athlete_id=83667, season=2025
 #> ✖ Args: league = "college-baseball", athlete_id = "83667", season = 2025
 #> ✖ Error: HTTP 500 Internal Server Error from https://site.web.api.espn.com/apis/common/v3/sports/baseball/college-baseball/athletes/83667/gamelog
 #> ── ESPN COLLEGE-BASEBALL Athlete Gamelog from ESPN.com ─────────────────
-#> ℹ Data updated: 2026-11-25 07:29:31 UTC
+#> ℹ Data updated: 2026-11-26 14:56:25 UTC
 #> # A tibble: 0 × 0
 # }
 ```

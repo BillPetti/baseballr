@@ -161,7 +161,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_player_splits(athlete_id = "33192", season = 2024)
 #> ── ESPN MLB Athlete Splits from ESPN.com ──────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:30:18 UTC
+#> ℹ Data updated: 2026-11-26 14:57:04 UTC
 #> # A tibble: 9 × 3
 #>   name           display_name  splits       
 #>   <chr>          <chr>         <list>       

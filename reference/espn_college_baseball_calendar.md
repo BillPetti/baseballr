@@ -119,7 +119,7 @@ Saiem Gilani
 # \donttest{
   try(espn_college_baseball_calendar(season = 2025))
 #> ── ESPN COLLEGE-BASEBALL Calendar from ESPN.com ───── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:29:18 UTC
+#> ℹ Data updated: 2026-11-26 14:56:16 UTC
 #> # A tibble: 112 × 12
 #>    season season_type season_type_label season_start_date
 #>    <chr>  <chr>       <chr>             <chr>            

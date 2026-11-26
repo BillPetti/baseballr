@@ -121,11 +121,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_player_seasons(athlete_id = "83667"))
-#> ✖ 2026-11-25 07:29:32.530355: espn_college_baseball_player_seasons(): Failed to retrieve ESPN college-baseball athlete seasons for athlete_id=83667
+#> ✖ 2026-11-26 14:56:26.606186: espn_college_baseball_player_seasons(): Failed to retrieve ESPN college-baseball athlete seasons for athlete_id=83667
 #> ✖ Args: league = "college-baseball", athlete_id = "83667"
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/athletes/83667/seasons
 #> ── ESPN COLLEGE-BASEBALL Athlete Seasons ──────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:29:32 UTC
+#> ℹ Data updated: 2026-11-26 14:56:26 UTC
 #> # A tibble: 0 × 0
 # }
 ```

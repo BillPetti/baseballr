@@ -182,7 +182,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_player_gamelog(athlete_id = "33192", season = 2024)
 #> ── ESPN MLB Athlete Gamelog from ESPN.com ─────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:30:17 UTC
+#> ℹ Data updated: 2026-11-26 14:57:03 UTC
 #> # A tibble: 173 × 26
 #>    id    at_vs game_date score home_team_id away_team_id home_team_score
 #>    <chr> <chr> <chr>     <chr> <chr>        <chr>        <chr>          

@@ -175,7 +175,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_transactions(season = 2025, limit = 10)
 #> ── ESPN MLB Transactions from ESPN.com ────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:30:43 UTC
+#> ℹ Data updated: 2026-11-26 14:57:23 UTC
 #> # A tibble: 10 × 9
 #>    transaction_id date              type  description team_id athlete_id
 #>    <chr>          <chr>             <chr> <chr>       <chr>   <chr>     

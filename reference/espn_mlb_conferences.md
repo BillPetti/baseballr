@@ -157,7 +157,7 @@ Saiem Gilani
 # \donttest{
   try(espn_mlb_conferences())
 #> ── ESPN MLB Conferences Information from ESPN.com ─── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:29:54 UTC
+#> ℹ Data updated: 2026-11-26 14:56:43 UTC
 #> # A tibble: 0 × 7
 #> # ℹ 7 variables: group_id <chr>, conference_short_name <chr>,
 #> #   conference_uid <chr>, conference_name <chr>, conference_logo <chr>,

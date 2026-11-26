@@ -143,7 +143,7 @@ Saiem Gilani
   try(espn_college_baseball_game_player_box(event_id = "401778093", team_id = "113",
                                             athlete_id = "83667"))
 #> ── ESPN COLLEGE-BASEBALL Event Player Box ─────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:29:23 UTC
+#> ℹ Data updated: 2026-11-26 14:56:19 UTC
 #> # A tibble: 45 × 12
 #>    league           event_id  team_id athlete_id stat_type category_name
 #>    <chr>            <chr>     <chr>   <chr>          <int> <chr>        

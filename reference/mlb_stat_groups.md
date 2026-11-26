@@ -23,7 +23,7 @@ Returns a tibble with the following columns
 # \donttest{
   try(mlb_stat_groups())
 #> ── MLB Stat Groups data from MLB.com ──────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:34:43 UTC
+#> ℹ Data updated: 2026-11-26 15:01:07 UTC
 #> # A tibble: 8 × 1
 #>   stat_group_name
 #>   <chr>          

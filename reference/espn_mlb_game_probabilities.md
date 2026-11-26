@@ -167,7 +167,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_game_probabilities(event_id = "401701044", limit = 50)
 #> ── ESPN MLB Event Probabilities (event_id=401701044) from ESPN.com ─────
-#> ℹ Data updated: 2026-11-25 07:30:03 UTC
+#> ℹ Data updated: 2026-11-26 14:56:50 UTC
 #> # A tibble: 50 × 10
 #>    event_id  sequence_number play_id period clock home_win_percentage
 #>    <chr>     <chr>           <chr>    <int> <chr>               <dbl>

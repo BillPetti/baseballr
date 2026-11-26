@@ -137,11 +137,11 @@ Saiem Gilani
 ``` r
 # \donttest{
   try(espn_college_baseball_coach_season(coach_id = 52120, season = 2025))
-#> ✖ 2026-11-25 07:29:19.088913: espn_college_baseball_coach_season(): Failed to retrieve ESPN college-baseball coach-in-season detail for coach_id=52120, season=2025
+#> ✖ 2026-11-26 14:56:16.783373: espn_college_baseball_coach_season(): Failed to retrieve ESPN college-baseball coach-in-season detail for coach_id=52120, season=2025
 #> ✖ Args: league = "college-baseball", coach_id = 52120, season = 2025
 #> ✖ Error: HTTP 404 Not Found from https://sports.core.api.espn.com/v2/sports/baseball/leagues/college-baseball/seasons/2025/coaches/52120
 #> ── ESPN COLLEGE-BASEBALL Coach-in-Season Detail ───── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:29:19 UTC
+#> ℹ Data updated: 2026-11-26 14:56:16 UTC
 #> # A tibble: 0 × 0
 # }
 ```

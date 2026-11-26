@@ -19,7 +19,7 @@ load_ncaa_baseball_pbp(
 - seasons:
 
   A vector of 4-digit years associated with given NCAA college baseball
-  seasons. (Min: 2022)
+  seasons, or `TRUE` for every published season. (Min: 2013)
 
 - ...:
 

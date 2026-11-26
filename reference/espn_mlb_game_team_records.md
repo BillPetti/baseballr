@@ -167,7 +167,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_game_team_records(event_id = 401701044, team_id = 10)
 #> ── ESPN MLB Competitor Records ────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:30:09 UTC
+#> ℹ Data updated: 2026-11-26 14:56:54 UTC
 #> # A tibble: 3 × 11
 #>   league event_id  team_id record_id name    abbreviation display_name  
 #>   <chr>  <chr>     <chr>   <chr>     <chr>   <chr>        <chr>         

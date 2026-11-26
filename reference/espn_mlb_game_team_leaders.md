@@ -167,7 +167,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_game_team_leaders(event_id = 401701044, team_id = 10)
 #> ── ESPN MLB Competitor Leaders ────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:30:08 UTC
+#> ℹ Data updated: 2026-11-26 14:56:54 UTC
 #> # A tibble: 109 × 11
 #>    league event_id  team_id category_name category_display
 #>    <chr>  <chr>     <chr>   <chr>         <chr>           

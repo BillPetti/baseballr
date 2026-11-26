@@ -208,7 +208,7 @@ try(espn_mlb_betting(game_id = 401701044))
 #> 
 #> $againstTheSpread
 #> ── ESPN MLB Against the Spread Information from ESPN.com ───────────────
-#> ℹ Data updated: 2026-11-25 07:29:51 UTC
+#> ℹ Data updated: 2026-11-26 14:56:41 UTC
 #> # A tibble: 2 × 9
 #>      id uid        display_name abbreviation logo  logos records game_id
 #>   <int> <chr>      <chr>        <chr>        <chr> <lis> <list>    <int>

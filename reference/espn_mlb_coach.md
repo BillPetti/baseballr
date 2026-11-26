@@ -165,7 +165,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_coach(coach_id = 154)
 #> ── ESPN MLB Coach Detail ──────────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:29:53 UTC
+#> ℹ Data updated: 2026-11-26 14:56:42 UTC
 #> # A tibble: 1 × 12
 #>   coach_id uid             first_name last_name date_of_birth birth_city
 #>   <chr>    <chr>           <chr>      <chr>     <chr>         <chr>     

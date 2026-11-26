@@ -135,7 +135,7 @@ with its `game_pk`.
 ``` r
 # \donttest{
   try(mlb_player_game_stats_current(person_id = 660271))
-#> ✖ 2026-11-25 07:34:34.176821: Invalid arguments provided
+#> ✖ 2026-11-26 15:00:58.543422: Invalid arguments provided
 #> ✖ Error: HTTP 400 Bad Request from http://statsapi.mlb.com/api/v1/people/660271/stats/game/current: Invalid Request with value: current
 #> NULL
 # }

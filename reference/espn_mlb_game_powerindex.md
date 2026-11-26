@@ -159,7 +159,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_game_powerindex(event_id = 401701044)
 #> ── ESPN MLB Event Power Index ─────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:30:03 UTC
+#> ℹ Data updated: 2026-11-26 14:56:49 UTC
 #> # A tibble: 2 × 4
 #>   league event_id  team_id ref                                          
 #>   <chr>  <chr>     <chr>   <chr>                                        

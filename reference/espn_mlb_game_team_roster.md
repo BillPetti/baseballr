@@ -168,7 +168,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_game_team_roster(event_id = 401701044, team_id = 10)
 #> ── ESPN MLB Competitor Roster ─────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:30:09 UTC
+#> ℹ Data updated: 2026-11-26 14:56:55 UTC
 #> # A tibble: 14 × 15
 #>    league event_id team_id athlete_id ref   role  display_name bat_order
 #>    <chr>  <chr>    <chr>   <chr>      <chr> <chr> <chr>            <int>

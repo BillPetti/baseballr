@@ -168,7 +168,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_game_odds(event_id = "401701044")
 #> ── ESPN MLB Event Odds (event_id=401701044) from ESPN.com ──────────────
-#> ℹ Data updated: 2026-11-25 07:30:01 UTC
+#> ℹ Data updated: 2026-11-26 14:56:48 UTC
 #> # A tibble: 2 × 12
 #>   event_id  provider_id provider_name        details   over_under spread
 #>   <chr>     <chr>       <chr>                <chr>          <dbl>  <dbl>

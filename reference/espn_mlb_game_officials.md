@@ -160,7 +160,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_game_officials(event_id = "401701044")
 #> ── ESPN MLB Event Officials (event_id=401701044) from ESPN.com ─────────
-#> ℹ Data updated: 2026-11-25 07:30:02 UTC
+#> ℹ Data updated: 2026-11-26 14:56:49 UTC
 #> # A tibble: 6 × 8
 #>   event_id  official_id full_name display_name position_id position_name
 #>   <chr>     <chr>       <chr>     <chr>        <chr>       <chr>        

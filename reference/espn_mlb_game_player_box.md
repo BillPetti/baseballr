@@ -181,7 +181,7 @@ Saiem Gilani
   espn_mlb_game_player_box(event_id = 401701044, team_id = 10,
                                athlete_id = 33192)
 #> ── ESPN MLB Event Player Box ──────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:30:02 UTC
+#> ℹ Data updated: 2026-11-26 14:56:49 UTC
 #> # A tibble: 94 × 12
 #>    league event_id  team_id athlete_id stat_type category_name
 #>    <chr>  <chr>     <chr>   <chr>          <int> <chr>        

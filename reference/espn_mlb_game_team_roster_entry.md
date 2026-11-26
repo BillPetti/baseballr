@@ -181,7 +181,7 @@ Saiem Gilani
                                             team_id = 10,
                                             athlete_id = 33192)
 #> ── ESPN MLB Event Competitor Roster Entry ─────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:30:10 UTC
+#> ℹ Data updated: 2026-11-26 14:56:55 UTC
 #> # A tibble: 1 × 16
 #>   league event_id  team_id athlete_id player_id period active starter
 #>   <chr>  <chr>     <chr>   <chr>      <chr>      <int> <lgl>  <lgl>  

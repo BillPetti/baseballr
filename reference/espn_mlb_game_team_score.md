@@ -166,7 +166,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_game_team_score(event_id = 401701044, team_id = 10)
 #> ── ESPN MLB Event Competitor Score ────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:30:10 UTC
+#> ℹ Data updated: 2026-11-26 14:56:55 UTC
 #> # A tibble: 1 × 8
 #>   league event_id  team_id value display_value winner source_id
 #>   <chr>  <chr>     <chr>   <dbl> <chr>         <lgl>  <chr>    

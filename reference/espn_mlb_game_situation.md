@@ -168,7 +168,7 @@ Saiem Gilani
 # \donttest{
   espn_mlb_game_situation(event_id = 401701044)
 #> ── ESPN MLB Event Situation ───────────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:30:08 UTC
+#> ℹ Data updated: 2026-11-26 14:56:54 UTC
 #> # A tibble: 1 × 15
 #>   league event_id  home_timeouts_current home_timeouts_remaining
 #>   <chr>  <chr>                     <int>                   <int>

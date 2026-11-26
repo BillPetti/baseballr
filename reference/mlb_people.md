@@ -73,11 +73,11 @@ Returns a tibble with the following columns:
 # \donttest{
   try(mlb_people(person_ids = 502671))
 #> ── MLB People data from MLB.com ───────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:34:32 UTC
+#> ℹ Data updated: 2026-11-26 15:00:56 UTC
 #> # A tibble: 1 × 42
 #>       id full_name  link  first_name last_name primary_number birth_date
 #>    <int> <chr>      <chr> <chr>      <chr>     <chr>          <chr>     
-#> 1 502671 Paul Gold… /api… Paul       Goldschm… 46             1987-09-10
+#> 1 502671 Paul Gold… /api… Paul       Goldschm… 43             1987-09-10
 #> # ℹ 35 more variables: current_age <int>, birth_city <chr>,
 #> #   birth_state_province <chr>, birth_country <chr>, height <chr>,
 #> #   weight <int>, active <lgl>, use_name <chr>, use_last_name <chr>,
@@ -87,11 +87,11 @@ Returns a tibble with the following columns:
 #> #   first_last_name <chr>, last_first_name <chr>, …
   try(mlb_people(person_ids = c(502671,605151)))
 #> ── MLB People data from MLB.com ───────────────────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:34:32 UTC
+#> ℹ Data updated: 2026-11-26 15:00:56 UTC
 #> # A tibble: 2 × 44
 #>       id full_name  link  first_name last_name primary_number birth_date
 #>    <int> <chr>      <chr> <chr>      <chr>     <chr>          <chr>     
-#> 1 502671 Paul Gold… /api… Paul       Goldschm… 46             1987-09-10
+#> 1 502671 Paul Gold… /api… Paul       Goldschm… 43             1987-09-10
 #> 2 605151 Archie Br… /api… Archie     Bradley   25             1992-08-10
 #> # ℹ 37 more variables: current_age <int>, birth_city <chr>,
 #> #   birth_state_province <chr>, birth_country <chr>, height <chr>,

@@ -159,7 +159,7 @@ try(espn_mlb_game_all(game_id = 401701044))
 #> • `` -> `...55`
 #> $Plays
 #> ── ESPN MLB Play-by-Play Information from ESPN.com ── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:29:59 UTC
+#> ℹ Data updated: 2026-11-26 14:56:47 UTC
 #> # A tibble: 662 × 81
 #>    id           sequence_number text  away_score home_score scoring_play
 #>    <chr>        <chr>           <chr>      <int>      <int> <lgl>       
@@ -183,7 +183,7 @@ try(espn_mlb_game_all(game_id = 401701044))
 #> 
 #> $Team
 #> ── ESPN MLB Team Box Information from ESPN.com ────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:29:59 UTC
+#> ℹ Data updated: 2026-11-26 14:56:47 UTC
 #> # A tibble: 2 × 199
 #>     game_id season season_type game_date  game_date_time      team_id
 #>       <int>  <int>       <int> <date>     <dttm>                <int>
@@ -199,7 +199,7 @@ try(espn_mlb_game_all(game_id = 401701044))
 #> 
 #> $Player
 #> ── ESPN MLB Player Box Information from ESPN.com ──── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:30:00 UTC
+#> ℹ Data updated: 2026-11-26 14:56:47 UTC
 #> # A tibble: 32 × 35
 #>     game_id season season_type game_date  game_date_time      stat_group
 #>       <int>  <int>       <int> <date>     <dttm>              <chr>     

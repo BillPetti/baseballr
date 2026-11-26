@@ -166,7 +166,7 @@ Saiem Gilani
   # MVP award id = 33
   espn_mlb_award(award_id = 59, season = 2024)
 #> ── ESPN MLB Season Award Detail from ESPN.com ─────── baseballr 2.1.0 ──
-#> ℹ Data updated: 2026-11-25 07:29:51 UTC
+#> ℹ Data updated: 2026-11-26 14:56:40 UTC
 #> # A tibble: 2 × 9
 #>   league season award_id name     description athlete_id team_id
 #>   <chr>   <int> <chr>    <chr>    <chr>       <chr>      <chr>  

@@ -75,7 +75,7 @@ raises an error.
 # \donttest{
   try(chadwick_player_lu())
 #> ── Player Lookup from the Chadwick Bureau's public register of baseball 
-#> ℹ Data updated: 2026-11-25 07:28:58 UTC
+#> ℹ Data updated: 2026-11-26 14:55:58 UTC
 #> # A tibble: 527,990 × 40
 #>    key_person key_uuid    key_mlbam key_retro key_bbref key_bbref_minors
 #>    <chr>      <chr>           <int> <chr>     <chr>     <chr>           
