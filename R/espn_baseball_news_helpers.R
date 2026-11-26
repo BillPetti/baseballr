@@ -2,10 +2,10 @@
 #'
 #' Fetches the top-level news feed for an ESPN baseball league and returns a
 #' tidy tibble of articles. This is the single implementation shared by
-#' `espn_mbb_news()` (league = "mlb") and
-#' `espn_mlb_news()` (league = "mlb").
+#' `espn_mlb_news()` (league = "mlb") and
+#' `espn_college_baseball_news()` (league = "college-baseball").
 #'
-#' @param league character. One of `"mlb"`.
+#' @param league character. One of `"mlb"` or `"college-baseball"`.
 #' @param limit integer. Maximum number of articles to return (default `50`).
 #' @param ... Currently unused; reserved for future pass-through arguments.
 #' @return A `baseballr_data` tibble of articles, or `NULL` on error.
@@ -105,9 +105,9 @@
 #'
 #' Fetches the news feed for a specific team in an ESPN baseball league and
 #' returns a tidy tibble of articles. This is the single implementation shared
-#' by `espn_mbb_team_news()` and `espn_mlb_team_news()`.
+#' by `espn_mlb_team_news()` and `espn_college_baseball_team_news()`.
 #'
-#' @param league character. One of `"mlb"`.
+#' @param league character. One of `"mlb"` or `"college-baseball"`.
 #' @param team_id character or integer. ESPN team ID.
 #' @param limit integer. Maximum number of articles to return (default `25`).
 #' @param ... Currently unused; reserved for future pass-through arguments.

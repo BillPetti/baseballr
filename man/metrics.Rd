@@ -22,7 +22,7 @@
 
 \subsection{\strong{Calculate FIP and related metrics for any set of data}}{
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fips_plus(df)
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{  fip_plus(df)
 }\if{html}{\out{</div>}}
 }
 

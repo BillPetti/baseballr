@@ -9,8 +9,9 @@ espn_college_baseball_game_play(event_id, play_id, ...)
 \arguments{
 \item{event_id}{ESPN event identifier.}
 
-\item{play_id}{ESPN play identifier (visible in \code{pbp()} output as
-\code{play_id} or extractable from \verb{plays[].$ref}).}
+\item{play_id}{ESPN play identifier (visible in
+\code{\link[=espn_college_baseball_pbp]{espn_college_baseball_pbp()}} output as \code{play_id} or extractable from
+\verb{plays[].$ref}).}
 
 \item{...}{Additional arguments; currently unused.}
 }

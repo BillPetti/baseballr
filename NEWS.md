@@ -171,6 +171,15 @@
 - `load_ncaa_baseball_pbp()` documents its first season as 2013, the first one
   published, and `seasons = TRUE` now starts there instead of requesting a
   2012 file that does not exist. It had documented 2022.
+- Help pages and the contributor instructions no longer name functions that
+  do not exist: the `?metrics` example calls `fip_plus()` (it said
+  `fips_plus()`), `?mlb_stats_endpoints` drops `mlb_stats_streaks()` (never
+  exported), `espn_mlb_game_play()` and `espn_college_baseball_game_play()`
+  point at `espn_mlb_pbp()` / `espn_college_baseball_pbp()` for play ids, and
+  `espn_mlb_season_ranking()` links `espn_mlb_week_ranking()` for the ranked
+  teams instead of calling it forthcoming. Source comments on the internal
+  ESPN calendar and news helpers name the MLB and college baseball wrappers
+  they back instead of `espn_mbb_*()`.
 
 ## Tests
 

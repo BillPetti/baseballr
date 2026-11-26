@@ -17,7 +17,7 @@
 #' ```
 #' ### **Calculate FIP and related metrics for any set of data**
 #' ```r
-#'   fips_plus(df)
+#'   fip_plus(df)
 #' ```
 #' ### **Calculate wOBA and related metrics for any set of data**
 #' ```r
