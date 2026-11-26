@@ -29,7 +29,7 @@ Use the prefix that matches the data source. Never mix sources behind one prefix
 | `sptrc_`       | Spotrac                                  | `sptrc_team_active_payroll()` |
 | `chadwick_`    | Chadwick Bureau register                 | `chadwick_player_lu()`        |
 | `retrosheet_`  | Retrosheet                               | `retrosheet_data()`           |
-| `*_plus`       | Derived metrics                          | `fip_plus()`, `woba_plus()`   |
+| (none; see `?metrics`) | Derived metrics                  | `fip_plus()`, `woba_plus()`   |
 | `load_`        | Cached data-repository loaders           | `load_umpire_ids()`           |
 
 ## Mandatory conventions

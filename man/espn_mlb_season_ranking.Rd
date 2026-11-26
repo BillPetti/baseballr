@@ -30,8 +30,8 @@ A tibble with one row per weekly snapshot.\tabular{lll}{
 \description{
 Returns the per-week snapshot index for one ranking source (e.g. AP
 Top 25). Each row is one weekly snapshot; the \code{ref} URL resolves to
-the actual ranked teams for that (season-type x week) and will be
-wrapped by a forthcoming \code{espn_mlb_week_ranking()}.
+the actual ranked teams for that (season-type x week); fetch them with
+\code{\link[=espn_mlb_week_ranking]{espn_mlb_week_ranking()}}.
 }
 \details{
 \strong{Get ESPN MLB Season Ranking Detail}

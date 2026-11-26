@@ -176,8 +176,10 @@
   `fips_plus()`), `?mlb_stats_endpoints` drops `mlb_stats_streaks()` (never
   exported), `espn_mlb_game_play()` and `espn_college_baseball_game_play()`
   point at `espn_mlb_pbp()` / `espn_college_baseball_pbp()` for play ids, and
-  the ESPN baseball calendar and news helpers name the MLB and college
-  baseball wrappers they back instead of `espn_mbb_*()`.
+  `espn_mlb_season_ranking()` links `espn_mlb_week_ranking()` for the ranked
+  teams instead of calling it forthcoming. Source comments on the internal
+  ESPN calendar and news helpers name the MLB and college baseball wrappers
+  they back instead of `espn_mbb_*()`.
 
 ## Tests
 
