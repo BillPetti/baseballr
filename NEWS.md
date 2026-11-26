@@ -164,6 +164,13 @@
   rankings, and the college coach, player statistics and game officials
   routes). They still return the documented empty frame;
   `mlb_player_game_stats_current()` returns `NULL`.
+- The `load_mlb_*()` model loaders' return value now gives each dataset's row
+  grain (for example `load_mlb_wpa()` is one row per plate appearance and
+  `load_mlb_oaa()` one row per fielder, position and season); it had said
+  every dataset was one row per player-season or game-state cell.
+- `load_ncaa_baseball_pbp()` documents its first season as 2013, the first one
+  published, and `seasons = TRUE` now starts there instead of requesting a
+  2012 file that does not exist. It had documented 2022.
 
 ## Tests
 

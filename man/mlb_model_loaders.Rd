@@ -103,8 +103,20 @@ season.}
 \item{tablename}{The name of the data table within the database}
 }
 \value{
-A \code{baseballr_data} tibble (one row per player-season, or per
-game-state cell for the game-state references).
+A \code{baseballr_data} tibble. The row grain depends on the dataset:
+\itemize{
+\item \code{load_mlb_expected_stats()}, \code{load_mlb_expected_hr()}: one row per
+batter-season. \code{load_mlb_batter_projection()}: one row per batter per
+target season.
+\item \code{load_mlb_xera()}: one row per qualifying pitcher-season.
+\code{load_mlb_stuff_plus()}: one row per (pitcher, pitch type, season).
+\code{load_mlb_command_plus()}: one row per pitcher-season.
+\item \code{load_mlb_oaa()}: one row per (fielder, position, season).
+\code{load_mlb_catcher_framing()}: one row per catcher-season.
+\item \code{load_mlb_re24_matrix()}: one row per base-out state.
+\code{load_mlb_we_table()}: one row per game-state bucket.
+\code{load_mlb_wpa()}: one row per plate appearance.
+}
 }
 \description{
 Season-level loaders for the modeled MLB datasets published on
