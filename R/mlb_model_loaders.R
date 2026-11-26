@@ -71,8 +71,19 @@
 #' @param ... Additional arguments passed to the underlying database write.
 #' @param dbConnection A `DBIConnection` object, as returned by [DBI::dbConnect()]
 #' @param tablename The name of the data table within the database
-#' @return A `baseballr_data` tibble (one row per player-season, or per
-#'   game-state cell for the game-state references).
+#' @return A `baseballr_data` tibble. The row grain depends on the dataset:
+#'
+#' * `load_mlb_expected_stats()`, `load_mlb_expected_hr()`: one row per
+#'   batter-season. `load_mlb_batter_projection()`: one row per batter per
+#'   target season.
+#' * `load_mlb_xera()`: one row per qualifying pitcher-season.
+#'   `load_mlb_stuff_plus()`: one row per (pitcher, pitch type, season).
+#'   `load_mlb_command_plus()`: one row per pitcher-season.
+#' * `load_mlb_oaa()`: one row per (fielder, position, season).
+#'   `load_mlb_catcher_framing()`: one row per catcher-season.
+#' * `load_mlb_re24_matrix()`: one row per base-out state.
+#'   `load_mlb_we_table()`: one row per game-state bucket.
+#'   `load_mlb_wpa()`: one row per plate appearance.
 #' @examples
 #' \donttest{
 #'   try(load_mlb_expected_stats(2024))

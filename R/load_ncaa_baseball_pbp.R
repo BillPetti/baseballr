@@ -2,7 +2,7 @@
 #' @title **Load cleaned NCAA baseball play-by-play data from the baseballr data repo**
 #' @description helper that loads multiple seasons from the data repo either into memory
 #' or writes it into a db using some forwarded arguments in the dots
-#' @param seasons A vector of 4-digit years associated with given NCAA college baseball seasons. (Min: 2022)
+#' @param seasons A vector of 4-digit years associated with given NCAA college baseball seasons, or `TRUE` for every published season. (Min: 2013)
 #' @param ... Additional arguments passed to an underlying function that writes
 #' the season data into a database.
 #' @param dbConnection A `DBIConnection` object, as returned by
@@ -21,7 +21,7 @@ load_ncaa_baseball_pbp <- function(seasons = most_recent_ncaa_baseball_season(),
   loader <- rds_from_url
   
   if (!is.null(dbConnection) && !is.null(tablename)) in_db <- TRUE else in_db <- FALSE
-  if (isTRUE(seasons)) seasons <- 2012:most_recent_ncaa_baseball_season()
+  if (isTRUE(seasons)) seasons <- 2013:most_recent_ncaa_baseball_season()
   
   stopifnot(is.numeric(seasons),
             seasons >= 2012,

@@ -12,7 +12,7 @@ load_ncaa_baseball_pbp(
 )
 }
 \arguments{
-\item{seasons}{A vector of 4-digit years associated with given NCAA college baseball seasons. (Min: 2022)}
+\item{seasons}{A vector of 4-digit years associated with given NCAA college baseball seasons, or \code{TRUE} for every published season. (Min: 2013)}
 
 \item{...}{Additional arguments passed to an underlying function that writes
 the season data into a database.}
